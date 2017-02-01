@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Plasma Vault module
+Comment=Provides encrypted vaults
+
+Type=Service
+X-KDE-ServiceTypes=KDEDModule
+X-KDE-ModuleType=Library
+X-KDE-Library=plasmavault
+X-KDE-DBus-ModuleName=plasmavault
+X-KDE-Kded-autoload=true
+X-KDE-Kded-load-on-demand=true
+X-KDE-Kded-phase=1
+OnlyShowIn=KDE;
