@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef BACKEND_P_H
-#define BACKEND_P_H
+#ifndef PLASMAVAULT_BACKEND_P_H
+#define PLASMAVAULT_BACKEND_P_H
 
 #include <QList>
 #include <QString>
@@ -72,5 +72,5 @@ private:
 
 } // namespace PlasmaVault
 
-#endif // BACKEND_P_H
+#endif // PLASMAVAULT_BACKEND_P_H
 

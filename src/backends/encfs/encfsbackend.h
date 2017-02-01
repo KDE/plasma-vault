@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ENCFS_BACKEND_H
-#define ENCFS_BACKEND_H
+#ifndef PLASMAVAULT_BACKENDS_ENCFS_BACKEND_H
+#define PLASMAVAULT_BACKENDS_ENCFS_BACKEND_H
 
 #include <backend_p.h>
 
@@ -56,5 +56,5 @@ public:
 
 } // namespace PlasmaVault
 
-#endif // ENCFS_BACKEND_H
+#endif // PLASMAVAULT_BACKENDS_ENCFS_BACKEND_H
 

@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ENCFSCREATEDIALOG_H
-#define ENCFSCREATEDIALOG_H
+#ifndef PLASMAVAULT_KDED_ENCFS_CREATE_DIALOG_H
+#define PLASMAVAULT_KDED_ENCFS_CREATE_DIALOG_H
 
 #include <QDialog>
 
@@ -52,5 +52,5 @@ private:
 }
 
 
-#endif // ENCFSCREATEDIALOG_H
+#endif // PLASMAVAULT_KDED_ENCFS_CREATE_DIALOG_H
 

@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef PLASMAVAULT_COMMON_H
+#define PLASMAVAULT_COMMON_H
 
 #include "plasmavault_export.h"
 
@@ -52,5 +52,5 @@ private:
 
 } // namespace PlasmaVault
 
-#endif // COMMON_H
+#endif // PLASMAVAULT_COMMON_H
 

@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef VAULT_H
-#define VAULT_H
+#ifndef PLASMAVAULT_VAULT_H
+#define PLASMAVAULT_VAULT_H
 
 #include "plasmavault_export.h"
 
@@ -95,4 +95,5 @@ private:
 
 } // namespace PlasmaVault
 
-#endif // VAULT_H
+#endif // PLASMAVAULT_VAULT_H
+

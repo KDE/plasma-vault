@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ENCFSINTERFACE_H
-#define ENCFSINTERFACE_H
+#ifndef PLASMAVAULT_BACKENDS_ENCFS_INTERFACE_H
+#define PLASMAVAULT_BACKENDS_ENCFS_INTERFACE_H
 
 #include <QFuture>
 
@@ -44,5 +44,5 @@ FutureResult<> close(const Device &device, const MountPoint &mountPoint);
 } // namespace EncFs
 } // namespace PlasmaVault
 
-#endif // ENCFSINTERFACE_H
+#endif // PLASMAVAULT_BACKENDS_ENCFS_INTERFACE_H
 

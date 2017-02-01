@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef COMMANDRESULT_H
-#define COMMANDRESULT_H
+#ifndef PLASMAVAULT_COMMAND_RESULT_H
+#define PLASMAVAULT_COMMAND_RESULT_H
 
 #include <QFuture>
 
@@ -67,4 +67,5 @@ FutureResult<> errorResult(Error::Code error, const QString &message)
 
 } // namespace PlasmaVault
 
-#endif // COMMANDRESULT_H
+#endif // PLASMAVAULT_COMMAND_RESULT_H
+

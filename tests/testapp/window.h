@@ -17,7 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#pragma once
+#ifndef PLASMAVAULT_TESTAPP_WINDOW_H
+#define PLASMAVAULT_TESTAPP_WINDOW_H
 
 #include <QMainWindow>
 #include <memory>
@@ -52,4 +53,6 @@ private:
     Private * const d;
 
 };
+
+#endif // PLASMAVAULT_TESTAPP_WINDOW_H
 

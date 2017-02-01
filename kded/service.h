@@ -70,4 +70,4 @@ private:
 
 };
 
-#endif // PLASMANM_KDED_SERVICE_H
+#endif // PLASMAVAULT_KDED_SERVICE_H
