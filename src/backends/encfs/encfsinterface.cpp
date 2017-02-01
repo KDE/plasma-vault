@@ -41,7 +41,7 @@ namespace detail {
     QProcess *process(const QString &executable, const QStringList &arguments)
     {
         auto result = new QProcess();
-        result->setProcessChannelMode(QProcess::ForwardedChannels);
+        // result->setProcessChannelMode(QProcess::ForwardedChannels);
         result->setProgram(executable);
         result->setArguments(arguments);
         return result;
@@ -64,10 +64,27 @@ namespace detail {
 
     Result<> hasFinishedSuccessfully(QProcess *process)
     {
-        return (process->exitStatus() == QProcess::NormalExit
-               && process->exitCode() == 0) ?
-                    Result<>::success() :
-                    Result<>::error(Error::CommandError, "EncFS call failed with error code " + QString::number(process->exitCode()));
+        const auto out = process->readAllStandardOutput();
+        const auto err = process->readAllStandardError();
+
+        return
+            // If all went well, just return success
+            (process->exitStatus() == QProcess::NormalExit && process->exitCode() == 0) ?
+                Result<>::success() :
+
+            // If we tried to mount into a non-empty location, report
+            err.contains("'nonempty'") ?
+                Result<>::error(Error::CommandError,
+                                i18n("The mount point directory is not empty, refusing to open the vault")) :
+
+            // If we have a message for the user, report it
+            !out.isEmpty() ?
+                Result<>::error(Error::CommandError,
+                                out) :
+
+            // otherwise just report that we failed
+                Result<>::error(Error::CommandError,
+                                i18n("Unable to open the vault"));
     }
 
 

@@ -142,14 +142,7 @@ private:
     {
         auto future = m_vault->open(password());
 
-        AsynQt::tryAwait(future);
-
-        if (future.isCanceled()) {
-            showErrorMessage(i18n("Unable to open the vault"));
-            return false;
-        }
-
-        const auto result = future.result();
+        const auto result = AsynQt::await(future);
 
         if (result) {
             return true;
