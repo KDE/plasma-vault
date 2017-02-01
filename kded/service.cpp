@@ -125,13 +125,19 @@ void PlasmaVaultService::onVaultStatusChanged(Vault::Status status)
 
 
 
-class PasswordMountDialog: public KPasswordDialog {
+class PasswordMountDialog: protected KPasswordDialog {
 public:
     PasswordMountDialog(Vault *vault)
         : m_vault(vault)
     {
     }
 
+    void show()
+    {
+        KPasswordDialog::show();
+    }
+
+private:
     bool checkPassword() override
     {
         auto future = m_vault->open(password());
@@ -146,7 +152,6 @@ public:
         const auto result = future.result();
 
         if (result) {
-            deleteLater();
             return true;
 
         } else {
@@ -156,7 +161,11 @@ public:
         }
     }
 
-private:
+    void hideEvent(QHideEvent *) override
+    {
+        deleteLater();
+    }
+
     Vault *m_vault;
 };
 
