@@ -8,5 +8,5 @@ Description: libPlasmaVault provides Qt interface for encfs
 URL: http://www.kde.org
 Requires:
 Version: ${PLASMAVAULT_LIB_VERSION_STRING}
-Libs: -L${LIB_INSTALL_DIR} -lKF5PlasmaVault
+Libs: -L${LIB_INSTALL_DIR} -lPlasmaVault
 Cflags: -I${INCLUDE_INSTALL_DIR}

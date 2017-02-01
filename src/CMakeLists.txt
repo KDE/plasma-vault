@@ -13,13 +13,12 @@ set (
    )
 
 add_library (
-   KF5PlasmaVault SHARED
+   PlasmaVault SHARED
    ${PlasmaVault_LIB_SRCS}
    )
-add_library (KF5::PlasmaVault ALIAS KF5PlasmaVault)
 
 set_target_properties (
-   KF5PlasmaVault
+   PlasmaVault
    PROPERTIES
    VERSION ${PLASMAVAULT_VERSION_STRING}
    SOVERSION ${PLASMAVAULT_SOVERSION}
@@ -27,7 +26,7 @@ set_target_properties (
    )
 
 target_link_libraries (
-   KF5PlasmaVault
+   PlasmaVault
    PUBLIC
       Qt5::Core
    PRIVATE
@@ -37,12 +36,12 @@ target_link_libraries (
    )
 
 target_include_directories (
-   KF5PlasmaVault
+   PlasmaVault
    INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/PlasmaVault>"
    )
 
 # install
-generate_export_header (KF5PlasmaVault BASE_NAME PlasmaVault)
+generate_export_header (PlasmaVault BASE_NAME PlasmaVault)
 
 # ecm_generate_headers (
 #    PlasmaVault_CamelCase_HEADERS
@@ -67,8 +66,8 @@ generate_export_header (KF5PlasmaVault BASE_NAME PlasmaVault)
 #    )
 
 install (
-   TARGETS KF5PlasmaVault
-   EXPORT KF5PlasmaVaultLibraryTargets
+   TARGETS PlasmaVault
+   EXPORT PlasmaVaultLibraryTargets
    ${KF5_INSTALL_TARGETS_DEFAULT_ARGS}
    )
 

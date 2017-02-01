@@ -80,29 +80,28 @@ ecm_setup_version (
    ${PLASMAVAULT_VERSION}
    VARIABLE_PREFIX PLASMAVAULT
    VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/plasmavault_version.h"
-   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PlasmaVaultConfigVersion.cmake"
+   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/PlasmaVaultConfigVersion.cmake"
    SOVERSION 0
    )
 
-set (CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5PlasmaVault")
+set (CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/PlasmaVault")
 
 install (
-   EXPORT KF5PlasmaVaultLibraryTargets
+   EXPORT PlasmaVaultLibraryTargets
    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-   FILE KF5PlasmaVaultLibraryTargets.cmake
-   NAMESPACE KF5::
+   FILE PlasmaVaultLibraryTargets.cmake
    )
 
 ecm_configure_package_config_file (
-   "${CMAKE_CURRENT_SOURCE_DIR}/KF5PlasmaVaultConfig.cmake.in"
-   "${CMAKE_CURRENT_BINARY_DIR}/KF5PlasmaVaultConfig.cmake"
+   "${CMAKE_CURRENT_SOURCE_DIR}/PlasmaVaultConfig.cmake.in"
+   "${CMAKE_CURRENT_BINARY_DIR}/PlasmaVaultConfig.cmake"
    INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
    PATH_VARS  KF5_INCLUDE_INSTALL_DIR CMAKE_INSTALL_PREFIX
    )
 
 install (
-   FILES "${CMAKE_CURRENT_BINARY_DIR}/KF5PlasmaVaultConfig.cmake"
-         "${CMAKE_CURRENT_BINARY_DIR}/KF5PlasmaVaultConfigVersion.cmake"
+   FILES "${CMAKE_CURRENT_BINARY_DIR}/PlasmaVaultConfig.cmake"
+         "${CMAKE_CURRENT_BINARY_DIR}/PlasmaVaultConfigVersion.cmake"
    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
    COMPONENT Devel
    )

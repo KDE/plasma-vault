@@ -125,26 +125,63 @@ void PlasmaVaultService::onVaultStatusChanged(Vault::Status status)
 
 
 
+class PasswordMountDialog: public KPasswordDialog {
+public:
+    PasswordMountDialog(Vault *vault)
+        : m_vault(vault)
+    {
+    }
+
+    bool checkPassword() override
+    {
+        auto future = m_vault->open(password());
+
+        AsynQt::tryAwait(future);
+
+        if (future.isCanceled()) {
+            showErrorMessage(i18n("Unable to open the vault"));
+            return false;
+        }
+
+        const auto result = future.result();
+
+        if (result) {
+            deleteLater();
+            return true;
+
+        } else {
+            qDebug() << "Error message: " << result.error().message();
+            showErrorMessage(result.error().message());
+            return false;
+        }
+    }
+
+private:
+    Vault *m_vault;
+};
+
 void PlasmaVaultService::openVault(const QString &device)
 {
     if (!d->knownVaults.contains(device)) return;
     auto vault = d->knownVaults[device];
 
-    KPasswordDialog passwordDialog;
-    passwordDialog.setPrompt(i18n("Enter the password to unlock vault \"%1\"", vault->name()));
-    passwordDialog.show();
+    (new PasswordMountDialog(vault))->show();
 
-    while (passwordDialog.isVisible()) {
-        QCoreApplication::processEvents();
-    }
-
-    const auto password = passwordDialog.password();
-
-    if (password.isEmpty()) {
-        return;
-    }
-
-    vault->open(password);
+    // KPasswordDialog passwordDialog;
+    // passwordDialog.setPrompt(i18n("Enter the password to unlock vault \"%1\"", vault->name()));
+    // passwordDialog.show();
+    //
+    // while (passwordDialog.isVisible()) {
+    //     QCoreApplication::processEvents();
+    // }
+    //
+    // const auto password = passwordDialog.password();
+    //
+    // if (password.isEmpty()) {
+    //     return;
+    // }
+    //
+    // vault->open(password);
 }
 
 

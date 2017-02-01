@@ -10,5 +10,5 @@ deprecated: false
 release: false
 libraries:
  - qmake: PlasmaVault
-   cmake: "KF5::PlasmaVault"
-cmakename: KF5PlasmaVault
+   cmake: "PlasmaVault"
+cmakename: PlasmaVault

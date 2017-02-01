@@ -30,7 +30,7 @@ if (NOT WIN32)
       Qt5::Core
       Qt5::Gui
       Qt5::Widgets
-      KF5::PlasmaVault
+      PlasmaVault
       )
 
 endif ()

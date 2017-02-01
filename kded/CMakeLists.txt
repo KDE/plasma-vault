@@ -22,7 +22,7 @@ target_link_libraries(kded_plasmavault
     KF5::KIOWidgets
     KF5::I18n
     KF5::Activities
-    KF5::PlasmaVault
+    PlasmaVault
 )
 
 
