@@ -148,7 +148,6 @@ private:
             return true;
 
         } else {
-            qDebug() << "Error message: " << result.error().message();
             showErrorMessage(result.error().message());
             return false;
         }
@@ -168,22 +167,6 @@ void PlasmaVaultService::openVault(const QString &device)
     auto vault = d->knownVaults[device];
 
     (new PasswordMountDialog(vault))->show();
-
-    // KPasswordDialog passwordDialog;
-    // passwordDialog.setPrompt(i18n("Enter the password to unlock vault \"%1\"", vault->name()));
-    // passwordDialog.show();
-    //
-    // while (passwordDialog.isVisible()) {
-    //     QCoreApplication::processEvents();
-    // }
-    //
-    // const auto password = passwordDialog.password();
-    //
-    // if (password.isEmpty()) {
-    //     return;
-    // }
-    //
-    // vault->open(password);
 }
 
 

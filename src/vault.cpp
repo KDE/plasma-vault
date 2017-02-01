@@ -206,20 +206,11 @@ public:
 
             QObject::connect(watcher, &QFutureWatcherBase::finished,
                              q, [=] () {
-                                qDebug() << "Operation finished successfully <------------------------------";
                                 updateStatus();
                                 // watcher->deleteLater();
                              });
 
-            QObject::connect(watcher, &QFutureWatcherBase::canceled,
-                             q, [=] () {
-                                qDebug() << "Operation was canceled, invalidating the object <------------------------------";
-                                data->status = Vault::Error;
-                                // watcher->deleteLater();
-                             });
-
         } else {
-            qDebug() << "Operation done even before we got to it <------------------------------";
             updateStatus();
         }
 

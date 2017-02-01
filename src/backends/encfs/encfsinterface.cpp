@@ -125,13 +125,8 @@ bool isOpened(const MountPoint &mountPoint)
     KMountPoint::Ptr ptr
         = KMountPoint::currentMountPoints().findByPath(mountPoint);
 
-    if (ptr) {
-        qDebug() << "Mount point for " << mountPoint << " is "
-                 << "Device " << ptr->realDeviceName()
-                 << "Mount " << ptr->mountPoint();
-    }
-
-    qDebug() << "Result is " << (ptr && ptr->mountPoint() == mountPoint);
+    // we can not rely on ptr->realDeviceName() since it is empty,
+    // KMountPoint can not get the encfs source
 
     return ptr && ptr->mountPoint() == mountPoint;
 }
