@@ -76,7 +76,6 @@ Window::Window()
 
 Window::~Window()
 {
-    delete d;
 }
 
 template <typename T>

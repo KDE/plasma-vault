@@ -1,0 +1,26 @@
+[Desktop Entry]
+Name=Vaults
+Comment=Create encrypted vaults
+
+Icon=document-encrypt
+Type=Service
+ServiceTypes=Plasma/Applet
+
+X-KDE-Library=plasma_applet_plasmavault
+X-KDE-PluginInfo-Author=Ivan Čukić
+X-KDE-PluginInfo-Email=ivan.cukic at kde.org
+X-KDE-PluginInfo-Name=plasmavault
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=http://plasma.kde.org/
+X-KDE-PluginInfo-Category=Utilities
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-PluginInfo-Name=org.kde.plasmavault
+
+X-Plasma-NotificationArea=true
+X-Plasma-NotificationAreaCategory=SystemServices
+
+X-Plasma-API=declarativeappletscript
+X-Plasma-MainScript=ui/main.qml
+

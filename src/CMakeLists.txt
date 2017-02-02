@@ -29,6 +29,7 @@ target_link_libraries (
    PlasmaVault
    PUBLIC
       Qt5::Core
+      Qt5::DBus
    PRIVATE
       KF5::ConfigCore
       KF5::I18n

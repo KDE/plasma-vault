@@ -24,17 +24,18 @@
 
 #include <QString>
 #include <QObject>
+#include <QDBusArgument>
 
 #include "common.h"
 
 #include "commandresult.h"
 
+class QDBusArgument;
+
 namespace PlasmaVault {
 
 class PLASMAVAULT_EXPORT Vault: public QObject {
     Q_OBJECT
-
-    Q_ENUMS(Status)
 
     Q_PROPERTY(QString device     READ device)
     Q_PROPERTY(QString mountPoint READ mountPoint    NOTIFY mountPointChanged)
@@ -59,6 +60,7 @@ public:
 
         Error          = 255
     };
+    Q_ENUM(Status)
 
     static QStringList availableDevices();
 
@@ -90,10 +92,76 @@ Q_SIGNALS:
 
 private:
     class Private;
-    Private * const d;
+    QScopedPointer<Private> d;
 };
 
+class PLASMAVAULT_EXPORT VaultData {
+public:
+    QString name;
+    QString device;
+    QString mountPoint;
+    Vault::Status status;
+
+    inline bool isInitialized() const
+    {
+        return status == Vault::Closed
+            || status == Vault::Opened
+            || status == Vault::Closing
+            || status == Vault::Opening;
+    }
+
+    inline bool isOpened() const
+    {
+        return status == Vault::Opened;
+    }
+
+    inline bool isBusy() const
+    {
+        return status == Vault::Creating
+            || status == Vault::Opening
+            || status == Vault::Closing
+            || status == Vault::Destroying;
+    }
+
+    static VaultData from(Vault *vault);
+};
+
+typedef QList<VaultData> VaultDataList;
+
+inline
+QDBusArgument &operator<<(QDBusArgument &argument, const VaultData &vaultData)
+{
+    argument.beginStructure();
+    argument
+        << vaultData.name
+        << vaultData.device
+        << vaultData.mountPoint
+        << (quint16)vaultData.status
+        ;
+    argument.endStructure();
+    return argument;
+}
+
+inline
+const QDBusArgument &operator>>(const QDBusArgument &argument, VaultData &vaultData)
+{
+    quint16 status;
+    argument.beginStructure();
+    argument
+        >> vaultData.name
+        >> vaultData.device
+        >> vaultData.mountPoint
+        >> status
+        ;
+    vaultData.status = (Vault::Status)status;
+    argument.endStructure();
+    return argument;
+}
+
 } // namespace PlasmaVault
+
+Q_DECLARE_METATYPE(PlasmaVault::VaultData)
+Q_DECLARE_METATYPE(PlasmaVault::VaultDataList)
 
 #endif // PLASMAVAULT_VAULT_H
 

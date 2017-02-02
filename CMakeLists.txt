@@ -31,30 +31,33 @@ include (ECMGenerateHeaders)
 
 # Qt
 set (CMAKE_AUTOMOC ON)
-find_package (Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED COMPONENTS Core Widgets DBus)
+find_package (
+   Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED COMPONENTS
+   Core
+   DBus
+   Quick
+   Widgets
+   )
 
 # KDE Frameworks
 set(KF5_VERSION "5.18.0") # handled by release scripts
 set(KF5_DEP_VERSION "5.17.0") # handled by release scripts
 
-find_package (KF5I18n ${KF5_DEP_VERSION} CONFIG REQUIRED)
-find_package (KF5KIO ${KF5_DEP_VERSION} CONFIG REQUIRED)
-find_package (KF5Config ${KF5_DEP_VERSION} CONFIG REQUIRED)
-find_package (KF5CoreAddons ${KF5_DEP_VERSION} CONFIG REQUIRED)
-find_package (KF5WidgetsAddons ${KF5_DEP_VERSION} CONFIG REQUIRED)
-find_package (KF5ConfigWidgets ${KF5_DEP_VERSION} CONFIG REQUIRED)
-find_package (KF5KIO ${KF5_DEP_VERSION} CONFIG REQUIRED)
-find_package (KF5DBusAddons ${KF5_DEP_VERSION} CONFIG REQUIRED)
-find_package (KF5AsynQt ${KF5_DEP_VERSION} CONFIG REQUIRED)
-find_package (KF5Activities ${KF5_DEP_VERSION} CONFIG REQUIRED)
+find_package (
+   KF5 REQUIRED COMPONENTS
+   Activities
+   AsynQt
+   Config
+   ConfigWidgets
+   CoreAddons
+   DBusAddons
+   I18n
+   KIO
+   KIO
+   Plasma
+   WidgetsAddons
+   )
 
-# message(
-#    " >>>>>>> ${KF5ASYNQT_INCLUDES} <<<<<<<< "
-#    )
-# get_cmake_property(_variableNames VARIABLES)
-# foreach (_variableName ${_variableNames})
-#    message(STATUS " ----- ${_variableName}=${${_variableName}}")
-# endforeach()
 
 include_directories (
    ${AsynQt_INCLUDE_DIRS}
@@ -113,6 +116,7 @@ install (
 
 add_subdirectory (src)
 add_subdirectory (kded)
+add_subdirectory (plasma)
 
 add_subdirectory (autotests)
 add_subdirectory (tests)

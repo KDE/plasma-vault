@@ -1,0 +1,33 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.plasmavault">
+
+    <!-- signals -->
+    <signal name="vaultAdded">
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="PlasmaVault::VaultData" />
+      <arg name="vaultData" type="(sssq)" direction="out"/>
+    </signal>
+
+    <signal name="vaultChanged">
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="PlasmaVault::VaultData" />
+      <arg name="vaultData" type="(sssq)" direction="out"/>
+    </signal>
+
+    <signal name="vaultRemoved">
+      <arg name="vault" type="s" direction="out"/>
+    </signal>
+
+    <!-- functions -->
+    <method name="requestNewVault">
+    </method>
+
+    <method name="openVault">
+      <arg name="vault" type="s" direction="in"/>
+    </method>
+
+    <method name="closeVault">
+      <arg name="vault" type="s" direction="in"/>
+    </method>
+
+  </interface>
+</node>

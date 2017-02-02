@@ -50,7 +50,7 @@ private:
     std::unique_ptr<Ui::MainWindow> ui;
 
     class Private;
-    Private * const d;
+    QScopedPointer<Private> d;
 
 };
 

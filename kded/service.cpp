@@ -74,9 +74,13 @@ void PlasmaVaultService::init()
 
 
 
-QStringList PlasmaVaultService::availableDevices() const
+PlasmaVault::VaultDataList PlasmaVaultService::availableDevices() const
 {
-    return d->knownVaults.keys();
+    PlasmaVault::VaultDataList result;
+    for (const auto &vault: d->knownVaults.values()) {
+        result << VaultData::from(vault);
+    }
+    return result;
 }
 
 
@@ -104,6 +108,11 @@ void PlasmaVaultService::slotRegistered(const QDBusObjectPath &path)
 
 void PlasmaVaultService::registerVault(Vault *vault)
 {
+    if (d->knownVaults.contains(vault->device())) {
+        qWarning() << "Warning: This one is already registered: " << vault->device();
+        return;
+    }
+
     vault->setParent(this);
 
     qDebug() << "Registering a new mount object for : " << vault->device();
@@ -111,6 +120,8 @@ void PlasmaVaultService::registerVault(Vault *vault)
 
     connect(vault, &Vault::statusChanged,
             this,  &PlasmaVaultService::onVaultStatusChanged);
+
+    emit vaultAdded(VaultData::from(vault));
 }
 
 
@@ -120,15 +131,16 @@ void PlasmaVaultService::onVaultStatusChanged(Vault::Status status)
     const auto vault = qobject_cast<Vault*>(sender());
     qDebug() << "Vault status changed: " << vault->device() << " status = " << status;
 
-    emit vaultStatusChanged(vault->device(), status);
+    emit vaultChanged(VaultData::from(vault));
 }
 
 
-
-class PasswordMountDialog: protected KPasswordDialog {
+template <typename Function>
+class PasswordMountDialog: protected KPasswordDialog { //_
 public:
-    PasswordMountDialog(Vault *vault)
+    PasswordMountDialog(Vault *vault, Function function)
         : m_vault(vault)
+        , m_function(function)
     {
     }
 
@@ -145,6 +157,7 @@ private:
         const auto result = AsynQt::await(future);
 
         if (result) {
+            m_function();
             return true;
 
         } else {
@@ -159,14 +172,28 @@ private:
     }
 
     Vault *m_vault;
+    Function m_function;
 };
+
+template <typename Function>
+void showPasswordMountDialog(Vault *vault, Function &&function)
+{
+    auto dialog = new PasswordMountDialog<Function>(
+        vault, std::forward<Function>(function));
+    dialog->show();
+}
+//^
 
 void PlasmaVaultService::openVault(const QString &device)
 {
     if (!d->knownVaults.contains(device)) return;
-    auto vault = d->knownVaults[device];
+    const auto vault = d->knownVaults[device];
 
-    (new PasswordMountDialog(vault))->show();
+    showPasswordMountDialog(vault,
+            [this, device] {
+            qDebug() << "emit vaultChanged <----------------------------------";
+                emit vaultChanged(VaultData::from(d->knownVaults[device]));
+            });
 }
 
 
@@ -175,6 +202,7 @@ void PlasmaVaultService::closeVault(const QString &device)
 {
     if (!d->knownVaults.contains(device)) return;
     auto vault = d->knownVaults[device];
+
     vault->close();
 }
 

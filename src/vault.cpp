@@ -21,6 +21,7 @@
 
 #include <QDir>
 #include <QFutureWatcher>
+#include <QDBusMetaType>
 
 #include <KSharedConfig>
 #include <KConfig>
@@ -64,6 +65,7 @@ public:
 
     void updateStatus()
     {
+        qDebug() << "updateStatus <----------------------------------";
         if (data) {
             // Checking the status, and whether we should update it
             const auto oldStatus = data->status;
@@ -72,9 +74,13 @@ public:
                            isInitialized() ? Vault::Closed :
                                              Vault::NotInitialized;
 
+            qDebug() << "Vault " << device << " status " << oldStatus << " -> " << newStatus;
+
             if (oldStatus == newStatus) return;
 
             data->status = newStatus;
+
+            emit q->statusChanged(data->status);
 
             if (oldStatus == Vault::Opened || newStatus == Vault::Opened) {
                 emit q->isOpenedChanged(newStatus);
@@ -116,6 +122,8 @@ public:
             vaultConfig.deleteEntry(CFG_MOUNTPOINT);
             vaultConfig.deleteEntry(CFG_NAME);
             vaultConfig.deleteEntry(CFG_BACKEND);
+
+            emit q->statusChanged(Vault::Error);
         }
 
         config->sync();
@@ -245,7 +253,6 @@ Vault::Vault(const QString &device, QObject *parent)
 Vault::~Vault()
 {
     close();
-    delete d;
 }
 
 
@@ -397,5 +404,22 @@ bool Vault::isBusy() const
     }
 }
 
+
+
+VaultData VaultData::from(Vault *vault)
+{
+    VaultData vaultData;
+    vaultData.device = vault->device();
+    vaultData.name   = vault->name();
+    vaultData.status = vault->status();
+    return vaultData;
+}
+
 } // namespace PlasmaVault
+
+auto static_init_VaultData = [] {
+    qDBusRegisterMetaType<PlasmaVault::VaultData>();
+    qDBusRegisterMetaType<PlasmaVault::VaultDataList>();
+    return true;
+} ();
 

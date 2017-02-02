@@ -28,16 +28,13 @@
 
 #include <vault.h>
 
-namespace PlasmaVault {
-    class Vault;
-} // namespace PlasmaVault
 
 class Q_DECL_EXPORT PlasmaVaultService : public KDEDModule {
     Q_CLASSINFO("D-Bus Interface", "org.kde.plasmavault")
     Q_OBJECT
 
 public:
-    PlasmaVaultService(QObject * parent, const QVariantList&);
+    PlasmaVaultService(QObject *parent, const QVariantList&);
     ~PlasmaVaultService();
 
 public Q_SLOTS:
@@ -47,15 +44,14 @@ public Q_SLOTS:
     Q_SCRIPTABLE void openVault(const QString &device);
     Q_SCRIPTABLE void closeVault(const QString &device);
 
-    Q_SCRIPTABLE QStringList availableDevices() const;
+    Q_SCRIPTABLE PlasmaVault::VaultDataList availableDevices() const;
 
 Q_SIGNALS:
     void registered();
 
-    void vaultAdded(const QString &device);
-    void vaultRemoved(const QString &device);
-    void vaultStatusChanged(const QString &device,
-                            PlasmaVault::Vault::Status status);
+    Q_SCRIPTABLE void vaultAdded(const PlasmaVault::VaultData &vaultData);
+    Q_SCRIPTABLE void vaultRemoved(const QString &device);
+    Q_SCRIPTABLE void vaultChanged(const PlasmaVault::VaultData &vaultData);
 
 private Q_SLOTS:
     void slotRegistered(const QDBusObjectPath &path);

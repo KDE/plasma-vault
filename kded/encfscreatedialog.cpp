@@ -185,8 +185,7 @@ void CreateDialog::accept()
                             .toString();
     }
 
-    // TODO: Make this safer
-    auto vault = new Vault(device);
+    auto vault = new Vault(device, this);
 
     auto future = vault->create(name, mountPoint, password, "encfs");
 
