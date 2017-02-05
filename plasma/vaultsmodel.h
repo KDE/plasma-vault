@@ -56,9 +56,9 @@ public Q_SLOTS:
     void close(const QString &device);
     void toggle(const QString &device);
 
-private:
-    void updateMountData(const PlasmaVault::VaultData &vaultData);
+    void requestNewVault();
 
+private:
     // We need this to be sorted, so we need a map
     QMap<QString, PlasmaVault::VaultData> m_vaults;
     QStringList m_vaultKeys;

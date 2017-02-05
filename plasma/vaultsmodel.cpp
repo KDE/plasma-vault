@@ -194,13 +194,13 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
                     return "document-close";
 
                 case Vault::NotInitialized:
-                    return "document";
+                    return "folder-gray";
 
                 case Vault::Closed:
-                    return "document-encrypted";
+                    return "folder-encrypted-closed";
 
                 case Vault::Opened:
-                    return "document-decrypt";
+                    return "folder-encrypted-open";
 
                 default:
                     return "";
@@ -266,10 +266,10 @@ void VaultsModel::toggle(const QString &device)
 }
 
 
-void VaultsModel::updateMountData(const PlasmaVault::VaultData &vaultData)
+void VaultsModel::requestNewVault()
 {
+    AsynQt::DBus::asyncCall<void>(&d->service, "requestNewVault");
 }
-
 
 
 

@@ -28,7 +28,9 @@ Item {
     property var vaultsModel: plasmoid.nativeInterface.vaultsModel
 
     Plasmoid.fullRepresentation: ColumnLayout {
-        anchors.fill: parent
+        anchors {
+            fill: parent
+        }
 
         Layout.minimumWidth: 200
         Layout.minimumHeight: 200
@@ -71,6 +73,14 @@ Item {
                     onClicked: vaultsModel.toggle(model.device)
                 }
             }
+        }
+
+        PlasmaComponents.Button {
+            id: buttonCreateNewVault
+
+            text: i18n("Create a new vault")
+
+            onClicked: vaultsModel.requestNewVault()
         }
     }
 }
