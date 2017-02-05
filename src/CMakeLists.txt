@@ -9,7 +9,6 @@ set (
    commandresult.cpp
 
    backends/encfs/encfsbackend.cpp
-   backends/encfs/encfsinterface.cpp
    )
 
 add_library (

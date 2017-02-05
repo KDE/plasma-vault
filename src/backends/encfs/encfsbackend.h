@@ -33,25 +33,27 @@ public:
 
     static Backend::Ptr instance();
 
-    bool isInitialized(const Device &device) const Q_DECL_OVERRIDE;
-    bool isOpened(const MountPoint &mountPoint) const Q_DECL_OVERRIDE;
+    bool isInitialized(const Device &device) const override;
+    bool isOpened(const MountPoint &mountPoint) const override;
 
     FutureResult<> initialize(const QString &name,
                               const Device &device, const MountPoint &mountPoint,
-                              const QString &password) Q_DECL_OVERRIDE;
+                              const QString &password) override;
 
     FutureResult<> open(const Device &device,
                         const MountPoint &mountPoint,
-                        const QString &password) Q_DECL_OVERRIDE;
+                        const QString &password) override;
 
     FutureResult<> close(const Device &device,
-                         const MountPoint &mountPoint) Q_DECL_OVERRIDE;
+                         const MountPoint &mountPoint) override;
 
     FutureResult<> destroy(const Device &device,
                            const MountPoint &mountPoint,
-                           const QString &password) Q_DECL_OVERRIDE;
+                           const QString &password) override;
 
-    QString name() const Q_DECL_OVERRIDE { return "encfs"; };
+    FutureResult<> validateBackend() override;
+
+    QString name() const override { return "encfs"; };
 };
 
 } // namespace PlasmaVault

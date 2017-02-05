@@ -60,6 +60,8 @@ public:
                                    const MountPoint &mountPoint,
                                    const QString &password) = 0;
 
+    virtual FutureResult<> validateBackend() = 0;
+
     virtual QString name() const = 0;
 
     static QStringList availableBackends();
