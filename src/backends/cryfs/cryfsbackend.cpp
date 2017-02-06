@@ -19,7 +19,7 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "encfsbackend.h"
+#include "cryfsbackend.h"
 
 #include <QDir>
 #include <QProcess>
@@ -42,13 +42,18 @@ using namespace AsynQt;
 namespace PlasmaVault {
 
 
-namespace EncFs {
+namespace CryFs {
 
     QProcess *process(const QString &executable, const QStringList &arguments)
     {
         auto result = new QProcess();
         result->setProgram(executable);
         result->setArguments(arguments);
+
+        auto env = result->processEnvironment();
+        env.insert("CRYFS_FRONTEND", "noninteractive");
+        result->setProcessEnvironment(env);
+
         return result;
     }
 
@@ -59,8 +64,7 @@ namespace EncFs {
         return process(Executable, arguments);                             \
     }
 
-    DEFINE_PROCESS(encfs,      "encfs")
-    DEFINE_PROCESS(encfsctl,   "encfsctl")
+    DEFINE_PROCESS(cryfs,      "cryfs")
     DEFINE_PROCESS(fusermount, "fusermount")
 #undef DEFINE_PROCESS
 
@@ -102,10 +106,8 @@ namespace EncFs {
             return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
         }
 
-        auto process = encfs({
-                "-S", // read password from stdin
-                "--standard", // If creating a file system, use the default options
-                device, // source directory to initialize encfs in
+        auto process = cryfs({
+                device, // source directory to initialize cryfs in
                 mountPoint // where to mount the file system
             });
 
@@ -119,30 +121,30 @@ namespace EncFs {
         return result;
     }
 
-} // namespace EncFs
+} // namespace CryFs
 
 
 
-EncFsBackend::EncFsBackend()
+CryFsBackend::CryFsBackend()
 {
 }
 
 
 
-EncFsBackend::~EncFsBackend()
+CryFsBackend::~CryFsBackend()
 {
 }
 
 
 
-Backend::Ptr EncFsBackend::instance()
+Backend::Ptr CryFsBackend::instance()
 {
-    return util::singleton::instance<EncFsBackend>();
+    return util::singleton::instance<CryFsBackend>();
 }
 
 
 
-FutureResult<> EncFsBackend::initialize(const QString &name,
+FutureResult<> CryFsBackend::initialize(const QString &name,
                                         const Device &device,
                                         const MountPoint &mountPoint,
                                         const QString &password)
@@ -152,19 +154,19 @@ FutureResult<> EncFsBackend::initialize(const QString &name,
     return
         isInitialized(device) ?
             errorResult(Error::BackendError,
-                        i18n("This directory already contains encrypted EncFS data")) :
+                        i18n("This directory already contains encrypted CryFS data")) :
 
         !isDirectoryEmpty(device) || !isDirectoryEmpty(mountPoint) ?
             errorResult(Error::BackendError,
                         i18n("You need to select empty directories for the encrypted storage and for the mount point")) :
 
         // otherwise
-            EncFs::open(device, mountPoint, password);
+            CryFs::open(device, mountPoint, password);
 }
 
 
 
-FutureResult<> EncFsBackend::open(const Device &device,
+FutureResult<> CryFsBackend::open(const Device &device,
                                   const MountPoint &mountPoint,
                                   const QString &password)
 {
@@ -174,12 +176,12 @@ FutureResult<> EncFsBackend::open(const Device &device,
                         i18n("Device is already open")) :
 
         // otherwise
-            EncFs::open(device, mountPoint, password);
+            CryFs::open(device, mountPoint, password);
 }
 
 
 
-FutureResult<> EncFsBackend::close(const Device &device,
+FutureResult<> CryFsBackend::close(const Device &device,
                                    const MountPoint &mountPoint)
 {
     Q_UNUSED(device);
@@ -190,13 +192,13 @@ FutureResult<> EncFsBackend::close(const Device &device,
                         i18n("Device is not open")) :
 
         // otherwise
-            makeFuture(EncFs::fusermount({ "-u", mountPoint }),
-                       EncFs::hasFinishedSuccessfully);
+            makeFuture(CryFs::fusermount({ "-u", mountPoint }),
+                       CryFs::hasFinishedSuccessfully);
 }
 
 
 
-FutureResult<> EncFsBackend::destroy(const Device &device,
+FutureResult<> CryFsBackend::destroy(const Device &device,
                                      const MountPoint &mountPoint,
                                      const QString &password)
 {
@@ -204,7 +206,7 @@ FutureResult<> EncFsBackend::destroy(const Device &device,
     // mount
     // unmount
     // remove the directories
-    // return EncFs::destroy(device, mountPoint, password);
+    // return CryFs::destroy(device, mountPoint, password);
 
     Q_UNUSED(device)
     Q_UNUSED(mountPoint)
@@ -214,18 +216,17 @@ FutureResult<> EncFsBackend::destroy(const Device &device,
 
 
 
-FutureResult<> EncFsBackend::validateBackend()
+FutureResult<> CryFsBackend::validateBackend()
 {
     using namespace AsynQt::operators;
 
     // We need to check whether all the commands are installed
     // and whether the user has permissions to run them
     return
-        collect(makeFuture(EncFs::encfs({ "--version" })),
-                makeFuture(EncFs::encfsctl({ "--version" })),
-                makeFuture(EncFs::fusermount({ "--version" })))
+        collect(makeFuture(CryFs::cryfs({ "--version" })),
+                makeFuture(CryFs::fusermount({ "--version" })))
 
-        | transform([] (QProcess *encfs, QProcess *encfsctl, QProcess *fusermount) {
+        | transform([] (QProcess *cryfs, QProcess *fusermount) {
               qDebug() << "Called --version on everything <==========================";
 
               auto processTest = [] (QProcess *process, std::tuple<int, int, int> requiredVersion) {
@@ -279,14 +280,9 @@ FutureResult<> EncFsBackend::validateBackend()
               bool success;
               QString message;
 
-              std::tie(success, message) = processTest(encfs, std::make_tuple(1, 9, 2));
+              std::tie(success, message) = processTest(cryfs, std::make_tuple(0, 9, 6));
               summarySuccess &= success;
-              summaryMessage += i18n("encfs: %1", message) + "\n";
-
-
-              std::tie(success, message) = processTest(encfsctl, std::make_tuple(1, 9, 1));
-              summarySuccess &= success;
-              summaryMessage += i18n("encfsctl: %1", message) + "\n";
+              summaryMessage += i18n("cryfs: %1", message) + "\n";
 
               std::tie(success, message) = processTest(fusermount, std::make_tuple(2, 9, 7));
               summarySuccess &= success;
@@ -300,26 +296,23 @@ FutureResult<> EncFsBackend::validateBackend()
 
 
 
-bool EncFsBackend::isInitialized(const Device &device) const
+bool CryFsBackend::isInitialized(const Device &device) const
 {
-    auto process = EncFs::encfsctl({ device });
+    QFile cryFsConfig(device + "cryfs.config");
 
-    process->start();
-    process->waitForFinished();
-
-    return process->exitCode() == 0;
+    return cryFsConfig.exists();
 }
 
 
 
-bool EncFsBackend::isOpened(const MountPoint &mountPoint) const
+bool CryFsBackend::isOpened(const MountPoint &mountPoint) const
 {
     // warning: KMountPoint depends on /etc/mtab according to the documentation.
     KMountPoint::Ptr ptr
         = KMountPoint::currentMountPoints().findByPath(mountPoint);
 
     // we can not rely on ptr->realDeviceName() since it is empty,
-    // KMountPoint can not get the encfs source
+    // KMountPoint can not get the cryfs source
 
     return ptr && ptr->mountPoint() == mountPoint;
 }

@@ -21,7 +21,10 @@
 
 #include "backend_p.h"
 
+#include <QDir>
+
 #include "backends/encfs/encfsbackend.h"
+#include "backends/cryfs/cryfsbackend.h"
 
 namespace PlasmaVault {
 
@@ -29,19 +32,41 @@ Backend::Backend()
 {
 }
 
+
+
 Backend::~Backend()
 {
 }
 
+
+
 QStringList Backend::availableBackends()
 {
-    return { "encfs" };
+    return { "encfs", "cryfs" };
 }
+
+
 
 Backend::Ptr Backend::instance(const QString &backend)
 {
-    return (backend == "encfs") ? PlasmaVault::EncFsBackend::instance() : Q_NULLPTR;
+    return
+        backend == "encfs" ? PlasmaVault::EncFsBackend::instance() :
+        backend == "cryfs" ? PlasmaVault::CryFsBackend::instance() :
+        /* unknown backend */ nullptr;
 }
+
+
+
+bool Backend::isDirectoryEmpty(const QString &path)
+{
+    QDir dir(path);
+
+    if (!dir.exists()) return true;
+
+    return dir.entryInfoList(QDir::NoDotAndDotDot|QDir::AllEntries).count() == 0;
+}
+
+
 
 } // namespace PlasmaVault
 

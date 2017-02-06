@@ -9,6 +9,7 @@ set (
    commandresult.cpp
 
    backends/encfs/encfsbackend.cpp
+   backends/cryfs/cryfsbackend.cpp
    )
 
 add_library (

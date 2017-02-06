@@ -68,6 +68,9 @@ public:
 
     static Ptr instance(const QString &backend);
 
+protected:
+    static bool isDirectoryEmpty(const QString &path);
+
 private:
 
 };
