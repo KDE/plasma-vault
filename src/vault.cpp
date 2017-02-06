@@ -361,6 +361,18 @@ QStringList Vault::availableDevices()
 
 
 
+QStringList Vault::statusMessage()
+{
+    for (const auto& backendName: Backend::availableBackends()) {
+        auto backend = Backend::instance(backendName);
+        backend->validateBackend();
+    }
+
+    return {};
+}
+
+
+
 QString Vault::errorMessage() const
 {
     if (!d->data) {

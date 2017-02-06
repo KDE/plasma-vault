@@ -28,6 +28,8 @@ VaultApplet::VaultApplet(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args)
     , m_vaultsModel(nullptr)
 {
+    qDebug() << "Getting the status message <==========================";
+    PlasmaVault::Vault::statusMessage();
 }
 
 VaultApplet::~VaultApplet()

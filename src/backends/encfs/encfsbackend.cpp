@@ -23,6 +23,7 @@
 
 #include <QDir>
 #include <QProcess>
+#include <QRegularExpression>
 
 #include <singleton_p.h>
 
@@ -33,6 +34,8 @@
 
 #include <asynqt/basic/all.h>
 #include <asynqt/wrappers/process.h>
+#include <asynqt/operations/collect.h>
+#include <asynqt/operations/transform.h>
 
 using namespace AsynQt;
 
@@ -224,14 +227,87 @@ FutureResult<> EncFsBackend::destroy(const Device &device,
 
 FutureResult<> EncFsBackend::validateBackend()
 {
+    using namespace AsynQt::operators;
+
     // We need to check whether all the commands are installed
     // and whether the user has permissions to run them
-    // return AsynQt::collect(
-    //         EncFs::encfs({}),
-    //         EncFs::encfsctl({}),
-    //         EncFs::fusermount({})
-    //     );
-    return {};
+    return
+        collect(makeFuture(EncFs::encfs({ "--version" })),
+                makeFuture(EncFs::encfsctl({ "--version" })),
+                makeFuture(EncFs::fusermount({ "--version" })))
+
+        | transform([] (QProcess *encfs, QProcess *encfsctl, QProcess *fusermount) {
+              qDebug() << "Called --version on everything <==========================";
+
+              auto processTest = [] (QProcess *process, std::tuple<int, int, int> requiredVersion) {
+                  if (process->exitStatus() == QProcess::NormalExit
+                          && process->exitCode() == 0) {
+
+                      QRegularExpression versionMatcher("([0-9]+)[.]([0-9]+)[.]([0-9]+)");
+
+                      const auto out = process->readAllStandardOutput();
+                      const auto err = process->readAllStandardError();
+                      const auto all = out + err;
+
+                      const auto matches = versionMatcher.match(all);
+
+                      if (matches.isValid()) {
+                          const auto matchedVersion =
+                              std::make_tuple(matches.captured(1).toInt(),
+                                              matches.captured(2).toInt(),
+                                              matches.captured(3).toInt());
+
+                          if (matchedVersion < requiredVersion) {
+                              // Bad version, we need to notify the world
+                              return std::make_pair(
+                                      false,
+                                      i18n("Error: Wrong version installed. The required version is %1.%2.%3",
+                                          std::get<0>(requiredVersion),
+                                          std::get<1>(requiredVersion),
+                                          std::get<2>(requiredVersion)
+                                      )
+                                  );
+                          } else {
+                              return std::make_pair(
+                                      true,
+                                      i18n("Correct version found"));
+                          }
+                      } else {
+                          return std::make_pair(
+                                  false,
+                                  i18n("Unable to detect the version"));
+                      }
+
+                  } else {
+                      return std::make_pair(
+                              false,
+                              i18n("Failed to execute"));
+                  }
+              };
+
+              bool summarySuccess = true;
+              QString summaryMessage;
+
+              bool success;
+              QString message;
+
+              std::tie(success, message) = processTest(encfs, std::make_tuple(1, 9, 2));
+              summarySuccess &= success;
+              summaryMessage += i18n("encfs: %1", message) + "\n";
+
+
+              std::tie(success, message) = processTest(encfsctl, std::make_tuple(1, 9, 1));
+              summarySuccess &= success;
+              summaryMessage += i18n("encfsctl: %1", message) + "\n";
+
+              std::tie(success, message) = processTest(fusermount, std::make_tuple(2, 9, 7));
+              summarySuccess &= success;
+              summaryMessage += i18n("fusermount: %1", message) + "\n";
+
+              qDebug() << "Summary: " << summarySuccess << summaryMessage;
+
+              return Result<>::success();
+          });
 }
 
 

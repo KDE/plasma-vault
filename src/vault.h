@@ -63,6 +63,7 @@ public:
     Q_ENUM(Status)
 
     static QStringList availableDevices();
+    static QStringList statusMessage();
 
     FutureResult<> create(const QString &name, const QString &mountPoint,
                           const QString &password, const QString &backend);
