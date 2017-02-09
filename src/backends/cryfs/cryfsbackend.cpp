@@ -44,7 +44,7 @@ namespace PlasmaVault {
 
 namespace CryFs {
 
-    QProcess *process(const QString &executable, const QStringList &arguments)
+    static QProcess *process(const QString &executable, const QStringList &arguments)
     {
         auto result = new QProcess();
         result->setProgram(executable);
@@ -59,7 +59,7 @@ namespace CryFs {
 
 
 #define DEFINE_PROCESS(Name, Executable)                                   \
-    inline QProcess *Name(const QStringList &arguments = QStringList())    \
+    inline static QProcess *Name(const QStringList &arguments = QStringList())    \
     {                                                                      \
         return process(Executable, arguments);                             \
     }
@@ -316,6 +316,7 @@ bool CryFsBackend::isOpened(const MountPoint &mountPoint) const
 
     return ptr && ptr->mountPoint() == mountPoint;
 }
+
 
 } // namespace PlasmaVault
 

@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) %YEAR% %USER% <%MAIL%>
+ *   Copyright (C) 2017 Ivan Čukić <ivan.cukic(at)kde.org>
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Lesser General Public
@@ -19,10 +19,34 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_%GUARD%
-#define PLASMAVAULT_%GUARD%
+#ifndef PLASMAVAULT_KDED_CRYFS_CYPHER_CHOOSER_WIDGET_H
+#define PLASMAVAULT_KDED_CRYFS_CYPHER_CHOOSER_WIDGET_H
 
-%HERE%
+#include "dialogdsl.h"
 
-#endif // PLASMAVAULT_%GUARD%
+class CryfsCypherChooserWidget: public DialogDsl::DialogModule {
+    Q_OBJECT
+
+public:
+    CryfsCypherChooserWidget();
+    ~CryfsCypherChooserWidget();
+
+    QHash<QString, QVariant> fields() const override;
+
+private Q_SLOTS:
+    void initializeCyphers();
+
+private:
+    class Private;
+    QScopedPointer<Private> d;
+};
+
+inline DialogDsl::ModuleFactory cryfsCypherChooser()
+{
+    return [=] {
+        return new CryfsCypherChooserWidget();
+    };
+}
+
+#endif // PLASMAVAULT_KDED_CRYFS_CYPHER_CHOOSER_WIDGET_H
 

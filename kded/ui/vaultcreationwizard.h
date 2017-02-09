@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) %YEAR% %USER% <%MAIL%>
+ *   Copyright (C) 2017 Ivan Čukić <ivan.cukic(at)kde.org>
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Lesser General Public
@@ -19,10 +19,30 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_%GUARD%
-#define PLASMAVAULT_%GUARD%
+#ifndef PLASMAVAULT_KDED_VAULT_CREATION_WIZARD_H
+#define PLASMAVAULT_KDED_VAULT_CREATION_WIZARD_H
 
-%HERE%
+#include <QDialog>
 
-#endif // PLASMAVAULT_%GUARD%
+namespace PlasmaVault {
+    class Vault;
+} // namespace PlasmaVault
+
+class VaultCreationWizard: public QDialog {
+    Q_OBJECT
+
+public:
+    VaultCreationWizard(QWidget *parent = nullptr);
+    ~VaultCreationWizard();
+
+Q_SIGNALS:
+    void createdVault(PlasmaVault::Vault *vault);
+
+private:
+    class Private;
+    QScopedPointer<Private> d;
+};
+
+
+#endif // PLASMAVAULT_KDED_VAULT_CREATION_WIZARD_H
 

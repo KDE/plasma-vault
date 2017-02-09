@@ -21,9 +21,5 @@
 
 #include "%FILE%.h"
 
-namespace KActivities {
-
 %HERE%
-
-} // namespace KActivities
 

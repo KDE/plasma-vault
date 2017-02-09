@@ -1,11 +1,28 @@
 
 set(kded_plasmavault_SRCS
     service.cpp
+
     encfscreatedialog.cpp
+    ui/dialogdsl.cpp
+    ui/activitieslinkingwidget.cpp
+    ui/backendchooserwidget.cpp
+    ui/cryfscypherchooserwidget.cpp
+    ui/directorypairchooserwidget.cpp
+    ui/noticewidget.cpp
+    ui/passwordchooserwidget.cpp
+    ui/vaultcreationwizard.cpp
 )
 
 ki18n_wrap_ui(kded_plasmavault_SRCS
-    encfscreatedialog.ui
+    ui/encfscreatedialog.ui
+
+    ui/activitieslinkingwidget.ui
+    ui/backendchooserwidget.ui
+    ui/cryfscypherchooserwidget.ui
+    ui/directorypairchooserwidget.ui
+    ui/noticewidget.ui
+    ui/passwordchooserwidget.ui
+    ui/vaultcreationwizard.ui
 )
 
 add_library(kded_plasmavault MODULE ${kded_plasmavault_SRCS})

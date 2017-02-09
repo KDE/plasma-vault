@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) %YEAR% %USER% <%MAIL%>
+ *   Copyright (C) 2017 Ivan Čukić <ivan.cukic(at)kde.org>
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Lesser General Public
@@ -19,10 +19,36 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_%GUARD%
-#define PLASMAVAULT_%GUARD%
+#include "noticewidget.h"
 
-%HERE%
+#include "ui_noticewidget.h"
 
-#endif // PLASMAVAULT_%GUARD%
+class NoticeWidget::Private {
+public:
+    Ui::NoticeWidget ui;
+};
+
+
+
+NoticeWidget::NoticeWidget(const QByteArray &noticeId, const QString &message)
+    : DialogDsl::DialogModule(true)
+    , d(new Private())
+{
+    d->ui.setupUi(this);
+}
+
+
+
+NoticeWidget::~NoticeWidget()
+{
+}
+
+
+
+QHash<QString, QVariant> NoticeWidget::fields() const
+{
+    return {};
+}
+
+
 

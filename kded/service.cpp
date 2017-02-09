@@ -32,6 +32,8 @@
 #include "vault.h"
 #include "commandresult.h"
 
+#include "ui/vaultcreationwizard.h"
+
 K_PLUGIN_FACTORY_WITH_JSON(PlasmaVaultServiceFactory,
                            "plasmavault.json",
                            registerPlugin<PlasmaVaultService>();)
@@ -87,9 +89,9 @@ PlasmaVault::VaultDataList PlasmaVaultService::availableDevices() const
 
 void PlasmaVaultService::requestNewVault()
 {
-    const auto dialog = new Encfs::CreateDialog();
+    const auto dialog = new VaultCreationWizard();
 
-    connect(dialog, &Encfs::CreateDialog::createdVault,
+    connect(dialog, &VaultCreationWizard::createdVault,
             this,   &PlasmaVaultService::registerVault);
 
     dialog->show();

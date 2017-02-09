@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) %YEAR% %USER% <%MAIL%>
+ *   Copyright (C) 2017 Ivan Čukić <ivan.cukic(at)kde.org>
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Lesser General Public
@@ -19,10 +19,31 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_%GUARD%
-#define PLASMAVAULT_%GUARD%
+#ifndef PLASMAVAULT_KDED_PASSWORD_CHOOSER_WIDGET_H
+#define PLASMAVAULT_KDED_PASSWORD_CHOOSER_WIDGET_H
 
-%HERE%
+#include "dialogdsl.h"
 
-#endif // PLASMAVAULT_%GUARD%
+class PasswordChooserWidget: public DialogDsl::DialogModule {
+    Q_OBJECT
+
+public:
+    PasswordChooserWidget();
+    ~PasswordChooserWidget();
+
+    QHash<QString, QVariant> fields() const override;
+
+private:
+    class Private;
+    QScopedPointer<Private> d;
+};
+
+inline DialogDsl::ModuleFactory passwordChooser()
+{
+    return [=] {
+        return new PasswordChooserWidget();
+    };
+}
+
+#endif // PLASMAVAULT_KDED_PASSWORD_CHOOSER_WIDGET_H
 

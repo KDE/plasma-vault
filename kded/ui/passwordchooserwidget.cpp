@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) %YEAR% %USER% <%MAIL%>
+ *   Copyright (C) 2017 Ivan Čukić <ivan.cukic(at)kde.org>
  *
  *   This library is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU Lesser General Public
@@ -19,10 +19,43 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_%GUARD%
-#define PLASMAVAULT_%GUARD%
+#include "passwordchooserwidget.h"
 
-%HERE%
+#include "ui_passwordchooserwidget.h"
 
-#endif // PLASMAVAULT_%GUARD%
+class PasswordChooserWidget::Private {
+public:
+    Ui::PasswordChooserWidget ui;
+};
+
+
+
+PasswordChooserWidget::PasswordChooserWidget()
+    : DialogDsl::DialogModule(false)
+    , d(new Private())
+{
+    d->ui.setupUi(this);
+
+    connect(d->ui.editPassword, &KNewPasswordWidget::passwordStatusChanged,
+            this, [&] {
+                const auto status = d->ui.editPassword->passwordStatus();
+                setIsValid(status == KNewPasswordWidget::StrongPassword ||
+                           status == KNewPasswordWidget::WeakPassword);
+            });
+}
+
+
+
+PasswordChooserWidget::~PasswordChooserWidget()
+{
+}
+
+
+
+QHash<QString, QVariant> PasswordChooserWidget::fields() const
+{
+    return {};
+}
+
+
 
