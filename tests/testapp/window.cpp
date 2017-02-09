@@ -95,8 +95,7 @@ void Window::buttonInitializeClicked()
     executeCommand(
             d->vault->create(ui->textName->text(),
                              ui->textMountPoint->text(),
-                             { { KEY_PASSWORD, "somepassword" } },
-                             "encfs")
+                             { { KEY_PASSWORD, "somepassword" }, { KEY_BACKEND, "encfs" } })
         );
 }
 

@@ -97,6 +97,7 @@ public:
         : q(parent)
     {
         ui.setupUi(parent);
+        ui.message->hide();
 
         layout = new QStackedLayout();
         layout->setContentsMargins(0, 0, 0, 0);
@@ -122,6 +123,50 @@ public:
         for (const auto& key: logic.keys()) {
             firstStepModule->addItem(key, key.translation());
         }
+    }
+
+    void setCurrentModule(DialogDsl::DialogModule *module)
+    {
+        // If there is a current module already, disconnect it
+        if (currentModule) {
+            currentModule->disconnect();
+        }
+
+        // The current module needs to be changed
+        currentModule = module;
+        QObject::connect(
+            currentModule, &DialogModule::isValidChanged,
+            q, [&] (bool valid) {
+                buttonNextSetEnabled(valid);
+            });
+
+        // Lets update the button states
+
+        // 1. next/create button is enabled only if the current
+        //    module is in the valid state
+        buttonNextSetEnabled(currentModule->isValid());
+
+        // 2. previous button is enabled only if we are not on
+        //    the first page
+        buttonPrevious->setEnabled(currentStepModules.size() > 0);
+
+        // 3. If we have loaded the last page, we want to show the
+        //    'Create' button instead of 'Next'
+        if (!currentSteps.isEmpty() && currentStepModules.size() == currentSteps.size()) {
+            buttonNext->hide();
+            buttonCreate->show();
+        } else {
+            buttonNext->show();
+            buttonCreate->hide();
+        }
+
+        // Calling to initialize the module -- we are passing all the
+        // previously collected data to it
+        auto collectedPayload = firstStepModule->fields();
+        for (const auto* module: currentStepModules) {
+            collectedPayload.unite(module->fields());
+        }
+        currentModule->init(collectedPayload);
     }
 
     void previousStep()
@@ -173,51 +218,28 @@ public:
         for (const auto* module: currentStepModules) {
             collectedPayload.unite(module->fields());
         }
-        qDebug() << "PAYLOAD: " << collectedPayload;
-    }
 
-    void setCurrentModule(DialogDsl::DialogModule *module)
-    {
-        // If there is a current module already, disconnect it
-        if (currentModule) {
-            currentModule->disconnect();
-        }
+        // qDebug() << "PAYLOAD: " << collectedPayload;
+        const auto name       = collectedPayload[KEY_NAME].toString();
+        const auto device     = collectedPayload[KEY_DEVICE].toString();
+        const auto mountPoint = collectedPayload[KEY_MOUNT_POINT].toString();
 
-        // The current module needs to be changed
-        currentModule = module;
-        QObject::connect(
-            currentModule, &DialogModule::isValidChanged,
-            q, [&] (bool valid) {
-                buttonNextSetEnabled(valid);
-            });
+        auto vault = new PlasmaVault::Vault(device, q);
 
-        // Lets update the button states
+        auto future = vault->create(name, mountPoint, collectedPayload);
 
-        // 1. next/create button is enabled only if the current
-        //    module is in the valid state
-        buttonNextSetEnabled(currentModule->isValid());
+        auto result = AsynQt::await(future);
 
-        // 2. previous button is enabled only if we are not on
-        //    the first page
-        buttonPrevious->setEnabled(currentStepModules.size() > 0);
+        if (result) {
+            emit q->createdVault(vault);
+            q->QDialog::accept();
 
-        // 3. If we have loaded the last page, we want to show the
-        //    'Create' button instead of 'Next'
-        if (!currentSteps.isEmpty() && currentStepModules.size() == currentSteps.size()) {
-            buttonNext->hide();
-            buttonCreate->show();
         } else {
-            buttonNext->show();
-            buttonCreate->hide();
+            ui.message->setText(result.error().message());
+            ui.message->setMessageType(KMessageWidget::Error);
+            ui.message->show();
+            delete vault;
         }
-
-        // Calling to initialize the module -- we are passing all the
-        // previously collected data to it
-        auto collectedPayload = firstStepModule->fields();
-        for (const auto* module: currentStepModules) {
-            collectedPayload.unite(module->fields());
-        }
-        currentModule->init(collectedPayload);
     }
 };
 

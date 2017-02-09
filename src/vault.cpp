@@ -258,9 +258,10 @@ Vault::~Vault()
 
 
 FutureResult<> Vault::create(const QString &name, const QString &mountPoint,
-                             const Payload &payload,
-                             const QString &backendName)
+                             const Payload &payload)
 {
+    const auto backendName = payload[KEY_BACKEND].toString();
+
     return
         // If the backend is already known, and the device is initialized,
         // we do not want to do it again

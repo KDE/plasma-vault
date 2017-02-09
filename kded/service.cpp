@@ -27,8 +27,6 @@
 #include <KPasswordDialog>
 #include <KLocalizedString>
 
-#include "encfscreatedialog.h"
-
 #include "vault.h"
 #include "commandresult.h"
 

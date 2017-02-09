@@ -103,15 +103,28 @@ namespace CryFs {
         QDir dir;
 
         const auto password = payload[KEY_PASSWORD].toString();
+        const auto cypher   = payload["cryfs-cipher"].toString();
 
         if (!dir.mkpath(device) || !dir.mkpath(mountPoint)) {
             return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
         }
 
-        auto process = cryfs({
-                device, // source directory to initialize cryfs in
-                mountPoint // where to mount the file system
-            });
+        auto process =
+            cypher.isEmpty() ?
+                // Cypher is not specified, use the default, whatever it is
+                cryfs({
+                    device, // source directory to initialize cryfs in
+                    mountPoint // where to mount the file system
+                })
+
+            :   // Cypher is specified, use it to create the device
+                cryfs({
+                    "--cipher",
+                    cypher,
+                    device, // source directory to initialize cryfs in
+                    mountPoint // where to mount the file system
+                })
+            ;
 
         auto result
             = makeFuture(process, hasFinishedSuccessfully);

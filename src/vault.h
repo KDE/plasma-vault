@@ -77,7 +77,7 @@ public:
     static QStringList statusMessage();
 
     FutureResult<> create(const QString &name, const QString &mountPoint,
-                          const Payload &payload, const QString &backend);
+                          const Payload &payload);
 
     FutureResult<> open(const Payload &payload);
     FutureResult<> close();

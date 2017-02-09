@@ -2,7 +2,6 @@
 set(kded_plasmavault_SRCS
     service.cpp
 
-    encfscreatedialog.cpp
     ui/dialogdsl.cpp
     ui/activitieslinkingwidget.cpp
     ui/backendchooserwidget.cpp
@@ -14,8 +13,6 @@ set(kded_plasmavault_SRCS
 )
 
 ki18n_wrap_ui(kded_plasmavault_SRCS
-    ui/encfscreatedialog.ui
-
     ui/activitieslinkingwidget.ui
     ui/backendchooserwidget.ui
     ui/cryfscypherchooserwidget.ui
