@@ -95,7 +95,7 @@ void Window::buttonInitializeClicked()
     executeCommand(
             d->vault->create(ui->textName->text(),
                              ui->textMountPoint->text(),
-                             "somepassword",
+                             { { KEY_PASSWORD, "somepassword" } },
                              "encfs")
         );
 }
@@ -103,7 +103,7 @@ void Window::buttonInitializeClicked()
 void Window::buttonOpenClicked()
 {
     executeCommand(
-            d->vault->open("somepassword")
+            d->vault->open({ { KEY_PASSWORD, "somepassword" } })
         );
 }
 

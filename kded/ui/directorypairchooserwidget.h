@@ -38,7 +38,8 @@ public:
     DirectoryPairChooserWidget(DirectoryPairChooserWidgetFlags flags);
     ~DirectoryPairChooserWidget();
 
-    QHash<QString, QVariant> fields() const override;
+    PlasmaVault::Vault::Payload fields() const override;
+    void init(const PlasmaVault::Vault::Payload &payload) override;
 
 private:
     class Private;

@@ -72,7 +72,7 @@ void CryfsCypherChooserWidget::initializeCyphers()
 
     const auto err = process->readAllStandardError();
 
-    combo->addItem(i18n("Use the default cipher"), "default");
+    combo->addItem(i18n("Use the default cipher"), QString());
 
     for (const auto& item: QString::fromLatin1(err).split('\n')) {
         if (!item.isEmpty()) {
@@ -89,9 +89,11 @@ CryfsCypherChooserWidget::~CryfsCypherChooserWidget()
 
 
 
-QHash<QString, QVariant> CryfsCypherChooserWidget::fields() const
+PlasmaVault::Vault::Payload CryfsCypherChooserWidget::fields() const
 {
-    return {};
+    return {
+        { "cryfs-cipher", d->ui.comboCypher->currentData() }
+    };
 }
 
 

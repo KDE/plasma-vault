@@ -67,6 +67,12 @@ bool DialogModule::isValid() const
 
 
 
+void DialogModule::init(const PlasmaVault::Vault::Payload &payload)
+{
+}
+
+
+
 CompoundDialogModule::CompoundDialogModule(const step &children)
     : DialogDsl::DialogModule(false)
 {
@@ -95,9 +101,9 @@ CompoundDialogModule::CompoundDialogModule(const step &children)
 
 
 
-QHash<QString, QVariant> CompoundDialogModule::fields() const
+PlasmaVault::Vault::Payload CompoundDialogModule::fields() const
 {
-    QHash<QString, QVariant> result;
+    PlasmaVault::Vault::Payload result;
 
     for (const auto& child: m_children) {
         result.unite(child->fields());
@@ -106,6 +112,14 @@ QHash<QString, QVariant> CompoundDialogModule::fields() const
     return result;
 }
 
+
+
+void CompoundDialogModule::init(const PlasmaVault::Vault::Payload &payload)
+{
+    for (const auto& child: m_children) {
+        child->init(payload);
+    }
+}
 
 } // namespace DialogDsl
 

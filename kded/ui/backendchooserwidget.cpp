@@ -23,7 +23,7 @@
 
 #include "ui_backendchooserwidget.h"
 
-#include <QDebug>
+#include "vault.h"
 
 class BackendChooserWidget::Private {
 public:
@@ -59,11 +59,11 @@ void BackendChooserWidget::addItem(const QByteArray &id, const QString &title)
 
 
 
-QHash<QString, QVariant> BackendChooserWidget::fields() const
+PlasmaVault::Vault::Payload BackendChooserWidget::fields() const
 {
     return {
-        { VAULT_BACKEND, d->ui.comboBackend->currentData() },
-        { VAULT_NAME,    d->ui.editVaultName->text() }
+        { KEY_BACKEND, d->ui.comboBackend->currentData() },
+        { KEY_NAME,    d->ui.editVaultName->text() }
     };
 }
 

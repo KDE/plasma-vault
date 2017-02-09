@@ -98,9 +98,11 @@ namespace CryFs {
 
 
     FutureResult<> open(const Device &device, const MountPoint &mountPoint,
-                        const QString &password)
+                        const Vault::Payload &payload)
     {
         QDir dir;
+
+        const auto password = payload[KEY_PASSWORD].toString();
 
         if (!dir.mkpath(device) || !dir.mkpath(mountPoint)) {
             return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
@@ -147,7 +149,7 @@ Backend::Ptr CryFsBackend::instance()
 FutureResult<> CryFsBackend::initialize(const QString &name,
                                         const Device &device,
                                         const MountPoint &mountPoint,
-                                        const QString &password)
+                                        const Vault::Payload &payload)
 {
     Q_UNUSED(name);
 
@@ -161,14 +163,14 @@ FutureResult<> CryFsBackend::initialize(const QString &name,
                         i18n("You need to select empty directories for the encrypted storage and for the mount point")) :
 
         // otherwise
-            CryFs::open(device, mountPoint, password);
+            CryFs::open(device, mountPoint, payload);
 }
 
 
 
 FutureResult<> CryFsBackend::open(const Device &device,
                                   const MountPoint &mountPoint,
-                                  const QString &password)
+                                  const Vault::Payload &payload)
 {
     return
         isOpened(mountPoint) ?
@@ -176,7 +178,7 @@ FutureResult<> CryFsBackend::open(const Device &device,
                         i18n("Device is already open")) :
 
         // otherwise
-            CryFs::open(device, mountPoint, password);
+            CryFs::open(device, mountPoint, payload);
 }
 
 
@@ -200,17 +202,17 @@ FutureResult<> CryFsBackend::close(const Device &device,
 
 FutureResult<> CryFsBackend::destroy(const Device &device,
                                      const MountPoint &mountPoint,
-                                     const QString &password)
+                                     const Vault::Payload &payload)
 {
     // TODO:
     // mount
     // unmount
     // remove the directories
-    // return CryFs::destroy(device, mountPoint, password);
+    // return CryFs::destroy(device, mountPoint, payload);
 
     Q_UNUSED(device)
     Q_UNUSED(mountPoint)
-    Q_UNUSED(password)
+    Q_UNUSED(payload)
     return {};
 }
 

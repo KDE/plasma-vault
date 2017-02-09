@@ -31,7 +31,7 @@ public:
     CryfsCypherChooserWidget();
     ~CryfsCypherChooserWidget();
 
-    QHash<QString, QVariant> fields() const override;
+    PlasmaVault::Vault::Payload fields() const override;
 
 private Q_SLOTS:
     void initializeCyphers();

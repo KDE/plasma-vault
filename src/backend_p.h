@@ -30,6 +30,7 @@
 #include <mutex>
 
 #include "common.h"
+#include "vault.h"
 #include "commandresult.h"
 
 namespace PlasmaVault {
@@ -47,18 +48,18 @@ public:
     virtual FutureResult<> initialize(const QString &name,
                                       const Device &device,
                                       const MountPoint &mountPoint,
-                                      const QString &password) = 0;
+                                      const Vault::Payload &payload) = 0;
 
     virtual FutureResult<> open(const Device &device,
                                 const MountPoint &mountPoint,
-                                const QString &password) = 0;
+                                const Vault::Payload &payload) = 0;
 
     virtual FutureResult<> close(const Device &device,
                                  const MountPoint &mountPoint) = 0;
 
     virtual FutureResult<> destroy(const Device &device,
                                    const MountPoint &mountPoint,
-                                   const QString &password) = 0;
+                                   const Vault::Payload &payload) = 0;
 
     virtual FutureResult<> validateBackend() = 0;
 

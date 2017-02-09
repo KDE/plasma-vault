@@ -45,7 +45,7 @@ NoticeWidget::~NoticeWidget()
 
 
 
-QHash<QString, QVariant> NoticeWidget::fields() const
+PlasmaVault::Vault::Payload NoticeWidget::fields() const
 {
     return {};
 }

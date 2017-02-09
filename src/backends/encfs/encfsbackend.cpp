@@ -94,9 +94,11 @@ namespace EncFs {
 
 
     FutureResult<> open(const Device &device, const MountPoint &mountPoint,
-                        const QString &password)
+                        const Vault::Payload &payload)
     {
         QDir dir;
+
+        const auto password = payload[KEY_PASSWORD].toString();
 
         if (!dir.mkpath(device) || !dir.mkpath(mountPoint)) {
             return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
@@ -145,7 +147,7 @@ Backend::Ptr EncFsBackend::instance()
 FutureResult<> EncFsBackend::initialize(const QString &name,
                                         const Device &device,
                                         const MountPoint &mountPoint,
-                                        const QString &password)
+                                        const Vault::Payload &payload)
 {
     Q_UNUSED(name);
 
@@ -159,14 +161,14 @@ FutureResult<> EncFsBackend::initialize(const QString &name,
                         i18n("You need to select empty directories for the encrypted storage and for the mount point")) :
 
         // otherwise
-            EncFs::open(device, mountPoint, password);
+            EncFs::open(device, mountPoint, payload);
 }
 
 
 
 FutureResult<> EncFsBackend::open(const Device &device,
                                   const MountPoint &mountPoint,
-                                  const QString &password)
+                                  const Vault::Payload &payload)
 {
     return
         isOpened(mountPoint) ?
@@ -174,7 +176,7 @@ FutureResult<> EncFsBackend::open(const Device &device,
                         i18n("Device is already open")) :
 
         // otherwise
-            EncFs::open(device, mountPoint, password);
+            EncFs::open(device, mountPoint, payload);
 }
 
 
@@ -198,7 +200,7 @@ FutureResult<> EncFsBackend::close(const Device &device,
 
 FutureResult<> EncFsBackend::destroy(const Device &device,
                                      const MountPoint &mountPoint,
-                                     const QString &password)
+                                     const Vault::Payload &payload)
 {
     // TODO:
     // mount
@@ -208,7 +210,7 @@ FutureResult<> EncFsBackend::destroy(const Device &device,
 
     Q_UNUSED(device)
     Q_UNUSED(mountPoint)
-    Q_UNUSED(password)
+    Q_UNUSED(payload)
     return {};
 }
 

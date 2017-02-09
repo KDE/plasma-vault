@@ -32,7 +32,7 @@ public:
 
     ~NoticeWidget();
 
-    QHash<QString, QVariant> fields() const override;
+    PlasmaVault::Vault::Payload fields() const override;
 
 private:
     class Private;

@@ -154,7 +154,7 @@ public:
 private:
     bool checkPassword() override
     {
-        auto future = m_vault->open(password());
+        auto future = m_vault->open({ { KEY_PASSWORD, password() } });
 
         const auto result = AsynQt::await(future);
 

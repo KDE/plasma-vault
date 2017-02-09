@@ -28,6 +28,7 @@
 #include <QStackedLayout>
 
 #include "dialogdsl.h"
+#include "vault.h"
 
 using namespace DialogDsl;
 using namespace DialogDsl::operators;
@@ -105,7 +106,7 @@ public:
         // so we need to create them
         buttonPrevious = addDialogButton("go-previous",     i18n("Previous"), [this] { previousStep(); });
         buttonNext     = addDialogButton("go-next",         i18n("Next"),     [this] { nextStep(); });
-        buttonCreate   = addDialogButton("dialog-ok-apply", i18n("Create"),   [this] { nextStep(); });
+        buttonCreate   = addDialogButton("dialog-ok-apply", i18n("Create"),   [this] { createVault(); });
 
         // The 'Create' button should be hidden by default
         buttonCreate->hide();
@@ -145,7 +146,7 @@ public:
         // and we need to load the vault creation steps
         if (currentStepModules.isEmpty()) {
             const auto &fields = firstStepModule->fields();
-            currentSteps = logic[fields[VAULT_BACKEND].toByteArray()];
+            currentSteps = logic[fields[KEY_BACKEND].toByteArray()];
         }
 
         // Loading the modulws that we need to show now
@@ -168,6 +169,11 @@ public:
 
     void createVault()
     {
+        auto collectedPayload = firstStepModule->fields();
+        for (const auto* module: currentStepModules) {
+            collectedPayload.unite(module->fields());
+        }
+        qDebug() << "PAYLOAD: " << collectedPayload;
     }
 
     void setCurrentModule(DialogDsl::DialogModule *module)
@@ -205,6 +211,13 @@ public:
             buttonCreate->hide();
         }
 
+        // Calling to initialize the module -- we are passing all the
+        // previously collected data to it
+        auto collectedPayload = firstStepModule->fields();
+        for (const auto* module: currentStepModules) {
+            collectedPayload.unite(module->fields());
+        }
+        currentModule->init(collectedPayload);
     }
 };
 

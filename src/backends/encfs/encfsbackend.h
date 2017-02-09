@@ -38,18 +38,18 @@ public:
 
     FutureResult<> initialize(const QString &name,
                               const Device &device, const MountPoint &mountPoint,
-                              const QString &password) override;
+                              const Vault::Payload &payload) override;
 
     FutureResult<> open(const Device &device,
                         const MountPoint &mountPoint,
-                        const QString &password) override;
+                        const Vault::Payload &payload) override;
 
     FutureResult<> close(const Device &device,
                          const MountPoint &mountPoint) override;
 
     FutureResult<> destroy(const Device &device,
                            const MountPoint &mountPoint,
-                           const QString &password) override;
+                           const Vault::Payload &payload) override;
 
     FutureResult<> validateBackend() override;
 

@@ -52,9 +52,11 @@ PasswordChooserWidget::~PasswordChooserWidget()
 
 
 
-QHash<QString, QVariant> PasswordChooserWidget::fields() const
+PlasmaVault::Vault::Payload PasswordChooserWidget::fields() const
 {
-    return {};
+    return {
+        { KEY_PASSWORD, d->ui.editPassword->password() }
+    };
 }
 
 

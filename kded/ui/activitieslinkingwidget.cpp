@@ -63,6 +63,8 @@ namespace {
         QSize sizeHint(const QStyleOptionViewItem &option,
                        const QModelIndex &index) const override
         {
+            Q_UNUSED(option);
+            Q_UNUSED(index);
             return QSize(100, 22);
         }
     }; //^
@@ -88,9 +90,20 @@ ActivitiesLinkingWidget::~ActivitiesLinkingWidget()
 
 
 
-QHash<QString, QVariant> ActivitiesLinkingWidget::fields() const
+PlasmaVault::Vault::Payload ActivitiesLinkingWidget::fields() const
 {
-    return {};
+
+    const auto selection = d->ui.listActivities->selectionModel();
+    QStringList selectedActivities;
+    for (const auto &selectedIndex: selection->selectedIndexes()) {
+        selectedActivities
+            << selectedIndex.data(KActivities::ActivitiesModel::ActivityId)
+                            .toString();
+    }
+
+    return {
+        { KEY_ACTIVITIES, selectedActivities }
+    };
 }
 
 

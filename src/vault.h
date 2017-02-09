@@ -24,6 +24,7 @@
 
 #include <QString>
 #include <QObject>
+#include <QVariant>
 #include <QDBusArgument>
 
 #include "common.h"
@@ -34,6 +35,14 @@ class QDBusArgument;
 
 namespace PlasmaVault {
 
+#define KEY_NAME        "vault-name"
+#define KEY_BACKEND     "vault-backend"
+#define KEY_PASSWORD    "vault-password"
+#define KEY_DEVICE      "vault-device"
+#define KEY_MOUNT_POINT "vault-mount-point"
+#define KEY_ACTIVITIES  "vault-activities"
+
+#define KEY_  "vault-activities"
 class PLASMAVAULT_EXPORT Vault: public QObject {
     Q_OBJECT
 
@@ -47,6 +56,8 @@ class PLASMAVAULT_EXPORT Vault: public QObject {
 public:
     Vault(const QString &device, QObject *parent = nullptr);
     ~Vault();
+
+    typedef QHash<QByteArray, QVariant> Payload;
 
     enum Status {
         NotInitialized = 0,
@@ -66,12 +77,12 @@ public:
     static QStringList statusMessage();
 
     FutureResult<> create(const QString &name, const QString &mountPoint,
-                          const QString &password, const QString &backend);
+                          const Payload &payload, const QString &backend);
 
-    FutureResult<> open(const QString &password);
+    FutureResult<> open(const Payload &payload);
     FutureResult<> close();
 
-    FutureResult<> destroy(const QString &password);
+    FutureResult<> destroy(const Payload &payload);
 
 public Q_SLOTS:
     QString errorMessage() const;

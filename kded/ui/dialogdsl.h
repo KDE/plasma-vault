@@ -29,6 +29,8 @@
 
 #include <functional>
 
+#include <vault.h>
+
 namespace DialogDsl {
 
 // We want to have a normal ID for the QMap or QHash,
@@ -61,7 +63,8 @@ class DialogModule: public QWidget {
 public:
     DialogModule(bool isValid);
 
-    virtual QHash<QString, QVariant> fields() const = 0;
+    virtual PlasmaVault::Vault::Payload fields() const = 0;
+    virtual void init(const PlasmaVault::Vault::Payload &payload);
 
     bool isValid() const;
     void setIsValid(bool valid);
@@ -84,7 +87,8 @@ class CompoundDialogModule: public DialogModule {
 public:
     CompoundDialogModule(const step &children);
 
-    QHash<QString, QVariant> fields() const override;
+    PlasmaVault::Vault::Payload fields() const override;
+    void init(const PlasmaVault::Vault::Payload &payload) override;
 
 private:
     QVector<DialogModule*> m_children;

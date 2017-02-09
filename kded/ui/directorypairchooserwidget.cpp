@@ -20,8 +20,9 @@
  */
 
 #include "directorypairchooserwidget.h"
-
 #include "ui_directorypairchooserwidget.h"
+
+#include "vault.h"
 
 class DirectoryPairChooserWidget::Private {
 public:
@@ -105,9 +106,22 @@ DirectoryPairChooserWidget::~DirectoryPairChooserWidget()
 
 
 
-QHash<QString, QVariant> DirectoryPairChooserWidget::fields() const
+PlasmaVault::Vault::Payload DirectoryPairChooserWidget::fields() const
 {
-    return {};
+    return {
+        { KEY_DEVICE,      d->ui.editDevice->text() },
+        { KEY_MOUNT_POINT, d->ui.editMountPoint->text() }
+    };
+}
+
+
+
+void DirectoryPairChooserWidget::init(const PlasmaVault::Vault::Payload &payload)
+{
+    const auto name = payload[KEY_NAME].toString();
+
+    d->ui.editDevice->setText("~/.vaults/" + name + ".enc");
+    d->ui.editMountPoint->setText("~/Vaults/" + name);
 }
 
 

@@ -24,9 +24,6 @@
 
 #include "dialogdsl.h"
 
-#define VAULT_NAME "vault-name"
-#define VAULT_BACKEND "vault-backend"
-
 class BackendChooserWidget: public DialogDsl::DialogModule {
     Q_OBJECT
 
@@ -36,7 +33,7 @@ public:
 
     void addItem(const QByteArray &id, const QString &title);
 
-    QHash<QString, QVariant> fields() const override;
+    PlasmaVault::Vault::Payload fields() const override;
     QByteArray backendId();
 
 private:

@@ -187,7 +187,7 @@ void CreateDialog::accept()
 
     auto vault = new Vault(device, this);
 
-    auto future = vault->create(name, mountPoint, password, "encfs");
+    auto future = vault->create(name, mountPoint, { { KEY_PASSWORD, password } }, "encfs");
 
     auto result = AsynQt::await(future);
 

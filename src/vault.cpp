@@ -258,7 +258,7 @@ Vault::~Vault()
 
 
 FutureResult<> Vault::create(const QString &name, const QString &mountPoint,
-                             const QString &password,
+                             const Payload &payload,
                              const QString &backendName)
 {
     return
@@ -275,11 +275,11 @@ FutureResult<> Vault::create(const QString &name, const QString &mountPoint,
 
         // otherwise
         d->followFuture(Creating,
-                        d->data->backend->initialize(name, d->device, mountPoint, password));
+                        d->data->backend->initialize(name, d->device, mountPoint, payload));
 }
 
 
-FutureResult<> Vault::open(const QString &password)
+FutureResult<> Vault::open(const Payload &payload)
 {
     return
         // We can not mount something that has not been registered
@@ -289,7 +289,7 @@ FutureResult<> Vault::open(const QString &password)
 
         // otherwise
         d->followFuture(Opening,
-                        d->data->backend->open(d->device, d->data->mountPoint, password));
+                        d->data->backend->open(d->device, d->data->mountPoint, payload));
 }
 
 
@@ -309,7 +309,7 @@ FutureResult<> Vault::close()
 
 
 
-FutureResult<> Vault::destroy(const QString &password)
+FutureResult<> Vault::destroy(const Payload &payload)
 {
     return
         // We can not mount something that has not been registered
@@ -319,7 +319,7 @@ FutureResult<> Vault::destroy(const QString &password)
 
         // otherwise
         d->followFuture(Destroying,
-                        d->data->backend->destroy(d->device, d->data->mountPoint, password));
+                        d->data->backend->destroy(d->device, d->data->mountPoint, payload));
 }
 
 
