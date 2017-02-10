@@ -40,7 +40,7 @@ using namespace PlasmaVault;
 
 class PlasmaVaultService::Private {
 public:
-    QHash<QString, Vault*> knownVaults;
+    QHash<Device, Vault*> knownVaults;
 
 };
 
@@ -67,7 +67,7 @@ void PlasmaVaultService::init()
 {
     qDebug() << "Called init";
 
-    for (const auto &device: Vault::availableDevices()) {
+    for (const Device &device: Vault::availableDevices()) {
         registerVault(new Vault(device, this));
     }
 }
@@ -78,7 +78,13 @@ PlasmaVault::VaultDataList PlasmaVaultService::availableDevices() const
 {
     PlasmaVault::VaultDataList result;
     for (const auto &vault: d->knownVaults.values()) {
-        result << VaultData::from(vault);
+        const auto vaultData = VaultData::from(vault);
+        qDebug() << "Service sending the vault:"
+                 << vaultData.name
+                 << vaultData.device
+                 << vaultData.mountPoint
+                 << vaultData.status;
+        result << vaultData;
     }
     return result;
 }
@@ -108,6 +114,11 @@ void PlasmaVaultService::slotRegistered(const QDBusObjectPath &path)
 
 void PlasmaVaultService::registerVault(Vault *vault)
 {
+    if (!vault->isValid()) {
+        qWarning() << "Warning: Trying to register an invalid vault: " << vault->device();
+        return;
+    }
+
     if (d->knownVaults.contains(vault->device())) {
         qWarning() << "Warning: This one is already registered: " << vault->device();
         return;
@@ -184,8 +195,10 @@ void showPasswordMountDialog(Vault *vault, Function &&function)
 }
 //^
 
-void PlasmaVaultService::openVault(const QString &device)
+void PlasmaVaultService::openVault(const QString &device_)
 {
+    const Device device(device_);
+
     if (!d->knownVaults.contains(device)) return;
     const auto vault = d->knownVaults[device];
 
@@ -198,8 +211,10 @@ void PlasmaVaultService::openVault(const QString &device)
 
 
 
-void PlasmaVaultService::closeVault(const QString &device)
+void PlasmaVaultService::closeVault(const QString &device_)
 {
+    const Device device(device_);
+
     if (!d->knownVaults.contains(device)) return;
     auto vault = d->knownVaults[device];
 

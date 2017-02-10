@@ -25,6 +25,7 @@
 #include "plasmavault_export.h"
 
 #include <QString>
+#include <QHash>
 
 #define PLASMAVAULT_CONFIG_FILE "plasmavaultrc"
 
@@ -32,22 +33,47 @@ namespace PlasmaVault {
 
 class PLASMAVAULT_EXPORT Device {
 public:
-    Device(QString device);
+    explicit Device(QString device = QString());
     operator QString() const;
+
+    inline QString data() const
+    {
+        return m_device;
+    }
 
 private:
     QString m_device;
-
 };
+
+inline uint qHash(const Device &value, uint seed = 0)
+{
+    return qHash(value.data(), seed);
+}
+
+inline bool operator== (const Device &left, const Device &right)
+{
+    return left.data() == right.data();
+}
+
+
 
 class PLASMAVAULT_EXPORT MountPoint {
 public:
-    MountPoint(QString mountPoint);
+    explicit MountPoint(QString mountPoint = QString());
     operator QString() const;
+
+    inline bool isEmpty() const
+    {
+        return m_mountPoint.isEmpty();
+    }
+
+    inline QString data() const
+    {
+        return m_mountPoint;
+    }
 
 private:
     QString m_mountPoint;
-
 };
 
 } // namespace PlasmaVault

@@ -85,10 +85,10 @@ namespace CryFs {
                 Result<>::error(Error::CommandError,
                                 i18n("The mount point directory is not empty, refusing to open the vault")) :
 
-            // If we have a message for the user, report it
-            !out.isEmpty() ?
-                Result<>::error(Error::CommandError,
-                                out) :
+            // If we have a message for the user, report it ... or not, cryfs messages are useless
+            // !out.isEmpty() ?
+            //     Result<>::error(Error::CommandError,
+            //                     out) :
 
             // otherwise just report that we failed
                 Result<>::error(Error::CommandError,
@@ -313,8 +313,9 @@ FutureResult<> CryFsBackend::validateBackend()
 
 bool CryFsBackend::isInitialized(const Device &device) const
 {
-    QFile cryFsConfig(device + "cryfs.config");
+    QFile cryFsConfig(device + "/cryfs.config");
 
+    qDebug() << "Is initialized? " << cryFsConfig.fileName() << cryFsConfig.exists();
     return cryFsConfig.exists();
 }
 

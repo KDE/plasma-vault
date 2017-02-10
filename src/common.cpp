@@ -23,8 +23,16 @@
 
 namespace PlasmaVault {
 
+static QString validateDevice(QString device)
+{
+    if (device.endsWith('/')) {
+        device.chop(1);
+    }
+    return device;
+}
+
 Device::Device(QString device)
-    : m_device(device)
+    : m_device(validateDevice(device))
 {
 }
 

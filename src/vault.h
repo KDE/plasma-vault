@@ -46,7 +46,8 @@ namespace PlasmaVault {
 class PLASMAVAULT_EXPORT Vault: public QObject {
     Q_OBJECT
 
-    Q_PROPERTY(QString device     READ device)
+    Q_PROPERTY(PlasmaVault::Device device READ device)
+
     Q_PROPERTY(QString mountPoint READ mountPoint    NOTIFY mountPointChanged)
     Q_PROPERTY(Status status      READ status        NOTIFY statusChanged)
     Q_PROPERTY(bool isInitialized READ isInitialized NOTIFY isInitializedChanged)
@@ -54,7 +55,7 @@ class PLASMAVAULT_EXPORT Vault: public QObject {
     Q_PROPERTY(bool isBusy        READ isBusy        NOTIFY isBusyChanged)
 
 public:
-    Vault(const QString &device, QObject *parent = nullptr);
+    Vault(const Device &device, QObject *parent = nullptr);
     ~Vault();
 
     typedef QHash<QByteArray, QVariant> Payload;
@@ -71,12 +72,13 @@ public:
 
         Error          = 255
     };
-    Q_ENUM(Status)
+    Q_ENUM(Status);
 
-    static QStringList availableDevices();
+    bool isValid() const;
+    static QList<Device> availableDevices();
     static QStringList statusMessage();
 
-    FutureResult<> create(const QString &name, const QString &mountPoint,
+    FutureResult<> create(const QString &name, const MountPoint &mountPoint,
                           const Payload &payload);
 
     FutureResult<> open(const Payload &payload);
@@ -87,13 +89,14 @@ public:
 public Q_SLOTS:
     QString errorMessage() const;
     Status status() const;
+
     bool isInitialized() const;
     bool isOpened() const;
     bool isBusy() const;
 
     QString name() const;
-    QString device() const;
-    QString mountPoint() const;
+    Device device() const;
+    MountPoint mountPoint() const;
 
 Q_SIGNALS:
     void mountPointChanged(const QString &mountPoint);

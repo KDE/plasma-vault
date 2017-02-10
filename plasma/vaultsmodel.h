@@ -40,10 +40,9 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     enum Roles {
-        VaultType = Qt::UserRole + 1,
+        VaultName = Qt::UserRole + 1,
         VaultDevice,
         VaultMountPoint,
-        VaultName,
         VaultIcon,
         VaultBusy,
         VaultStatus

@@ -94,7 +94,7 @@ void Window::buttonInitializeClicked()
 {
     executeCommand(
             d->vault->create(ui->textName->text(),
-                             ui->textMountPoint->text(),
+                             PlasmaVault::MountPoint(ui->textMountPoint->text()),
                              { { KEY_PASSWORD, "somepassword" }, { KEY_BACKEND, "encfs" } })
         );
 }
@@ -119,7 +119,8 @@ void Window::buttonDestroyClicked()
 
 void Window::buttonLoadClicked()
 {
-    d->vault.reset(new PlasmaVault::Vault(ui->textDevice->text()));
+    d->vault.reset(new PlasmaVault::Vault(
+                PlasmaVault::Device(ui->textDevice->text())));
 
     connect(d->vault.get(), &PlasmaVault::Vault::mountPointChanged, this,
             [this] (const QString &mountPoint) {

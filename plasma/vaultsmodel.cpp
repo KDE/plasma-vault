@@ -59,7 +59,11 @@ VaultsModel::Private::Private(VaultsModel *parent)
                 QDBusPendingReply<VaultDataList> reply = *watcher;
                 const auto vaultList = reply.value();
                 for (const auto& vault: vaultList) {
-                    qDebug() << "---------------> Plasma recognizes vault: " << vault.name;
+                    qDebug() << "---------------> Plasma recognizes vault: "
+                             << vault.name
+                             << vault.device
+                             << vault.mountPoint
+                             << vault.status;
                     vaults[vault.device] = vault;
                     vaultKeys << vault.device;
                 }
@@ -166,9 +170,6 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
     const auto &vault = d->vaults[device];
 
     switch (role) {
-        case VaultType:
-            return "encfs";
-
         case VaultDevice:
             qDebug() << "Vault getting the device" << vault.device;
             return vault.device;
@@ -219,7 +220,6 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> VaultsModel::roleNames() const
 {
     return {
-        { VaultType, "type" },
         { VaultName, "name" },
         { VaultIcon, "icon" },
         { VaultDevice, "device" },

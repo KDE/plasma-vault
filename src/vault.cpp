@@ -46,13 +46,13 @@ public:
     Vault * const q;
 
     KSharedConfigPtr config;
-    QString device;
+    Device device;
 
 
 
     struct Data {
         QString name;
-        QString mountPoint;
+        MountPoint mountPoint;
         Vault::Status status;
 
         QString backendName;
@@ -99,11 +99,11 @@ public:
 
             // Saving the data for the current mount
             KConfigGroup generalConfig(config, "EncryptedDevices");
-            generalConfig.writeEntry(device, true);
+            generalConfig.writeEntry(device.data(), true);
 
-            KConfigGroup vaultConfig(config, device);
+            KConfigGroup vaultConfig(config, device.data());
             vaultConfig.writeEntry(CFG_LAST_STATUS, (int)data->status);
-            vaultConfig.writeEntry(CFG_MOUNTPOINT,  data->mountPoint);
+            vaultConfig.writeEntry(CFG_MOUNTPOINT,  data->mountPoint.data());
             vaultConfig.writeEntry(CFG_NAME,        data->name);
             vaultConfig.writeEntry(CFG_BACKEND,     data->backend->name());
 
@@ -115,13 +115,13 @@ public:
             emit q->isBusyChanged(false);
 
             KConfigGroup generalConfig(config, "EncryptedDevices");
-            generalConfig.writeEntry(device, false);
+            generalConfig.writeEntry(device.data(), false);
 
-            KConfigGroup vaultConfig(config, device);
+            KConfigGroup vaultConfig(config, device.data());
             vaultConfig.writeEntry(CFG_LAST_STATUS, (int)Vault::Error);
-            vaultConfig.deleteEntry(CFG_MOUNTPOINT);
-            vaultConfig.deleteEntry(CFG_NAME);
-            vaultConfig.deleteEntry(CFG_BACKEND);
+            // vaultConfig.deleteEntry(CFG_MOUNTPOINT);
+            // vaultConfig.deleteEntry(CFG_NAME);
+            // vaultConfig.deleteEntry(CFG_BACKEND);
 
             emit q->statusChanged(Vault::Error);
         }
@@ -139,12 +139,14 @@ public:
 
 
 
-    ExpectedData openVault(const QString &device,
+    ExpectedData openVault(const Device &device,
                            const QString &name = QString(),
-                           const QString &mountPoint = QString(),
+                           const MountPoint &mountPoint = MountPoint(),
                            const QString &backendName = QString()) const
     {
-        if (!config->hasGroup(device)) {
+        qDebug() << "OPEN VAULT <--------------------------------";
+
+        if (!config->hasGroup(device.data())) {
             return errorData(Error::DeviceError, i18n("Unknown device"));
         }
 
@@ -155,9 +157,9 @@ public:
         vaultData.status = Vault::Error;
 
         // Reading the mount data from the config
-        const KConfigGroup vaultConfig(config, device);
+        const KConfigGroup vaultConfig(config, device.data());
         vaultData.name        = vaultConfig.readEntry(CFG_NAME, name);
-        vaultData.mountPoint  = vaultConfig.readEntry(CFG_MOUNTPOINT, mountPoint);
+        vaultData.mountPoint  = MountPoint(vaultConfig.readEntry(CFG_MOUNTPOINT, mountPoint.data()));
         vaultData.backendName = vaultConfig.readEntry(CFG_BACKEND, backendName);
 
         const QDir mountPointDir(vaultData.mountPoint);
@@ -190,7 +192,7 @@ public:
 
 
 
-    Private(Vault *parent, const QString &device)
+    Private(Vault *parent, const Device &device)
         : q(parent)
         , config(KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE))
         , device(device)
@@ -242,7 +244,7 @@ public:
 
 
 
-Vault::Vault(const QString &device, QObject *parent)
+Vault::Vault(const Device &device, QObject *parent)
     : QObject(parent)
     , d(new Private(this, device))
 {
@@ -257,7 +259,7 @@ Vault::~Vault()
 
 
 
-FutureResult<> Vault::create(const QString &name, const QString &mountPoint,
+FutureResult<> Vault::create(const QString &name, const MountPoint &mountPoint,
                              const Payload &payload)
 {
     const auto backendName = payload[KEY_BACKEND].toString();
@@ -332,6 +334,13 @@ Vault::Status Vault::status() const
 
 
 
+bool Vault::isValid() const
+{
+    return d->data;
+}
+
+
+
 QString Vault::name() const
 {
     return d->data->name;
@@ -339,25 +348,30 @@ QString Vault::name() const
 
 
 
-QString Vault::device() const
+Device Vault::device() const
 {
     return d->device;
 }
 
 
 
-QString Vault::mountPoint() const
+MountPoint Vault::mountPoint() const
 {
     return d->data->mountPoint;
 }
 
 
 
-QStringList Vault::availableDevices()
+QList<Device> Vault::availableDevices()
 {
     const auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
     const KConfigGroup general(config, "EncryptedDevices");
-    return general.keyList();
+
+    QList<Device> results;
+    for (const auto& item: general.keyList()) {
+        results << Device(item);
+    }
+    return results;
 }
 
 

@@ -220,9 +220,9 @@ public:
         }
 
         // qDebug() << "PAYLOAD: " << collectedPayload;
-        const auto name       = collectedPayload[KEY_NAME].toString();
-        const auto device     = collectedPayload[KEY_DEVICE].toString();
-        const auto mountPoint = collectedPayload[KEY_MOUNT_POINT].toString();
+        const auto name = collectedPayload[KEY_NAME].toString();
+        const PlasmaVault::Device device(collectedPayload[KEY_DEVICE].toString());
+        const PlasmaVault::MountPoint mountPoint(collectedPayload[KEY_MOUNT_POINT].toString());
 
         auto vault = new PlasmaVault::Vault(device, q);
 
