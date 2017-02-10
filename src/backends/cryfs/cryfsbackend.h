@@ -22,11 +22,11 @@
 #ifndef PLASMAVAULT_BACKENDS_CRYFS_BACKEND_H
 #define PLASMAVAULT_BACKENDS_CRYFS_BACKEND_H
 
-#include <backend_p.h>
+#include <fusebackend_p.h>
 
 namespace PlasmaVault {
 
-class CryFsBackend: public Backend {
+class CryFsBackend: public FuseBackend {
 public:
     CryFsBackend();
     ~CryFsBackend();
@@ -34,26 +34,18 @@ public:
     static Backend::Ptr instance();
 
     bool isInitialized(const Device &device) const override;
-    bool isOpened(const MountPoint &mountPoint) const override;
-
-    FutureResult<> initialize(const QString &name,
-                              const Device &device, const MountPoint &mountPoint,
-                              const Vault::Payload &payload) override;
-
-    FutureResult<> open(const Device &device,
-                        const MountPoint &mountPoint,
-                        const Vault::Payload &payload) override;
-
-    FutureResult<> close(const Device &device,
-                         const MountPoint &mountPoint) override;
-
-    FutureResult<> destroy(const Device &device,
-                           const MountPoint &mountPoint,
-                           const Vault::Payload &payload) override;
 
     FutureResult<> validateBackend() override;
 
     QString name() const override { return "cryfs"; };
+
+protected:
+    FutureResult<> mount(const Device &device,
+                         const MountPoint &mountPoint,
+                         const Vault::Payload &payload) override;
+
+private:
+    QProcess *cryfs(const QStringList &arguments) const;
 };
 
 } // namespace PlasmaVault

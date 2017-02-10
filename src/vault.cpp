@@ -22,12 +22,14 @@
 #include <QDir>
 #include <QFutureWatcher>
 #include <QDBusMetaType>
+#include <QUrl>
 
 #include <KSharedConfig>
 #include <KConfig>
 #include <KConfigGroup>
 
 #include <KLocalizedString>
+#include <kdirnotify.h>
 
 #include "backend_p.h"
 #include "error.h"
@@ -106,6 +108,9 @@ public:
             vaultConfig.writeEntry(CFG_MOUNTPOINT,  data->mountPoint.data());
             vaultConfig.writeEntry(CFG_NAME,        data->name);
             vaultConfig.writeEntry(CFG_BACKEND,     data->backend->name());
+
+            org::kde::KDirNotify::emitFilesAdded(
+                    QUrl::fromLocalFile(data->mountPoint.data()));
 
             config->sync();
 

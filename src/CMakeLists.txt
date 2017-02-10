@@ -5,6 +5,7 @@ set (
 
    vault.cpp
    backend_p.cpp
+   fusebackend_p.cpp
    common.cpp
    commandresult.cpp
 
