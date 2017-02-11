@@ -55,7 +55,7 @@ public:
     struct Data {
         QString name;
         MountPoint mountPoint;
-        Vault::Status status;
+        VaultInfo::Status status;
 
         QString backendName;
         Backend::Ptr backend;
@@ -72,9 +72,9 @@ public:
             // Checking the status, and whether we should update it
             const auto oldStatus = data->status;
             const auto newStatus =
-                           isOpened()      ? Vault::Opened :
-                           isInitialized() ? Vault::Closed :
-                                             Vault::NotInitialized;
+                           isOpened()      ? VaultInfo::Opened :
+                           isInitialized() ? VaultInfo::Closed :
+                                             VaultInfo::NotInitialized;
 
             qDebug() << "Vault " << device << " status " << oldStatus << " -> " << newStatus;
 
@@ -84,18 +84,18 @@ public:
 
             emit q->statusChanged(data->status);
 
-            if (oldStatus == Vault::Opened || newStatus == Vault::Opened) {
+            if (oldStatus == VaultInfo::Opened || newStatus == VaultInfo::Opened) {
                 emit q->isOpenedChanged(newStatus);
             }
 
-            if (oldStatus == Vault::NotInitialized || newStatus == Vault::NotInitialized) {
+            if (oldStatus == VaultInfo::NotInitialized || newStatus == VaultInfo::NotInitialized) {
                 emit q->isInitializedChanged(newStatus);
             }
 
-            if (oldStatus == Vault::Creating
-                    || oldStatus == Vault::Opening
-                    || oldStatus == Vault::Closing
-                    || oldStatus == Vault::Destroying) {
+            if (oldStatus == VaultInfo::Creating
+                    || oldStatus == VaultInfo::Opening
+                    || oldStatus == VaultInfo::Closing
+                    || oldStatus == VaultInfo::Destroying) {
                 emit q->isBusyChanged(false);
             }
 
@@ -123,12 +123,12 @@ public:
             generalConfig.writeEntry(device.data(), false);
 
             KConfigGroup vaultConfig(config, device.data());
-            vaultConfig.writeEntry(CFG_LAST_STATUS, (int)Vault::Error);
+            vaultConfig.writeEntry(CFG_LAST_STATUS, (int)VaultInfo::Error);
             // vaultConfig.deleteEntry(CFG_MOUNTPOINT);
             // vaultConfig.deleteEntry(CFG_NAME);
             // vaultConfig.deleteEntry(CFG_BACKEND);
 
-            emit q->statusChanged(Vault::Error);
+            emit q->statusChanged(VaultInfo::Error);
         }
 
         config->sync();
@@ -159,7 +159,7 @@ public:
 
         // status should never be in this state, if we got an error,
         // d->data should not be valid
-        vaultData.status = Vault::Error;
+        vaultData.status = VaultInfo::Error;
 
         // Reading the mount data from the config
         const KConfigGroup vaultConfig(config, device.data());
@@ -209,7 +209,7 @@ public:
 
 
     template <typename T>
-    T followFuture(Vault::Status whileNotFinished, const T &future)
+    T followFuture(VaultInfo::Status whileNotFinished, const T &future)
     {
         auto watcher = new QFutureWatcher<decltype(future.result())>(q);
         watcher->setFuture(future);
@@ -282,7 +282,7 @@ FutureResult<> Vault::create(const QString &name, const MountPoint &mountPoint,
                         i18n("Unknown error, unable to create the backend.")) :
 
         // otherwise
-        d->followFuture(Creating,
+        d->followFuture(VaultInfo::Creating,
                         d->data->backend->initialize(name, d->device, mountPoint, payload));
 }
 
@@ -296,7 +296,7 @@ FutureResult<> Vault::open(const Payload &payload)
                                i18n("Can not open an unknown vault.")) :
 
         // otherwise
-        d->followFuture(Opening,
+        d->followFuture(VaultInfo::Opening,
                         d->data->backend->open(d->device, d->data->mountPoint, payload));
 }
 
@@ -311,7 +311,7 @@ FutureResult<> Vault::close()
                                i18n("The vault is unknown, can not close it.")) :
 
         // otherwise
-        d->followFuture(Closing,
+        d->followFuture(VaultInfo::Closing,
                         d->data->backend->close(d->device, d->data->mountPoint));
 }
 
@@ -326,13 +326,13 @@ FutureResult<> Vault::destroy(const Payload &payload)
                                i18n("The vault is unknown, can not destroy it.")) :
 
         // otherwise
-        d->followFuture(Destroying,
+        d->followFuture(VaultInfo::Destroying,
                         d->data->backend->destroy(d->device, d->data->mountPoint, payload));
 }
 
 
 
-Vault::Status Vault::status() const
+VaultInfo::Status Vault::status() const
 {
     return d->data->status;
 }
@@ -425,10 +425,10 @@ bool Vault::isBusy() const
     }
 
     switch (status()) {
-        case Creating:
-        case Opening:
-        case Closing:
-        case Destroying:
+        case VaultInfo::Creating:
+        case VaultInfo::Opening:
+        case VaultInfo::Closing:
+        case VaultInfo::Destroying:
             return true;
 
         default:
@@ -438,20 +438,15 @@ bool Vault::isBusy() const
 
 
 
-VaultData VaultData::from(Vault *vault)
+VaultInfo Vault::info() const
 {
-    VaultData vaultData;
-    vaultData.device = vault->device();
-    vaultData.name   = vault->name();
-    vaultData.status = vault->status();
-    return vaultData;
+    VaultInfo vaultInfo;
+    vaultInfo.device = device();
+    vaultInfo.name   = name();
+    vaultInfo.status = status();
+    return vaultInfo;
 }
 
 } // namespace PlasmaVault
 
-auto static_init_VaultData = [] {
-    qDBusRegisterMetaType<PlasmaVault::VaultData>();
-    qDBusRegisterMetaType<PlasmaVault::VaultDataList>();
-    return true;
-} ();
 

@@ -19,10 +19,10 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_BACKENDS_FUSE_BACKEND_H
-#define PLASMAVAULT_BACKENDS_FUSE_BACKEND_H
+#ifndef PLASMAVAULT_KDED_ENGINE_BACKENDS_FUSE_BACKEND_H
+#define PLASMAVAULT_KDED_ENGINE_BACKENDS_FUSE_BACKEND_H
 
-#include <backend_p.h>
+#include "backend_p.h"
 
 #include <QProcess>
 
@@ -69,5 +69,5 @@ protected:
 
 } // namespace PlasmaVault
 
-#endif // PLASMAVAULT_BACKENDS_FUSE_BACKEND_H
+#endif // include guard
 

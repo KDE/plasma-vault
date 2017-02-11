@@ -19,11 +19,12 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMA_VAULTSMODEL_P_H
-#define PLASMA_VAULTSMODEL_P_H
+#ifndef PLASMAVAULT_PLASMA_VAULTSMODEL_P_H
+#define PLASMAVAULT_PLASMA_VAULTSMODEL_P_H
 
 #include <QDBusInterface>
 #include "plasmavault_interface.h"
+#include <common/vaultinfo.h>
 
 class VaultsModel::Private: public QObject {
     Q_OBJECT
@@ -31,17 +32,17 @@ class VaultsModel::Private: public QObject {
 public:
     Private(VaultsModel *parent);
     QStringList vaultKeys;
-    QMap<QString, PlasmaVault::VaultData> vaults;
+    QMap<QString, PlasmaVault::VaultInfo> vaults;
 
 public Q_SLOTS:
-    void onVaultAdded(const PlasmaVault::VaultData &vaultData);
+    void onVaultAdded(const PlasmaVault::VaultInfo &vaultData);
     void onVaultRemoved(const QString &device);
-    void onVaultChanged(const PlasmaVault::VaultData &vaultData);
+    void onVaultChanged(const PlasmaVault::VaultInfo &vaultData);
 
 public:
     org::kde::plasmavault service;
     VaultsModel *const q;
 };
 
-#endif // PLASMA_VAULTSMODEL_P_H
+#endif // include guard
 

@@ -19,7 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "applet.h"
+#include "vaultapplet.h"
+
 #include <klocalizedstring.h>
 
 #include "vaultsmodel.h"
@@ -28,8 +29,8 @@ VaultApplet::VaultApplet(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args)
     , m_vaultsModel(nullptr)
 {
-    qDebug() << "Getting the status message <==========================";
-    PlasmaVault::Vault::statusMessage();
+    // qDebug() << "Getting the status message <==========================";
+    // PlasmaVault::Vault::statusMessage();
 }
 
 VaultApplet::~VaultApplet()
@@ -47,4 +48,5 @@ QObject *VaultApplet::vaultsModel()
 
 K_EXPORT_PLASMA_APPLET_WITH_JSON(vaultapplet, VaultApplet, "metadata.json")
 
-#include "applet.moc"
+#include "vaultapplet.moc"
+

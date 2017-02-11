@@ -4,12 +4,12 @@
 
     <!-- signals -->
     <signal name="vaultAdded">
-      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="PlasmaVault::VaultData" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="PlasmaVault::VaultInfo" />
       <arg name="vaultData" type="(sssq)" direction="out"/>
     </signal>
 
     <signal name="vaultChanged">
-      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="PlasmaVault::VaultData" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="PlasmaVault::VaultInfo" />
       <arg name="vaultData" type="(sssq)" direction="out"/>
     </signal>
 

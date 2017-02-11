@@ -56,7 +56,7 @@ VaultsModel::Private::Private(VaultsModel *parent)
     QObject::connect(
         watcher, &QDBusPendingCallWatcher::finished,
             this, [this] (QDBusPendingCallWatcher* watcher) {
-                QDBusPendingReply<VaultDataList> reply = *watcher;
+                QDBusPendingReply<VaultInfoList> reply = *watcher;
                 const auto vaultList = reply.value();
                 for (const auto& vault: vaultList) {
                     qDebug() << "---------------> Plasma recognizes vault: "
@@ -73,8 +73,8 @@ VaultsModel::Private::Private(VaultsModel *parent)
 #endif
 
 #if 0
-    AsynQt::DBus::asyncCall<VaultDataList>(&service, "availableDevices")
-        | transform([this] (const VaultDataList &vaultList) {
+    AsynQt::DBus::asyncCall<VaultInfoList>(&service, "availableDevices")
+        | transform([this] (const VaultInfoList &vaultList) {
             for (const auto& vault: vaultList) {
                 qDebug() << "---------------> Plasma recognizes vault: " << vault.name;
                 vaults[vault.device] = vault;
@@ -86,14 +86,14 @@ VaultsModel::Private::Private(VaultsModel *parent)
 
 
 
-void VaultsModel::Private::onVaultAdded(const PlasmaVault::VaultData &vaultData)
+void VaultsModel::Private::onVaultAdded(const PlasmaVault::VaultInfo &vaultInfo)
 {
-    const auto device = vaultData.device;
+    const auto device = vaultInfo.device;
 
     if (vaults.contains(device)) return;
 
     q->beginInsertRows(QModelIndex(), vaultKeys.size(), vaultKeys.size());
-    vaults[device] = vaultData;
+    vaults[device] = vaultInfo;
     vaultKeys << device;
     q->endInsertRows();
 }
@@ -114,10 +114,10 @@ void VaultsModel::Private::onVaultRemoved(const QString &device)
 
 
 
-void VaultsModel::Private::onVaultChanged(const PlasmaVault::VaultData &vaultData)
+void VaultsModel::Private::onVaultChanged(const PlasmaVault::VaultInfo &vaultInfo)
 {
-    const auto device = vaultData.device;
-    qDebug() << "onVaultChanged: " << device << vaultData.status;
+    const auto device = vaultInfo.device;
+    qDebug() << "onVaultChanged: " << device << vaultInfo.status;
 
     qDebug() << "Known devices: " << vaultKeys;
     if (!vaultKeys.contains(device)) return;
@@ -125,7 +125,7 @@ void VaultsModel::Private::onVaultChanged(const PlasmaVault::VaultData &vaultDat
 
     const auto row = vaultKeys.indexOf(device);
 
-    vaults[device] = vaultData;
+    vaults[device] = vaultInfo;
     q->dataChanged(q->index(row), q->index(row));
 }
 
@@ -191,16 +191,16 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
                 return "document-close";
 
             } else switch (vault.status) {
-                case Vault::Error:
+                case VaultInfo::Error:
                     return "document-close";
 
-                case Vault::NotInitialized:
+                case VaultInfo::NotInitialized:
                     return "folder-gray";
 
-                case Vault::Closed:
+                case VaultInfo::Closed:
                     return "folder-encrypted-closed";
 
-                case Vault::Opened:
+                case VaultInfo::Opened:
                     return "folder-encrypted-open";
 
                 default:
@@ -258,9 +258,9 @@ void VaultsModel::toggle(const QString &device)
 {
     if (!d->vaults.contains(device)) return;
     const auto &vault = d->vaults[device];
-    if (vault.status == Vault::Opened) {
+    if (vault.status == VaultInfo::Opened) {
         close(device);
-    } else if (vault.status == Vault::Closed) {
+    } else if (vault.status == VaultInfo::Closed) {
         open(device);
     }
 }

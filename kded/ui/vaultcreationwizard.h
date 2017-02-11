@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_VAULT_CREATION_WIZARD_H
-#define PLASMAVAULT_KDED_VAULT_CREATION_WIZARD_H
+#ifndef PLASMAVAULT_KDED_UI_VAULT_CREATION_WIZARD_H
+#define PLASMAVAULT_KDED_UI_VAULT_CREATION_WIZARD_H
 
 #include <QDialog>
 
@@ -44,5 +44,5 @@ private:
 };
 
 
-#endif // PLASMAVAULT_KDED_VAULT_CREATION_WIZARD_H
+#endif // include guard
 

@@ -27,8 +27,8 @@
 #include <KPasswordDialog>
 #include <KLocalizedString>
 
-#include "vault.h"
-#include "commandresult.h"
+#include "engine/vault.h"
+#include "engine/commandresult.h"
 
 #include "ui/vaultcreationwizard.h"
 
@@ -74,11 +74,11 @@ void PlasmaVaultService::init()
 
 
 
-PlasmaVault::VaultDataList PlasmaVaultService::availableDevices() const
+PlasmaVault::VaultInfoList PlasmaVaultService::availableDevices() const
 {
-    PlasmaVault::VaultDataList result;
+    PlasmaVault::VaultInfoList result;
     for (const auto &vault: d->knownVaults.values()) {
-        const auto vaultData = VaultData::from(vault);
+        const auto vaultData = vault->info();
         qDebug() << "Service sending the vault:"
                  << vaultData.name
                  << vaultData.device
@@ -132,17 +132,17 @@ void PlasmaVaultService::registerVault(Vault *vault)
     connect(vault, &Vault::statusChanged,
             this,  &PlasmaVaultService::onVaultStatusChanged);
 
-    emit vaultAdded(VaultData::from(vault));
+    emit vaultAdded(vault->info());
 }
 
 
 
-void PlasmaVaultService::onVaultStatusChanged(Vault::Status status)
+void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
 {
     const auto vault = qobject_cast<Vault*>(sender());
     qDebug() << "Vault status changed: " << vault->device() << " status = " << status;
 
-    emit vaultChanged(VaultData::from(vault));
+    emit vaultChanged(vault->info());
 }
 
 
@@ -205,7 +205,7 @@ void PlasmaVaultService::openVault(const QString &device_)
     showPasswordMountDialog(vault,
             [this, device] {
             qDebug() << "emit vaultChanged <----------------------------------";
-                emit vaultChanged(VaultData::from(d->knownVaults[device]));
+                emit vaultChanged(d->knownVaults[device]->info());
             });
 }
 

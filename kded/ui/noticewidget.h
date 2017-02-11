@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_NOTICE_WIDGET_H
-#define PLASMAVAULT_KDED_NOTICE_WIDGET_H
+#ifndef PLASMAVAULT_KDED_UI_NOTICE_WIDGET_H
+#define PLASMAVAULT_KDED_UI_NOTICE_WIDGET_H
 
 #include "dialogdsl.h"
 
@@ -46,5 +46,5 @@ inline DialogDsl::ModuleFactory notice(const QByteArray &noticeId, const QString
     };
 }
 
-#endif // PLASMAVAULT_KDED_NOTICE_WIDGET_H
+#endif // include guard
 

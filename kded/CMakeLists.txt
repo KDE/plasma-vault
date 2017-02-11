@@ -1,44 +1,77 @@
+include_directories (
+   ${CMAKE_CURRENT_SOURCE_DIR}
+   ${CMAKE_CURRENT_SOURCE_DIR}/engine
+   )
 
-set(kded_plasmavault_SRCS
-    service.cpp
+set (
+   kded_plasmavault_SRCS
+   service.cpp
 
-    ui/dialogdsl.cpp
-    ui/activitieslinkingwidget.cpp
-    ui/backendchooserwidget.cpp
-    ui/cryfscypherchooserwidget.cpp
-    ui/directorypairchooserwidget.cpp
-    ui/noticewidget.cpp
-    ui/passwordchooserwidget.cpp
-    ui/vaultcreationwizard.cpp
-)
+   engine/vault.cpp
+   engine/backend_p.cpp
+   engine/fusebackend_p.cpp
+   engine/common.cpp
+   engine/commandresult.cpp
 
-ki18n_wrap_ui(kded_plasmavault_SRCS
-    ui/activitieslinkingwidget.ui
-    ui/backendchooserwidget.ui
-    ui/cryfscypherchooserwidget.ui
-    ui/directorypairchooserwidget.ui
-    ui/noticewidget.ui
-    ui/passwordchooserwidget.ui
-    ui/vaultcreationwizard.ui
-)
+   engine/backends/encfs/encfsbackend.cpp
+   engine/backends/cryfs/cryfsbackend.cpp
 
-add_library(kded_plasmavault MODULE ${kded_plasmavault_SRCS})
-set_target_properties(kded_plasmavault PROPERTIES OUTPUT_NAME plasmavault)
-kcoreaddons_desktop_to_json(kded_plasmavault plasmavault.desktop)
+   ui/dialogdsl.cpp
+   ui/activitieslinkingwidget.cpp
+   ui/backendchooserwidget.cpp
+   ui/cryfscypherchooserwidget.cpp
+   ui/directorypairchooserwidget.cpp
+   ui/noticewidget.cpp
+   ui/passwordchooserwidget.cpp
+   ui/vaultcreationwizard.cpp
 
-target_link_libraries(kded_plasmavault
-    Qt5::Widgets
-    Qt5::DBus
-    KF5::CoreAddons
-    KF5::DBusAddons
-    KF5::WidgetsAddons
-    KF5::ConfigWidgets
-    KF5::KIOWidgets
-    KF5::I18n
-    KF5::Activities
-    PlasmaVault
-)
+   ../common/vaultinfo.cpp
+   )
+
+ki18n_wrap_ui (
+   kded_plasmavault_SRCS
+   ui/activitieslinkingwidget.ui
+   ui/backendchooserwidget.ui
+   ui/cryfscypherchooserwidget.ui
+   ui/directorypairchooserwidget.ui
+   ui/noticewidget.ui
+   ui/passwordchooserwidget.ui
+   ui/vaultcreationwizard.ui
+   )
+
+add_library (
+   kded_plasmavault
+   MODULE ${kded_plasmavault_SRCS}
+   )
+
+set_target_properties (
+   kded_plasmavault
+   PROPERTIES OUTPUT_NAME plasmavault
+   )
+
+kcoreaddons_desktop_to_json (
+   kded_plasmavault plasmavault.desktop
+   )
+
+target_link_libraries (
+   kded_plasmavault
+
+   Qt5::Core
+   Qt5::DBus
+   Qt5::Widgets
+
+   KF5::Activities
+   KF5::ConfigCore
+   KF5::ConfigWidgets
+   KF5::CoreAddons
+   KF5::DBusAddons
+   KF5::I18n
+   KF5::KIOCore
+   KF5::KIOWidgets
+   KF5::WidgetsAddons
+   )
 
 
-install(TARGETS kded_plasmavault DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded)
+install (
+    TARGETS kded_plasmavault DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded)
 

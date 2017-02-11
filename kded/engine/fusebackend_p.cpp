@@ -25,8 +25,6 @@
 #include <QProcess>
 #include <QRegularExpression>
 
-#include <singleton_p.h>
-
 #include <KMountPoint>
 #include <KLocalizedString>
 
@@ -36,6 +34,8 @@
 #include <asynqt/wrappers/process.h>
 #include <asynqt/operations/collect.h>
 #include <asynqt/operations/transform.h>
+
+#include "singleton_p.h"
 
 using namespace AsynQt;
 

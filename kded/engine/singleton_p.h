@@ -17,42 +17,35 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef PLASMAVAULT_TESTAPP_WINDOW_H
-#define PLASMAVAULT_TESTAPP_WINDOW_H
+#ifndef PLASMAVAULT_KDED_ENGINE_SINGLETON_H
+#define PLASMAVAULT_KDED_ENGINE_SINGLETON_H
 
-#include <QMainWindow>
+#include <mutex>
 #include <memory>
 
-class ModelTest;
-namespace Ui {
-    class MainWindow;
+namespace util {
+namespace singleton {
+
+template <typename BackendType>
+static std::shared_ptr<BackendType> instance()
+{
+    static std::mutex s_instanceMutex;
+    static std::weak_ptr<BackendType> s_instance;
+
+    std::unique_lock<std::mutex> locker;
+
+    auto ptr = s_instance.lock();
+
+    if (!ptr) {
+        ptr = std::make_shared<BackendType>();
+        s_instance = ptr;
+    }
+
+    return ptr;
 }
 
-class Window: public QMainWindow {
-    Q_OBJECT
+} // namespace singleton
+} // namespace util
 
-public:
-    Window();
-    ~Window();
-
-public Q_SLOTS:
-    void buttonInitializeClicked();
-    void buttonOpenClicked();
-    void buttonCloseClicked();
-    void buttonDestroyClicked();
-    void buttonLoadClicked();
-
-    void updateStatus();
-    void updateIsOpened();
-    void updateIsInitialized();
-
-private:
-    std::unique_ptr<Ui::MainWindow> ui;
-
-    class Private;
-    QScopedPointer<Private> d;
-
-};
-
-#endif // PLASMAVAULT_TESTAPP_WINDOW_H
+#endif // include guard
 

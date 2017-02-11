@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_ACTIVITIES_LINKING_WIDGET_H
-#define PLASMAVAULT_KDED_ACTIVITIES_LINKING_WIDGET_H
+#ifndef PLASMAVAULT_KDED_UI_ACTIVITIES_LINKING_WIDGET_H
+#define PLASMAVAULT_KDED_UI_ACTIVITIES_LINKING_WIDGET_H
 
 #include "dialogdsl.h"
 
@@ -45,5 +45,5 @@ inline DialogDsl::ModuleFactory activitiesChooser()
     };
 }
 
-#endif // PLASMAVAULT_KDED_ACTIVITIES_LINKING_WIDGET_H
+#endif // include guard
 

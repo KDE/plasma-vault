@@ -19,12 +19,12 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMA_VAULTSMODEL_H
-#define PLASMA_VAULTSMODEL_H
+#ifndef PLASMAVAULT_PLASMA_VAULTSMODEL_H
+#define PLASMAVAULT_PLASMA_VAULTSMODEL_H
 
 #include <QAbstractListModel>
 
-#include "vault.h"
+#include <common/vaultinfo.h>
 
 class VaultsModel: public QAbstractListModel {
     Q_OBJECT
@@ -58,13 +58,10 @@ public Q_SLOTS:
     void requestNewVault();
 
 private:
-    // We need this to be sorted, so we need a map
-    QMap<QString, PlasmaVault::VaultData> m_vaults;
-    QStringList m_vaultKeys;
-
     class Private;
     friend class Private;
     QScopedPointer<Private> d;
 };
 
-#endif // PLASMA_VAULTSMODEL_H
+#endif // include guard
+

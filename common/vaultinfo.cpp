@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2015 Ivan Cukic <ivan.cukic(at)kde.org>
+ *   Copyright (C) 2017 Ivan Cukic <ivan.cukic(at)kde.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License version 2,
@@ -17,18 +17,13 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include <QApplication>
-#include <QDebug>
+#include "vaultinfo.h"
 
-#include "window.h"
+#include <QDBusMetaType>
 
-int main(int argc, char *argv[])
-{
-    QApplication app(argc, argv);
-
-    Window w;
-    w.show();
-
-    return app.exec();
-}
+auto static_init_VaultInfo = [] {
+    qDBusRegisterMetaType<PlasmaVault::VaultInfo>();
+    qDBusRegisterMetaType<PlasmaVault::VaultInfoList>();
+    return true;
+} ();
 

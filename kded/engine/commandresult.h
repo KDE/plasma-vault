@@ -19,19 +19,17 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_COMMAND_RESULT_H
-#define PLASMAVAULT_COMMAND_RESULT_H
+#ifndef PLASMAVAULT_KDED_ENGINE_COMMAND_RESULT_H
+#define PLASMAVAULT_KDED_ENGINE_COMMAND_RESULT_H
 
 #include <QFuture>
 
 #include "asynqt/basic/all.h"
 #include "asynqt/utils/expected.h"
 
-#include "plasmavault_export.h"
-
 namespace PlasmaVault {
 
-class PLASMAVAULT_EXPORT Error {
+class Error {
 public:
     enum Code {
         MountPointError,
@@ -67,5 +65,5 @@ FutureResult<> errorResult(Error::Code error, const QString &message)
 
 } // namespace PlasmaVault
 
-#endif // PLASMAVAULT_COMMAND_RESULT_H
+#endif // include guard
 

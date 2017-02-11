@@ -19,37 +19,26 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_BACKENDS_ENCFS_BACKEND_H
-#define PLASMAVAULT_BACKENDS_ENCFS_BACKEND_H
+#ifndef PLASMAVAULT_PLASMA_VAULT_APPLET_H
+#define PLASMAVAULT_PLASMA_VAULT_APPLET_H
 
-#include <fusebackend_p.h>
+#include <QObject>
+#include <Plasma/Applet>
 
-namespace PlasmaVault {
+class VaultApplet : public Plasma::Applet
+{
+    Q_OBJECT
+    Q_PROPERTY(QObject* vaultsModel READ vaultsModel CONSTANT)
 
-class EncFsBackend: public FuseBackend {
 public:
-    EncFsBackend();
-    ~EncFsBackend();
+    VaultApplet(QObject *parent, const QVariantList &args);
+    ~VaultApplet();
 
-    static Backend::Ptr instance();
-
-    bool isInitialized(const Device &device) const override;
-
-    FutureResult<> validateBackend() override;
-
-    QString name() const override { return "encfs"; };
-
-protected:
-    FutureResult<> mount(const Device &device,
-                         const MountPoint &mountPoint,
-                         const Vault::Payload &payload) override;
+    QObject *vaultsModel();
 
 private:
-    QProcess *encfs(const QStringList &arguments) const;
-    QProcess *encfsctl(const QStringList &arguments) const;
+    QObject *m_vaultsModel;
 };
 
-} // namespace PlasmaVault
-
-#endif // PLASMAVAULT_BACKENDS_ENCFS_BACKEND_H
+#endif // include guard
 

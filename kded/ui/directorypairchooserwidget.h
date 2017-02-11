@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_DIRECTORY_PAIR_CHOOSER_WIDGET_H
-#define PLASMAVAULT_KDED_DIRECTORY_PAIR_CHOOSER_WIDGET_H
+#ifndef PLASMAVAULT_KDED_UI_DIRECTORY_PAIR_CHOOSER_WIDGET_H
+#define PLASMAVAULT_KDED_UI_DIRECTORY_PAIR_CHOOSER_WIDGET_H
 
 #include "dialogdsl.h"
 
@@ -53,5 +53,5 @@ inline DialogDsl::ModuleFactory directoryPairChooser(DirectoryPairChooserWidgetF
     };
 }
 
-#endif // PLASMAVAULT_KDED_DIRECTORY_PAIR_CHOOSER_WIDGET_H
+#endif // include guard
 

@@ -19,25 +19,62 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef APPLET_H
-#define APPLET_H
+#ifndef PLASMAVAULT_KDED_ENGINE_COMMON_H
+#define PLASMAVAULT_KDED_ENGINE_COMMON_H
 
+#include <QString>
+#include <QHash>
 
-#include <Plasma/Applet>
+#define PLASMAVAULT_CONFIG_FILE "plasmavaultrc"
 
-class VaultApplet : public Plasma::Applet
-{
-    Q_OBJECT
-    Q_PROPERTY(QObject* vaultsModel READ vaultsModel CONSTANT)
+namespace PlasmaVault {
 
+class Device {
 public:
-    VaultApplet(QObject *parent, const QVariantList &args);
-    ~VaultApplet();
+    explicit Device(QString device = QString());
+    operator QString() const;
 
-    QObject *vaultsModel();
+    inline QString data() const
+    {
+        return m_device;
+    }
 
 private:
-    QObject *m_vaultsModel;
+    QString m_device;
 };
 
-#endif
+inline uint qHash(const Device &value, uint seed = 0)
+{
+    return qHash(value.data(), seed);
+}
+
+inline bool operator== (const Device &left, const Device &right)
+{
+    return left.data() == right.data();
+}
+
+
+
+class MountPoint {
+public:
+    explicit MountPoint(QString mountPoint = QString());
+    operator QString() const;
+
+    inline bool isEmpty() const
+    {
+        return m_mountPoint.isEmpty();
+    }
+
+    inline QString data() const
+    {
+        return m_mountPoint;
+    }
+
+private:
+    QString m_mountPoint;
+};
+
+} // namespace PlasmaVault
+
+#endif // include guard
+

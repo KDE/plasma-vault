@@ -19,10 +19,10 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_BACKENDS_CRYFS_BACKEND_H
-#define PLASMAVAULT_BACKENDS_CRYFS_BACKEND_H
+#ifndef PLASMAVAULT_KDED_ENGINE_BACKENDS_CRYFS_BACKEND_H
+#define PLASMAVAULT_KDED_ENGINE_BACKENDS_CRYFS_BACKEND_H
 
-#include <fusebackend_p.h>
+#include "../../fusebackend_p.h"
 
 namespace PlasmaVault {
 
@@ -50,5 +50,5 @@ private:
 
 } // namespace PlasmaVault
 
-#endif // PLASMAVAULT_BACKENDS_CRYFS_BACKEND_H
+#endif // include guard
 

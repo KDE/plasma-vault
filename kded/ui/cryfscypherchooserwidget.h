@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_CRYFS_CYPHER_CHOOSER_WIDGET_H
-#define PLASMAVAULT_KDED_CRYFS_CYPHER_CHOOSER_WIDGET_H
+#ifndef PLASMAVAULT_KDED_UI_CRYFS_CYPHER_CHOOSER_WIDGET_H
+#define PLASMAVAULT_KDED_UI_CRYFS_CYPHER_CHOOSER_WIDGET_H
 
 #include "dialogdsl.h"
 
@@ -48,5 +48,5 @@ inline DialogDsl::ModuleFactory cryfsCypherChooser()
     };
 }
 
-#endif // PLASMAVAULT_KDED_CRYFS_CYPHER_CHOOSER_WIDGET_H
+#endif // include guard
 

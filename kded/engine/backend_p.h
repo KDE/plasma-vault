@@ -19,15 +19,14 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_BACKEND_P_H
-#define PLASMAVAULT_BACKEND_P_H
+#ifndef PLASMAVAULT_KDED_ENGINE_BACKEND_P_H
+#define PLASMAVAULT_KDED_ENGINE_BACKEND_P_H
 
 #include <QList>
 #include <QString>
 #include <QStringList>
 
 #include <memory>
-#include <mutex>
 
 #include "common.h"
 #include "vault.h"
@@ -78,5 +77,5 @@ private:
 
 } // namespace PlasmaVault
 
-#endif // PLASMAVAULT_BACKEND_P_H
+#endif // include guard
 

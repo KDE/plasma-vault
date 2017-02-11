@@ -1,19 +1,22 @@
 
 set (
    plasmavault_SRCS
-   applet.cpp
+
+   vaultapplet.cpp
    vaultsmodel.cpp
+
+   ../common/vaultinfo.cpp
    )
 
 set_source_files_properties (
-   ../kded/org.kde.plasmavault.xml
+   ../common/org.kde.plasmavault.xml
    PROPERTIES
-   INCLUDE ../src/vault.h
+   INCLUDE ../common/vaultinfo.h
    )
 
 qt5_add_dbus_interface (
    plasmavault_SRCS
-   ../kded/org.kde.plasmavault.xml
+   ../common/org.kde.plasmavault.xml
    plasmavault_interface
    )
 
@@ -27,10 +30,12 @@ kcoreaddons_desktop_to_json (
 
 target_link_libraries (
    plasma_applet_plasmavault
+
    Qt5::Gui
+   Qt5::DBus
+
    KF5::Plasma
    KF5::I18n
-   PlasmaVault
    )
 
 install (

@@ -19,64 +19,37 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_COMMON_H
-#define PLASMAVAULT_COMMON_H
+#ifndef PLASMAVAULT_KDED_ENGINE_BACKENDS_ENCFS_BACKEND_H
+#define PLASMAVAULT_KDED_ENGINE_BACKENDS_ENCFS_BACKEND_H
 
-#include "plasmavault_export.h"
-
-#include <QString>
-#include <QHash>
-
-#define PLASMAVAULT_CONFIG_FILE "plasmavaultrc"
+#include "../../fusebackend_p.h"
 
 namespace PlasmaVault {
 
-class PLASMAVAULT_EXPORT Device {
+class EncFsBackend: public FuseBackend {
 public:
-    explicit Device(QString device = QString());
-    operator QString() const;
+    EncFsBackend();
+    ~EncFsBackend();
 
-    inline QString data() const
-    {
-        return m_device;
-    }
+    static Backend::Ptr instance();
+
+    bool isInitialized(const Device &device) const override;
+
+    FutureResult<> validateBackend() override;
+
+    QString name() const override { return "encfs"; };
+
+protected:
+    FutureResult<> mount(const Device &device,
+                         const MountPoint &mountPoint,
+                         const Vault::Payload &payload) override;
 
 private:
-    QString m_device;
-};
-
-inline uint qHash(const Device &value, uint seed = 0)
-{
-    return qHash(value.data(), seed);
-}
-
-inline bool operator== (const Device &left, const Device &right)
-{
-    return left.data() == right.data();
-}
-
-
-
-class PLASMAVAULT_EXPORT MountPoint {
-public:
-    explicit MountPoint(QString mountPoint = QString());
-    operator QString() const;
-
-    inline bool isEmpty() const
-    {
-        return m_mountPoint.isEmpty();
-    }
-
-    inline QString data() const
-    {
-        return m_mountPoint;
-    }
-
-private:
-    QString m_mountPoint;
+    QProcess *encfs(const QStringList &arguments) const;
+    QProcess *encfsctl(const QStringList &arguments) const;
 };
 
 } // namespace PlasmaVault
 
-#endif // PLASMAVAULT_COMMON_H
+#endif // include guard
 

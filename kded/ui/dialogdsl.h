@@ -19,8 +19,8 @@
  *   If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_DIALOG_DSL_H
-#define PLASMAVAULT_KDED_DIALOG_DSL_H
+#ifndef PLASMAVAULT_KDED_UI_DIALOG_DSL_H
+#define PLASMAVAULT_KDED_UI_DIALOG_DSL_H
 
 #include <QString>
 #include <QHash>
@@ -97,5 +97,5 @@ private:
 
 } // namespace DialogDsl
 
-#endif // PLASMAVAULT_KDED_DIALOG_DSL_H
+#endif // include guard
 
