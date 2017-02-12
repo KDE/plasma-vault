@@ -47,7 +47,6 @@ set (KF5_DEP_VERSION "5.17.0") # handled by release scripts
 find_package (
    KF5 REQUIRED COMPONENTS
    Activities
-   AsynQt
    Config
    ConfigWidgets
    CoreAddons
@@ -60,7 +59,6 @@ find_package (
 
 
 include_directories (
-   ${AsynQt_INCLUDE_DIRS}
    ${CMAKE_CURRENT_SOURCE_DIR}
    ${CMAKE_CURRENT_SOURCE_DIR}/common
    )
