@@ -158,11 +158,14 @@ public:
     {
         // If there is a current module already, disconnect it
         if (currentModule) {
+            currentModule->aboutToBeHidden();
             currentModule->disconnect();
         }
 
         // The current module needs to be changed
         currentModule = module;
+        currentModule->aboutToBeShown();
+
         QObject::connect(
             currentModule, &DialogModule::isValidChanged,
             q, [&] (bool valid) {
@@ -211,6 +214,10 @@ public:
         } else {
             setCurrentModule(firstStepModule);
         }
+
+        if (!currentModule->shouldBeShown()) {
+            previousStep();
+        }
     }
 
     void nextStep()
@@ -239,6 +246,10 @@ public:
 
         // Set the newly added module to be the current
         setCurrentModule(stepWidget);
+
+        if (!currentModule->shouldBeShown()) {
+            nextStep();
+        }
     }
 
     void createVault()
@@ -248,7 +259,6 @@ public:
             collectedPayload.unite(module->fields());
         }
 
-        // qDebug() << "PAYLOAD: " << collectedPayload;
         const auto name = collectedPayload[KEY_NAME].toString();
         const PlasmaVault::Device device(collectedPayload[KEY_DEVICE].toString());
         const PlasmaVault::MountPoint mountPoint(collectedPayload[KEY_MOUNT_POINT].toString());

@@ -65,8 +65,13 @@ public:
     virtual PlasmaVault::Vault::Payload fields() const = 0;
     virtual void init(const PlasmaVault::Vault::Payload &payload);
 
+    virtual void aboutToBeShown();
+    virtual bool shouldBeShown() const;
+    virtual void aboutToBeHidden();
+
     bool isValid() const;
     void setIsValid(bool valid);
+
 
 Q_SIGNALS:
     void isValidChanged(bool valid);

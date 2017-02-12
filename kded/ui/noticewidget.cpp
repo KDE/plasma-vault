@@ -22,19 +22,29 @@
 
 #include "ui_noticewidget.h"
 
+#include <KSharedConfig>
+#include <KConfigGroup>
+
 class NoticeWidget::Private {
 public:
     Ui::NoticeWidget ui;
+    KSharedConfig::Ptr config;
+    bool shouldBeShown;
+    QString noticeId;
 };
 
 
 
-NoticeWidget::NoticeWidget(const QByteArray &noticeId, const QString &message)
+NoticeWidget::NoticeWidget(const QString &noticeId, const QString &message)
     : DialogDsl::DialogModule(true)
     , d(new Private())
 {
     d->ui.setupUi(this);
     d->ui.textNotice->setHtml(message);
+
+    d->noticeId = noticeId;
+
+    d->config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
 }
 
 
@@ -48,6 +58,32 @@ NoticeWidget::~NoticeWidget()
 PlasmaVault::Vault::Payload NoticeWidget::fields() const
 {
     return {};
+}
+
+
+
+void NoticeWidget::aboutToBeShown()
+{
+    KConfigGroup noticeUi(d->config, "UI-notice");
+    d->shouldBeShown = !noticeUi.readEntry("SkipNotice-" + d->noticeId, false);
+    d->ui.checkShouldBeHidden->setChecked(!d->shouldBeShown);
+}
+
+
+
+bool NoticeWidget::shouldBeShown() const
+{
+    return d->shouldBeShown;
+}
+
+
+
+void NoticeWidget::aboutToBeHidden()
+{
+    KConfigGroup noticeUi(d->config, "UI-notice");
+    noticeUi.writeEntry("SkipNotice-" + d->noticeId,
+                        d->ui.checkShouldBeHidden->isChecked());
+    d->config->sync();
 }
 
 

@@ -59,6 +59,25 @@ void DialogModule::setIsValid(bool valid)
 
 
 
+bool DialogModule::shouldBeShown() const
+{
+    return true;
+}
+
+
+
+void DialogModule::aboutToBeShown()
+{
+}
+
+
+
+void DialogModule::aboutToBeHidden()
+{
+}
+
+
+
 bool DialogModule::isValid() const
 {
     return m_isValid;

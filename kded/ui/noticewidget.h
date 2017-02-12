@@ -27,11 +27,15 @@ class NoticeWidget: public DialogDsl::DialogModule {
     Q_OBJECT
 
 public:
-    NoticeWidget(const QByteArray &noticeId, const QString &message);
+    NoticeWidget(const QString &noticeId, const QString &message);
 
     ~NoticeWidget();
 
     PlasmaVault::Vault::Payload fields() const override;
+
+    void aboutToBeShown() override;
+    bool shouldBeShown() const override;
+    void aboutToBeHidden() override;
 
 private:
     class Private;
