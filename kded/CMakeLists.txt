@@ -10,7 +10,7 @@ set (
    engine/vault.cpp
    engine/backend_p.cpp
    engine/fusebackend_p.cpp
-   engine/common.cpp
+   engine/types.cpp
    engine/commandresult.cpp
 
    engine/backends/encfs/encfsbackend.cpp

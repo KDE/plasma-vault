@@ -27,7 +27,7 @@
 
 #include <common/vaultinfo.h>
 
-#include "common.h"
+#include "types.h"
 
 #include "commandresult.h"
 

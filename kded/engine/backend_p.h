@@ -28,7 +28,6 @@
 
 #include <memory>
 
-#include "common.h"
 #include "vault.h"
 #include "commandresult.h"
 
