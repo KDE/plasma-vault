@@ -62,7 +62,23 @@ public:
     {
         { "encfs" / i18n("EncFS"),
             {
-                step { notice("encfs-message", i18n("")) },
+                step { notice("encfs-message",
+                       i18n("<b>Security notice:</b>\n\
+                             According to a security audit by Taylor Hornby (Defuse Security),\n\
+                             the current implementation of Encfs is vulnerable or potentially vulnerable\n\
+                             to multiple types of attacks.\n\
+                             For example, an attacker with read/write access\n\
+                             to encrypted data might lower the decryption complexity\n\
+                             for subsequently encrypted data without this being noticed by a legitimate user,\n\
+                             or might use timing analysis to deduce information.\n\
+                             <br /><br />\n\
+                             This means that you should not synchronize\n\
+                             the encrypted data to a cloud storage service,\n\
+                             or use it in other circumstances where the attacker\n\
+                             can frequently access the encrypted data.\n\
+                             <br /><br />\n\
+                             See <a href='http://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> for more information."))
+                     },
                 step { passwordChooser() },
                 step { directoryPairChooser(RequireEmptyDirectories) },
                 step { activitiesChooser() }
@@ -71,7 +87,21 @@ public:
 
         { "cryfs" / i18n("CryFS"),
             {
-                step { notice("cryfs-message", i18n("")) },
+                step { notice("cryfs-message",
+                       i18n("<b>Security notice:</b>\n\
+                             CryFS encrypts your files, so you can safely store them anywhere.\n\
+                             It works well together with cloud services like Dropbox, iCloud, OneDrive and others.\n\
+                             <br /><br />\n\
+                             Unlike some other file-system overlay solutions,\n\
+                             it does not expose the directory structure,\n\
+                             the number of files nor the file sizes\n\
+                             through the encrypted data format.\n\
+                             <br /><br />\n\
+                             One important thing to note is that,\n\
+                             while CryFS is considered safe,\n\
+                             there is no independent security audit\n\
+                             which confirms this."))
+                     },
                 step { passwordChooser() },
                 step { directoryPairChooser(RequireEmptyDirectories) },
                 step {

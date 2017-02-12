@@ -34,6 +34,7 @@ NoticeWidget::NoticeWidget(const QByteArray &noticeId, const QString &message)
     , d(new Private())
 {
     d->ui.setupUi(this);
+    d->ui.textNotice->setHtml(message);
 }
 
 
