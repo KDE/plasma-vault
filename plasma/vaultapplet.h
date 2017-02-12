@@ -22,7 +22,34 @@
 #define PLASMAVAULT_PLASMA_VAULT_APPLET_H
 
 #include <QObject>
+#include <QSortFilterProxyModel>
+
 #include <Plasma/Applet>
+#include <KActivities/Consumer>
+
+class VaultsModel;
+
+class VaultsModelProxy: public QSortFilterProxyModel {
+    Q_OBJECT
+
+public:
+    VaultsModelProxy(QObject *parent);
+
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
+
+public Q_SLOTS:
+    void open(const QString &device);
+    void close(const QString &device);
+    void toggle(const QString &device);
+    void requestNewVault();
+
+private:
+    VaultsModel *m_source;
+    KActivities::Consumer *m_kamd;
+};
+
 
 class VaultApplet: public Plasma::Applet
 {

@@ -59,6 +59,8 @@ private Q_SLOTS:
 
     void onVaultStatusChanged(PlasmaVault::VaultInfo::Status status);
 
+    void onCurrentActivityChanged(const QString &currentActivity);
+
 private:
     class Private;
     QScopedPointer<Private> d;

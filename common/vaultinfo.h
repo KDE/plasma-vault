@@ -50,6 +50,7 @@ public:
     QString device;
     QString mountPoint;
     Status status;
+    QStringList activities;
 
 
     inline bool isInitialized() const
@@ -83,31 +84,33 @@ typedef QList<VaultInfo> VaultInfoList;
 
 
 inline
-QDBusArgument &operator<<(QDBusArgument &argument, const VaultInfo &vaultData)
+QDBusArgument &operator<<(QDBusArgument &argument, const VaultInfo &vaultInfo)
 {
     argument.beginStructure();
     argument
-        << vaultData.name
-        << vaultData.device
-        << vaultData.mountPoint
-        << (quint16)vaultData.status
+        << vaultInfo.name
+        << vaultInfo.device
+        << vaultInfo.mountPoint
+        << (quint16)vaultInfo.status
+        << vaultInfo.activities
         ;
     argument.endStructure();
     return argument;
 }
 
 inline
-const QDBusArgument &operator>>(const QDBusArgument &argument, VaultInfo &vaultData)
+const QDBusArgument &operator>>(const QDBusArgument &argument, VaultInfo &vaultInfo)
 {
     quint16 status;
     argument.beginStructure();
     argument
-        >> vaultData.name
-        >> vaultData.device
-        >> vaultData.mountPoint
+        >> vaultInfo.name
+        >> vaultInfo.device
+        >> vaultInfo.mountPoint
         >> status
+        >> vaultInfo.activities
         ;
-    vaultData.status = (VaultInfo::Status)status;
+    vaultInfo.status = (VaultInfo::Status)status;
     argument.endStructure();
     return argument;
 }

@@ -55,6 +55,8 @@ class Vault: public QObject {
     Q_PROPERTY(bool isOpened      READ isOpened      NOTIFY isOpenedChanged)
     Q_PROPERTY(bool isBusy        READ isBusy        NOTIFY isBusyChanged)
 
+    Q_PROPERTY(QStringList activities READ activities NOTIFY activitiesChanged)
+
 public:
     Vault(const Device &device, QObject *parent = nullptr);
     ~Vault();
@@ -62,8 +64,6 @@ public:
     typedef QHash<QByteArray, QVariant> Payload;
 
     bool isValid() const;
-    static QList<Device> availableDevices();
-    static QStringList statusMessage();
 
     FutureResult<> create(const QString &name, const MountPoint &mountPoint,
                           const Payload &payload);
@@ -86,6 +86,7 @@ public Q_SLOTS:
     QString name() const;
     Device device() const;
     MountPoint mountPoint() const;
+    QStringList activities() const;
 
 Q_SIGNALS:
     void mountPointChanged(const QString &mountPoint);
@@ -93,6 +94,11 @@ Q_SIGNALS:
     void isInitializedChanged(bool isInitialized);
     void isOpenedChanged(bool isOpened);
     void isBusyChanged(bool isBusy);
+    void activitiesChanged(const QStringList &activities);
+
+public:
+    static QList<Device> availableDevices();
+    static QStringList statusMessage();
 
 private:
     class Private;

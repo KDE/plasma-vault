@@ -39,8 +39,9 @@
 
 #define CFG_NAME "name"
 #define CFG_LAST_STATUS "lastStatus"
-#define CFG_MOUNTPOINT "mountPoint"
+#define CFG_MOUNT_POINT "mountPoint"
 #define CFG_BACKEND "backend"
+#define CFG_ACTIVITIES "activities"
 
 namespace PlasmaVault {
 
@@ -57,6 +58,7 @@ public:
         QString name;
         MountPoint mountPoint;
         VaultInfo::Status status;
+        QStringList activities;
 
         QString backendName;
         Backend::Ptr backend;
@@ -103,9 +105,10 @@ public:
 
             KConfigGroup vaultConfig(config, device.data());
             vaultConfig.writeEntry(CFG_LAST_STATUS, (int)data->status);
-            vaultConfig.writeEntry(CFG_MOUNTPOINT,  data->mountPoint.data());
+            vaultConfig.writeEntry(CFG_MOUNT_POINT, data->mountPoint.data());
             vaultConfig.writeEntry(CFG_NAME,        data->name);
             vaultConfig.writeEntry(CFG_BACKEND,     data->backend->name());
+            vaultConfig.writeEntry(CFG_ACTIVITIES,  data->activities);
 
             org::kde::KDirNotify::emitFilesAdded(
                     QUrl::fromLocalFile(data->mountPoint.data()));
@@ -122,9 +125,10 @@ public:
 
             KConfigGroup vaultConfig(config, device.data());
             vaultConfig.writeEntry(CFG_LAST_STATUS, (int)VaultInfo::Error);
-            // vaultConfig.deleteEntry(CFG_MOUNTPOINT);
+            // vaultConfig.deleteEntry(CFG_MOUNT_POINT);
             // vaultConfig.deleteEntry(CFG_NAME);
             // vaultConfig.deleteEntry(CFG_BACKEND);
+            // vaultConfig.deleteEntry(CFG_ACTIVITIES);
 
             emit q->statusChanged(VaultInfo::Error);
         }
@@ -145,13 +149,15 @@ public:
     ExpectedData openVault(const Device &device,
                            const QString &name = QString(),
                            const MountPoint &mountPoint = MountPoint(),
-                           const QString &backendName = QString()) const
+                           const Payload &payload = Payload()) const
     {
         if (!config->hasGroup(device.data())) {
             return errorData(Error::DeviceError, i18n("Unknown device"));
         }
 
         Data vaultData;
+        const QString backendName    = payload[KEY_BACKEND].toString();
+        const QStringList activities = payload[KEY_ACTIVITIES].toStringList();
 
         // status should never be in this state, if we got an error,
         // d->data should not be valid
@@ -160,8 +166,9 @@ public:
         // Reading the mount data from the config
         const KConfigGroup vaultConfig(config, device.data());
         vaultData.name        = vaultConfig.readEntry(CFG_NAME, name);
-        vaultData.mountPoint  = MountPoint(vaultConfig.readEntry(CFG_MOUNTPOINT, mountPoint.data()));
+        vaultData.mountPoint  = MountPoint(vaultConfig.readEntry(CFG_MOUNT_POINT, mountPoint.data()));
         vaultData.backendName = vaultConfig.readEntry(CFG_BACKEND, backendName);
+        vaultData.activities  = vaultConfig.readEntry(CFG_ACTIVITIES, activities);
 
         const QDir mountPointDir(vaultData.mountPoint);
 
@@ -263,8 +270,6 @@ Vault::~Vault()
 FutureResult<> Vault::create(const QString &name, const MountPoint &mountPoint,
                              const Payload &payload)
 {
-    const auto backendName = payload[KEY_BACKEND].toString();
-
     return
         // If the backend is already known, and the device is initialized,
         // we do not want to do it again
@@ -273,7 +278,7 @@ FutureResult<> Vault::create(const QString &name, const MountPoint &mountPoint,
                         i18n("This device is already registered. Can not recreate it.")) :
 
         // Mount not open, check the error messages
-        !(d->data = d->openVault(d->device, name, mountPoint, backendName)) ?
+        !(d->data = d->openVault(d->device, name, mountPoint, payload)) ?
             errorResult(Error::BackendError,
                         i18n("Unknown error, unable to create the backend.")) :
 
@@ -414,6 +419,13 @@ bool Vault::isOpened() const
 
 
 
+QStringList Vault::activities() const
+{
+    return d->data->activities;
+}
+
+
+
 bool Vault::isBusy() const
 {
     if (!d->data) {
@@ -437,9 +449,10 @@ bool Vault::isBusy() const
 VaultInfo Vault::info() const
 {
     VaultInfo vaultInfo;
-    vaultInfo.device = device();
-    vaultInfo.name   = name();
-    vaultInfo.status = status();
+    vaultInfo.device     = device();
+    vaultInfo.name       = name();
+    vaultInfo.status     = status();
+    vaultInfo.activities = activities();
     return vaultInfo;
 }
 

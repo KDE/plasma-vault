@@ -226,6 +226,9 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
 
         case VaultIsOpened:
             return vault.isOpened();
+
+        case VaultActivities:
+            return vault.activities;
     }
 
     return {};

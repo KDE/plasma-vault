@@ -45,7 +45,8 @@ public:
         VaultIcon,                    ///< Icon for the fault
         VaultIsBusy,                  ///< Is the vault currently being opened or closed
         VaultIsOpened,                ///< Is the vault open
-        VaultStatus                   ///< Status of the vault, @see VaultInfo::Status
+        VaultStatus,                  ///< Status of the vault, @see VaultInfo::Status
+        VaultActivities               ///< To which activities does this vault belong to
     };
 
 public Q_SLOTS:

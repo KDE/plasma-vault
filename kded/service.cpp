@@ -25,6 +25,7 @@
 #include <KPluginFactory>
 #include <KPasswordDialog>
 #include <KLocalizedString>
+#include <KActivities/Consumer>
 
 #include "engine/vault.h"
 #include "engine/commandresult.h"
@@ -40,6 +41,7 @@ using namespace PlasmaVault;
 class PlasmaVaultService::Private {
 public:
     QHash<Device, Vault*> knownVaults;
+    KActivities::Consumer kamd;
 
 };
 
@@ -51,6 +53,10 @@ PlasmaVaultService::PlasmaVaultService(QObject * parent, const QVariantList&)
 {
     connect(this, &KDEDModule::moduleRegistered, this,
             &PlasmaVaultService::slotRegistered);
+
+    connect(&d->kamd, &KActivities::Consumer::currentActivityChanged,
+            this,     &PlasmaVaultService::onCurrentActivityChanged);
+
     init();
 }
 
@@ -208,6 +214,18 @@ void PlasmaVaultService::closeVault(const QString &device_)
     auto vault = d->knownVaults[device];
 
     vault->close();
+}
+
+
+
+void PlasmaVaultService::onCurrentActivityChanged(const QString &currentActivity)
+{
+    for (auto* vault: d->knownVaults.values()) {
+        const auto vaultActivities = vault->activities();
+        if (!vaultActivities.isEmpty() && !vaultActivities.contains(currentActivity)) {
+            vault->close();
+        }
+    }
 }
 
 
