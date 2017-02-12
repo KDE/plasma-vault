@@ -36,6 +36,9 @@ VaultsModel::Private::Private(VaultsModel *parent)
              , "/modules/plasmavault"
              , QDBusConnection::sessionBus()
              )
+    , serviceWatcher( "org.kde.kded5"
+                    , QDBusConnection::sessionBus()
+                    )
     , q(parent)
 {
     qDebug() << "---------------> Asking for vaults" << service.isValid();
@@ -47,8 +50,28 @@ VaultsModel::Private::Private(VaultsModel *parent)
     connect(&service, &org::kde::plasmavault::vaultRemoved,
             this,     &Private::onVaultRemoved);
 
+    connect(&serviceWatcher, &QDBusServiceWatcher::serviceOwnerChanged,
+            this, [this] (const QString &service, const QString &oldOwner, const QString &newOwner) {
+                Q_UNUSED(oldOwner);
 
-#if 1
+                if (service != "org.kde.kded5") {
+                    return;
+                }
+
+                if (newOwner.isEmpty()) {
+                    clearData();
+                } else {
+                    loadData();
+                }
+            });
+
+    loadData();
+}
+
+void VaultsModel::Private::loadData()
+{
+    clearData();
+
     auto pcall = service.asyncCall("availableDevices");
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pcall, this);
@@ -56,6 +79,8 @@ VaultsModel::Private::Private(VaultsModel *parent)
     QObject::connect(
         watcher, &QDBusPendingCallWatcher::finished,
             this, [this] (QDBusPendingCallWatcher* watcher) {
+                q->beginResetModel();
+
                 QDBusPendingReply<VaultInfoList> reply = *watcher;
                 const auto vaultList = reply.value();
                 for (const auto& vault: vaultList) {
@@ -67,21 +92,19 @@ VaultsModel::Private::Private(VaultsModel *parent)
                     vaults[vault.device] = vault;
                     vaultKeys << vault.device;
                 }
+
+                q->endResetModel();
             });
+}
 
-    return;
-#endif
 
-#if 0
-    AsynQt::DBus::asyncCall<VaultInfoList>(&service, "availableDevices")
-        | transform([this] (const VaultInfoList &vaultList) {
-            for (const auto& vault: vaultList) {
-                qDebug() << "---------------> Plasma recognizes vault: " << vault.name;
-                vaults[vault.device] = vault;
-                vaultKeys << vault.device;
-            }
-        });
-#endif
+
+void VaultsModel::Private::clearData()
+{
+    q->beginResetModel();
+    vaultKeys.clear();
+    vaults.clear();
+    q->endResetModel();
 }
 
 
@@ -237,7 +260,9 @@ QHash<int, QByteArray> VaultsModel::roleNames() const
 
 void VaultsModel::refresh()
 {
+    d->loadData();
 }
+
 
 
 void VaultsModel::open(const QString &device)
@@ -249,6 +274,8 @@ void VaultsModel::open(const QString &device)
           });
 }
 
+
+
 void VaultsModel::close(const QString &device)
 {
     if (!d->vaults.contains(device)) return;
@@ -257,6 +284,8 @@ void VaultsModel::close(const QString &device)
               qDebug() << "close request finished";
           });
 }
+
+
 
 void VaultsModel::toggle(const QString &device)
 {
@@ -270,106 +299,10 @@ void VaultsModel::toggle(const QString &device)
 }
 
 
+
 void VaultsModel::requestNewVault()
 {
     AsynQt::DBus::asyncCall<void>(&d->service, "requestNewVault");
 }
-
-
-
-
-#if 0
-
-inline QStringList difference(const QStringList &left, const QStringList &right)
-{
-    QStringList result;
-    std::set_difference(left.cbegin(), left.cend(),
-                        right.cbegin(), right.cend(),
-                        std::back_inserter(result));
-    return result;
-}
-
-
-
-void VaultsModel::refresh()
-{
-    beginResetModel();
-    const auto oldDevices = m_vaults.keys();
-    auto newDevices = Vault::availableDevices();
-    newDevices.sort();
-
-    const auto removedDevices = difference(oldDevices, newDevices);
-    const auto addedDevices = difference(newDevices, oldDevices);
-
-    for (const auto &device: removedDevices) {
-        auto mount = m_vaults.take(device);
-        delete mount;
-    }
-
-    for (const auto &device: addedDevices) {
-        auto mount = new Vault(device, this);
-        connect(mount, &Vault::statusChanged,
-                this,  &VaultsModel::onVaultStatusChanged);
-        m_vaults[device] = mount;
-    }
-
-    m_mountKeys = m_vaults.keys();
-
-    qDebug() << "Vaults: " << m_vaults << m_mountKeys;
-    endResetModel();
-}
-
-
-
-void VaultsModel::onVaultStatusChanged(Vault::Status status)
-{
-    const auto mount = qobject_cast<Vault*>(sender());
-
-    if (!mount || !m_vaults.contains(mount->device())) return;
-
-    setVaultStatus(mount->device(), status);
-}
-
-
-
-void VaultsModel::setVaultStatus(const QString& device, Vault::Status status)
-{
-    const auto row = m_mountKeys.indexOf(device);
-    dataChanged(index(row), index(row));
-}
-
-
-
-void VaultsModel::open(const QString &device)
-{
-    if (!m_vaults.contains(device)) return;
-    m_vaults[device]->mount("somepass");
-}
-
-
-
-void VaultsModel::close(const QString &device)
-{
-    if (!m_vaults.contains(device)) return;
-    m_vaults[device]->unmount();
-}
-
-
-
-void VaultsModel::toggle(const QString &device)
-{
-    qDebug() << "toggleMounted " << device;
-    if (!m_vaults.contains(device)) return;
-
-    const auto mount = m_vaults[device];
-
-    if (mount->isMounted()) {
-        close(device);
-    } else {
-        open(device);
-    }
-}
-
-#endif
 
 

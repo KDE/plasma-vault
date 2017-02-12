@@ -23,6 +23,8 @@
 #define PLASMAVAULT_PLASMA_VAULTSMODEL_P_H
 
 #include <QDBusInterface>
+#include <QDBusServiceWatcher>
+
 #include "plasmavault_interface.h"
 #include <common/vaultinfo.h>
 
@@ -39,8 +41,12 @@ public Q_SLOTS:
     void onVaultRemoved(const QString &device);
     void onVaultChanged(const PlasmaVault::VaultInfo &vaultData);
 
+    void loadData();
+    void clearData();
+
 public:
     org::kde::plasmavault service;
+    QDBusServiceWatcher serviceWatcher;
     VaultsModel *const q;
 };
 

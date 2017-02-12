@@ -37,7 +37,7 @@ MouseArea {
     property var vaultsModel: plasmoid.nativeInterface.vaultsModel
 
     hoverEnabled: true
-    height: units.iconSizes.medium
+    height: units.iconSizes.medium + (actionsList.visible ? actionsList.height : 0)
 
     onContainsMouseChanged: {
         vaultItem.ListView.view.currentIndex = (containsMouse ? index : -1)
@@ -94,6 +94,13 @@ MouseArea {
         width: parent.width - vaultIcon.width
         height: undefined
         elide: Text.ElideRight
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            console.log("TODO: Mount and open dolphin");
+        }
     }
 }
 
