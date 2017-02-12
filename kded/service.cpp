@@ -113,12 +113,14 @@ void PlasmaVaultService::slotRegistered(const QDBusObjectPath &path)
 void PlasmaVaultService::registerVault(Vault *vault)
 {
     if (!vault->isValid()) {
-        qWarning() << "Warning: Trying to register an invalid vault: " << vault->device();
+        qWarning() << "Warning: Trying to register an invalid vault: "
+                   << vault->device();
         return;
     }
 
     if (d->knownVaults.contains(vault->device())) {
-        qWarning() << "Warning: This one is already registered: " << vault->device();
+        qWarning() << "Warning: This one is already registered: "
+                   << vault->device();
         return;
     }
 
@@ -218,7 +220,8 @@ void PlasmaVaultService::closeVault(const QString &device_)
 
 
 
-void PlasmaVaultService::onCurrentActivityChanged(const QString &currentActivity)
+void PlasmaVaultService::onCurrentActivityChanged(
+    const QString &currentActivity)
 {
     for (auto* vault: d->knownVaults.values()) {
         const auto vaultActivities = vault->activities();

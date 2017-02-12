@@ -78,9 +78,9 @@ public:
 
 
 
-DirectoryPairChooserWidget::DirectoryPairChooserWidget(DirectoryPairChooserWidgetFlags flags)
-    : DialogDsl::DialogModule(false)
-    , d(new Private(this))
+DirectoryPairChooserWidget::DirectoryPairChooserWidget(
+    DirectoryPairChooserWidgetFlags flags)
+    : DialogDsl::DialogModule(false), d(new Private(this))
 {
     d->ui.setupUi(this);
     d->flags = flags;
@@ -115,7 +115,8 @@ PlasmaVault::Vault::Payload DirectoryPairChooserWidget::fields() const
 
 
 
-void DirectoryPairChooserWidget::init(const PlasmaVault::Vault::Payload &payload)
+void DirectoryPairChooserWidget::init(
+    const PlasmaVault::Vault::Payload &payload)
 {
     const auto name = payload[KEY_NAME].toString();
 

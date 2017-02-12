@@ -44,7 +44,8 @@ VaultsModelProxy::VaultsModelProxy(QObject *parent)
 
 
 
-bool VaultsModelProxy::lessThan(const QModelIndex &left, const QModelIndex &right) const
+bool VaultsModelProxy::lessThan(const QModelIndex &left,
+                                const QModelIndex &right) const
 {
     const auto leftData = sourceModel()->data(left, VaultsModel::VaultName);
     const auto rightData = sourceModel()->data(right, VaultsModel::VaultName);
@@ -54,7 +55,8 @@ bool VaultsModelProxy::lessThan(const QModelIndex &left, const QModelIndex &righ
 
 
 
-bool VaultsModelProxy::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
+bool VaultsModelProxy::filterAcceptsRow(int sourceRow,
+                                        const QModelIndex &sourceParent) const
 {
     Q_UNUSED(sourceParent);
 

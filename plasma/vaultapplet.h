@@ -35,9 +35,11 @@ class VaultsModelProxy: public QSortFilterProxyModel {
 public:
     VaultsModelProxy(QObject *parent);
 
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    bool lessThan(const QModelIndex &left,
+                  const QModelIndex &right) const override;
 
-    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
+    bool filterAcceptsRow(int sourceRow,
+                          const QModelIndex &sourceParent) const override;
 
 public Q_SLOTS:
     void open(const QString &device);

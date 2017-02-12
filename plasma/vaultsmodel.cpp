@@ -78,7 +78,7 @@ void VaultsModel::Private::loadData()
     auto pcall = service.asyncCall("availableDevices");
 
     // TODO: Switch to AsynQt for this
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pcall, this);
+    auto *watcher = new QDBusPendingCallWatcher(pcall, this);
 
     QObject::connect(
         watcher, &QDBusPendingCallWatcher::finished,
@@ -136,7 +136,8 @@ void VaultsModel::Private::onVaultRemoved(const QString &device)
 
 
 
-void VaultsModel::Private::onVaultChanged(const PlasmaVault::VaultInfo &vaultInfo)
+void VaultsModel::Private::onVaultChanged(
+    const PlasmaVault::VaultInfo &vaultInfo)
 {
     const auto device = vaultInfo.device;
     if (!vaultKeys.contains(device)) return;

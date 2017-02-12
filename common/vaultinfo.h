@@ -83,8 +83,8 @@ typedef QList<VaultInfo> VaultInfoList;
 
 
 
-inline
-QDBusArgument &operator<<(QDBusArgument &argument, const VaultInfo &vaultInfo)
+inline QDBusArgument &operator<< (QDBusArgument &argument,
+                                  const VaultInfo &vaultInfo)
 {
     argument.beginStructure();
     argument
@@ -98,8 +98,10 @@ QDBusArgument &operator<<(QDBusArgument &argument, const VaultInfo &vaultInfo)
     return argument;
 }
 
-inline
-const QDBusArgument &operator>>(const QDBusArgument &argument, VaultInfo &vaultInfo)
+
+
+inline const QDBusArgument &operator>> (const QDBusArgument &argument,
+                                        VaultInfo &vaultInfo)
 {
     quint16 status;
     argument.beginStructure();

@@ -42,7 +42,8 @@ private:
     QScopedPointer<Private> d;
 };
 
-inline DialogDsl::ModuleFactory notice(const QByteArray &noticeId, const QString &message)
+inline DialogDsl::ModuleFactory notice(const QByteArray &noticeId,
+                                       const QString &message)
 {
     return [=] {
         return new NoticeWidget(noticeId, message);

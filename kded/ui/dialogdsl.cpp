@@ -113,7 +113,8 @@ CompoundDialogModule::CompoundDialogModule(const step &children)
 
     setIsValid(valid);
 
-    auto spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Expanding);
+    auto spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding,
+                                  QSizePolicy::Expanding);
     layout->addSpacerItem(spacer);
 }
 
