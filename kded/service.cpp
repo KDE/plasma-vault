@@ -1,22 +1,21 @@
 /*
- *   Copyright (C) 2017 by Ivan Cukic <ivan.cukic(at)kde.org>
+ *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
  *
- *   This library is free software; you can redistribute it and/or
- *   modify it under the terms of the GNU Lesser General Public
- *   License as published by the Free Software Foundation; either
- *   version 2.1 of the License, or (at your option) version 3, or any
- *   later version accepted by the membership of KDE e.V. (or its
- *   successor approved by the membership of KDE e.V.), which shall
- *   act as a proxy defined in Section 6 of version 3 of the license.
+ *   This program is free software; you can redistribute it and/or
+ *   modify it under the terms of the GNU General Public License as
+ *   published by the Free Software Foundation; either version 2 of
+ *   the License or (at your option) version 3 or any later version
+ *   accepted by the membership of KDE e.V. (or its successor approved
+ *   by the membership of KDE e.V.), which shall act as a proxy
+ *   defined in Section 14 of version 3 of the license.
  *
- *   This library is distributed in the hope that it will be useful,
+ *   This program is distributed in the hope that it will be useful,
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- *   Lesser General Public License for more details.
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
  *
- *   You should have received a copy of the GNU Lesser General Public
- *   License along with this library.
- *   If not, see <http://www.gnu.org/licenses/>.
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "service.h"
@@ -65,8 +64,6 @@ PlasmaVaultService::~PlasmaVaultService()
 
 void PlasmaVaultService::init()
 {
-    qDebug() << "Called init";
-
     for (const Device &device: Vault::availableDevices()) {
         registerVault(new Vault(device, this));
     }
@@ -79,11 +76,6 @@ PlasmaVault::VaultInfoList PlasmaVaultService::availableDevices() const
     PlasmaVault::VaultInfoList result;
     for (const auto &vault: d->knownVaults.values()) {
         const auto vaultData = vault->info();
-        qDebug() << "Service sending the vault:"
-                 << vaultData.name
-                 << vaultData.device
-                 << vaultData.mountPoint
-                 << vaultData.status;
         result << vaultData;
     }
     return result;
@@ -126,7 +118,6 @@ void PlasmaVaultService::registerVault(Vault *vault)
 
     vault->setParent(this);
 
-    qDebug() << "Registering a new mount object for : " << vault->device();
     d->knownVaults[vault->device()] = vault;
 
     connect(vault, &Vault::statusChanged,
@@ -140,7 +131,6 @@ void PlasmaVaultService::registerVault(Vault *vault)
 void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
 {
     const auto vault = qobject_cast<Vault*>(sender());
-    qDebug() << "Vault status changed: " << vault->device() << " status = " << status;
 
     emit vaultChanged(vault->info());
 }
@@ -204,7 +194,6 @@ void PlasmaVaultService::openVault(const QString &device_)
 
     showPasswordMountDialog(vault,
             [this, device] {
-            qDebug() << "emit vaultChanged <----------------------------------";
                 emit vaultChanged(d->knownVaults[device]->info());
             });
 }

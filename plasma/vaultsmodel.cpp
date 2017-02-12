@@ -1,22 +1,21 @@
 /*
- *   Copyright (C) 2017 by Ivan Cukic <ivan.cukic(at)kde.org>
+ *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
  *
- *   This library is free software; you can redistribute it and/or
- *   modify it under the terms of the GNU Lesser General Public
- *   License as published by the Free Software Foundation; either
- *   version 2.1 of the License, or (at your option) version 3, or any
- *   later version accepted by the membership of KDE e.V. (or its
- *   successor approved by the membership of KDE e.V.), which shall
- *   act as a proxy defined in Section 6 of version 3 of the license.
+ *   This program is free software; you can redistribute it and/or
+ *   modify it under the terms of the GNU General Public License as
+ *   published by the Free Software Foundation; either version 2 of
+ *   the License or (at your option) version 3 or any later version
+ *   accepted by the membership of KDE e.V. (or its successor approved
+ *   by the membership of KDE e.V.), which shall act as a proxy
+ *   defined in Section 14 of version 3 of the license.
  *
- *   This library is distributed in the hope that it will be useful,
+ *   This program is distributed in the hope that it will be useful,
  *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- *   Lesser General Public License for more details.
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
  *
- *   You should have received a copy of the GNU Lesser General Public
- *   License along with this library.
- *   If not, see <http://www.gnu.org/licenses/>.
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "vaultsmodel.h"
@@ -41,8 +40,6 @@ VaultsModel::Private::Private(VaultsModel *parent)
                     )
     , q(parent)
 {
-    qDebug() << "---------------> Asking for vaults" << service.isValid();
-
     connect(&service, &org::kde::plasmavault::vaultAdded,
             this,     &Private::onVaultAdded);
     connect(&service, &org::kde::plasmavault::vaultChanged,
@@ -58,6 +55,8 @@ VaultsModel::Private::Private(VaultsModel *parent)
                     return;
                 }
 
+                // If kded is not running, just clear all vault info,
+                // otherwise load the data
                 if (newOwner.isEmpty()) {
                     clearData();
                 } else {
@@ -65,15 +64,20 @@ VaultsModel::Private::Private(VaultsModel *parent)
                 }
             });
 
+    // Try to load the data. This should start kded if it is not running
+    // for some reason
     loadData();
 }
 
 void VaultsModel::Private::loadData()
 {
+    // Before loading the new data, lets forget everything
     clearData();
 
+    // Asynchronously load the devices
     auto pcall = service.asyncCall("availableDevices");
 
+    // TODO: Switch to AsynQt for this
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pcall, this);
 
     QObject::connect(
@@ -84,11 +88,6 @@ void VaultsModel::Private::loadData()
                 QDBusPendingReply<VaultInfoList> reply = *watcher;
                 const auto vaultList = reply.value();
                 for (const auto& vault: vaultList) {
-                    qDebug() << "---------------> Plasma recognizes vault: "
-                             << vault.name
-                             << vault.device
-                             << vault.mountPoint
-                             << vault.status;
                     vaults[vault.device] = vault;
                     vaultKeys << vault.device;
                 }
@@ -140,11 +139,7 @@ void VaultsModel::Private::onVaultRemoved(const QString &device)
 void VaultsModel::Private::onVaultChanged(const PlasmaVault::VaultInfo &vaultInfo)
 {
     const auto device = vaultInfo.device;
-    qDebug() << "onVaultChanged: " << device << vaultInfo.status;
-
-    qDebug() << "Known devices: " << vaultKeys;
     if (!vaultKeys.contains(device)) return;
-    qDebug() << "YES! We can change the data";
 
     const auto row = vaultKeys.indexOf(device);
 
@@ -178,14 +173,12 @@ int VaultsModel::rowCount(const QModelIndex &parent) const
 QVariant VaultsModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
-        qDebug() << "Index is not valid";
         return {};
     }
 
     const int row = index.row();
 
     if (row >= d->vaultKeys.count()) {
-        qDebug() << "row" << row << "is not valid";
         return {};
     }
 
@@ -194,15 +187,12 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
 
     switch (role) {
         case VaultDevice:
-            qDebug() << "Vault getting the device" << vault.device;
             return vault.device;
 
         case VaultMountPoint:
-            qDebug() << "Vault getting the mount point" << vault.mountPoint;
             return vault.mountPoint;
 
         case VaultName:
-            qDebug() << "Vault getting name: " << vault.name;
             return vault.name.isEmpty() ?
                           vault.device :
                           vault.name;
@@ -290,6 +280,7 @@ void VaultsModel::close(const QString &device)
 void VaultsModel::toggle(const QString &device)
 {
     if (!d->vaults.contains(device)) return;
+
     const auto &vault = d->vaults[device];
     if (vault.status == VaultInfo::Opened) {
         close(device);
