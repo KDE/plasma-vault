@@ -44,7 +44,8 @@ public:
         VaultDevice,
         VaultMountPoint,
         VaultIcon,
-        VaultBusy,
+        VaultIsBusy,
+        VaultIsOpened,
         VaultStatus
     };
 
