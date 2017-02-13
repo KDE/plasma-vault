@@ -63,7 +63,10 @@ bool VaultsModelProxy::filterAcceptsRow(int sourceRow,
     const auto activities =
         m_source->index(sourceRow).data(VaultsModel::VaultActivities).toStringList();
 
-    return activities.size() == 0 || activities.contains(m_kamd->currentActivity());
+    const auto isOpened =
+        m_source->index(sourceRow).data(VaultsModel::VaultIsOpened).toBool();
+
+    return activities.size() == 0 || isOpened || activities.contains(m_kamd->currentActivity());
 }
 
 
