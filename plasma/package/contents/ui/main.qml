@@ -55,6 +55,7 @@ Item {
             delegate: VaultItem {
                 icon: model.icon
                 name: model.name
+                message: model.message
                 isOpened: model.isOpened
 
                 width: parent.width

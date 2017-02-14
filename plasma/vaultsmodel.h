@@ -46,7 +46,8 @@ public:
         VaultIsBusy,                  ///< Is the vault currently being opened or closed
         VaultIsOpened,                ///< Is the vault open
         VaultStatus,                  ///< Status of the vault, @see VaultInfo::Status
-        VaultActivities               ///< To which activities does this vault belong to
+        VaultActivities,              ///< To which activities does this vault belong to
+        VaultMessage                  ///< Message to be shown forthe vault
     };
 
 public Q_SLOTS:

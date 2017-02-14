@@ -56,6 +56,7 @@ class Vault: public QObject {
     Q_PROPERTY(bool isBusy        READ isBusy        NOTIFY isBusyChanged)
 
     Q_PROPERTY(QStringList activities READ activities NOTIFY activitiesChanged)
+    Q_PROPERTY(QString message READ message NOTIFY messageChanged)
 
 public:
     Vault(const Device &device, QObject *parent = nullptr);
@@ -76,7 +77,7 @@ public:
     VaultInfo info() const;
 
 public Q_SLOTS:
-    QString errorMessage() const;
+    QString message() const;
     VaultInfo::Status status() const;
 
     bool isInitialized() const;
@@ -95,6 +96,7 @@ Q_SIGNALS:
     void isOpenedChanged(bool isOpened);
     void isBusyChanged(bool isBusy);
     void activitiesChanged(const QStringList &activities);
+    void messageChanged(const QString &message);
 
 public:
     static QList<Device> availableDevices();
