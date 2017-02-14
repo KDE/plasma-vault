@@ -49,8 +49,9 @@ public:
     QString name;
     QString device;
     QString mountPoint;
-    Status status;
     QStringList activities;
+    Status status;
+    QString message;
 
 
     inline bool isInitialized() const
@@ -93,6 +94,7 @@ inline QDBusArgument &operator<< (QDBusArgument &argument,
         << vaultInfo.mountPoint
         << (quint16)vaultInfo.status
         << vaultInfo.activities
+        << vaultInfo.message
         ;
     argument.endStructure();
     return argument;
@@ -111,6 +113,7 @@ inline const QDBusArgument &operator>> (const QDBusArgument &argument,
         >> vaultInfo.mountPoint
         >> status
         >> vaultInfo.activities
+        >> vaultInfo.message
         ;
     vaultInfo.status = (VaultInfo::Status)status;
     argument.endStructure();

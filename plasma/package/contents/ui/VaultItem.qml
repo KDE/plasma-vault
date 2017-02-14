@@ -30,6 +30,8 @@ MouseArea {
 
     property alias icon: vaultIcon.source
     property alias name: vaultName.text
+    property alias message: vaultMessage.text
+
     property bool isOpened: false
     property bool isBusy: false
 
@@ -79,9 +81,7 @@ MouseArea {
         visible: isBusy
     }
 
-    PlasmaComponents.Label {
-        id: vaultName
-
+    Column {
         anchors {
             left: vaultIcon.right
             right: buttonOpenClose.left
@@ -90,9 +90,21 @@ MouseArea {
             leftMargin: 2 * units.smallSpacing
         }
 
-        width: parent.width - vaultIcon.width
-        height: undefined
-        elide: Text.ElideRight
+        PlasmaComponents.Label {
+            id: vaultName
+
+            width: parent.width
+            height: undefined
+            elide: Text.ElideRight
+        }
+
+        PlasmaComponents.Label {
+            id: vaultMessage
+
+            width: parent.width
+            height: undefined
+            elide: Text.ElideRight
+        }
     }
 
     MouseArea {

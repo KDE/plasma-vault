@@ -63,7 +63,7 @@ Result<> FuseBackend::hasProcessFinishedSuccessfully(QProcess *process)
 
         // otherwise just report that we failed
             Result<>::error(Error::CommandError,
-                            i18n("Unable to open the vault"));
+                            i18n("Unable to perform the operation"));
 }
 
 

@@ -29,6 +29,9 @@
 #include <KConfig>
 #include <KConfigGroup>
 
+#include <processcore/process.h>
+#include <processcore/processes.h>
+
 #include <KLocalizedString>
 #include <kdirnotify.h>
 
@@ -36,6 +39,9 @@
 #include "error.h"
 
 #include "asynqt/basic/all.h"
+#include "asynqt/wrappers/process.h"
+#include "asynqt/operations/listen.h"
+#include "asynqt/operations/cast.h"
 
 #define CFG_NAME "name"
 #define CFG_LAST_STATUS "lastStatus"
@@ -59,6 +65,7 @@ public:
         MountPoint mountPoint;
         VaultInfo::Status status;
         QStringList activities;
+        QString message;
 
         QString backendName;
         Backend::Ptr backend;
@@ -66,6 +73,15 @@ public:
     using ExpectedData = AsynQt::Expected<Data, PlasmaVault::Error>;
     ExpectedData data;
 
+
+
+    void updateMessage(const QString &message)
+    {
+        if (!data) return;
+
+        data->message = message;
+        emit q->messageChanged(message);
+    }
 
 
     void updateStatus()
@@ -305,6 +321,9 @@ FutureResult<> Vault::open(const Payload &payload)
 
 FutureResult<> Vault::close()
 {
+    using namespace AsynQt::operators;
+    qDebug() << "Requesting close..." << mountPoint();
+
     return
         // We can not mount something that has not been registered
         // with us before
@@ -313,7 +332,61 @@ FutureResult<> Vault::close()
 
         // otherwise
         d->followFuture(VaultInfo::Closing,
-                        d->data->backend->close(d->device, d->data->mountPoint));
+                        d->data->backend->close(d->device, d->data->mountPoint))
+            | onError([] {
+                  // Errors should be handled by Result<>
+                  qWarning("Didn't we say no errors possible?");
+              })
+            | onSuccess([this] (const Result<> &result) {
+                  if (!result) {
+                      qWarning() << "Error closing the vault" << result.error().message();
+                      d->updateMessage(i18n("Unable to close the vault, an application is using it"));
+                      return;
+
+                      // We want to check whether there is an application
+                      // that is accessing the vault
+                      AsynQt::Process::getOutput("lsof", { "-t", mountPoint() })
+                          | cast<QString>()
+                          | onError([this] {
+                                d->updateMessage(i18n("Unable to close the vault, an application is using it"));
+                            })
+                          | onSuccess([this] (const QString &result) {
+                              // based on ksolidnotify.cpp
+                              QStringList blockApps;
+
+                                const auto &pidList =
+                                    result.split(QRegExp(QStringLiteral("\\s+")),
+                                                 QString::SkipEmptyParts);
+
+                                KSysGuard::Processes procs;
+
+                                for (const QString &pidStr: pidList) {
+                                    int pid = pidStr.toInt();
+                                    if (!pid) {
+                                        continue;
+                                    }
+
+                                    procs.updateOrAddProcess(pid);
+
+                                    KSysGuard::Process *proc = procs.getProcess(pid);
+
+                                    if (!blockApps.contains(proc->name())) {
+                                        blockApps << proc->name();
+                                    }
+                                }
+
+                                blockApps.removeDuplicates();
+
+
+                                d->updateMessage(i18n("Used by: %1", blockApps.join(", ")));
+                            });
+
+                  } else {
+                      qDebug() << "Wault closed successfully";
+
+                  }
+              })
+        ;
 }
 
 
@@ -394,12 +467,12 @@ QStringList Vault::statusMessage()
 
 
 
-QString Vault::errorMessage() const
+QString Vault::message() const
 {
     if (!d->data) {
         return d->data.error().message();
     } else {
-        return {};
+        return d->data->message;
     }
 }
 

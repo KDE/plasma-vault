@@ -55,6 +55,7 @@ find_package (
    KIO
    Plasma
    WidgetsAddons
+   SysGuard
    )
 
 
