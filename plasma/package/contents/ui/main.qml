@@ -27,6 +27,21 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 Item {
     property var vaultsModel: plasmoid.nativeInterface.vaultsModel
+    property var vaultsModelActions: plasmoid.nativeInterface.vaultsModel.source()
+
+    Binding {
+        target: plasmoid
+        property: "busy"
+        value: vaultsModelActions.isBusy
+    }
+
+    Binding {
+        target: plasmoid
+        property: "icon"
+        value: {
+            return vaultsModelActions.hasError ? "flag-red" : "object-locked";
+        }
+    }
 
     Plasmoid.fullRepresentation: ColumnLayout {
         anchors {
@@ -39,6 +54,8 @@ Item {
         // PlasmaExtras.Heading {
         //    text: i18nd("plasmavault-kde", "Encrypted vaults")
         // }
+
+
 
         ListView {
             model: vaultsModel
@@ -70,7 +87,7 @@ Item {
 
             text: i18nd("plasmavault-kde", "Create a new vault")
 
-            onClicked: vaultsModel.requestNewVault()
+            onClicked: vaultsModelActions.requestNewVault()
         }
     }
 }

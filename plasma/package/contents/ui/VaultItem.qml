@@ -35,7 +35,7 @@ MouseArea {
     property bool isOpened: false
     property bool isBusy: false
 
-    property var vaultsModel: plasmoid.nativeInterface.vaultsModel
+    property var vaultsModelActions: plasmoid.nativeInterface.vaultsModel.source()
 
     hoverEnabled: true
     height: units.iconSizes.medium + (actionsList.visible ? actionsList.height : 0)
@@ -90,7 +90,7 @@ MouseArea {
 
         iconName: isOpened ? "media-eject" : "media-mount"
 
-        onClicked: vaultsModel.toggle(model.device)
+        onClicked: vaultsModelActions.toggle(model.device)
     }
 
     PlasmaComponents.BusyIndicator {

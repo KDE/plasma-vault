@@ -22,11 +22,17 @@
 #define PLASMAVAULT_PLASMA_VAULTSMODEL_H
 
 #include <QAbstractListModel>
+#include <QSortFilterProxyModel>
+
+#include <KActivities/Consumer>
 
 #include <common/vaultinfo.h>
 
 class VaultsModel: public QAbstractListModel {
     Q_OBJECT
+
+    Q_PROPERTY(bool isBusy READ isBusy NOTIFY isBusyChanged)
+    Q_PROPERTY(bool hasError READ hasError NOTIFY hasErrorChanged)
 
 public:
     VaultsModel(QObject *parent = nullptr);
@@ -67,10 +73,38 @@ public Q_SLOTS:
     // Opens the new-vault wizard
     void requestNewVault();
 
+
+    bool isBusy() const;
+    bool hasError() const;
+
+Q_SIGNALS:
+    void isBusyChanged(bool isBusy);
+    void hasErrorChanged(bool hasError);
+
 private:
     class Private;
     friend class Private;
     QScopedPointer<Private> d;
+};
+
+class SortedVaultsModelProxy: public QSortFilterProxyModel {
+    Q_OBJECT
+
+public:
+    SortedVaultsModelProxy(QObject *parent);
+
+    bool lessThan(const QModelIndex &left,
+                  const QModelIndex &right) const override;
+
+    bool filterAcceptsRow(int sourceRow,
+                          const QModelIndex &sourceParent) const override;
+
+public Q_SLOTS:
+    QObject *source() const;
+
+private:
+    VaultsModel *m_source;
+    KActivities::Consumer *m_kamd;
 };
 
 #endif // include guard
