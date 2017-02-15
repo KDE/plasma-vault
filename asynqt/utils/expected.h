@@ -37,7 +37,9 @@ protected:
 
     bool m_isValid;
 
-    Expected() {} //used internally
+    Expected() // used internally
+    {
+    }
 
 public:
     ~Expected()
@@ -86,10 +88,12 @@ public:
             } else {
                 // We are valid, but the other one is not
                 // we need to do the whole dance
-                auto temp = std::move(other.m_error);
-                new (&other.m_value) T(std::move(m_value));
-                new (&m_error) E(std::move(temp));
-                std::swap(m_isValid, other.m_isValid);
+                auto temp = std::move(other.m_error);       // moving the error into the temp
+                other.m_error.~E();                         // destroying the original error object
+                new (&other.m_value) T(std::move(m_value)); // moving our value into the other
+                m_value.~T();                               // destroying our value object
+                new (&m_error) E(std::move(temp));          // moving the error saved to the temp into us
+                std::swap(m_isValid, other.m_isValid);      // swap the isValid flags
             }
 
         } else {
@@ -248,9 +252,10 @@ public:
             } else {
                 // We are valid, but the other one is not.
                 // We need to move the error into us
-                auto temp = std::move(other.m_error);
-                new (&m_error) E(std::move(temp));
-                std::swap(m_isValid, other.m_isValid);
+                auto temp = std::move(other.m_error);    // moving the error into the temp
+                other.m_error.~E();                      // destroying the original error object
+                new (&m_error) E(std::move(temp));       // moving the error into us
+                std::swap(m_isValid, other.m_isValid);   // swapping the isValid flags
             }
 
         } else {
