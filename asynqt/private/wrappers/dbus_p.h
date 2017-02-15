@@ -54,7 +54,9 @@ public:
 
         QObject::connect(replyWatcher.get(),
                          &QDBusPendingCallWatcher::finished,
-                         [this] () { callFinished(); });
+                         replyWatcher.get(),
+                         [this] () { callFinished(); },
+                         Qt::QueuedConnection);
 
         this->reportStarted();
 
