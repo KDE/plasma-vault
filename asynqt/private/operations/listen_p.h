@@ -47,9 +47,7 @@ public:
     template <typename _Result>
     void operator() (const QFuture<_Result> &future) const
     {
-        qDebug() << "Passing the result";
         if (future.resultCount()) {
-            qDebug() << "Passing the result, really";
             m_function(future.result());
         }
     }
@@ -69,9 +67,7 @@ public:
     template <typename _Result>
     void operator() (const QFuture<_Result> &future) const
     {
-        qDebug() << "Passing the error";
         if (future.isCanceled()) {
-            qDebug() << "Passing the error, really";
             m_function();
         }
     }
@@ -81,69 +77,23 @@ private:
 };
 
 
-
-template <typename _Type, typename _Function>
-class OnFinishedFutureInterface
-    : public QObject
-    , public QFutureInterface<_Type> {
-
-public:
-    OnFinishedFutureInterface(QFuture<_Type> future,
-                          _Function function)
-        : m_future(future)
-        , m_function(function)
-    {
-        qDebug() << "Created the future interface";
-    }
-
-    ~OnFinishedFutureInterface()
-    {
-        qDebug() << "Killed the future interface";
-    }
-
-    QFuture<_Type> start()
-    {
-        qDebug() << "Starting the future interface";
-        m_futureWatcher.reset(new QFutureWatcher<_Type>());
-
-        onFinished(m_futureWatcher, [this]() {
-            qDebug() << "Reporting that the future interface has finished";
-            m_function(this->future());
-            this->reportFinished();
-        });
-
-        onCanceled(m_futureWatcher, [this]() { this->reportCanceled(); });
-
-        onResultReadyAt(m_futureWatcher, [this](int index) {
-            auto result = m_future.resultAt(index);
-            this->reportResult(result);
-        });
-
-        m_futureWatcher->setFuture(m_future);
-
-        this->reportStarted();
-
-        return this->future();
-    }
-
-private:
-    QFuture<_Type> m_future;
-    _Function m_function;
-    std::unique_ptr<QFutureWatcher<_Type>> m_futureWatcher;
-};
-
 template <typename _Type, typename _Function>
 QFuture<_Type>
 onFinished_impl(const QFuture<_Type> &future, _Function &&function)
 {
-    return (new OnFinishedFutureInterface<_Type, _Function>(
-                future, std::forward<_Function>(function)))
-        ->start();
+    auto watcher = new QFutureWatcher<_Type>();
+    QObject::connect(watcher, &QFutureWatcherBase::finished,
+                     [watcher,function] () {
+                         function(watcher->future());
+                         watcher->deleteLater();
+                     });
+    watcher->setFuture(future);
+
+    return future;
 }
 
 
 namespace operators {
-
 
     template <typename _Function>
     class OnFinishedModifier {
