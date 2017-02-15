@@ -22,11 +22,12 @@
 #include "vaultsmodel_p.h"
 
 #include <asynqt/wrappers/dbus.h>
-#include <asynqt/operations/transform.h>
+#include <asynqt/operations/listen.h>
 
 #include <QFileInfo>
 
 using namespace PlasmaVault;
+using namespace AsynQt;
 using namespace AsynQt::operators;
 
 
@@ -268,10 +269,8 @@ void VaultsModel::refresh()
 void VaultsModel::open(const QString &device)
 {
     if (!d->vaults.contains(device)) return;
-    AsynQt::DBus::asyncCall<void>(&d->service, "openVault", device)
-        | transform([] {
-              qDebug() << "open request finished";
-          });
+
+    DBus::asyncCall<>(&d->service, "openVault", device);
 }
 
 
@@ -279,10 +278,8 @@ void VaultsModel::open(const QString &device)
 void VaultsModel::close(const QString &device)
 {
     if (!d->vaults.contains(device)) return;
-    AsynQt::DBus::asyncCall<void>(&d->service, "closeVault", device)
-        | transform([] {
-              qDebug() << "close request finished";
-          });
+
+    DBus::asyncCall<>(&d->service, "closeVault", device);
 }
 
 
@@ -303,7 +300,7 @@ void VaultsModel::toggle(const QString &device)
 
 void VaultsModel::requestNewVault()
 {
-    AsynQt::DBus::asyncCall<void>(&d->service, "requestNewVault");
+    DBus::asyncCall<>(&d->service, "requestNewVault");
 }
 
 

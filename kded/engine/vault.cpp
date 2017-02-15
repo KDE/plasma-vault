@@ -236,8 +236,7 @@ public:
         emit q->isBusyChanged(true);
         data->status = whileNotFinished;
 
-        return future | onFinished([this] (const T &future) {
-                Q_UNUSED(future);
+        return future | onSuccess([this] {
                 updateStatus();
             });
     }
@@ -324,13 +323,16 @@ FutureResult<> Vault::close()
         d->followFuture(VaultInfo::Closing,
                         d->data->backend->close(d->device, d->data->mountPoint))
             | onSuccess([this] (const Result<> &result) {
-                if (!result) {
+                if (!isOpened() || result) {
+                    d->updateMessage(QString());
+
+                } else {
                     // We want to check whether there is an application
                     // that is accessing the vault
-                    AsynQt::Process::getOutput("lsof", { "-t", this->mountPoint() })
+                    AsynQt::Process::getOutput("lsof", { "-t", mountPoint() })
                         | cast<QString>()
                         | onError([this] {
-                            this->d->updateMessage(i18n("Unable to close the vault, an application is using it"));
+                            d->updateMessage(i18n("Unable to close the vault, an application is using it"));
                         })
                         | onSuccess([this] (const QString &result) {
                             // based on ksolidnotify.cpp
@@ -359,7 +361,7 @@ FutureResult<> Vault::close()
 
                             blockApps.removeDuplicates();
 
-                            this->d->updateMessage(i18n("Unable to close the vault, it is used by %1", blockApps.join(", ")));
+                            d->updateMessage(i18n("Unable to close the vault, it is used by %1", blockApps.join(", ")));
                         });
                     }
                 });

@@ -53,7 +53,7 @@ namespace DBus {
  * Makes an asynchronous call to the specified DBus interface,
  * and wraps the result in a future.
  */
-template <typename _Result>
+template <typename _Result = void>
 QFuture<_Result>
 asyncCall(QDBusAbstractInterface *interface, const QString &method,
           const QVariant &arg1 = QVariant(), const QVariant &arg2 = QVariant(),

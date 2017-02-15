@@ -35,9 +35,44 @@
 namespace AsynQt {
 namespace detail {
 
+template <typename T>
+struct isNullary {
+private:
+    template <typename U>
+    static decltype(std::declval<U>()(), std::true_type()) test(int);
+
+    template <typename>
+    static std::false_type test(...);
+
+public:
+    typedef decltype(test<T>(0)) type;
+    enum { value = type::value };
+};
+
 
 template <typename _Function>
 class PassResult {
+private:
+    using isNullaryFunction = typename isNullary<_Function>::type;
+    _Function m_function;
+
+    template <typename _Result>
+    void callFunction(const QFuture<_Result> &future, std::true_type) const
+    {
+        Q_UNUSED(future);
+        if (!future.isCanceled()) {
+            m_function();
+        }
+    }
+
+    template <typename _Result>
+    void callFunction(const QFuture<_Result> &future, std::false_type) const
+    {
+        if (future.resultCount()) {
+            m_function(future.result());
+        }
+    }
+
 public:
     PassResult(_Function function)
         : m_function(function)
@@ -47,13 +82,8 @@ public:
     template <typename _Result>
     void operator() (const QFuture<_Result> &future) const
     {
-        if (future.resultCount()) {
-            m_function(future.result());
-        }
+        callFunction(future, isNullaryFunction());
     }
-
-private:
-    _Function m_function;
 };
 
 template <typename _Function>
