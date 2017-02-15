@@ -55,6 +55,24 @@ MouseArea {
 
         width: units.iconSizes.medium
         height: units.iconSizes.medium
+
+        PlasmaCore.IconItem {
+            anchors {
+                left: parent.left
+                bottom: parent.bottom
+            }
+
+            width: units.iconSizes.small
+            height: units.iconSizes.small
+
+            visible: source != ""
+
+            source: {
+                return vaultItem.message != "" ? "emblem-error" :
+                       vaultItem.isOpened      ? "emblem-mounted" :
+                                                 ""
+            }
+        }
     }
 
     PlasmaComponents.ToolButton {
