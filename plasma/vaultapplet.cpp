@@ -29,76 +29,6 @@
 
 
 
-VaultsModelProxy::VaultsModelProxy(QObject *parent)
-    : QSortFilterProxyModel(parent)
-    , m_source(new VaultsModel(this))
-    , m_kamd(new KActivities::Consumer(this))
-{
-    setSourceModel(m_source);
-
-    connect(m_kamd, &KActivities::Consumer::currentActivityChanged,
-            this,   &VaultsModelProxy::invalidate);
-    connect(m_kamd, &KActivities::Consumer::serviceStatusChanged,
-            this,   &VaultsModelProxy::invalidate);
-}
-
-
-
-bool VaultsModelProxy::lessThan(const QModelIndex &left,
-                                const QModelIndex &right) const
-{
-    const auto leftData = sourceModel()->data(left, VaultsModel::VaultName);
-    const auto rightData = sourceModel()->data(right, VaultsModel::VaultName);
-
-    return leftData < rightData;
-}
-
-
-
-bool VaultsModelProxy::filterAcceptsRow(int sourceRow,
-                                        const QModelIndex &sourceParent) const
-{
-    Q_UNUSED(sourceParent);
-
-    const auto activities =
-        m_source->index(sourceRow).data(VaultsModel::VaultActivities).toStringList();
-
-    const auto isOpened =
-        m_source->index(sourceRow).data(VaultsModel::VaultIsOpened).toBool();
-
-    return activities.size() == 0 || isOpened || activities.contains(m_kamd->currentActivity());
-}
-
-
-
-void VaultsModelProxy::open(const QString &device)
-{
-    m_source->open(device);
-}
-
-
-
-void VaultsModelProxy::close(const QString &device)
-{
-    m_source->close(device);
-}
-
-
-
-void VaultsModelProxy::toggle(const QString &device)
-{
-    m_source->toggle(device);
-}
-
-
-
-void VaultsModelProxy::requestNewVault()
-{
-    m_source->requestNewVault();
-}
-
-
-
 VaultApplet::VaultApplet(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args)
     , m_vaultsModel(nullptr)
@@ -116,7 +46,7 @@ VaultApplet::~VaultApplet()
 QObject *VaultApplet::vaultsModel()
 {
     if (!m_vaultsModel) {
-        m_vaultsModel = new VaultsModelProxy(this);
+        m_vaultsModel = new SortedVaultsModelProxy(this);
     }
 
     return m_vaultsModel;

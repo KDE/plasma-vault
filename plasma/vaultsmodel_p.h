@@ -46,6 +46,10 @@ public Q_SLOTS:
 public:
     org::kde::plasmavault service;
     QDBusServiceWatcher serviceWatcher;
+
+    QSet<QString> busyVaults;
+    QSet<QString> errorVaults;
+
     VaultsModel *const q;
 };
 

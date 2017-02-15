@@ -76,25 +76,33 @@ void VaultsModel::Private::loadData()
     clearData();
 
     // Asynchronously load the devices
-    auto pcall = service.asyncCall("availableDevices");
+    DBus::asyncCall<VaultInfoList>(&service, "availableDevices") |
+        onSuccess([this] (const VaultInfoList &vaultList) {
+            q->beginResetModel();
 
-    // TODO: Switch to AsynQt for this
-    auto *watcher = new QDBusPendingCallWatcher(pcall, this);
+            vaults.clear();
+            vaultKeys.clear();
+            busyVaults.clear();
+            errorVaults.clear();
 
-    QObject::connect(
-        watcher, &QDBusPendingCallWatcher::finished,
-            this, [this] (QDBusPendingCallWatcher* watcher) {
-                q->beginResetModel();
+            for (const auto& vault: vaultList) {
+                vaults[vault.device] = vault;
+                vaultKeys << vault.device;
 
-                QDBusPendingReply<VaultInfoList> reply = *watcher;
-                const auto vaultList = reply.value();
-                for (const auto& vault: vaultList) {
-                    vaults[vault.device] = vault;
-                    vaultKeys << vault.device;
+                if (vault.isBusy()) {
+                    busyVaults << vault.device;
                 }
 
-                q->endResetModel();
-            });
+                if (!vault.message.isEmpty()) {
+                    errorVaults << vault.device;
+                }
+            }
+
+            q->endResetModel();
+
+            emit q->isBusyChanged(busyVaults.count() != 0);
+            emit q->hasErrorChanged(errorVaults.count() != 0);
+        });
 }
 
 
@@ -146,6 +154,36 @@ void VaultsModel::Private::onVaultChanged(
 
     const auto row = vaultKeys.indexOf(device);
 
+    // Lets see whether this warrants updates to the busy flag
+    if (vaultInfo.isBusy() && !busyVaults.contains(device)) {
+        busyVaults << device;
+        if (busyVaults.count() == 1) {
+            emit q->isBusyChanged(true);
+        }
+    }
+
+    if (!vaultInfo.isBusy() && busyVaults.contains(device)) {
+        busyVaults.remove(device);
+        if (busyVaults.count() == 0) {
+            emit q->isBusyChanged(false);
+        }
+    }
+
+    // Lets see whether this warrants updates to the error flag
+    if (!vaultInfo.message.isEmpty() && !errorVaults.contains(device)) {
+        errorVaults << device;
+        if (errorVaults.count() == 1) {
+            emit q->hasErrorChanged(true);
+        }
+    }
+
+    if (vaultInfo.message.isEmpty() && errorVaults.contains(device)) {
+        errorVaults.remove(device);
+        if (errorVaults.count() == 0) {
+            emit q->hasErrorChanged(false);
+        }
+    }
+
     vaults[device] = vaultInfo;
     q->dataChanged(q->index(row), q->index(row));
 }
@@ -153,7 +191,8 @@ void VaultsModel::Private::onVaultChanged(
 
 
 VaultsModel::VaultsModel(QObject *parent)
-    : d(new Private(this))
+    : QAbstractListModel(parent)
+    , d(new Private(this))
 {
 }
 
@@ -301,6 +340,71 @@ void VaultsModel::toggle(const QString &device)
 void VaultsModel::requestNewVault()
 {
     DBus::asyncCall<>(&d->service, "requestNewVault");
+}
+
+
+
+bool VaultsModel::isBusy() const
+{
+    return !d->busyVaults.isEmpty();
+}
+
+
+
+bool VaultsModel::hasError() const
+{
+    return !d->errorVaults.isEmpty();
+}
+
+
+
+
+
+SortedVaultsModelProxy::SortedVaultsModelProxy(QObject *parent)
+    : QSortFilterProxyModel(parent)
+    , m_source(new VaultsModel(this))
+    , m_kamd(new KActivities::Consumer(this))
+{
+    setSourceModel(m_source);
+
+    connect(m_kamd, &KActivities::Consumer::currentActivityChanged,
+            this,   &SortedVaultsModelProxy::invalidate);
+    connect(m_kamd, &KActivities::Consumer::serviceStatusChanged,
+            this,   &SortedVaultsModelProxy::invalidate);
+}
+
+
+
+bool SortedVaultsModelProxy::lessThan(const QModelIndex &left,
+                                      const QModelIndex &right) const
+{
+    const auto leftData = sourceModel()->data(left, VaultsModel::VaultName);
+    const auto rightData = sourceModel()->data(right, VaultsModel::VaultName);
+
+    return leftData < rightData;
+}
+
+
+
+bool SortedVaultsModelProxy::filterAcceptsRow(int sourceRow,
+                                              const QModelIndex &sourceParent) const
+{
+    Q_UNUSED(sourceParent);
+
+    const auto activities =
+        m_source->index(sourceRow).data(VaultsModel::VaultActivities).toStringList();
+
+    const auto isOpened =
+        m_source->index(sourceRow).data(VaultsModel::VaultIsOpened).toBool();
+
+    return activities.size() == 0 || isOpened || activities.contains(m_kamd->currentActivity());
+}
+
+
+
+QObject *SortedVaultsModelProxy::source() const
+{
+    return sourceModel();
 }
 
 
