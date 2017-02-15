@@ -119,8 +119,6 @@ FutureResult<> CryFsBackend::validateBackend()
               QString message  = i18n("cryfs: %1", cryfs.second) + "\n"
                                + i18n("fusermount: %1", fusermount.second) + "\n";
 
-              qDebug() << "Summary: " << success << message;
-
               return Result<>::success();
           });
 }

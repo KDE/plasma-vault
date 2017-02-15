@@ -23,6 +23,7 @@
 
 #include <QString>
 #include <QDBusArgument>
+#include <QDebug>
 
 namespace PlasmaVault {
 
@@ -81,6 +82,22 @@ public:
 
 
 typedef QList<VaultInfo> VaultInfoList;
+
+
+
+inline QDebug &operator<< (QDebug &debug,
+                           const VaultInfo &vaultInfo)
+{
+    debug
+        << vaultInfo.name
+        << vaultInfo.device
+        << vaultInfo.mountPoint
+        << (quint16)vaultInfo.status
+        << vaultInfo.activities
+        << vaultInfo.message
+        ;
+    return debug;
+}
 
 
 

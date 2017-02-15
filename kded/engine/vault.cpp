@@ -24,6 +24,7 @@
 #include <QFutureWatcher>
 #include <QDBusMetaType>
 #include <QUrl>
+#include <QPointer>
 
 #include <KSharedConfig>
 #include <KConfig>
@@ -230,25 +231,15 @@ public:
     template <typename T>
     T followFuture(VaultInfo::Status whileNotFinished, const T &future)
     {
-        auto watcher = new QFutureWatcher<decltype(future.result())>(q);
-        watcher->setFuture(future);
+        using namespace AsynQt::operators;
 
         emit q->isBusyChanged(true);
         data->status = whileNotFinished;
 
-        if (!watcher->isFinished()) {
-
-            QObject::connect(watcher, &QFutureWatcherBase::finished,
-                             q, [=] () {
-                                updateStatus();
-                                // watcher->deleteLater();
-                             });
-
-        } else {
-            updateStatus();
-        }
-
-        return future;
+        return future | onFinished([this] (const T &future) {
+                Q_UNUSED(future);
+                updateStatus();
+            });
     }
 
 
@@ -322,7 +313,6 @@ FutureResult<> Vault::open(const Payload &payload)
 FutureResult<> Vault::close()
 {
     using namespace AsynQt::operators;
-    qDebug() << "Requesting close..." << mountPoint();
 
     return
         // We can not mount something that has not been registered
@@ -333,60 +323,46 @@ FutureResult<> Vault::close()
         // otherwise
         d->followFuture(VaultInfo::Closing,
                         d->data->backend->close(d->device, d->data->mountPoint))
-            | onError([] {
-                  // Errors should be handled by Result<>
-                  qWarning("Didn't we say no errors possible?");
-              })
             | onSuccess([this] (const Result<> &result) {
-                  if (!result) {
-                      qWarning() << "Error closing the vault" << result.error().message();
-                      d->updateMessage(i18n("Unable to close the vault, an application is using it"));
-                      return;
+                if (!result) {
+                    // We want to check whether there is an application
+                    // that is accessing the vault
+                    AsynQt::Process::getOutput("lsof", { "-t", this->mountPoint() })
+                        | cast<QString>()
+                        | onError([this] {
+                            this->d->updateMessage(i18n("Unable to close the vault, an application is using it"));
+                        })
+                        | onSuccess([this] (const QString &result) {
+                            // based on ksolidnotify.cpp
+                            QStringList blockApps;
 
-                      // We want to check whether there is an application
-                      // that is accessing the vault
-                      AsynQt::Process::getOutput("lsof", { "-t", mountPoint() })
-                          | cast<QString>()
-                          | onError([this] {
-                                d->updateMessage(i18n("Unable to close the vault, an application is using it"));
-                            })
-                          | onSuccess([this] (const QString &result) {
-                              // based on ksolidnotify.cpp
-                              QStringList blockApps;
+                            const auto &pidList =
+                            result.split(QRegExp(QStringLiteral("\\s+")),
+                                         QString::SkipEmptyParts);
 
-                                const auto &pidList =
-                                    result.split(QRegExp(QStringLiteral("\\s+")),
-                                                 QString::SkipEmptyParts);
+                            KSysGuard::Processes procs;
 
-                                KSysGuard::Processes procs;
-
-                                for (const QString &pidStr: pidList) {
-                                    int pid = pidStr.toInt();
-                                    if (!pid) {
-                                        continue;
-                                    }
-
-                                    procs.updateOrAddProcess(pid);
-
-                                    KSysGuard::Process *proc = procs.getProcess(pid);
-
-                                    if (!blockApps.contains(proc->name())) {
-                                        blockApps << proc->name();
-                                    }
+                            for (const QString &pidStr: pidList) {
+                                int pid = pidStr.toInt();
+                                if (!pid) {
+                                    continue;
                                 }
 
-                                blockApps.removeDuplicates();
+                                procs.updateOrAddProcess(pid);
 
+                                KSysGuard::Process *proc = procs.getProcess(pid);
 
-                                d->updateMessage(i18n("Used by: %1", blockApps.join(", ")));
-                            });
+                                if (!blockApps.contains(proc->name())) {
+                                    blockApps << proc->name();
+                                }
+                            }
 
-                  } else {
-                      qDebug() << "Wault closed successfully";
+                            blockApps.removeDuplicates();
 
-                  }
-              })
-        ;
+                            this->d->updateMessage(i18n("Unable to close the vault, it is used by %1", blockApps.join(", ")));
+                        });
+                    }
+                });
 }
 
 
@@ -526,6 +502,7 @@ VaultInfo Vault::info() const
     vaultInfo.name       = name();
     vaultInfo.status     = status();
     vaultInfo.activities = activities();
+    vaultInfo.message    = message();
     return vaultInfo;
 }
 

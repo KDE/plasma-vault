@@ -86,7 +86,6 @@ public:
             std::true_type  // result_type is void
         )
     {
-        qDebug() << "value to void";
         // no value, no result to create, but we still
         // want to call the transformation function
         if (!m_future.isCanceled()) {
@@ -100,7 +99,6 @@ public:
             std::false_type  // result_type is not void
         )
     {
-        qDebug() << "void to value";
         if (!m_future.isCanceled()) {
             this->reportResult(m_transformation());
         }
@@ -142,7 +140,6 @@ public:
             std::true_type   // result_type is void
         )
     {
-        qDebug() << "value to void";
         // nothing to do with the value, but we still
         // want to call the transformation function
         applyTransformation(m_future.resultAt(index));
@@ -155,7 +152,6 @@ public:
             std::false_type  // result_type is not void
         )
     {
-        qDebug() << "value to value";
         this->reportResult(applyTransformation(m_future.resultAt(index)));
     }
 
