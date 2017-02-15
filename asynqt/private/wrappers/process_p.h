@@ -52,7 +52,8 @@ public:
                 (void (QProcess::*)(int, QProcess::ExitStatus)) &QProcess::finished,
                 this, [this] (int, QProcess::ExitStatus) {
                     this->finished();
-                });
+                },
+                Qt::QueuedConnection);
 
         this->reportStarted();
 
