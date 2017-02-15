@@ -37,7 +37,7 @@ Item {
         Layout.minimumHeight: 200
 
         // PlasmaExtras.Heading {
-        //    text: i18n("Encrypted vaults")
+        //    text: i18nd("plasmavault-kde", "Encrypted vaults")
         // }
 
         ListView {
@@ -67,7 +67,7 @@ Item {
         PlasmaComponents.Button {
             id: buttonCreateNewVault
 
-            text: i18n("Create a new vault")
+            text: i18nd("plasmavault-kde", "Create a new vault")
 
             onClicked: vaultsModel.requestNewVault()
         }

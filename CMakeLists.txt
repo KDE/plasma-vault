@@ -69,7 +69,7 @@ include (CPack)
 include (ECMPackageConfigHelpers)
 include (ECMSetupVersion)
 
-add_definitions (-DTRANSLATION_DOMAIN=\"plasmavault\")
+add_definitions (-DTRANSLATION_DOMAIN=\"plasmavault-kde\")
 add_definitions (-fexceptions)
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ki18n_install (po)
