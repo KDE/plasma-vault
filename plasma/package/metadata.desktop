@@ -1,6 +1,12 @@
 [Desktop Entry]
 Name=Vaults
+Name[pt]=Cofres
+Name[uk]=Сховища
+Name[x-test]=xxVaultsxx
 Comment=Create encrypted vaults
+Comment[pt]=Criar cofres encriptados
+Comment[uk]=Створення шифрованих сховищ
+Comment[x-test]=xxCreate encrypted vaultsxx
 
 Icon=document-encrypt
 Type=Service
