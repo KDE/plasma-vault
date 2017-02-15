@@ -140,6 +140,7 @@ void VaultsModel::Private::onVaultChanged(
     const PlasmaVault::VaultInfo &vaultInfo)
 {
     const auto device = vaultInfo.device;
+
     if (!vaultKeys.contains(device)) return;
 
     const auto row = vaultKeys.indexOf(device);

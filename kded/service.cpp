@@ -130,6 +130,8 @@ void PlasmaVaultService::registerVault(Vault *vault)
 
     connect(vault, &Vault::statusChanged,
             this,  &PlasmaVaultService::onVaultStatusChanged);
+    connect(vault, &Vault::messageChanged,
+            this,  &PlasmaVaultService::onVaultMessageChanged);
 
     emit vaultAdded(vault->info());
 }
@@ -138,6 +140,19 @@ void PlasmaVaultService::registerVault(Vault *vault)
 
 void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
 {
+    Q_UNUSED(status);
+
+    const auto vault = qobject_cast<Vault*>(sender());
+
+    emit vaultChanged(vault->info());
+}
+
+
+
+void PlasmaVaultService::onVaultMessageChanged(const QString &message)
+{
+    Q_UNUSED(message);
+
     const auto vault = qobject_cast<Vault*>(sender());
 
     emit vaultChanged(vault->info());

@@ -111,8 +111,6 @@ FutureResult<> EncFsBackend::validateBackend()
                                + i18n("encfsctl: %1", encfsctl.second) + "\n"
                                + i18n("fusermount: %1", fusermount.second) + "\n";
 
-              qDebug() << "Summary: " << success << message;
-
               return Result<>::success();
           });
 }
