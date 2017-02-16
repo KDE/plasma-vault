@@ -122,6 +122,10 @@ MouseArea {
             width: parent.width
             height: undefined
             elide: Text.ElideRight
+
+            visible: {
+                return vaultMessage.text != "";
+            }
         }
     }
 
