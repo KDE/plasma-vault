@@ -8,7 +8,7 @@ Comment[pt]=Criar cofres encriptados
 Comment[uk]=Створення шифрованих сховищ
 Comment[x-test]=xxCreate encrypted vaultsxx
 
-Icon=document-encrypt
+Icon=plasmavault
 Type=Service
 ServiceTypes=Plasma/Applet
 

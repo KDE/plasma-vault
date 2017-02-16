@@ -39,7 +39,7 @@ Item {
         target: plasmoid
         property: "icon"
         value: {
-            return vaultsModelActions.hasError ? "flag-red" : "object-locked";
+            return vaultsModelActions.hasError ? "plasmavault-error" : "plasmavault";
         }
     }
 
