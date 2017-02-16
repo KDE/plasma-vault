@@ -1,6 +1,6 @@
 # vim:set softtabstop=3 shiftwidth=3 tabstop=3 expandtab:
 
-cmake_minimum_required (VERSION 2.8.11)
+cmake_minimum_required (VERSION 2.8.12)
 
 project (PlasmaVault)
 
@@ -45,7 +45,7 @@ find_package (
 set (KF5_DEP_VERSION "5.17.0") # handled by release scripts
 
 find_package (
-   KF5 REQUIRED COMPONENTS
+   KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS
    Activities
    Config
    ConfigWidgets
@@ -55,9 +55,8 @@ find_package (
    KIO
    Plasma
    WidgetsAddons
-   SysGuard
    )
-
+find_package (KF5SysGuard REQUIRED)
 
 include_directories (
    ${CMAKE_CURRENT_SOURCE_DIR}
