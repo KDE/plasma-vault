@@ -253,10 +253,10 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
                     return "folder-gray";
 
                 case VaultInfo::Closed:
-                    return "folder-encrypted-closed";
+                    return "folder-encrypted";
 
                 case VaultInfo::Opened:
-                    return "folder-encrypted-open";
+                    return "folder-decrypted";
 
                 default:
                     return "";

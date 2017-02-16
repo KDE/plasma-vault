@@ -12,7 +12,7 @@ Comment[sk]=Vytvoriť šifrované klenby
 Comment[uk]=Створення шифрованих сховищ
 Comment[x-test]=xxCreate encrypted vaultsxx
 
-Icon=document-encrypt
+Icon=plasmavault
 Type=Service
 ServiceTypes=Plasma/Applet
 
