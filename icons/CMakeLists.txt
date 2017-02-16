@@ -1,7 +1,7 @@
-install (
-   FILES plasmavault.svgz plasmavault-error.svgz
-   DESTINATION ${PLASMA_DATA_INSTALL_DIR}/desktoptheme/default/icons/
-   )
+# install (
+#    FILES plasmavault.svgz plasmavault-error.svgz
+#    DESTINATION ${PLASMA_DATA_INSTALL_DIR}/desktoptheme/default/icons/
+#    )
 
 # include (ECMInstallIcons)
 #

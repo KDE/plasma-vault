@@ -39,7 +39,7 @@ Item {
         target: plasmoid
         property: "icon"
         value: {
-            return vaultsModelActions.hasError ? "plasmavault-error" : "plasmavault";
+            return vaultsModelActions.hasError ? "plasmavault_error" : "plasmavault";
         }
     }
 
