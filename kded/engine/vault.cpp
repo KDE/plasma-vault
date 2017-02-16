@@ -163,7 +163,7 @@ public:
 
 
 
-    ExpectedData openVault(const Device &device,
+    ExpectedData loadVault(const Device &device,
                            const QString &name = QString(),
                            const MountPoint &mountPoint = MountPoint(),
                            const Payload &payload = Payload()) const
@@ -221,7 +221,7 @@ public:
         : q(parent)
         , config(KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE))
         , device(device)
-        , data(openVault(device))
+        , data(loadVault(device))
     {
         updateStatus();
     }
@@ -276,6 +276,8 @@ Vault::~Vault()
 FutureResult<> Vault::create(const QString &name, const MountPoint &mountPoint,
                              const Payload &payload)
 {
+    using namespace AsynQt::operators;
+
     return
         // If the backend is already known, and the device is initialized,
         // we do not want to do it again
@@ -284,13 +286,23 @@ FutureResult<> Vault::create(const QString &name, const MountPoint &mountPoint,
                         i18n("This device is already registered. Can not recreate it.")) :
 
         // Mount not open, check the error messages
-        !(d->data = d->openVault(d->device, name, mountPoint, payload)) ?
+        !(d->data = d->loadVault(d->device, name, mountPoint, payload)) ?
             errorResult(Error::BackendError,
                         i18n("Unknown error, unable to create the backend.")) :
 
         // otherwise
         d->followFuture(VaultInfo::Creating,
-                        d->data->backend->initialize(name, d->device, mountPoint, payload));
+                        d->data->backend->initialize(name, d->device, mountPoint, payload))
+            | onSuccess([mountPoint] {
+                // If we have successfully created the vault,
+                // lets try to set its icon
+                QFile dotDir(mountPoint + "/.directory");
+
+                if (dotDir.open(QIODevice::WriteOnly | QIODevice::Text)) {
+                    QTextStream out(&dotDir);
+                    out << "[Desktop Entry]\nIcon=folder-decrypted\n";
+                }
+            });
 }
 
 
