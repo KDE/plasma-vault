@@ -1,11 +1,15 @@
 [Desktop Entry]
 Name=Vaults
+Name[ca]=Voltes
+Name[es]=Cajas fuertes
 Name[nl]=Kluizen
 Name[pt]=Cofres
 Name[sk]=Klenby
 Name[uk]=Сховища
 Name[x-test]=xxVaultsxx
 Comment=Create encrypted vaults
+Comment[ca]=Crea voltes encriptades
+Comment[es]=Crear cajas fuertes cifradas
 Comment[nl]=Versleutelde kluizen aanmaken
 Comment[pt]=Criar cofres encriptados
 Comment[sk]=Vytvoriť šifrované klenby
