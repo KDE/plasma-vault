@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Plasma Vault module
 Name[ca]=Mòdul de Plasma per a Voltes
+Name[en_GB]=Plasma Vault module
 Name[es]=Módulo de cajas fuertes para Plasma
 Name[nl]=Plasma module voor kluis
 Name[pt]=Módulo do Plasma Vault
@@ -9,6 +10,7 @@ Name[uk]=Модуль сховищ Плазми
 Name[x-test]=xxPlasma Vault modulexx
 Comment=Provides encrypted vaults
 Comment[ca]=Proporciona voltes encriptades
+Comment[en_GB]=Provides encrypted vaults
 Comment[es]=Proporciona cajas fuertes cifradas
 Comment[nl]=Levert versleutelde kluizen
 Comment[pt]=Fornece 'cofres' encriptados
