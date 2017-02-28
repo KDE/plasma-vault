@@ -6,7 +6,7 @@ project (PlasmaVault)
 
 set (PLASMAVAULT_VERSION "0.1")
 
-set (REQUIRED_QT_VERSION 5.3.0)
+set (REQUIRED_QT_VERSION 5.7.0)
 
 # We don't build in-source
 if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
