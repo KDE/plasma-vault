@@ -23,6 +23,7 @@ set (
    ui/cryfscypherchooserwidget.cpp
    ui/directorypairchooserwidget.cpp
    ui/keylocationwidget.cpp
+   ui/labelwidget.cpp
    ui/noticewidget.cpp
    ui/passwordchooserwidget.cpp
    ui/vaultcreationwizard.cpp
@@ -38,6 +39,7 @@ ki18n_wrap_ui (
    ui/cryfscypherchooserwidget.ui
    ui/directorypairchooserwidget.ui
    ui/keylocationwidget.ui
+   ui/labelwidget.ui
    ui/noticewidget.ui
    ui/passwordchooserwidget.ui
    ui/vaultcreationwizard.ui

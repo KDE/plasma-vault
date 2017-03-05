@@ -40,6 +40,7 @@ using namespace DialogDsl::operators;
 #include "cryfscypherchooserwidget.h"
 #include "directorypairchooserwidget.h"
 #include "keylocationwidget.h"
+#include "labelwidget.h"
 #include "noticewidget.h"
 #include "passwordchooserwidget.h"
 #include "vaultsizewidget.h"
@@ -122,7 +123,10 @@ public:
                        i18n("<b>Security notice:</b>\n\
                              TOMB."))
                      },
-                step { keyLocationChooser() },
+                step { label(i18n("Encryption key is a passowrd-protected file that should be kept separate from the encrypted data itself. If you lose it, or forget the password, your encrypted data is as good as lost.")),
+                       keyLocationChooser(),
+                       label(i18n("You can choose an existing JPeG file as the key. In that case, the key data will be stored inside of the file using steganography."))
+                     },
                 step {
                     directoryPairChooser(RequireEmptyDirectories),
                     vaultSizeChooser()
