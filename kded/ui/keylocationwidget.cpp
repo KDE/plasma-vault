@@ -40,6 +40,11 @@ KeyLocationWidget::KeyLocationWidget()
     : DialogDsl::DialogModule(false), d(new Private(this))
 {
     d->ui.setupUi(this);
+
+    connect(d->ui.editKeyLocation, &KUrlRequester::textEdited,
+            this, [&] (const QString &url) {
+                setIsValid(!url.isEmpty());
+            });
 }
 
 
@@ -53,6 +58,7 @@ KeyLocationWidget::~KeyLocationWidget()
 PlasmaVault::Vault::Payload KeyLocationWidget::fields() const
 {
     return {
+        { "vault-key-file", d->ui.editKeyLocation->text() }
     };
 }
 
@@ -61,7 +67,7 @@ PlasmaVault::Vault::Payload KeyLocationWidget::fields() const
 void KeyLocationWidget::init(
     const PlasmaVault::Vault::Payload &payload)
 {
-    const auto name = payload[KEY_NAME].toString();
+    Q_UNUSED(payload);
 }
 
 

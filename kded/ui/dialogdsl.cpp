@@ -118,6 +118,18 @@ CompoundDialogModule::CompoundDialogModule(const step &children)
         child->setParent(this);
         child->setSizePolicy(
                 QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred));
+
+        connect(child, &DialogModule::isValidChanged,
+                this, [this] {
+                    bool valid = true;
+
+                    for (const auto& child: m_children) {
+                        valid &= child->isValid();
+                    }
+
+                    setIsValid(valid);
+                });
+
         m_children << child;
 
         valid &= child->isValid();

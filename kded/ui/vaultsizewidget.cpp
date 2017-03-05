@@ -38,9 +38,18 @@ public:
 
 
 VaultSizeWidget::VaultSizeWidget()
-    : DialogDsl::DialogModule(false), d(new Private(this))
+    : DialogDsl::DialogModule(true), d(new Private(this))
 {
     d->ui.setupUi(this);
+
+    connect(d->ui.sliderVaultSize, &QSlider::valueChanged,
+            this, [this] (int value) {
+                d->ui.labelVaultSizeValue->setText(
+                        i18n("%1 MB", value));
+            });
+
+    d->ui.labelVaultSizeValue->setText(
+            i18n("%1 MB", d->ui.sliderVaultSize->value()));
 }
 
 
