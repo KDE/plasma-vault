@@ -112,14 +112,15 @@ FutureResult<> CryFsBackend::validateBackend()
         collect(checkVersion(cryfs({ "--version" }), std::make_tuple(0, 9, 6)),
                 checkVersion(fusermount({ "--version" }), std::make_tuple(2, 9, 7)))
 
-        | transform([] (const QPair<bool, QString> &cryfs,
-                        const QPair<bool, QString> &fusermount) {
+        | transform([this] (const QPair<bool, QString> &cryfs,
+                            const QPair<bool, QString> &fusermount) {
 
               bool success     = cryfs.first && fusermount.first;
-              QString message  = i18n("cryfs: %1", cryfs.second) + "\n"
-                               + i18n("fusermount: %1", fusermount.second) + "\n";
+              QString message  = formatMessageLine("cryfs", cryfs)
+                               + formatMessageLine("fusermount", fusermount);
 
-              return Result<>::success();
+              return success ? Result<>::success()
+                             : Result<>::error(Error::BackendError, message);
           });
 }
 

@@ -188,7 +188,7 @@ QFuture<QPair<bool, QString>> FuseBackend::checkVersion(
 
     return makeFuture(process, [=] (QProcess *process) {
 
-              if (process->exitStatus() != QProcess::NormalExit || process->exitCode() != 0) {
+              if (process->exitStatus() != QProcess::NormalExit) {
                   return qMakePair(
                               false,
                               i18n("Failed to execute"));
@@ -217,7 +217,7 @@ QFuture<QPair<bool, QString>> FuseBackend::checkVersion(
                   // Bad version, we need to notify the world
                   return qMakePair(
                               false,
-                              i18n("Error: Wrong version installed. The required version is %1.%2.%3",
+                              i18n("Wrong version installed. The required version is %1.%2.%3",
                                   std::get<0>(requiredVersion),
                                   std::get<1>(requiredVersion),
                                   std::get<2>(requiredVersion)

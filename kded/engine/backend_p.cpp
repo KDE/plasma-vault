@@ -25,6 +25,8 @@
 #include "backends/encfs/encfsbackend.h"
 #include "backends/cryfs/cryfsbackend.h"
 
+#include <KLocalizedString>
+
 namespace PlasmaVault {
 
 Backend::Backend()
@@ -65,6 +67,27 @@ bool Backend::isDirectoryEmpty(const QString &path)
     return dir.entryInfoList(QDir::NoDotAndDotDot|QDir::AllEntries).count() == 0;
 }
 
+
+
+QString Backend::formatMessageLine(
+        const QString &command,
+        const QPair<bool, QString> &result) const
+{
+    const auto valid = result.first;
+    const auto message = result.second;
+
+    QString htmlMessage =
+        (valid ? QString() : "<b>") +
+        message +
+        (valid ? QString() : "</b>") +
+        "<br />\n"
+        ;
+
+    return i18nc("formatting the message for a command, as in encfs: not found",
+                 "%1: %2",
+                 command,
+                 htmlMessage);
+}
 
 
 } // namespace PlasmaVault

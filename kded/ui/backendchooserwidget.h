@@ -35,6 +35,9 @@ public:
     PlasmaVault::Vault::Payload fields() const override;
     QByteArray backendId();
 
+private Q_SLOTS:
+    void checkCurrentBackend();
+
 private:
     class Private;
     QScopedPointer<Private> d;

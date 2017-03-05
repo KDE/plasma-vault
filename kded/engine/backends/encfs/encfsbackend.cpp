@@ -98,20 +98,21 @@ FutureResult<> EncFsBackend::validateBackend()
     // We need to check whether all the commands are installed
     // and whether the user has permissions to run them
     return
-        collect(checkVersion(encfs({ "--version" }), std::make_tuple(1, 9, 2)),
-                checkVersion(encfsctl({ "--version" }), std::make_tuple(1, 9, 2)),
+        collect(checkVersion(encfs({ "--version" }), std::make_tuple(1, 9, 1)),
+                checkVersion(encfsctl({ "--version" }), std::make_tuple(1, 9, 1)),
                 checkVersion(fusermount({ "--version" }), std::make_tuple(2, 9, 7)))
 
-        | transform([] (const QPair<bool, QString> &encfs,
-                        const QPair<bool, QString> &encfsctl,
-                        const QPair<bool, QString> &fusermount) {
+        | transform([this] (const QPair<bool, QString> &encfs,
+                            const QPair<bool, QString> &encfsctl,
+                            const QPair<bool, QString> &fusermount) {
 
               bool success     = encfs.first && encfsctl.first && fusermount.first;
-              QString message  = i18n("encfs: %1", encfs.second) + "\n"
-                               + i18n("encfsctl: %1", encfsctl.second) + "\n"
-                               + i18n("fusermount: %1", fusermount.second) + "\n";
+              QString message  = formatMessageLine("encfs", encfs)
+                               + formatMessageLine("encfsctl", encfsctl)
+                               + formatMessageLine("fusermount", fusermount);
 
-              return Result<>::success();
+              return success ? Result<>::success()
+                             : Result<>::error(Error::BackendError, message);
           });
 }
 

@@ -66,6 +66,10 @@ public:
 
     static Ptr instance(const QString &backend);
 
+    QString formatMessageLine(
+            const QString &command,
+            const QPair<bool, QString> &result) const;
+
 protected:
     static bool isDirectoryEmpty(const QString &path);
 

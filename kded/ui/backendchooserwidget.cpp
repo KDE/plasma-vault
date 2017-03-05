@@ -23,24 +23,51 @@
 #include "ui_backendchooserwidget.h"
 
 #include "vault.h"
+#include "engine/backend_p.h"
 
 class BackendChooserWidget::Private {
 public:
+    Private(BackendChooserWidget *parent)
+        : q(parent)
+    {
+    }
+
     Ui::BackendChooserWidget ui;
+
+    bool vaultNameValid = false;
+    bool backendValid = false;
+
+    void setVaultNameValid(bool valid)
+    {
+        vaultNameValid = valid;
+        q->setIsValid(vaultNameValid && backendValid);
+    }
+
+    void setBackendValid(bool valid)
+    {
+        backendValid = valid;
+        q->setIsValid(vaultNameValid && backendValid);
+    }
+
+    BackendChooserWidget * const q;
 };
 
 
 
 BackendChooserWidget::BackendChooserWidget()
     : DialogDsl::DialogModule(false)
-    , d(new Private())
+    , d(new Private(this))
 {
     d->ui.setupUi(this);
+    d->ui.textStatus->hide();
 
     connect(d->ui.editVaultName, &QLineEdit::textChanged,
             this, [&] (const QString &vaultName) {
-                setIsValid(!vaultName.isEmpty());
+                d->setVaultNameValid(!vaultName.isEmpty());
             });
+
+    connect(d->ui.comboBackend, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
+            this, &BackendChooserWidget::checkCurrentBackend);
 }
 
 
@@ -51,9 +78,42 @@ BackendChooserWidget::~BackendChooserWidget()
 
 
 
+void BackendChooserWidget::checkCurrentBackend()
+{
+    const auto backendId = d->ui.comboBackend->currentData().toString();
+    const auto backend = PlasmaVault::Backend::instance(backendId);
+    bool backendValid = false;
+
+    d->setBackendValid(false);
+
+    if (!backend) {
+        d->ui.textStatus->setHtml(i18n("The specified backend is not available"));
+        d->ui.textStatus->show();
+
+    } else {
+        d->ui.textStatus->hide();
+
+        const auto result = AsynQt::await(backend->validateBackend());
+
+        if (!result) {
+            d->ui.textStatus->setHtml(result.error().message());
+            d->ui.textStatus->show();
+
+        } else {
+            backendValid = true;
+        }
+    }
+
+    d->setBackendValid(backendValid);
+}
+
+
+
 void BackendChooserWidget::addItem(const QByteArray &id, const QString &title)
 {
     d->ui.comboBackend->addItem(title, id);
+
+    checkCurrentBackend();
 }
 
 
