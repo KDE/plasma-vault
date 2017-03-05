@@ -26,6 +26,9 @@
 #include <QVector>
 #include <QStackedLayout>
 
+#include <KSharedConfig>
+#include <KConfigGroup>
+
 #include "dialogdsl.h"
 #include "vault.h"
 
@@ -109,6 +112,32 @@ public:
                     activitiesChooser()
                 }
             }
+        },
+
+        { experimental("tomb" / i18n("Tomb")),
+            {
+                step { notice("cryfs-message",
+                       i18n("<b>Security notice:</b>\n\
+                             CryFS encrypts your files, so you can safely store them anywhere.\n\
+                             It works well together with cloud services like Dropbox, iCloud, OneDrive and others.\n\
+                             <br /><br />\n\
+                             Unlike some other file-system overlay solutions,\n\
+                             it does not expose the directory structure,\n\
+                             the number of files nor the file sizes\n\
+                             through the encrypted data format.\n\
+                             <br /><br />\n\
+                             One important thing to note is that,\n\
+                             while CryFS is considered safe,\n\
+                             there is no independent security audit\n\
+                             which confirms this."))
+                     },
+                step { passwordChooser() },
+                step { directoryPairChooser(RequireEmptyDirectories) },
+                step {
+                    cryfsCypherChooser(),
+                    activitiesChooser()
+                }
+            }
         }
     };
 
@@ -148,8 +177,14 @@ public:
         setCurrentModule(firstStepModule);
         layout->addWidget(firstStepModule);
 
+        const auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
+        const KConfigGroup generalConfig(config, "General");
+        const bool enableExperimentalBackends = generalConfig.readEntry("enableExperimentalBackends", false);
+
         // Loading the backends to the combo box
         for (const auto& key: logic.keys()) {
+            if (!enableExperimentalBackends && key.isExperimental()) continue;
+
             firstStepModule->addItem(key, key.translation());
         }
     }

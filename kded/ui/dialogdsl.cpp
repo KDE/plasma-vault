@@ -41,6 +41,20 @@ QString Key::translation() const
 
 
 
+bool Key::isExperimental() const
+{
+    return m_isExperimental;
+}
+
+
+
+void Key::setExperimental(bool experimental)
+{
+    m_isExperimental = experimental;
+}
+
+
+
 DialogModule::DialogModule(bool valid)
     : m_isValid(valid)
 {
@@ -139,6 +153,7 @@ void CompoundDialogModule::init(const PlasmaVault::Vault::Payload &payload)
         child->init(payload);
     }
 }
+
 
 } // namespace DialogDsl
 

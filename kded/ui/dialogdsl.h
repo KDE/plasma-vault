@@ -40,8 +40,12 @@ public:
 
     QString translation() const;
 
+    bool isExperimental() const;
+    void setExperimental(bool experimental);
+
 private:
     QString m_translation;
+    bool m_isExperimental = false;
 
 };
 
@@ -51,6 +55,14 @@ namespace operators {
     Key operator/ (const char *id, const QString &name) {
         return Key(id, name);
     }
+
+    inline
+    Key experimental(Key key)
+    {
+        key.setExperimental(true);
+        return key;
+    }
+
 }
 
 // A dialog module can return a set of configured key-value pairs
