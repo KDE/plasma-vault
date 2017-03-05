@@ -25,7 +25,7 @@
 
 namespace PlasmaVault {
 
-class TombBackend: public FuseBackend {
+class TombBackend: public Backend {
 public:
     TombBackend();
     ~TombBackend();
@@ -33,19 +33,28 @@ public:
     static Backend::Ptr instance();
 
     bool isInitialized(const Device &device) const override;
+    bool isOpened(const MountPoint &mountPoint) const override;
+
+    FutureResult<> initialize(const QString &name,
+                              const Device &device,
+                              const MountPoint &mountPoint,
+                              const Vault::Payload &payload) override;
+
+    FutureResult<> open(const Device &device,
+                        const MountPoint &mountPoint,
+                        const Vault::Payload &payload) override;
+
+    FutureResult<> close(const Device &device,
+                         const MountPoint &mountPoint) override;
+
+    FutureResult<> destroy(const Device &device,
+                           const MountPoint &mountPoint,
+                           const Vault::Payload &payload) override;
 
     FutureResult<> validateBackend() override;
 
     QString name() const override { return "tomb"; };
 
-protected:
-    FutureResult<> mount(const Device &device,
-                         const MountPoint &mountPoint,
-                         const Vault::Payload &payload) override;
-
-private:
-    QProcess *encfs(const QStringList &arguments) const;
-    QProcess *encfsctl(const QStringList &arguments) const;
 };
 
 } // namespace PlasmaVault

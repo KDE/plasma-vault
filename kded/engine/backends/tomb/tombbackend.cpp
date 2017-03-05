@@ -60,86 +60,82 @@ Backend::Ptr TombBackend::instance()
 
 
 
-FutureResult<> TombBackend::mount(const Device &device,
-                                   const MountPoint &mountPoint,
-                                   const Vault::Payload &payload)
-{
-    QDir dir;
-
-    const auto password = payload[KEY_PASSWORD].toString();
-
-    if (!dir.mkpath(device) || !dir.mkpath(mountPoint)) {
-        return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
-    }
-
-    auto process = encfs({
-            "-S", // read password from stdin
-            "--standard", // If creating a file system, use the default options
-            device, // source directory to initialize encfs in
-            mountPoint // where to mount the file system
-        });
-
-    auto result = makeFuture(process, hasProcessFinishedSuccessfully);
-
-    // Writing the password
-    process->write(password.toUtf8());
-    process->write("\n");
-
-    return result;
-
-}
-
-
-
 FutureResult<> TombBackend::validateBackend()
 {
     using namespace AsynQt::operators;
 
     // We need to check whether all the commands are installed
     // and whether the user has permissions to run them
-    return
-        collect(checkVersion(encfs({ "--version" }), std::make_tuple(1, 9, 1)),
-                checkVersion(encfsctl({ "--version" }), std::make_tuple(1, 9, 1)),
-                checkVersion(fusermount({ "--version" }), std::make_tuple(2, 9, 7)))
+    // return
+    //     collect(checkVersion(tomb({ "--version" }), std::make_tuple(2, 3)))
+    //
+    //     | transform([this] (const QPair<bool, QString> &tomb) {
+    //
+    //           bool success     = tomb.first;
+    //           QString message  = formatMessageLine("tomb", tomb);
+    //
+    //           return success ? Result<>::success()
+    //                          : Result<>::error(Error::BackendError, message);
+    //       });
 
-        | transform([this] (const QPair<bool, QString> &encfs,
-                            const QPair<bool, QString> &encfsctl,
-                            const QPair<bool, QString> &fusermount) {
-
-              bool success     = encfs.first && encfsctl.first && fusermount.first;
-              QString message  = formatMessageLine("encfs", encfs)
-                               + formatMessageLine("encfsctl", encfsctl)
-                               + formatMessageLine("fusermount", fusermount);
-
-              return success ? Result<>::success()
-                             : Result<>::error(Error::BackendError, message);
-          });
+    return FutureResult<>();
 }
 
 
 
 bool TombBackend::isInitialized(const Device &device) const
 {
-    auto process = encfsctl({ device.data() });
-
-    process->start();
-    process->waitForFinished();
-
-    return process->exitCode() == 0;
+    return false;
 }
 
 
 
-QProcess *TombBackend::encfs(const QStringList &arguments) const
+bool TombBackend::isOpened(const MountPoint &mountPoint) const
 {
-    return process("encfs", arguments, {});
+    return false;
 }
 
 
 
-QProcess *TombBackend::encfsctl(const QStringList &arguments) const
+FutureResult<> TombBackend::initialize(const QString &name,
+                                       const Device &device,
+                                       const MountPoint &mountPoint,
+                                       const Vault::Payload &payload)
 {
-    return process("encfsctl", arguments, {});
+    return FutureResult<>();
+}
+
+
+
+FutureResult<> TombBackend::open(const Device &device,
+                                 const MountPoint &mountPoint,
+                                 const Vault::Payload &payload)
+{
+    return FutureResult<>();
+}
+
+
+
+FutureResult<> TombBackend::close(const Device &device,
+                                  const MountPoint &mountPoint)
+{
+    return FutureResult<>();
+}
+
+
+
+FutureResult<> TombBackend::destroy(const Device &device,
+                                    const MountPoint &mountPoint,
+                                    const Vault::Payload &payload)
+{
+    return FutureResult<>();
+}
+
+
+
+FutureResult<> validateBackend()
+{
+    return FutureResult<>();
 }
 
 
