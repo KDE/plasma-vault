@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>KeyLocationWidget</class>
+ <widget class="QWidget" name="KeyLocationWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>653</width>
+    <height>44</height>
+   </rect>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="labelKeyLocation">
+     <property name="text">
+      <string>Encryption key location</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="KUrlRequester" name="editKeyLocation">
+     <property name="mode">
+      <set>KFile::File|KFile::LocalOnly</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KUrlRequester</class>
+   <extends>QWidget</extends>
+   <header>kurlrequester.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
