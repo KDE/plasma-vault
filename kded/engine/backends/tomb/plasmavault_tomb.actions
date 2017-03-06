@@ -1,0 +1,22 @@
+[Domain]
+Name=Tomb support for Plasma Vault
+Icon=plasmavault
+
+[org.kde.plasma.vault.tomb.lock]
+Name=Lock the tomb with the key file
+Description=Executing Tomb requires permissions
+Policy=yes
+Persistence=session
+
+[org.kde.plasma.vault.tomb.open]
+Name=Open a Tomb
+Description=Executing Tomb requires permissions
+Policy=yes
+Persistence=session
+
+[org.kde.plasma.vault.tomb.close]
+Name=Close a Tomb
+Description=Executing Tomb requires permissions
+Policy=yes
+Persistence=session
+

@@ -23,22 +23,146 @@
 #include <QDir>
 #include <QProcess>
 #include <QRegularExpression>
+#include <QStandardPaths>
 
 #include <KMountPoint>
 #include <KLocalizedString>
 
 #include <algorithm>
 
+#include <kauth.h>
+
 #include <asynqt/basic/all.h>
 #include <asynqt/wrappers/process.h>
+#include <asynqt/wrappers/kauth.h>
 #include <asynqt/operations/collect.h>
 #include <asynqt/operations/transform.h>
 
 #include <singleton_p.h>
 
+#include "tombexec.h"
+
 using namespace AsynQt;
 
 namespace PlasmaVault {
+
+inline
+QString tombExecutable()
+{
+    const auto result = QStandardPaths::findExecutable("tomb");
+    Q_ASSERT(!result.isEmpty());
+    return result;
+}
+
+
+FutureResult<> createTomb(const Device &device,
+                          const Vault::Payload &payload)
+{
+    QDir dir;
+
+    if (!dir.mkpath(device)) {
+        return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
+    }
+
+    return AsynQt::makeFuture(
+        execTomb(tombExecutable(),
+             QStringList {
+                 "dig",
+                 "-s",
+                 QString::number(payload[PAYLOAD_VAULT_SIZE].toInt()),
+                 device + "/tomb"
+             }),
+        Backend::hasProcessFinishedSuccessfully);
+}
+
+
+FutureResult<> createKey(const Vault::Payload &payload)
+{
+    return AsynQt::makeFuture(
+        execTomb(tombExecutable(),
+             QStringList {
+                 "forge",
+                 payload[PAYLOAD_KEY_FILE].toString(),
+                 "--unsafe",
+                 "--tomb-pwd",
+                 payload[PAYLOAD_PASSWORD].toString()
+             }),
+        Backend::hasProcessFinishedSuccessfully);
+}
+
+FutureResult<> lockTomb(const Vault::Payload &payload)
+{
+    return AsynQt::KAuth::exec(
+            "org.kde.plasma.vault.tomb.lock",
+            "org.kde.plasma.vault.tomb",
+            {
+                { "tomb"     , tombExecutable() },
+                { "device"   , payload[PAYLOAD_DEVICE] },
+                { "keyFile"  , payload[PAYLOAD_KEY_FILE] },
+                { "password" , payload[PAYLOAD_PASSWORD] }
+            },
+            [] (bool success, ::KAuth::ExecuteJob *job) {
+            qDebug() << "lockTomb: success? " << success;
+                if (success) {
+                    return Result<>::success();
+                } else {
+                    return Result<>::error(Error::BackendError, i18n("Failed to lock the vault with the given key"));
+                }
+            }
+        );
+}
+
+FutureResult<> openTomb(const Device &device,
+                        const MountPoint &mountPoint,
+                        const Vault::Payload &payload)
+{
+    QDir dir;
+
+    if (!dir.mkpath(device) || !dir.mkpath(mountPoint)) {
+        return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
+    }
+
+    return AsynQt::KAuth::exec(
+            "org.kde.plasma.vault.tomb.open",
+            "org.kde.plasma.vault.tomb",
+            {
+                { "tomb"       , tombExecutable() },
+                { "device"     , device.data() },
+                { "mountPoint" , mountPoint.data() },
+                { "keyFile"    , payload[PAYLOAD_KEY_FILE] },
+                { "password"   , payload[PAYLOAD_PASSWORD] }
+            },
+            [] (bool success, ::KAuth::ExecuteJob *job) {
+                if (success) {
+                    return Result<>::success();
+                } else {
+                    return Result<>::error(Error::BackendError, i18n("Failed to lock the vault with the given key"));
+                }
+            }
+        );
+}
+
+FutureResult<> closeTomb(const Device &device,
+                         const MountPoint &mountPoint)
+{
+    return AsynQt::KAuth::exec(
+            "org.kde.plasma.vault.tomb.close",
+            "org.kde.plasma.vault.tomb",
+            {
+                { "tomb"       , tombExecutable() },
+                { "device"     , device.data() },
+                { "mountPoint" , mountPoint.data() }
+            },
+            [] (bool success, ::KAuth::ExecuteJob *job) {
+                if (success) {
+                    return Result<>::success();
+                } else {
+                    return Result<>::error(Error::BackendError, i18n("Failed to lock the vault with the given key"));
+                }
+            }
+        );
+}
+
 
 
 TombBackend::TombBackend()
@@ -64,6 +188,11 @@ FutureResult<> TombBackend::validateBackend()
 {
     using namespace AsynQt::operators;
 
+    // Check zsh 5.3.1
+    // Check tomb 2.3
+    // Check steghide 0.5.1
+    // Check /sbin/cryptsetup 1.7.3
+
     // We need to check whether all the commands are installed
     // and whether the user has permissions to run them
     // return
@@ -78,21 +207,29 @@ FutureResult<> TombBackend::validateBackend()
     //                          : Result<>::error(Error::BackendError, message);
     //       });
 
-    return FutureResult<>();
+    return makeReadyFuture(Result<>::success());
 }
 
 
 
 bool TombBackend::isInitialized(const Device &device) const
 {
-    return false;
+    QFile cryFsConfig(device + "/tomb");
+    return cryFsConfig.exists();
 }
 
 
 
 bool TombBackend::isOpened(const MountPoint &mountPoint) const
 {
-    return false;
+    // warning: KMountPoint depends on /etc/mtab according to the documentation.
+    KMountPoint::Ptr ptr
+        = KMountPoint::currentMountPoints().findByPath(mountPoint);
+
+    // we can not rely on ptr->realDeviceName() since it is empty,
+    // KMountPoint can not get the source
+
+    return ptr && ptr->mountPoint() == mountPoint;
 }
 
 
@@ -102,7 +239,53 @@ FutureResult<> TombBackend::initialize(const QString &name,
                                        const MountPoint &mountPoint,
                                        const Vault::Payload &payload)
 {
-    return FutureResult<>();
+    Q_UNUSED(name);
+
+    return
+        isInitialized(device) ?
+            errorResult(Error::BackendError,
+                        i18n("This directory already contains encrypted data")) :
+
+        !isDirectoryEmpty(device) || !isDirectoryEmpty(mountPoint) ?
+            errorResult(Error::BackendError,
+                        i18n("You need to select empty directories for the encrypted storage and for the mount point")) :
+
+        // otherwise
+           [=] {
+               const auto tombCreated = AsynQt::await(createTomb(device, payload));
+               if (!tombCreated) {
+                   return errorResult(
+                           Error::BackendError,
+                           i18n("Unable to create the container file"));
+               }
+               qDebug() << "Created the container file: " << device;
+
+               const auto keyCreated = AsynQt::await(createKey(payload));
+               if (!keyCreated) {
+                   return errorResult(
+                           Error::BackendError,
+                           i18n("Unable to create the key file"));
+               }
+               qDebug() << "Created the key file: " << payload[PAYLOAD_KEY_FILE].toString();
+
+               const auto tombLocked = AsynQt::await(lockTomb(payload));
+               if (!tombLocked) {
+                   return errorResult(
+                           Error::BackendError,
+                           i18n("Unable to lock the container file"));
+               }
+               qDebug() << "Successfully locked the file";
+
+               const auto tombOpened = AsynQt::await(openTomb(device, mountPoint, payload));
+               if (!tombOpened) {
+                   return errorResult(
+                           Error::BackendError,
+                           i18n("Failed to open the vault"));
+               }
+               qDebug() << "Opened the vault";
+
+               return makeReadyFuture(Result<>::success());
+           }();
 }
 
 
@@ -111,7 +294,7 @@ FutureResult<> TombBackend::open(const Device &device,
                                  const MountPoint &mountPoint,
                                  const Vault::Payload &payload)
 {
-    return FutureResult<>();
+    return openTomb(device, mountPoint, payload);
 }
 
 
@@ -119,7 +302,7 @@ FutureResult<> TombBackend::open(const Device &device,
 FutureResult<> TombBackend::close(const Device &device,
                                   const MountPoint &mountPoint)
 {
-    return FutureResult<>();
+    return closeTomb(device, mountPoint);
 }
 
 

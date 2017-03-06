@@ -173,8 +173,8 @@ public:
         }
 
         Data vaultData;
-        const QString backendName    = payload[KEY_BACKEND].toString();
-        const QStringList activities = payload[KEY_ACTIVITIES].toStringList();
+        const QString backendName    = payload[PAYLOAD_BACKEND].toString();
+        const QStringList activities = payload[PAYLOAD_ACTIVITIES].toStringList();
 
         // status should never be in this state, if we got an error,
         // d->data should not be valid

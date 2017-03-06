@@ -101,7 +101,7 @@ PlasmaVault::Vault::Payload ActivitiesLinkingWidget::fields() const
     }
 
     return {
-        { KEY_ACTIVITIES, selectedActivities }
+        { PAYLOAD_ACTIVITIES, selectedActivities }
     };
 }
 

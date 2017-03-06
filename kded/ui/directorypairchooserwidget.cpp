@@ -108,8 +108,8 @@ DirectoryPairChooserWidget::~DirectoryPairChooserWidget()
 PlasmaVault::Vault::Payload DirectoryPairChooserWidget::fields() const
 {
     return {
-        { KEY_DEVICE,      d->ui.editDevice->url().toLocalFile() },
-        { KEY_MOUNT_POINT, d->ui.editMountPoint->url().toLocalFile() }
+        { PAYLOAD_DEVICE,      d->ui.editDevice->url().toLocalFile() },
+        { PAYLOAD_MOUNT_POINT, d->ui.editMountPoint->url().toLocalFile() }
     };
 }
 
@@ -118,7 +118,7 @@ PlasmaVault::Vault::Payload DirectoryPairChooserWidget::fields() const
 void DirectoryPairChooserWidget::init(
     const PlasmaVault::Vault::Payload &payload)
 {
-    const auto name = payload[KEY_NAME].toString();
+    const auto name = payload[PAYLOAD_NAME].toString();
 
     d->ui.editDevice->setText("~/.vaults/" + name + ".enc");
     d->ui.editMountPoint->setText("~/Vaults/" + name);

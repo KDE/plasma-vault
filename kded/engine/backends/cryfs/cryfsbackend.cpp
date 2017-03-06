@@ -66,7 +66,7 @@ FutureResult<> CryFsBackend::mount(const Device &device,
 {
     QDir dir;
 
-    const auto password = payload[KEY_PASSWORD].toString();
+    const auto password = payload[PAYLOAD_PASSWORD].toString();
     const auto cypher   = payload["cryfs-cipher"].toString();
 
     if (!dir.mkpath(device) || !dir.mkpath(mountPoint)) {

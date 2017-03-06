@@ -119,8 +119,23 @@ public:
         { experimental("tomb" / i18n("Tomb")),
             {
                 step { notice("tomb-message",
-                       i18n("<b>Security notice:</b>\n\
-                             TOMB."))
+                           i18n("Tomb provides a simple way to create\n\
+                                 encrypted containers using standard disk encryption tools\n\
+                                 included by default (such as <tt>cryptsetup</tt>) in many GNU/Linux operating systems\n\
+                                 and therefore are regularly peer reviewed.\n\
+                                 <br /><br />\n\
+                                 While this makes Tomb attractive from the data security side,\n\
+                                 it also should be noted that it comes with a few limitations,\n\
+                                 and even though Plasma Vault provides a UI on top of it,\n\
+                                 you are advised to check the Tomb documentation before using it.\n\
+                                 <br /><br />\n\
+                                 There are a few things you should keep in mind:\n\
+                                 <ul>\n\
+                                     <li>You can have only one Tomb open at a time;</li>\n\
+                                     <li>Tombs have a fixed predefined size - all your encrypted data is stored inside of a single container file;</li>\n\
+                                     <li>Potential bugs in the Tomb script, or behaviour changes in ZSH which it uses might render your data inaccessible through Plasma Vaults and might require manual intervention.</li>\n\
+                                 </ul>\n\
+                                 "))
                      },
                 step { passwordChooser(),
                        label(i18n("The encryption key is a passowrd-protected "
@@ -263,7 +278,7 @@ public:
         // and we need to load the vault creation steps
         if (currentStepModules.isEmpty()) {
             const auto &fields = firstStepModule->fields();
-            currentSteps = logic[fields[KEY_BACKEND].toByteArray()];
+            currentSteps = logic[fields[PAYLOAD_BACKEND].toByteArray()];
         }
 
         // Loading the modulws that we need to show now
@@ -295,9 +310,9 @@ public:
             collectedPayload.unite(module->fields());
         }
 
-        const auto name = collectedPayload[KEY_NAME].toString();
-        const PlasmaVault::Device device(collectedPayload[KEY_DEVICE].toString());
-        const PlasmaVault::MountPoint mountPoint(collectedPayload[KEY_MOUNT_POINT].toString());
+        const auto name = collectedPayload[PAYLOAD_NAME].toString();
+        const PlasmaVault::Device device(collectedPayload[PAYLOAD_DEVICE].toString());
+        const PlasmaVault::MountPoint mountPoint(collectedPayload[PAYLOAD_MOUNT_POINT].toString());
 
         auto vault = new PlasmaVault::Vault(device, q);
 

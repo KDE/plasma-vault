@@ -54,7 +54,7 @@ PasswordChooserWidget::~PasswordChooserWidget()
 PlasmaVault::Vault::Payload PasswordChooserWidget::fields() const
 {
     return {
-        { KEY_PASSWORD, d->ui.editPassword->password() }
+        { PAYLOAD_PASSWORD, d->ui.editPassword->password() }
     };
 }
 

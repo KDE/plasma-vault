@@ -30,6 +30,8 @@
 #include "vault.h"
 #include "commandresult.h"
 
+#include <QProcess>
+
 namespace PlasmaVault {
 
 class Backend {
@@ -70,8 +72,9 @@ public:
             const QString &command,
             const QPair<bool, QString> &result) const;
 
-protected:
     static bool isDirectoryEmpty(const QString &path);
+
+    static Result<> hasProcessFinishedSuccessfully(QProcess *process);
 
 };
 

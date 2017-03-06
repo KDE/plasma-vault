@@ -58,7 +58,7 @@ KeyLocationWidget::~KeyLocationWidget()
 PlasmaVault::Vault::Payload KeyLocationWidget::fields() const
 {
     return {
-        { "vault-key-file", d->ui.editKeyLocation->text() }
+        { PAYLOAD_KEY_FILE, d->ui.editKeyLocation->url().toLocalFile() }
     };
 }
 

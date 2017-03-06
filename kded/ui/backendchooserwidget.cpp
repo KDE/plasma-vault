@@ -121,8 +121,8 @@ void BackendChooserWidget::addItem(const QByteArray &id, const QString &title)
 PlasmaVault::Vault::Payload BackendChooserWidget::fields() const
 {
     return {
-        { KEY_BACKEND, d->ui.comboBackend->currentData() },
-        { KEY_NAME,    d->ui.editVaultName->text() }
+        { PAYLOAD_BACKEND, d->ui.comboBackend->currentData() },
+        { PAYLOAD_NAME,    d->ui.editVaultName->text() }
     };
 }
 

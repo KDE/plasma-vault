@@ -36,12 +36,14 @@ class QDBusArgument;
 
 namespace PlasmaVault {
 
-#define KEY_NAME        "vault-name"
-#define KEY_BACKEND     "vault-backend"
-#define KEY_PASSWORD    "vault-password"
-#define KEY_DEVICE      "vault-device"
-#define KEY_MOUNT_POINT "vault-mount-point"
-#define KEY_ACTIVITIES  "vault-activities"
+#define PAYLOAD_NAME        "vault-name"
+#define PAYLOAD_BACKEND     "vault-backend"
+#define PAYLOAD_PASSWORD    "vault-password"
+#define PAYLOAD_DEVICE      "vault-device"
+#define PAYLOAD_MOUNT_POINT "vault-mount-point"
+#define PAYLOAD_KEY_FILE    "vault-key-file"
+#define PAYLOAD_VAULT_SIZE  "vault-size"
+#define PAYLOAD_ACTIVITIES  "vault-activities"
 
 class Vault: public QObject {
     Q_OBJECT

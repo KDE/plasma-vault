@@ -62,8 +62,6 @@ protected:
             const std::tuple<int,int,int> &requiredVersion) const;
 
     QProcess *fusermount(const QStringList &arguments = QStringList()) const;
-
-    static Result<> hasProcessFinishedSuccessfully(QProcess *process);
 };
 
 } // namespace PlasmaVault

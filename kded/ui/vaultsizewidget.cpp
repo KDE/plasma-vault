@@ -63,7 +63,7 @@ VaultSizeWidget::~VaultSizeWidget()
 PlasmaVault::Vault::Payload VaultSizeWidget::fields() const
 {
     return {
-        { "vault-size", d->ui.sliderVaultSize->value() }
+        { PAYLOAD_VAULT_SIZE, d->ui.sliderVaultSize->value() }
     };
 }
 

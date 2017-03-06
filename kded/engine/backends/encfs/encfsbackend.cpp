@@ -66,7 +66,7 @@ FutureResult<> EncFsBackend::mount(const Device &device,
 {
     QDir dir;
 
-    const auto password = payload[KEY_PASSWORD].toString();
+    const auto password = payload[PAYLOAD_PASSWORD].toString();
 
     if (!dir.mkpath(device) || !dir.mkpath(mountPoint)) {
         return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
