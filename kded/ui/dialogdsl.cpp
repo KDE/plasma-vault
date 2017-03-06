@@ -110,6 +110,7 @@ CompoundDialogModule::CompoundDialogModule(const step &children)
 {
     auto layout = new QVBoxLayout(this);
     setLayout(layout);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     bool valid = true;
 

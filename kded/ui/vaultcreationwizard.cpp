@@ -110,10 +110,9 @@ public:
                      },
                 step { passwordChooser() },
                 step { directoryPairChooser(RequireEmptyDirectories) },
-                step {
-                    cryfsCypherChooser(),
-                    activitiesChooser()
-                }
+                step { cryfsCypherChooser(),
+                       activitiesChooser()
+                     }
             }
         },
 
@@ -123,24 +122,22 @@ public:
                        i18n("<b>Security notice:</b>\n\
                              TOMB."))
                      },
-                step { label(i18n("The encryption key is a passowrd-protected "
-                                  "file that should be kept separate from the "
-                                  "encrypted data itself. If you lose it, or "
-                                  "forget the password, your encrypted data is "
-                                  "as good as gone.")),
+                step { passwordChooser(),
+                       label(i18n("The encryption key is a passowrd-protected "
+                                  "file that is used to actually encrypt the data. "
+                                  "It should be kept separately from the encrypted data. "
+                                  "This provides an additional security compared "
+                                  "to password-only encryption systems.")),
                        keyLocationChooser(),
                        label(i18n("You can choose an existing JPeG file as the key. "
                                   "In that case, the key data will be hidden inside "
                                   "the file using steganography."))
                      },
-                step {
-                    directoryPairChooser(RequireEmptyDirectories),
-                    label(i18n("Choose how much space your vault should take:")),
-                    vaultSizeChooser()
-                },
-                step {
-                    activitiesChooser()
-                }
+                step { directoryPairChooser(RequireEmptyDirectories),
+                       label(i18n("Choose how much space your vault should take:")),
+                       vaultSizeChooser()
+                     },
+                step { activitiesChooser() }
             }
         }
     };
