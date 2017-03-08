@@ -1,6 +1,18 @@
 [Desktop Entry]
 Name=Plasma Vault module
+Name[es]=Módulo de cajas fuertes para Plasma
+Name[nl]=Plasma module voor kluis
+Name[pt]=Módulo do Plasma Vault
+Name[sv]=Plasma valvmodul
+Name[uk]=Модуль сховищ Плазми
+Name[x-test]=xxPlasma Vault modulexx
 Comment=Provides encrypted vaults
+Comment[es]=Proporciona cajas fuertes cifradas
+Comment[nl]=Levert versleutelde kluizen
+Comment[pt]=Fornece 'cofres' encriptados
+Comment[sv]=Tillhandahåller krypterade valv
+Comment[uk]=Надає доступ до шифрованих сховищ
+Comment[x-test]=xxProvides encrypted vaultsxx
 
 Type=Service
 X-KDE-ServiceTypes=KDEDModule

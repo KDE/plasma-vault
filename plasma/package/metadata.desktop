@@ -1,6 +1,18 @@
 [Desktop Entry]
 Name=Vaults
+Name[es]=Cajas fuertes
+Name[nl]=Kluizen
+Name[pt]=Cofres
+Name[sv]=Valv
+Name[uk]=Сховища
+Name[x-test]=xxVaultsxx
 Comment=Create encrypted vaults
+Comment[es]=Crear cajas fuertes cifradas
+Comment[nl]=Versleutelde kluizen aanmaken
+Comment[pt]=Criar cofres encriptados
+Comment[sv]=Skapa krypterade valv
+Comment[uk]=Створення шифрованих сховищ
+Comment[x-test]=xxCreate encrypted vaultsxx
 
 Icon=plasmavault
 Type=Service
