@@ -8,6 +8,7 @@ Name[pt]=Módulo do Plasma Vault
 Name[sv]=Plasma valvmodul
 Name[uk]=Модуль сховищ Плазми
 Name[x-test]=xxPlasma Vault modulexx
+Name[zh_CN]=Plasma 保险库模块
 Comment=Provides encrypted vaults
 Comment[ca]=Proporciona voltes encriptades
 Comment[ca@valencia]=Proporciona voltes encriptades
@@ -17,6 +18,7 @@ Comment[pt]=Fornece 'cofres' encriptados
 Comment[sv]=Tillhandahåller krypterade valv
 Comment[uk]=Надає доступ до шифрованих сховищ
 Comment[x-test]=xxProvides encrypted vaultsxx
+Comment[zh_CN]=提供加密的保险库
 
 Type=Service
 X-KDE-ServiceTypes=KDEDModule

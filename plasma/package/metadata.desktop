@@ -8,6 +8,7 @@ Name[pt]=Cofres
 Name[sv]=Valv
 Name[uk]=Сховища
 Name[x-test]=xxVaultsxx
+Name[zh_CN]=保险库
 Comment=Create encrypted vaults
 Comment[ca]=Crea voltes encriptades
 Comment[ca@valencia]=Crea voltes encriptades
@@ -17,6 +18,7 @@ Comment[pt]=Criar cofres encriptados
 Comment[sv]=Skapa krypterade valv
 Comment[uk]=Створення шифрованих сховищ
 Comment[x-test]=xxCreate encrypted vaultsxx
+Comment[zh_CN]=创建加密的保险库
 
 Icon=plasmavault
 Type=Service
