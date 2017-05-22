@@ -46,11 +46,20 @@ public:
 
     QFuture<_Result> start()
     {
+        m_running = true;
         QObject::connect(
                 m_process,
                 // Pretty new Qt connect syntax :)
                 (void (QProcess::*)(int, QProcess::ExitStatus)) &QProcess::finished,
                 this, [this] (int, QProcess::ExitStatus) {
+                    this->finished();
+                },
+                Qt::QueuedConnection);
+
+        QObject::connect(
+                m_process,
+                &QProcess::errorOccurred,
+                this, [this] (QProcess::ProcessError) {
                     this->finished();
                 },
                 Qt::QueuedConnection);
@@ -68,14 +77,18 @@ public:
 private:
     QProcess *m_process;
     _Function m_map;
+    bool m_running;
 
 };
 
 template <typename _Result, typename _Function>
 void ProcessFutureInterface<_Result, _Function>::finished()
 {
-    this->reportResult(m_map(m_process));
-    this->reportFinished();
+    if (m_running) {
+        m_running = false;
+        this->reportResult(m_map(m_process));
+        this->reportFinished();
+    }
 }
 
 } // namespace detail
