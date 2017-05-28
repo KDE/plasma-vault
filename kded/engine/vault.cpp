@@ -37,7 +37,6 @@
 #include <kdirnotify.h>
 
 #include "backend_p.h"
-#include "error.h"
 
 #include "asynqt/basic/all.h"
 #include "asynqt/wrappers/process.h"
