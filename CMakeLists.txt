@@ -4,7 +4,7 @@ cmake_minimum_required (VERSION 2.8.12)
 
 project (PlasmaVault)
 
-set(PROJECT_VERSION "5.9.95")
+set(PROJECT_VERSION "5.10.0")
 set(PROJECT_VERSION_MAJOR 5)
 
 set (PLASMAVAULT_VERSION "0.1")
