@@ -31,14 +31,22 @@ MouseArea {
     property alias icon: vaultIcon.source
     property alias name: vaultName.text
     property alias message: vaultMessage.text
+    property string device: ""
 
     property bool isOpened: false
     property bool isBusy: false
 
+    signal itemExpanded(variant item);
+
+    function collapse() {
+        actionsList.visible = false;
+    }
+
     property var vaultsModelActions: plasmoid.nativeInterface.vaultsModel.source()
 
     hoverEnabled: true
-    height: units.iconSizes.medium + (actionsList.visible ? actionsList.height : 0)
+    height: units.iconSizes.medium + 2 * units.smallSpacing
+                + (actionsList.visible ? (actionsList.height + actionsListSpacer.height) : 0)
 
     onContainsMouseChanged: {
         vaultItem.ListView.view.currentIndex = (containsMouse ? index : -1)
@@ -49,7 +57,7 @@ MouseArea {
 
         anchors {
             left: parent.left
-            verticalCenter: parent.verticalCenter
+            top: parent.top
             margins: units.smallSpacing
         }
 
@@ -80,7 +88,7 @@ MouseArea {
 
         anchors {
             right: parent.right
-            verticalCenter: parent.verticalCenter
+            top: parent.top
             margins: units.smallSpacing
         }
 
@@ -90,7 +98,11 @@ MouseArea {
 
         iconName: isOpened ? "media-eject" : "media-mount"
 
-        onClicked: vaultsModelActions.toggle(model.device)
+        onClicked: {
+            vaultsModelActions.toggle(vaultItem.device);
+            collapse();
+            itemExpanded(null);
+        }
     }
 
     PlasmaComponents.BusyIndicator {
@@ -127,12 +139,89 @@ MouseArea {
                 return vaultMessage.text != "";
             }
         }
+
+        Item {
+            id: actionsListSpacer
+
+            height: units.largeSpacing
+            width: parent.width
+            visible: actionsList.visible
+        }
+
+        ListView {
+            id: actionsList
+
+            height:  units.iconSizes.medium * model.count
+            width:   parent.width
+            visible: false
+
+            highlight: PlasmaComponents.Highlight {
+                id: highlight
+            }
+
+            model: actionsModel
+
+            ListModel {
+                id: actionsModel
+            }
+
+            delegate: ActionItem {
+                icon: model.icon
+                text: model.text
+
+                width: parent.width
+
+                onActivated: {
+                    if (model.action == "file-manager") {
+                        vaultsModelActions.openInFileManager(vaultItem.device);
+
+                    } else if (model.action == "force-close") {
+                        vaultsModelActions.forceClose(vaultItem.device);
+
+                    } else if (model.action == "configure") {
+                        vaultsModelActions.configure(vaultItem.device);
+
+                    }
+
+                    collapse();
+                    itemExpanded(null);
+                }
+            }
+        }
     }
 
     MouseArea {
         anchors.fill: parent
+
+        visible: !actionsList.visible
+
         onClicked: {
-            console.log("TODO: Mount and open dolphin");
+            actionsList.visible = !actionsList.visible;
+            if (actionsList.visible) {
+                vaultItem.itemExpanded(vaultItem);
+
+                actionsModel.clear();
+
+                actionsModel.append({
+                    "icon"   : "system-file-manager",
+                    "text"   : i18nd("plasmavault-kde", "Open with File Manager"),
+                    "action" : "file-manager"
+                });
+
+                if (vaultItem.message != "") {
+                    actionsModel.append({
+                        "icon"   : "window-close",
+                        "text"   : i18nd("plasmavault-kde", "Forcefully close "),
+                        "action" : "force-close"
+                    });
+                }
+
+                // actionsModel.append({
+                //     "icon"   : "configure",
+                //     "text"   : i18nd("plasmavault-kde", "Configure Vault..."),
+                //     "action" : "configure"
+                // });
+            }
         }
     }
 }

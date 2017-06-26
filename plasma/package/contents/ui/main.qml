@@ -29,6 +29,8 @@ Item {
     property var vaultsModel: plasmoid.nativeInterface.vaultsModel
     property var vaultsModelActions: plasmoid.nativeInterface.vaultsModel.source()
 
+    property var expandedItem: null
+
     Binding {
         target: plasmoid
         property: "busy"
@@ -58,6 +60,7 @@ Item {
 
 
         ListView {
+            id: vaultsList
             model: vaultsModel
 
             currentIndex: -1
@@ -74,9 +77,16 @@ Item {
                 name: model.name
                 message: model.message
                 isOpened: model.isOpened
+                device: model.device
 
                 width: parent.width
-                height: units.iconSizes.medium + 2 * units.smallSpacing
+
+                onItemExpanded: {
+                    if (expandedItem != null) {
+                        expandedItem.collapse();
+                    }
+                    expandedItem = item;
+                }
             }
 
             interactive: false

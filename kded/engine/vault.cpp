@@ -43,6 +43,8 @@
 #include "asynqt/operations/listen.h"
 #include "asynqt/operations/cast.h"
 
+#include <signal.h>
+
 #define CFG_NAME "name"
 #define CFG_LAST_STATUS "lastStatus"
 #define CFG_MOUNT_POINT "mountPoint"
@@ -353,29 +355,77 @@ FutureResult<> Vault::close()
                             result.split(QRegExp(QStringLiteral("\\s+")),
                                          QString::SkipEmptyParts);
 
-                            KSysGuard::Processes procs;
+                            if (pidList.size() == 0) {
+                                d->updateMessage(i18n("Unable to close the vault, an application is using it"));
+                                close();
 
-                            for (const QString &pidStr: pidList) {
-                                int pid = pidStr.toInt();
-                                if (!pid) {
-                                    continue;
+                            } else {
+                                KSysGuard::Processes procs;
+
+                                for (const QString &pidStr: pidList) {
+                                    int pid = pidStr.toInt();
+                                    if (!pid) {
+                                        continue;
+                                    }
+
+                                    procs.updateOrAddProcess(pid);
+
+                                    KSysGuard::Process *proc = procs.getProcess(pid);
+
+                                    if (!blockApps.contains(proc->name())) {
+                                        blockApps << proc->name();
+                                    }
                                 }
 
-                                procs.updateOrAddProcess(pid);
+                                blockApps.removeDuplicates();
 
-                                KSysGuard::Process *proc = procs.getProcess(pid);
-
-                                if (!blockApps.contains(proc->name())) {
-                                    blockApps << proc->name();
-                                }
+                                d->updateMessage(i18n("Unable to close the vault, it is used by %1", blockApps.join(", ")));
                             }
-
-                            blockApps.removeDuplicates();
-
-                            d->updateMessage(i18n("Unable to close the vault, it is used by %1", blockApps.join(", ")));
                         });
                     }
                 });
+}
+
+
+
+FutureResult<> Vault::configure()
+{
+    return close();
+}
+
+
+
+FutureResult<> Vault::forceClose()
+{
+    using namespace AsynQt::operators;
+
+    AsynQt::await(
+        AsynQt::Process::getOutput("lsof", { "-t", mountPoint() })
+            | cast<QString>()
+            | onError([this] {
+                d->updateMessage(i18n("Failed to fetch the list of applications using this vault"));
+            })
+            | onSuccess([this] (const QString &result) {
+                // based on ksolidnotify.cpp
+                QStringList blockApps;
+
+                const auto &pidList =
+                result.split(QRegExp(QStringLiteral("\\s+")),
+                             QString::SkipEmptyParts);
+
+                KSysGuard::Processes procs;
+
+                for (const QString &pidStr: pidList) {
+                    int pid = pidStr.toInt();
+                    if (!pid) {
+                        continue;
+                    }
+
+                    procs.sendSignal(pid, SIGKILL);
+                }
+            }));
+
+    return close();
 }
 
 

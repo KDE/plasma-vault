@@ -73,6 +73,15 @@ public Q_SLOTS:
     // Opens the new-vault wizard
     void requestNewVault();
 
+    // Kills all applications using the vault and closes it
+    void forceClose(const QString &device);
+
+    // Opens the configuration dialogue for the vault
+    void configure(const QString &device);
+
+    // Open in file manager
+    void openInFileManager(const QString &device);
+
 
     bool isBusy() const;
     bool hasError() const;

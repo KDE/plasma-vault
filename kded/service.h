@@ -43,6 +43,10 @@ public Q_SLOTS:
     Q_SCRIPTABLE void openVault(const QString &device);
     Q_SCRIPTABLE void closeVault(const QString &device);
 
+    Q_SCRIPTABLE void configureVault(const QString &device);
+    Q_SCRIPTABLE void forceCloseVault(const QString &device);
+    Q_SCRIPTABLE void openVaultInFileManager(const QString &device);
+
     Q_SCRIPTABLE PlasmaVault::VaultInfoList availableDevices() const;
 
 Q_SIGNALS:

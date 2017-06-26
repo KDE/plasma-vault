@@ -26,6 +26,7 @@
 #include <KPasswordDialog>
 #include <KLocalizedString>
 #include <KActivities/Consumer>
+#include <KRun>
 
 #include "engine/vault.h"
 #include "engine/commandresult.h"
@@ -42,6 +43,17 @@ class PlasmaVaultService::Private {
 public:
     QHash<Device, Vault*> knownVaults;
     KActivities::Consumer kamd;
+
+    Vault* vaultFor(const QString &device_) const
+    {
+        const Device device(device_);
+
+        if (!knownVaults.contains(device)) {
+            return nullptr;
+        }
+
+        return knownVaults[device];
+    }
 
 };
 
@@ -208,29 +220,64 @@ void showPasswordMountDialog(Vault *vault, Function &&function)
 }
 //^
 
-void PlasmaVaultService::openVault(const QString &device_)
+void PlasmaVaultService::openVault(const QString &device)
 {
-    const Device device(device_);
+    if (auto vault = d->vaultFor(device)) {
+        if (vault->isOpened()) return;
 
-    if (!d->knownVaults.contains(device)) return;
-    const auto vault = d->knownVaults[device];
-
-    showPasswordMountDialog(vault,
-            [this, device] {
-                emit vaultChanged(d->knownVaults[device]->info());
-            });
+        showPasswordMountDialog(vault,
+                [this, vault] {
+                    emit vaultChanged(vault->info());
+                });
+    }
 }
 
 
 
-void PlasmaVaultService::closeVault(const QString &device_)
+void PlasmaVaultService::closeVault(const QString &device)
 {
-    const Device device(device_);
+    if (auto vault = d->vaultFor(device)) {
+        if (!vault->isOpened()) return;
 
-    if (!d->knownVaults.contains(device)) return;
-    auto vault = d->knownVaults[device];
+        vault->close();
+    }
+}
 
-    vault->close();
+
+
+void PlasmaVaultService::configureVault(const QString &device)
+{
+    if (auto vault = d->vaultFor(device)) {
+        vault->configure();
+    }
+}
+
+
+
+void PlasmaVaultService::forceCloseVault(const QString &device)
+{
+    if (auto vault = d->vaultFor(device)) {
+        if (!vault->isOpened()) return;
+
+        vault->forceClose();
+    }
+}
+
+
+
+void PlasmaVaultService::openVaultInFileManager(const QString &device)
+{
+    if (auto vault = d->vaultFor(device)) {
+        if (vault->isOpened()) {
+            new KRun(QUrl::fromLocalFile((QString)vault->mountPoint()), 0);
+
+        } else {
+            showPasswordMountDialog(vault, [this, vault] {
+                emit vaultChanged(vault->info());
+                new KRun(QUrl::fromLocalFile((QString)vault->mountPoint()), 0);
+            });
+        }
+    }
 }
 
 

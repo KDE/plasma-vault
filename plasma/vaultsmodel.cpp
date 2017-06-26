@@ -337,6 +337,32 @@ void VaultsModel::toggle(const QString &device)
 
 
 
+void VaultsModel::forceClose(const QString &device)
+{
+    if (!d->vaults.contains(device)) return;
+
+    DBus::asyncCall<>(&d->service, "forceCloseVault", device);
+}
+
+
+
+void VaultsModel::configure(const QString &device)
+{
+    if (!d->vaults.contains(device)) return;
+
+    DBus::asyncCall<>(&d->service, "configureVault", device);
+}
+
+
+
+void VaultsModel::openInFileManager(const QString &device)
+{
+    if (!d->vaults.contains(device)) return;
+
+    DBus::asyncCall<>(&d->service, "openVaultInFileManager", device);
+}
+
+
 void VaultsModel::requestNewVault()
 {
     DBus::asyncCall<>(&d->service, "requestNewVault");

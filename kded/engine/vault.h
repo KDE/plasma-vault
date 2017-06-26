@@ -72,6 +72,9 @@ public:
     FutureResult<> open(const Payload &payload);
     FutureResult<> close();
 
+    FutureResult<> configure();
+    FutureResult<> forceClose();
+
     FutureResult<> destroy(const Payload &payload);
 
     VaultInfo info() const;
