@@ -63,6 +63,7 @@ private Q_SLOTS:
 
     void onVaultStatusChanged(PlasmaVault::VaultInfo::Status status);
     void onVaultMessageChanged(const QString &message);
+    void onVaultInfoChanged();
 
     void onCurrentActivityChanged(const QString &currentActivity);
 

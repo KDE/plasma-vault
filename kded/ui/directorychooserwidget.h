@@ -18,20 +18,25 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_UI_ACTIVITIES_LINKING_WIDGET_H
-#define PLASMAVAULT_KDED_UI_ACTIVITIES_LINKING_WIDGET_H
+#ifndef PLASMAVAULT_KDED_UI_DIRECTORY_CHOOSER_WIDGET_H
+#define PLASMAVAULT_KDED_UI_DIRECTORY_CHOOSER_WIDGET_H
 
 #include "dialogdsl.h"
 
-class ActivitiesLinkingWidget: public DialogDsl::DialogModule {
+
+class DirectoryChooserWidget: public DialogDsl::DialogModule {
     Q_OBJECT
 
 public:
-    ActivitiesLinkingWidget();
-    ~ActivitiesLinkingWidget();
+    enum Flags {
+        RequireNothing         = 0,
+        RequireEmptyMountPoint = 1,
+    };
+
+    DirectoryChooserWidget(Flags flags);
+    ~DirectoryChooserWidget();
 
     PlasmaVault::Vault::Payload fields() const override;
-
     void init(const PlasmaVault::Vault::Payload &payload) override;
 
 private:
@@ -39,10 +44,10 @@ private:
     QScopedPointer<Private> d;
 };
 
-inline DialogDsl::ModuleFactory activitiesChooser()
+inline DialogDsl::ModuleFactory directoryChooser(DirectoryChooserWidget::Flags flags)
 {
     return [=] {
-        return new ActivitiesLinkingWidget();
+        return new DirectoryChooserWidget(flags);
     };
 }
 

@@ -216,11 +216,11 @@ MouseArea {
                     });
                 }
 
-                // actionsModel.append({
-                //     "icon"   : "configure",
-                //     "text"   : i18nd("plasmavault-kde", "Configure Vault..."),
-                //     "action" : "configure"
-                // });
+                actionsModel.append({
+                    "icon"   : "configure",
+                    "text"   : i18nd("plasmavault-kde", "Configure Vault..."),
+                    "action" : "configure"
+                });
             }
         }
     }

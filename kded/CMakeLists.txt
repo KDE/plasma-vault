@@ -21,9 +21,12 @@ set (
    ui/backendchooserwidget.cpp
    ui/cryfscypherchooserwidget.cpp
    ui/directorypairchooserwidget.cpp
+   ui/directorychooserwidget.cpp
+   ui/namechooserwidget.cpp
    ui/noticewidget.cpp
    ui/passwordchooserwidget.cpp
    ui/vaultcreationwizard.cpp
+   ui/vaultconfigurationwizard.cpp
 
    ../common/vaultinfo.cpp
    )
@@ -34,9 +37,12 @@ ki18n_wrap_ui (
    ui/backendchooserwidget.ui
    ui/cryfscypherchooserwidget.ui
    ui/directorypairchooserwidget.ui
+   ui/directorychooserwidget.ui
+   ui/namechooserwidget.ui
    ui/noticewidget.ui
    ui/passwordchooserwidget.ui
    ui/vaultcreationwizard.ui
+   ui/vaultconfigurationwizard.ui
    )
 
 add_library (

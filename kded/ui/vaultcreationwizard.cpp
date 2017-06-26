@@ -80,7 +80,7 @@ public:
                              See <a href='http://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> for more information."))
                      },
                 step { passwordChooser() },
-                step { directoryPairChooser(RequireEmptyDirectories) },
+                step { directoryPairChooser(DirectoryPairChooserWidget::RequireEmptyDirectories) },
                 step { activitiesChooser() }
             }
         },
@@ -103,7 +103,7 @@ public:
                              which confirms this."))
                      },
                 step { passwordChooser() },
-                step { directoryPairChooser(RequireEmptyDirectories) },
+                step { directoryPairChooser(DirectoryPairChooserWidget::RequireEmptyDirectories) },
                 step {
                     cryfsCypherChooser(),
                     activitiesChooser()
@@ -288,6 +288,7 @@ VaultCreationWizard::VaultCreationWizard(QWidget *parent)
     : QDialog(parent)
     , d(new Private(this))
 {
+    setWindowTitle(i18n("Create a New Vault"));
 }
 
 

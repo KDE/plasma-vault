@@ -107,3 +107,34 @@ PlasmaVault::Vault::Payload ActivitiesLinkingWidget::fields() const
 
 
 
+void ActivitiesLinkingWidget::init(
+    const PlasmaVault::Vault::Payload &payload)
+{
+    const auto activities = payload[KEY_ACTIVITIES].toStringList();
+
+    d->ui.checkLimitActivities->setChecked(false);
+    d->ui.listActivities->setEnabled(false);
+
+    auto model = d->ui.listActivities->model();
+    auto selection = d->ui.listActivities->selectionModel();
+    selection->clearSelection();
+
+    if (activities.size() > 0) {
+        d->ui.checkLimitActivities->setChecked(true);
+        d->ui.listActivities->setEnabled(true);
+
+        for (int row = 0; row < d->ui.listActivities->model()->rowCount(); ++row) {
+            const auto index = model->index(row, 0);
+            const auto activity
+                = model->data(index, KActivities::ActivitiesModel::ActivityId)
+                      .toString();
+
+            if (activities.contains(activity)) {
+                selection->select(index, QItemSelectionModel::Select);
+            }
+        }
+    }
+}
+
+
+

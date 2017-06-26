@@ -18,36 +18,22 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "directorypairchooserwidget.h"
-#include "ui_directorypairchooserwidget.h"
+#include "directorychooserwidget.h"
+#include "ui_directorychooserwidget.h"
 
 #include "vault.h"
 
-class DirectoryPairChooserWidget::Private {
+class DirectoryChooserWidget::Private {
 public:
-    Ui::DirectoryPairChooserWidget ui;
-    DirectoryPairChooserWidget::Flags flags;
+    Ui::DirectoryChooserWidget ui;
+    DirectoryChooserWidget::Flags flags;
 
     bool mountPointValid = false;
-    bool encryptedLocationValid = false;
 
-    DirectoryPairChooserWidget *const q;
-    Private(DirectoryPairChooserWidget *parent)
+    DirectoryChooserWidget *const q;
+    Private(DirectoryChooserWidget *parent)
         : q(parent)
     {
-    }
-
-    void setEncryptedLocationValid(bool valid)
-    {
-        if (encryptedLocationValid == valid) return;
-
-        encryptedLocationValid = valid;
-
-        // We only change the global valid state if
-        // the mount point was already valid
-        if (mountPointValid) {
-            q->setIsValid(valid);
-        }
     }
 
     void setMountPointValid(bool valid)
@@ -56,11 +42,7 @@ public:
 
         mountPointValid = valid;
 
-        // We only change the global valid state if
-        // the enc location was already valid
-        if (encryptedLocationValid) {
-            q->setIsValid(valid);
-        }
+        q->setIsValid(valid);
     }
 
     bool isDirectoryValid(const QUrl &url) const
@@ -78,50 +60,42 @@ public:
 
 
 
-DirectoryPairChooserWidget::DirectoryPairChooserWidget(
-    DirectoryPairChooserWidget::Flags flags)
+DirectoryChooserWidget::DirectoryChooserWidget(
+    DirectoryChooserWidget::Flags flags)
     : DialogDsl::DialogModule(false), d(new Private(this))
 {
     d->ui.setupUi(this);
     d->flags = flags;
 
-    connect(d->ui.editDevice, &KUrlRequester::textEdited,
-            this, [&] (const QString &url) {
-                d->setEncryptedLocationValid(d->isDirectoryValid(url));
-            });
-
     connect(d->ui.editMountPoint, &KUrlRequester::textEdited,
             this, [&] (const QString &url) {
                 d->setMountPointValid(d->isDirectoryValid(url));
             });
-
 }
 
 
 
-DirectoryPairChooserWidget::~DirectoryPairChooserWidget()
+DirectoryChooserWidget::~DirectoryChooserWidget()
 {
 }
 
 
 
-PlasmaVault::Vault::Payload DirectoryPairChooserWidget::fields() const
+PlasmaVault::Vault::Payload DirectoryChooserWidget::fields() const
 {
     return {
-        { KEY_DEVICE,      d->ui.editDevice->url().toLocalFile() },
         { KEY_MOUNT_POINT, d->ui.editMountPoint->url().toLocalFile() }
     };
 }
 
 
 
-void DirectoryPairChooserWidget::init(
+void DirectoryChooserWidget::init(
     const PlasmaVault::Vault::Payload &payload)
 {
-    const auto name = payload[KEY_NAME].toString();
+    const auto mountPoint = payload[KEY_MOUNT_POINT].toString();
 
-    d->ui.editDevice->setText("~/.vaults/" + name + ".enc");
-    d->ui.editMountPoint->setText("~/Vaults/" + name);
+    d->ui.editMountPoint->setText(mountPoint);
 }
 
 

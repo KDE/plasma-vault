@@ -35,12 +35,14 @@ public:
 
 
 
-NoticeWidget::NoticeWidget(const QString &noticeId, const QString &message)
+NoticeWidget::NoticeWidget(const QString &noticeId, const QString &message,
+                           Mode mode)
     : DialogDsl::DialogModule(true)
     , d(new Private())
 {
     d->ui.setupUi(this);
     d->ui.textNotice->setHtml(message);
+    d->ui.checkShouldBeHidden->setVisible(mode == DoNotShowAgainOption);
 
     d->noticeId = noticeId;
 

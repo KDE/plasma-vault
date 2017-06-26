@@ -18,33 +18,54 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_UI_ACTIVITIES_LINKING_WIDGET_H
-#define PLASMAVAULT_KDED_UI_ACTIVITIES_LINKING_WIDGET_H
+#include "namechooserwidget.h"
+#include "ui_namechooserwidget.h"
 
-#include "dialogdsl.h"
+#include "vault.h"
 
-class ActivitiesLinkingWidget: public DialogDsl::DialogModule {
-    Q_OBJECT
-
+class NameChooserWidget::Private {
 public:
-    ActivitiesLinkingWidget();
-    ~ActivitiesLinkingWidget();
+    Ui::NameChooserWidget ui;
 
-    PlasmaVault::Vault::Payload fields() const override;
-
-    void init(const PlasmaVault::Vault::Payload &payload) override;
-
-private:
-    class Private;
-    QScopedPointer<Private> d;
+    NameChooserWidget *const q;
+    Private(NameChooserWidget *parent)
+        : q(parent)
+    {
+    }
 };
 
-inline DialogDsl::ModuleFactory activitiesChooser()
+
+
+NameChooserWidget::NameChooserWidget()
+    : DialogDsl::DialogModule(false), d(new Private(this))
 {
-    return [=] {
-        return new ActivitiesLinkingWidget();
+    d->ui.setupUi(this);
+}
+
+
+
+NameChooserWidget::~NameChooserWidget()
+{
+}
+
+
+
+PlasmaVault::Vault::Payload NameChooserWidget::fields() const
+{
+    return {
+        { KEY_NAME, d->ui.editVaultName->text() }
     };
 }
 
-#endif // include guard
+
+
+void NameChooserWidget::init(
+    const PlasmaVault::Vault::Payload &payload)
+{
+    const auto name = payload[KEY_NAME].toString();
+
+    d->ui.editVaultName->setText(name);
+}
+
+
 

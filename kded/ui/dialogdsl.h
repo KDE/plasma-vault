@@ -82,7 +82,32 @@ private:
 
 typedef std::function<DialogModule*()> ModuleFactory;
 
-typedef QVector<ModuleFactory> step;
+class step: public QVector<ModuleFactory> {
+public:
+    step() = default;
+
+    step(const std::initializer_list<ModuleFactory>& modules)
+        : QVector<ModuleFactory>(modules)
+    {
+    }
+
+    friend
+    step operator/(const QString &title, step &&from)
+    {
+        step result(std::move(from));
+        result.m_title = title;
+        return result;
+    }
+
+    QString title() const
+    {
+        return m_title;
+    }
+
+private:
+    QString m_title;
+};
+
 typedef QVector<step> steps;
 typedef QMap<Key, steps> Logic;
 

@@ -55,6 +55,7 @@ class Vault: public QObject {
     Q_PROPERTY(bool isOpened      READ isOpened      NOTIFY isOpenedChanged)
     Q_PROPERTY(bool isBusy        READ isBusy        NOTIFY isBusyChanged)
 
+    Q_PROPERTY(QString name       READ name    NOTIFY nameChanged)
     Q_PROPERTY(QStringList activities READ activities NOTIFY activitiesChanged)
     Q_PROPERTY(QString message READ message NOTIFY messageChanged)
 
@@ -72,7 +73,7 @@ public:
     FutureResult<> open(const Payload &payload);
     FutureResult<> close();
 
-    FutureResult<> configure();
+    // FutureResult<> configure();
     FutureResult<> forceClose();
 
     FutureResult<> destroy(const Payload &payload);
@@ -87,10 +88,19 @@ public Q_SLOTS:
     bool isOpened() const;
     bool isBusy() const;
 
-    QString name() const;
     Device device() const;
+    QString backend() const;
+
     MountPoint mountPoint() const;
+    void setMountPoint(const MountPoint &mountPoint);
+
+    QString name() const;
+    void setName(const QString &name);
+
     QStringList activities() const;
+    void setActivities(const QStringList &activities);
+
+    void saveConfiguration();
 
 Q_SIGNALS:
     void mountPointChanged(const QString &mountPoint);
@@ -100,6 +110,8 @@ Q_SIGNALS:
     void isBusyChanged(bool isBusy);
     void activitiesChanged(const QStringList &activities);
     void messageChanged(const QString &message);
+    void nameChanged(const QString &name);
+    void infoChanged();
 
 public:
     static QList<Device> availableDevices();

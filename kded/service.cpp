@@ -32,6 +32,7 @@
 #include "engine/commandresult.h"
 
 #include "ui/vaultcreationwizard.h"
+#include "ui/vaultconfigurationwizard.h"
 
 K_PLUGIN_FACTORY_WITH_JSON(PlasmaVaultServiceFactory,
                            "plasmavault.json",
@@ -144,6 +145,8 @@ void PlasmaVaultService::registerVault(Vault *vault)
             this,  &PlasmaVaultService::onVaultStatusChanged);
     connect(vault, &Vault::messageChanged,
             this,  &PlasmaVaultService::onVaultMessageChanged);
+    connect(vault, &Vault::infoChanged,
+            this,  &PlasmaVaultService::onVaultInfoChanged);
 
     emit vaultAdded(vault->info());
 }
@@ -156,6 +159,14 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
 
     const auto vault = qobject_cast<Vault*>(sender());
 
+    emit vaultChanged(vault->info());
+}
+
+
+
+void PlasmaVaultService::onVaultInfoChanged()
+{
+    const auto vault = qobject_cast<Vault*>(sender());
     emit vaultChanged(vault->info());
 }
 
@@ -248,7 +259,12 @@ void PlasmaVaultService::closeVault(const QString &device)
 void PlasmaVaultService::configureVault(const QString &device)
 {
     if (auto vault = d->vaultFor(device)) {
-        vault->configure();
+        const auto dialog = new VaultConfigurationWizard(vault);
+
+        // connect(dialog, &VaultConfigurationWizard::configurationChanged,
+        //         this,   &PlasmaVaultService::registerVault);
+
+        dialog->show();
     }
 }
 

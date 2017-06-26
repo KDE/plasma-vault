@@ -27,7 +27,12 @@ class NoticeWidget: public DialogDsl::DialogModule {
     Q_OBJECT
 
 public:
-    NoticeWidget(const QString &noticeId, const QString &message);
+    enum Mode {
+        ShowAlways,
+        DoNotShowAgainOption
+    };
+
+    NoticeWidget(const QString &noticeId, const QString &message, Mode mode);
 
     ~NoticeWidget();
 
@@ -43,10 +48,11 @@ private:
 };
 
 inline DialogDsl::ModuleFactory notice(const QByteArray &noticeId,
-                                       const QString &message)
+                                       const QString &message,
+                                       NoticeWidget::Mode mode = NoticeWidget::DoNotShowAgainOption)
 {
     return [=] {
-        return new NoticeWidget(noticeId, message);
+        return new NoticeWidget(noticeId, message, mode);
     };
 }
 

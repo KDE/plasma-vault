@@ -23,18 +23,19 @@
 
 #include "dialogdsl.h"
 
-enum DirectoryPairChooserWidgetFlags {
-    RequireEmptyEncryptedLocation = 1,
-    RequireEmptyMountPoint        = 2,
-    RequireEmptyDirectories       = RequireEmptyEncryptedLocation | RequireEmptyMountPoint
-};
-
 
 class DirectoryPairChooserWidget: public DialogDsl::DialogModule {
     Q_OBJECT
 
 public:
-    DirectoryPairChooserWidget(DirectoryPairChooserWidgetFlags flags);
+    enum Flags {
+        RequireNothing                = 0,
+        RequireEmptyEncryptedLocation = 1,
+        RequireEmptyMountPoint        = 2,
+        RequireEmptyDirectories       = RequireEmptyEncryptedLocation | RequireEmptyMountPoint
+    };
+
+    DirectoryPairChooserWidget(Flags flags);
     ~DirectoryPairChooserWidget();
 
     PlasmaVault::Vault::Payload fields() const override;
@@ -45,7 +46,7 @@ private:
     QScopedPointer<Private> d;
 };
 
-inline DialogDsl::ModuleFactory directoryPairChooser(DirectoryPairChooserWidgetFlags flags)
+inline DialogDsl::ModuleFactory directoryPairChooser(DirectoryPairChooserWidget::Flags flags)
 {
     return [=] {
         return new DirectoryPairChooserWidget(flags);

@@ -60,6 +60,8 @@ public:
     KSharedConfigPtr config;
     Device device;
 
+    QTimer savingDelay;
+
 
 
     struct Data {
@@ -102,8 +104,8 @@ public:
 
             emit q->statusChanged(data->status);
 
-            if (oldStatus == VaultInfo::Opened || newStatus == VaultInfo::Opened) {
-                emit q->isOpenedChanged(newStatus);
+            if (newStatus == VaultInfo::Closed || newStatus == VaultInfo::Opened) {
+                emit q->isOpenedChanged(newStatus == VaultInfo::Opened);
             }
 
             if (oldStatus == VaultInfo::NotInitialized || newStatus == VaultInfo::NotInitialized) {
@@ -263,6 +265,23 @@ Vault::Vault(const Device &device, QObject *parent)
     : QObject(parent)
     , d(new Private(this, device))
 {
+    d->savingDelay.setInterval(300);
+    d->savingDelay.setSingleShot(true);
+    connect(&d->savingDelay, &QTimer::timeout,
+            this, [&] {
+                qDebug() << "Saving vault info:"
+                         << d->data->name
+                         << d->data->activities
+                         << d->data->mountPoint;
+                KConfigGroup vaultConfig(d->config, d->device.data());
+                vaultConfig.writeEntry(CFG_MOUNT_POINT, d->data->mountPoint.data());
+                vaultConfig.writeEntry(CFG_NAME,        d->data->name);
+                vaultConfig.writeEntry(CFG_ACTIVITIES,  d->data->activities);
+
+                d->config->sync();
+
+                emit infoChanged();
+            });
 }
 
 
@@ -270,6 +289,13 @@ Vault::Vault(const Device &device, QObject *parent)
 Vault::~Vault()
 {
     close();
+}
+
+
+
+void Vault::saveConfiguration()
+{
+    d->savingDelay.start();
 }
 
 
@@ -388,10 +414,10 @@ FutureResult<> Vault::close()
 
 
 
-FutureResult<> Vault::configure()
-{
-    return close();
-}
+// FutureResult<> Vault::configure()
+// {
+//     return close();
+// }
 
 
 
@@ -459,23 +485,9 @@ bool Vault::isValid() const
 
 
 
-QString Vault::name() const
-{
-    return d->data->name;
-}
-
-
-
 Device Vault::device() const
 {
     return d->device;
-}
-
-
-
-MountPoint Vault::mountPoint() const
-{
-    return d->data->mountPoint;
 }
 
 
@@ -531,9 +543,55 @@ bool Vault::isOpened() const
 
 
 
+MountPoint Vault::mountPoint() const
+{
+    return d->data->mountPoint;
+}
+
+void Vault::setMountPoint(const MountPoint &mountPoint)
+{
+    if (d->data->mountPoint != mountPoint.data()) {
+        QDir().rmpath(d->data->mountPoint.data());
+        QDir().mkpath(mountPoint.data());
+
+        d->data->mountPoint = mountPoint;
+        saveConfiguration();
+    }
+}
+
+
+
 QStringList Vault::activities() const
 {
     return d->data->activities;
+}
+
+void Vault::setActivities(const QStringList &activities)
+{
+    d->data->activities = activities;
+    emit activitiesChanged(activities);
+    saveConfiguration();
+}
+
+
+
+QString Vault::name() const
+{
+    return d->data->name;
+}
+
+void Vault::setName(const QString &name)
+{
+    d->data->name = name;
+    emit nameChanged(name);
+    saveConfiguration();
+}
+
+
+
+QString Vault::backend() const
+{
+    return d->data->backendName;
 }
 
 

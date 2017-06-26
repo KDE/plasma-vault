@@ -18,33 +18,30 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_UI_ACTIVITIES_LINKING_WIDGET_H
-#define PLASMAVAULT_KDED_UI_ACTIVITIES_LINKING_WIDGET_H
+#ifndef PLASMAVAULT_KDED_UI_VAULT_CONFIGURATION_WIZARD_H
+#define PLASMAVAULT_KDED_UI_VAULT_CONFIGURATION_WIZARD_H
 
-#include "dialogdsl.h"
+#include <QDialog>
 
-class ActivitiesLinkingWidget: public DialogDsl::DialogModule {
+namespace PlasmaVault {
+    class Vault;
+} // namespace PlasmaVault
+
+class VaultConfigurationWizard: public QDialog {
     Q_OBJECT
 
 public:
-    ActivitiesLinkingWidget();
-    ~ActivitiesLinkingWidget();
+    VaultConfigurationWizard(PlasmaVault::Vault *vault, QWidget *parent = nullptr);
+    ~VaultConfigurationWizard();
 
-    PlasmaVault::Vault::Payload fields() const override;
-
-    void init(const PlasmaVault::Vault::Payload &payload) override;
+Q_SIGNALS:
+    void configurationChanged(PlasmaVault::Vault *vault);
 
 private:
     class Private;
     QScopedPointer<Private> d;
 };
 
-inline DialogDsl::ModuleFactory activitiesChooser()
-{
-    return [=] {
-        return new ActivitiesLinkingWidget();
-    };
-}
 
 #endif // include guard
 
