@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Vaults
+Name[ar]=الخزنات
 Name[ca]=Voltes
 Name[ca@valencia]=Voltes
 Name[el]=Θησαυροφυλάκια
@@ -27,6 +28,7 @@ Name[uk]=Сховища
 Name[x-test]=xxVaultsxx
 Name[zh_CN]=保险库
 Comment=Create encrypted vaults
+Comment[ar]=أنشئ خزنات معمّاة
 Comment[ca]=Crea voltes encriptades
 Comment[ca@valencia]=Crea voltes encriptades
 Comment[el]=Δημιουργία κρυπτογραφημένων θησαυροφυλακίων
