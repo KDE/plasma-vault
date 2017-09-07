@@ -62,8 +62,9 @@ public:
 
         i18n("Activities") / step {
             activitiesChooser()
-        },
+        }
 
+        /*
         i18n("Dismantle") / step {
             notice(
                "dismantle-message",
@@ -72,6 +73,7 @@ public:
                      You will need to remove the files manually."),
                NoticeWidget::ShowAlways)
         }
+        */
     };
 
     Logic logic
