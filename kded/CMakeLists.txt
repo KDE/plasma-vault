@@ -25,6 +25,8 @@ set (
    ui/namechooserwidget.cpp
    ui/noticewidget.cpp
    ui/passwordchooserwidget.cpp
+   ui/offlineonlywidget.cpp
+
    ui/vaultcreationwizard.cpp
    ui/vaultconfigurationwizard.cpp
 
@@ -41,6 +43,8 @@ ki18n_wrap_ui (
    ui/namechooserwidget.ui
    ui/noticewidget.ui
    ui/passwordchooserwidget.ui
+   ui/offlineonlywidget.ui
+
    ui/vaultcreationwizard.ui
    ui/vaultconfigurationwizard.ui
    )
@@ -77,6 +81,7 @@ target_link_libraries (
    KF5::SysGuard
    KF5::WidgetsAddons
    KF5::ProcessCore
+   KF5::NetworkManagerQt
    )
 
 

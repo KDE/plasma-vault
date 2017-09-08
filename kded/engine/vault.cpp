@@ -50,6 +50,7 @@
 #define CFG_MOUNT_POINT "mountPoint"
 #define CFG_BACKEND "backend"
 #define CFG_ACTIVITIES "activities"
+#define CFG_OFFLINEONLY "offlineOnly"
 
 namespace PlasmaVault {
 
@@ -67,9 +68,12 @@ public:
     struct Data {
         QString name;
         MountPoint mountPoint;
+
         VaultInfo::Status status;
-        QStringList activities;
         QString message;
+
+        QStringList activities;
+        bool isOfflineOnly;
 
         QString backendName;
         Backend::Ptr backend;
@@ -128,7 +132,9 @@ public:
             vaultConfig.writeEntry(CFG_MOUNT_POINT, data->mountPoint.data());
             vaultConfig.writeEntry(CFG_NAME,        data->name);
             vaultConfig.writeEntry(CFG_BACKEND,     data->backend->name());
+
             vaultConfig.writeEntry(CFG_ACTIVITIES,  data->activities);
+            vaultConfig.writeEntry(CFG_OFFLINEONLY, data->isOfflineOnly);
 
             org::kde::KDirNotify::emitFilesAdded(
                     QUrl::fromLocalFile(data->mountPoint.data()));
@@ -149,6 +155,7 @@ public:
             // vaultConfig.deleteEntry(CFG_NAME);
             // vaultConfig.deleteEntry(CFG_BACKEND);
             // vaultConfig.deleteEntry(CFG_ACTIVITIES);
+            // vaultConfig.deleteEntry(CFG_OFFLINEONLY);
 
             emit q->statusChanged(VaultInfo::Error);
         }
@@ -178,6 +185,7 @@ public:
         Data vaultData;
         const QString backendName    = payload[KEY_BACKEND].toString();
         const QStringList activities = payload[KEY_ACTIVITIES].toStringList();
+        const bool isOfflineOnly     = payload[KEY_OFFLINEONLY].toBool();
 
         // status should never be in this state, if we got an error,
         // d->data should not be valid
@@ -185,10 +193,11 @@ public:
 
         // Reading the mount data from the config
         const KConfigGroup vaultConfig(config, device.data());
-        vaultData.name        = vaultConfig.readEntry(CFG_NAME, name);
-        vaultData.mountPoint  = MountPoint(vaultConfig.readEntry(CFG_MOUNT_POINT, mountPoint.data()));
-        vaultData.backendName = vaultConfig.readEntry(CFG_BACKEND, backendName);
-        vaultData.activities  = vaultConfig.readEntry(CFG_ACTIVITIES, activities);
+        vaultData.name          = vaultConfig.readEntry(CFG_NAME, name);
+        vaultData.mountPoint    = MountPoint(vaultConfig.readEntry(CFG_MOUNT_POINT, mountPoint.data()));
+        vaultData.backendName   = vaultConfig.readEntry(CFG_BACKEND, backendName);
+        vaultData.activities    = vaultConfig.readEntry(CFG_ACTIVITIES, activities);
+        vaultData.isOfflineOnly = vaultConfig.readEntry(CFG_OFFLINEONLY, isOfflineOnly);
 
         const QDir mountPointDir(vaultData.mountPoint);
 
@@ -271,12 +280,15 @@ Vault::Vault(const Device &device, QObject *parent)
             this, [&] {
                 qDebug() << "Saving vault info:"
                          << d->data->name
+                         << d->data->mountPoint
                          << d->data->activities
-                         << d->data->mountPoint;
+                         << d->data->isOfflineOnly
+                         ;
                 KConfigGroup vaultConfig(d->config, d->device.data());
                 vaultConfig.writeEntry(CFG_MOUNT_POINT, d->data->mountPoint.data());
                 vaultConfig.writeEntry(CFG_NAME,        d->data->name);
                 vaultConfig.writeEntry(CFG_ACTIVITIES,  d->data->activities);
+                vaultConfig.writeEntry(CFG_OFFLINEONLY, d->data->isOfflineOnly);
 
                 d->config->sync();
 
@@ -575,6 +587,20 @@ void Vault::setActivities(const QStringList &activities)
 
 
 
+bool Vault::isOfflineOnly() const
+{
+    return d->data->isOfflineOnly;
+}
+
+void Vault::setIsOfflineOnly(bool isOfflineOnly)
+{
+    d->data->isOfflineOnly = isOfflineOnly;
+    emit isOfflineOnlyChanged(isOfflineOnly);
+    saveConfiguration();
+}
+
+
+
 QString Vault::name() const
 {
     return d->data->name;
@@ -619,11 +645,16 @@ bool Vault::isBusy() const
 VaultInfo Vault::info() const
 {
     VaultInfo vaultInfo;
-    vaultInfo.device     = device();
-    vaultInfo.name       = name();
-    vaultInfo.status     = status();
-    vaultInfo.activities = activities();
-    vaultInfo.message    = message();
+
+    vaultInfo.device        = device();
+    vaultInfo.name          = name();
+
+    vaultInfo.status        = status();
+    vaultInfo.message       = message();
+
+    vaultInfo.activities    = activities();
+    vaultInfo.isOfflineOnly = isOfflineOnly();
+
     return vaultInfo;
 }
 

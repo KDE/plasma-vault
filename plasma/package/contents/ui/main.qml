@@ -78,6 +78,7 @@ Item {
                 message: model.message
                 isOpened: model.isOpened
                 device: model.device
+                isOfflineOnly: model.isOfflineOnly
 
                 width: parent.width
 

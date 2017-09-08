@@ -34,6 +34,8 @@
 #include "ui/vaultcreationwizard.h"
 #include "ui/vaultconfigurationwizard.h"
 
+#include <NetworkManagerQt/Manager>
+
 K_PLUGIN_FACTORY_WITH_JSON(PlasmaVaultServiceFactory,
                            "plasmavault.json",
                            registerPlugin<PlasmaVaultService>();)
@@ -44,6 +46,11 @@ class PlasmaVaultService::Private {
 public:
     QHash<Device, Vault*> knownVaults;
     KActivities::Consumer kamd;
+
+    QVector<QString> devicesInhibittingNetworking;
+    struct {
+        bool networkingEnabled;
+    } savedNetworkingStatus;
 
     Vault* vaultFor(const QString &device_) const
     {
@@ -236,10 +243,19 @@ void PlasmaVaultService::openVault(const QString &device)
     if (auto vault = d->vaultFor(device)) {
         if (vault->isOpened()) return;
 
+        if (vault->isOfflineOnly()) {
+            if (d->devicesInhibittingNetworking.isEmpty()) {
+                d->savedNetworkingStatus.networkingEnabled =
+                    NetworkManager::isNetworkingEnabled();
+                NetworkManager::setNetworkingEnabled(false);
+            }
+            d->devicesInhibittingNetworking << device;
+        }
+
         showPasswordMountDialog(vault,
-                [this, vault] {
-                    emit vaultChanged(vault->info());
-                });
+            [this, vault] {
+                emit vaultChanged(vault->info());
+            });
     }
 }
 
@@ -251,6 +267,13 @@ void PlasmaVaultService::closeVault(const QString &device)
         if (!vault->isOpened()) return;
 
         vault->close();
+
+        if (!d->devicesInhibittingNetworking.isEmpty()) {
+            d->devicesInhibittingNetworking.removeAll(device);
+            if (d->devicesInhibittingNetworking.isEmpty()) {
+                NetworkManager::setNetworkingEnabled(d->savedNetworkingStatus.networkingEnabled);
+            }
+        }
     }
 }
 

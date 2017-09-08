@@ -36,12 +36,16 @@ class QDBusArgument;
 
 namespace PlasmaVault {
 
-#define KEY_NAME        "vault-name"
-#define KEY_BACKEND     "vault-backend"
-#define KEY_PASSWORD    "vault-password"
-#define KEY_DEVICE      "vault-device"
-#define KEY_MOUNT_POINT "vault-mount-point"
-#define KEY_ACTIVITIES  "vault-activities"
+// Main keys
+#define KEY_NAME         "vault-name"
+#define KEY_BACKEND      "vault-backend"
+#define KEY_PASSWORD     "vault-password"
+#define KEY_DEVICE       "vault-device"
+#define KEY_MOUNT_POINT  "vault-mount-point"
+
+// Additional options
+#define KEY_ACTIVITIES   "vault-activities"
+#define KEY_OFFLINEONLY  "vault-offline-only"
 
 class Vault: public QObject {
     Q_OBJECT
@@ -56,8 +60,10 @@ class Vault: public QObject {
     Q_PROPERTY(bool isBusy        READ isBusy        NOTIFY isBusyChanged)
 
     Q_PROPERTY(QString name       READ name    NOTIFY nameChanged)
-    Q_PROPERTY(QStringList activities READ activities NOTIFY activitiesChanged)
-    Q_PROPERTY(QString message READ message NOTIFY messageChanged)
+    Q_PROPERTY(QString message    READ message NOTIFY messageChanged)
+
+    Q_PROPERTY(QStringList activities  READ activities  NOTIFY activitiesChanged)
+    Q_PROPERTY(bool        isOfflineOnly READ isOfflineOnly NOTIFY isOfflineOnlyChanged)
 
 public:
     Vault(const Device &device, QObject *parent = nullptr);
@@ -100,6 +106,9 @@ public Q_SLOTS:
     QStringList activities() const;
     void setActivities(const QStringList &activities);
 
+    bool isOfflineOnly() const;
+    void setIsOfflineOnly(bool isOfflineOnly);
+
     void saveConfiguration();
 
 Q_SIGNALS:
@@ -111,6 +120,8 @@ Q_SIGNALS:
     void activitiesChanged(const QStringList &activities);
     void messageChanged(const QString &message);
     void nameChanged(const QString &name);
+    void isOfflineOnlyChanged(bool isOfflineOnly);
+
     void infoChanged();
 
 public:

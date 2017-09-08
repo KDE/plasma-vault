@@ -36,6 +36,8 @@ MouseArea {
     property bool isOpened: false
     property bool isBusy: false
 
+    property bool isOfflineOnly: false
+
     signal itemExpanded(variant item);
 
     function collapse() {
@@ -78,6 +80,7 @@ MouseArea {
             source: {
                 return vaultItem.message != "" ? "emblem-error" :
                        vaultItem.isOpened      ? "emblem-mounted" :
+                       vaultItem.isOfflineOnly ? "network-disconnect" :
                                                  ""
             }
         }

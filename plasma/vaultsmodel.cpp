@@ -272,6 +272,9 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
         case VaultActivities:
             return vault.activities;
 
+        case VaultIsOfflineOnly:
+            return vault.isOfflineOnly;
+
         case VaultMessage:
             return vault.message;
     }
@@ -291,6 +294,7 @@ QHash<int, QByteArray> VaultsModel::roleNames() const
         { VaultIsBusy, "isBusy" },
         { VaultIsOpened, "isOpened" },
         { VaultActivities, "activities" },
+        { VaultIsOfflineOnly, "isOfflineOnly" },
         { VaultStatus, "status" },
         { VaultMessage, "message" }
     };

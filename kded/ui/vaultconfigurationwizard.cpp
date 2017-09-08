@@ -39,6 +39,7 @@ using namespace DialogDsl::operators;
 #include "noticewidget.h"
 #include "namechooserwidget.h"
 #include "passwordchooserwidget.h"
+#include "offlineonlywidget.h"
 
 using PlasmaVault::Vault;
 
@@ -60,8 +61,9 @@ public:
             directoryChooser(DirectoryChooserWidget::RequireEmptyMountPoint)
         },
 
-        i18n("Activities") / step {
-            activitiesChooser()
+        i18n("Advanced") / step {
+            activitiesChooser(),
+            offlineOnlyChooser()
         }
 
         /*
@@ -107,7 +109,8 @@ public:
         Vault::Payload payload {
             { KEY_NAME,        QVariant(vault->name()) },
             { KEY_MOUNT_POINT, QVariant(vault->mountPoint()) },
-            { KEY_ACTIVITIES,  QVariant(vault->activities()) }
+            { KEY_ACTIVITIES,  QVariant(vault->activities()) },
+            { KEY_OFFLINEONLY, QVariant(vault->isOfflineOnly()) }
         };
 
         for (const auto& module: modules) {
@@ -138,12 +141,14 @@ public:
         const auto name = collectedPayload[KEY_NAME].toString();
         const PlasmaVault::MountPoint mountPoint(collectedPayload[KEY_MOUNT_POINT].toString());
         const auto activities = collectedPayload[KEY_ACTIVITIES].toStringList();
+        const auto isOfflineOnly = collectedPayload[KEY_OFFLINEONLY].toBool();
 
         if (name.isEmpty() || mountPoint.isEmpty()) return;
 
         vault->setName(name);
         vault->setMountPoint(mountPoint);
         vault->setActivities(activities);
+        vault->setIsOfflineOnly(isOfflineOnly);
     }
 };
 

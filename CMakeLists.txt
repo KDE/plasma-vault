@@ -58,6 +58,7 @@ find_package (
    KIO
    Plasma
    WidgetsAddons
+   NetworkManagerQt
    )
 find_package (KF5SysGuard REQUIRED)
 

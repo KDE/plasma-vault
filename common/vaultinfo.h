@@ -50,9 +50,12 @@ public:
     QString name;
     QString device;
     QString mountPoint;
-    QStringList activities;
+
     Status status;
     QString message;
+
+    QStringList activities;
+    bool isOfflineOnly;
 
 
     inline bool isInitialized() const
@@ -92,9 +95,12 @@ inline QDebug &operator<< (QDebug &debug,
         << vaultInfo.name
         << vaultInfo.device
         << vaultInfo.mountPoint
+
         << (quint16)vaultInfo.status
-        << vaultInfo.activities
         << vaultInfo.message
+
+        << vaultInfo.activities
+        << vaultInfo.isOfflineOnly
         ;
     return debug;
 }
@@ -109,9 +115,12 @@ inline QDBusArgument &operator<< (QDBusArgument &argument,
         << vaultInfo.name
         << vaultInfo.device
         << vaultInfo.mountPoint
+
         << (quint16)vaultInfo.status
-        << vaultInfo.activities
         << vaultInfo.message
+
+        << vaultInfo.activities
+        << vaultInfo.isOfflineOnly
         ;
     argument.endStructure();
     return argument;
@@ -128,9 +137,12 @@ inline const QDBusArgument &operator>> (const QDBusArgument &argument,
         >> vaultInfo.name
         >> vaultInfo.device
         >> vaultInfo.mountPoint
+
         >> status
-        >> vaultInfo.activities
         >> vaultInfo.message
+
+        >> vaultInfo.activities
+        >> vaultInfo.isOfflineOnly
         ;
     vaultInfo.status = (VaultInfo::Status)status;
     argument.endStructure();

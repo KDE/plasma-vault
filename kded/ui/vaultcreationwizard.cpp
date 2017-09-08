@@ -38,6 +38,7 @@ using namespace DialogDsl::operators;
 #include "directorypairchooserwidget.h"
 #include "noticewidget.h"
 #include "passwordchooserwidget.h"
+#include "offlineonlywidget.h"
 
 class VaultCreationWizard::Private {
 public:
@@ -81,7 +82,10 @@ public:
                      },
                 step { passwordChooser() },
                 step { directoryPairChooser(DirectoryPairChooserWidget::RequireEmptyDirectories) },
-                step { activitiesChooser() }
+                step {
+                    activitiesChooser(),
+                    offlineOnlyChooser()
+                }
             }
         },
 
@@ -106,7 +110,8 @@ public:
                 step { directoryPairChooser(DirectoryPairChooserWidget::RequireEmptyDirectories) },
                 step {
                     cryfsCypherChooser(),
-                    activitiesChooser()
+                    activitiesChooser(),
+                    offlineOnlyChooser()
                 }
             }
         }
