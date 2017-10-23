@@ -26,6 +26,21 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 Item {
+    // For quick mockups in plasmoidviewer
+    // property var vaultsModel: ListModel {
+    //     ListElement {
+    //         name: "TestVault"
+    //         icon: "folder-decrypted"
+    //         device: ""
+    //         mountPoint: ""
+    //         isBusy: false
+    //         isOpened: true
+    //         activities: []
+    //         status: 1 // VaultInfo::Opened
+    //         message: ""
+    //     }
+    // }
+
     property var vaultsModel: plasmoid.nativeInterface.vaultsModel
     property var vaultsModelActions: plasmoid.nativeInterface.vaultsModel.source()
 
@@ -50,8 +65,8 @@ Item {
             fill: parent
         }
 
-        Layout.minimumWidth: 200
-        Layout.minimumHeight: 200
+        Layout.minimumWidth: 300 * units.devicePixelRatio
+        Layout.minimumHeight: 200 * units.devicePixelRatio
 
         // PlasmaExtras.Heading {
         //    text: i18nd("plasmavault-kde", "Encrypted vaults")
