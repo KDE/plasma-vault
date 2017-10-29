@@ -29,10 +29,8 @@ class DirectoryPairChooserWidget: public DialogDsl::DialogModule {
 
 public:
     enum Flags {
-        RequireNothing                = 0,
-        RequireEmptyEncryptedLocation = 1,
-        RequireEmptyMountPoint        = 2,
-        RequireEmptyDirectories       = RequireEmptyEncryptedLocation | RequireEmptyMountPoint
+        NoFlags = 0,
+        SkipDevicePicker = 1
     };
 
     DirectoryPairChooserWidget(Flags flags);
@@ -46,7 +44,7 @@ private:
     QScopedPointer<Private> d;
 };
 
-inline DialogDsl::ModuleFactory directoryPairChooser(DirectoryPairChooserWidget::Flags flags)
+inline DialogDsl::ModuleFactory directoryPairChooser(DirectoryPairChooserWidget::Flags flags = DirectoryPairChooserWidget::NoFlags)
 {
     return [=] {
         return new DirectoryPairChooserWidget(flags);

@@ -80,7 +80,7 @@ public:
                              See <a href='http://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> for more information."))
                      },
                 step { passwordChooser() },
-                step { directoryPairChooser(DirectoryPairChooserWidget::RequireEmptyDirectories) },
+                step { directoryPairChooser(DirectoryPairChooserWidget::SkipDevicePicker) },
                 step { activitiesChooser() }
             }
         },
@@ -103,7 +103,7 @@ public:
                              which confirms this."))
                      },
                 step { passwordChooser() },
-                step { directoryPairChooser(DirectoryPairChooserWidget::RequireEmptyDirectories) },
+                step { directoryPairChooser() },
                 step {
                     cryfsCypherChooser(),
                     activitiesChooser()
