@@ -72,6 +72,8 @@ include (CPack)
 include (ECMPackageConfigHelpers)
 include (ECMSetupVersion)
 
+add_definitions (-DQT_NO_URL_CAST_FROM_STRING)
+add_definitions (-DQT_NO_CAST_TO_ASCII)
 add_definitions (-DTRANSLATION_DOMAIN=\"plasmavault-kde\")
 add_definitions (-fexceptions)
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")

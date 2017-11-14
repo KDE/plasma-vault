@@ -86,13 +86,13 @@ DirectoryPairChooserWidget::DirectoryPairChooserWidget(
     d->flags = flags;
 
     connect(d->ui.editDevice, &KUrlRequester::textEdited,
-            this, [&] (const QString &url) {
-                d->setEncryptedLocationValid(d->isDirectoryValid(url));
+            this, [&] () {
+                d->setEncryptedLocationValid(d->isDirectoryValid(d->ui.editDevice->url()));
             });
 
     connect(d->ui.editMountPoint, &KUrlRequester::textEdited,
-            this, [&] (const QString &url) {
-                d->setMountPointValid(d->isDirectoryValid(url));
+            this, [&] () {
+                d->setMountPointValid(d->isDirectoryValid(d->ui.editMountPoint->url()));
             });
 
 }
