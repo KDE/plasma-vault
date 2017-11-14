@@ -68,8 +68,8 @@ DirectoryChooserWidget::DirectoryChooserWidget(
     d->flags = flags;
 
     connect(d->ui.editMountPoint, &KUrlRequester::textEdited,
-            this, [&] (const QString &url) {
-                d->setMountPointValid(d->isDirectoryValid(url));
+            this, [&] () {
+                d->setMountPointValid(d->isDirectoryValid(d->ui.editMountPoint->url()));
             });
 }
 
