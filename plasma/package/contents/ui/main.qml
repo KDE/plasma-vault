@@ -110,7 +110,7 @@ Item {
         PlasmaComponents.Button {
             id: buttonCreateNewVault
 
-            text: i18nd("plasmavault-kde", "Create a New Vault")
+            text: i18nd("plasmavault-kde", "Create a New Vault...")
 
             onClicked: vaultsModelActions.requestNewVault()
         }

@@ -288,7 +288,7 @@ VaultCreationWizard::VaultCreationWizard(QWidget *parent)
     : QDialog(parent)
     , d(new Private(this))
 {
-    setWindowTitle(i18n("Create a New Vault"));
+    setWindowTitle(i18nc("@title:window", "Create a New Vault"));
 }
 
 
