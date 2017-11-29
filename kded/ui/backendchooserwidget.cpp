@@ -36,6 +36,8 @@ public:
 
     bool vaultNameValid = false;
     bool backendValid = false;
+    QByteArray bestsBackend;
+    int bestBackendPrio = -1;
 
     void setVaultNameValid(bool valid)
     {
@@ -60,6 +62,7 @@ BackendChooserWidget::BackendChooserWidget()
 {
     d->ui.setupUi(this);
     d->ui.textStatus->hide();
+    d->ui.page2Layout->setRowStretch(1, 10);
 
     connect(d->ui.editVaultName, &QLineEdit::textChanged,
             this, [&] (const QString &vaultName) {
@@ -68,14 +71,14 @@ BackendChooserWidget::BackendChooserWidget()
 
     connect(d->ui.comboBackend, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
             this, &BackendChooserWidget::checkCurrentBackend);
-}
 
+    connect(d->ui.pickBackendButton, SIGNAL(clicked()), this, SLOT(showBackendSelector()));
+}
 
 
 BackendChooserWidget::~BackendChooserWidget()
 {
 }
-
 
 
 void BackendChooserWidget::checkCurrentBackend()
@@ -108,21 +111,45 @@ void BackendChooserWidget::checkCurrentBackend()
 }
 
 
-
-void BackendChooserWidget::addItem(const QByteArray &id, const QString &title)
+void BackendChooserWidget::showBackendSelector()
 {
-    d->ui.comboBackend->addItem(title, id);
+    d->ui.vaultEncryptionConfig->setCurrentWidget(d->ui.page2);
 
     checkCurrentBackend();
 }
 
+void BackendChooserWidget::addItem(const QByteArray &id, const QString &title, int priority)
+{
+    d->ui.comboBackend->addItem(title, id);
+
+    if (priority > d->bestBackendPrio) {
+        const auto backend = PlasmaVault::Backend::instance(id);
+        Q_ASSERT(backend); // backend and UI out of sync. Its an assert since they both are part of the same .so
+        if (backend && AsynQt::await(backend->validateBackend())) {
+            d->bestBackendPrio = priority;
+            d->bestsBackend = id;
+            d->ui.backendName->setText(title);
+            d->setBackendValid(true);
+        }
+    }
+}
 
 
 PlasmaVault::Vault::Payload BackendChooserWidget::fields() const
 {
+    QByteArray backend = d->bestsBackend;
+    if (d->ui.vaultEncryptionConfig->currentWidget() == d->ui.page2)
+        backend = d->ui.comboBackend->currentData().toByteArray();
+    Q_ASSERT(!backend.isEmpty());
     return {
-        { KEY_BACKEND, d->ui.comboBackend->currentData() },
+        { KEY_BACKEND, backend},
         { KEY_NAME,    d->ui.editVaultName->text() }
     };
 }
 
+void BackendChooserWidget::checkBackendAvailable()
+{
+    if (d->bestsBackend.isEmpty()) { // in case there are no backends found at all
+        showBackendSelector(); // show the more helpful selector
+    }
+}

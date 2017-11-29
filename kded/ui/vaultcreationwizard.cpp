@@ -112,6 +112,12 @@ public:
         }
     };
 
+    // to suggest the highest priority to the user as a starting value
+    QMap<QString, int> priorities = {
+        { "encfs", 1 },
+        { "cryfs", 2 }
+    };
+
     template <typename ClickHandler>
     QPushButton *addDialogButton(const QString &icon, const QString &title, ClickHandler clickHandler)
     {
@@ -150,8 +156,9 @@ public:
 
         // Loading the backends to the combo box
         for (const auto& key: logic.keys()) {
-            firstStepModule->addItem(key, key.translation());
+            firstStepModule->addItem(key, key.translation(), priorities.value(key));
         }
+        firstStepModule->checkBackendAvailable();
     }
 
     void setCurrentModule(DialogDsl::DialogModule *module)

@@ -30,13 +30,15 @@ public:
     BackendChooserWidget();
     ~BackendChooserWidget();
 
-    void addItem(const QByteArray &id, const QString &title);
+    void addItem(const QByteArray &id, const QString &title, int priority);
 
     PlasmaVault::Vault::Payload fields() const override;
-    QByteArray backendId();
+
+    void checkBackendAvailable();
 
 private Q_SLOTS:
     void checkCurrentBackend();
+    void showBackendSelector();
 
 private:
     class Private;
