@@ -104,6 +104,8 @@ Item {
                 }
             }
 
+            visible: count > 0
+
             interactive: false
         }
 
@@ -111,8 +113,10 @@ Item {
             id: buttonCreateNewVault
 
             text: i18nd("plasmavault-kde", "Create a New Vault...")
+            iconSource: "list-add"
 
             onClicked: vaultsModelActions.requestNewVault()
+            Layout.alignment: vaultsList.visible ? Qt.AlignLeft : Qt.AlignCenter
         }
     }
 }
