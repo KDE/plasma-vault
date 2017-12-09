@@ -10,6 +10,9 @@
     <height>198</height>
    </rect>
   </property>
+  <property name="windowTitle">
+   <string>Plasma Vault</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <layout class="QFormLayout" name="formLayout">
