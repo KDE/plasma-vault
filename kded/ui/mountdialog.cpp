@@ -40,11 +40,15 @@ MountDialog::MountDialog(PlasmaVault::Vault *vault, const std::function<void()> 
 void MountDialog::accept()
 {
     setCursor(Qt::WaitCursor);
+    setEnabled(false);
+
     m_ui.password->lineEdit()->setCursor(Qt::WaitCursor);
     QString pwd = m_ui.password->password();
     auto future = m_vault->open({ { KEY_PASSWORD, pwd } });
     const auto result = AsynQt::await(future);
+
     unsetCursor();
+    setEnabled(true);
     m_ui.password->lineEdit()->unsetCursor();
 
     if (result) {
