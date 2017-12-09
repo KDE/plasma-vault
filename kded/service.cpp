@@ -33,6 +33,9 @@
 
 #include "ui/vaultcreationwizard.h"
 #include "ui/vaultconfigurationwizard.h"
+#include "ui/mountdialog.h"
+
+#include <functional>
 
 K_PLUGIN_FACTORY_WITH_JSON(PlasmaVaultServiceFactory,
                            "plasmavault.json",
@@ -182,52 +185,10 @@ void PlasmaVaultService::onVaultMessageChanged(const QString &message)
 }
 
 
-template <typename Function>
-class PasswordMountDialog: protected KPasswordDialog { //_
-public:
-    PasswordMountDialog(Vault *vault, Function function)
-        : m_vault(vault)
-        , m_function(function)
-    {
-    }
-
-    void show()
-    {
-        KPasswordDialog::show();
-    }
-
-private:
-    bool checkPassword() override
-    {
-        auto future = m_vault->open({ { KEY_PASSWORD, password() } });
-
-        const auto result = AsynQt::await(future);
-
-        if (result) {
-            m_function();
-            return true;
-
-        } else {
-            showErrorMessage(result.error().message());
-            return false;
-        }
-    }
-
-    void hideEvent(QHideEvent *) override
-    {
-        deleteLater();
-    }
-
-    Vault *m_vault;
-    Function m_function;
-};
-
-template <typename Function>
-void showPasswordMountDialog(Vault *vault, Function &&function)
+void showPasswordMountDialog(Vault *vault, const std::function<void()> &function)
 {
-    auto dialog = new PasswordMountDialog<Function>(
-        vault, std::forward<Function>(function));
-    dialog->show();
+    auto dialog = new MountDialog(vault, function);
+    dialog->open();
 }
 //^
 
