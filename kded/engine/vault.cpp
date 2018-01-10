@@ -47,6 +47,7 @@
 
 #define CFG_NAME "name"
 #define CFG_LAST_STATUS "lastStatus"
+#define CFG_LAST_ERROR "lastError"
 #define CFG_MOUNT_POINT "mountPoint"
 #define CFG_BACKEND "backend"
 #define CFG_ACTIVITIES "activities"
@@ -133,8 +134,6 @@ public:
             org::kde::KDirNotify::emitFilesAdded(
                     QUrl::fromLocalFile(data->mountPoint.data()));
 
-            config->sync();
-
         } else {
             emit q->isOpenedChanged(false);
             emit q->isInitializedChanged(false);
@@ -145,6 +144,9 @@ public:
 
             KConfigGroup vaultConfig(config, device.data());
             vaultConfig.writeEntry(CFG_LAST_STATUS, (int)VaultInfo::Error);
+            vaultConfig.writeEntry(CFG_LAST_ERROR,
+                    data.error().message() + " (code: " +
+                    QString::number(data.error().code()) + ")");
             // vaultConfig.deleteEntry(CFG_MOUNT_POINT);
             // vaultConfig.deleteEntry(CFG_NAME);
             // vaultConfig.deleteEntry(CFG_BACKEND);
