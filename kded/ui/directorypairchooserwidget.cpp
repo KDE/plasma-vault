@@ -123,13 +123,20 @@ void DirectoryPairChooserWidget::init(
 {
     const QString basePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
             + QStringLiteral("/plasma-vault");
+
     const auto name = payload[KEY_NAME].toString();
+
     Q_ASSERT(!name.isEmpty());
+
     QString path = QString("%1/%2.enc").arg(basePath).arg(name);
     int index = 1;
     while (QDir(path).exists()) {
         path = QString("%1/%2_%3.enc").arg(basePath).arg(name).arg(index++);
     }
+
     d->ui.editDevice->setText(path);
     d->ui.editMountPoint->setText(QDir::homePath() + QStringLiteral("/Vaults/") + name);
+
+    d->setEncryptedLocationValid(d->isDirectoryValid(d->ui.editDevice->url()));
+    d->setMountPointValid(d->isDirectoryValid(d->ui.editMountPoint->url()));
 }
