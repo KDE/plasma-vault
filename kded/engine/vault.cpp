@@ -209,12 +209,12 @@ public:
             // Lets try to create the mount point
             !mountPointDir.exists() && !QDir().mkpath(vaultData.mountPoint) ?
                 errorData(Error::MountPointError,
-                          i18n("Can not create the mount point")) :
+                          i18n("Cannot create the mount point")) :
 
             // Instantiate the backend if possible
             !(vaultData.backend = Backend::instance(vaultData.backendName)) ?
                 errorData(Error::BackendError,
-                          i18n("Configured backend can not be instantiated: %1", vaultData.backendName)) :
+                          i18n("Configured backend cannot be instantiated: %1", vaultData.backendName)) :
 
             // otherwise
             ExpectedData::success(vaultData);
@@ -312,7 +312,7 @@ FutureResult<> Vault::create(const QString &name, const MountPoint &mountPoint,
         // we do not want to do it again
         d->data && d->data->backend->isInitialized(d->device) ?
             errorResult(Error::DeviceError,
-                        i18n("This device is already registered. Can not recreate it.")) :
+                        i18n("This device is already registered. Cannot recreate it.")) :
 
         // Mount not open, check the error messages
         !(d->data = d->loadVault(d->device, name, mountPoint, payload)) ?
@@ -341,7 +341,7 @@ FutureResult<> Vault::open(const Payload &payload)
         // We can not mount something that has not been registered
         // with us before
         !d->data ? errorResult(Error::BackendError,
-                               i18n("Can not open an unknown vault.")) :
+                               i18n("Cannot open an unknown vault.")) :
 
         // otherwise
         d->followFuture(VaultInfo::Opening,
@@ -358,7 +358,7 @@ FutureResult<> Vault::close()
         // We can not mount something that has not been registered
         // with us before
         !d->data ? errorResult(Error::BackendError,
-                               i18n("The vault is unknown, can not close it.")) :
+                               i18n("The vault is unknown, cannot close it.")) :
 
         // otherwise
         d->followFuture(VaultInfo::Closing,
@@ -464,7 +464,7 @@ FutureResult<> Vault::destroy(const Payload &payload)
         // We can not mount something that has not been registered
         // with us before
         !d->data ? errorResult(Error::BackendError,
-                               i18n("The vault is unknown, can not destroy it.")) :
+                               i18n("The vault is unknown, cannot destroy it.")) :
 
         // otherwise
         d->followFuture(VaultInfo::Destroying,
