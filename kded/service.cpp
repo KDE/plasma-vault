@@ -33,6 +33,9 @@
 
 #include "ui/vaultcreationwizard.h"
 #include "ui/vaultconfigurationwizard.h"
+#include "ui/mountdialog.h"
+
+#include <functional>
 
 #include <NetworkManagerQt/Manager>
 
@@ -42,15 +45,47 @@ K_PLUGIN_FACTORY_WITH_JSON(PlasmaVaultServiceFactory,
 
 using namespace PlasmaVault;
 
+using AsynQt::Expected;
+
 class PlasmaVaultService::Private {
 public:
     QHash<Device, Vault*> knownVaults;
     KActivities::Consumer kamd;
 
-    QVector<QString> devicesInhibittingNetworking;
-    struct {
-        bool networkingEnabled;
-    } savedNetworkingStatus;
+    struct NetworkingState {
+        bool wasNetworkingEnabled;
+        QVector<QString> devicesInhibittingNetworking;
+    };
+    // Ideally, this would be std::optional... lovely C++17
+    Expected<NetworkingState, int> savedNetworkingState =
+        Expected<NetworkingState, int>::error(0);
+
+    void saveNetworkingState()
+    {
+        // Ignore the request if we already have a saved state
+        if (savedNetworkingState) {
+            return;
+        }
+
+        savedNetworkingState = Expected<NetworkingState, int>::success(
+                NetworkingState {
+                    NetworkManager::isNetworkingEnabled() || true,
+                    {}
+                });
+    }
+
+    void restoreNetworkingState()
+    {
+        // Ignore the request if we do not have a state saved
+        // or if there are more devices inhibitting networking
+        if (!savedNetworkingState || !savedNetworkingState->devicesInhibittingNetworking.isEmpty()) {
+            return;
+        }
+
+        NetworkManager::setNetworkingEnabled(savedNetworkingState->wasNetworkingEnabled);
+    }
+
+
 
     Vault* vaultFor(const QString &device_) const
     {
@@ -162,9 +197,35 @@ void PlasmaVaultService::registerVault(Vault *vault)
 
 void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
 {
-    Q_UNUSED(status);
-
     const auto vault = qobject_cast<Vault*>(sender());
+
+    if (vault->isOfflineOnly()) {
+        d->saveNetworkingState();
+        auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
+
+        // We need to check whether this vault
+        // should be added or removed from the
+        // inhibitors list
+        const bool alreadyInhibiting =
+            devicesInhibittingNetworking.contains(vault->device());
+
+        if (status == VaultInfo::Opened && !alreadyInhibiting) {
+            devicesInhibittingNetworking << vault->device();
+        }
+
+        if (status != VaultInfo::Opened && alreadyInhibiting) {
+            devicesInhibittingNetworking.removeAll(vault->device());
+        }
+
+        // qDebug() << "Vaults inhibitting networking: " << devicesInhibittingNetworking;
+
+        // Now, let's handle the networking part
+        if (!devicesInhibittingNetworking.isEmpty()) {
+            NetworkManager::setNetworkingEnabled(false);
+        }
+
+        d->restoreNetworkingState();
+    }
 
     emit vaultChanged(vault->info());
 }
@@ -189,52 +250,10 @@ void PlasmaVaultService::onVaultMessageChanged(const QString &message)
 }
 
 
-template <typename Function>
-class PasswordMountDialog: protected KPasswordDialog { //_
-public:
-    PasswordMountDialog(Vault *vault, Function function)
-        : m_vault(vault)
-        , m_function(function)
-    {
-    }
-
-    void show()
-    {
-        KPasswordDialog::show();
-    }
-
-private:
-    bool checkPassword() override
-    {
-        auto future = m_vault->open({ { KEY_PASSWORD, password() } });
-
-        const auto result = AsynQt::await(future);
-
-        if (result) {
-            m_function();
-            return true;
-
-        } else {
-            showErrorMessage(result.error().message());
-            return false;
-        }
-    }
-
-    void hideEvent(QHideEvent *) override
-    {
-        deleteLater();
-    }
-
-    Vault *m_vault;
-    Function m_function;
-};
-
-template <typename Function>
-void showPasswordMountDialog(Vault *vault, Function &&function)
+void showPasswordMountDialog(Vault *vault, const std::function<void()> &function)
 {
-    auto dialog = new PasswordMountDialog<Function>(
-        vault, std::forward<Function>(function));
-    dialog->show();
+    auto dialog = new MountDialog(vault, function);
+    dialog->open();
 }
 //^
 
@@ -242,15 +261,6 @@ void PlasmaVaultService::openVault(const QString &device)
 {
     if (auto vault = d->vaultFor(device)) {
         if (vault->isOpened()) return;
-
-        if (vault->isOfflineOnly()) {
-            if (d->devicesInhibittingNetworking.isEmpty()) {
-                d->savedNetworkingStatus.networkingEnabled =
-                    NetworkManager::isNetworkingEnabled();
-                NetworkManager::setNetworkingEnabled(false);
-            }
-            d->devicesInhibittingNetworking << device;
-        }
 
         showPasswordMountDialog(vault,
             [this, vault] {
@@ -267,13 +277,6 @@ void PlasmaVaultService::closeVault(const QString &device)
         if (!vault->isOpened()) return;
 
         vault->close();
-
-        if (!d->devicesInhibittingNetworking.isEmpty()) {
-            d->devicesInhibittingNetworking.removeAll(device);
-            if (d->devicesInhibittingNetworking.isEmpty()) {
-                NetworkManager::setNetworkingEnabled(d->savedNetworkingStatus.networkingEnabled);
-            }
-        }
     }
 }
 

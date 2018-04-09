@@ -58,11 +58,11 @@ MouseArea {
 
         anchors {
             left: actionIcon.right
+            right: parent.right
             verticalCenter: parent.verticalCenter
             margins: units.smallSpacing
         }
 
-        width: parent.width
         height: undefined
         elide: Text.ElideRight
     }

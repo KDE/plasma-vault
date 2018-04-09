@@ -81,7 +81,7 @@ public:
                              See <a href='http://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> for more information."))
                      },
                 step { passwordChooser() },
-                step { directoryPairChooser(DirectoryPairChooserWidget::RequireEmptyDirectories) },
+                step { directoryPairChooser(DirectoryPairChooserWidget::SkipDevicePicker) },
                 step {
                     activitiesChooser(),
                     offlineOnlyChooser()
@@ -107,7 +107,7 @@ public:
                              which confirms this."))
                      },
                 step { passwordChooser() },
-                step { directoryPairChooser(DirectoryPairChooserWidget::RequireEmptyDirectories) },
+                step { directoryPairChooser() },
                 step {
                     cryfsCypherChooser(),
                     activitiesChooser(),
@@ -115,6 +115,12 @@ public:
                 }
             }
         }
+    };
+
+    // to suggest the highest priority to the user as a starting value
+    QMap<QString, int> priorities = {
+        { "encfs", 2 },
+        { "cryfs", 1 }
     };
 
     template <typename ClickHandler>
@@ -155,8 +161,9 @@ public:
 
         // Loading the backends to the combo box
         for (const auto& key: logic.keys()) {
-            firstStepModule->addItem(key, key.translation());
+            firstStepModule->addItem(key, key.translation(), priorities.value(key));
         }
+        firstStepModule->checkBackendAvailable();
     }
 
     void setCurrentModule(DialogDsl::DialogModule *module)
@@ -293,7 +300,7 @@ VaultCreationWizard::VaultCreationWizard(QWidget *parent)
     : QDialog(parent)
     , d(new Private(this))
 {
-    setWindowTitle(i18n("Create a New Vault"));
+    setWindowTitle(i18nc("@title:window", "Create a New Vault"));
 }
 
 

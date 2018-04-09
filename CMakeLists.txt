@@ -4,7 +4,7 @@ cmake_minimum_required (VERSION 2.8.12)
 
 project (PlasmaVault)
 
-set(PROJECT_VERSION "5.10.90")
+set(PROJECT_VERSION "5.12.80")
 set(PROJECT_VERSION_MAJOR 5)
 
 set (PLASMAVAULT_VERSION "0.1")
@@ -73,6 +73,8 @@ include (CPack)
 include (ECMPackageConfigHelpers)
 include (ECMSetupVersion)
 
+add_definitions (-DQT_NO_URL_CAST_FROM_STRING)
+add_definitions (-DQT_NO_CAST_TO_ASCII)
 add_definitions (-DTRANSLATION_DOMAIN=\"plasmavault-kde\")
 add_definitions (-fexceptions)
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")

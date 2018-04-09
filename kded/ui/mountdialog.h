@@ -1,5 +1,5 @@
 /*
- *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
+ *   Copyright 2017 by Kees vd Broek <cryptodude@libertymail.net>
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU General Public License as
@@ -17,39 +17,30 @@
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#ifndef MOUNTDIALOG_H
+#define MOUNTDIALOG_H
 
-#ifndef PLASMAVAULT_KDED_UI_DIRECTORY_PAIR_CHOOSER_WIDGET_H
-#define PLASMAVAULT_KDED_UI_DIRECTORY_PAIR_CHOOSER_WIDGET_H
+#include <QDialog>
+#include <functional>
 
-#include "dialogdsl.h"
+#include "ui_mountdialog.h"
 
-
-class DirectoryPairChooserWidget: public DialogDsl::DialogModule {
-    Q_OBJECT
-
-public:
-    enum Flags {
-        NoFlags = 0,
-        SkipDevicePicker = 1
-    };
-
-    DirectoryPairChooserWidget(Flags flags);
-    ~DirectoryPairChooserWidget();
-
-    PlasmaVault::Vault::Payload fields() const override;
-    void init(const PlasmaVault::Vault::Payload &payload) override;
-
-private:
-    class Private;
-    QScopedPointer<Private> d;
-};
-
-inline DialogDsl::ModuleFactory directoryPairChooser(DirectoryPairChooserWidget::Flags flags = DirectoryPairChooserWidget::NoFlags)
-{
-    return [=] {
-        return new DirectoryPairChooserWidget(flags);
-    };
+namespace PlasmaVault {
+    class Vault;
 }
 
-#endif // include guard
+class MountDialog : public QDialog
+{
+public:
+    MountDialog(PlasmaVault::Vault *vault, const std::function<void()> &function);
 
+protected:
+    void accept() override;
+
+private:
+    PlasmaVault::Vault *m_vault;
+    std::function<void()> m_function;
+    Ui_MountDialog m_ui;
+};
+
+#endif

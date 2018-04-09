@@ -25,6 +25,7 @@
 #include <QMap>
 #include <QVector>
 #include <QStackedLayout>
+#include <QTabWidget>
 
 #include "dialogdsl.h"
 #include "vault.h"

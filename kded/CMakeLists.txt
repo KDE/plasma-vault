@@ -29,6 +29,7 @@ set (
 
    ui/vaultcreationwizard.cpp
    ui/vaultconfigurationwizard.cpp
+   ui/mountdialog.cpp
 
    ../common/vaultinfo.cpp
    )
@@ -47,6 +48,7 @@ ki18n_wrap_ui (
 
    ui/vaultcreationwizard.ui
    ui/vaultconfigurationwizard.ui
+   ui/mountdialog.ui
    )
 
 add_library (
