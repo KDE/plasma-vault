@@ -18,55 +18,34 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_ENGINE_COMMAND_RESULT_H
-#define PLASMAVAULT_KDED_ENGINE_COMMAND_RESULT_H
+#ifndef PLASMAVAULT_KDED_UI_DELETION_WIDGET_H
+#define PLASMAVAULT_KDED_UI_DELETION_WIDGET_H
 
-#include <QFuture>
+#include "dialogdsl.h"
 
-#include "asynqt/basic/all.h"
-#include "asynqt/utils/expected.h"
+class VaultDeletionWidget: public DialogDsl::DialogModule {
+    Q_OBJECT
 
-namespace PlasmaVault {
-
-class Error {
 public:
-    enum Code {
-        MountPointError,
-        DeviceError,
-        BackendError,
-        CommandError,
-        DeletionError
-    };
+    VaultDeletionWidget();
 
-    Error(Code code, const QString &message = QString());
+    ~VaultDeletionWidget();
 
-    Code code() const;
-    QString message() const;
+    PlasmaVault::Vault::Payload fields() const override;
+
+    void init(const PlasmaVault::Vault::Payload &payload) override;
 
 private:
-    Code m_code;
-    QString m_message;
+    class Private;
+    QScopedPointer<Private> d;
 };
 
-
-
-template <typename T = void>
-using Result = AsynQt::Expected<T, Error>;
-
-template <typename T = void>
-using FutureResult = QFuture<Result<T>>;
-
-
-
-inline
-FutureResult<> errorResult(Error::Code error, const QString &message)
+inline DialogDsl::ModuleFactory vaultDeletion()
 {
-    qWarning() << message;
-    return makeReadyFuture(Result<>::error(error, message));
+    return [=] {
+        return new VaultDeletionWidget();
+    };
 }
-
-
-} // namespace PlasmaVault
 
 #endif // include guard
 

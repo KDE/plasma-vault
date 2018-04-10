@@ -98,47 +98,60 @@ public:
         if (data) {
             // Checking the status, and whether we should update it
             const auto oldStatus = data->status;
-            const auto newStatus =
-                           isOpened()      ? VaultInfo::Opened :
-                           isInitialized() ? VaultInfo::Closed :
-                                             VaultInfo::NotInitialized;
 
-            if (oldStatus == newStatus) return;
+            if (oldStatus == VaultInfo::Dismantling) {
+                // This means that the vault should be forgotten
+                KConfigGroup generalConfig(config, "EncryptedDevices");
+                generalConfig.deleteEntry(device.data());
 
-            data->status = newStatus;
+                KConfigGroup vaultConfig(config, device.data());
+                vaultConfig.deleteGroup();
 
-            emit q->statusChanged(data->status);
+                emit q->statusChanged(data->status = VaultInfo::Dismantled);
 
-            if (newStatus == VaultInfo::Closed || newStatus == VaultInfo::Opened) {
-                emit q->isOpenedChanged(newStatus == VaultInfo::Opened);
+            } else {
+                const auto newStatus =
+                               isOpened()      ? VaultInfo::Opened :
+                               isInitialized() ? VaultInfo::Closed :
+                                                 VaultInfo::NotInitialized;
+
+                if (oldStatus == newStatus) return;
+
+                data->status = newStatus;
+
+                emit q->statusChanged(data->status);
+
+                if (newStatus == VaultInfo::Closed || newStatus == VaultInfo::Opened) {
+                    emit q->isOpenedChanged(newStatus == VaultInfo::Opened);
+                }
+
+                if (oldStatus == VaultInfo::NotInitialized || newStatus == VaultInfo::NotInitialized) {
+                    emit q->isInitializedChanged(newStatus);
+                }
+
+                if (oldStatus == VaultInfo::Creating
+                        || oldStatus == VaultInfo::Opening
+                        || oldStatus == VaultInfo::Closing
+                        || oldStatus == VaultInfo::Dismantling) {
+                    emit q->isBusyChanged(false);
+                }
+
+                // Saving the data for the current mount
+                KConfigGroup generalConfig(config, "EncryptedDevices");
+                generalConfig.writeEntry(device.data(), true);
+
+                KConfigGroup vaultConfig(config, device.data());
+                vaultConfig.writeEntry(CFG_LAST_STATUS, (int)data->status);
+                vaultConfig.writeEntry(CFG_MOUNT_POINT, data->mountPoint.data());
+                vaultConfig.writeEntry(CFG_NAME,        data->name);
+                vaultConfig.writeEntry(CFG_BACKEND,     data->backend->name());
+
+                vaultConfig.writeEntry(CFG_ACTIVITIES,  data->activities);
+                vaultConfig.writeEntry(CFG_OFFLINEONLY, data->isOfflineOnly);
+
+                org::kde::KDirNotify::emitFilesAdded(
+                        QUrl::fromLocalFile(data->mountPoint.data()));
             }
-
-            if (oldStatus == VaultInfo::NotInitialized || newStatus == VaultInfo::NotInitialized) {
-                emit q->isInitializedChanged(newStatus);
-            }
-
-            if (oldStatus == VaultInfo::Creating
-                    || oldStatus == VaultInfo::Opening
-                    || oldStatus == VaultInfo::Closing
-                    || oldStatus == VaultInfo::Destroying) {
-                emit q->isBusyChanged(false);
-            }
-
-            // Saving the data for the current mount
-            KConfigGroup generalConfig(config, "EncryptedDevices");
-            generalConfig.writeEntry(device.data(), true);
-
-            KConfigGroup vaultConfig(config, device.data());
-            vaultConfig.writeEntry(CFG_LAST_STATUS, (int)data->status);
-            vaultConfig.writeEntry(CFG_MOUNT_POINT, data->mountPoint.data());
-            vaultConfig.writeEntry(CFG_NAME,        data->name);
-            vaultConfig.writeEntry(CFG_BACKEND,     data->backend->name());
-
-            vaultConfig.writeEntry(CFG_ACTIVITIES,  data->activities);
-            vaultConfig.writeEntry(CFG_OFFLINEONLY, data->isOfflineOnly);
-
-            org::kde::KDirNotify::emitFilesAdded(
-                    QUrl::fromLocalFile(data->mountPoint.data()));
 
         } else {
             emit q->isOpenedChanged(false);
@@ -302,7 +315,9 @@ Vault::Vault(const Device &device, QObject *parent)
 
 Vault::~Vault()
 {
-    close();
+    if (d->isOpened()) {
+        close();
+    }
 }
 
 
@@ -470,17 +485,17 @@ FutureResult<> Vault::forceClose()
 
 
 
-FutureResult<> Vault::destroy(const Payload &payload)
+FutureResult<> Vault::dismantle(const Payload &payload)
 {
     return
         // We can not mount something that has not been registered
         // with us before
         !d->data ? errorResult(Error::BackendError,
-                               i18n("The vault is unknown, cannot destroy it.")) :
+                               i18n("The vault is unknown, cannot dismantle it.")) :
 
         // otherwise
-        d->followFuture(VaultInfo::Destroying,
-                        d->data->backend->destroy(d->device, d->data->mountPoint, payload));
+        d->followFuture(VaultInfo::Dismantling,
+                        d->data->backend->dismantle(d->device, d->data->mountPoint, payload));
 }
 
 
@@ -634,7 +649,7 @@ bool Vault::isBusy() const
         case VaultInfo::Creating:
         case VaultInfo::Opening:
         case VaultInfo::Closing:
-        case VaultInfo::Destroying:
+        case VaultInfo::Dismantling:
             return true;
 
         default:

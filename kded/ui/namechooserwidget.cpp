@@ -40,6 +40,11 @@ NameChooserWidget::NameChooserWidget()
     : DialogDsl::DialogModule(false), d(new Private(this))
 {
     d->ui.setupUi(this);
+
+    connect(d->ui.editVaultName, &QLineEdit::textChanged,
+            this, [this] (const QString &text) {
+                setIsValid(!d->ui.editVaultName->text().isEmpty());
+            });
 }
 
 
@@ -65,6 +70,7 @@ void NameChooserWidget::init(
     const auto name = payload[KEY_NAME].toString();
 
     d->ui.editVaultName->setText(name);
+    setIsValid(!d->ui.editVaultName->text().isEmpty());
 }
 
 

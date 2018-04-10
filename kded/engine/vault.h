@@ -82,7 +82,7 @@ public:
     // FutureResult<> configure();
     FutureResult<> forceClose();
 
-    FutureResult<> destroy(const Payload &payload);
+    FutureResult<> dismantle(const Payload &payload);
 
     VaultInfo info() const;
 

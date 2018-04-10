@@ -41,6 +41,7 @@ using namespace DialogDsl::operators;
 #include "namechooserwidget.h"
 #include "passwordchooserwidget.h"
 #include "offlineonlywidget.h"
+#include "vaultdeletionwidget.h"
 
 using PlasmaVault::Vault;
 
@@ -54,6 +55,7 @@ public:
 
     steps currentSteps;
     QVector<DialogDsl::DialogModule*> currentModuleDialogs;
+    QSet<DialogDsl::DialogModule*> invalidModules;
 
     steps defaultSteps
     {
@@ -65,18 +67,11 @@ public:
         i18n("Advanced") / step {
             activitiesChooser(),
             offlineOnlyChooser()
-        }
+        },
 
-        /*
-        i18n("Dismantle") / step {
-            notice(
-               "dismantle-message",
-               i18n("Note that Plasma Vault will not delete any of the files,\n\
-                     the dismantling process only removes the vault from Plasma.\n\
-                     You will need to remove the files manually."),
-               NoticeWidget::ShowAlways)
+        i18n("Delete") / step {
+            vaultDeletion()
         }
-        */
     };
 
     Logic logic
@@ -108,6 +103,7 @@ public:
         auto modules = logic[Key(vault->backend().toLatin1())];
 
         Vault::Payload payload {
+            { KEY_DEVICE,      QVariant(vault->device()) },
             { KEY_NAME,        QVariant(vault->name()) },
             { KEY_MOUNT_POINT, QVariant(vault->mountPoint()) },
             { KEY_ACTIVITIES,  QVariant(vault->activities()) },
@@ -119,6 +115,24 @@ public:
             stepWidget->init(payload);
             tabs->addTab(stepWidget, module.title());
             currentModuleDialogs << stepWidget;
+
+            QObject::connect(
+                stepWidget, &DialogModule::isValidChanged,
+                q, [this,stepWidget] (bool valid) {
+                    if (valid) {
+                        invalidModules.remove(stepWidget);
+                    } else {
+                        invalidModules << stepWidget;
+                    }
+
+                    ui.buttons->button(QDialogButtonBox::Ok)->setEnabled(invalidModules.isEmpty());
+                });
+
+            QObject::connect(
+                stepWidget, &DialogModule::requestCancellation,
+                q, [this] {
+                    q->reject();
+                });
         }
     }
 

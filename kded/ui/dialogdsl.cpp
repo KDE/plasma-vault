@@ -97,8 +97,6 @@ CompoundDialogModule::CompoundDialogModule(const step &children)
     auto layout = new QVBoxLayout(this);
     setLayout(layout);
 
-    bool valid = true;
-
     for (const auto& childFactory: children) {
         auto child = childFactory();
         child->setParent(this);
@@ -106,12 +104,28 @@ CompoundDialogModule::CompoundDialogModule(const step &children)
                 QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred));
         m_children << child;
 
-        valid &= child->isValid();
+        if (!child->isValid()) {
+            m_invalidChildren << child;
+        }
+
+        connect(child, &DialogModule::isValidChanged,
+                this, [this, child] (bool valid) {
+                    if (valid) {
+                        m_invalidChildren.remove(child);
+                    } else {
+                        m_invalidChildren << child;
+                    }
+
+                    setIsValid(m_invalidChildren.isEmpty());
+                });
+
+        connect(child, &DialogModule::requestCancellation,
+                this,  &DialogModule::requestCancellation);
 
         layout->addWidget(child);
     }
 
-    setIsValid(valid);
+    setIsValid(m_invalidChildren.isEmpty());
 
     auto spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding,
                                   QSizePolicy::Expanding);

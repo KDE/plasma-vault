@@ -26,6 +26,7 @@ set (
    ui/noticewidget.cpp
    ui/passwordchooserwidget.cpp
    ui/offlineonlywidget.cpp
+   ui/vaultdeletionwidget.cpp
 
    ui/vaultcreationwizard.cpp
    ui/vaultconfigurationwizard.cpp
@@ -45,6 +46,7 @@ ki18n_wrap_ui (
    ui/noticewidget.ui
    ui/passwordchooserwidget.ui
    ui/offlineonlywidget.ui
+   ui/vaultdeletionwidget.ui
 
    ui/vaultcreationwizard.ui
    ui/vaultconfigurationwizard.ui

@@ -20,17 +20,20 @@
 
 #include "fusebackend_p.h"
 
+#include <QUrl>
 #include <QDir>
 #include <QProcess>
 #include <QRegularExpression>
 
 #include <KMountPoint>
 #include <KLocalizedString>
+#include <KIO/DeleteJob>
 
 #include <algorithm>
 
 #include <asynqt/basic/all.h>
 #include <asynqt/wrappers/process.h>
+#include <asynqt/wrappers/kjob.h>
 #include <asynqt/operations/collect.h>
 #include <asynqt/operations/transform.h>
 
@@ -162,20 +165,29 @@ FutureResult<> FuseBackend::close(const Device &device,
 
 
 
-FutureResult<> FuseBackend::destroy(const Device &device,
-                                    const MountPoint &mountPoint,
-                                    const Vault::Payload &payload)
+FutureResult<> FuseBackend::dismantle(const Device &device,
+                                      const MountPoint &mountPoint,
+                                      const Vault::Payload &payload)
 {
     // TODO:
     // mount
     // unmount
     // remove the directories
-    // return Fuse::destroy(device, mountPoint, password);
+    // return Fuse::dismantle(device, mountPoint, password);
 
-    Q_UNUSED(device)
-    Q_UNUSED(mountPoint)
     Q_UNUSED(payload)
-    return {};
+
+    // Removing the data and the mount point
+    return transform(makeFuture<KJob*>(
+            KIO::del( { QUrl::fromLocalFile(device.data())
+                      , QUrl::fromLocalFile(mountPoint.data())
+                      } )),
+            [] (KJob *job) {
+                job->deleteLater();
+                return job->error() == 0 ? Result<>::success()
+                                         : Result<>::error(Error::DeletionError, job->errorString());
+            }
+        );
 }
 
 

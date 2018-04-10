@@ -40,7 +40,8 @@ public:
         Creating       = 3,
         Opening        = 4,
         Closing        = 5,
-        Destroying     = 6,
+        Dismantling    = 6,
+        Dismantled     = 7,
 
         Error          = 255
     };
@@ -78,7 +79,7 @@ public:
         return status == Creating
             || status == Opening
             || status == Closing
-            || status == Destroying;
+            || status == Dismantling;
     }
 };
 

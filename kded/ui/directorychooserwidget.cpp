@@ -96,6 +96,8 @@ void DirectoryChooserWidget::init(
     const auto mountPoint = payload[KEY_MOUNT_POINT].toString();
 
     d->ui.editMountPoint->setText(mountPoint);
+
+    d->setMountPointValid(d->isDirectoryValid(d->ui.editMountPoint->url()));
 }
 
 

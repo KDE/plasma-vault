@@ -133,7 +133,7 @@ void VaultsModel::Private::onVaultAdded(const PlasmaVault::VaultInfo &vaultInfo)
 
 void VaultsModel::Private::onVaultRemoved(const QString &device)
 {
-    if (vaults.contains(device)) return;
+    if (!vaults.contains(device)) return;
 
     const auto row = vaultKeys.indexOf(device);
 

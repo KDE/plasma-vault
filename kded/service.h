@@ -53,6 +53,8 @@ public Q_SLOTS:
     Q_SCRIPTABLE void closeAllVaults();
     Q_SCRIPTABLE void forceCloseAllVaults();
 
+    Q_SCRIPTABLE void deleteVault(const QString &device, const QString &name);
+
 Q_SIGNALS:
     void registered();
 
@@ -66,6 +68,7 @@ private Q_SLOTS:
     void slotRegistered(const QDBusObjectPath &path);
 
     void registerVault(PlasmaVault::Vault *vault);
+    void forgetVault(PlasmaVault::Vault *vault);
 
     void onVaultStatusChanged(PlasmaVault::VaultInfo::Status status);
     void onVaultMessageChanged(const QString &message);

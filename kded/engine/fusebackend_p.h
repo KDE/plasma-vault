@@ -45,9 +45,9 @@ public:
     FutureResult<> close(const Device &device,
                          const MountPoint &mountPoint) override;
 
-    FutureResult<> destroy(const Device &device,
-                           const MountPoint &mountPoint,
-                           const Vault::Payload &payload) override;
+    FutureResult<> dismantle(const Device &device,
+                             const MountPoint &mountPoint,
+                             const Vault::Payload &payload) override;
 
 protected:
     virtual FutureResult<> mount(const Device &device,

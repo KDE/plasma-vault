@@ -54,9 +54,9 @@ public:
     virtual FutureResult<> close(const Device &device,
                                  const MountPoint &mountPoint) = 0;
 
-    virtual FutureResult<> destroy(const Device &device,
-                                   const MountPoint &mountPoint,
-                                   const Vault::Payload &payload) = 0;
+    virtual FutureResult<> dismantle(const Device &device,
+                                     const MountPoint &mountPoint,
+                                     const Vault::Payload &payload) = 0;
 
     virtual FutureResult<> validateBackend() = 0;
 

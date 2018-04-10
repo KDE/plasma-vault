@@ -75,6 +75,7 @@ public:
 
 Q_SIGNALS:
     void isValidChanged(bool valid);
+    void requestCancellation();
 
 private:
     bool m_isValid;
@@ -121,6 +122,7 @@ public:
 
 private:
     QVector<DialogModule*> m_children;
+    QSet<DialogModule*> m_invalidChildren;
 
 };
 

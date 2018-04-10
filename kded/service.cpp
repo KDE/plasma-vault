@@ -201,20 +201,40 @@ void PlasmaVaultService::registerVault(Vault *vault)
 
 
 
+void PlasmaVaultService::forgetVault(Vault* vault)
+{
+    // Can not be open
+    // d->openVaults.remove(vault.device());
+    // and therefore can not inhibit networking
+    // ... d->savedNetworkingState ...
+
+    emit vaultRemoved(vault->device().data());
+
+    d->knownVaults.remove(vault->device());
+    vault->deleteLater();
+}
+
+
+
 void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
 {
     const auto vault = qobject_cast<Vault*>(sender());
 
-    if (status == VaultInfo::Opened) {
+    if (status == VaultInfo::Dismantled) {
+        forgetVault(vault);
+
+    } else if (status == VaultInfo::Opened) {
         d->openVaults << vault->device();
         if (d->openVaults.size() == 1) {
             emit hasOpenVaultsChanged(true);
         }
+
     } else {
         d->openVaults.remove(vault->device());
         if (d->openVaults.isEmpty()) {
             emit hasOpenVaultsChanged(false);
         }
+
     }
 
     if (vault->isOfflineOnly()) {
@@ -376,6 +396,30 @@ void PlasmaVaultService::forceCloseAllVaults()
     for (const auto& device: d->openVaults) {
         forceCloseVault(device.data());
     }
+}
+
+
+
+void PlasmaVaultService::deleteVault(const QString &device, const QString &name)
+{
+    if (!d->knownVaults.contains(Device(device))) {
+        qWarning() << "The specified vault does not exist: " << device;
+        return;
+    }
+
+    auto vault = d->knownVaults[Device(device)];
+
+    if (vault->status() == VaultInfo::Opened) {
+        qWarning() << "Can not delete an open vault: " << device;
+        return;
+    }
+
+    if (vault->name() != name) {
+        qWarning() << "Name is not correct: " << device;
+        return;
+    }
+
+    vault->dismantle({});
 }
 
 
