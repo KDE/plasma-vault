@@ -42,12 +42,16 @@ public Q_SLOTS:
     Q_SCRIPTABLE void requestNewVault();
     Q_SCRIPTABLE void openVault(const QString &device);
     Q_SCRIPTABLE void closeVault(const QString &device);
+    Q_SCRIPTABLE void forceCloseVault(const QString &device);
 
     Q_SCRIPTABLE void configureVault(const QString &device);
-    Q_SCRIPTABLE void forceCloseVault(const QString &device);
     Q_SCRIPTABLE void openVaultInFileManager(const QString &device);
 
     Q_SCRIPTABLE PlasmaVault::VaultInfoList availableDevices() const;
+
+    Q_SCRIPTABLE bool hasOpenVaults() const;
+    Q_SCRIPTABLE void closeAllVaults();
+    Q_SCRIPTABLE void forceCloseAllVaults();
 
 Q_SIGNALS:
     void registered();
@@ -55,6 +59,8 @@ Q_SIGNALS:
     Q_SCRIPTABLE void vaultAdded(const PlasmaVault::VaultInfo &vaultData);
     Q_SCRIPTABLE void vaultRemoved(const QString &device);
     Q_SCRIPTABLE void vaultChanged(const PlasmaVault::VaultInfo &vaultData);
+
+    Q_SCRIPTABLE void hasOpenVaultsChanged(bool hasOpenVaults);
 
 private Q_SLOTS:
     void slotRegistered(const QDBusObjectPath &path);

@@ -50,6 +50,7 @@ using AsynQt::Expected;
 class PlasmaVaultService::Private {
 public:
     QHash<Device, Vault*> knownVaults;
+    QSet<Device> openVaults;
     KActivities::Consumer kamd;
 
     struct NetworkingState {
@@ -59,6 +60,7 @@ public:
     // Ideally, this would be std::optional... lovely C++17
     Expected<NetworkingState, int> savedNetworkingState =
         Expected<NetworkingState, int>::error(0);
+
 
     void saveNetworkingState()
     {
@@ -74,6 +76,7 @@ public:
                 });
     }
 
+
     void restoreNetworkingState()
     {
         // Ignore the request if we do not have a state saved
@@ -84,7 +87,6 @@ public:
 
         NetworkManager::setNetworkingEnabled(savedNetworkingState->wasNetworkingEnabled);
     }
-
 
 
     Vault* vaultFor(const QString &device_) const
@@ -191,6 +193,10 @@ void PlasmaVaultService::registerVault(Vault *vault)
             this,  &PlasmaVaultService::onVaultInfoChanged);
 
     emit vaultAdded(vault->info());
+
+    if (vault->status() == VaultInfo::Opened) {
+        d->openVaults << vault->device();
+    }
 }
 
 
@@ -198,6 +204,18 @@ void PlasmaVaultService::registerVault(Vault *vault)
 void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
 {
     const auto vault = qobject_cast<Vault*>(sender());
+
+    if (status == VaultInfo::Opened) {
+        d->openVaults << vault->device();
+        if (d->openVaults.size() == 1) {
+            emit hasOpenVaultsChanged(true);
+        }
+    } else {
+        d->openVaults.remove(vault->device());
+        if (d->openVaults.isEmpty()) {
+            emit hasOpenVaultsChanged(false);
+        }
+    }
 
     if (vault->isOfflineOnly()) {
         d->saveNetworkingState();
@@ -332,6 +350,31 @@ void PlasmaVaultService::onCurrentActivityChanged(
         if (!vaultActivities.isEmpty() && !vaultActivities.contains(currentActivity)) {
             vault->close();
         }
+    }
+}
+
+
+
+bool PlasmaVaultService::hasOpenVaults() const
+{
+    return !d->openVaults.isEmpty();
+}
+
+
+
+void PlasmaVaultService::closeAllVaults()
+{
+    for (const auto& device: d->openVaults) {
+        closeVault(device.data());
+    }
+}
+
+
+
+void PlasmaVaultService::forceCloseAllVaults()
+{
+    for (const auto& device: d->openVaults) {
+        forceCloseVault(device.data());
     }
 }
 
