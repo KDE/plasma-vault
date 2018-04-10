@@ -25,6 +25,8 @@
 
 #include "ui_mountdialog.h"
 
+class KMessageWidget;
+
 namespace PlasmaVault {
     class Vault;
 }
@@ -41,6 +43,7 @@ private:
     PlasmaVault::Vault *m_vault;
     std::function<void()> m_function;
     Ui_MountDialog m_ui;
+    KMessageWidget* m_errorLabel;
 };
 
 #endif

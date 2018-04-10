@@ -24,13 +24,25 @@
 #include <QStyle>
 #include <QStyleOption>
 
+#include <KMessageWidget>
 
 MountDialog::MountDialog(PlasmaVault::Vault *vault, const std::function<void()> &function)
     : m_vault(vault),
       m_function(function)
 {
     m_ui.setupUi(this);
-    m_ui.errorLabel->setVisible(false);
+
+    m_errorLabel = new KMessageWidget(this);
+    m_errorLabel->setMessageType(KMessageWidget::Error);
+    m_errorLabel->setCloseButtonVisible(false);
+    m_errorLabel->setIcon(QIcon::fromTheme("dialog-error"));
+    m_errorLabel->setVisible(false);
+
+    auto errorLabelSizePolicy = m_errorLabel->sizePolicy();
+    errorLabelSizePolicy.setHorizontalPolicy(QSizePolicy::Expanding);
+    m_errorLabel->setSizePolicy(errorLabelSizePolicy);
+    m_errorLabel->setVisible(false);
+    m_ui.formLayout->addRow(QString(), m_errorLabel);
     m_ui.vaultName->setText(vault->name());
 
     QStyleOption option;
@@ -42,6 +54,7 @@ MountDialog::MountDialog(PlasmaVault::Vault *vault, const std::function<void()> 
 void MountDialog::accept()
 {
     setCursor(Qt::WaitCursor);
+    m_errorLabel->setVisible(false);
     setEnabled(false);
 
     m_ui.password->lineEdit()->setCursor(Qt::WaitCursor);
@@ -59,7 +72,7 @@ void MountDialog::accept()
     } else {
         qDebug() << "We've got an error" <<  result.error().message();
         // m_ui.errorLabel->setText(i18n("Failed to open: %1").arg(result.error().message()));
-        m_ui.errorLabel->setText(i18n("Failed to open: %1", result.error().message()));
-        m_ui.errorLabel->setVisible(true);
+        m_errorLabel->setText(i18n("Failed to open: %1", result.error().message()));
+        m_errorLabel->setVisible(true);
     }
 }
