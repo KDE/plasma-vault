@@ -21,6 +21,7 @@
 #include "engine/vault.h"
 
 #include <QCloseEvent>
+#include <QStyleOption>
 
 
 MountDialog::MountDialog(PlasmaVault::Vault *vault, const std::function<void()> &function)
