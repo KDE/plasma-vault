@@ -23,6 +23,7 @@
 #include <QDir>
 #include <QProcess>
 #include <QRegularExpression>
+#include <QMessageBox>
 
 #include <singleton_p.h>
 
@@ -39,6 +40,47 @@
 using namespace AsynQt;
 
 namespace PlasmaVault {
+
+
+
+// see: https://github.com/cryfs/cryfs/blob/develop/src/cryfs/ErrorCodes.h
+enum class ExitCode : int{
+    Success = 0,
+
+    // An error happened that doesn't have an error code associated with it
+    UnspecifiedError = 1,
+
+    // The command line arguments are invalid.
+    InvalidArguments = 10,
+
+    // Couldn't load config file. Probably the password is wrong
+    WrongPassword = 11,
+
+    // Password cannot be empty
+    EmptyPassword = 12,
+
+    // The file system format is too new for this CryFS version. Please update your CryFS version.
+    TooNewFilesystemFormat = 13,
+
+    // The file system format is too old for this CryFS version. Run with --allow-filesystem-upgrade to upgrade it.
+    TooOldFilesystemFormat = 14,
+
+    // The file system uses a different cipher than the one specified on the command line using the --cipher argument.
+    WrongCipher = 15,
+
+    // Base directory doesn't exist or is inaccessible (i.e. not read or writable or not a directory)
+    InaccessibleBaseDir = 16,
+
+    // Mount directory doesn't exist or is inaccessible (i.e. not read or writable or not a directory)
+    InaccessibleMountDir = 17,
+
+    // Base directory can't be a subdirectory of the mount directory
+    BaseDirInsideMountDir = 18,
+
+    // Something's wrong with the file system.
+    InvalidFilesystem = 19,
+};
+
 
 
 CryFsBackend::CryFsBackend()
@@ -66,32 +108,90 @@ FutureResult<> CryFsBackend::mount(const Device &device,
 {
     QDir dir;
 
-    const auto password = payload[KEY_PASSWORD].toString();
-    const auto cypher   = payload["cryfs-cipher"].toString();
+    const auto password      = payload[KEY_PASSWORD].toString();
+    const auto cypher        = payload["cryfs-cipher"].toString();
+    const auto shouldUpgrade = payload["cryfs-fs-upgrade"].toBool();
 
     if (!dir.mkpath(device) || !dir.mkpath(mountPoint)) {
         return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
     }
 
     auto process =
-        cypher.isEmpty() ?
-            // Cypher is not specified, use the default, whatever it is
-            cryfs({
-                device, // source directory to initialize cryfs in
-                mountPoint // where to mount the file system
-            })
-
-        :   // Cypher is specified, use it to create the device
+        // Cypher is specified, use it to create the device
+        (!cypher.isEmpty()) ?
             cryfs({
                 "--cipher",
                 cypher,
                 device, // source directory to initialize cryfs in
                 mountPoint // where to mount the file system
             })
+
+        // Cypher is not specified, use the default, whatever it is
+        :shouldUpgrade ?
+            cryfs({
+                device,     // source directory to initialize cryfs in
+                mountPoint, // where to mount the file system
+                "--allow-filesystem-upgrade"
+            })
+
+        : cryfs({
+                device,    // source directory to initialize cryfs in
+                mountPoint // where to mount the file system
+            })
+
         ;
 
-    auto result
-        = makeFuture(process, hasProcessFinishedSuccessfully);
+    auto result = makeFuture(process, [this, device, mountPoint, payload] (QProcess *process) {
+        const auto out = process->readAllStandardOutput();
+        const auto err = process->readAllStandardError();
+
+        const auto exitCode = (ExitCode) process->exitCode();
+
+        auto upgradeFileSystem = [this, device, mountPoint, payload] {
+            const auto upgrade =
+                QMessageBox::Yes == QMessageBox::question(
+                        nullptr,
+                        i18n("Upgrade the vault?"),
+                        i18n("This vault was created with an older version of cryfs and needs to be upgraded.\n\nMind that this process is irreversable and the vault will no longer work with older versions of cryfs.\n\nDo you want to perform the upgrade now?"));
+
+            if (!upgrade) {
+                return Result<>::error(Error::BackendError,
+                           i18n("The vault needs to be upgraded before it can be opened with this version of cryfs"));
+            }
+
+            auto new_payload = payload;
+            new_payload["cryfs-fs-upgrade"] = true;
+
+            return AsynQt::await(mount(device, mountPoint, new_payload));
+        };
+
+        return
+            // If all went well, just return success
+            (process->exitStatus() == QProcess::NormalExit && exitCode == ExitCode::Success) ?
+                Result<>::success() :
+
+            // If we tried to mount into a non-empty location, report
+            err.contains("'nonempty'") ?
+                Result<>::error(Error::CommandError,
+                                i18n("The mount point directory is not empty, refusing to open the vault")) :
+
+            exitCode == ExitCode::WrongPassword ?
+                Result<>::error(Error::BackendError,
+                                i18n("You entered the wrong password")) :
+
+            exitCode == ExitCode::TooNewFilesystemFormat ?
+                Result<>::error(Error::BackendError,
+                                i18n("The installed version of cryfs is too old to open this vault.")) :
+
+            exitCode == ExitCode::TooOldFilesystemFormat ?
+                upgradeFileSystem() :
+
+            // otherwise just report that we failed
+                Result<>::error(Error::CommandError,
+                                i18n("Unable to perform the operation (error code %1).", QString::number((int)exitCode)));
+
+
+        });
 
     // Writing the password
     process->write(password.toUtf8());
@@ -109,7 +209,7 @@ FutureResult<> CryFsBackend::validateBackend()
     // We need to check whether all the commands are installed
     // and whether the user has permissions to run them
     return
-        collect(checkVersion(cryfs({ "--version" }), std::make_tuple(0, 9, 6)),
+        collect(checkVersion(cryfs({ "--version" }), std::make_tuple(0, 9, 9)),
                 checkVersion(fusermount({ "--version" }), std::make_tuple(2, 9, 7)))
 
         | transform([this] (const QPair<bool, QString> &cryfs,
