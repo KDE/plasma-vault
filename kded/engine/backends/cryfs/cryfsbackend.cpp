@@ -152,7 +152,7 @@ FutureResult<> CryFsBackend::mount(const Device &device,
                 QMessageBox::Yes == QMessageBox::question(
                         nullptr,
                         i18n("Upgrade the vault?"),
-                        i18n("This vault was created with an older version of cryfs and needs to be upgraded.\n\nMind that this process is irreversable and the vault will no longer work with older versions of cryfs.\n\nDo you want to perform the upgrade now?"));
+                        i18n("This vault was created with an older version of cryfs and needs to be upgraded.\n\nMind that this process is irreversible and the vault will no longer work with older versions of cryfs.\n\nDo you want to perform the upgrade now?"));
 
             if (!upgrade) {
                 return Result<>::error(Error::BackendError,
