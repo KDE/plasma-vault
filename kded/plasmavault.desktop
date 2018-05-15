@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Plasma Vault module
 Name[ar]=وحدة خزنة بلازما
-Name[ca]=Mòdul de Plasma per a Voltes
+Name[ca]=Mòdul del Plasma per a Caixa forta
 Name[ca@valencia]=Mòdul de Plasma per a Voltes
 Name[cs]=Modul sejfu pro Plasma
 Name[da]=Sikkerhedsboksmodul til Plasma
@@ -36,7 +36,7 @@ Name[x-test]=xxPlasma Vault modulexx
 Name[zh_CN]=Plasma 保险库模块
 Comment=Provides encrypted vaults
 Comment[ar]=توفّر خزنات معمّاة
-Comment[ca]=Proporciona voltes encriptades
+Comment[ca]=Proporciona caixes fortes encriptades
 Comment[ca@valencia]=Proporciona voltes encriptades
 Comment[cs]=Poskytuje šifrované sejfy
 Comment[da]=Giver mulighed for krypterede sikkerhedsbokse
