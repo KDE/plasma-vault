@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Vaults
 Name[ar]=الخزنات
-Name[ca]=Voltes
+Name[ca]=Caixes fortes
 Name[ca@valencia]=Voltes
 Name[cs]=Sejfy
 Name[da]=Sikkerhedsbokse
@@ -36,7 +36,7 @@ Name[x-test]=xxVaultsxx
 Name[zh_CN]=保险库
 Comment=Create encrypted vaults
 Comment[ar]=أنشئ خزنات معمّاة
-Comment[ca]=Crea voltes encriptades
+Comment[ca]=Crea caixes fortes encriptades
 Comment[ca@valencia]=Crea voltes encriptades
 Comment[cs]=Vytvářejte šifrované sejfy
 Comment[da]=Opret krypterede sikkerhedsbokse
