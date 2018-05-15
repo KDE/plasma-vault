@@ -349,12 +349,12 @@ void PlasmaVaultService::openVaultInFileManager(const QString &device)
 {
     if (auto vault = d->vaultFor(device)) {
         if (vault->isOpened()) {
-            new KRun(QUrl::fromLocalFile((QString)vault->mountPoint()), 0);
+            new KRun(QUrl::fromLocalFile((QString)vault->mountPoint()), nullptr);
 
         } else {
             showPasswordMountDialog(vault, [this, vault] {
                 emit vaultChanged(vault->info());
-                new KRun(QUrl::fromLocalFile((QString)vault->mountPoint()), 0);
+                new KRun(QUrl::fromLocalFile((QString)vault->mountPoint()), nullptr);
             });
         }
     }

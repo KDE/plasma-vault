@@ -28,7 +28,7 @@ namespace PlasmaVault {
 class EncFsBackend: public FuseBackend {
 public:
     EncFsBackend();
-    ~EncFsBackend();
+    ~EncFsBackend() override;
 
     static Backend::Ptr instance();
 
@@ -36,7 +36,7 @@ public:
 
     FutureResult<> validateBackend() override;
 
-    QString name() const override { return "encfs"; };
+    QString name() const override { return "encfs"; }
 
 protected:
     FutureResult<> mount(const Device &device,

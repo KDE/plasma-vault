@@ -35,8 +35,8 @@ class VaultsModel: public QAbstractListModel {
     Q_PROPERTY(bool hasError READ hasError NOTIFY hasErrorChanged)
 
 public:
-    VaultsModel(QObject *parent = nullptr);
-    ~VaultsModel();
+    explicit VaultsModel(QObject *parent = nullptr);
+    ~VaultsModel() override;
 
     int rowCount(const QModelIndex &parent) const override;
 
@@ -101,7 +101,7 @@ class SortedVaultsModelProxy: public QSortFilterProxyModel {
     Q_OBJECT
 
 public:
-    SortedVaultsModelProxy(QObject *parent);
+    explicit SortedVaultsModelProxy(QObject *parent);
 
     bool lessThan(const QModelIndex &left,
                   const QModelIndex &right) const override;

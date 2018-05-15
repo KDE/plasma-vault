@@ -30,7 +30,7 @@ static QString validateDevice(QString device)
     return device;
 }
 
-Device::Device(QString device)
+Device::Device(const QString &device)
     : m_device(validateDevice(device))
 {
 }
@@ -40,7 +40,7 @@ Device::operator QString() const
     return m_device;
 }
 
-MountPoint::MountPoint(QString mountPoint)
+MountPoint::MountPoint(const QString &mountPoint)
     : m_mountPoint(mountPoint)
 {
 }

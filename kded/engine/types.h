@@ -30,7 +30,7 @@ namespace PlasmaVault {
 
 class Device {
 public:
-    explicit Device(QString device = QString());
+    explicit Device(const QString &device = QString());
     operator QString() const;
 
     inline QString data() const
@@ -56,7 +56,7 @@ inline bool operator== (const Device &left, const Device &right)
 
 class MountPoint {
 public:
-    explicit MountPoint(QString mountPoint = QString());
+    explicit MountPoint(const QString &mountPoint = QString());
     operator QString() const;
 
     inline bool isEmpty() const

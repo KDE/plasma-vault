@@ -30,7 +30,7 @@ namespace PlasmaVault {
 class FuseBackend: public Backend {
 public:
     FuseBackend();
-    ~FuseBackend();
+    ~FuseBackend() override;
 
     bool isOpened(const MountPoint &mountPoint) const override;
 

@@ -28,7 +28,7 @@ namespace PlasmaVault {
 class CryFsBackend: public FuseBackend {
 public:
     CryFsBackend();
-    ~CryFsBackend();
+    ~CryFsBackend() override;
 
     static Backend::Ptr instance();
 
@@ -36,7 +36,7 @@ public:
 
     FutureResult<> validateBackend() override;
 
-    QString name() const override { return "cryfs"; };
+    QString name() const override { return "cryfs"; }
 
 protected:
     FutureResult<> mount(const Device &device,

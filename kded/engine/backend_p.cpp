@@ -51,8 +51,8 @@ QStringList Backend::availableBackends()
 Backend::Ptr Backend::instance(const QString &backend)
 {
     return
-        backend == "encfs" ? PlasmaVault::EncFsBackend::instance() :
-        backend == "cryfs" ? PlasmaVault::CryFsBackend::instance() :
+        backend == QLatin1String("encfs") ? PlasmaVault::EncFsBackend::instance() :
+        backend == QLatin1String("cryfs") ? PlasmaVault::CryFsBackend::instance() :
         /* unknown backend */ nullptr;
 }
 
