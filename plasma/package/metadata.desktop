@@ -2,7 +2,7 @@
 Name=Vaults
 Name[ar]=الخزنات
 Name[ca]=Caixes fortes
-Name[ca@valencia]=Voltes
+Name[ca@valencia]=Caixes fortes
 Name[cs]=Sejfy
 Name[da]=Sikkerhedsbokse
 Name[de]=Vaults
@@ -37,7 +37,7 @@ Name[zh_CN]=保险库
 Comment=Create encrypted vaults
 Comment[ar]=أنشئ خزنات معمّاة
 Comment[ca]=Crea caixes fortes encriptades
-Comment[ca@valencia]=Crea voltes encriptades
+Comment[ca@valencia]=Crea caixes fortes encriptades
 Comment[cs]=Vytvářejte šifrované sejfy
 Comment[da]=Opret krypterede sikkerhedsbokse
 Comment[de]=Verschlüsselte Vaults erstellen
