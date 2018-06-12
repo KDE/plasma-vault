@@ -37,7 +37,23 @@
 
 #include <functional>
 
+#include <config-plasma-vault.h>
+#ifdef HAVE_NETWORKMANAGER
 #include <NetworkManagerQt/Manager>
+#else
+namespace NetworkManager
+{
+    bool isNetworkingEnabled()
+    {
+        return true;
+    }
+
+    void setNetworkingEnabled(bool enabled)
+    {
+        Q_UNUSED(enabled);
+    }
+}
+#endif
 
 K_PLUGIN_FACTORY_WITH_JSON(PlasmaVaultServiceFactory,
                            "plasmavault.json",

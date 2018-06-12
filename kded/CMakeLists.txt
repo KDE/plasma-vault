@@ -1,3 +1,5 @@
+configure_file (config-plasma-vault.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-plasma-vault.h)
+
 include_directories (
    ${CMAKE_CURRENT_SOURCE_DIR}
    ${CMAKE_CURRENT_SOURCE_DIR}/engine
@@ -85,8 +87,13 @@ target_link_libraries (
    KF5::SysGuard
    KF5::WidgetsAddons
    KF5::ProcessCore
-   KF5::NetworkManagerQt
    )
+if (HAVE_NETWORKMANAGER)
+    target_link_libraries (
+       kded_plasmavault
+       KF5::NetworkManagerQt
+    )
+endif ()
 
 
 install (

@@ -58,8 +58,11 @@ find_package (
    KIO
    Plasma
    WidgetsAddons
-   NetworkManagerQt
    )
+find_package (KF5NetworkManagerQt ${KF5_DEP_VERSION})
+if (KF5NetworkManagerQt_FOUND)
+    set (HAVE_NETWORKMANAGER TRUE)
+endif()
 find_package (KF5SysGuard REQUIRED)
 
 include_directories (
