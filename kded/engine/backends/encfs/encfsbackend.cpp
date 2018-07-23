@@ -26,6 +26,8 @@
 
 #include <KMountPoint>
 #include <KLocalizedString>
+#include <KSharedConfig>
+#include <KConfigGroup>
 
 #include <algorithm>
 
@@ -132,7 +134,12 @@ bool EncFsBackend::isInitialized(const Device &device) const
 
 QProcess *EncFsBackend::encfs(const QStringList &arguments) const
 {
-    return process("encfs", arguments, {});
+    auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
+    KConfigGroup backendConfig(config, "EncfsBackend");
+
+    return process("encfs",
+                   arguments + backendConfig.readEntry("extraMountOptions", QStringList{}),
+                   {});
 }
 
 

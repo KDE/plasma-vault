@@ -29,6 +29,8 @@
 
 #include <KMountPoint>
 #include <KLocalizedString>
+#include <KSharedConfig>
+#include <KConfigGroup>
 
 #include <algorithm>
 
@@ -236,8 +238,11 @@ bool CryFsBackend::isInitialized(const Device &device) const
 
 QProcess *CryFsBackend::cryfs(const QStringList &arguments) const
 {
+    auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
+    KConfigGroup backendConfig(config, "CryfsBackend");
+
     return process("cryfs",
-                   arguments,
+                   arguments + backendConfig.readEntry("extraMountOptions", QStringList{}),
                    { { "CRYFS_FRONTEND", "noninteractive" } });
 }
 
