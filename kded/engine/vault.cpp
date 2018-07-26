@@ -65,6 +65,13 @@ public:
     QTimer savingDelay;
 
 
+    enum DeletionState {
+        Normal,
+        DeletionBlocked,
+        DeletionScheduled
+    };
+    DeletionState deletionState = Normal;
+
 
     struct Data {
         QString name;
@@ -90,6 +97,50 @@ public:
 
         data->message = message;
         emit q->messageChanged(message);
+    }
+
+
+    void writeConfiguration()
+    {
+        if (data) {
+
+            const auto deviceStr = device.data();
+            const auto mountPointStr = data->mountPoint.data();
+
+            Q_ASSERT(!deviceStr.isEmpty() && !mountPointStr.isEmpty());
+
+            // Saving the data for the current mount
+            KConfigGroup generalConfig(config, "EncryptedDevices");
+            generalConfig.writeEntry(deviceStr, true);
+
+            KConfigGroup vaultConfig(config, deviceStr);
+            vaultConfig.writeEntry(CFG_LAST_STATUS, (int)data->status);
+            vaultConfig.writeEntry(CFG_MOUNT_POINT, mountPointStr);
+            vaultConfig.writeEntry(CFG_NAME,        data->name);
+            vaultConfig.writeEntry(CFG_BACKEND,     data->backend->name());
+
+            vaultConfig.writeEntry(CFG_ACTIVITIES,  data->activities);
+            vaultConfig.writeEntry(CFG_OFFLINEONLY, data->isOfflineOnly);
+
+        } else {
+
+            KConfigGroup generalConfig(config, "EncryptedDevices");
+            generalConfig.writeEntry(device.data(), false);
+
+            KConfigGroup vaultConfig(config, device.data());
+            vaultConfig.writeEntry(CFG_LAST_STATUS, (int)VaultInfo::Error);
+            vaultConfig.writeEntry(CFG_LAST_ERROR,
+                    data.error().message() + " (code: " +
+                    QString::number(data.error().code()) + ")");
+            // vaultConfig.deleteEntry(CFG_MOUNT_POINT);
+            // vaultConfig.deleteEntry(CFG_NAME);
+            // vaultConfig.deleteEntry(CFG_BACKEND);
+            // vaultConfig.deleteEntry(CFG_ACTIVITIES);
+            // vaultConfig.deleteEntry(CFG_OFFLINEONLY);
+
+        }
+
+        config->sync();
     }
 
 
@@ -121,11 +172,13 @@ public:
 
                 emit q->statusChanged(data->status);
 
-                if (newStatus == VaultInfo::Closed || newStatus == VaultInfo::Opened) {
+                if (newStatus == VaultInfo::Closed
+                        || newStatus == VaultInfo::Opened) {
                     emit q->isOpenedChanged(newStatus == VaultInfo::Opened);
                 }
 
-                if (oldStatus == VaultInfo::NotInitialized || newStatus == VaultInfo::NotInitialized) {
+                if (oldStatus == VaultInfo::NotInitialized
+                        || newStatus == VaultInfo::NotInitialized) {
                     emit q->isInitializedChanged(newStatus);
                 }
 
@@ -136,18 +189,7 @@ public:
                     emit q->isBusyChanged(false);
                 }
 
-                // Saving the data for the current mount
-                KConfigGroup generalConfig(config, "EncryptedDevices");
-                generalConfig.writeEntry(device.data(), true);
-
-                KConfigGroup vaultConfig(config, device.data());
-                vaultConfig.writeEntry(CFG_LAST_STATUS, (int)data->status);
-                vaultConfig.writeEntry(CFG_MOUNT_POINT, data->mountPoint.data());
-                vaultConfig.writeEntry(CFG_NAME,        data->name);
-                vaultConfig.writeEntry(CFG_BACKEND,     data->backend->name());
-
-                vaultConfig.writeEntry(CFG_ACTIVITIES,  data->activities);
-                vaultConfig.writeEntry(CFG_OFFLINEONLY, data->isOfflineOnly);
+                writeConfiguration();
 
                 org::kde::KDirNotify::emitFilesAdded(
                         QUrl::fromLocalFile(data->mountPoint.data()));
@@ -158,19 +200,7 @@ public:
             emit q->isInitializedChanged(false);
             emit q->isBusyChanged(false);
 
-            KConfigGroup generalConfig(config, "EncryptedDevices");
-            generalConfig.writeEntry(device.data(), false);
-
-            KConfigGroup vaultConfig(config, device.data());
-            vaultConfig.writeEntry(CFG_LAST_STATUS, (int)VaultInfo::Error);
-            vaultConfig.writeEntry(CFG_LAST_ERROR,
-                    data.error().message() + " (code: " +
-                    QString::number(data.error().code()) + ")");
-            // vaultConfig.deleteEntry(CFG_MOUNT_POINT);
-            // vaultConfig.deleteEntry(CFG_NAME);
-            // vaultConfig.deleteEntry(CFG_BACKEND);
-            // vaultConfig.deleteEntry(CFG_ACTIVITIES);
-            // vaultConfig.deleteEntry(CFG_OFFLINEONLY);
+            writeConfiguration();
 
             emit q->statusChanged(VaultInfo::Error);
         }
@@ -263,8 +293,15 @@ public:
         emit q->isBusyChanged(true);
         data->status = whileNotFinished;
 
+        deletionState = DeletionBlocked;
+
         return future | onSuccess([this] {
                 updateStatus();
+
+                if (deletionState == DeletionScheduled) {
+                    q->deleteLater();
+                }
+                deletionState = Normal;
             });
     }
 
@@ -293,20 +330,7 @@ Vault::Vault(const Device &device, QObject *parent)
     d->savingDelay.setSingleShot(true);
     connect(&d->savingDelay, &QTimer::timeout,
             this, [&] {
-                qDebug() << "Saving vault info:"
-                         << d->data->name
-                         << d->data->mountPoint
-                         << d->data->activities
-                         << d->data->isOfflineOnly
-                         ;
-                KConfigGroup vaultConfig(d->config, d->device.data());
-                vaultConfig.writeEntry(CFG_MOUNT_POINT, d->data->mountPoint.data());
-                vaultConfig.writeEntry(CFG_NAME,        d->data->name);
-                vaultConfig.writeEntry(CFG_ACTIVITIES,  d->data->activities);
-                vaultConfig.writeEntry(CFG_OFFLINEONLY, d->data->isOfflineOnly);
-
-                d->config->sync();
-
+                d->writeConfiguration();
                 emit infoChanged();
             });
 }
@@ -317,6 +341,17 @@ Vault::~Vault()
 {
     if (d->isOpened()) {
         close();
+    }
+}
+
+
+
+void Vault::scheduleDeletion()
+{
+    if (d->deletionState == Private::Normal) {
+        deleteLater();
+    } else {
+        d->deletionState = Private::DeletionScheduled;
     }
 }
 

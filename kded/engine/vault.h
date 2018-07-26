@@ -86,6 +86,9 @@ public:
 
     VaultInfo info() const;
 
+    // TODO: Replace this with shared_ptr and enable_shared_from_this?
+    void scheduleDeletion();
+
 public Q_SLOTS:
     QString message() const;
     VaultInfo::Status status() const;

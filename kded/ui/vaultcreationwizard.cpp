@@ -299,7 +299,7 @@ public:
             ui.message->setText(result.error().message());
             ui.message->setMessageType(KMessageWidget::Error);
             ui.message->show();
-            delete vault;
+            vault->scheduleDeletion();
         }
     }
 };
