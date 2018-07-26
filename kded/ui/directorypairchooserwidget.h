@@ -31,9 +31,9 @@ public:
     enum Flag {
         ShowDevicePicker = 1,
         ShowMountPointPicker = 2,
-        RequireNewDevice = 4,
+        RequireEmptyDevice = 4,
         RequireExistingDevice = 8,
-        RequireNewMountPoint = 16,
+        RequireEmptyMountPoint = 16,
         RequireExistingMountPoint = 32,
 
         AutoFillPaths = 64

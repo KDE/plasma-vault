@@ -84,7 +84,7 @@ public:
                 step { directoryPairChooser(
                          DirectoryPairChooserWidget::AutoFillPaths |
                          DirectoryPairChooserWidget::ShowMountPointPicker |
-                         DirectoryPairChooserWidget::RequireNewMountPoint
+                         DirectoryPairChooserWidget::RequireEmptyMountPoint
                      ) },
                 step {
                     activitiesChooser(),
@@ -115,8 +115,8 @@ public:
                          DirectoryPairChooserWidget::AutoFillPaths |
                          DirectoryPairChooserWidget::ShowDevicePicker |
                          DirectoryPairChooserWidget::ShowMountPointPicker |
-                         DirectoryPairChooserWidget::RequireNewDevice |
-                         DirectoryPairChooserWidget::RequireNewMountPoint
+                         DirectoryPairChooserWidget::RequireEmptyDevice |
+                         DirectoryPairChooserWidget::RequireEmptyMountPoint
                      ) },
                 step {
                     cryfsCypherChooser(),

@@ -67,7 +67,7 @@ public:
                            DirectoryPairChooserWidget::ShowDevicePicker |
                            DirectoryPairChooserWidget::ShowMountPointPicker |
                            DirectoryPairChooserWidget::RequireExistingDevice |
-                           DirectoryPairChooserWidget::RequireNewMountPoint
+                           DirectoryPairChooserWidget::RequireEmptyMountPoint
                        ) },
                 step { passwordChooser() },
                 step {
@@ -83,7 +83,7 @@ public:
                            DirectoryPairChooserWidget::ShowDevicePicker |
                            DirectoryPairChooserWidget::ShowMountPointPicker |
                            DirectoryPairChooserWidget::RequireExistingDevice |
-                           DirectoryPairChooserWidget::RequireNewMountPoint
+                           DirectoryPairChooserWidget::RequireEmptyMountPoint
                        ) },
                 step { passwordChooser() },
                 step {

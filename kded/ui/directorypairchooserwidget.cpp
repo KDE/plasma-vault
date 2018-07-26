@@ -35,35 +35,58 @@ public:
 
     class DirectoryValidator {
     public:
-        bool requireNew;
+        bool requireEmptyDirectory;
         bool requireExisting;
         bool valid = false;
+        QString defaultPath;
         std::function<void()> update;
 
-        DirectoryValidator(bool requireNew, bool requireExisting,
+        KMessageWidget* widget = nullptr;
+
+        DirectoryValidator(bool requireEmptyDirectory, bool requireExisting,
+                           QString defaultPath,
                            std::function<void()> update)
-            : requireNew(requireNew)
+            : requireEmptyDirectory(requireEmptyDirectory)
             , requireExisting(requireExisting)
-            , valid(!requireNew && !requireExisting)
+            , valid(!requireEmptyDirectory && !requireExisting)
+            , defaultPath(defaultPath)
             , update(update)
         {
         }
 
         bool isValid(const QUrl &url) const
         {
-            if (url.isEmpty()) return false;
-
-            const bool directoryExists
-                = PlasmaVault::Backend::directoryExists(url.toLocalFile());
-
-            if (requireNew && directoryExists) {
+            if (url.isEmpty()) {
+                widget->hide();
                 return false;
             }
 
-            if (requireExisting && !directoryExists) {
+            if (url.toLocalFile() == defaultPath) {
+                widget->hide();
+                return true;
+            }
+
+            QDir dir(url.toLocalFile());
+
+            if (!dir.exists()) {
+                widget->setText(i18n("The specified path does not exist"));
+                widget->show();
                 return false;
             }
 
+            if (requireEmptyDirectory && !dir.isEmpty()) {
+                widget->setText(i18n("The specified directory is not empty"));
+                widget->show();
+                return false;
+            }
+
+            if (requireExisting && dir.isEmpty()) {
+                widget->setText(i18n("The specified directory is empty"));
+                widget->show();
+                return false;
+            }
+
+            widget->hide();
             return true;
         }
 
@@ -97,13 +120,15 @@ public:
         : flags(flags)
         , q(parent)
         , deviceValidator(
-                flags & RequireNewDevice,
+                flags & RequireEmptyDevice,
                 flags & RequireExistingDevice,
+                nullptr,
                 [&] { updateValidity(); }
             )
         , mountPointValidator(
-                flags & RequireNewMountPoint,
+                flags & RequireEmptyMountPoint,
                 flags & RequireExistingMountPoint,
+                nullptr,
                 [&] { updateValidity(); }
             )
         , allValid(deviceValidator.valid && mountPointValidator.valid)
@@ -117,6 +142,9 @@ DirectoryPairChooserWidget::DirectoryPairChooserWidget(
 {
     d->ui.setupUi(this);
 
+    d->deviceValidator.widget = d->ui.messageDevice;
+    d->mountPointValidator.widget = d->ui.messageMountPoint;
+
     if (!(flags & DirectoryPairChooserWidget::ShowDevicePicker)) {
         d->ui.editDevice->setVisible(false);
         d->ui.labelDevice->setVisible(false);
@@ -126,6 +154,9 @@ DirectoryPairChooserWidget::DirectoryPairChooserWidget(
         d->ui.editMountPoint->setVisible(false);
         d->ui.labelMountPoint->setVisible(false);
     }
+
+    d->ui.messageDevice->hide();
+    d->ui.messageMountPoint->hide();
 
     connect(d->ui.editDevice, &KUrlRequester::textEdited,
             this, [&] () {
@@ -173,6 +204,9 @@ void DirectoryPairChooserWidget::init(
 
         d->ui.editDevice->setText(path);
         d->ui.editMountPoint->setText(QDir::homePath() + QStringLiteral("/Vaults/") + name);
+
+        d->deviceValidator.defaultPath = path;
+        d->mountPointValidator.defaultPath = QDir::homePath() + QStringLiteral("/Vaults/") + name;
     }
 
     d->deviceValidator.updateFor(d->ui.editDevice->url());

@@ -43,6 +43,7 @@ NameChooserWidget::NameChooserWidget()
 
     connect(d->ui.editVaultName, &QLineEdit::textChanged,
             this, [this] (const QString &text) {
+                Q_UNUSED(text);
                 setIsValid(!d->ui.editVaultName->text().isEmpty());
             });
 }

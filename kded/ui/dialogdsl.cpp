@@ -87,6 +87,7 @@ bool DialogModule::isValid() const
 
 void DialogModule::init(const PlasmaVault::Vault::Payload &payload)
 {
+    Q_UNUSED(payload);
 }
 
 
