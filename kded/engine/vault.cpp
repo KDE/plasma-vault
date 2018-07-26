@@ -460,7 +460,7 @@ FutureResult<> Vault::forceClose()
             | onError([this] {
                 d->updateMessage(i18n("Failed to fetch the list of applications using this vault"));
             })
-            | onSuccess([this] (const QString &result) {
+            | onSuccess([] (const QString &result) {
                 // based on ksolidnotify.cpp
                 QStringList blockApps;
 

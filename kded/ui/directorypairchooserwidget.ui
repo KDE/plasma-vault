@@ -21,7 +21,7 @@
    <item row="0" column="1">
     <widget class="KUrlRequester" name="editDevice">
      <property name="mode">
-      <set>KFile::Directory|KFile::File|KFile::LocalOnly</set>
+      <set>KFile::Directory|KFile::LocalOnly</set>
      </property>
     </widget>
    </item>
@@ -35,7 +35,7 @@
    <item row="1" column="1">
     <widget class="KUrlRequester" name="editMountPoint">
      <property name="mode">
-      <set>KFile::Directory|KFile::File</set>
+      <set>KFile::Directory|KFile::LocalOnly</set>
      </property>
     </widget>
    </item>

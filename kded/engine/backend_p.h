@@ -24,6 +24,7 @@
 #include <QList>
 #include <QString>
 #include <QStringList>
+#include <QDir>
 
 #include <memory>
 
@@ -70,8 +71,13 @@ public:
             const QString &command,
             const QPair<bool, QString> &result) const;
 
-protected:
-    static bool isDirectoryEmpty(const QString &path);
+    static inline bool directoryExists(const QString &path)
+    {
+        QDir dir(path);
+
+        return !dir.exists() ? false
+             : !dir.entryList(QDir::AllEntries | QDir::NoDotAndDotDot).isEmpty();
+    }
 
 };
 

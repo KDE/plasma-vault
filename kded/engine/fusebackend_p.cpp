@@ -123,7 +123,7 @@ FutureResult<> FuseBackend::initialize(const QString &name,
             errorResult(Error::BackendError,
                         i18n("This directory already contains encrypted data")) :
 
-        !isDirectoryEmpty(device) || !isDirectoryEmpty(mountPoint) ?
+        directoryExists(device) || directoryExists(mountPoint) ?
             errorResult(Error::BackendError,
                         i18n("You need to select empty directories for the encrypted storage and for the mount point")) :
 

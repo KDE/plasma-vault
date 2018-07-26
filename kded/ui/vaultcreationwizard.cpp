@@ -81,7 +81,11 @@ public:
                              See <a href='http://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> for more information."))
                      },
                 step { passwordChooser() },
-                step { directoryPairChooser(DirectoryPairChooserWidget::SkipDevicePicker) },
+                step { directoryPairChooser(
+                         DirectoryPairChooserWidget::AutoFillPaths |
+                         DirectoryPairChooserWidget::ShowMountPointPicker |
+                         DirectoryPairChooserWidget::RequireNewMountPoint
+                     ) },
                 step {
                     activitiesChooser(),
                     offlineOnlyChooser()
@@ -107,7 +111,13 @@ public:
                              which confirms this."))
                      },
                 step { passwordChooser() },
-                step { directoryPairChooser() },
+                step { directoryPairChooser(
+                         DirectoryPairChooserWidget::AutoFillPaths |
+                         DirectoryPairChooserWidget::ShowDevicePicker |
+                         DirectoryPairChooserWidget::ShowMountPointPicker |
+                         DirectoryPairChooserWidget::RequireNewDevice |
+                         DirectoryPairChooserWidget::RequireNewMountPoint
+                     ) },
                 step {
                     cryfsCypherChooser(),
                     activitiesChooser(),

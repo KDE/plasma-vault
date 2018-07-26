@@ -22,6 +22,7 @@
 #include "ui_directorypairchooserwidget.h"
 
 #include "vault.h"
+#include "backend_p.h"
 
 #include <QStandardPaths>
 
@@ -30,54 +31,83 @@ public:
     Ui::DirectoryPairChooserWidget ui;
     const DirectoryPairChooserWidget::Flags flags;
 
-    bool mountPointValid = false;
-    bool encryptedLocationValid = false;
-
     DirectoryPairChooserWidget *const q;
-    Private(DirectoryPairChooserWidget *parent, DirectoryPairChooserWidget::Flags flags)
-        : flags(flags), q(parent)
+
+    class DirectoryValidator {
+    public:
+        bool requireNew;
+        bool requireExisting;
+        bool valid = false;
+        std::function<void()> update;
+
+        DirectoryValidator(bool requireNew, bool requireExisting,
+                           std::function<void()> update)
+            : requireNew(requireNew)
+            , requireExisting(requireExisting)
+            , valid(!requireNew && !requireExisting)
+            , update(update)
+        {
+        }
+
+        bool isValid(const QUrl &url) const
+        {
+            if (url.isEmpty()) return false;
+
+            const bool directoryExists
+                = PlasmaVault::Backend::directoryExists(url.toLocalFile());
+
+            if (requireNew && directoryExists) {
+                return false;
+            }
+
+            if (requireExisting && !directoryExists) {
+                return false;
+            }
+
+            return true;
+        }
+
+        void updateFor(const QUrl &url)
+        {
+            bool newValid = isValid(url);
+
+            if (valid != newValid) {
+                valid = newValid;
+                update();
+            }
+        }
+    };
+
+    DirectoryValidator deviceValidator;
+    DirectoryValidator mountPointValidator;
+    bool allValid;
+
+    void updateValidity()
     {
-        if (flags & DirectoryPairChooserWidget::SkipDevicePicker)
-            encryptedLocationValid = true;
-    }
+        bool newAllValid = deviceValidator.valid && mountPointValidator.valid;
 
-    void setEncryptedLocationValid(bool valid)
-    {
-        if (encryptedLocationValid == valid) return;
-
-        encryptedLocationValid = valid;
-
-        // We only change the global valid state if
-        // the mount point was already valid
-        if (mountPointValid) {
-            q->setIsValid(valid);
+        if (allValid != newAllValid) {
+            allValid = newAllValid;
+            q->setIsValid(allValid);
         }
     }
 
-    void setMountPointValid(bool valid)
+    Private(DirectoryPairChooserWidget *parent,
+            DirectoryPairChooserWidget::Flags flags)
+        : flags(flags)
+        , q(parent)
+        , deviceValidator(
+                flags & RequireNewDevice,
+                flags & RequireExistingDevice,
+                [&] { updateValidity(); }
+            )
+        , mountPointValidator(
+                flags & RequireNewMountPoint,
+                flags & RequireExistingMountPoint,
+                [&] { updateValidity(); }
+            )
+        , allValid(deviceValidator.valid && mountPointValidator.valid)
     {
-        if (mountPointValid == valid) return;
-
-        mountPointValid = valid;
-
-        // We only change the global valid state if
-        // the enc location was already valid
-        if (encryptedLocationValid) {
-            q->setIsValid(valid);
-        }
-    }
-
-    bool isDirectoryValid(const QUrl &url) const
-    {
-        if (url.isEmpty()) return false;
-        // TODO check the vaults database to see if another vault already uses this dir
-
-        QDir directory(url.toString());
-
-        // TODO: Support alternative flags once they are needed
-        if (!directory.exists() || directory.entryList().isEmpty()) return true;
-
-        return false;
     }
 };
 
@@ -86,19 +116,25 @@ DirectoryPairChooserWidget::DirectoryPairChooserWidget(
     : DialogDsl::DialogModule(false), d(new Private(this, flags))
 {
     d->ui.setupUi(this);
-    if (flags & DirectoryPairChooserWidget::SkipDevicePicker) {
+
+    if (!(flags & DirectoryPairChooserWidget::ShowDevicePicker)) {
         d->ui.editDevice->setVisible(false);
         d->ui.labelDevice->setVisible(false);
-    } else {
-        connect(d->ui.editDevice, &KUrlRequester::textEdited,
-                this, [&] () {
-                d->setEncryptedLocationValid(d->isDirectoryValid(d->ui.editDevice->url()));
-                });
     }
+
+    if (!(flags & DirectoryPairChooserWidget::ShowMountPointPicker)) {
+        d->ui.editMountPoint->setVisible(false);
+        d->ui.labelMountPoint->setVisible(false);
+    }
+
+    connect(d->ui.editDevice, &KUrlRequester::textEdited,
+            this, [&] () {
+                d->deviceValidator.updateFor(d->ui.editDevice->url());
+            });
 
     connect(d->ui.editMountPoint, &KUrlRequester::textEdited,
             this, [&] () {
-                d->setMountPointValid(d->isDirectoryValid(d->ui.editMountPoint->url()));
+                d->mountPointValidator.updateFor(d->ui.editMountPoint->url());
             });
 }
 
@@ -121,22 +157,26 @@ PlasmaVault::Vault::Payload DirectoryPairChooserWidget::fields() const
 void DirectoryPairChooserWidget::init(
     const PlasmaVault::Vault::Payload &payload)
 {
-    const QString basePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
-            + QStringLiteral("/plasma-vault");
+    if (d->flags & DirectoryPairChooserWidget::AutoFillPaths) {
+        const QString basePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
+                + QStringLiteral("/plasma-vault");
 
-    const auto name = payload[KEY_NAME].toString();
+        const auto name = payload[KEY_NAME].toString();
 
-    Q_ASSERT(!name.isEmpty());
+        Q_ASSERT(!name.isEmpty());
 
-    QString path = QString("%1/%2.enc").arg(basePath).arg(name);
-    int index = 1;
-    while (QDir(path).exists()) {
-        path = QString("%1/%2_%3.enc").arg(basePath).arg(name).arg(index++);
+        QString path = QString("%1/%2.enc").arg(basePath).arg(name);
+        int index = 1;
+        while (QDir(path).exists()) {
+            path = QString("%1/%2_%3.enc").arg(basePath).arg(name).arg(index++);
+        }
+
+        d->ui.editDevice->setText(path);
+        d->ui.editMountPoint->setText(QDir::homePath() + QStringLiteral("/Vaults/") + name);
     }
 
-    d->ui.editDevice->setText(path);
-    d->ui.editMountPoint->setText(QDir::homePath() + QStringLiteral("/Vaults/") + name);
-
-    d->setEncryptedLocationValid(d->isDirectoryValid(d->ui.editDevice->url()));
-    d->setMountPointValid(d->isDirectoryValid(d->ui.editMountPoint->url()));
+    d->deviceValidator.updateFor(d->ui.editDevice->url());
+    d->mountPointValidator.updateFor(d->ui.editMountPoint->url());
+    setIsValid(d->allValid);
 }
+

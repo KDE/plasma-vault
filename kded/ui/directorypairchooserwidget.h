@@ -28,10 +28,17 @@ class DirectoryPairChooserWidget: public DialogDsl::DialogModule {
     Q_OBJECT
 
 public:
-    enum Flags {
-        NoFlags = 0,
-        SkipDevicePicker = 1
+    enum Flag {
+        ShowDevicePicker = 1,
+        ShowMountPointPicker = 2,
+        RequireNewDevice = 4,
+        RequireExistingDevice = 8,
+        RequireNewMountPoint = 16,
+        RequireExistingMountPoint = 32,
+
+        AutoFillPaths = 64
     };
+    Q_DECLARE_FLAGS(Flags, Flag)
 
     DirectoryPairChooserWidget(Flags flags);
     ~DirectoryPairChooserWidget();
@@ -44,12 +51,14 @@ private:
     QScopedPointer<Private> d;
 };
 
-inline DialogDsl::ModuleFactory directoryPairChooser(DirectoryPairChooserWidget::Flags flags = DirectoryPairChooserWidget::NoFlags)
+inline DialogDsl::ModuleFactory directoryPairChooser(DirectoryPairChooserWidget::Flags flags)
 {
     return [=] {
         return new DirectoryPairChooserWidget(flags);
     };
 }
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(DirectoryPairChooserWidget::Flags)
 
 #endif // include guard
 

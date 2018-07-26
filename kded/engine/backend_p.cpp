@@ -58,17 +58,6 @@ Backend::Ptr Backend::instance(const QString &backend)
 
 
 
-bool Backend::isDirectoryEmpty(const QString &path)
-{
-    QDir dir(path);
-
-    if (!dir.exists()) return true;
-
-    return dir.entryInfoList(QDir::NoDotAndDotDot|QDir::AllEntries).count() == 0;
-}
-
-
-
 QString Backend::formatMessageLine(
         const QString &command,
         const QPair<bool, QString> &result) const
