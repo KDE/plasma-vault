@@ -31,6 +31,7 @@ set (
    ui/vaultdeletionwidget.cpp
 
    ui/vaultcreationwizard.cpp
+   ui/vaultimportingwizard.cpp
    ui/vaultconfigurationwizard.cpp
    ui/mountdialog.cpp
 
@@ -51,6 +52,7 @@ ki18n_wrap_ui (
    ui/vaultdeletionwidget.ui
 
    ui/vaultcreationwizard.ui
+   ui/vaultimportingwizard.ui
    ui/vaultconfigurationwizard.ui
    ui/mountdialog.ui
    )

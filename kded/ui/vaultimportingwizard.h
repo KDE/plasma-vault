@@ -18,46 +18,30 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "types.h"
+#ifndef PLASMAVAULT_KDED_UI_VAULT_IMPORTING_WIZARD_H
+#define PLASMAVAULT_KDED_UI_VAULT_IMPORTING_WIZARD_H
 
-#include <QFileInfo>
+#include <QDialog>
 
 namespace PlasmaVault {
-
-static QString normalizePath(const QString& path)
-{
-    QFileInfo fileInfo(path);
-
-    auto result = fileInfo.canonicalFilePath();
-
-    if (result.endsWith('/')) {
-        result.chop(1);
-    }
-
-    return result;
-}
-
-Device::Device(const QString &device)
-    : m_device(device)
-{
-}
-
-Device::operator QString() const
-{
-    // Done here because canonicalFilePath relies on file existence
-    return normalizePath(m_device);
-}
-
-MountPoint::MountPoint(const QString &mountPoint)
-    : m_mountPoint(mountPoint)
-{
-}
-
-MountPoint::operator QString() const
-{
-    // Done here because canonicalFilePath relies on file existence
-    return normalizePath(m_mountPoint);
-}
-
+    class Vault;
 } // namespace PlasmaVault
+
+class VaultImportingWizard: public QDialog {
+    Q_OBJECT
+
+public:
+    VaultImportingWizard(QWidget *parent = nullptr);
+    ~VaultImportingWizard();
+
+Q_SIGNALS:
+    void importedVault(PlasmaVault::Vault *vault);
+
+private:
+    class Private;
+    QScopedPointer<Private> d;
+};
+
+
+#endif // include guard
 

@@ -38,6 +38,10 @@ public:
                               const Device &device, const MountPoint &mountPoint,
                               const Vault::Payload &payload) override;
 
+    FutureResult<> import(const QString &name,
+                          const Device &device, const MountPoint &mountPoint,
+                          const Vault::Payload &payload) override;
+
     FutureResult<> open(const Device &device,
                         const MountPoint &mountPoint,
                         const Vault::Payload &payload) override;

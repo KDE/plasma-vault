@@ -21,10 +21,10 @@
 #ifndef PLASMAVAULT_KDED_ENGINE_BACKEND_P_H
 #define PLASMAVAULT_KDED_ENGINE_BACKEND_P_H
 
+#include <QDir>
 #include <QList>
 #include <QString>
 #include <QStringList>
-#include <QDir>
 
 #include <memory>
 
@@ -47,6 +47,11 @@ public:
                                       const Device &device,
                                       const MountPoint &mountPoint,
                                       const Vault::Payload &payload) = 0;
+
+    virtual FutureResult<> import(const QString &name,
+                                  const Device &device,
+                                  const MountPoint &mountPoint,
+                                  const Vault::Payload &payload) = 0;
 
     virtual FutureResult<> open(const Device &device,
                                 const MountPoint &mountPoint,
@@ -75,8 +80,10 @@ public:
     {
         QDir dir(path);
 
-        return !dir.exists() ? false
-             : !dir.entryList(QDir::AllEntries | QDir::NoDotAndDotDot).isEmpty();
+        if (!dir.exists()) return false;
+
+        return !dir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries)
+                    .isEmpty();
     }
 
 };

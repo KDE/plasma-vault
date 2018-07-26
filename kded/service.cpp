@@ -32,6 +32,7 @@
 #include "engine/commandresult.h"
 
 #include "ui/vaultcreationwizard.h"
+#include "ui/vaultimportingwizard.h"
 #include "ui/vaultconfigurationwizard.h"
 #include "ui/mountdialog.h"
 
@@ -124,13 +125,15 @@ PlasmaVaultService::PlasmaVaultService(QObject * parent, const QVariantList&)
     : KDEDModule(parent)
     , d(new Private())
 {
-    connect(this, &KDEDModule::moduleRegistered, this,
-            &PlasmaVaultService::slotRegistered);
+    connect(this, &KDEDModule::moduleRegistered,
+            this, &PlasmaVaultService::slotRegistered);
 
     connect(&d->kamd, &KActivities::Consumer::currentActivityChanged,
             this,     &PlasmaVaultService::onCurrentActivityChanged);
 
-    init();
+    for (const Device &device: Vault::availableDevices()) {
+        registerVault(new Vault(device, this));
+    }
 }
 
 
@@ -141,21 +144,11 @@ PlasmaVaultService::~PlasmaVaultService()
 
 
 
-void PlasmaVaultService::init()
-{
-    for (const Device &device: Vault::availableDevices()) {
-        registerVault(new Vault(device, this));
-    }
-}
-
-
-
 PlasmaVault::VaultInfoList PlasmaVaultService::availableDevices() const
 {
     PlasmaVault::VaultInfoList result;
     for (const auto &vault: d->knownVaults.values()) {
-        const auto vaultData = vault->info();
-        result << vaultData;
+        result << vault->info();
     }
     return result;
 }
@@ -167,6 +160,18 @@ void PlasmaVaultService::requestNewVault()
     const auto dialog = new VaultCreationWizard();
 
     connect(dialog, &VaultCreationWizard::createdVault,
+            this,   &PlasmaVaultService::registerVault);
+
+    dialog->show();
+}
+
+
+
+void PlasmaVaultService::requestImportVault()
+{
+    const auto dialog = new VaultImportingWizard();
+
+    connect(dialog, &VaultImportingWizard::importedVault,
             this,   &PlasmaVaultService::registerVault);
 
     dialog->show();
@@ -234,7 +239,7 @@ void PlasmaVaultService::forgetVault(Vault* vault)
 
 void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
 {
-    const auto vault = qobject_cast<Vault*>(sender());
+    const auto vault = static_cast<Vault*>(sender());
 
     if (status == VaultInfo::Dismantled) {
         forgetVault(vault);
@@ -288,7 +293,7 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
 
 void PlasmaVaultService::onVaultInfoChanged()
 {
-    const auto vault = qobject_cast<Vault*>(sender());
+    const auto vault = static_cast<Vault*>(sender());
     emit vaultChanged(vault->info());
 }
 
@@ -297,9 +302,7 @@ void PlasmaVaultService::onVaultInfoChanged()
 void PlasmaVaultService::onVaultMessageChanged(const QString &message)
 {
     Q_UNUSED(message);
-
-    const auto vault = qobject_cast<Vault*>(sender());
-
+    const auto vault = static_cast<Vault*>(sender());
     emit vaultChanged(vault->info());
 }
 
@@ -310,6 +313,8 @@ void showPasswordMountDialog(Vault *vault, const std::function<void()> &function
     dialog->open();
 }
 //^
+
+
 
 void PlasmaVaultService::openVault(const QString &device)
 {
@@ -340,9 +345,6 @@ void PlasmaVaultService::configureVault(const QString &device)
 {
     if (auto vault = d->vaultFor(device)) {
         const auto dialog = new VaultConfigurationWizard(vault);
-
-        // connect(dialog, &VaultConfigurationWizard::configurationChanged,
-        //         this,   &PlasmaVaultService::registerVault);
 
         dialog->show();
     }

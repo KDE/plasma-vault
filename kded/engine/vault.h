@@ -52,8 +52,8 @@ class Vault: public QObject {
 
     Q_PROPERTY(PlasmaVault::Device device READ device)
 
-    Q_PROPERTY(QString mountPoint       READ mountPoint    NOTIFY mountPointChanged)
-    Q_PROPERTY(VaultInfo::Status status READ status        NOTIFY statusChanged)
+    Q_PROPERTY(QString mountPoint       READ mountPoint NOTIFY mountPointChanged)
+    Q_PROPERTY(VaultInfo::Status status READ status     NOTIFY statusChanged)
 
     Q_PROPERTY(bool isInitialized READ isInitialized NOTIFY isInitializedChanged)
     Q_PROPERTY(bool isOpened      READ isOpened      NOTIFY isOpenedChanged)
@@ -62,7 +62,7 @@ class Vault: public QObject {
     Q_PROPERTY(QString name       READ name    NOTIFY nameChanged)
     Q_PROPERTY(QString message    READ message NOTIFY messageChanged)
 
-    Q_PROPERTY(QStringList activities  READ activities  NOTIFY activitiesChanged)
+    Q_PROPERTY(QStringList activities  READ activities      NOTIFY activitiesChanged)
     Q_PROPERTY(bool        isOfflineOnly READ isOfflineOnly NOTIFY isOfflineOnlyChanged)
 
 public:
@@ -74,6 +74,8 @@ public:
     bool isValid() const;
 
     FutureResult<> create(const QString &name, const MountPoint &mountPoint,
+                          const Payload &payload);
+    FutureResult<> import(const QString &name, const MountPoint &mountPoint,
                           const Payload &payload);
 
     FutureResult<> open(const Payload &payload);

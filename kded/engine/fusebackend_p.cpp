@@ -133,6 +133,28 @@ FutureResult<> FuseBackend::initialize(const QString &name,
 
 
 
+FutureResult<> FuseBackend::import(const QString &name,
+                                   const Device &device,
+                                   const MountPoint &mountPoint,
+                                   const Vault::Payload &payload)
+{
+    Q_UNUSED(name);
+
+    return
+        !isInitialized(device) ?
+            errorResult(Error::BackendError,
+                        i18n("This directory doesn't contain encrypted data")) :
+
+        !directoryExists(device) || directoryExists(mountPoint) ?
+            errorResult(Error::BackendError,
+                        i18n("You need to select an empty directory for the mount point")) :
+
+        // otherwise
+            mount(device, mountPoint, payload);
+}
+
+
+
 FutureResult<> FuseBackend::open(const Device &device,
                                   const MountPoint &mountPoint,
                                   const Vault::Payload &payload)
