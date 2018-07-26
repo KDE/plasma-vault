@@ -30,6 +30,10 @@ static QString normalizePath(const QString& path)
 
     auto result = fileInfo.canonicalFilePath();
 
+    if (result.isEmpty()) {
+        result = path;
+    }
+
     if (result.endsWith('/')) {
         result.chop(1);
     }

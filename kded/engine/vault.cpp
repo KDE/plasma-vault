@@ -235,12 +235,16 @@ public:
         vaultData.status = VaultInfo::Error;
 
         // Reading the mount data from the config
-        const KConfigGroup vaultConfig(config, device.data());
+        KConfigGroup vaultConfig(config, device.data());
         vaultData.name          = vaultConfig.readEntry(CFG_NAME, name);
-        vaultData.mountPoint    = MountPoint(vaultConfig.readEntry(CFG_MOUNT_POINT, mountPoint.data()));
         vaultData.backendName   = vaultConfig.readEntry(CFG_BACKEND, backendName);
         vaultData.activities    = vaultConfig.readEntry(CFG_ACTIVITIES, activities);
         vaultData.isOfflineOnly = vaultConfig.readEntry(CFG_OFFLINEONLY, isOfflineOnly);
+
+        const QString configuredMountPoint = vaultConfig.readEntry(CFG_MOUNT_POINT, mountPoint.data());
+        vaultData.mountPoint = MountPoint(configuredMountPoint);
+        const QString actualMountPoint = vaultData.mountPoint.data();
+        vaultConfig.writeEntry(CFG_MOUNT_POINT, actualMountPoint);
 
         const QDir mountPointDir(vaultData.mountPoint);
 
