@@ -18,8 +18,8 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "vaultconfigurationwizard.h"
-#include "ui_vaultconfigurationwizard.h"
+#include "vaultconfigurationdialog.h"
+#include "ui_vaultconfigurationdialog.h"
 
 #include <QPushButton>
 #include <QMap>
@@ -45,12 +45,12 @@ using namespace DialogDsl::operators;
 
 using PlasmaVault::Vault;
 
-class VaultConfigurationWizard::Private {
+class VaultConfigurationDialog::Private {
 public:
-    VaultConfigurationWizard *const q;
+    VaultConfigurationDialog *const q;
     Vault *vault;
 
-    Ui::VaultConfigurationWizard ui;
+    Ui::VaultConfigurationDialog ui;
     QStackedLayout *layout;
 
     steps currentSteps;
@@ -85,7 +85,7 @@ public:
         }
     };
 
-    Private(Vault *vault, VaultConfigurationWizard *parent)
+    Private(Vault *vault, VaultConfigurationDialog *parent)
         : q(parent)
         , vault(vault)
     {
@@ -169,7 +169,7 @@ public:
 
 
 
-VaultConfigurationWizard::VaultConfigurationWizard(Vault *vault, QWidget *parent)
+VaultConfigurationDialog::VaultConfigurationDialog(Vault *vault, QWidget *parent)
     : QDialog(parent)
     , d(new Private(vault, this))
 {
@@ -195,7 +195,7 @@ VaultConfigurationWizard::VaultConfigurationWizard(Vault *vault, QWidget *parent
 
 
 
-VaultConfigurationWizard::~VaultConfigurationWizard()
+VaultConfigurationDialog::~VaultConfigurationDialog()
 {
 }
 

@@ -18,8 +18,8 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_UI_VAULT_CONFIGURATION_WIZARD_H
-#define PLASMAVAULT_KDED_UI_VAULT_CONFIGURATION_WIZARD_H
+#ifndef PLASMAVAULT_KDED_UI_VAULT_CONFIGURATION_DIALOG_H
+#define PLASMAVAULT_KDED_UI_VAULT_CONFIGURATION_DIALOG_H
 
 #include <QDialog>
 
@@ -27,12 +27,12 @@ namespace PlasmaVault {
     class Vault;
 } // namespace PlasmaVault
 
-class VaultConfigurationWizard: public QDialog {
+class VaultConfigurationDialog: public QDialog {
     Q_OBJECT
 
 public:
-    VaultConfigurationWizard(PlasmaVault::Vault *vault, QWidget *parent = nullptr);
-    ~VaultConfigurationWizard();
+    VaultConfigurationDialog(PlasmaVault::Vault *vault, QWidget *parent = nullptr);
+    ~VaultConfigurationDialog();
 
 Q_SIGNALS:
     void configurationChanged(PlasmaVault::Vault *vault);

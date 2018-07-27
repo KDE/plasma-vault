@@ -32,7 +32,7 @@ set (
 
    ui/vaultcreationwizard.cpp
    ui/vaultimportingwizard.cpp
-   ui/vaultconfigurationwizard.cpp
+   ui/vaultconfigurationdialog.cpp
    ui/mountdialog.cpp
 
    ../common/vaultinfo.cpp
@@ -53,7 +53,7 @@ ki18n_wrap_ui (
 
    ui/vaultcreationwizard.ui
    ui/vaultimportingwizard.ui
-   ui/vaultconfigurationwizard.ui
+   ui/vaultconfigurationdialog.ui
    ui/mountdialog.ui
    )
 

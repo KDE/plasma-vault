@@ -33,7 +33,7 @@
 
 #include "ui/vaultcreationwizard.h"
 #include "ui/vaultimportingwizard.h"
-#include "ui/vaultconfigurationwizard.h"
+#include "ui/vaultconfigurationdialog.h"
 #include "ui/mountdialog.h"
 
 #include <functional>
@@ -344,7 +344,7 @@ void PlasmaVaultService::closeVault(const QString &device)
 void PlasmaVaultService::configureVault(const QString &device)
 {
     if (auto vault = d->vaultFor(device)) {
-        const auto dialog = new VaultConfigurationWizard(vault);
+        const auto dialog = new VaultConfigurationDialog(vault);
 
         dialog->show();
     }

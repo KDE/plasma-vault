@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>VaultConfigurationWizard</class>
- <widget class="QDialog" name="VaultConfigurationWizard">
+ <class>VaultConfigurationDialog</class>
+ <widget class="QDialog" name="VaultConfigurationDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,7 +14,8 @@
    <string>Dialog</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="plasmavault"/>
+   <iconset theme="plasmavault">
+    <normaloff>.</normaloff>.</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -90,7 +91,7 @@
   <connection>
    <sender>buttons</sender>
    <signal>accepted()</signal>
-   <receiver>VaultConfigurationWizard</receiver>
+   <receiver>VaultConfigurationDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -106,7 +107,7 @@
   <connection>
    <sender>buttons</sender>
    <signal>rejected()</signal>
-   <receiver>VaultConfigurationWizard</receiver>
+   <receiver>VaultConfigurationDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

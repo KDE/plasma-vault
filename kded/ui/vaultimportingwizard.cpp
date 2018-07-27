@@ -40,24 +40,10 @@ using namespace DialogDsl::operators;
 #include "passwordchooserwidget.h"
 #include "offlineonlywidget.h"
 
-class VaultImportingWizard::Private {
+#include "vaultwizardbase.h"
+
+class VaultImportingWizard::Private: public WBASE(VaultImportingWizard) {
 public:
-    VaultImportingWizard *const q;
-    Ui::VaultImportingWizard ui;
-    QPushButton *buttonPrevious;
-    QPushButton *buttonNext;
-    QPushButton *buttonImport;
-    QStackedLayout *layout;
-
-    inline void buttonNextSetEnabled(bool enabled) {
-        buttonNext->setEnabled(enabled);
-        buttonImport->setEnabled(enabled);
-    }
-
-    QVector<DialogDsl::DialogModule*> currentStepModules;
-    steps currentSteps;
-    BackendChooserWidget *firstStepModule = nullptr;
-    DialogDsl::DialogModule *currentModule = nullptr;
 
     Logic logic
     {
@@ -94,154 +80,14 @@ public:
         }
     };
 
-    // to suggest the highest priority to the user as a starting value
-    QMap<QString, int> priorities = {
-        { "encfs", 1 },
-        { "cryfs", 2 }
-    };
-
-    template <typename ClickHandler>
-    QPushButton *addDialogButton(const QString &icon, const QString &title, ClickHandler clickHandler)
-    {
-        auto button = new QPushButton(QIcon::fromTheme(icon), title);
-        ui.buttons->addButton(button, QDialogButtonBox::ActionRole);
-        QObject::connect(button, &QPushButton::clicked,
-                         q, clickHandler);
-        return button;
-    }
-
     Private(VaultImportingWizard *parent)
-        : q(parent)
+        : WBASE(VaultImportingWizard)(parent)
     {
-        ui.setupUi(parent);
-        ui.message->hide();
-
-        layout = new QStackedLayout();
-        layout->setContentsMargins(0, 0, 0, 0);
-        ui.container->setLayout(layout);
-
-        // The dialog buttons do not have previous/next by default
-        // so we need to create them
-        buttonPrevious = addDialogButton("go-previous",     i18n("Previous"), [this] { previousStep(); });
-        buttonNext     = addDialogButton("go-next",         i18n("Next"),     [this] { nextStep(); });
-        buttonImport   = addDialogButton("dialog-ok-apply", i18n("Import"),   [this] { importVault(); });
-
-        // The 'Import' button should be hidden by default
-        buttonImport->hide();
-        buttonPrevious->setEnabled(false);
-        buttonNextSetEnabled(false);
-
-        // Loading the fist page of the wizard
-        firstStepModule = new BackendChooserWidget();
-        setCurrentModule(firstStepModule);
-        layout->addWidget(firstStepModule);
-
-        // Loading the backends to the combo box
-        for (const auto& key: logic.keys()) {
-            firstStepModule->addItem(key, key.translation(), priorities.value(key));
-        }
-        firstStepModule->checkBackendAvailable();
+        lastButtonText = i18n("Import");
+        initBase();
     }
 
-    void setCurrentModule(DialogDsl::DialogModule *module)
-    {
-        // If there is a current module already, disconnect it
-        if (currentModule) {
-            currentModule->aboutToBeHidden();
-            currentModule->disconnect();
-        }
-
-        // The current module needs to be changed
-        currentModule = module;
-        currentModule->aboutToBeShown();
-
-        QObject::connect(
-            currentModule, &DialogModule::isValidChanged,
-            q, [&] (bool valid) {
-                buttonNextSetEnabled(valid);
-            });
-
-        // Lets update the button states
-
-        // 1. next/Import button is enabled only if the current
-        //    module is in the valid state
-        buttonNextSetEnabled(currentModule->isValid());
-
-        // 2. previous button is enabled only if we are not on
-        //    the first page
-        buttonPrevious->setEnabled(currentStepModules.size() > 0);
-
-        // 3. If we have loaded the last page, we want to show the
-        //    'Import' button instead of 'Next'
-        if (!currentSteps.isEmpty() && currentStepModules.size() == currentSteps.size()) {
-            buttonNext->hide();
-            buttonImport->show();
-        } else {
-            buttonNext->show();
-            buttonImport->hide();
-        }
-
-        // Calling to initialize the module -- we are passing all the
-        // previously collected data to it
-        auto collectedPayload = firstStepModule->fields();
-        for (const auto* module: currentStepModules) {
-            collectedPayload.unite(module->fields());
-        }
-        currentModule->init(collectedPayload);
-    }
-
-    void previousStep()
-    {
-        if (currentStepModules.isEmpty()) return;
-
-        // We want to kill the current module, and move to the previous one
-        currentStepModules.takeLast();
-        currentModule->deleteLater();;
-
-        if (currentStepModules.size()) {
-            setCurrentModule(currentStepModules.last());
-        } else {
-            setCurrentModule(firstStepModule);
-        }
-
-        if (!currentModule->shouldBeShown()) {
-            previousStep();
-        }
-    }
-
-    void nextStep()
-    {
-        // If the step modules are empty, this means that we
-        // have just started - the user chose the backend
-        // and we need to load the vault creation steps
-        if (currentStepModules.isEmpty()) {
-            const auto &fields = firstStepModule->fields();
-            currentSteps = logic[fields[KEY_BACKEND].toByteArray()];
-        }
-
-        // Loading the modulws that we need to show now
-        auto subModules = currentSteps[currentStepModules.size()];
-
-        // If there is only one module on the current page,
-        // lets not complicate things by creating the compound module
-        DialogModule *stepWidget =
-            (subModules.size() == 1) ? subModules.first()()
-                                     : new CompoundDialogModule(subModules);
-
-        // Adding the widget to the list and the layout
-        currentStepModules << stepWidget;
-        layout->addWidget(stepWidget);
-        layout->setCurrentWidget(stepWidget);
-
-        // Set the newly added module to be the current
-        setCurrentModule(stepWidget);
-
-        if (!currentModule->shouldBeShown()) {
-            nextStep();
-        }
-    }
-
-    void importVault()
+    void finish()
     {
         auto collectedPayload = firstStepModule->fields();
         for (const auto* module: currentStepModules) {
