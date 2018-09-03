@@ -9,7 +9,7 @@ set(PROJECT_VERSION_MAJOR 5)
 
 set (PLASMAVAULT_VERSION "0.1")
 
-set (REQUIRED_QT_VERSION 5.7.0)
+set (QT_MIN_VERSION 5.11.0)
 
 # We don't build in-source
 if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
@@ -36,7 +36,7 @@ include (ECMGenerateHeaders)
 # Qt
 set (CMAKE_AUTOMOC ON)
 find_package (
-   Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED
+   Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED
    COMPONENTS
       Core
       DBus
