@@ -230,7 +230,7 @@ FutureResult<> CryFsBackend::validateBackend()
 
 bool CryFsBackend::isInitialized(const Device &device) const
 {
-    QFile cryFsConfig(device + "/cryfs.config");
+    QFile cryFsConfig(device.data() + QStringLiteral("/cryfs.config"));
     return cryFsConfig.exists();
 }
 

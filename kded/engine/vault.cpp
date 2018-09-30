@@ -130,8 +130,8 @@ public:
             KConfigGroup vaultConfig(config, device.data());
             vaultConfig.writeEntry(CFG_LAST_STATUS, (int)VaultInfo::Error);
             vaultConfig.writeEntry(CFG_LAST_ERROR,
-                    data.error().message() + " (code: " +
-                    QString::number(data.error().code()) + ")");
+                    QString(data.error().message() + QStringLiteral(" (code: ") +
+                    QString::number(data.error().code()) + QStringLiteral(")")));
             // vaultConfig.deleteEntry(CFG_MOUNT_POINT);
             // vaultConfig.deleteEntry(CFG_NAME);
             // vaultConfig.deleteEntry(CFG_BACKEND);
@@ -389,7 +389,7 @@ FutureResult<> Vault::create(const QString &name, const MountPoint &mountPoint,
             | onSuccess([mountPoint] {
                 // If we have successfully created the vault,
                 // lets try to set its icon
-                QFile dotDir(mountPoint + "/.directory");
+                QFile dotDir(mountPoint.data() + QStringLiteral("/.directory"));
 
                 if (dotDir.open(QIODevice::WriteOnly | QIODevice::Text)) {
                     QTextStream out(&dotDir);
@@ -423,7 +423,7 @@ FutureResult<> Vault::import(const QString &name, const MountPoint &mountPoint,
             | onSuccess([mountPoint] {
                 // If we have successfully created the vault,
                 // lets try to set its icon
-                QFile dotDir(mountPoint + "/.directory");
+                QFile dotDir(mountPoint.data() + QStringLiteral("/.directory"));
 
                 if (dotDir.open(QIODevice::WriteOnly | QIODevice::Text)) {
                     QTextStream out(&dotDir);
@@ -470,7 +470,7 @@ FutureResult<> Vault::close()
                 } else {
                     // We want to check whether there is an application
                     // that is accessing the vault
-                    AsynQt::Process::getOutput("lsof", { "-t", mountPoint() })
+                    AsynQt::Process::getOutput(QStringLiteral("lsof"), { QStringLiteral("-t"), mountPoint() })
                         | cast<QString>()
                         | onError([this] {
                             d->updateMessage(i18n("Unable to close the vault, an application is using it"));
@@ -483,7 +483,7 @@ FutureResult<> Vault::close()
                             result.split(QRegExp(QStringLiteral("\\s+")),
                                          QString::SkipEmptyParts);
 
-                            if (pidList.size() == 0) {
+                            if (pidList.isEmpty()) {
                                 d->updateMessage(i18n("Unable to close the vault, an application is using it"));
                                 close();
 
@@ -507,7 +507,7 @@ FutureResult<> Vault::close()
 
                                 blockApps.removeDuplicates();
 
-                                d->updateMessage(i18n("Unable to close the vault, it is used by %1", blockApps.join(", ")));
+                                d->updateMessage(i18n("Unable to close the vault, it is used by %1", blockApps.join(QStringLiteral(", "))));
                             }
                         });
                     }
@@ -528,14 +528,13 @@ FutureResult<> Vault::forceClose()
     using namespace AsynQt::operators;
 
     AsynQt::await(
-        AsynQt::Process::getOutput("lsof", { "-t", mountPoint() })
+        AsynQt::Process::getOutput(QStringLiteral("lsof"), { QStringLiteral("-t"), mountPoint() })
             | cast<QString>()
             | onError([this] {
                 d->updateMessage(i18n("Failed to fetch the list of applications using this vault"));
             })
             | onSuccess([] (const QString &result) {
                 // based on ksolidnotify.cpp
-                QStringList blockApps;
 
                 const auto &pidList =
                 result.split(QRegExp(QStringLiteral("\\s+")),

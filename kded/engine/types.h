@@ -24,7 +24,7 @@
 #include <QString>
 #include <QHash>
 
-#define PLASMAVAULT_CONFIG_FILE "plasmavaultrc"
+#define PLASMAVAULT_CONFIG_FILE QStringLiteral("plasmavaultrc")
 
 namespace PlasmaVault {
 
