@@ -18,8 +18,8 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_ENGINE_BACKENDS_FUSE_BACKEND_H
-#define PLASMAVAULT_KDED_ENGINE_BACKENDS_FUSE_BACKEND_H
+#ifndef PLASMAVAULT_KDED_ENGINE_BACKENDS_FUSE_BACKEND_P_H
+#define PLASMAVAULT_KDED_ENGINE_BACKENDS_FUSE_BACKEND_P_H
 
 #include "backend_p.h"
 

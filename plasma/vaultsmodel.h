@@ -54,7 +54,7 @@ public:
         VaultStatus,                  ///< Status of the vault, @see VaultInfo::Status
         VaultActivities,              ///< To which activities does this vault belong to
         VaultIsOfflineOnly,           ///< Should the networking be off when this vault is mounted
-        VaultMessage                  ///< Message to be shown forthe vault
+        VaultMessage                  ///< Message to be shown for the vault
     };
 
 public Q_SLOTS:

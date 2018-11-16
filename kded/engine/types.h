@@ -18,8 +18,8 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PLASMAVAULT_KDED_ENGINE_COMMON_H
-#define PLASMAVAULT_KDED_ENGINE_COMMON_H
+#ifndef PLASMAVAULT_KDED_ENGINE_COMMON_TYPES_H
+#define PLASMAVAULT_KDED_ENGINE_COMMON_TYPES_H
 
 #include <QString>
 #include <QHash>
