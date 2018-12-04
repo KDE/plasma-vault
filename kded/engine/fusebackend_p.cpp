@@ -202,7 +202,7 @@ QFuture<QPair<bool, QString>> FuseBackend::checkVersion(
 
               const auto matches = versionMatcher.match(all);
 
-              if (!matches.isValid()) {
+              if (!matches.hasMatch()) {
                   return qMakePair(
                               false,
                               i18n("Unable to detect the version"));
