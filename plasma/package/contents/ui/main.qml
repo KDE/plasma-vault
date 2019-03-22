@@ -76,7 +76,13 @@ Item {
 
         ListView {
             id: vaultsList
-            model: vaultsModel
+
+
+            model:
+                PlasmaCore.SortFilterModel {
+                    sortRole: "name"
+                    sourceModel: vaultsModel
+                }
 
             currentIndex: -1
 
