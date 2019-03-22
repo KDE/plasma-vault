@@ -121,6 +121,8 @@ public:
 
     void finish()
     {
+        q->setEnabled(false);
+
         auto collectedPayload = firstStepModule->fields();
         for (const auto* module: currentStepModules) {
             collectedPayload.unite(module->fields());
@@ -146,6 +148,8 @@ public:
             ui.message->show();
             vault->scheduleDeletion();
         }
+
+        q->setEnabled(true);
     }
 };
 
