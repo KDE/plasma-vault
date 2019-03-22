@@ -153,7 +153,10 @@ public:
 
         // Calling to initialize the module -- we are passing all the
         // previously collected data to it
-        auto collectedPayload = firstStepModule->fields();
+        auto collectedPayload =
+                firstStepModule == module ?
+                    PlasmaVault::Vault::Payload{} :
+                    firstStepModule->fields();
         for (const auto* module: currentStepModules) {
             collectedPayload.unite(module->fields());
         }
