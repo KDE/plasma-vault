@@ -90,6 +90,7 @@ endif ()
 add_subdirectory (kded)
 add_subdirectory (plasma)
 add_subdirectory (icons)
+add_subdirectory (fileitemplugin)
 
 # Write out the features
 feature_summary (WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

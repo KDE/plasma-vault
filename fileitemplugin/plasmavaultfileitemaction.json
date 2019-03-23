@@ -1,0 +1,13 @@
+{
+    "KPlugin": {
+        "Icon": "plasmavault",
+        "MimeTypes": [
+            "inode/directory"
+        ],
+        "Name": "Plasma Vault mount and unmount",
+        "ServiceTypes": [
+            "KFileItemAction/Plugin"
+        ]
+    },
+    "MimeType": "application/octet-stream;"
+}
