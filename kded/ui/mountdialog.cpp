@@ -26,9 +26,8 @@
 
 #include <KMessageWidget>
 
-MountDialog::MountDialog(PlasmaVault::Vault *vault, const std::function<void()> &function)
-    : m_vault(vault),
-      m_function(function)
+MountDialog::MountDialog(PlasmaVault::Vault *vault)
+    : m_vault(vault)
 {
     m_ui.setupUi(this);
 
@@ -67,7 +66,6 @@ void MountDialog::accept()
     m_ui.password->lineEdit()->unsetCursor();
 
     if (result) {
-        m_function();
         QDialog::accept();
     } else {
         qDebug() << "We've got an error" <<  result.error().message();

@@ -34,14 +34,13 @@ namespace PlasmaVault {
 class MountDialog : public QDialog
 {
 public:
-    MountDialog(PlasmaVault::Vault *vault, const std::function<void()> &function);
+    MountDialog(PlasmaVault::Vault *vault);
 
 protected:
     void accept() override;
 
 private:
     PlasmaVault::Vault *m_vault;
-    std::function<void()> m_function;
     Ui_MountDialog m_ui;
     KMessageWidget* m_errorLabel;
 };

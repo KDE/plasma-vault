@@ -269,14 +269,14 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
             devicesInhibittingNetworking.contains(vault->device());
 
         if (status == VaultInfo::Opened && !alreadyInhibiting) {
+            auto deviceOpeningHandle = "{opening}" + vault->device();
+            devicesInhibittingNetworking.removeAll(deviceOpeningHandle);
             devicesInhibittingNetworking << vault->device();
         }
 
         if (status != VaultInfo::Opened && alreadyInhibiting) {
             devicesInhibittingNetworking.removeAll(vault->device());
         }
-
-        // qDebug() << "Vaults inhibitting networking: " << devicesInhibittingNetworking;
 
         // Now, let's handle the networking part
         if (!devicesInhibittingNetworking.isEmpty()) {
@@ -307,9 +307,18 @@ void PlasmaVaultService::onVaultMessageChanged(const QString &message)
 }
 
 
-void showPasswordMountDialog(Vault *vault, const std::function<void()> &function)
+template <typename OnAccepted, typename OnRejected>
+void showPasswordMountDialog(Vault *vault,
+                             OnAccepted onAccepted,
+                             OnRejected onRejected)
 {
-    auto dialog = new MountDialog(vault, function);
+    auto dialog = new MountDialog(vault);
+
+    QObject::connect(dialog, &QDialog::accepted,
+                     vault, onAccepted);
+    QObject::connect(dialog, &QDialog::rejected,
+                     vault, onRejected);
+
     dialog->open();
 }
 //^
@@ -321,10 +330,43 @@ void PlasmaVaultService::openVault(const QString &device)
     if (auto vault = d->vaultFor(device)) {
         if (vault->isOpened()) return;
 
+        if (vault->isOfflineOnly()) {
+            d->saveNetworkingState();
+
+            auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
+            auto deviceOpeningHandle = "{opening}" + vault->device();
+
+            // We need to check whether this vault
+            // should be added or removed from the
+            // inhibitors list
+            const bool alreadyInhibiting =
+                devicesInhibittingNetworking.contains(deviceOpeningHandle);
+
+            if (!alreadyInhibiting) {
+                devicesInhibittingNetworking << deviceOpeningHandle;
+            }
+
+            NetworkManager::setNetworkingEnabled(false);
+        }
+
+        auto stopInhibiting = [this, vault] {
+            auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
+            auto deviceOpeningHandle = "{opening}" + vault->device();
+            devicesInhibittingNetworking.removeAll(deviceOpeningHandle);
+        };
+
         showPasswordMountDialog(vault,
-            [this, vault] {
-                emit vaultChanged(vault->info());
-            });
+                [this, vault, stopInhibiting] {
+                    emit vaultChanged(vault->info());
+                    stopInhibiting();
+                },
+                [this, vault, stopInhibiting] {
+                    stopInhibiting();
+                    if (vault->status() != VaultInfo::Opened) {
+                        d->restoreNetworkingState();
+                    }
+                }
+            );
     }
 }
 
@@ -370,10 +412,18 @@ void PlasmaVaultService::openVaultInFileManager(const QString &device)
             new KRun(QUrl::fromLocalFile((QString)vault->mountPoint()), nullptr);
 
         } else {
-            showPasswordMountDialog(vault, [this, vault] {
-                emit vaultChanged(vault->info());
-                new KRun(QUrl::fromLocalFile((QString)vault->mountPoint()), nullptr);
-            });
+            showPasswordMountDialog(vault,
+                [this, vault] {
+                    emit vaultChanged(vault->info());
+                    new KRun(QUrl::fromLocalFile((QString)vault->mountPoint()), nullptr);
+                },
+                [this, vault] {
+                    if (vault->status() != VaultInfo::Opened) {
+                        auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
+                        devicesInhibittingNetworking.removeAll(vault->device());
+                        d->restoreNetworkingState();
+                    }
+                });
         }
     }
 }
