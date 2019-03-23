@@ -192,13 +192,13 @@ void PlasmaVaultService::registerVault(Vault *vault)
 {
     if (!vault->isValid()) {
         qWarning() << "Warning: Trying to register an invalid vault: "
-                   << vault->device();
+                   << vault->device().data();
         return;
     }
 
     if (d->knownVaults.contains(vault->device())) {
         qWarning() << "Warning: This one is already registered: "
-                   << vault->device();
+                   << vault->device().data();
         return;
     }
 
@@ -266,16 +266,16 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
         // should be added or removed from the
         // inhibitors list
         const bool alreadyInhibiting =
-            devicesInhibittingNetworking.contains(vault->device());
+            devicesInhibittingNetworking.contains(vault->device().data());
 
         if (status == VaultInfo::Opened && !alreadyInhibiting) {
-            auto deviceOpeningHandle = "{opening}" + vault->device();
+            auto deviceOpeningHandle = "{opening}" + vault->device().data();
             devicesInhibittingNetworking.removeAll(deviceOpeningHandle);
-            devicesInhibittingNetworking << vault->device();
+            devicesInhibittingNetworking << vault->device().data();
         }
 
         if (status != VaultInfo::Opened && alreadyInhibiting) {
-            devicesInhibittingNetworking.removeAll(vault->device());
+            devicesInhibittingNetworking.removeAll(vault->device().data());
         }
 
         // Now, let's handle the networking part
@@ -334,7 +334,7 @@ void PlasmaVaultService::openVault(const QString &device)
             d->saveNetworkingState();
 
             auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
-            auto deviceOpeningHandle = "{opening}" + vault->device();
+            auto deviceOpeningHandle = "{opening}" + vault->device().data();
 
             // We need to check whether this vault
             // should be added or removed from the
@@ -351,7 +351,7 @@ void PlasmaVaultService::openVault(const QString &device)
 
         auto stopInhibiting = [this, vault] {
             auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
-            auto deviceOpeningHandle = "{opening}" + vault->device();
+            auto deviceOpeningHandle = "{opening}" + vault->device().data();
             devicesInhibittingNetworking.removeAll(deviceOpeningHandle);
         };
 
@@ -409,18 +409,18 @@ void PlasmaVaultService::openVaultInFileManager(const QString &device)
 {
     if (auto vault = d->vaultFor(device)) {
         if (vault->isOpened()) {
-            new KRun(QUrl::fromLocalFile((QString)vault->mountPoint()), nullptr);
+            new KRun(QUrl::fromLocalFile((QString)vault->mountPoint().data()), nullptr);
 
         } else {
             showPasswordMountDialog(vault,
                 [this, vault] {
                     emit vaultChanged(vault->info());
-                    new KRun(QUrl::fromLocalFile((QString)vault->mountPoint()), nullptr);
+                    new KRun(QUrl::fromLocalFile((QString)vault->mountPoint().data()), nullptr);
                 },
                 [this, vault] {
                     if (vault->status() != VaultInfo::Opened) {
                         auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
-                        devicesInhibittingNetworking.removeAll(vault->device());
+                        devicesInhibittingNetworking.removeAll(vault->device().data());
                         d->restoreNetworkingState();
                     }
                 });

@@ -70,15 +70,15 @@ FutureResult<> EncFsBackend::mount(const Device &device,
 
     const auto password = payload[KEY_PASSWORD].toString();
 
-    if (!dir.mkpath(device) || !dir.mkpath(mountPoint)) {
+    if (!dir.mkpath(device.data()) || !dir.mkpath(mountPoint.data())) {
         return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
     }
 
     auto process = encfs({
             "-S", // read password from stdin
             "--standard", // If creating a file system, use the default options
-            device, // source directory to initialize encfs in
-            mountPoint // where to mount the file system
+            device.data(), // source directory to initialize encfs in
+            mountPoint.data() // where to mount the file system
         });
 
     auto result = makeFuture(process, hasProcessFinishedSuccessfully);

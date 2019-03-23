@@ -114,7 +114,7 @@ FutureResult<> CryFsBackend::mount(const Device &device,
     const auto cypher        = payload["cryfs-cipher"].toString();
     const auto shouldUpgrade = payload["cryfs-fs-upgrade"].toBool();
 
-    if (!dir.mkpath(device) || !dir.mkpath(mountPoint)) {
+    if (!dir.mkpath(device.data()) || !dir.mkpath(mountPoint.data())) {
         return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
     }
 
@@ -124,21 +124,21 @@ FutureResult<> CryFsBackend::mount(const Device &device,
             cryfs({
                 "--cipher",
                 cypher,
-                device, // source directory to initialize cryfs in
-                mountPoint // where to mount the file system
+                device.data(), // source directory to initialize cryfs in
+                mountPoint.data() // where to mount the file system
             })
 
         // Cypher is not specified, use the default, whatever it is
         :shouldUpgrade ?
             cryfs({
-                device,     // source directory to initialize cryfs in
-                mountPoint, // where to mount the file system
+                device.data(),     // source directory to initialize cryfs in
+                mountPoint.data(), // where to mount the file system
                 "--allow-filesystem-upgrade"
             })
 
         : cryfs({
-                device,    // source directory to initialize cryfs in
-                mountPoint // where to mount the file system
+                device.data(),    // source directory to initialize cryfs in
+                mountPoint.data() // where to mount the file system
             })
 
         ;

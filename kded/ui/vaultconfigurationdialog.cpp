@@ -103,9 +103,9 @@ public:
         auto modules = logic[Key(vault->backend().toLatin1())];
 
         Vault::Payload payload {
-            { KEY_DEVICE,      QVariant(vault->device()) },
+            { KEY_DEVICE,      QVariant(vault->device().data()) },
             { KEY_NAME,        QVariant(vault->name()) },
-            { KEY_MOUNT_POINT, QVariant(vault->mountPoint()) },
+            { KEY_MOUNT_POINT, QVariant(vault->mountPoint().data()) },
             { KEY_ACTIVITIES,  QVariant(vault->activities()) },
             { KEY_OFFLINEONLY, QVariant(vault->isOfflineOnly()) }
         };

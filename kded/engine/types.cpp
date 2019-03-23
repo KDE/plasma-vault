@@ -46,7 +46,7 @@ Device::Device(const QString &device)
 {
 }
 
-Device::operator QString() const
+QString Device::data() const
 {
     // Done here because canonicalFilePath relies on file existence
     return normalizePath(m_device);
@@ -57,7 +57,7 @@ MountPoint::MountPoint(const QString &mountPoint)
 {
 }
 
-MountPoint::operator QString() const
+QString MountPoint::data() const
 {
     // Done here because canonicalFilePath relies on file existence
     return normalizePath(m_mountPoint);

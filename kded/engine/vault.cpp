@@ -246,7 +246,7 @@ public:
         const QString actualMountPoint = vaultData.mountPoint.data();
         vaultConfig.writeEntry(CFG_MOUNT_POINT, actualMountPoint);
 
-        const QDir mountPointDir(vaultData.mountPoint);
+        const QDir mountPointDir(vaultData.mountPoint.data());
 
 
         return
@@ -261,7 +261,7 @@ public:
                           i18n("Mount point is not specified")) :
 
             // Lets try to create the mount point
-            !mountPointDir.exists() && !QDir().mkpath(vaultData.mountPoint) ?
+            !mountPointDir.exists() && !QDir().mkpath(vaultData.mountPoint.data()) ?
                 errorData(Error::MountPointError,
                           i18n("Cannot create the mount point")) :
 
@@ -470,7 +470,7 @@ FutureResult<> Vault::close()
                 } else {
                     // We want to check whether there is an application
                     // that is accessing the vault
-                    AsynQt::Process::getOutput(QStringLiteral("lsof"), { QStringLiteral("-t"), mountPoint() })
+                    AsynQt::Process::getOutput(QStringLiteral("lsof"), { QStringLiteral("-t"), mountPoint().data() })
                         | cast<QString>()
                         | onError([this] {
                             d->updateMessage(i18n("Unable to close the vault, an application is using it"));
@@ -528,7 +528,7 @@ FutureResult<> Vault::forceClose()
     using namespace AsynQt::operators;
 
     AsynQt::await(
-        AsynQt::Process::getOutput(QStringLiteral("lsof"), { QStringLiteral("-t"), mountPoint() })
+        AsynQt::Process::getOutput(QStringLiteral("lsof"), { QStringLiteral("-t"), mountPoint().data() })
             | cast<QString>()
             | onError([this] {
                 d->updateMessage(i18n("Failed to fetch the list of applications using this vault"));
@@ -651,7 +651,7 @@ MountPoint Vault::mountPoint() const
 
 void Vault::setMountPoint(const MountPoint &mountPoint)
 {
-    if (d->data->mountPoint != mountPoint.data()) {
+    if (d->data->mountPoint.data() != mountPoint.data()) {
         QDir().rmpath(d->data->mountPoint.data());
         QDir().mkpath(mountPoint.data());
 
@@ -735,7 +735,7 @@ VaultInfo Vault::info() const
 {
     VaultInfo vaultInfo;
 
-    vaultInfo.device        = device();
+    vaultInfo.device        = device().data();
     vaultInfo.name          = name();
 
     vaultInfo.status        = status();

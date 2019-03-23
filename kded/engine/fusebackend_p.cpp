@@ -123,7 +123,7 @@ FutureResult<> FuseBackend::initialize(const QString &name,
             errorResult(Error::BackendError,
                         i18n("This directory already contains encrypted data")) :
 
-        directoryExists(device) || directoryExists(mountPoint) ?
+        directoryExists(device.data()) || directoryExists(mountPoint.data()) ?
             errorResult(Error::BackendError,
                         i18n("You need to select empty directories for the encrypted storage and for the mount point")) :
 
@@ -145,7 +145,7 @@ FutureResult<> FuseBackend::import(const QString &name,
             errorResult(Error::BackendError,
                         i18n("This directory doesn't contain encrypted data")) :
 
-        !directoryExists(device) || directoryExists(mountPoint) ?
+        !directoryExists(device.data()) || directoryExists(mountPoint.data()) ?
             errorResult(Error::BackendError,
                         i18n("You need to select an empty directory for the mount point")) :
 
@@ -181,7 +181,7 @@ FutureResult<> FuseBackend::close(const Device &device,
                         i18n("Device is not open")) :
 
         // otherwise
-            makeFuture(fusermount({ "-u", mountPoint }),
+            makeFuture(fusermount({ "-u", mountPoint.data() }),
                        hasProcessFinishedSuccessfully);
 }
 
@@ -270,12 +270,12 @@ bool FuseBackend::isOpened(const MountPoint &mountPoint) const
 {
     // warning: KMountPoint depends on /etc/mtab according to the documentation.
     KMountPoint::Ptr ptr
-        = KMountPoint::currentMountPoints().findByPath(mountPoint);
+        = KMountPoint::currentMountPoints().findByPath(mountPoint.data());
 
     // we can not rely on ptr->realDeviceName() since it is empty,
     // KMountPoint can not get the source
 
-    return ptr && ptr->mountPoint() == mountPoint;
+    return ptr && ptr->mountPoint() == mountPoint.data();
 }
 
 } // namespace PlasmaVault
