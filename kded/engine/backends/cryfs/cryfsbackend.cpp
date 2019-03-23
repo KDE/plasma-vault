@@ -147,6 +147,9 @@ FutureResult<> CryFsBackend::mount(const Device &device,
         const auto out = process->readAllStandardOutput();
         const auto err = process->readAllStandardError();
 
+        qDebug() << "OUT: " << out;
+        qDebug() << "ERR: " << err;
+
         const auto exitCode = (ExitCode) process->exitCode();
 
         auto upgradeFileSystem = [this, device, mountPoint, payload] {
@@ -168,15 +171,15 @@ FutureResult<> CryFsBackend::mount(const Device &device,
         };
 
         return
+            err.contains("'nonempty'") ?
+                Result<>::error(Error::CommandError,
+                                i18n("The mount point directory is not empty, refusing to open the vault")) :
+
             // If all went well, just return success
             (process->exitStatus() == QProcess::NormalExit && exitCode == ExitCode::Success) ?
                 Result<>::success() :
 
             // If we tried to mount into a non-empty location, report
-            err.contains("'nonempty'") ?
-                Result<>::error(Error::CommandError,
-                                i18n("The mount point directory is not empty, refusing to open the vault")) :
-
             exitCode == ExitCode::WrongPassword ?
                 Result<>::error(Error::BackendError,
                                 i18n("You entered the wrong password")) :
