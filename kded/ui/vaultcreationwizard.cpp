@@ -64,7 +64,7 @@ public:
                              or use it in other circumstances where the attacker\n\
                              can frequently access the encrypted data.\n\
                              <br /><br />\n\
-                             See <a href='http://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> for more information."))
+                             See <a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> for more information."))
                      },
                 step { passwordChooser() },
                 step { directoryPairChooser(
