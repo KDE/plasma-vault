@@ -5,6 +5,12 @@
             "inode/directory"
         ],
         "Name": "Plasma Vault mount and unmount",
+        "Name[ca]": "Muntatge i desmuntatge de la caixa forta del Plasma",
+        "Name[en_GB]": "Plasma Vault mount and unmount",
+        "Name[gl]": "Montar e desmontar unha caixa forte de Plasma",
+        "Name[sv]": "Montering och avmontering av Plasma valv",
+        "Name[uk]": "Монтування і демонтування Сховища Плазми",
+        "Name[x-test]": "xxPlasma Vault mount and unmountxx",
         "ServiceTypes": [
             "KFileItemAction/Plugin"
         ]
