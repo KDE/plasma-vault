@@ -350,9 +350,11 @@ void PlasmaVaultService::openVault(const QString &device)
         }
 
         auto stopInhibiting = [this, vault] {
-            auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
-            auto deviceOpeningHandle = "{opening}" + vault->device().data();
-            devicesInhibittingNetworking.removeAll(deviceOpeningHandle);
+            if (d->savedNetworkingState) {
+                auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
+                auto deviceOpeningHandle = "{opening}" + vault->device().data();
+                devicesInhibittingNetworking.removeAll(deviceOpeningHandle);
+            }
         };
 
         showPasswordMountDialog(vault,
