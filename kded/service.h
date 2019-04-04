@@ -1,5 +1,5 @@
 /*
- *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
+ *   Copyright 2017, 2018, 2019 by Ivan Cukic <ivan.cukic (at) kde.org>
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU General Public License as
@@ -53,6 +53,8 @@ public Q_SLOTS:
     Q_SCRIPTABLE void forceCloseAllVaults();
 
     Q_SCRIPTABLE void deleteVault(const QString &device, const QString &name);
+
+    Q_SCRIPTABLE void updateStatus();
 
 Q_SIGNALS:
     void registered();

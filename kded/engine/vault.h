@@ -1,5 +1,5 @@
 /*
- *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
+ *   Copyright 2017, 2018, 2019 by Ivan Cukic <ivan.cukic (at) kde.org>
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU General Public License as
@@ -90,6 +90,8 @@ public:
 
     // TODO: Replace this with shared_ptr and enable_shared_from_this?
     void scheduleDeletion();
+
+    void updateStatus();
 
 public Q_SLOTS:
     QString message() const;

@@ -1,5 +1,5 @@
 /*
- *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
+ *   Copyright 2017, 2018, 2019 by Ivan Cukic <ivan.cukic (at) kde.org>
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU General Public License as
@@ -161,10 +161,13 @@ public:
                 emit q->statusChanged(data->status = VaultInfo::Dismantled);
 
             } else {
+                QDir deviceDir(device.data());
+
                 const auto newStatus =
-                               isOpened()      ? VaultInfo::Opened :
-                               isInitialized() ? VaultInfo::Closed :
-                                                 VaultInfo::NotInitialized;
+                               !deviceDir.exists() ? VaultInfo::DeviceMissing :
+                               isOpened()          ? VaultInfo::Opened :
+                               isInitialized()     ? VaultInfo::Closed :
+                                                     VaultInfo::NotInitialized;
 
                 if (oldStatus == newStatus) return;
 
@@ -247,7 +250,6 @@ public:
         vaultConfig.writeEntry(CFG_MOUNT_POINT, actualMountPoint);
 
         const QDir mountPointDir(vaultData.mountPoint.data());
-
 
         return
             // If the backend is not known, we need to fail
@@ -746,6 +748,14 @@ VaultInfo Vault::info() const
 
     return vaultInfo;
 }
+
+
+
+void Vault::updateStatus()
+{
+    d->updateStatus();
+}
+
 
 } // namespace PlasmaVault
 

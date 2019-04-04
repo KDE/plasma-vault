@@ -1,5 +1,5 @@
 /*
- *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
+ *   Copyright 2017, 2018, 2019 by Ivan Cukic <ivan.cukic (at) kde.org>
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU General Public License as
@@ -38,6 +38,9 @@ public:
     explicit VaultsModel(QObject *parent = nullptr);
     ~VaultsModel() override;
 
+    // This forces detection of removable drives
+    void reloadDevices();
+
     int rowCount(const QModelIndex &parent) const override;
 
     QVariant data(const QModelIndex &index, int role) const override;
@@ -54,12 +57,11 @@ public:
         VaultStatus,                  ///< Status of the vault, @see VaultInfo::Status
         VaultActivities,              ///< To which activities does this vault belong to
         VaultIsOfflineOnly,           ///< Should the networking be off when this vault is mounted
-        VaultMessage                  ///< Message to be shown for the vault
+        VaultMessage,                 ///< Message to be shown for the vault
+        VaultIsEnabled                ///< Can the vault be mounted
     };
 
 public Q_SLOTS:
-    // Refresh the model. This should be done automatically, no need to call
-    // this function
     void refresh();
 
     // Open (unlock) a vault
@@ -110,7 +112,10 @@ public:
                           const QModelIndex &sourceParent) const override;
 
 public Q_SLOTS:
-    QObject *source() const;
+    QObject *actionsModel() const;
+
+    // This forces detection of removable drives
+    void reloadDevices();
 
 private:
     VaultsModel *m_source;

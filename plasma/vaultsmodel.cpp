@@ -1,5 +1,5 @@
 /*
- *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
+ *   Copyright 2017, 2018, 2019 by Ivan Cukic <ivan.cukic (at) kde.org>
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU General Public License as
@@ -241,12 +241,11 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
 
         case VaultIcon:
         {
-            QFileInfo fileInfo(vault.device);
-            if (!fileInfo.exists()) {
-                return "document-close";
-
-            } else switch (vault.status) {
+            switch (vault.status) {
                 case VaultInfo::Error:
+                    return "document-close";
+
+                case VaultInfo::DeviceMissing:
                     return "document-close";
 
                 case VaultInfo::NotInitialized:
@@ -277,6 +276,10 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
 
         case VaultMessage:
             return vault.message;
+
+        case VaultIsEnabled:
+            return !(vault.status == VaultInfo::Error) &&
+                   !(vault.status == VaultInfo::DeviceMissing);
     }
 
     return {};
@@ -296,7 +299,8 @@ QHash<int, QByteArray> VaultsModel::roleNames() const
         { VaultActivities, "activities" },
         { VaultIsOfflineOnly, "isOfflineOnly" },
         { VaultStatus, "status" },
-        { VaultMessage, "message" }
+        { VaultMessage, "message" },
+        { VaultIsEnabled, "isEnabled" }
     };
 }
 
@@ -307,6 +311,11 @@ void VaultsModel::refresh()
     d->loadData();
 }
 
+
+void VaultsModel::reloadDevices()
+{
+    d->service.updateStatus();
+}
 
 
 void VaultsModel::open(const QString &device)
@@ -432,9 +441,14 @@ bool SortedVaultsModelProxy::filterAcceptsRow(int sourceRow,
 
 
 
-QObject *SortedVaultsModelProxy::source() const
+QObject *SortedVaultsModelProxy::actionsModel() const
 {
     return sourceModel();
 }
 
 
+
+void SortedVaultsModelProxy::reloadDevices()
+{
+    static_cast<VaultsModel*>(sourceModel())->reloadDevices();
+}

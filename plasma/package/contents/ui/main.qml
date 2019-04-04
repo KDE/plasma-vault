@@ -1,5 +1,5 @@
 /*
- *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
+ *   Copyright 2017, 2018, 2019 by Ivan Cukic <ivan.cukic (at) kde.org>
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU General Public License as
@@ -26,38 +26,17 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 Item {
-    // For quick mockups in plasmoidviewer
-    // property var vaultsModel: ListModel {
-    //     ListElement {
-    //         name: "TestVault"
-    //         icon: "folder-decrypted"
-    //         device: ""
-    //         mountPoint: ""
-    //         isBusy: false
-    //         isOpened: true
-    //         activities: []
-    //         status: 1 // VaultInfo::Opened
-    //         message: ""
-    //     }
-    // }
-
     property var vaultsModel: plasmoid.nativeInterface.vaultsModel
-    property var vaultsModelActions: plasmoid.nativeInterface.vaultsModel.source()
+    property var vaultsModelActions: plasmoid.nativeInterface.vaultsModel.actionsModel()
 
     property var expandedItem: null
 
-    Binding {
-        target: plasmoid
-        property: "busy"
-        value: vaultsModelActions.isBusy
-    }
+    Plasmoid.busy: vaultsModelActions.isBusy
 
-    Binding {
-        target: plasmoid
-        property: "icon"
-        value: {
-            return vaultsModelActions.hasError ? "plasmavault_error" : "plasmavault";
-        }
+    Plasmoid.icon: vaultsModelActions.hasError ? "plasmavault_error" : "plasmavault";
+
+    Plasmoid.onExpandedChanged: {
+        plasmoid.nativeInterface.vaultsModel.reloadDevices();
     }
 
     Plasmoid.fullRepresentation: ColumnLayout {
@@ -71,8 +50,6 @@ Item {
         // PlasmaExtras.Heading {
         //    text: i18nd("plasmavault-kde", "Encrypted vaults")
         // }
-
-
 
         ListView {
             id: vaultsList
@@ -98,6 +75,7 @@ Item {
                 name: model.name
                 message: model.message
                 isOpened: model.isOpened
+                isEnabled: model.isEnabled
                 device: model.device
                 isOfflineOnly: model.isOfflineOnly
 

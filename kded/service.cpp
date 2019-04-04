@@ -1,5 +1,5 @@
 /*
- *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
+ *   Copyright 2017, 2018, 2019 by Ivan Cukic <ivan.cukic (at) kde.org>
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU General Public License as
@@ -490,6 +490,16 @@ void PlasmaVaultService::deleteVault(const QString &device, const QString &name)
     }
 
     vault->dismantle({});
+}
+
+
+
+void PlasmaVaultService::updateStatus()
+{
+    for (const auto& device: d->knownVaults.keys()) {
+        auto vault = d->knownVaults[device];
+        vault->updateStatus();
+    }
 }
 
 

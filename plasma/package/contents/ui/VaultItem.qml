@@ -1,5 +1,5 @@
 /*
- *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
+ *   Copyright 2017, 2018, 2019 by Ivan Cukic <ivan.cukic (at) kde.org>
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU General Public License as
@@ -35,6 +35,7 @@ MouseArea {
 
     property bool isOpened: false
     property bool isBusy: false
+    property bool isEnabled: false
 
     property bool isOfflineOnly: false
 
@@ -44,7 +45,9 @@ MouseArea {
         actionsList.visible = false;
     }
 
-    property var vaultsModelActions: plasmoid.nativeInterface.vaultsModel.source()
+    onIsEnabledChanged: if (!isEnabled) { collapse(); }
+
+    property var vaultsModelActions: plasmoid.nativeInterface.vaultsModel.actionsModel()
 
     hoverEnabled: true
     height: units.iconSizes.medium + 2 * units.smallSpacing
@@ -100,6 +103,8 @@ MouseArea {
         visible: !busyIndicator.visible
 
         iconName: isOpened ? "media-eject" : "media-mount"
+
+        enabled: vaultItem.isEnabled
 
         onClicked: {
             vaultsModelActions.toggle(vaultItem.device);
@@ -199,6 +204,8 @@ MouseArea {
         visible: !actionsList.visible
 
         onClicked: {
+            if (!vaultItem.isEnabled) return;
+
             actionsList.visible = !actionsList.visible;
             if (actionsList.visible) {
                 vaultItem.itemExpanded(vaultItem);

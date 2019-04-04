@@ -1,5 +1,5 @@
 /*
- *   Copyright 2017 by Ivan Cukic <ivan.cukic (at) kde.org>
+ *   Copyright 2017, 2018, 2019 by Ivan Cukic <ivan.cukic (at) kde.org>
  *
  *   This program is free software; you can redistribute it and/or
  *   modify it under the terms of the GNU General Public License as
@@ -42,6 +42,8 @@ public:
         Closing        = 5,
         Dismantling    = 6,
         Dismantled     = 7,
+
+        DeviceMissing  = 254,
 
         Error          = 255
     };

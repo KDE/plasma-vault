@@ -29,5 +29,8 @@
       <arg name="vault" type="s" direction="in"/>
     </method>
 
+    <method name="updateStatus">
+    </method>
+
   </interface>
 </node>
