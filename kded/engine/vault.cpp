@@ -62,6 +62,23 @@ public:
     KSharedConfigPtr config;
     Device device;
 
+    FILE* deviceDirectoryLock = nullptr;
+
+    void lockDeviceDirectory()
+    {
+        if (!deviceDirectoryLock) {
+            deviceDirectoryLock = fopen(device.data().toLocal8Bit().data(), "r");
+        }
+    }
+
+    void unlockDeviceDirectory()
+    {
+        if (deviceDirectoryLock) {
+            fclose(deviceDirectoryLock);
+            deviceDirectoryLock = nullptr;
+        }
+    }
+
     QTimer savingDelay;
 
 
@@ -207,6 +224,12 @@ public:
 
             emit q->statusChanged(VaultInfo::Error);
         }
+
+        if (data && data->status == VaultInfo::Opened) {
+            lockDeviceDirectory();
+        } else {
+            unlockDeviceDirectory();
+        }
     }
 
 
@@ -285,6 +308,13 @@ public:
         , data(loadVault(device))
     {
         updateStatus();
+    }
+
+
+
+    ~Private()
+    {
+        unlockDeviceDirectory();
     }
 
 
