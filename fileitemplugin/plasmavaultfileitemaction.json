@@ -19,6 +19,7 @@
         "Name[sv]": "Montering och avmontering av Plasma valv",
         "Name[uk]": "Монтування і демонтування Сховища Плазми",
         "Name[x-test]": "xxPlasma Vault mount and unmountxx",
+        "Name[zh_CN]": "Plasma Valut 挂载和卸载",
         "Name[zh_TW]": "Plasma 儲存庫掛載與取消掛載",
         "ServiceTypes": [
             "KFileItemAction/Plugin"
