@@ -39,7 +39,8 @@ PlasmaVaultFileItemAction::PlasmaVaultFileItemAction(QObject* parent, const QVar
 QList<QAction*> PlasmaVaultFileItemAction::actions(const KFileItemListProperties& fileItemInfos, QWidget* parentWidget)
 {
     if (fileItemInfos.urlList().size() != 1 ||
-        !fileItemInfos.isDirectory()) return {};
+        !fileItemInfos.isDirectory() ||
+            !fileItemInfos.isLocal()) return {};
 
     QList<QAction*> actions;
     const QIcon icon = QIcon::fromTheme(QStringLiteral("plasmavault"));
