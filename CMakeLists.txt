@@ -9,7 +9,7 @@ set(PROJECT_VERSION_MAJOR 5)
 
 set (PLASMAVAULT_VERSION "0.1")
 
-set (QT_MIN_VERSION 5.11.0)
+set (QT_MIN_VERSION 5.12.0)
 
 # We don't build in-source
 if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
