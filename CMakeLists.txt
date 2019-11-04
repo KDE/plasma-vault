@@ -36,6 +36,7 @@ include (KDECMakeSettings)
 include (KDECompilerSettings)
 include (GenerateExportHeader)
 include (ECMGenerateHeaders)
+include(KDEClangFormat)
 
 # Qt
 set (CMAKE_AUTOMOC ON)
@@ -91,6 +92,10 @@ add_subdirectory (kded)
 add_subdirectory (plasma)
 add_subdirectory (icons)
 add_subdirectory (fileitemplugin)
+
+# add clang-format target for all our real source files
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
 # Write out the features
 feature_summary (WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
