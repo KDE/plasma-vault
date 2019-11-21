@@ -5,6 +5,7 @@
             "inode/directory"
         ],
         "Name": "Plasma Vault mount and unmount",
+        "Name[ast]": "Montaxe y desmontaxe de Plasma Vault",
         "Name[ca@valencia]": "Muntatge i desmuntatge de la caixa forta de Plasma",
         "Name[ca]": "Muntatge i desmuntatge de la caixa forta del Plasma",
         "Name[cs]": "Připojení a odpojení Sejfu Plasma",
