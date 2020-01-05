@@ -35,6 +35,8 @@ Item {
 
     Plasmoid.icon: vaultsModelActions.hasError ? "plasmavault_error" : "plasmavault";
 
+    Plasmoid.status: vaultsModelActions.count > 0 ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+
     Plasmoid.onExpandedChanged: {
         plasmoid.nativeInterface.vaultsModel.reloadDevices();
     }

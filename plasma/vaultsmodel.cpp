@@ -78,6 +78,7 @@ void VaultsModel::Private::loadData()
     // Asynchronously load the devices
     DBus::asyncCall<VaultInfoList>(&service, "availableDevices") |
         onSuccess([this] (const VaultInfoList &vaultList) {
+            const int oldSize = vaultKeys.size();
             q->beginResetModel();
 
             vaults.clear();
@@ -99,6 +100,10 @@ void VaultsModel::Private::loadData()
             }
 
             q->endResetModel();
+
+            if (vaultKeys.size() != oldSize) {
+                emit q->rowCountChanged(vaultKeys.size());
+            }
 
             emit q->isBusyChanged(busyVaults.count() != 0);
             emit q->hasErrorChanged(errorVaults.count() != 0);
@@ -127,6 +132,7 @@ void VaultsModel::Private::onVaultAdded(const PlasmaVault::VaultInfo &vaultInfo)
     vaults[device] = vaultInfo;
     vaultKeys << device;
     q->endInsertRows();
+    emit q->rowCountChanged(vaultKeys.size());
 }
 
 
@@ -141,6 +147,7 @@ void VaultsModel::Private::onVaultRemoved(const QString &device)
     vaultKeys.removeAt(row);
     vaults.remove(device);
     q->endRemoveRows();
+    emit q->rowCountChanged(vaultKeys.size());
 }
 
 

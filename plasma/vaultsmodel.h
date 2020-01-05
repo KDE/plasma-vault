@@ -33,6 +33,7 @@ class VaultsModel: public QAbstractListModel {
 
     Q_PROPERTY(bool isBusy READ isBusy NOTIFY isBusyChanged)
     Q_PROPERTY(bool hasError READ hasError NOTIFY hasErrorChanged)
+    Q_PROPERTY(int count READ rowCount NOTIFY rowCountChanged)
 
 public:
     explicit VaultsModel(QObject *parent = nullptr);
@@ -41,7 +42,7 @@ public:
     // This forces detection of removable drives
     void reloadDevices();
 
-    int rowCount(const QModelIndex &parent) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &index, int role) const override;
 
@@ -92,6 +93,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     void isBusyChanged(bool isBusy);
     void hasErrorChanged(bool hasError);
+    void rowCountChanged(int count);
 
 private:
     class Private;
