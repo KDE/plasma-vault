@@ -513,7 +513,11 @@ FutureResult<> Vault::close()
 
                             const auto &pidList =
                             result.split(QRegExp(QStringLiteral("\\s+")),
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
                                          QString::SkipEmptyParts);
+#else
+                                         Qt::SkipEmptyParts);
+#endif
 
                             if (pidList.isEmpty()) {
                                 d->updateMessage(i18n("Unable to close the vault, an application is using it"));
@@ -570,7 +574,11 @@ FutureResult<> Vault::forceClose()
 
                 const auto &pidList =
                 result.split(QRegExp(QStringLiteral("\\s+")),
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
                              QString::SkipEmptyParts);
+#else
+                             Qt::SkipEmptyParts);
+#endif
 
                 KSysGuard::Processes procs;
 
