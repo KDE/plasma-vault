@@ -56,7 +56,6 @@ Item {
         ListView {
             id: vaultsList
 
-
             model:
                 PlasmaCore.SortFilterModel {
                     sortRole: "name"
@@ -68,28 +67,10 @@ Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
-            highlight: PlasmaComponents.Highlight {
-                id: highlight
-            }
-
-            delegate: VaultItem {
-                icon: model.icon
-                name: model.name
-                message: model.message
-                isOpened: model.isOpened
-                isEnabled: model.isEnabled
-                device: model.device
-                isOfflineOnly: model.isOfflineOnly
-
-                width: parent.width
-
-                onItemExpanded: {
-                    if (expandedItem != null) {
-                        expandedItem.collapse();
-                    }
-                    expandedItem = item;
-                }
-            }
+            highlight: PlasmaComponents.Highlight {}
+            highlightMoveDuration: units.longDuration
+            highlightResizeDuration: units.longDuration
+            delegate: VaultItem {}
 
             visible: count > 0
 
