@@ -66,7 +66,8 @@ Result<> FuseBackend::hasProcessFinishedSuccessfully(QProcess *process)
 
         // otherwise just report that we failed
             Result<>::error(Error::CommandError,
-                            i18n("Unable to perform the operation"));
+                            i18n("Unable to perform the operation"),
+                            out, err);
 }
 
 

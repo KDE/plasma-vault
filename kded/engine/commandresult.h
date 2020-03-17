@@ -35,17 +35,22 @@ public:
         DeviceError,
         BackendError,
         CommandError,
-        DeletionError
+        DeletionError,
+        UnknownError
     };
 
-    Error(Code code, const QString &message = QString());
+    Error(Code code = UnknownError, const QString &message = {}, const QString &out = {}, const QString &err = {});
 
     Code code() const;
     QString message() const;
+    QString out() const;
+    QString err() const;
 
 private:
     Code m_code;
     QString m_message;
+    QString m_out;
+    QString m_err;
 };
 
 
@@ -59,10 +64,10 @@ using FutureResult = QFuture<Result<T>>;
 
 
 inline
-FutureResult<> errorResult(Error::Code error, const QString &message)
+FutureResult<> errorResult(Error::Code error, const QString &message, const QString &out = {}, const QString &err = {})
 {
     qWarning() << message;
-    return makeReadyFuture(Result<>::error(error, message));
+    return makeReadyFuture(Result<>::error(error, message, out, err));
 }
 
 

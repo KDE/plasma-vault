@@ -18,11 +18,12 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "mountdialog.h"
-#include "engine/vault.h"
 
 #include <QCloseEvent>
 #include <QStyle>
 #include <QStyleOption>
+#include <QAction>
+#include <QMessageBox>
 
 #include <KMessageWidget>
 
@@ -36,6 +37,28 @@ MountDialog::MountDialog(PlasmaVault::Vault *vault)
     m_errorLabel->setCloseButtonVisible(false);
     m_errorLabel->setIcon(QIcon::fromTheme("dialog-error"));
     m_errorLabel->setVisible(false);
+
+    m_detailsAction = new QAction(this);
+    m_detailsAction->setToolTip(i18n("Details..."));
+    m_detailsAction->setIcon(QIcon::fromTheme("view-list-details"));
+
+    connect(m_detailsAction, &QAction::triggered,
+            this, [this] {
+                QString message;
+                const auto out = m_lastError.out().trimmed();
+                const auto err = m_lastError.err().trimmed();
+
+                if (!out.isEmpty() && !err.isEmpty()) {
+                    message = i18n("Command output:\n%1\n\nError output: %2", m_lastError.out(), m_lastError.err());
+                } else {
+                    message = out + err;
+                }
+
+                auto messageBox = new QMessageBox(QMessageBox::Critical, i18n("Error details"), message, QMessageBox::Ok, this);
+                messageBox->setAttribute(Qt::WA_DeleteOnClose);
+                messageBox->show();
+
+            });
 
     auto errorLabelSizePolicy = m_errorLabel->sizePolicy();
     errorLabelSizePolicy.setHorizontalPolicy(QSizePolicy::Expanding);
@@ -68,9 +91,17 @@ void MountDialog::accept()
     if (result) {
         QDialog::accept();
     } else {
-        qDebug() << "We've got an error" <<  result.error().message();
-        // m_ui.errorLabel->setText(i18n("Failed to open: %1").arg(result.error().message()));
-        m_errorLabel->setText(i18n("Failed to open: %1", result.error().message()));
+        m_lastError = result.error();
+
+        m_errorLabel->setText(i18n("Failed to open: %1", m_lastError.message()));
         m_errorLabel->setVisible(true);
+
+        if (!m_lastError.out().isEmpty() || !m_lastError.err().isEmpty()) {
+            m_errorLabel->addAction(m_detailsAction);
+
+        } else {
+            m_errorLabel->removeAction(m_detailsAction);
+
+        }
     }
 }

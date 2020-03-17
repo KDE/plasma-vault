@@ -22,9 +22,11 @@
 
 namespace PlasmaVault {
 
-Error::Error(Code code, const QString &message)
+Error::Error(Code code, const QString &message, const QString &out, const QString &err)
     : m_code(code)
     , m_message(message)
+    , m_out(out)
+    , m_err(err)
 {
 }
 
@@ -36,6 +38,16 @@ Error::Code Error::code() const
 QString Error::message() const
 {
     return m_message;
+}
+
+QString Error::out() const
+{
+    return m_out;
+}
+
+QString Error::err() const
+{
+    return m_err;
 }
 
 } // namespace PlasmaVault
