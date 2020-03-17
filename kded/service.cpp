@@ -420,7 +420,7 @@ void PlasmaVaultService::openVaultInFileManager(const QString &device)
                     new KRun(QUrl::fromLocalFile((QString)vault->mountPoint().data()), nullptr);
                 },
                 [this, vault] {
-                    if (vault->status() != VaultInfo::Opened) {
+                    if (vault->status() != VaultInfo::Opened && d->savedNetworkingState) {
                         auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
                         devicesInhibittingNetworking.removeAll(vault->device().data());
                         d->restoreNetworkingState();
