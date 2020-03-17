@@ -25,7 +25,10 @@
 
 #include "ui_mountdialog.h"
 
+#include "engine/vault.h"
+
 class KMessageWidget;
+class QAction;
 
 namespace PlasmaVault {
     class Vault;
@@ -43,6 +46,8 @@ private:
     PlasmaVault::Vault *m_vault;
     Ui_MountDialog m_ui;
     KMessageWidget* m_errorLabel;
+    QAction* m_detailsAction;
+    PlasmaVault::Error m_lastError;
 };
 
 #endif

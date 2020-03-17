@@ -193,7 +193,8 @@ FutureResult<> CryFsBackend::mount(const Device &device,
 
             // otherwise just report that we failed
                 Result<>::error(Error::CommandError,
-                                i18n("Unable to perform the operation (error code %1).", QString::number((int)exitCode)));
+                                i18n("Unable to perform the operation (error code %1).", QString::number((int)exitCode)),
+                                out, err);
 
 
         });
