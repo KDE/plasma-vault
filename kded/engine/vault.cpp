@@ -413,7 +413,7 @@ FutureResult<> Vault::create(const QString &name, const MountPoint &mountPoint,
         // Mount not open, check the error messages
         !(d->data = d->loadVault(d->device, name, mountPoint, payload)) ?
             errorResult(Error::BackendError,
-                        i18n("Unknown error, unable to create the backend.")) :
+                        i18n("Unknown error; unable to create the backend.")) :
 
         // otherwise
         d->followFuture(VaultInfo::Creating,
@@ -447,7 +447,7 @@ FutureResult<> Vault::import(const QString &name, const MountPoint &mountPoint,
         // Mount not open, check the error messages
         !(d->data = d->loadVault(d->device, name, mountPoint, payload)) ?
             errorResult(Error::BackendError,
-                        i18n("Unknown error, unable to create the backend.")) :
+                        i18n("Unknown error; unable to create the backend.")) :
 
         // otherwise
         d->followFuture(VaultInfo::Creating,
@@ -490,7 +490,7 @@ FutureResult<> Vault::close()
         // We can not mount something that has not been registered
         // with us before
         !d->data ? errorResult(Error::BackendError,
-                               i18n("The vault is unknown, cannot close it.")) :
+                               i18n("The vault is unknown; cannot close it.")) :
 
         // otherwise
         d->followFuture(VaultInfo::Closing,
@@ -505,7 +505,7 @@ FutureResult<> Vault::close()
                     AsynQt::Process::getOutput(QStringLiteral("lsof"), { QStringLiteral("-t"), mountPoint().data() })
                         | cast<QString>()
                         | onError([this] {
-                            d->updateMessage(i18n("Unable to close the vault, an application is using it"));
+                            d->updateMessage(i18n("Unable to close the vault because an application is using it"));
                         })
                         | onSuccess([this] (const QString &result) {
                             // based on ksolidnotify.cpp
@@ -520,7 +520,7 @@ FutureResult<> Vault::close()
 #endif
 
                             if (pidList.isEmpty()) {
-                                d->updateMessage(i18n("Unable to close the vault, an application is using it"));
+                                d->updateMessage(i18n("Unable to close the vault because an application is using it"));
                                 close();
 
                             } else {
@@ -543,7 +543,7 @@ FutureResult<> Vault::close()
 
                                 blockApps.removeDuplicates();
 
-                                d->updateMessage(i18n("Unable to close the vault, it is used by %1", blockApps.join(QStringLiteral(", "))));
+                                d->updateMessage(i18n("Unable to close the vault because it is being used by %1", blockApps.join(QStringLiteral(", "))));
                             }
                         });
                     }
@@ -603,7 +603,7 @@ FutureResult<> Vault::dismantle(const Payload &payload)
         // We can not mount something that has not been registered
         // with us before
         !d->data ? errorResult(Error::BackendError,
-                               i18n("The vault is unknown, cannot dismantle it.")) :
+                               i18n("The vault is unknown; cannot dismantle it.")) :
 
         // otherwise
         d->followFuture(VaultInfo::Dismantling,
