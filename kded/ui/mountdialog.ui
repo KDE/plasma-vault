@@ -10,9 +10,6 @@
     <height>198</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Plasma Vault</string>
-  </property>
   <property name="windowIcon">
    <iconset theme="plasmavault">
     <normaloff>.</normaloff>.</iconset>

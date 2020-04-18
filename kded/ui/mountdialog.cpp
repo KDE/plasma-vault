@@ -31,6 +31,7 @@ MountDialog::MountDialog(PlasmaVault::Vault *vault)
     : m_vault(vault)
 {
     m_ui.setupUi(this);
+    setWindowTitle(i18nc("%1 is the name of the Plasma Vault to open", "Open '%1' Plasma Vault", vault->name()));
 
     m_errorLabel = new KMessageWidget(this);
     m_errorLabel->setMessageType(KMessageWidget::Error);
