@@ -66,6 +66,12 @@ if (KF5NetworkManagerQt_FOUND)
 endif()
 find_package (KF5SysGuard REQUIRED)
 
+find_package(KF5Kirigami2 ${KF5_DEP_VERSION} CONFIG)
+set_package_properties(KF5Kirigami2 PROPERTIES
+    DESCRIPTION "A QtQuick based components set"
+    TYPE RUNTIME
+)
+
 include_directories (
    ${CMAKE_CURRENT_SOURCE_DIR}
    ${CMAKE_CURRENT_SOURCE_DIR}/common

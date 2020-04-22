@@ -18,12 +18,15 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.1
+import QtQuick 2.4
+import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
+
+import org.kde.kirigami 2.12 as Kirigami
 
 Item {
     property var vaultsModel: plasmoid.nativeInterface.vaultsModel
@@ -72,19 +75,38 @@ Item {
             highlightResizeDuration: units.longDuration
             delegate: VaultItem {}
 
-            visible: count > 0
-
             interactive: false
+
+            Kirigami.PlaceholderMessage {
+                id: noVaultsMessage
+
+                anchors.centerIn: parent
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.margins: units.largeSpacing
+
+                visible: vaultsList.count === 0
+
+                text: i18nd("plasmavault-kde", "No Vaults have been set up")
+
+                helpfulAction: Action {
+                    text: i18nd("plasmavault-kde", "Create a New Vault...")
+                    icon.name: "list-add"
+                    onTriggered: vaultsModelActions.requestNewVault()
+                }
+            }
         }
 
         PlasmaComponents.Button {
             id: buttonCreateNewVault
 
+            visible: vaultsList.count > 0
+
             text: i18nd("plasmavault-kde", "Create a New Vault...")
             iconSource: "list-add"
 
             onClicked: vaultsModelActions.requestNewVault()
-            Layout.alignment: vaultsList.visible ? Qt.AlignLeft : Qt.AlignCenter
+            Layout.alignment: Qt.AlignLeft
         }
     }
 }
