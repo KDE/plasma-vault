@@ -128,12 +128,24 @@ PlasmaVaultService::PlasmaVaultService(QObject * parent, const QVariantList&)
     connect(this, &KDEDModule::moduleRegistered,
             this, &PlasmaVaultService::slotRegistered);
 
+    // Close vaults that don't belong to the current activity
     connect(&d->kamd, &KActivities::Consumer::currentActivityChanged,
-            this,     &PlasmaVaultService::onCurrentActivityChanged);
+            this, &PlasmaVaultService::onCurrentActivityChanged);
+
+    // When an activity is deleted, remove it from all the vaults
+    connect(&d->kamd, &KActivities::Consumer::activityRemoved,
+            this, &PlasmaVaultService::onActivityRemoved);
+
+    // When activities are loaded, remove activities that no longer exist
+    // the vaults
+    connect(&d->kamd, &KActivities::Consumer::activitiesChanged,
+            this, &PlasmaVaultService::onActivitiesChanged);
 
     for (const Device &device: Vault::availableDevices()) {
         registerVault(new Vault(device, this));
     }
+
+    onActivitiesChanged(d->kamd.activities());
 }
 
 
@@ -432,19 +444,6 @@ void PlasmaVaultService::openVaultInFileManager(const QString &device)
 
 
 
-void PlasmaVaultService::onCurrentActivityChanged(
-    const QString &currentActivity)
-{
-    for (auto* vault: d->knownVaults.values()) {
-        const auto vaultActivities = vault->activities();
-        if (!vaultActivities.isEmpty() && !vaultActivities.contains(currentActivity)) {
-            vault->close();
-        }
-    }
-}
-
-
-
 bool PlasmaVaultService::hasOpenVaults() const
 {
     return !d->openVaults.isEmpty();
@@ -502,6 +501,53 @@ void PlasmaVaultService::updateStatus()
     }
 }
 
+
+
+void PlasmaVaultService::onActivitiesChanged(const QStringList &knownActivities)
+{
+    if (knownActivities == QStringList{ "00000000-0000-0000-0000-000000000000" }) return;
+    qDebug() << "Known activities:" << knownActivities;
+
+    for (auto* vault: d->knownVaults.values()) {
+        auto vaultActivities = vault->activities();
+        const auto removedBegin = std::remove_if(
+                vaultActivities.begin(), vaultActivities.end(),
+                [&knownActivities] (const QString &vaultActivity) {
+                    return !knownActivities.contains(vaultActivity);
+                });
+        if (removedBegin != vaultActivities.end()) {
+            vaultActivities.erase(removedBegin, vaultActivities.end());
+            vault->setActivities(vaultActivities);
+            vault->saveConfiguration();
+        }
+    }
+}
+
+
+
+void PlasmaVaultService::onCurrentActivityChanged(const QString &currentActivity)
+{
+    for (auto* vault: d->knownVaults.values()) {
+        const auto vaultActivities = vault->activities();
+        if (!vaultActivities.isEmpty() && !vaultActivities.contains(currentActivity)) {
+            vault->close();
+        }
+    }
+}
+
+
+
+void PlasmaVaultService::onActivityRemoved(const QString &removedActivity)
+{
+    for (auto* vault: d->knownVaults.values()) {
+        auto vaultActivities = vault->activities();
+        if (vaultActivities.removeAll(removedActivity) > 0) {
+            vault->setActivities(vaultActivities);
+            vault->saveConfiguration();
+            emit vaultChanged(vault->info());
+        }
+    }
+}
 
 #include "service.moc"
 

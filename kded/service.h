@@ -75,7 +75,9 @@ private Q_SLOTS:
     void onVaultMessageChanged(const QString &message);
     void onVaultInfoChanged();
 
+    void onActivitiesChanged(const QStringList &knownActivities);
     void onCurrentActivityChanged(const QString &currentActivity);
+    void onActivityRemoved(const QString &removedActivity);
 
 private:
     class Private;
