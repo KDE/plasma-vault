@@ -77,6 +77,22 @@ public:
                     offlineOnlyChooser()
                 }
             }
+        },
+
+        { "gocryptfs" / i18n("gocryptfs"),
+            {
+                step { directoryPairChooser(
+                           DirectoryPairChooserWidget::ShowDevicePicker |
+                           DirectoryPairChooserWidget::ShowMountPointPicker |
+                           DirectoryPairChooserWidget::RequireExistingDevice |
+                           DirectoryPairChooserWidget::RequireEmptyMountPoint
+                       ) },
+                step { passwordChooser() },
+                step {
+                    activitiesChooser(),
+                    offlineOnlyChooser()
+                }
+            }
         }
     };
 

@@ -82,6 +82,10 @@ public:
 
         { "cryfs" / i18n("CryFS"),
             defaultSteps
+        },
+
+        { "gocryptfs" / i18n("gocryptfs"),
+            defaultSteps
         }
     };
 

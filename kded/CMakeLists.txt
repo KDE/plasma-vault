@@ -17,6 +17,7 @@ set (
 
    engine/backends/encfs/encfsbackend.cpp
    engine/backends/cryfs/cryfsbackend.cpp
+   engine/backends/gocryptfs/gocryptfsbackend.cpp
 
    ui/dialogdsl.cpp
    ui/activitieslinkingwidget.cpp

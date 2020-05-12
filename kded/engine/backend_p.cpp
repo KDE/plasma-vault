@@ -24,6 +24,7 @@
 
 #include "backends/encfs/encfsbackend.h"
 #include "backends/cryfs/cryfsbackend.h"
+#include "backends/gocryptfs/gocryptfsbackend.h"
 
 #include <KLocalizedString>
 
@@ -43,7 +44,7 @@ Backend::~Backend()
 
 QStringList Backend::availableBackends()
 {
-    return { "encfs", "cryfs" };
+    return { "encfs", "cryfs", "gocryptfs" };
 }
 
 
@@ -53,6 +54,7 @@ Backend::Ptr Backend::instance(const QString &backend)
     return
         backend == QLatin1String("encfs") ? PlasmaVault::EncFsBackend::instance() :
         backend == QLatin1String("cryfs") ? PlasmaVault::CryFsBackend::instance() :
+        backend == QLatin1String("gocryptfs") ? PlasmaVault::GocryptfsBackend::instance() :
         /* unknown backend */ nullptr;
 }
 

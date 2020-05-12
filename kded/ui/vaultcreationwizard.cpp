@@ -110,6 +110,37 @@ public:
                     offlineOnlyChooser()
                 }
             }
+        },
+
+        { "gocryptfs" / i18n("gocryptfs"),
+            {
+                step { notice("gocryptfs-message",
+                       i18n("<b>Security notice:</b>\n\
+                             Gocryptfs encrypts your files, so you can safely store them anywhere.\n\
+                             It works well together with cloud services like Dropbox, iCloud, OneDrive and others.\n\
+                             <br /><br />\n\
+                             A threat model for gocryptfs is provided by the author at \
+                             <a href='https://nuetzlich.net/gocryptfs/threat_model'>nuetzlich.net/gocryptfs/threat_model</a>. \
+                             <br /><br />\n\
+                             According to a security audit performed in 2017 by Taylor Hornby (Defuse Security),\n\
+                             gocryptfs keeps file contents secret against an adversary that can read and modify the \
+                             ciphertext. \
+                             <br /><br />\n\
+                             See <a href='https://defuse.ca/audits/gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."))
+                     },
+                step { passwordChooser() },
+                step { directoryPairChooser(
+                         DirectoryPairChooserWidget::AutoFillPaths |
+                         DirectoryPairChooserWidget::ShowDevicePicker |
+                         DirectoryPairChooserWidget::ShowMountPointPicker |
+                         DirectoryPairChooserWidget::RequireEmptyDevice |
+                         DirectoryPairChooserWidget::RequireEmptyMountPoint
+                     ) },
+                step {
+                    activitiesChooser(),
+                    offlineOnlyChooser()
+                }
+            }
         }
     };
 

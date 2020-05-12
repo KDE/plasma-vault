@@ -60,8 +60,9 @@ public:
 
     // to suggest the highest priority to the user as a starting value
     QMap<QString, int> priorities = {
-        { "encfs", 1 },
-        { "cryfs", 2 }
+        { "gocryptfs", 1 },
+        { "encfs", 2 },
+        { "cryfs", 3 },
     };
 
     template <typename ClickHandler>

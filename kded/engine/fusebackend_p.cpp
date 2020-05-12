@@ -55,7 +55,7 @@ Result<> FuseBackend::hasProcessFinishedSuccessfully(QProcess *process)
             Result<>::success() :
 
         // If we tried to mount into a non-empty location, report
-        err.contains("'nonempty'") ?
+        (err.contains("'nonempty'") || err.contains("non empty")) ?
             Result<>::error(Error::CommandError,
                             i18n("The mount point directory is not empty, refusing to open the vault")) :
 
@@ -113,9 +113,9 @@ QProcess *FuseBackend::fusermount(const QStringList &arguments) const
 
 
 FutureResult<> FuseBackend::initialize(const QString &name,
-                                        const Device &device,
-                                        const MountPoint &mountPoint,
-                                        const Vault::Payload &payload)
+                                       const Device &device,
+                                       const MountPoint &mountPoint,
+                                       const Vault::Payload &payload)
 {
     Q_UNUSED(name);
 
@@ -157,8 +157,8 @@ FutureResult<> FuseBackend::import(const QString &name,
 
 
 FutureResult<> FuseBackend::open(const Device &device,
-                                  const MountPoint &mountPoint,
-                                  const Vault::Payload &payload)
+                                 const MountPoint &mountPoint,
+                                 const Vault::Payload &payload)
 {
     return
         isOpened(mountPoint) ?
