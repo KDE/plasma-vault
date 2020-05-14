@@ -81,7 +81,7 @@ Item {
                 id: noVaultsMessage
 
                 anchors.centerIn: parent
-                width: parent.width - (units.largeSpacing *
+                width: parent.width - (units.largeSpacing * 4)
 
                 visible: vaultsList.count === 0
 
