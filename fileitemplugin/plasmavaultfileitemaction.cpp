@@ -19,16 +19,15 @@
 
 #include "plasmavaultfileitemaction.h"
 
-#include <QFileInfo>
-#include <QMenu>
+#include <QAction>
 #include <QDBusInterface>
 #include <QDBusPendingCall>
+#include <QIcon>
 
 #include <KConfig>
-#include <KPluginFactory>
-#include <KMountPoint>
 #include <KLocalizedString>
-#include <KRun>
+#include <KMountPoint>
+#include <KPluginFactory>
 
 K_PLUGIN_CLASS_WITH_JSON(PlasmaVaultFileItemAction, "plasmavaultfileitemaction.json")
 
