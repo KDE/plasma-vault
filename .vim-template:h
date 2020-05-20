@@ -22,7 +22,9 @@
 #ifndef PLASMAVAULT_%GUARD%
 #define PLASMAVAULT_%GUARD%
 
+
 %HERE%
+
 
 #endif // include guard
 
