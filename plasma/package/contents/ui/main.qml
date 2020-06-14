@@ -26,8 +26,6 @@ import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
-import org.kde.kirigami 2.12 as Kirigami
-
 Item {
     property var vaultsModel: plasmoid.nativeInterface.vaultsModel
     property var vaultsModelActions: plasmoid.nativeInterface.vaultsModel.actionsModel()
@@ -77,7 +75,7 @@ Item {
 
             interactive: false
 
-            Kirigami.PlaceholderMessage {
+            PlasmaExtras.PlaceholderMessage {
                 id: noVaultsMessage
 
                 anchors.centerIn: parent
