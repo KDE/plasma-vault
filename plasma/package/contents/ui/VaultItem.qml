@@ -40,11 +40,7 @@ PlasmaExtras.ExpandableListItem {
         icon.name: model.isOpened ? "media-eject" : "media-mount"
         text: model.isOpened ? i18nd("plasmavault-kde", "Close vault") : i18nd("plasmavault-kde", "Open vault")
         onTriggered: {
-            if (model.isOpened) {
-                vaultsModelActions.toggle(model.device);
-            } else {
-                vaultsModelActions.openInFileManager(model.device);
-            }
+            vaultsModelActions.toggle(model.device);
         }
     }
     isBusy: Plasmoid.busy
