@@ -37,8 +37,8 @@ PlasmaExtras.ExpandableListItem {
     title: model.name
     subtitle: model.message
     defaultActionButtonAction: Action {
-        icon.name: model.isOpened ? "media-eject" : "media-mount"
-        text: model.isOpened ? i18nd("plasmavault-kde", "Close vault") : i18nd("plasmavault-kde", "Open vault")
+        icon.name: model.isOpened ? "lock" : "unlock"
+        text: model.isOpened ? i18nd("plasmavault-kde", "Lock Vault") : i18nd("plasmavault-kde", "Unlock Vault")
         onTriggered: {
             vaultsModelActions.toggle(model.device);
         }
@@ -48,12 +48,12 @@ PlasmaExtras.ExpandableListItem {
     contextualActionsModel: [
         Action {
             icon.name: "system-file-manager"
-            text: i18nd("plasmavault-kde", "Open with File Manager")
+            text: model.isOpened ? i18nd("plasmavault-kde", "Show in File Manager") : i18nd("plasmavault-kde", "Unlock and Show in File Manager")
             onTriggered: vaultsModelActions.openInFileManager(model.device);
         },
         Action {
             icon.name: "window-close"
-            text: i18nd("plasmavault-kde", "Forcefully close")
+            text: i18nd("plasmavault-kde", "Forcefully Lock Vault")
             onTriggered: vaultsModelActions.forceClose(model.device);
             enabled: model.isOpened
         },
