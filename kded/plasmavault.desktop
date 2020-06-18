@@ -38,6 +38,7 @@ Name[sv]=Plasma valvmodul
 Name[tg]=Модули анбори рамзгузории Плазма
 Name[tr]=Plazma Kasası modülü
 Name[uk]=Модуль сховищ Плазми
+Name[x-test]=xxPlasma Vault modulexx
 Name[zh_CN]=Plasma 保险库模块
 Name[zh_TW]=Plasma 儲存庫模組
 Comment=Provides encrypted vaults
@@ -79,6 +80,7 @@ Comment[sv]=Tillhandahåller krypterade valv
 Comment[tg]=Анборҳои рамзгузоришударо таъмин менамояд
 Comment[tr]=Şifreli kasalar sağlar
 Comment[uk]=Надає доступ до шифрованих сховищ
+Comment[x-test]=xxProvides encrypted vaultsxx
 Comment[zh_CN]=提供加密的保险库
 Comment[zh_TW]=提供加密過的儲存庫
 
