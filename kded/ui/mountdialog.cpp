@@ -80,6 +80,7 @@ void MountDialog::accept()
     m_errorLabel->setVisible(false);
     setEnabled(false);
 
+    m_ui.password->lineEdit()->setEchoMode(QLineEdit::Password);
     m_ui.password->lineEdit()->setCursor(Qt::WaitCursor);
     QString pwd = m_ui.password->password();
     auto future = m_vault->open({ { KEY_PASSWORD, pwd } });
@@ -93,6 +94,7 @@ void MountDialog::accept()
         QDialog::accept();
     } else {
         m_lastError = result.error();
+        m_ui.password->lineEdit()->setText({});
 
         m_errorLabel->setText(i18n("Failed to open: %1", m_lastError.message()));
         m_errorLabel->setVisible(true);
