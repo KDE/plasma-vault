@@ -23,7 +23,8 @@ import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.components 2.0 as PlasmaComponents // for Highlight
+import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 Item {
@@ -93,13 +94,13 @@ Item {
             }
         }
 
-        PlasmaComponents.Button {
+        PlasmaComponents3.Button {
             id: buttonCreateNewVault
 
             visible: vaultsList.count > 0
 
             text: i18nd("plasmavault-kde", "Create a New Vault...")
-            iconSource: "list-add"
+            icon.name: "list-add"
 
             onClicked: vaultsModelActions.requestNewVault()
             Layout.alignment: Qt.AlignLeft
