@@ -99,7 +99,6 @@ X-KDE-PluginInfo-Name=org.kde.plasma.vault
 X-KDE-PluginInfo-Version=1.0
 X-KDE-PluginInfo-Website=https://kde.org/plasma-desktop/
 X-KDE-PluginInfo-Category=Utilities
-X-KDE-PluginInfo-Depends=
 X-KDE-PluginInfo-License=GPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
