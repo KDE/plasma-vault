@@ -2,6 +2,7 @@
 Name=Vaults
 Name[ar]=الخزنات
 Name[ast]=Bagules
+Name[az]=Seyflər
 Name[ca]=Caixes fortes
 Name[ca@valencia]=Caixes fortes
 Name[cs]=Sejfy
@@ -46,6 +47,7 @@ Name[zh_TW]=儲存庫
 Comment=Create encrypted vaults
 Comment[ar]=أنشئ خزنات معمّاة
 Comment[ast]=Crea bagules cifraos
+Comment[az]=Şifrələnmiş seyf yaratmaq
 Comment[ca]=Crea caixes fortes encriptades
 Comment[ca@valencia]=Crea caixes fortes encriptades
 Comment[cs]=Vytvářejte šifrované sejfy
