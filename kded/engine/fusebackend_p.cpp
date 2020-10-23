@@ -22,7 +22,6 @@
 
 #include <QUrl>
 #include <QDir>
-#include <QProcess>
 #include <QRegularExpression>
 
 #include <KMountPoint>

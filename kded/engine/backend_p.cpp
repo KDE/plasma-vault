@@ -20,7 +20,6 @@
 
 #include "backend_p.h"
 
-#include <QDir>
 
 #include "backends/encfs/encfsbackend.h"
 #include "backends/cryfs/cryfsbackend.h"
