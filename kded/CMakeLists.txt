@@ -75,9 +75,9 @@ kcoreaddons_desktop_to_json (
 target_link_libraries (
    kded_plasmavault
 
-   Qt5::Core
-   Qt5::DBus
-   Qt5::Widgets
+   Qt::Core
+   Qt::DBus
+   Qt::Widgets
 
    KF5::Activities
    KF5::ConfigCore

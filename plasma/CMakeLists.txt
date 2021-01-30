@@ -34,8 +34,8 @@ kcoreaddons_desktop_to_json (
 target_link_libraries (
    plasma_applet_vault
 
-   Qt5::Gui
-   Qt5::DBus
+   Qt::Gui
+   Qt::DBus
 
    KF5::Activities
    KF5::I18n
