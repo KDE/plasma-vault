@@ -9,6 +9,6 @@
 #    ICONS
 #    hi22-apps-plasmavault-error.svgz
 #    hi22-apps-plasmavault.svgz
-#    DESTINATION ${ICON_INSTALL_DIR}
+#    DESTINATION ${KDE_INSTALL_ICONDIR}
 #    )
 
