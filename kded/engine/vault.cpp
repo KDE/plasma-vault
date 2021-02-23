@@ -23,6 +23,7 @@
 #include <QDir>
 #include <QFutureWatcher>
 #include <QDBusMetaType>
+#include <QMessageBox>
 #include <QUrl>
 #include <QPointer>
 
@@ -599,11 +600,44 @@ FutureResult<> Vault::forceClose()
 
 FutureResult<> Vault::dismantle(const Payload &payload)
 {
+    const auto resolvedPath = [] (const QString& path) {
+        auto result = QDir(path).canonicalPath();
+        if (!result.endsWith('/')) {
+            result += '/';
+        }
+        return result;
+    };
+
+    const auto resolvedDevice = resolvedPath(d->device.data());
+    const auto resolvedMount  = resolvedPath(d->data->mountPoint.data());
+
+    const auto devices = availableDevices();
+    const int matches = std::count_if(devices.cbegin(), devices.cend(),
+          [&] (const Device& device) {
+              auto thisResolvedDevice = resolvedPath(device.data());
+
+              auto diff = std::mismatch(
+                    resolvedDevice.cbegin(), resolvedDevice.cend(),
+                    thisResolvedDevice.cbegin(), thisResolvedDevice.cend());
+
+              return diff.first == resolvedDevice.cend() ||
+                     diff.second == thisResolvedDevice.cend();
+          });
+
     return
+        matches != 1 ? errorResult(Error::BackendError,
+                                   i18n("Cannot delete the vault; there are other vaults with overlapping paths.")):
+
         // We can not mount something that has not been registered
         // with us before
         !d->data ? errorResult(Error::BackendError,
                                i18n("The vault is unknown; cannot dismantle it.")) :
+
+        // Let's confirm with the user once more
+        QMessageBox::question(nullptr, i18n("Are you sure you want to delete this vault"),
+                                       i18n("This operation will irreversibly delete the following:\n%1\n%2",
+                                            d->device.data(), d->data->mountPoint.data()), QMessageBox::Yes | QMessageBox::No) != QMessageBox::Yes ?
+                              errorResult(Error::OperationCancelled, i18n("Delete operation cancelled")) :
 
         // otherwise
         d->followFuture(VaultInfo::Dismantling,

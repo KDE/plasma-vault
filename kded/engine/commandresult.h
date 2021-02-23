@@ -36,7 +36,8 @@ public:
         BackendError,
         CommandError,
         DeletionError,
-        UnknownError
+        UnknownError,
+        OperationCancelled
     };
 
     Error(Code code = UnknownError, const QString &message = {}, const QString &out = {}, const QString &err = {});

@@ -21,6 +21,7 @@
 #include "service.h"
 
 #include <QDBusObjectPath>
+#include <QMessageBox>
 
 #include <KPluginFactory>
 #include <KPasswordDialog>
@@ -37,6 +38,8 @@
 #include "ui/mountdialog.h"
 
 #include <functional>
+
+#include <asynqt/operations/listen.h>
 
 #include <config-plasma-vault.h>
 #ifdef HAVE_NETWORKMANAGER
@@ -488,7 +491,15 @@ void PlasmaVaultService::deleteVault(const QString &device, const QString &name)
         return;
     }
 
-    vault->dismantle({});
+    AsynQt::onFinished(vault->dismantle({}), [] (const auto& future) {
+            const auto& result = future.result();
+            if (result) return;
+
+            const auto& error = result.error();
+            if (error.code() != Error::OperationCancelled) {
+                QMessageBox::critical(nullptr, i18n("Error deleting vault"), error.message());
+            }
+        });
 }
 
 
