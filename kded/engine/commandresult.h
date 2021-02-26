@@ -37,7 +37,7 @@ public:
         CommandError,
         DeletionError,
         UnknownError,
-        OperationCancelled
+        OperationCancelled,
     };
 
     Error(Code code = UnknownError, const QString &message = {}, const QString &out = {}, const QString &err = {});
