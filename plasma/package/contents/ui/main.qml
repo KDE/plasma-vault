@@ -58,7 +58,9 @@ Item {
             highlight: PlasmaComponents.Highlight {}
             highlightMoveDuration: units.longDuration
             highlightResizeDuration: units.longDuration
-            delegate: VaultItem {}
+            delegate: VaultItem {
+                width: vaultsList.width
+            }
 
             interactive: false
 
