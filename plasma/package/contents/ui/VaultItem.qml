@@ -37,6 +37,14 @@ PlasmaExtras.ExpandableListItem {
     isEnabled: model.isEnabled
     contextualActionsModel: [
         Action {
+            enabled: model.isOpened
+            icon.name: "document-open-folder"
+            text: i18n("Show in File Manager")
+            onTriggered: {
+                vaultsModelActions.openInFileManager(model.device);
+            }
+        },
+        Action {
             icon.name: model.isOpened ? "window-close" : "unlock"
             text: model.isOpened ? i18nd("plasmavault-kde", "Forcefully Lock Vault") : i18nd("plasmavault-kde", "Unlock Vault")
             onTriggered: {
