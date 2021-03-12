@@ -74,7 +74,6 @@ include_directories (
 # Basic includes
 include (CPack)
 
-include (ECMPackageConfigHelpers)
 include (ECMSetupVersion)
 
 add_definitions (-DQT_NO_URL_CAST_FROM_STRING)
