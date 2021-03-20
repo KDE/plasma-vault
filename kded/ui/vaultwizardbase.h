@@ -171,6 +171,12 @@ public:
 
     void nextStep()
     {
+        // If the current module is not filled properly, do
+        // not go to the next step
+        if (currentModule && !currentModule->isValid()) {
+            return;
+        }
+
         // If the step modules are empty, this means that we
         // have just started - the user chose the backend
         // and we need to load the vault creation steps
@@ -179,7 +185,7 @@ public:
             currentSteps = self()->logic[fields[KEY_BACKEND].toByteArray()];
         }
 
-        // Loading the modulws that we need to show now
+        // Loading the modules that we need to show now
         auto subModules = currentSteps[currentStepModules.size()];
 
         // If there is only one module on the current page,
