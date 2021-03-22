@@ -22,6 +22,7 @@ PlasmaExtras.ExpandableListItem {
                                                 ""
     title: model.name
     subtitle: model.message
+    subtitleCanWrap: true
     defaultActionButtonAction: Action {
         icon.name: model.isOpened ? "lock" : "unlock"
         text: model.isOpened ? i18nd("plasmavault-kde", "Lock Vault") : i18nd("plasmavault-kde", "Unlock and Open")
