@@ -22,7 +22,7 @@ public:
         RequireEmptyMountPoint = 16,
         RequireExistingMountPoint = 32,
 
-        AutoFillPaths = 64
+        AutoFillPaths = 64,
     };
     Q_DECLARE_FLAGS(Flags, Flag)
 

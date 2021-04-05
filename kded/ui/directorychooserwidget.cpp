@@ -70,7 +70,7 @@ DirectoryChooserWidget::~DirectoryChooserWidget()
 PlasmaVault::Vault::Payload DirectoryChooserWidget::fields() const
 {
     return {
-        { KEY_MOUNT_POINT, d->ui.editMountPoint->url().toLocalFile() }
+        { KEY_MOUNT_POINT, d->ui.editMountPoint->url().toLocalFile() },
     };
 }
 

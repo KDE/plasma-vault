@@ -97,7 +97,7 @@ public:
             { KEY_NAME,        QVariant(vault->name()) },
             { KEY_MOUNT_POINT, QVariant(vault->mountPoint().data()) },
             { KEY_ACTIVITIES,  QVariant(vault->activities()) },
-            { KEY_OFFLINEONLY, QVariant(vault->isOfflineOnly()) }
+            { KEY_OFFLINEONLY, QVariant(vault->isOfflineOnly()) },
         };
 
         for (const auto& module: modules) {

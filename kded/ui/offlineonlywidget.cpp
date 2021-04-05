@@ -37,7 +37,7 @@ OfflineOnlyChooserWidget::~OfflineOnlyChooserWidget()
 PlasmaVault::Vault::Payload OfflineOnlyChooserWidget::fields() const
 {
     return {
-        { KEY_OFFLINEONLY, d->ui.checkShouldBeOffline->isChecked() }
+        { KEY_OFFLINEONLY, d->ui.checkShouldBeOffline->isChecked() },
     };
 }
 

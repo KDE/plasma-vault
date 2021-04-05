@@ -293,7 +293,7 @@ QHash<int, QByteArray> VaultsModel::roleNames() const
         { VaultIsOfflineOnly, "isOfflineOnly" },
         { VaultStatus, "status" },
         { VaultMessage, "message" },
-        { VaultIsEnabled, "isEnabled" }
+        { VaultIsEnabled, "isEnabled" },
     };
 }
 

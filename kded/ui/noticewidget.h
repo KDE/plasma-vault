@@ -15,7 +15,7 @@ class NoticeWidget: public DialogDsl::DialogModule {
 public:
     enum Mode {
         ShowAlways,
-        DoNotShowAgainOption
+        DoNotShowAgainOption,
     };
 
     NoticeWidget(const QString &noticeId, const QString &message, Mode mode);

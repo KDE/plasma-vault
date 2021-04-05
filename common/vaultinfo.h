@@ -31,7 +31,7 @@ public:
 
         DeviceMissing  = 254,
 
-        Error          = 255
+        Error          = 255,
     };
     // Q_ENUM(Status); // VaultInfo is not a QObject or anything like that
 

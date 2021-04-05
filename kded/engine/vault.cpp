@@ -72,7 +72,7 @@ public:
     enum DeletionState {
         Normal,
         DeletionBlocked,
-        DeletionScheduled
+        DeletionScheduled,
     };
     DeletionState deletionState = Normal;
 

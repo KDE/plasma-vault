@@ -165,7 +165,7 @@ PlasmaVault::Vault::Payload DirectoryPairChooserWidget::fields() const
 {
     return {
         { KEY_DEVICE,      d->ui.editDevice->url().toLocalFile() },
-        { KEY_MOUNT_POINT, d->ui.editMountPoint->url().toLocalFile() }
+        { KEY_MOUNT_POINT, d->ui.editMountPoint->url().toLocalFile() },
     };
 }
 

@@ -45,7 +45,7 @@ public:
         VaultActivities,              ///< To which activities does this vault belong to
         VaultIsOfflineOnly,           ///< Should the networking be off when this vault is mounted
         VaultMessage,                 ///< Message to be shown for the vault
-        VaultIsEnabled                ///< Can the vault be mounted
+        VaultIsEnabled,               ///< Can the vault be mounted
     };
 
 public Q_SLOTS:
