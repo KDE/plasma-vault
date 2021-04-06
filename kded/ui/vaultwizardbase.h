@@ -9,14 +9,16 @@
 
 #include <QPushButton>
 
-namespace PlasmaVault {
-    class Vault;
+namespace PlasmaVault
+{
+class Vault;
 } // namespace PlasmaVault
 
 #define WBASE(Class) VaultWizardBase<Class, Ui::Class, Class::Private>
 
-template <typename Class, typename Ui, typename Impl>
-class VaultWizardBase {
+template<typename Class, typename Ui, typename Impl>
+class VaultWizardBase
+{
 public:
     Class *const q;
     Ui ui;
@@ -27,7 +29,8 @@ public:
 
     bool lastModule = false;
     QString lastButtonText;
-    inline void setLastModule(bool last) {
+    inline void setLastModule(bool last)
+    {
         lastModule = last;
         if (last) {
             buttonNext->setText(lastButtonText);
@@ -38,33 +41,30 @@ public:
         }
     }
 
-    QVector<DialogDsl::DialogModule*> currentStepModules;
+    QVector<DialogDsl::DialogModule *> currentStepModules;
     steps currentSteps;
     BackendChooserWidget *firstStepModule = nullptr;
     DialogDsl::DialogModule *currentModule = nullptr;
 
-
     // to suggest the highest priority to the user as a starting value
     QMap<QString, int> priorities = {
-        { "gocryptfs", 1 },
-        { "encfs", 2 },
-        { "cryfs", 3 },
+        {"gocryptfs", 1},
+        {"encfs", 2},
+        {"cryfs", 3},
     };
 
-    template <typename ClickHandler>
-    QPushButton *addDialogButton(const QString &icon, const QString &title,
-                                 ClickHandler clickHandler)
+    template<typename ClickHandler>
+    QPushButton *addDialogButton(const QString &icon, const QString &title, ClickHandler clickHandler)
     {
         auto button = new QPushButton(QIcon::fromTheme(icon), title);
         ui.buttons->addButton(button, QDialogButtonBox::ActionRole);
-        QObject::connect(button, &QPushButton::clicked,
-                         q, clickHandler);
+        QObject::connect(button, &QPushButton::clicked, q, clickHandler);
         return button;
     }
 
-    Impl* self()
+    Impl *self()
     {
-        return static_cast<Impl*>(this);
+        return static_cast<Impl *>(this);
     }
 
     VaultWizardBase(Class *parent)
@@ -84,10 +84,15 @@ public:
     {
         // The dialog buttons do not have previous/next by default
         // so we need to create them
-        buttonPrevious = addDialogButton("go-previous", i18n("Previous"),
-                [this] { previousStep(); });
-        buttonNext = addDialogButton("go-next", i18n("Next"),
-                [this] { if (lastModule) self()->finish(); else nextStep(); });
+        buttonPrevious = addDialogButton("go-previous", i18n("Previous"), [this] {
+            previousStep();
+        });
+        buttonNext = addDialogButton("go-next", i18n("Next"), [this] {
+            if (lastModule)
+                self()->finish();
+            else
+                nextStep();
+        });
 
         // The 'Create' button should be hidden by default
         buttonPrevious->setEnabled(false);
@@ -100,7 +105,7 @@ public:
         layout->addWidget(firstStepModule);
 
         // Loading the backends to the combo box
-        for (const auto& key: self()->logic.keys()) {
+        for (const auto &key : self()->logic.keys()) {
             firstStepModule->addItem(key, key.translation(), priorities.value(key));
         }
         firstStepModule->checkBackendAvailable();
@@ -118,11 +123,9 @@ public:
         currentModule = module;
         currentModule->aboutToBeShown();
 
-        QObject::connect(
-            currentModule, &DialogModule::isValidChanged,
-            q, [&] (bool valid) {
-                buttonNext->setEnabled(valid);
-            });
+        QObject::connect(currentModule, &DialogModule::isValidChanged, q, [&](bool valid) {
+            buttonNext->setEnabled(valid);
+        });
 
         // Lets update the button states
 
@@ -140,11 +143,8 @@ public:
 
         // Calling to initialize the module -- we are passing all the
         // previously collected data to it
-        auto collectedPayload =
-                firstStepModule == module ?
-                    PlasmaVault::Vault::Payload{} :
-                    firstStepModule->fields();
-        for (const auto* module: currentStepModules) {
+        auto collectedPayload = firstStepModule == module ? PlasmaVault::Vault::Payload{} : firstStepModule->fields();
+        for (const auto *module : currentStepModules) {
             collectedPayload.unite(module->fields());
         }
         currentModule->init(collectedPayload);
@@ -152,11 +152,13 @@ public:
 
     void previousStep()
     {
-        if (currentStepModules.isEmpty()) return;
+        if (currentStepModules.isEmpty())
+            return;
 
         // We want to kill the current module, and move to the previous one
         currentStepModules.takeLast();
-        currentModule->deleteLater();;
+        currentModule->deleteLater();
+        ;
 
         if (currentStepModules.size()) {
             setCurrentModule(currentStepModules.last());
@@ -190,9 +192,7 @@ public:
 
         // If there is only one module on the current page,
         // lets not complicate things by creating the compound module
-        DialogModule *stepWidget =
-            (subModules.size() == 1) ? subModules.first()()
-                                     : new CompoundDialogModule(subModules);
+        DialogModule *stepWidget = (subModules.size() == 1) ? subModules.first()() : new CompoundDialogModule(subModules);
 
         // Adding the widget to the list and the layout
         currentStepModules << stepWidget;
@@ -206,9 +206,6 @@ public:
             nextStep();
         }
     }
-
 };
 
-
 #endif // include guard
-

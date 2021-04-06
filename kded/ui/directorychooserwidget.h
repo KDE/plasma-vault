@@ -9,13 +9,13 @@
 
 #include "dialogdsl.h"
 
-
-class DirectoryChooserWidget: public DialogDsl::DialogModule {
+class DirectoryChooserWidget : public DialogDsl::DialogModule
+{
     Q_OBJECT
 
 public:
     enum Flags {
-        RequireNothing         = 0,
+        RequireNothing = 0,
         RequireEmptyMountPoint = 1,
     };
 
@@ -38,4 +38,3 @@ inline DialogDsl::ModuleFactory directoryChooser(DirectoryChooserWidget::Flags f
 }
 
 #endif // include guard
-

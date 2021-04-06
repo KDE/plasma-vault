@@ -10,13 +10,13 @@
 #include <QFuture>
 #include <QFutureWatcher>
 
-#include <type_traits>
 #include <memory>
+#include <type_traits>
 
 #include "../private/operations/flatten_p.h"
 
-namespace AsynQt {
-
+namespace AsynQt
+{
 /**
  * Takes a future of a future, and flattens it out.
  *
@@ -26,16 +26,15 @@ namespace AsynQt {
  * @arg future future that contains another future of type T
  * @returns a single-level future of type T
  */
-template <typename _Result>
+template<typename _Result>
 QFuture<_Result> flatten(const QFuture<QFuture<_Result>> &future)
 {
     return detail::flatten_impl(future);
 }
 
-namespace operators {
-
-inline
-detail::operators::FlattenModifier flatten()
+namespace operators
+{
+inline detail::operators::FlattenModifier flatten()
 {
     return detail::operators::FlattenModifier();
 }
@@ -45,4 +44,3 @@ detail::operators::FlattenModifier flatten()
 } // namespace AsynQt
 
 #endif // ASYNQT_BASE_FLATTEN_H
-

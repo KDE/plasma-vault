@@ -9,7 +9,8 @@
 
 #include "vault.h"
 
-class DirectoryChooserWidget::Private {
+class DirectoryChooserWidget::Private
+{
 public:
     Ui::DirectoryChooserWidget ui;
     DirectoryChooserWidget::Flags flags;
@@ -24,7 +25,8 @@ public:
 
     void setMountPointValid(bool valid)
     {
-        if (mountPointValid == valid) return;
+        if (mountPointValid == valid)
+            return;
 
         mountPointValid = valid;
 
@@ -33,51 +35,43 @@ public:
 
     bool isDirectoryValid(const QUrl &url) const
     {
-        if (url.isEmpty()) return false;
+        if (url.isEmpty())
+            return false;
 
         QDir directory(url.toString());
 
         // TODO: Support alternative flags once they are needed
-        if (!directory.exists() || directory.entryList().isEmpty()) return true;
+        if (!directory.exists() || directory.entryList().isEmpty())
+            return true;
 
         return false;
     }
 };
 
-
-
-DirectoryChooserWidget::DirectoryChooserWidget(
-    DirectoryChooserWidget::Flags flags)
-    : DialogDsl::DialogModule(false), d(new Private(this))
+DirectoryChooserWidget::DirectoryChooserWidget(DirectoryChooserWidget::Flags flags)
+    : DialogDsl::DialogModule(false)
+    , d(new Private(this))
 {
     d->ui.setupUi(this);
     d->flags = flags;
 
-    connect(d->ui.editMountPoint, &KUrlRequester::textEdited,
-            this, [&] () {
-                d->setMountPointValid(d->isDirectoryValid(d->ui.editMountPoint->url()));
-            });
+    connect(d->ui.editMountPoint, &KUrlRequester::textEdited, this, [&]() {
+        d->setMountPointValid(d->isDirectoryValid(d->ui.editMountPoint->url()));
+    });
 }
-
-
 
 DirectoryChooserWidget::~DirectoryChooserWidget()
 {
 }
 
-
-
 PlasmaVault::Vault::Payload DirectoryChooserWidget::fields() const
 {
     return {
-        { KEY_MOUNT_POINT, d->ui.editMountPoint->url().toLocalFile() },
+        {KEY_MOUNT_POINT, d->ui.editMountPoint->url().toLocalFile()},
     };
 }
 
-
-
-void DirectoryChooserWidget::init(
-    const PlasmaVault::Vault::Payload &payload)
+void DirectoryChooserWidget::init(const PlasmaVault::Vault::Payload &payload)
 {
     const auto mountPoint = payload[KEY_MOUNT_POINT].toString();
 
@@ -85,6 +79,3 @@ void DirectoryChooserWidget::init(
 
     d->setMountPointValid(d->isDirectoryValid(d->ui.editMountPoint->url()));
 }
-
-
-

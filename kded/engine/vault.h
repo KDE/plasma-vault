@@ -7,10 +7,10 @@
 #ifndef PLASMAVAULT_KDED_ENGINE_VAULT_H
 #define PLASMAVAULT_KDED_ENGINE_VAULT_H
 
-#include <QString>
-#include <QObject>
-#include <QVariant>
 #include <QDBusArgument>
+#include <QObject>
+#include <QString>
+#include <QVariant>
 
 #include <common/vaultinfo.h>
 
@@ -20,36 +20,37 @@
 
 class QDBusArgument;
 
-namespace PlasmaVault {
-
+namespace PlasmaVault
+{
 // Main keys
-#define KEY_NAME         "vault-name"
-#define KEY_BACKEND      "vault-backend"
-#define KEY_PASSWORD     "vault-password"
-#define KEY_DEVICE       "vault-device"
-#define KEY_MOUNT_POINT  "vault-mount-point"
+#define KEY_NAME "vault-name"
+#define KEY_BACKEND "vault-backend"
+#define KEY_PASSWORD "vault-password"
+#define KEY_DEVICE "vault-device"
+#define KEY_MOUNT_POINT "vault-mount-point"
 
 // Additional options
-#define KEY_ACTIVITIES   "vault-activities"
-#define KEY_OFFLINEONLY  "vault-offline-only"
+#define KEY_ACTIVITIES "vault-activities"
+#define KEY_OFFLINEONLY "vault-offline-only"
 
-class Vault: public QObject {
+class Vault : public QObject
+{
     Q_OBJECT
 
     Q_PROPERTY(PlasmaVault::Device device READ device)
     Q_PROPERTY(PlasmaVault::MountPoint mountPoint READ mountPoint NOTIFY mountPointChanged)
 
-    Q_PROPERTY(VaultInfo::Status status READ status     NOTIFY statusChanged)
+    Q_PROPERTY(VaultInfo::Status status READ status NOTIFY statusChanged)
 
     Q_PROPERTY(bool isInitialized READ isInitialized NOTIFY isInitializedChanged)
-    Q_PROPERTY(bool isOpened      READ isOpened      NOTIFY isOpenedChanged)
-    Q_PROPERTY(bool isBusy        READ isBusy        NOTIFY isBusyChanged)
+    Q_PROPERTY(bool isOpened READ isOpened NOTIFY isOpenedChanged)
+    Q_PROPERTY(bool isBusy READ isBusy NOTIFY isBusyChanged)
 
-    Q_PROPERTY(QString name       READ name    NOTIFY nameChanged)
-    Q_PROPERTY(QString message    READ message NOTIFY messageChanged)
+    Q_PROPERTY(QString name READ name NOTIFY nameChanged)
+    Q_PROPERTY(QString message READ message NOTIFY messageChanged)
 
-    Q_PROPERTY(QStringList activities  READ activities      NOTIFY activitiesChanged)
-    Q_PROPERTY(bool        isOfflineOnly READ isOfflineOnly NOTIFY isOfflineOnlyChanged)
+    Q_PROPERTY(QStringList activities READ activities NOTIFY activitiesChanged)
+    Q_PROPERTY(bool isOfflineOnly READ isOfflineOnly NOTIFY isOfflineOnlyChanged)
 
 public:
     Vault(const Device &device, QObject *parent = nullptr);
@@ -59,10 +60,8 @@ public:
 
     bool isValid() const;
 
-    FutureResult<> create(const QString &name, const MountPoint &mountPoint,
-                          const Payload &payload);
-    FutureResult<> import(const QString &name, const MountPoint &mountPoint,
-                          const Payload &payload);
+    FutureResult<> create(const QString &name, const MountPoint &mountPoint, const Payload &payload);
+    FutureResult<> import(const QString &name, const MountPoint &mountPoint, const Payload &payload);
 
     FutureResult<> open(const Payload &payload);
     FutureResult<> close();
@@ -129,4 +128,3 @@ private:
 } // namespace PlasmaVault
 
 #endif // include guard
-

@@ -11,9 +11,9 @@
 
 #include "../private/operations/collect_p.h"
 
-namespace AsynQt {
-
-template <typename ..._Results>
+namespace AsynQt
+{
+template<typename... _Results>
 QFuture<std::tuple<_Results...>> collect(const QFuture<_Results> &...futures)
 {
     return detail::collect_impl(futures...);
@@ -22,4 +22,3 @@ QFuture<std::tuple<_Results...>> collect(const QFuture<_Results> &...futures)
 } // namespace AsynQt
 
 #endif // ASYNQT_COLLECT_H
-

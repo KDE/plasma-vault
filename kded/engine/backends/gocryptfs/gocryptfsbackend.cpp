@@ -25,10 +25,10 @@
 
 using namespace AsynQt;
 
-namespace PlasmaVault {
-
+namespace PlasmaVault
+{
 // See `man gocryptfs`, section EXIT CODES.
-enum class ExitCode : int{
+enum class ExitCode : int {
     Success = 0,
 
     // CIPHERDIR is not an emtpy directory (on "-init")
@@ -53,30 +53,20 @@ enum class ExitCode : int{
     FsckError = 26,
 };
 
-
-
 GocryptfsBackend::GocryptfsBackend()
 {
 }
 
-
-
 GocryptfsBackend::~GocryptfsBackend()
 {
 }
-
-
 
 Backend::Ptr GocryptfsBackend::instance()
 {
     return singleton::instance<GocryptfsBackend>();
 }
 
-
-
-FutureResult<> GocryptfsBackend::mount(const Device &device,
-                                       const MountPoint &mountPoint,
-                                       const Vault::Payload &payload)
+FutureResult<> GocryptfsBackend::mount(const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload)
 {
     QDir dir;
 
@@ -88,9 +78,9 @@ FutureResult<> GocryptfsBackend::mount(const Device &device,
 
     if (isInitialized(device)) {
         auto mountProcess = gocryptfs({
-                device.data(),    // cypher data directory
-                mountPoint.data() // mount point
-                });
+            device.data(), // cypher data directory
+            mountPoint.data() // mount point
+        });
 
         auto mountResult = makeFuture(mountProcess, hasProcessFinishedSuccessfully);
 
@@ -101,34 +91,31 @@ FutureResult<> GocryptfsBackend::mount(const Device &device,
     } else {
         // Initialise cipherdir
         auto initProcess = gocryptfs({
-                "-init",
-                device.data(),
-            });
+            "-init",
+            device.data(),
+        });
 
-        auto initResult = makeFuture(initProcess, [=] (QProcess *process) {
+        auto initResult = makeFuture(initProcess, [=](QProcess *process) {
             auto const exitCode = static_cast<ExitCode>(process->exitCode());
 
             switch (exitCode) {
-                case ExitCode::Success:
-                    return AsynQt::await(mount(device, mountPoint, payload));
+            case ExitCode::Success:
+                return AsynQt::await(mount(device, mountPoint, payload));
 
-                case ExitCode::NonEmptyCipherDir:
-                    return Result<>::error(Error::BackendError,
-                                           i18n("The cipher directory is not empty, cannot initialise the vault."));
+            case ExitCode::NonEmptyCipherDir:
+                return Result<>::error(Error::BackendError, i18n("The cipher directory is not empty, cannot initialise the vault."));
 
-                case ExitCode::EmptyPassword:
-                    return Result<>::error(Error::BackendError,
-                                           i18n("The password is empty, cannot initialise the vault."));
+            case ExitCode::EmptyPassword:
+                return Result<>::error(Error::BackendError, i18n("The password is empty, cannot initialise the vault."));
 
-                case ExitCode::CannotWriteConfig:
-                    return Result<>::error(Error::BackendError,
-                                           i18n("Cannot write gocryptfs.conf inside cipher directory, check your permissions."));
+            case ExitCode::CannotWriteConfig:
+                return Result<>::error(Error::BackendError, i18n("Cannot write gocryptfs.conf inside cipher directory, check your permissions."));
 
-                default:
-                    return Result<>::error(Error::CommandError,
-                                           i18n("Unable to perform the operation (error code %1).", QString::number((int) exitCode)),
-                                           process->readAllStandardOutput(),
-                                           process->readAllStandardError());
+            default:
+                return Result<>::error(Error::CommandError,
+                                       i18n("Unable to perform the operation (error code %1).", QString::number((int)exitCode)),
+                                       process->readAllStandardOutput(),
+                                       process->readAllStandardError());
             }
         });
 
@@ -141,31 +128,21 @@ FutureResult<> GocryptfsBackend::mount(const Device &device,
     }
 }
 
-
-
 FutureResult<> GocryptfsBackend::validateBackend()
 {
     using namespace AsynQt::operators;
 
     // We need to check whether all the commands are installed
     // and whether the user has permissions to run them
-    return
-        collect(checkVersion(gocryptfs({ "--version" }), std::make_tuple(1, 7, 1)),
-                checkVersion(fusermount({ "--version" }), std::make_tuple(2, 9, 7)))
+    return collect(checkVersion(gocryptfs({"--version"}), std::make_tuple(1, 7, 1)), checkVersion(fusermount({"--version"}), std::make_tuple(2, 9, 7)))
 
-        | transform([this] (const QPair<bool, QString> &gocryptfs,
-                            const QPair<bool, QString> &fusermount) {
+        | transform([this](const QPair<bool, QString> &gocryptfs, const QPair<bool, QString> &fusermount) {
+               bool success = gocryptfs.first && fusermount.first;
+               QString message = formatMessageLine("gocryptfs", gocryptfs) + formatMessageLine("fusermount", fusermount);
 
-              bool success     = gocryptfs.first && fusermount.first;
-              QString message  = formatMessageLine("gocryptfs", gocryptfs)
-                               + formatMessageLine("fusermount", fusermount);
-
-              return success ? Result<>::success()
-                             : Result<>::error(Error::BackendError, message);
-          });
+               return success ? Result<>::success() : Result<>::error(Error::BackendError, message);
+           });
 }
-
-
 
 bool GocryptfsBackend::isInitialized(const Device &device) const
 {
@@ -173,26 +150,17 @@ bool GocryptfsBackend::isInitialized(const Device &device) const
     return gocryptfsConfig.exists();
 }
 
-
-
 QProcess *GocryptfsBackend::gocryptfs(const QStringList &arguments) const
 {
     auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
     KConfigGroup backendConfig(config, "GocryptfsBackend");
 
-    return process("gocryptfs",
-                   arguments + backendConfig.readEntry("extraMountOptions", QStringList{}),
-                   {});
+    return process("gocryptfs", arguments + backendConfig.readEntry("extraMountOptions", QStringList{}), {});
 }
-
-
 
 QString GocryptfsBackend::getConfigFilePath(const Device &device) const
 {
     return device.data() + QStringLiteral("/gocryptfs.conf");
 }
 
-
-
 } // namespace PlasmaVault
-

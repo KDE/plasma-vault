@@ -10,14 +10,14 @@
 #include <QFuture>
 #include <QFutureWatcher>
 
-#include <type_traits>
 #include <memory>
+#include <type_traits>
 
 #include "flatten.h"
 #include "transform.h"
 
-namespace AsynQt {
-
+namespace AsynQt
+{
 /**
  * This method is similar to `transform`,
  * but it takes a transformation function (in this
@@ -43,25 +43,22 @@ namespace AsynQt {
  * @arg continuation the continuation function
  * @returns the future that the continuation will return
  */
-template <typename _In, typename _Continuation>
-auto continueWith(const QFuture<_In> &future, _Continuation &&continuation)
-    -> decltype(flatten(transform(future, std::forward<_Continuation>(continuation))))
+template<typename _In, typename _Continuation>
+auto continueWith(const QFuture<_In> &future, _Continuation &&continuation) -> decltype(flatten(transform(future, std::forward<_Continuation>(continuation))))
 {
     return flatten(transform(future, std::forward<_Continuation>(continuation)));
 }
 
-namespace operators {
-
-    template <typename _In, typename _Continuation>
-    auto operator | (const QFuture<_In> &future, _Continuation &&continuation)
-        -> decltype(continueWith(future, continuation))
-    {
-        return continueWith(future, continuation);
-    }
+namespace operators
+{
+template<typename _In, typename _Continuation>
+auto operator|(const QFuture<_In> &future, _Continuation &&continuation) -> decltype(continueWith(future, continuation))
+{
+    return continueWith(future, continuation);
+}
 
 } // namespace operators
 
 } // namespace AsynQt
 
 #endif // ASYNQT_BASE_CONTINUEWITH_H
-

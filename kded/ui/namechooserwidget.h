@@ -9,8 +9,8 @@
 
 #include "dialogdsl.h"
 
-
-class NameChooserWidget: public DialogDsl::DialogModule {
+class NameChooserWidget : public DialogDsl::DialogModule
+{
     Q_OBJECT
 
 public:
@@ -33,4 +33,3 @@ inline DialogDsl::ModuleFactory nameChooser()
 }
 
 #endif // include guard
-

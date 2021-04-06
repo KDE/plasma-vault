@@ -12,50 +12,45 @@
 
 #include <KActivities/ActivitiesModel>
 
-class ActivitiesLinkingWidget::Private {
+class ActivitiesLinkingWidget::Private
+{
 public:
     Ui::ActivitiesLinkingWidget ui;
 };
 
+namespace
+{
+class CheckboxDelegate : public QItemDelegate
+{ //_
+public:
+    CheckboxDelegate(QObject *parent)
+        : QItemDelegate(parent)
+    {
+    }
 
-namespace {
-    class CheckboxDelegate: public QItemDelegate { //_
-    public:
-        CheckboxDelegate(QObject *parent)
-            : QItemDelegate(parent)
-        {
-        }
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override
+    {
+        auto wholeRect = option.rect;
 
-        void paint(QPainter *painter, const QStyleOptionViewItem &option,
-                   const QModelIndex &index) const override
-        {
-            auto wholeRect = option.rect;
+        // Drawing the checkbox
+        auto checkRect = wholeRect;
+        checkRect.setWidth(checkRect.height());
+        drawCheck(painter, option, checkRect, option.state & QStyle::State_Selected ? Qt::Checked : Qt::Unchecked);
 
-            // Drawing the checkbox
-            auto checkRect = wholeRect;
-            checkRect.setWidth(checkRect.height());
-            drawCheck(painter, option, checkRect,
-                    option.state & QStyle::State_Selected ?
-                        Qt::Checked : Qt::Unchecked);
+        // Drawing the text
+        auto textRect = wholeRect;
+        textRect.setLeft(textRect.left() + 8 + textRect.height());
+        drawDisplay(painter, option, textRect, index.data(Qt::DisplayRole).toString());
+    }
 
-            // Drawing the text
-            auto textRect = wholeRect;
-            textRect.setLeft(textRect.left() + 8 + textRect.height());
-            drawDisplay(painter, option, textRect,
-                        index.data(Qt::DisplayRole).toString());
-        }
-
-        QSize sizeHint(const QStyleOptionViewItem &option,
-                       const QModelIndex &index) const override
-        {
-            Q_UNUSED(option);
-            Q_UNUSED(index);
-            return QSize(100, 22);
-        }
-    }; //^
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override
+    {
+        Q_UNUSED(option);
+        Q_UNUSED(index);
+        return QSize(100, 22);
+    }
+}; //^
 }
-
-
 
 ActivitiesLinkingWidget::ActivitiesLinkingWidget()
     : DialogDsl::DialogModule(true)
@@ -67,34 +62,22 @@ ActivitiesLinkingWidget::ActivitiesLinkingWidget()
     d->ui.listActivities->setItemDelegate(new CheckboxDelegate(this));
 }
 
-
-
 ActivitiesLinkingWidget::~ActivitiesLinkingWidget()
 {
 }
 
-
-
 PlasmaVault::Vault::Payload ActivitiesLinkingWidget::fields() const
 {
-
     const auto selection = d->ui.listActivities->selectionModel();
     QStringList selectedActivities;
-    for (const auto &selectedIndex: selection->selectedIndexes()) {
-        selectedActivities
-            << selectedIndex.data(KActivities::ActivitiesModel::ActivityId)
-                            .toString();
+    for (const auto &selectedIndex : selection->selectedIndexes()) {
+        selectedActivities << selectedIndex.data(KActivities::ActivitiesModel::ActivityId).toString();
     }
 
-    return {
-        { KEY_ACTIVITIES, selectedActivities }
-    };
+    return {{KEY_ACTIVITIES, selectedActivities}};
 }
 
-
-
-void ActivitiesLinkingWidget::init(
-    const PlasmaVault::Vault::Payload &payload)
+void ActivitiesLinkingWidget::init(const PlasmaVault::Vault::Payload &payload)
 {
     const auto activities = payload[KEY_ACTIVITIES].toStringList();
 
@@ -111,9 +94,7 @@ void ActivitiesLinkingWidget::init(
 
         for (int row = 0; row < d->ui.listActivities->model()->rowCount(); ++row) {
             const auto index = model->index(row, 0);
-            const auto activity
-                = model->data(index, KActivities::ActivitiesModel::ActivityId)
-                      .toString();
+            const auto activity = model->data(index, KActivities::ActivitiesModel::ActivityId).toString();
 
             if (activities.contains(activity)) {
                 selection->select(index, QItemSelectionModel::Select);
@@ -121,6 +102,3 @@ void ActivitiesLinkingWidget::init(
         }
     }
 }
-
-
-

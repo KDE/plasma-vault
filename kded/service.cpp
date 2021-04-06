@@ -9,19 +9,19 @@
 #include <QDBusObjectPath>
 #include <QMessageBox>
 
-#include <KPluginFactory>
-#include <KPasswordDialog>
-#include <KLocalizedString>
 #include <KActivities/Consumer>
+#include <KLocalizedString>
+#include <KPasswordDialog>
+#include <KPluginFactory>
 #include <KRun>
 
-#include "engine/vault.h"
 #include "engine/commandresult.h"
+#include "engine/vault.h"
 
+#include "ui/mountdialog.h"
+#include "ui/vaultconfigurationdialog.h"
 #include "ui/vaultcreationwizard.h"
 #include "ui/vaultimportingwizard.h"
-#include "ui/vaultconfigurationdialog.h"
-#include "ui/mountdialog.h"
 
 #include <functional>
 
@@ -33,29 +33,28 @@
 #else
 namespace NetworkManager
 {
-    bool isNetworkingEnabled()
-    {
-        return true;
-    }
+bool isNetworkingEnabled()
+{
+    return true;
+}
 
-    void setNetworkingEnabled(bool enabled)
-    {
-        Q_UNUSED(enabled);
-    }
+void setNetworkingEnabled(bool enabled)
+{
+    Q_UNUSED(enabled);
+}
 }
 #endif
 
-K_PLUGIN_FACTORY_WITH_JSON(PlasmaVaultServiceFactory,
-                           "plasmavault.json",
-                           registerPlugin<PlasmaVaultService>();)
+K_PLUGIN_FACTORY_WITH_JSON(PlasmaVaultServiceFactory, "plasmavault.json", registerPlugin<PlasmaVaultService>();)
 
 using namespace PlasmaVault;
 
 using AsynQt::Expected;
 
-class PlasmaVaultService::Private {
+class PlasmaVaultService::Private
+{
 public:
-    QHash<Device, Vault*> knownVaults;
+    QHash<Device, Vault *> knownVaults;
     QSet<Device> openVaults;
     KActivities::Consumer kamd;
 
@@ -64,9 +63,7 @@ public:
         QVector<QString> devicesInhibittingNetworking;
     };
     // Ideally, this would be std::optional... lovely C++17
-    Expected<NetworkingState, int> savedNetworkingState =
-        Expected<NetworkingState, int>::error(0);
-
+    Expected<NetworkingState, int> savedNetworkingState = Expected<NetworkingState, int>::error(0);
 
     void saveNetworkingState()
     {
@@ -75,13 +72,8 @@ public:
             return;
         }
 
-        savedNetworkingState = Expected<NetworkingState, int>::success(
-                NetworkingState {
-                    NetworkManager::isNetworkingEnabled() || true,
-                    {}
-                });
+        savedNetworkingState = Expected<NetworkingState, int>::success(NetworkingState{NetworkManager::isNetworkingEnabled() || true, {}});
     }
-
 
     void restoreNetworkingState()
     {
@@ -94,8 +86,7 @@ public:
         NetworkManager::setNetworkingEnabled(savedNetworkingState->wasNetworkingEnabled);
     }
 
-
-    Vault* vaultFor(const QString &device_) const
+    Vault *vaultFor(const QString &device_) const
     {
         const Device device(device_);
 
@@ -105,80 +96,61 @@ public:
 
         return knownVaults[device];
     }
-
 };
 
-
-
-PlasmaVaultService::PlasmaVaultService(QObject * parent, const QVariantList&)
+PlasmaVaultService::PlasmaVaultService(QObject *parent, const QVariantList &)
     : KDEDModule(parent)
     , d(new Private())
 {
-    connect(this, &KDEDModule::moduleRegistered,
-            this, &PlasmaVaultService::slotRegistered);
+    connect(this, &KDEDModule::moduleRegistered, this, &PlasmaVaultService::slotRegistered);
 
     // Close vaults that don't belong to the current activity
-    connect(&d->kamd, &KActivities::Consumer::currentActivityChanged,
-            this, &PlasmaVaultService::onCurrentActivityChanged);
+    connect(&d->kamd, &KActivities::Consumer::currentActivityChanged, this, &PlasmaVaultService::onCurrentActivityChanged);
 
     // When an activity is deleted, remove it from all the vaults
-    connect(&d->kamd, &KActivities::Consumer::activityRemoved,
-            this, &PlasmaVaultService::onActivityRemoved);
+    connect(&d->kamd, &KActivities::Consumer::activityRemoved, this, &PlasmaVaultService::onActivityRemoved);
 
     // When activities are loaded, remove activities that no longer exist
     // the vaults
-    connect(&d->kamd, &KActivities::Consumer::activitiesChanged,
-            this, &PlasmaVaultService::onActivitiesChanged);
+    connect(&d->kamd, &KActivities::Consumer::activitiesChanged, this, &PlasmaVaultService::onActivitiesChanged);
 
-    for (const Device &device: Vault::availableDevices()) {
+    for (const Device &device : Vault::availableDevices()) {
         registerVault(new Vault(device, this));
     }
 
     onActivitiesChanged(d->kamd.activities());
 }
 
-
-
 PlasmaVaultService::~PlasmaVaultService()
 {
 }
 
-
-
 PlasmaVault::VaultInfoList PlasmaVaultService::availableDevices() const
 {
     PlasmaVault::VaultInfoList result;
-    for (const auto &vault: d->knownVaults.values()) {
+    for (const auto &vault : d->knownVaults.values()) {
         result << vault->info();
     }
     return result;
 }
 
-
-
 void PlasmaVaultService::requestNewVault()
 {
     const auto dialog = new VaultCreationWizard();
 
-    connect(dialog, &VaultCreationWizard::createdVault,
-            this,   &PlasmaVaultService::registerVault);
+    connect(dialog, &VaultCreationWizard::createdVault, this, &PlasmaVaultService::registerVault);
 
     dialog->show();
 }
-
-
 
 void PlasmaVaultService::requestImportVault()
 {
     const auto dialog = new VaultImportingWizard();
 
-    connect(dialog, &VaultImportingWizard::importedVault,
-            this,   &PlasmaVaultService::registerVault);
+    connect(dialog, &VaultImportingWizard::importedVault, this, &PlasmaVaultService::registerVault);
 
     dialog->show();
 }
-
-
 
 void PlasmaVaultService::slotRegistered(const QDBusObjectPath &path)
 {
@@ -187,19 +159,15 @@ void PlasmaVaultService::slotRegistered(const QDBusObjectPath &path)
     }
 }
 
-
-
 void PlasmaVaultService::registerVault(Vault *vault)
 {
     if (!vault->isValid()) {
-        qWarning() << "Warning: Trying to register an invalid vault: "
-                   << vault->device().data();
+        qWarning() << "Warning: Trying to register an invalid vault: " << vault->device().data();
         return;
     }
 
     if (d->knownVaults.contains(vault->device())) {
-        qWarning() << "Warning: This one is already registered: "
-                   << vault->device().data();
+        qWarning() << "Warning: This one is already registered: " << vault->device().data();
         return;
     }
 
@@ -207,12 +175,9 @@ void PlasmaVaultService::registerVault(Vault *vault)
 
     d->knownVaults[vault->device()] = vault;
 
-    connect(vault, &Vault::statusChanged,
-            this,  &PlasmaVaultService::onVaultStatusChanged);
-    connect(vault, &Vault::messageChanged,
-            this,  &PlasmaVaultService::onVaultMessageChanged);
-    connect(vault, &Vault::infoChanged,
-            this,  &PlasmaVaultService::onVaultInfoChanged);
+    connect(vault, &Vault::statusChanged, this, &PlasmaVaultService::onVaultStatusChanged);
+    connect(vault, &Vault::messageChanged, this, &PlasmaVaultService::onVaultMessageChanged);
+    connect(vault, &Vault::infoChanged, this, &PlasmaVaultService::onVaultInfoChanged);
 
     emit vaultAdded(vault->info());
 
@@ -221,9 +186,7 @@ void PlasmaVaultService::registerVault(Vault *vault)
     }
 }
 
-
-
-void PlasmaVaultService::forgetVault(Vault* vault)
+void PlasmaVaultService::forgetVault(Vault *vault)
 {
     // Can not be open
     // d->openVaults.remove(vault.device());
@@ -236,11 +199,9 @@ void PlasmaVaultService::forgetVault(Vault* vault)
     vault->deleteLater();
 }
 
-
-
 void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
 {
-    const auto vault = static_cast<Vault*>(sender());
+    const auto vault = static_cast<Vault *>(sender());
 
     if (status == VaultInfo::Dismantled) {
         forgetVault(vault);
@@ -256,18 +217,16 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
         if (d->openVaults.isEmpty()) {
             emit hasOpenVaultsChanged(false);
         }
-
     }
 
     if (vault->isOfflineOnly()) {
         d->saveNetworkingState();
-        auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
+        auto &devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
 
         // We need to check whether this vault
         // should be added or removed from the
         // inhibitors list
-        const bool alreadyInhibiting =
-            devicesInhibittingNetworking.contains(vault->device().data());
+        const bool alreadyInhibiting = devicesInhibittingNetworking.contains(vault->device().data());
 
         if (status == VaultInfo::Opened && !alreadyInhibiting) {
             auto deviceOpeningHandle = "{opening}" + vault->device().data();
@@ -290,58 +249,47 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
     emit vaultChanged(vault->info());
 }
 
-
-
 void PlasmaVaultService::onVaultInfoChanged()
 {
-    const auto vault = static_cast<Vault*>(sender());
+    const auto vault = static_cast<Vault *>(sender());
     emit vaultChanged(vault->info());
 }
-
-
 
 void PlasmaVaultService::onVaultMessageChanged(const QString &message)
 {
     Q_UNUSED(message);
-    const auto vault = static_cast<Vault*>(sender());
+    const auto vault = static_cast<Vault *>(sender());
     emit vaultChanged(vault->info());
 }
 
-
-template <typename OnAccepted, typename OnRejected>
-void showPasswordMountDialog(Vault *vault,
-                             OnAccepted onAccepted,
-                             OnRejected onRejected)
+template<typename OnAccepted, typename OnRejected>
+void showPasswordMountDialog(Vault *vault, OnAccepted onAccepted, OnRejected onRejected)
 {
     auto dialog = new MountDialog(vault);
 
-    QObject::connect(dialog, &QDialog::accepted,
-                     vault, onAccepted);
-    QObject::connect(dialog, &QDialog::rejected,
-                     vault, onRejected);
+    QObject::connect(dialog, &QDialog::accepted, vault, onAccepted);
+    QObject::connect(dialog, &QDialog::rejected, vault, onRejected);
 
     dialog->open();
 }
 //^
 
-
-
 void PlasmaVaultService::openVault(const QString &device)
 {
     if (auto vault = d->vaultFor(device)) {
-        if (vault->isOpened()) return;
+        if (vault->isOpened())
+            return;
 
         if (vault->isOfflineOnly()) {
             d->saveNetworkingState();
 
-            auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
+            auto &devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
             auto deviceOpeningHandle = "{opening}" + vault->device().data();
 
             // We need to check whether this vault
             // should be added or removed from the
             // inhibitors list
-            const bool alreadyInhibiting =
-                devicesInhibittingNetworking.contains(deviceOpeningHandle);
+            const bool alreadyInhibiting = devicesInhibittingNetworking.contains(deviceOpeningHandle);
 
             if (!alreadyInhibiting) {
                 devicesInhibittingNetworking << deviceOpeningHandle;
@@ -352,39 +300,36 @@ void PlasmaVaultService::openVault(const QString &device)
 
         auto stopInhibiting = [this, vault] {
             if (d->savedNetworkingState) {
-                auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
+                auto &devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
                 auto deviceOpeningHandle = "{opening}" + vault->device().data();
                 devicesInhibittingNetworking.removeAll(deviceOpeningHandle);
             }
         };
 
-        showPasswordMountDialog(vault,
-                [this, vault, stopInhibiting] {
-                    emit vaultChanged(vault->info());
-                    stopInhibiting();
-                },
-                [this, vault, stopInhibiting] {
-                    stopInhibiting();
-                    if (vault->status() != VaultInfo::Opened) {
-                        d->restoreNetworkingState();
-                    }
+        showPasswordMountDialog(
+            vault,
+            [this, vault, stopInhibiting] {
+                emit vaultChanged(vault->info());
+                stopInhibiting();
+            },
+            [this, vault, stopInhibiting] {
+                stopInhibiting();
+                if (vault->status() != VaultInfo::Opened) {
+                    d->restoreNetworkingState();
                 }
-            );
+            });
     }
 }
-
-
 
 void PlasmaVaultService::closeVault(const QString &device)
 {
     if (auto vault = d->vaultFor(device)) {
-        if (!vault->isOpened()) return;
+        if (!vault->isOpened())
+            return;
 
         vault->close();
     }
 }
-
-
 
 void PlasmaVaultService::configureVault(const QString &device)
 {
@@ -395,18 +340,15 @@ void PlasmaVaultService::configureVault(const QString &device)
     }
 }
 
-
-
 void PlasmaVaultService::forceCloseVault(const QString &device)
 {
     if (auto vault = d->vaultFor(device)) {
-        if (!vault->isOpened()) return;
+        if (!vault->isOpened())
+            return;
 
         vault->forceClose();
     }
 }
-
-
 
 void PlasmaVaultService::openVaultInFileManager(const QString &device)
 {
@@ -415,14 +357,15 @@ void PlasmaVaultService::openVaultInFileManager(const QString &device)
             new KRun(QUrl::fromLocalFile((QString)vault->mountPoint().data()), nullptr);
 
         } else {
-            showPasswordMountDialog(vault,
+            showPasswordMountDialog(
+                vault,
                 [this, vault] {
                     emit vaultChanged(vault->info());
                     new KRun(QUrl::fromLocalFile((QString)vault->mountPoint().data()), nullptr);
                 },
                 [this, vault] {
                     if (vault->status() != VaultInfo::Opened && d->savedNetworkingState) {
-                        auto& devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
+                        auto &devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
                         devicesInhibittingNetworking.removeAll(vault->device().data());
                         d->restoreNetworkingState();
                     }
@@ -431,32 +374,24 @@ void PlasmaVaultService::openVaultInFileManager(const QString &device)
     }
 }
 
-
-
 bool PlasmaVaultService::hasOpenVaults() const
 {
     return !d->openVaults.isEmpty();
 }
 
-
-
 void PlasmaVaultService::closeAllVaults()
 {
-    for (const auto& device: d->openVaults) {
+    for (const auto &device : d->openVaults) {
         closeVault(device.data());
     }
 }
 
-
-
 void PlasmaVaultService::forceCloseAllVaults()
 {
-    for (const auto& device: d->openVaults) {
+    for (const auto &device : d->openVaults) {
         forceCloseVault(device.data());
     }
 }
-
-
 
 void PlasmaVaultService::deleteVault(const QString &device, const QString &name)
 {
@@ -477,41 +412,37 @@ void PlasmaVaultService::deleteVault(const QString &device, const QString &name)
         return;
     }
 
-    AsynQt::onFinished(vault->dismantle({}), [] (const auto& future) {
-            const auto& result = future.result();
-            if (result) return;
+    AsynQt::onFinished(vault->dismantle({}), [](const auto &future) {
+        const auto &result = future.result();
+        if (result)
+            return;
 
-            const auto& error = result.error();
-            if (error.code() != Error::OperationCancelled) {
-                QMessageBox::critical(nullptr, i18n("Error deleting vault"), error.message());
-            }
-        });
+        const auto &error = result.error();
+        if (error.code() != Error::OperationCancelled) {
+            QMessageBox::critical(nullptr, i18n("Error deleting vault"), error.message());
+        }
+    });
 }
-
-
 
 void PlasmaVaultService::updateStatus()
 {
-    for (const auto& device: d->knownVaults.keys()) {
+    for (const auto &device : d->knownVaults.keys()) {
         auto vault = d->knownVaults[device];
         vault->updateStatus();
     }
 }
 
-
-
 void PlasmaVaultService::onActivitiesChanged(const QStringList &knownActivities)
 {
-    if (knownActivities == QStringList{ "00000000-0000-0000-0000-000000000000" }) return;
+    if (knownActivities == QStringList{"00000000-0000-0000-0000-000000000000"})
+        return;
     qDebug() << "Known activities:" << knownActivities;
 
-    for (auto* vault: d->knownVaults.values()) {
+    for (auto *vault : d->knownVaults.values()) {
         auto vaultActivities = vault->activities();
-        const auto removedBegin = std::remove_if(
-                vaultActivities.begin(), vaultActivities.end(),
-                [&knownActivities] (const QString &vaultActivity) {
-                    return !knownActivities.contains(vaultActivity);
-                });
+        const auto removedBegin = std::remove_if(vaultActivities.begin(), vaultActivities.end(), [&knownActivities](const QString &vaultActivity) {
+            return !knownActivities.contains(vaultActivity);
+        });
         if (removedBegin != vaultActivities.end()) {
             vaultActivities.erase(removedBegin, vaultActivities.end());
             vault->setActivities(vaultActivities);
@@ -520,11 +451,9 @@ void PlasmaVaultService::onActivitiesChanged(const QStringList &knownActivities)
     }
 }
 
-
-
 void PlasmaVaultService::onCurrentActivityChanged(const QString &currentActivity)
 {
-    for (auto* vault: d->knownVaults.values()) {
+    for (auto *vault : d->knownVaults.values()) {
         const auto vaultActivities = vault->activities();
         if (!vaultActivities.isEmpty() && !vaultActivities.contains(currentActivity)) {
             vault->close();
@@ -532,11 +461,9 @@ void PlasmaVaultService::onCurrentActivityChanged(const QString &currentActivity
     }
 }
 
-
-
 void PlasmaVaultService::onActivityRemoved(const QString &removedActivity)
 {
-    for (auto* vault: d->knownVaults.values()) {
+    for (auto *vault : d->knownVaults.values()) {
         auto vaultActivities = vault->activities();
         if (vaultActivities.removeAll(removedActivity) > 0) {
             vault->setActivities(vaultActivities);
@@ -547,4 +474,3 @@ void PlasmaVaultService::onActivityRemoved(const QString &removedActivity)
 }
 
 #include "service.moc"
-

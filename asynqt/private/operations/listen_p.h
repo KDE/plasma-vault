@@ -17,16 +17,17 @@
 
 #include "../utils_p.h"
 
-namespace AsynQt {
-namespace detail {
-
-template <typename T>
+namespace AsynQt
+{
+namespace detail
+{
+template<typename T>
 struct isNullary {
 private:
-    template <typename U>
+    template<typename U>
     static decltype(std::declval<U>()(), std::true_type()) test(int);
 
-    template <typename>
+    template<typename>
     static std::false_type test(...);
 
 public:
@@ -34,14 +35,14 @@ public:
     enum { value = type::value };
 };
 
-
-template <typename _Function>
-class PassResult {
+template<typename _Function>
+class PassResult
+{
 private:
     using isNullaryFunction = typename isNullary<_Function>::type;
     _Function m_function;
 
-    template <typename _Result>
+    template<typename _Result>
     void callFunction(const QFuture<_Result> &future, std::true_type) const
     {
         Q_UNUSED(future);
@@ -50,7 +51,7 @@ private:
         }
     }
 
-    template <typename _Result>
+    template<typename _Result>
     void callFunction(const QFuture<_Result> &future, std::false_type) const
     {
         if (future.resultCount()) {
@@ -64,23 +65,24 @@ public:
     {
     }
 
-    template <typename _Result>
-    void operator() (const QFuture<_Result> &future) const
+    template<typename _Result>
+    void operator()(const QFuture<_Result> &future) const
     {
         callFunction(future, isNullaryFunction());
     }
 };
 
-template <typename _Function>
-class PassError {
+template<typename _Function>
+class PassError
+{
 public:
     PassError(_Function function)
         : m_function(function)
     {
     }
 
-    template <typename _Result>
-    void operator() (const QFuture<_Result> &future) const
+    template<typename _Result>
+    void operator()(const QFuture<_Result> &future) const
     {
         if (future.isCanceled()) {
             m_function();
@@ -91,50 +93,40 @@ private:
     _Function m_function;
 };
 
-
-template <typename _Type, typename _Function>
-QFuture<_Type>
-onFinished_impl(const QFuture<_Type> &future, _Function &&function)
+template<typename _Type, typename _Function>
+QFuture<_Type> onFinished_impl(const QFuture<_Type> &future, _Function &&function)
 {
     auto watcher = new QFutureWatcher<_Type>();
-    QObject::connect(watcher, &QFutureWatcherBase::finished,
-                     [watcher,function] () {
-                         function(watcher->future());
-                         watcher->deleteLater();
-                     });
+    QObject::connect(watcher, &QFutureWatcherBase::finished, [watcher, function]() {
+        function(watcher->future());
+        watcher->deleteLater();
+    });
     watcher->setFuture(future);
 
     return future;
 }
 
-
-namespace operators {
-
-    template <typename _Function>
-    class OnFinishedModifier {
-    public:
-        OnFinishedModifier(_Function function)
-            : m_function(function)
-        {
-        }
-
-        _Function m_function;
-    };
-
-    template <typename _Type, typename _Function>
-    auto operator | (const QFuture<_Type> &future,
-                     OnFinishedModifier<_Function> &&modifier)
-        -> decltype(onFinished_impl(future, modifier.m_function))
+namespace operators
+{
+template<typename _Function>
+class OnFinishedModifier
+{
+public:
+    OnFinishedModifier(_Function function)
+        : m_function(function)
     {
-        return onFinished_impl(future, modifier.m_function);
     }
+
+    _Function m_function;
+};
+
+template<typename _Type, typename _Function>
+auto operator|(const QFuture<_Type> &future, OnFinishedModifier<_Function> &&modifier) -> decltype(onFinished_impl(future, modifier.m_function))
+{
+    return onFinished_impl(future, modifier.m_function);
+}
 
 } // namespace operators
 
-
-
-
-
 } // namespace detail
 } // namespace AsynQt
-

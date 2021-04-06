@@ -9,8 +9,8 @@
 
 #include "dialogdsl.h"
 
-
-class DirectoryPairChooserWidget: public DialogDsl::DialogModule {
+class DirectoryPairChooserWidget : public DialogDsl::DialogModule
+{
     Q_OBJECT
 
 public:
@@ -47,4 +47,3 @@ inline DialogDsl::ModuleFactory directoryPairChooser(DirectoryPairChooserWidget:
 Q_DECLARE_OPERATORS_FOR_FLAGS(DirectoryPairChooserWidget::Flags)
 
 #endif // include guard
-

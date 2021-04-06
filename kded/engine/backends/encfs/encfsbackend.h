@@ -9,9 +9,10 @@
 
 #include "../../fusebackend_p.h"
 
-namespace PlasmaVault {
-
-class EncFsBackend: public FuseBackend {
+namespace PlasmaVault
+{
+class EncFsBackend : public FuseBackend
+{
 public:
     EncFsBackend();
     ~EncFsBackend() override;
@@ -22,12 +23,13 @@ public:
 
     FutureResult<> validateBackend() override;
 
-    QString name() const override { return "encfs"; }
+    QString name() const override
+    {
+        return "encfs";
+    }
 
 protected:
-    FutureResult<> mount(const Device &device,
-                         const MountPoint &mountPoint,
-                         const Vault::Payload &payload) override;
+    FutureResult<> mount(const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload) override;
 
 private:
     QProcess *encfs(const QStringList &arguments) const;
@@ -37,4 +39,3 @@ private:
 } // namespace PlasmaVault
 
 #endif // include guard
-

@@ -19,27 +19,25 @@
 
 #include "../utils_p.h"
 
-namespace AsynQt {
-namespace detail {
-
-template <typename _Result>
-class FlattenFutureInterface : public QObject
-                             , public QFutureInterface<_Result> {
+namespace AsynQt
+{
+namespace detail
+{
+template<typename _Result>
+class FlattenFutureInterface : public QObject, public QFutureInterface<_Result>
+{
 public:
-
     FlattenFutureInterface(QFuture<QFuture<_Result>> future)
         : m_outerFuture(future)
     {
     }
 
-    inline
-    void setFutureResultAt(int, std::true_type /* _Result is void */)
+    inline void setFutureResultAt(int, std::true_type /* _Result is void */)
     {
         // nothing to do
     }
 
-    inline
-    void setFutureResultAt(int index, std::false_type /* _Result is not void */)
+    inline void setFutureResultAt(int index, std::false_type /* _Result is not void */)
     {
         this->reportResult(m_currentInnerFuture.resultAt(index));
     }
@@ -47,7 +45,8 @@ public:
     void processNextInnerFuture()
     {
         // Already processing something
-        if (m_innerFutureWatcher) return;
+        if (m_innerFutureWatcher)
+            return;
 
         m_innerFutureWatcher.reset(new QFutureWatcher<_Result>());
         m_currentInnerFuture = m_innerFutures.head();
@@ -125,19 +124,19 @@ private:
     std::unique_ptr<QFutureWatcher<_Result>> m_innerFutureWatcher;
 };
 
-template <typename _Result>
+template<typename _Result>
 QFuture<_Result> flatten_impl(const QFuture<QFuture<_Result>> &future)
 {
     return (new FlattenFutureInterface<_Result>(future))->start();
 }
 
-namespace operators {
+namespace operators
+{
+struct FlattenModifier {
+};
 
-struct FlattenModifier {};
-
-template <typename _Result>
-QFuture<_Result> operator | (const QFuture<QFuture<_Result>> &future,
-                             FlattenModifier)
+template<typename _Result>
+QFuture<_Result> operator|(const QFuture<QFuture<_Result>> &future, FlattenModifier)
 {
     return flatten_impl(future);
 }
@@ -146,4 +145,3 @@ QFuture<_Result> operator | (const QFuture<QFuture<_Result>> &future,
 
 } // namespace detail
 } // namespace AsynQt
-

@@ -15,15 +15,16 @@
 // We mean it.
 //
 
-#include "../utils_p.h"
 #include "../cxxutils_p.h"
+#include "../utils_p.h"
 
-namespace AsynQt {
-namespace detail {
-
-template <typename ... _Results>
-class CollectFutureInterface : public QObject
-                            , public QFutureInterface<std::tuple<_Results...>> {
+namespace AsynQt
+{
+namespace detail
+{
+template<typename... _Results>
+class CollectFutureInterface : public QObject, public QFutureInterface<std::tuple<_Results...>>
+{
 public:
     CollectFutureInterface(QFuture<_Results>... futures)
         : m_waitingCount(m_count)
@@ -31,7 +32,7 @@ public:
     {
     }
 
-    template <int index>
+    template<int index>
     bool connectFuture()
     {
         auto future = std::get<index>(m_futures);
@@ -41,8 +42,7 @@ public:
             m_waitingCount--;
 
             // We are saving the result
-            std::get<index>(m_results) =
-                std::get<index>(m_futures).result();
+            std::get<index>(m_results) = std::get<index>(m_futures).result();
 
             // If all futures are done, report the result
             if (m_waitingCount == 0) {
@@ -62,10 +62,10 @@ public:
         return true;
     }
 
-    template <int ...Indices>
+    template<int... Indices>
     void connectFutures(index_sequence<Indices...>)
     {
-        auto ignore = { connectFuture<Indices>()... };
+        auto ignore = {connectFuture<Indices>()...};
         Q_UNUSED(ignore);
     }
 
@@ -87,7 +87,7 @@ private:
     std::tuple<_Results...> m_results;
 };
 
-template <typename ..._Results>
+template<typename... _Results>
 QFuture<std::tuple<_Results...>> collect_impl(QFuture<_Results>... futures)
 {
     return (new CollectFutureInterface<_Results...>(futures...))->start();
@@ -95,5 +95,3 @@ QFuture<std::tuple<_Results...>> collect_impl(QFuture<_Results>... futures)
 
 } // namespace detail
 } // namespace AsynQt
-
-

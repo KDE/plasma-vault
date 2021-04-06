@@ -9,11 +9,13 @@
 
 #include <QDialog>
 
-namespace PlasmaVault {
-    class Vault;
+namespace PlasmaVault
+{
+class Vault;
 } // namespace PlasmaVault
 
-class VaultConfigurationDialog: public QDialog {
+class VaultConfigurationDialog : public QDialog
+{
     Q_OBJECT
 
 public:
@@ -28,6 +30,4 @@ private:
     QScopedPointer<Private> d;
 };
 
-
 #endif // include guard
-

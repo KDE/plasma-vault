@@ -6,8 +6,8 @@
 
 #include "commandresult.h"
 
-namespace PlasmaVault {
-
+namespace PlasmaVault
+{
 Error::Error(Code code, const QString &message, const QString &out, const QString &err)
     : m_code(code)
     , m_message(message)
@@ -37,4 +37,3 @@ QString Error::err() const
 }
 
 } // namespace PlasmaVault
-

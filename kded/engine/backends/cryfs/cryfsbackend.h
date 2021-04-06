@@ -9,9 +9,10 @@
 
 #include "../../fusebackend_p.h"
 
-namespace PlasmaVault {
-
-class CryFsBackend: public FuseBackend {
+namespace PlasmaVault
+{
+class CryFsBackend : public FuseBackend
+{
 public:
     CryFsBackend();
     ~CryFsBackend() override;
@@ -22,12 +23,13 @@ public:
 
     FutureResult<> validateBackend() override;
 
-    QString name() const override { return "cryfs"; }
+    QString name() const override
+    {
+        return "cryfs";
+    }
 
 protected:
-    FutureResult<> mount(const Device &device,
-                         const MountPoint &mountPoint,
-                         const Vault::Payload &payload) override;
+    FutureResult<> mount(const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload) override;
 
 private:
     QProcess *cryfs(const QStringList &arguments) const;
@@ -36,4 +38,3 @@ private:
 } // namespace PlasmaVault
 
 #endif // include guard
-

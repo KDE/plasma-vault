@@ -15,16 +15,15 @@
 // We mean it.
 //
 
-namespace AsynQt {
-namespace detail {
-
-template <typename _Result>
-class DelayedFutureInterface
-    : public QObject
-    , public QFutureInterface<_Result> {
-
+namespace AsynQt
+{
+namespace detail
+{
+template<typename _Result>
+class DelayedFutureInterface : public QObject, public QFutureInterface<_Result>
+{
 public:
-   DelayedFutureInterface(_Result value, int milliseconds)
+    DelayedFutureInterface(_Result value, int milliseconds)
         : m_value(value)
         , m_milliseconds(milliseconds)
     {
@@ -48,14 +47,11 @@ public:
 private:
     _Result m_value;
     int m_milliseconds;
-
 };
 
-template <typename T = void>
-class DelayedVoidFutureInterface
-    : public QObject
-    , QFutureInterface<void> {
-
+template<typename T = void>
+class DelayedVoidFutureInterface : public QObject, QFutureInterface<void>
+{
 public:
     DelayedVoidFutureInterface(int milliseconds)
         : m_milliseconds(milliseconds)
@@ -82,14 +78,11 @@ private:
     int m_milliseconds;
 };
 
-template <typename _Result>
-DelayedFutureInterface<typename std::decay<_Result>::type> *
-newDelayedFutureInterface(_Result &&result, int milliseconds)
+template<typename _Result>
+DelayedFutureInterface<typename std::decay<_Result>::type> *newDelayedFutureInterface(_Result &&result, int milliseconds)
 {
-    return new DelayedFutureInterface<typename std::decay<_Result>::type>(
-        std::forward<_Result>(result), milliseconds);
+    return new DelayedFutureInterface<typename std::decay<_Result>::type>(std::forward<_Result>(result), milliseconds);
 }
 
 } // namespace detail
 } // namespace AsynQt
-

@@ -8,12 +8,10 @@
 
 #include <QSortFilterProxyModel>
 
-#include <klocalizedstring.h>
 #include <KActivities/Consumer>
+#include <klocalizedstring.h>
 
 #include "vaultsmodel.h"
-
-
 
 VaultApplet::VaultApplet(QObject *parent, const QVariantList &args)
     : Plasma::Applet(parent, args)
@@ -21,13 +19,9 @@ VaultApplet::VaultApplet(QObject *parent, const QVariantList &args)
 {
 }
 
-
-
 VaultApplet::~VaultApplet()
 {
 }
-
-
 
 QObject *VaultApplet::vaultsModel()
 {
@@ -38,9 +32,6 @@ QObject *VaultApplet::vaultsModel()
     return m_vaultsModel;
 }
 
-
-
 K_EXPORT_PLASMA_APPLET_WITH_JSON(vaultapplet, VaultApplet, "metadata.json")
 
 #include "vaultapplet.moc"
-

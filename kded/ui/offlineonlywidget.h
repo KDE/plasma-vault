@@ -9,7 +9,8 @@
 
 #include "dialogdsl.h"
 
-class OfflineOnlyChooserWidget: public DialogDsl::DialogModule {
+class OfflineOnlyChooserWidget : public DialogDsl::DialogModule
+{
     Q_OBJECT
 
 public:
@@ -34,4 +35,3 @@ inline DialogDsl::ModuleFactory offlineOnlyChooser()
 }
 
 #endif // include guard
-

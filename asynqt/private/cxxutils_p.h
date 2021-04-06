@@ -7,23 +7,25 @@
 #ifndef ASYNQT_CXXUTILS_P_H
 #define ASYNQT_CXXUTILS_P_H
 
-namespace AsynQt {
-namespace detail {
-
+namespace AsynQt
+{
+namespace detail
+{
 // Some things we need to wait for... c++17
 
-template <int ...Indices>
-struct index_sequence {};
+template<int... Indices>
+struct index_sequence {
+};
 
-template <int N, int ...Indices>
-struct make_index_sequence : make_index_sequence<N - 1, N - 1, Indices...> {};
+template<int N, int... Indices>
+struct make_index_sequence : make_index_sequence<N - 1, N - 1, Indices...> {
+};
 
-template <int ...Indices>
-struct make_index_sequence<0, Indices...> : index_sequence<Indices...> {};
-
+template<int... Indices>
+struct make_index_sequence<0, Indices...> : index_sequence<Indices...> {
+};
 
 } // namespace detail
 } // namespace AsynQt
 
 #endif // ASYNQT_CXXUTILS_P_H
-

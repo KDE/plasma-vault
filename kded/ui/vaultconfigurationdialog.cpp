@@ -7,11 +7,11 @@
 #include "vaultconfigurationdialog.h"
 #include "ui_vaultconfigurationdialog.h"
 
-#include <QPushButton>
 #include <QMap>
-#include <QVector>
+#include <QPushButton>
 #include <QStackedLayout>
 #include <QTabWidget>
+#include <QVector>
 
 #include "dialogdsl.h"
 #include "vault.h"
@@ -19,19 +19,20 @@
 using namespace DialogDsl;
 using namespace DialogDsl::operators;
 
-#include "backendchooserwidget.h"
 #include "activitieslinkingwidget.h"
+#include "backendchooserwidget.h"
 #include "cryfscypherchooserwidget.h"
 #include "directorychooserwidget.h"
-#include "noticewidget.h"
 #include "namechooserwidget.h"
-#include "passwordchooserwidget.h"
+#include "noticewidget.h"
 #include "offlineonlywidget.h"
+#include "passwordchooserwidget.h"
 #include "vaultdeletionwidget.h"
 
 using PlasmaVault::Vault;
 
-class VaultConfigurationDialog::Private {
+class VaultConfigurationDialog::Private
+{
 public:
     VaultConfigurationDialog *const q;
     Vault *vault;
@@ -40,40 +41,20 @@ public:
     QStackedLayout *layout;
 
     steps currentSteps;
-    QVector<DialogDsl::DialogModule*> currentModuleDialogs;
-    QSet<DialogDsl::DialogModule*> invalidModules;
+    QVector<DialogDsl::DialogModule *> currentModuleDialogs;
+    QSet<DialogDsl::DialogModule *> invalidModules;
 
-    steps defaultSteps
-    {
-        i18n("General") / step {
-            nameChooser(),
-            directoryChooser(DirectoryChooserWidget::RequireEmptyMountPoint)
-        },
+    steps defaultSteps{i18n("General") / step{nameChooser(), directoryChooser(DirectoryChooserWidget::RequireEmptyMountPoint)},
 
-        i18n("Advanced") / step {
-            activitiesChooser(),
-            offlineOnlyChooser()
-        },
+                       i18n("Advanced") / step{activitiesChooser(), offlineOnlyChooser()},
 
-        i18n("Delete") / step {
-            vaultDeletion()
-        }
-    };
+                       i18n("Delete") / step{vaultDeletion()}};
 
-    Logic logic
-    {
-        { "encfs" / i18n("EncFS"),
-            defaultSteps
-        },
+    Logic logic{{"encfs" / i18n("EncFS"), defaultSteps},
 
-        { "cryfs" / i18n("CryFS"),
-            defaultSteps
-        },
+                {"cryfs" / i18n("CryFS"), defaultSteps},
 
-        { "gocryptfs" / i18n("gocryptfs"),
-            defaultSteps
-        }
-    };
+                {"gocryptfs" / i18n("gocryptfs"), defaultSteps}};
 
     Private(Vault *vault, VaultConfigurationDialog *parent)
         : q(parent)
@@ -92,37 +73,33 @@ public:
         // Loading the backends
         auto modules = logic[Key(vault->backend().toLatin1())];
 
-        Vault::Payload payload {
-            { KEY_DEVICE,      QVariant(vault->device().data()) },
-            { KEY_NAME,        QVariant(vault->name()) },
-            { KEY_MOUNT_POINT, QVariant(vault->mountPoint().data()) },
-            { KEY_ACTIVITIES,  QVariant(vault->activities()) },
-            { KEY_OFFLINEONLY, QVariant(vault->isOfflineOnly()) },
+        Vault::Payload payload{
+            {KEY_DEVICE, QVariant(vault->device().data())},
+            {KEY_NAME, QVariant(vault->name())},
+            {KEY_MOUNT_POINT, QVariant(vault->mountPoint().data())},
+            {KEY_ACTIVITIES, QVariant(vault->activities())},
+            {KEY_OFFLINEONLY, QVariant(vault->isOfflineOnly())},
         };
 
-        for (const auto& module: modules) {
+        for (const auto &module : modules) {
             DialogModule *stepWidget = new CompoundDialogModule(module);
             stepWidget->init(payload);
             tabs->addTab(stepWidget, module.title());
             currentModuleDialogs << stepWidget;
 
-            QObject::connect(
-                stepWidget, &DialogModule::isValidChanged,
-                q, [this,stepWidget] (bool valid) {
-                    if (valid) {
-                        invalidModules.remove(stepWidget);
-                    } else {
-                        invalidModules << stepWidget;
-                    }
+            QObject::connect(stepWidget, &DialogModule::isValidChanged, q, [this, stepWidget](bool valid) {
+                if (valid) {
+                    invalidModules.remove(stepWidget);
+                } else {
+                    invalidModules << stepWidget;
+                }
 
-                    ui.buttons->button(QDialogButtonBox::Ok)->setEnabled(invalidModules.isEmpty());
-                });
+                ui.buttons->button(QDialogButtonBox::Ok)->setEnabled(invalidModules.isEmpty());
+            });
 
-            QObject::connect(
-                stepWidget, &DialogModule::requestCancellation,
-                q, [this] {
-                    q->reject();
-                });
+            QObject::connect(stepWidget, &DialogModule::requestCancellation, q, [this] {
+                q->reject();
+            });
         }
     }
 
@@ -138,7 +115,7 @@ public:
     {
         Vault::Payload collectedPayload;
         qDebug() << "Getting the data";
-        for (const auto* module: currentModuleDialogs) {
+        for (const auto *module : currentModuleDialogs) {
             qDebug() << "Data: " << module->fields();
             collectedPayload.unite(module->fields());
         }
@@ -148,7 +125,8 @@ public:
         const auto activities = collectedPayload[KEY_ACTIVITIES].toStringList();
         const auto isOfflineOnly = collectedPayload[KEY_OFFLINEONLY].toBool();
 
-        if (name.isEmpty() || mountPoint.isEmpty()) return;
+        if (name.isEmpty() || mountPoint.isEmpty())
+            return;
 
         vault->setName(name);
         vault->setMountPoint(mountPoint);
@@ -156,8 +134,6 @@ public:
         vault->setIsOfflineOnly(isOfflineOnly);
     }
 };
-
-
 
 VaultConfigurationDialog::VaultConfigurationDialog(Vault *vault, QWidget *parent)
     : QDialog(parent)
@@ -167,27 +143,19 @@ VaultConfigurationDialog::VaultConfigurationDialog(Vault *vault, QWidget *parent
 
     d->setVaultOpened(vault->isOpened());
 
-    connect(d->ui.buttonCloseVault, &QPushButton::clicked,
-            this, [=] () {
-                vault->close();
-            });
+    connect(d->ui.buttonCloseVault, &QPushButton::clicked, this, [=]() {
+        vault->close();
+    });
 
-    connect(vault, &Vault::isOpenedChanged,
-            this, [=] (bool isOpened) {
-                d->setVaultOpened(isOpened);
-            });
+    connect(vault, &Vault::isOpenedChanged, this, [=](bool isOpened) {
+        d->setVaultOpened(isOpened);
+    });
 
-    connect(d->ui.buttons, &QDialogButtonBox::accepted,
-            this, [=] {
-                d->saveConfiguration();
-            });
+    connect(d->ui.buttons, &QDialogButtonBox::accepted, this, [=] {
+        d->saveConfiguration();
+    });
 }
-
-
 
 VaultConfigurationDialog::~VaultConfigurationDialog()
 {
 }
-
-
-

@@ -12,14 +12,13 @@
 
 #include "../private/operations/listen_p.h"
 
-namespace AsynQt {
-
+namespace AsynQt
+{
 /**
  *
  */
-template <typename _Result, typename _Function>
-QFuture<_Result> onFinished(const QFuture<_Result> &future,
-                           _Function &&function)
+template<typename _Result, typename _Function>
+QFuture<_Result> onFinished(const QFuture<_Result> &future, _Function &&function)
 {
     return detail::onFinished_impl(future, std::forward<_Function>(function));
 }
@@ -27,9 +26,8 @@ QFuture<_Result> onFinished(const QFuture<_Result> &future,
 /**
  *
  */
-template <typename _Result, typename _Function>
-QFuture<_Result> onSuccess(const QFuture<_Result> &future,
-                           _Function &&function)
+template<typename _Result, typename _Function>
+QFuture<_Result> onSuccess(const QFuture<_Result> &future, _Function &&function)
 {
     return onFinished(future, detail::PassResult<_Function>(function));
 }
@@ -37,32 +35,28 @@ QFuture<_Result> onSuccess(const QFuture<_Result> &future,
 /**
  *
  */
-template <typename _Result, typename _Function>
-QFuture<_Result> onError(const QFuture<_Result> &future,
-                         _Function &&function)
+template<typename _Result, typename _Function>
+QFuture<_Result> onError(const QFuture<_Result> &future, _Function &&function)
 {
     return onFinished(future, detail::PassError<_Function>(function));
 }
 
-namespace operators {
-
-template <typename _Function>
-inline
-detail::operators::OnFinishedModifier<_Function> onFinished(_Function &&function)
+namespace operators
+{
+template<typename _Function>
+inline detail::operators::OnFinishedModifier<_Function> onFinished(_Function &&function)
 {
     return detail::operators::OnFinishedModifier<_Function>(std::forward<_Function>(function));
 }
 
-template <typename _Function>
-inline
-detail::operators::OnFinishedModifier<detail::PassResult<_Function>> onSuccess(_Function &&function)
+template<typename _Function>
+inline detail::operators::OnFinishedModifier<detail::PassResult<_Function>> onSuccess(_Function &&function)
 {
     return detail::operators::OnFinishedModifier<detail::PassResult<_Function>>(detail::PassResult<_Function>(function));
 }
 
-template <typename _Function>
-inline
-detail::operators::OnFinishedModifier<detail::PassError<_Function>> onError(_Function &&function)
+template<typename _Function>
+inline detail::operators::OnFinishedModifier<detail::PassError<_Function>> onError(_Function &&function)
 {
     return detail::operators::OnFinishedModifier<detail::PassError<_Function>>(detail::PassError<_Function>(function));
 }
@@ -72,4 +66,3 @@ detail::operators::OnFinishedModifier<detail::PassError<_Function>> onError(_Fun
 } // namespace AsynQt
 
 #endif // include guard
-

@@ -13,7 +13,8 @@
 #include "plasmavault_interface.h"
 #include <common/vaultinfo.h>
 
-class VaultsModel::Private: public QObject {
+class VaultsModel::Private : public QObject
+{
     Q_OBJECT
 
 public:
@@ -40,4 +41,3 @@ public:
 };
 
 #endif // include guard
-

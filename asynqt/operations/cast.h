@@ -10,14 +10,14 @@
 #include <QFuture>
 #include <QFutureWatcher>
 
-#include <type_traits>
 #include <memory>
+#include <type_traits>
 
-#include "transform.h"
 #include "../private/operations/cast_p.h"
+#include "transform.h"
 
-namespace AsynQt {
-
+namespace AsynQt
+{
 /**
  * Casts the future result into the specified type.
  *
@@ -26,15 +26,15 @@ namespace AsynQt {
  *     auto castFuture = AsynQt::qfuture_cast<QString>(future);
  * </code>
  */
-template <typename _Out, typename _In>
+template<typename _Out, typename _In>
 QFuture<_Out> qfuture_cast(const QFuture<_In> &future)
 {
     return detail::qfuture_cast_impl<_Out>(future);
 }
 
-namespace operators {
-
-template <typename _Out>
+namespace operators
+{
+template<typename _Out>
 detail::operators::CastModifier<_Out> cast()
 {
     return detail::operators::CastModifier<_Out>();
@@ -45,4 +45,3 @@ detail::operators::CastModifier<_Out> cast()
 } // namespace AsynQt
 
 #endif // ASYNQT_BASE_CAST_H
-

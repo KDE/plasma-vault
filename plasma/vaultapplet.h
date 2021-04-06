@@ -13,11 +13,10 @@
 
 class VaultsModel;
 
-
-class VaultApplet: public Plasma::Applet
+class VaultApplet : public Plasma::Applet
 {
     Q_OBJECT
-    Q_PROPERTY(QObject* vaultsModel READ vaultsModel CONSTANT)
+    Q_PROPERTY(QObject *vaultsModel READ vaultsModel CONSTANT)
 
 public:
     explicit VaultApplet(QObject *parent, const QVariantList &args);
@@ -31,4 +30,3 @@ private:
 };
 
 #endif // include guard
-

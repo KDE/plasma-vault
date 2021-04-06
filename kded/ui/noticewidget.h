@@ -9,7 +9,8 @@
 
 #include "dialogdsl.h"
 
-class NoticeWidget: public DialogDsl::DialogModule {
+class NoticeWidget : public DialogDsl::DialogModule
+{
     Q_OBJECT
 
 public:
@@ -33,9 +34,7 @@ private:
     QScopedPointer<Private> d;
 };
 
-inline DialogDsl::ModuleFactory notice(const QByteArray &noticeId,
-                                       const QString &message,
-                                       NoticeWidget::Mode mode = NoticeWidget::DoNotShowAgainOption)
+inline DialogDsl::ModuleFactory notice(const QByteArray &noticeId, const QString &message, NoticeWidget::Mode mode = NoticeWidget::DoNotShowAgainOption)
 {
     return [=] {
         return new NoticeWidget(noticeId, message, mode);
@@ -43,4 +42,3 @@ inline DialogDsl::ModuleFactory notice(const QByteArray &noticeId,
 }
 
 #endif // include guard
-

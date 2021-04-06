@@ -6,65 +6,44 @@
 
 #include "backend_p.h"
 
-
-#include "backends/encfs/encfsbackend.h"
 #include "backends/cryfs/cryfsbackend.h"
+#include "backends/encfs/encfsbackend.h"
 #include "backends/gocryptfs/gocryptfsbackend.h"
 
 #include <KLocalizedString>
 
-namespace PlasmaVault {
-
+namespace PlasmaVault
+{
 Backend::Backend()
 {
 }
-
-
 
 Backend::~Backend()
 {
 }
 
-
-
 QStringList Backend::availableBackends()
 {
-    return { "encfs", "cryfs", "gocryptfs" };
+    return {"encfs", "cryfs", "gocryptfs"};
 }
-
-
 
 Backend::Ptr Backend::instance(const QString &backend)
 {
-    return
-        backend == QLatin1String("encfs") ? PlasmaVault::EncFsBackend::instance() :
-        backend == QLatin1String("cryfs") ? PlasmaVault::CryFsBackend::instance() :
-        backend == QLatin1String("gocryptfs") ? PlasmaVault::GocryptfsBackend::instance() :
-        /* unknown backend */ nullptr;
+    return backend == QLatin1String("encfs")    ? PlasmaVault::EncFsBackend::instance()
+        : backend == QLatin1String("cryfs")     ? PlasmaVault::CryFsBackend::instance()
+        : backend == QLatin1String("gocryptfs") ? PlasmaVault::GocryptfsBackend::instance()
+                                                :
+                                                /* unknown backend */ nullptr;
 }
 
-
-
-QString Backend::formatMessageLine(
-        const QString &command,
-        const QPair<bool, QString> &result) const
+QString Backend::formatMessageLine(const QString &command, const QPair<bool, QString> &result) const
 {
     const auto valid = result.first;
     const auto message = result.second;
 
-    QString htmlMessage =
-        (valid ? QString() : "<b>") +
-        message +
-        (valid ? QString() : "</b>") +
-        "<br />\n"
-        ;
+    QString htmlMessage = (valid ? QString() : "<b>") + message + (valid ? QString() : "</b>") + "<br />\n";
 
-    return i18nc("formatting the message for a command, as in encfs: not found",
-                 "%1: %2",
-                 command,
-                 htmlMessage);
+    return i18nc("formatting the message for a command, as in encfs: not found", "%1: %2", command, htmlMessage);
 }
 
-
 } // namespace PlasmaVault
-

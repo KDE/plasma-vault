@@ -5,11 +5,11 @@
  */
 #include "mountdialog.h"
 
+#include <QAction>
 #include <QCloseEvent>
+#include <QMessageBox>
 #include <QStyle>
 #include <QStyleOption>
-#include <QAction>
-#include <QMessageBox>
 
 #include <KMessageWidget>
 
@@ -29,23 +29,21 @@ MountDialog::MountDialog(PlasmaVault::Vault *vault)
     m_detailsAction->setToolTip(i18n("Details..."));
     m_detailsAction->setIcon(QIcon::fromTheme("view-list-details"));
 
-    connect(m_detailsAction, &QAction::triggered,
-            this, [this] {
-                QString message;
-                const auto out = m_lastError.out().trimmed();
-                const auto err = m_lastError.err().trimmed();
+    connect(m_detailsAction, &QAction::triggered, this, [this] {
+        QString message;
+        const auto out = m_lastError.out().trimmed();
+        const auto err = m_lastError.err().trimmed();
 
-                if (!out.isEmpty() && !err.isEmpty()) {
-                    message = i18n("Command output:\n%1\n\nError output: %2", m_lastError.out(), m_lastError.err());
-                } else {
-                    message = out + err;
-                }
+        if (!out.isEmpty() && !err.isEmpty()) {
+            message = i18n("Command output:\n%1\n\nError output: %2", m_lastError.out(), m_lastError.err());
+        } else {
+            message = out + err;
+        }
 
-                auto messageBox = new QMessageBox(QMessageBox::Critical, i18n("Error details"), message, QMessageBox::Ok, this);
-                messageBox->setAttribute(Qt::WA_DeleteOnClose);
-                messageBox->show();
-
-            });
+        auto messageBox = new QMessageBox(QMessageBox::Critical, i18n("Error details"), message, QMessageBox::Ok, this);
+        messageBox->setAttribute(Qt::WA_DeleteOnClose);
+        messageBox->show();
+    });
 
     auto errorLabelSizePolicy = m_errorLabel->sizePolicy();
     errorLabelSizePolicy.setHorizontalPolicy(QSizePolicy::Expanding);
@@ -69,7 +67,7 @@ void MountDialog::accept()
     m_ui.password->lineEdit()->setEchoMode(QLineEdit::Password);
     m_ui.password->lineEdit()->setCursor(Qt::WaitCursor);
     QString pwd = m_ui.password->password();
-    auto future = m_vault->open({ { KEY_PASSWORD, pwd } });
+    auto future = m_vault->open({{KEY_PASSWORD, pwd}});
     const auto result = AsynQt::await(future);
 
     unsetCursor();
@@ -90,7 +88,6 @@ void MountDialog::accept()
 
         } else {
             m_errorLabel->removeAction(m_detailsAction);
-
         }
     }
 }

@@ -9,19 +9,20 @@
 
 #include "expected.h"
 
-namespace AsynQt {
-
+namespace AsynQt
+{
 template<typename T1, typename T2>
-class Either: private Expected<T1, T2> {
+class Either : private Expected<T1, T2>
+{
 public:
-    template <typename ...ConsParams>
-    static Either left(ConsParams && ...params)
+    template<typename... ConsParams>
+    static Either left(ConsParams &&...params)
     {
         return Expected<T1, T2>::success(std::forward<ConsParams>(params)...);
     }
 
-    template <typename ...ConsParams>
-    static Either right(ConsParams && ...params)
+    template<typename... ConsParams>
+    static Either right(ConsParams &&...params)
     {
         return Expected<T1, T2>::error(std::forward<ConsParams>(params)...);
     }
@@ -38,7 +39,7 @@ public:
         this->swap(tmp);
     }
 
-    T1& left()
+    T1 &left()
     {
         return Expected<T1, T2>::get();
     }
@@ -48,7 +49,7 @@ public:
         return Expected<T1, T2>::get();
     }
 
-    T2& right()
+    T2 &right()
     {
         return Expected<T1, T2>::error();
     }
@@ -61,11 +62,10 @@ public:
     Either(const Either &other) = default;
     Either(Either &&other) = default;
 
-    Either &operator= (const Either &other) = default;
-    Either &operator= (Either &&other) = default;
+    Either &operator=(const Either &other) = default;
+    Either &operator=(Either &&other) = default;
 };
 
 } // namespace AsynQt
 
 #endif // ASYNQT_EITHER_H
-

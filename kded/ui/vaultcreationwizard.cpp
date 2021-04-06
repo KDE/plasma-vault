@@ -7,10 +7,10 @@
 #include "vaultcreationwizard.h"
 #include "ui_vaultcreationwizard.h"
 
-#include <QPushButton>
 #include <QMap>
-#include <QVector>
+#include <QPushButton>
 #include <QStackedLayout>
+#include <QVector>
 
 #include "dialogdsl.h"
 #include "vault.h"
@@ -18,25 +18,21 @@
 using namespace DialogDsl;
 using namespace DialogDsl::operators;
 
-#include "backendchooserwidget.h"
 #include "activitieslinkingwidget.h"
+#include "backendchooserwidget.h"
 #include "cryfscypherchooserwidget.h"
 #include "directorypairchooserwidget.h"
 #include "noticewidget.h"
-#include "passwordchooserwidget.h"
 #include "offlineonlywidget.h"
+#include "passwordchooserwidget.h"
 
 #include "vaultwizardbase.h"
 
-class VaultCreationWizard::Private: public WBASE(VaultCreationWizard) {
+class VaultCreationWizard::Private : public WBASE(VaultCreationWizard)
+{
 public:
-
-    Logic logic
-    {
-        { "encfs" / i18n("EncFS"),
-            {
-                step { notice("encfs-message",
-                       i18n("<b>Security notice:</b>\n\
+    Logic logic{{"encfs" / i18n("EncFS"),
+                 {step{notice("encfs-message", i18n("<b>Security notice:</b>\n\
                              According to a security audit by Taylor Hornby (Defuse Security),\n\
                              the current implementation of Encfs is vulnerable or potentially vulnerable\n\
                              to multiple types of attacks.\n\
@@ -50,25 +46,14 @@ public:
                              or use it in other circumstances where the attacker\n\
                              can frequently access the encrypted data.\n\
                              <br /><br />\n\
-                             See <a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> for more information."))
-                     },
-                step { passwordChooser() },
-                step { directoryPairChooser(
-                         DirectoryPairChooserWidget::AutoFillPaths |
-                         DirectoryPairChooserWidget::ShowMountPointPicker |
-                         DirectoryPairChooserWidget::RequireEmptyMountPoint
-                     ) },
-                step {
-                    activitiesChooser(),
-                    offlineOnlyChooser()
-                }
-            }
-        },
+                             See <a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> for more information."))},
+                  step{passwordChooser()},
+                  step{directoryPairChooser(DirectoryPairChooserWidget::AutoFillPaths | DirectoryPairChooserWidget::ShowMountPointPicker
+                                            | DirectoryPairChooserWidget::RequireEmptyMountPoint)},
+                  step{activitiesChooser(), offlineOnlyChooser()}}},
 
-        { "cryfs" / i18n("CryFS"),
-            {
-                step { notice("cryfs-message",
-                       i18n("<b>Security notice:</b>\n\
+                {"cryfs" / i18n("CryFS"),
+                 {step{notice("cryfs-message", i18n("<b>Security notice:</b>\n\
                              CryFS encrypts your files, so you can safely store them anywhere.\n\
                              It works well together with cloud services like Dropbox, iCloud, OneDrive and others.\n\
                              <br /><br />\n\
@@ -80,28 +65,15 @@ public:
                              One important thing to note is that,\n\
                              while CryFS is considered safe,\n\
                              there is no independent security audit\n\
-                             which confirms this."))
-                     },
-                step { passwordChooser() },
-                step { directoryPairChooser(
-                         DirectoryPairChooserWidget::AutoFillPaths |
-                         DirectoryPairChooserWidget::ShowDevicePicker |
-                         DirectoryPairChooserWidget::ShowMountPointPicker |
-                         DirectoryPairChooserWidget::RequireEmptyDevice |
-                         DirectoryPairChooserWidget::RequireEmptyMountPoint
-                     ) },
-                step {
-                    cryfsCypherChooser(),
-                    activitiesChooser(),
-                    offlineOnlyChooser()
-                }
-            }
-        },
+                             which confirms this."))},
+                  step{passwordChooser()},
+                  step{directoryPairChooser(DirectoryPairChooserWidget::AutoFillPaths | DirectoryPairChooserWidget::ShowDevicePicker
+                                            | DirectoryPairChooserWidget::ShowMountPointPicker | DirectoryPairChooserWidget::RequireEmptyDevice
+                                            | DirectoryPairChooserWidget::RequireEmptyMountPoint)},
+                  step{cryfsCypherChooser(), activitiesChooser(), offlineOnlyChooser()}}},
 
-        { "gocryptfs" / i18n("gocryptfs"),
-            {
-                step { notice("gocryptfs-message",
-                       i18n("<b>Security notice:</b>\n\
+                {"gocryptfs" / i18n("gocryptfs"),
+                 {step{notice("gocryptfs-message", i18n("<b>Security notice:</b>\n\
                              Gocryptfs encrypts your files, so you can safely store them anywhere.\n\
                              It works well together with cloud services like Dropbox, iCloud, OneDrive and others.\n\
                              <br /><br />\n\
@@ -112,23 +84,12 @@ public:
                              gocryptfs keeps file contents secret against an adversary that can read and modify the \
                              ciphertext. \
                              <br /><br />\n\
-                             See <a href='https://defuse.ca/audits/gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."))
-                     },
-                step { passwordChooser() },
-                step { directoryPairChooser(
-                         DirectoryPairChooserWidget::AutoFillPaths |
-                         DirectoryPairChooserWidget::ShowDevicePicker |
-                         DirectoryPairChooserWidget::ShowMountPointPicker |
-                         DirectoryPairChooserWidget::RequireEmptyDevice |
-                         DirectoryPairChooserWidget::RequireEmptyMountPoint
-                     ) },
-                step {
-                    activitiesChooser(),
-                    offlineOnlyChooser()
-                }
-            }
-        }
-    };
+                             See <a href='https://defuse.ca/audits/gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."))},
+                  step{passwordChooser()},
+                  step{directoryPairChooser(DirectoryPairChooserWidget::AutoFillPaths | DirectoryPairChooserWidget::ShowDevicePicker
+                                            | DirectoryPairChooserWidget::ShowMountPointPicker | DirectoryPairChooserWidget::RequireEmptyDevice
+                                            | DirectoryPairChooserWidget::RequireEmptyMountPoint)},
+                  step{activitiesChooser(), offlineOnlyChooser()}}}};
 
     Private(VaultCreationWizard *parent)
         : WBASE(VaultCreationWizard)(parent)
@@ -141,7 +102,7 @@ public:
         q->setEnabled(false);
 
         auto collectedPayload = firstStepModule->fields();
-        for (const auto* module: currentStepModules) {
+        for (const auto *module : currentStepModules) {
             collectedPayload.unite(module->fields());
         }
 
@@ -170,8 +131,6 @@ public:
     }
 };
 
-
-
 VaultCreationWizard::VaultCreationWizard(QWidget *parent)
     : QDialog(parent)
     , d(new Private(this))
@@ -179,11 +138,6 @@ VaultCreationWizard::VaultCreationWizard(QWidget *parent)
     setWindowTitle(i18nc("@title:window", "Create a New Vault"));
 }
 
-
-
 VaultCreationWizard::~VaultCreationWizard()
 {
 }
-
-
-

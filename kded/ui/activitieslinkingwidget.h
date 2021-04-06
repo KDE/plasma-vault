@@ -9,7 +9,8 @@
 
 #include "dialogdsl.h"
 
-class ActivitiesLinkingWidget: public DialogDsl::DialogModule {
+class ActivitiesLinkingWidget : public DialogDsl::DialogModule
+{
     Q_OBJECT
 
 public:
@@ -33,4 +34,3 @@ inline DialogDsl::ModuleFactory activitiesChooser()
 }
 
 #endif // include guard
-

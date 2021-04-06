@@ -12,9 +12,10 @@
 #include "asynqt/basic/all.h"
 #include "asynqt/utils/expected.h"
 
-namespace PlasmaVault {
-
-class Error {
+namespace PlasmaVault
+{
+class Error
+{
 public:
     enum Code {
         MountPointError,
@@ -40,25 +41,18 @@ private:
     QString m_err;
 };
 
-
-
-template <typename T = void>
+template<typename T = void>
 using Result = AsynQt::Expected<T, Error>;
 
-template <typename T = void>
+template<typename T = void>
 using FutureResult = QFuture<Result<T>>;
 
-
-
-inline
-FutureResult<> errorResult(Error::Code error, const QString &message, const QString &out = {}, const QString &err = {})
+inline FutureResult<> errorResult(Error::Code error, const QString &message, const QString &out = {}, const QString &err = {})
 {
     qWarning() << message;
     return makeReadyFuture(Result<>::error(error, message, out, err));
 }
 
-
 } // namespace PlasmaVault
 
 #endif // include guard
-

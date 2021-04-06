@@ -9,7 +9,8 @@
 
 #include "dialogdsl.h"
 
-class BackendChooserWidget: public DialogDsl::DialogModule {
+class BackendChooserWidget : public DialogDsl::DialogModule
+{
     Q_OBJECT
 
 public:
@@ -32,4 +33,3 @@ private:
 };
 
 #endif // include guard
-

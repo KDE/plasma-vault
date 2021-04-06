@@ -15,12 +15,13 @@
 // We mean it.
 //
 
-namespace AsynQt {
-namespace detail {
-
-template <typename _Result>
-class DBusCallFutureInterface : public QObject,
-                                public QFutureInterface<_Result> {
+namespace AsynQt
+{
+namespace detail
+{
+template<typename _Result>
+class DBusCallFutureInterface : public QObject, public QFutureInterface<_Result>
+{
 public:
     DBusCallFutureInterface(QDBusPendingReply<_Result> reply)
         : reply(reply)
@@ -37,11 +38,14 @@ public:
     {
         replyWatcher.reset(new QDBusPendingCallWatcher(reply));
 
-        QObject::connect(replyWatcher.get(),
-                         &QDBusPendingCallWatcher::finished,
-                         replyWatcher.get(),
-                         [this] () { callFinished(); },
-                         Qt::QueuedConnection);
+        QObject::connect(
+            replyWatcher.get(),
+            &QDBusPendingCallWatcher::finished,
+            replyWatcher.get(),
+            [this]() {
+                callFinished();
+            },
+            Qt::QueuedConnection);
 
         this->reportStarted();
 
@@ -57,7 +61,7 @@ private:
     std::unique_ptr<QDBusPendingCallWatcher> replyWatcher;
 };
 
-template <typename _Result>
+template<typename _Result>
 void DBusCallFutureInterface<_Result>::callFinished()
 {
     if (!reply.isError()) {
@@ -66,15 +70,13 @@ void DBusCallFutureInterface<_Result>::callFinished()
 
     } else {
         this->reportCanceled();
-
     }
 
     deleteLater();
 }
 
-template <>
-inline
-void DBusCallFutureInterface<void>::callFinished()
+template<>
+inline void DBusCallFutureInterface<void>::callFinished()
 {
     if (!reply.isError()) {
         this->reportFinished();
@@ -88,4 +90,3 @@ void DBusCallFutureInterface<void>::callFinished()
 
 } // namespace detail
 } // namespace AsynQt
-

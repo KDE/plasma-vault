@@ -8,10 +8,11 @@
 
 #include "ui_backendchooserwidget.h"
 
-#include "vault.h"
 #include "engine/backend_p.h"
+#include "vault.h"
 
-class BackendChooserWidget::Private {
+class BackendChooserWidget::Private
+{
 public:
     Private(BackendChooserWidget *parent)
         : q(parent)
@@ -37,10 +38,8 @@ public:
         q->setIsValid(vaultNameValid && backendValid);
     }
 
-    BackendChooserWidget * const q;
+    BackendChooserWidget *const q;
 };
-
-
 
 BackendChooserWidget::BackendChooserWidget()
     : DialogDsl::DialogModule(false)
@@ -50,22 +49,18 @@ BackendChooserWidget::BackendChooserWidget()
     d->ui.textStatus->hide();
     d->ui.page2Layout->setRowStretch(1, 10);
 
-    connect(d->ui.editVaultName, &QLineEdit::textChanged,
-            this, [&] (const QString &vaultName) {
-                d->setVaultNameValid(!vaultName.isEmpty());
-            });
+    connect(d->ui.editVaultName, &QLineEdit::textChanged, this, [&](const QString &vaultName) {
+        d->setVaultNameValid(!vaultName.isEmpty());
+    });
 
-    connect(d->ui.comboBackend, static_cast<void(QComboBox::*)(int)>(&QComboBox::activated),
-            this, &BackendChooserWidget::checkCurrentBackend);
+    connect(d->ui.comboBackend, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, &BackendChooserWidget::checkCurrentBackend);
 
     connect(d->ui.pickBackendButton, SIGNAL(clicked()), this, SLOT(showBackendSelector()));
 }
 
-
 BackendChooserWidget::~BackendChooserWidget()
 {
 }
-
 
 void BackendChooserWidget::checkCurrentBackend()
 {
@@ -96,7 +91,6 @@ void BackendChooserWidget::checkCurrentBackend()
     d->setBackendValid(backendValid);
 }
 
-
 void BackendChooserWidget::showBackendSelector()
 {
     d->ui.vaultEncryptionConfig->setCurrentWidget(d->ui.page2);
@@ -120,17 +114,13 @@ void BackendChooserWidget::addItem(const QByteArray &id, const QString &title, i
     }
 }
 
-
 PlasmaVault::Vault::Payload BackendChooserWidget::fields() const
 {
     QByteArray backend = d->bestsBackend;
     if (d->ui.vaultEncryptionConfig->currentWidget() == d->ui.page2)
         backend = d->ui.comboBackend->currentData().toByteArray();
     Q_ASSERT(!backend.isEmpty());
-    return {
-        { KEY_BACKEND, backend},
-        { KEY_NAME,    d->ui.editVaultName->text() }
-    };
+    return {{KEY_BACKEND, backend}, {KEY_NAME, d->ui.editVaultName->text()}};
 }
 
 void BackendChooserWidget::checkBackendAvailable()

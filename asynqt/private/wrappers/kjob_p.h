@@ -15,14 +15,15 @@
 // We mean it.
 //
 
-namespace AsynQt {
-namespace detail {
-
-template <typename _Result>
-class KJobFutureInterface : public QObject,
-                            public QFutureInterface<_Result> {
+namespace AsynQt
+{
+namespace detail
+{
+template<typename _Result>
+class KJobFutureInterface : public QObject, public QFutureInterface<_Result>
+{
 public:
-    KJobFutureInterface(KJob* job)
+    KJobFutureInterface(KJob *job)
         : job(job)
     {
         job->setAutoDelete(false);
@@ -36,10 +37,10 @@ public:
 
     QFuture<_Result> start()
     {
-        auto onCallFinished = [this] () { callFinished(); };
-        QObject::connect(job, &KJob::result,
-                         this, onCallFinished,
-                         Qt::QueuedConnection);
+        auto onCallFinished = [this]() {
+            callFinished();
+        };
+        QObject::connect(job, &KJob::result, this, onCallFinished, Qt::QueuedConnection);
 
         this->reportStarted();
 
@@ -49,10 +50,10 @@ public:
     }
 
 private:
-    KJob* job;
+    KJob *job;
 };
 
-template <typename _Result>
+template<typename _Result>
 void KJobFutureInterface<_Result>::callFinished()
 {
     this->reportResult(job);
@@ -61,7 +62,7 @@ void KJobFutureInterface<_Result>::callFinished()
     deleteLater();
 }
 
-template <>
+template<>
 void KJobFutureInterface<void>::callFinished()
 {
     this->reportFinished();
@@ -72,4 +73,3 @@ void KJobFutureInterface<void>::callFinished()
 
 } // namespace detail
 } // namespace AsynQt
-

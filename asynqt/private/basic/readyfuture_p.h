@@ -15,12 +15,12 @@
 // We mean it.
 //
 
-namespace AsynQt {
-namespace detail {
-
-template <typename _Result>
-QFuture<typename std::decay<_Result>::type>
-makeReadyFuture(_Result &&value)
+namespace AsynQt
+{
+namespace detail
+{
+template<typename _Result>
+QFuture<typename std::decay<_Result>::type> makeReadyFuture(_Result &&value)
 {
     QFutureInterface<_Result> interface;
     auto future = interface.future();
@@ -32,8 +32,7 @@ makeReadyFuture(_Result &&value)
     return future;
 }
 
-inline
-QFuture<void> makeReadyFuture()
+inline QFuture<void> makeReadyFuture()
 {
     QFutureInterface<void> interface;
     auto future = interface.future();
@@ -46,4 +45,3 @@ QFuture<void> makeReadyFuture()
 
 } // namespace detail
 } // namespace AsynQt
-

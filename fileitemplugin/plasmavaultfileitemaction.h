@@ -30,14 +30,12 @@ class KFileItemListProperties;
 
 class PlasmaVaultFileItemAction : public KAbstractFileItemActionPlugin
 {
-
-Q_OBJECT
+    Q_OBJECT
 
 public:
-    PlasmaVaultFileItemAction(QObject* parent, const QVariantList& args);
+    PlasmaVaultFileItemAction(QObject *parent, const QVariantList &args);
 
-    QList<QAction*> actions(const KFileItemListProperties& fileItemInfos,
-                            QWidget* parentWidget) override;
+    QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) override;
 };
 
 #endif

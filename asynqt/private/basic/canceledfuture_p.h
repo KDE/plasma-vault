@@ -15,11 +15,11 @@
 // We mean it.
 //
 
-namespace AsynQt {
-
-namespace detail {
-
-template <typename _Result>
+namespace AsynQt
+{
+namespace detail
+{
+template<typename _Result>
 QFuture<_Result> makeCanceledFuture()
 {
     QFutureInterface<_Result> interface;
@@ -33,7 +33,7 @@ QFuture<_Result> makeCanceledFuture()
 }
 
 #ifndef QT_NO_EXCEPTIONS
-template <typename _Result>
+template<typename _Result>
 QFuture<_Result> makeCanceledFuture(const QException &exception)
 {
     QFutureInterface<_Result> interface;
@@ -47,26 +47,23 @@ QFuture<_Result> makeCanceledFuture(const QException &exception)
 }
 #endif
 
-
 } // namespace detail
 } // namespace AsynQt
 
 #ifdef ENABLE_EVIL_QFUTURE_HACKS_THAT_SHOULD_BE_IN_QT
 
 class AsynQt_QFuturePrivacyHack_hasException;
-template <>
+template<>
 inline bool QFuture<AsynQt_QFuturePrivacyHack_hasException>::isCanceled() const
 {
     return d.exceptionStore().hasException();
 }
 
 class AsynQt_QFuturePrivacyHack_throwPossibleException;
-template <>
+template<>
 inline void QFuture<AsynQt_QFuturePrivacyHack_throwPossibleException>::cancel()
 {
     return d.exceptionStore().throwPossibleException();
 }
 
 #endif
-
-

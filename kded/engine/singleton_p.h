@@ -7,12 +7,12 @@
 #ifndef PLASMAVAULT_KDED_ENGINE_SINGLETON_P_H
 #define PLASMAVAULT_KDED_ENGINE_SINGLETON_P_H
 
-#include <mutex>
 #include <memory>
+#include <mutex>
 
-namespace singleton {
-
-template <typename BackendType>
+namespace singleton
+{
+template<typename BackendType>
 static std::shared_ptr<BackendType> instance()
 {
     static std::mutex s_instanceMutex;
@@ -33,4 +33,3 @@ static std::shared_ptr<BackendType> instance()
 } // namespace singleton
 
 #endif // include guard
-

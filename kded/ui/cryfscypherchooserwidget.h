@@ -9,7 +9,8 @@
 
 #include "dialogdsl.h"
 
-class CryfsCypherChooserWidget: public DialogDsl::DialogModule {
+class CryfsCypherChooserWidget : public DialogDsl::DialogModule
+{
     Q_OBJECT
 
 public:
@@ -34,4 +35,3 @@ inline DialogDsl::ModuleFactory cryfsCypherChooser()
 }
 
 #endif // include guard
-

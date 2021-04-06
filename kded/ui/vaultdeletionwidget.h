@@ -9,7 +9,8 @@
 
 #include "dialogdsl.h"
 
-class VaultDeletionWidget: public DialogDsl::DialogModule {
+class VaultDeletionWidget : public DialogDsl::DialogModule
+{
     Q_OBJECT
 
 public:
@@ -34,4 +35,3 @@ inline DialogDsl::ModuleFactory vaultDeletion()
 }
 
 #endif // include guard
-

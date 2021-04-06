@@ -7,19 +7,21 @@
 #include "directorypairchooserwidget.h"
 #include "ui_directorypairchooserwidget.h"
 
-#include "vault.h"
 #include "backend_p.h"
+#include "vault.h"
 
 #include <QStandardPaths>
 
-class DirectoryPairChooserWidget::Private {
+class DirectoryPairChooserWidget::Private
+{
 public:
     Ui::DirectoryPairChooserWidget ui;
     const DirectoryPairChooserWidget::Flags flags;
 
     DirectoryPairChooserWidget *const q;
 
-    class DirectoryValidator {
+    class DirectoryValidator
+    {
     public:
         bool requireEmptyDirectory;
         bool requireExisting;
@@ -27,11 +29,9 @@ public:
         QString defaultPath;
         std::function<void()> update;
 
-        KMessageWidget* widget = nullptr;
+        KMessageWidget *widget = nullptr;
 
-        DirectoryValidator(bool requireEmptyDirectory, bool requireExisting,
-                           QString defaultPath,
-                           std::function<void()> update)
+        DirectoryValidator(bool requireEmptyDirectory, bool requireExisting, QString defaultPath, std::function<void()> update)
             : requireEmptyDirectory(requireEmptyDirectory)
             , requireExisting(requireExisting)
             , valid(!requireEmptyDirectory && !requireExisting)
@@ -101,30 +101,29 @@ public:
         }
     }
 
-    Private(DirectoryPairChooserWidget *parent,
-            DirectoryPairChooserWidget::Flags flags)
+    Private(DirectoryPairChooserWidget *parent, DirectoryPairChooserWidget::Flags flags)
         : flags(flags)
         , q(parent)
-        , deviceValidator(
-                flags & RequireEmptyDevice,
-                flags & RequireExistingDevice,
-                nullptr,
-                [&] { updateValidity(); }
-            )
-        , mountPointValidator(
-                flags & RequireEmptyMountPoint,
-                flags & RequireExistingMountPoint,
-                nullptr,
-                [&] { updateValidity(); }
-            )
+        , deviceValidator(flags & RequireEmptyDevice,
+                          flags & RequireExistingDevice,
+                          nullptr,
+                          [&] {
+                              updateValidity();
+                          })
+        , mountPointValidator(flags & RequireEmptyMountPoint,
+                              flags & RequireExistingMountPoint,
+                              nullptr,
+                              [&] {
+                                  updateValidity();
+                              })
         , allValid(deviceValidator.valid && mountPointValidator.valid)
     {
     }
 };
 
-DirectoryPairChooserWidget::DirectoryPairChooserWidget(
-    DirectoryPairChooserWidget::Flags flags)
-    : DialogDsl::DialogModule(false), d(new Private(this, flags))
+DirectoryPairChooserWidget::DirectoryPairChooserWidget(DirectoryPairChooserWidget::Flags flags)
+    : DialogDsl::DialogModule(false)
+    , d(new Private(this, flags))
 {
     d->ui.setupUi(this);
 
@@ -144,39 +143,31 @@ DirectoryPairChooserWidget::DirectoryPairChooserWidget(
     d->ui.messageDevice->hide();
     d->ui.messageMountPoint->hide();
 
-    connect(d->ui.editDevice, &KUrlRequester::textEdited,
-            this, [&] () {
-                d->deviceValidator.updateFor(d->ui.editDevice->url());
-            });
+    connect(d->ui.editDevice, &KUrlRequester::textEdited, this, [&]() {
+        d->deviceValidator.updateFor(d->ui.editDevice->url());
+    });
 
-    connect(d->ui.editMountPoint, &KUrlRequester::textEdited,
-            this, [&] () {
-                d->mountPointValidator.updateFor(d->ui.editMountPoint->url());
-            });
+    connect(d->ui.editMountPoint, &KUrlRequester::textEdited, this, [&]() {
+        d->mountPointValidator.updateFor(d->ui.editMountPoint->url());
+    });
 }
-
 
 DirectoryPairChooserWidget::~DirectoryPairChooserWidget()
 {
 }
 
-
 PlasmaVault::Vault::Payload DirectoryPairChooserWidget::fields() const
 {
     return {
-        { KEY_DEVICE,      d->ui.editDevice->url().toLocalFile() },
-        { KEY_MOUNT_POINT, d->ui.editMountPoint->url().toLocalFile() },
+        {KEY_DEVICE, d->ui.editDevice->url().toLocalFile()},
+        {KEY_MOUNT_POINT, d->ui.editMountPoint->url().toLocalFile()},
     };
 }
 
-
-
-void DirectoryPairChooserWidget::init(
-    const PlasmaVault::Vault::Payload &payload)
+void DirectoryPairChooserWidget::init(const PlasmaVault::Vault::Payload &payload)
 {
     if (d->flags & DirectoryPairChooserWidget::AutoFillPaths) {
-        const QString basePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
-                + QStringLiteral("/plasma-vault");
+        const QString basePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/plasma-vault");
 
         const auto name = payload[KEY_NAME].toString();
 
@@ -199,4 +190,3 @@ void DirectoryPairChooserWidget::init(
     d->mountPointValidator.updateFor(d->ui.editMountPoint->url());
     setIsValid(d->allValid);
 }
-

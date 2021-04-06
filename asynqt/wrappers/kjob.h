@@ -17,13 +17,13 @@
 
 #include "../private/wrappers/kjob_p.h"
 
-namespace AsynQt {
-
+namespace AsynQt
+{
 /**
  * Creates a future from the specified dbus reply
  */
-template <typename _Result>
-QFuture<_Result> makeFuture(KJob* job)
+template<typename _Result>
+QFuture<_Result> makeFuture(KJob *job)
 {
     using namespace detail;
 
@@ -33,4 +33,3 @@ QFuture<_Result> makeFuture(KJob* job)
 } // namespace AsynQt
 
 #endif // ASYNQT_CONS_DBUSFUTURE_H
-

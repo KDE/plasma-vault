@@ -15,13 +15,16 @@
 // We mean it.
 //
 
-namespace AsynQt {
-namespace detail {
+#include <asynqt/operations/transform.h>
 
-template <typename _Result, typename _Function>
-class ProcessFutureInterface : public QObject,
-                               public QFutureInterface<_Result> {
 
+namespace AsynQt
+{
+namespace detail
+{
+template<typename _Result, typename _Function>
+class ProcessFutureInterface : public QObject, public QFutureInterface<_Result>
+{
 public:
     ProcessFutureInterface(QProcess *process, _Function map)
         : m_process(process)
@@ -32,21 +35,17 @@ public:
     QFuture<_Result> start()
     {
         m_running = true;
-        auto onProcessFinished = [this] () {
-                    this->finished();
-                };
-        QObject::connect(
-                m_process,
-                // Pretty new Qt connect syntax :)
-                (void (QProcess::*)(int, QProcess::ExitStatus)) &QProcess::finished,
-                this, onProcessFinished,
-                Qt::QueuedConnection);
+        auto onProcessFinished = [this]() {
+            this->finished();
+        };
+        QObject::connect(m_process,
+                         // Pretty new Qt connect syntax :)
+                         (void (QProcess::*)(int, QProcess::ExitStatus)) & QProcess::finished,
+                         this,
+                         onProcessFinished,
+                         Qt::QueuedConnection);
 
-        QObject::connect(
-                m_process,
-                &QProcess::errorOccurred,
-                this, onProcessFinished,
-                Qt::QueuedConnection);
+        QObject::connect(m_process, &QProcess::errorOccurred, this, onProcessFinished, Qt::QueuedConnection);
 
         this->reportStarted();
 
@@ -57,15 +56,13 @@ public:
 
     void finished();
 
-
 private:
     QProcess *m_process;
     _Function m_map;
     bool m_running;
-
 };
 
-template <typename _Result, typename _Function>
+template<typename _Result, typename _Function>
 void ProcessFutureInterface<_Result, _Function>::finished()
 {
     if (m_running) {
@@ -77,4 +74,3 @@ void ProcessFutureInterface<_Result, _Function>::finished()
 
 } // namespace detail
 } // namespace AsynQt
-

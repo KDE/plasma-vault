@@ -14,12 +14,13 @@
 #include <common/vaultinfo.h>
 #include <engine/vault.h>
 
-class Q_DECL_EXPORT PlasmaVaultService : public KDEDModule {
+class Q_DECL_EXPORT PlasmaVaultService : public KDEDModule
+{
     Q_CLASSINFO("D-Bus Interface", "org.kde.plasmavault")
     Q_OBJECT
 
 public:
-    PlasmaVaultService(QObject *parent, const QVariantList&);
+    PlasmaVaultService(QObject *parent, const QVariantList &);
     ~PlasmaVaultService();
 
 public Q_SLOTS:
@@ -68,7 +69,6 @@ private Q_SLOTS:
 private:
     class Private;
     QScopedPointer<Private> d;
-
 };
 
 #endif // include guard

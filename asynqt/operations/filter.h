@@ -10,13 +10,13 @@
 #include <QFuture>
 #include <QFutureWatcher>
 
-#include <type_traits>
 #include <memory>
+#include <type_traits>
 
 #include "../private/operations/filter_p.h"
 
-namespace AsynQt {
-
+namespace AsynQt
+{
 /**
  * Takes a future of a future, and flattens it out.
  *
@@ -26,18 +26,16 @@ namespace AsynQt {
  * @arg future future that contains another future of type T
  * @returns a single-level future of type T
  */
-template <typename _Result, typename _Predicate>
-QFuture<_Result> filter(const QFuture<_Result> &future,
-                        _Predicate &&predicate)
+template<typename _Result, typename _Predicate>
+QFuture<_Result> filter(const QFuture<_Result> &future, _Predicate &&predicate)
 {
     return detail::filter_impl(future, std::forward<_Predicate>(predicate));
 }
 
-namespace operators {
-
-template <typename _Predicate>
-inline
-detail::operators::FilterModifier<_Predicate> filter(_Predicate &&predicate)
+namespace operators
+{
+template<typename _Predicate>
+inline detail::operators::FilterModifier<_Predicate> filter(_Predicate &&predicate)
 {
     return detail::operators::FilterModifier<_Predicate>(std::forward<_Predicate>(predicate));
 }
@@ -47,4 +45,3 @@ detail::operators::FilterModifier<_Predicate> filter(_Predicate &&predicate)
 } // namespace AsynQt
 
 #endif // ASYNQT_BASE_FILTER_H
-

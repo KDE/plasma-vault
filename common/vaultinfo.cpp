@@ -12,5 +12,4 @@ auto static_init_VaultInfo = [] {
     qDBusRegisterMetaType<PlasmaVault::VaultInfo>();
     qDBusRegisterMetaType<PlasmaVault::VaultInfoList>();
     return true;
-} ();
-
+}();

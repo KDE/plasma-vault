@@ -7,14 +7,15 @@
 #ifndef PLASMAVAULT_KDED_ENGINE_COMMON_TYPES_H
 #define PLASMAVAULT_KDED_ENGINE_COMMON_TYPES_H
 
-#include <QString>
 #include <QHash>
+#include <QString>
 
 #define PLASMAVAULT_CONFIG_FILE QStringLiteral("plasmavaultrc")
 
-namespace PlasmaVault {
-
-class Device {
+namespace PlasmaVault
+{
+class Device
+{
 public:
     explicit Device(const QString &device = QString());
     QString data() const;
@@ -28,14 +29,13 @@ inline uint qHash(const Device &value, uint seed = 0)
     return qHash(value.data(), seed);
 }
 
-inline bool operator== (const Device &left, const Device &right)
+inline bool operator==(const Device &left, const Device &right)
 {
     return left.data() == right.data();
 }
 
-
-
-class MountPoint {
+class MountPoint
+{
 public:
     explicit MountPoint(const QString &mountPoint = QString());
     QString data() const;
@@ -52,4 +52,3 @@ private:
 } // namespace PlasmaVault
 
 #endif // include guard
-

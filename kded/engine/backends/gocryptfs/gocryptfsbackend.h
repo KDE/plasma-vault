@@ -9,9 +9,10 @@
 
 #include "../../fusebackend_p.h"
 
-namespace PlasmaVault {
-
-class GocryptfsBackend: public FuseBackend {
+namespace PlasmaVault
+{
+class GocryptfsBackend : public FuseBackend
+{
 public:
     GocryptfsBackend();
     ~GocryptfsBackend() override;
@@ -22,12 +23,13 @@ public:
 
     FutureResult<> validateBackend() override;
 
-    QString name() const override { return "gocryptfs"; }
+    QString name() const override
+    {
+        return "gocryptfs";
+    }
 
 protected:
-    FutureResult<> mount(const Device &device,
-                         const MountPoint &mountPoint,
-                         const Vault::Payload &payload) override;
+    FutureResult<> mount(const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload) override;
 
 private:
     QProcess *gocryptfs(const QStringList &arguments) const;
@@ -37,4 +39,3 @@ private:
 } // namespace PlasmaVault
 
 #endif // include guard
-

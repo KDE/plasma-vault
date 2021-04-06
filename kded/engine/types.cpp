@@ -8,9 +8,9 @@
 
 #include <QFileInfo>
 
-namespace PlasmaVault {
-
-static QString normalizePath(const QString& path)
+namespace PlasmaVault
+{
+static QString normalizePath(const QString &path)
 {
     QFileInfo fileInfo(path);
 
@@ -50,4 +50,3 @@ QString MountPoint::data() const
 }
 
 } // namespace PlasmaVault
-

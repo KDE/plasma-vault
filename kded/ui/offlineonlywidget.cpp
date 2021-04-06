@@ -8,16 +8,15 @@
 
 #include "ui_offlineonlywidget.h"
 
-#include <KSharedConfig>
 #include <KConfigGroup>
+#include <KSharedConfig>
 
-class OfflineOnlyChooserWidget::Private {
+class OfflineOnlyChooserWidget::Private
+{
 public:
     Ui::OfflineOnlyChooserWidget ui;
     KSharedConfig::Ptr config;
 };
-
-
 
 OfflineOnlyChooserWidget::OfflineOnlyChooserWidget()
     : DialogDsl::DialogModule(true)
@@ -26,24 +25,18 @@ OfflineOnlyChooserWidget::OfflineOnlyChooserWidget()
     d->ui.setupUi(this);
 }
 
-
-
 OfflineOnlyChooserWidget::~OfflineOnlyChooserWidget()
 {
 }
 
-
-
 PlasmaVault::Vault::Payload OfflineOnlyChooserWidget::fields() const
 {
     return {
-        { KEY_OFFLINEONLY, d->ui.checkShouldBeOffline->isChecked() },
+        {KEY_OFFLINEONLY, d->ui.checkShouldBeOffline->isChecked()},
     };
 }
 
 void OfflineOnlyChooserWidget::init(const PlasmaVault::Vault::Payload &payload)
 {
-    d->ui.checkShouldBeOffline->setChecked(
-        payload[KEY_OFFLINEONLY].toBool());
+    d->ui.checkShouldBeOffline->setChecked(payload[KEY_OFFLINEONLY].toBool());
 }
-

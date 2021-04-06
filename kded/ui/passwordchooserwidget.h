@@ -9,7 +9,8 @@
 
 #include "dialogdsl.h"
 
-class PasswordChooserWidget: public DialogDsl::DialogModule {
+class PasswordChooserWidget : public DialogDsl::DialogModule
+{
     Q_OBJECT
 
 public:
@@ -31,4 +32,3 @@ inline DialogDsl::ModuleFactory passwordChooser()
 }
 
 #endif // include guard
-

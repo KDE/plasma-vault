@@ -8,22 +8,21 @@
 
 #include "ui_vaultdeletionwidget.h"
 
-#include <KSharedConfig>
 #include <KConfigGroup>
 #include <KMessageWidget>
+#include <KSharedConfig>
 
 #include <QDBusInterface>
 #include <QDBusPendingCall>
 
-class VaultDeletionWidget::Private {
+class VaultDeletionWidget::Private
+{
 public:
     Ui::VaultDeletionWidget ui;
     QString vaultName;
     QString vaultDevice;
     KSharedConfig::Ptr config;
 };
-
-
 
 VaultDeletionWidget::VaultDeletionWidget()
     : DialogDsl::DialogModule(true)
@@ -35,37 +34,26 @@ VaultDeletionWidget::VaultDeletionWidget()
     messageWidget->setMessageType(KMessageWidget::Warning);
     messageWidget->setCloseButtonVisible(false);
     messageWidget->setIcon(QIcon::fromTheme("dialog-warning"));
-    static_cast<QBoxLayout*>(layout())->insertWidget(0, messageWidget);
+    static_cast<QBoxLayout *>(layout())->insertWidget(0, messageWidget);
 
     d->ui.labelWarning->hide();
 
-    connect(d->ui.textVaultNameConfirmation, &QLineEdit::textEdited,
-            this, [this] (const QString &newText) {
-                d->ui.buttonDeleteVault->setEnabled(d->vaultName == newText);
-            });
+    connect(d->ui.textVaultNameConfirmation, &QLineEdit::textEdited, this, [this](const QString &newText) {
+        d->ui.buttonDeleteVault->setEnabled(d->vaultName == newText);
+    });
 
-    connect(d->ui.buttonDeleteVault, &QPushButton::clicked,
-            this, [this] {
-                d->ui.buttonDeleteVault->setEnabled(false);
-                emit requestCancellation();
+    connect(d->ui.buttonDeleteVault, &QPushButton::clicked, this, [this] {
+        d->ui.buttonDeleteVault->setEnabled(false);
+        emit requestCancellation();
 
-                QDBusInterface(
-                        QStringLiteral("org.kde.kded5"),
-                        QStringLiteral("/modules/plasmavault"),
-                        QStringLiteral("org.kde.plasmavault"))
-                    .asyncCall("deleteVault", d->vaultDevice, d->vaultName);
-
-            });
-
+        QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/plasmavault"), QStringLiteral("org.kde.plasmavault"))
+            .asyncCall("deleteVault", d->vaultDevice, d->vaultName);
+    });
 }
-
-
 
 VaultDeletionWidget::~VaultDeletionWidget()
 {
 }
-
-
 
 PlasmaVault::Vault::Payload VaultDeletionWidget::fields() const
 {
@@ -78,4 +66,3 @@ void VaultDeletionWidget::init(const PlasmaVault::Vault::Payload &payload)
     d->vaultDevice = payload[KEY_DEVICE].toString();
     d->ui.buttonDeleteVault->setEnabled(false);
 }
-

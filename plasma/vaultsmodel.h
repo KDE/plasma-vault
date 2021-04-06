@@ -14,7 +14,8 @@
 
 #include <common/vaultinfo.h>
 
-class VaultsModel: public QAbstractListModel {
+class VaultsModel : public QAbstractListModel
+{
     Q_OBJECT
 
     Q_PROPERTY(bool isBusy READ isBusy NOTIFY isBusyChanged)
@@ -36,16 +37,16 @@ public:
 
     enum Roles {
         VaultName = Qt::UserRole + 1, ///< The user defined name of the vault
-        VaultDevice,                  ///< Path to the encrypted data
-        VaultMountPoint,              ///< Where the data should be visible from
-        VaultIcon,                    ///< Icon for the fault
-        VaultIsBusy,                  ///< Is the vault currently being opened or closed
-        VaultIsOpened,                ///< Is the vault open
-        VaultStatus,                  ///< Status of the vault, @see VaultInfo::Status
-        VaultActivities,              ///< To which activities does this vault belong to
-        VaultIsOfflineOnly,           ///< Should the networking be off when this vault is mounted
-        VaultMessage,                 ///< Message to be shown for the vault
-        VaultIsEnabled,               ///< Can the vault be mounted
+        VaultDevice, ///< Path to the encrypted data
+        VaultMountPoint, ///< Where the data should be visible from
+        VaultIcon, ///< Icon for the fault
+        VaultIsBusy, ///< Is the vault currently being opened or closed
+        VaultIsOpened, ///< Is the vault open
+        VaultStatus, ///< Status of the vault, @see VaultInfo::Status
+        VaultActivities, ///< To which activities does this vault belong to
+        VaultIsOfflineOnly, ///< Should the networking be off when this vault is mounted
+        VaultMessage, ///< Message to be shown for the vault
+        VaultIsEnabled, ///< Can the vault be mounted
     };
 
 public Q_SLOTS:
@@ -72,7 +73,6 @@ public Q_SLOTS:
     // Open in file manager
     void openInFileManager(const QString &device);
 
-
     bool isBusy() const;
     bool hasError() const;
 
@@ -87,17 +87,16 @@ private:
     QScopedPointer<Private> d;
 };
 
-class SortedVaultsModelProxy: public QSortFilterProxyModel {
+class SortedVaultsModelProxy : public QSortFilterProxyModel
+{
     Q_OBJECT
 
 public:
     explicit SortedVaultsModelProxy(QObject *parent);
 
-    bool lessThan(const QModelIndex &left,
-                  const QModelIndex &right) const override;
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
-    bool filterAcceptsRow(int sourceRow,
-                          const QModelIndex &sourceParent) const override;
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
 public Q_SLOTS:
     QObject *actionsModel() const;
@@ -111,4 +110,3 @@ private:
 };
 
 #endif // include guard
-

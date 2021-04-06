@@ -14,13 +14,13 @@
 
 #include "../private/basic/readyfuture_p.h"
 
-namespace AsynQt {
-
+namespace AsynQt
+{
 /**
  * Creates a future that has already been completed,
  * and that contains the specified value
  */
-template <typename _Result>
+template<typename _Result>
 QFuture<typename std::decay<_Result>::type> makeReadyFuture(_Result &&value)
 {
     return detail::makeReadyFuture(std::forward<_Result>(value));
@@ -29,8 +29,7 @@ QFuture<typename std::decay<_Result>::type> makeReadyFuture(_Result &&value)
 /**
  * Creates a void future that has already been completed.
  */
-inline
-QFuture<void> makeReadyFuture()
+inline QFuture<void> makeReadyFuture()
 {
     return detail::makeReadyFuture();
 }
@@ -38,4 +37,3 @@ QFuture<void> makeReadyFuture()
 } // namespace AsynQt
 
 #endif // ASYNQT_CONS_READY_FUTURE_H
-

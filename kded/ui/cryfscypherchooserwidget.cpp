@@ -8,20 +8,19 @@
 
 #include "ui_cryfscypherchooserwidget.h"
 
-#include <QStringList>
 #include <QProcess>
+#include <QStringList>
 #include <QTimer>
 
 #include <asynqt/basic/all.h>
-#include <asynqt/wrappers/process.h>
 #include <asynqt/operations/transform.h>
+#include <asynqt/wrappers/process.h>
 
-class CryfsCypherChooserWidget::Private {
+class CryfsCypherChooserWidget::Private
+{
 public:
     Ui::CryfsCypherChooserWidget ui;
 };
-
-
 
 CryfsCypherChooserWidget::CryfsCypherChooserWidget()
     : DialogDsl::DialogModule(true)
@@ -41,7 +40,7 @@ void CryfsCypherChooserWidget::initializeCyphers()
     // to reach their backends directly
     auto process = new QProcess();
     process->setProgram("cryfs");
-    process->setArguments({ "--show-ciphers" });
+    process->setArguments({"--show-ciphers"});
 
     auto env = process->processEnvironment();
     env.insert("CRYFS_FRONTEND", "noninteractive");
@@ -59,27 +58,18 @@ void CryfsCypherChooserWidget::initializeCyphers()
 
     combo->addItem(i18n("Use the default cipher"), QString());
 
-    for (const auto& item: QString::fromLatin1(err).split('\n')) {
+    for (const auto &item : QString::fromLatin1(err).split('\n')) {
         if (!item.isEmpty()) {
             combo->addItem(item, item);
         }
     }
 }
 
-
-
 CryfsCypherChooserWidget::~CryfsCypherChooserWidget()
 {
 }
 
-
-
 PlasmaVault::Vault::Payload CryfsCypherChooserWidget::fields() const
 {
-    return {
-        { "cryfs-cipher", d->ui.comboCypher->currentData() }
-    };
+    return {{"cryfs-cipher", d->ui.comboCypher->currentData()}};
 }
-
-
-

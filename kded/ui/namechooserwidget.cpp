@@ -9,7 +9,8 @@
 
 #include "vault.h"
 
-class NameChooserWidget::Private {
+class NameChooserWidget::Private
+{
 public:
     Ui::NameChooserWidget ui;
 
@@ -20,45 +21,31 @@ public:
     }
 };
 
-
-
 NameChooserWidget::NameChooserWidget()
-    : DialogDsl::DialogModule(false), d(new Private(this))
+    : DialogDsl::DialogModule(false)
+    , d(new Private(this))
 {
     d->ui.setupUi(this);
 
-    connect(d->ui.editVaultName, &QLineEdit::textChanged,
-            this, [this] (const QString &text) {
-                Q_UNUSED(text);
-                setIsValid(!d->ui.editVaultName->text().isEmpty());
-            });
+    connect(d->ui.editVaultName, &QLineEdit::textChanged, this, [this](const QString &text) {
+        Q_UNUSED(text);
+        setIsValid(!d->ui.editVaultName->text().isEmpty());
+    });
 }
-
-
 
 NameChooserWidget::~NameChooserWidget()
 {
 }
 
-
-
 PlasmaVault::Vault::Payload NameChooserWidget::fields() const
 {
-    return {
-        { KEY_NAME, d->ui.editVaultName->text() }
-    };
+    return {{KEY_NAME, d->ui.editVaultName->text()}};
 }
 
-
-
-void NameChooserWidget::init(
-    const PlasmaVault::Vault::Payload &payload)
+void NameChooserWidget::init(const PlasmaVault::Vault::Payload &payload)
 {
     const auto name = payload[KEY_NAME].toString();
 
     d->ui.editVaultName->setText(name);
     setIsValid(!d->ui.editVaultName->text().isEmpty());
 }
-
-
-

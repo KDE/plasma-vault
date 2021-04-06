@@ -9,9 +9,9 @@
 
 #include <QCoreApplication>
 
-namespace AsynQt {
-
-template <typename T>
+namespace AsynQt
+{
+template<typename T>
 T await(const QFuture<T> &future)
 {
     while (!future.isFinished()) {
@@ -21,8 +21,7 @@ T await(const QFuture<T> &future)
     return future.result();
 }
 
-inline
-void await(const QFuture<void> &future)
+inline void await(const QFuture<void> &future)
 {
     while (!future.isFinished()) {
         QCoreApplication::processEvents();
@@ -32,4 +31,3 @@ void await(const QFuture<void> &future)
 } // namespace AsynQt
 
 #endif // ASYNQT_AWAIT_H
-

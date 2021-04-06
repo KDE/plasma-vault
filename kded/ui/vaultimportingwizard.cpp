@@ -7,10 +7,10 @@
 #include "vaultimportingwizard.h"
 #include "ui_vaultimportingwizard.h"
 
-#include <QPushButton>
 #include <QMap>
-#include <QVector>
+#include <QPushButton>
 #include <QStackedLayout>
+#include <QVector>
 
 #include "dialogdsl.h"
 #include "vault.h"
@@ -18,69 +18,36 @@
 using namespace DialogDsl;
 using namespace DialogDsl::operators;
 
-#include "backendchooserwidget.h"
 #include "activitieslinkingwidget.h"
+#include "backendchooserwidget.h"
 #include "cryfscypherchooserwidget.h"
 #include "directorypairchooserwidget.h"
 #include "noticewidget.h"
-#include "passwordchooserwidget.h"
 #include "offlineonlywidget.h"
+#include "passwordchooserwidget.h"
 
 #include "vaultwizardbase.h"
 
-class VaultImportingWizard::Private: public WBASE(VaultImportingWizard) {
+class VaultImportingWizard::Private : public WBASE(VaultImportingWizard)
+{
 public:
+    Logic logic{{"encfs" / i18n("EncFS"),
+                 {step{directoryPairChooser(DirectoryPairChooserWidget::ShowDevicePicker | DirectoryPairChooserWidget::ShowMountPointPicker
+                                            | DirectoryPairChooserWidget::RequireExistingDevice | DirectoryPairChooserWidget::RequireEmptyMountPoint)},
+                  step{passwordChooser()},
+                  step{activitiesChooser(), offlineOnlyChooser()}}},
 
-    Logic logic
-    {
-        { "encfs" / i18n("EncFS"),
-            {
-                step { directoryPairChooser(
-                           DirectoryPairChooserWidget::ShowDevicePicker |
-                           DirectoryPairChooserWidget::ShowMountPointPicker |
-                           DirectoryPairChooserWidget::RequireExistingDevice |
-                           DirectoryPairChooserWidget::RequireEmptyMountPoint
-                       ) },
-                step { passwordChooser() },
-                step {
-                    activitiesChooser(),
-                    offlineOnlyChooser()
-                }
-            }
-        },
+                {"cryfs" / i18n("CryFS"),
+                 {step{directoryPairChooser(DirectoryPairChooserWidget::ShowDevicePicker | DirectoryPairChooserWidget::ShowMountPointPicker
+                                            | DirectoryPairChooserWidget::RequireExistingDevice | DirectoryPairChooserWidget::RequireEmptyMountPoint)},
+                  step{passwordChooser()},
+                  step{activitiesChooser(), offlineOnlyChooser()}}},
 
-        { "cryfs" / i18n("CryFS"),
-            {
-                step { directoryPairChooser(
-                           DirectoryPairChooserWidget::ShowDevicePicker |
-                           DirectoryPairChooserWidget::ShowMountPointPicker |
-                           DirectoryPairChooserWidget::RequireExistingDevice |
-                           DirectoryPairChooserWidget::RequireEmptyMountPoint
-                       ) },
-                step { passwordChooser() },
-                step {
-                    activitiesChooser(),
-                    offlineOnlyChooser()
-                }
-            }
-        },
-
-        { "gocryptfs" / i18n("gocryptfs"),
-            {
-                step { directoryPairChooser(
-                           DirectoryPairChooserWidget::ShowDevicePicker |
-                           DirectoryPairChooserWidget::ShowMountPointPicker |
-                           DirectoryPairChooserWidget::RequireExistingDevice |
-                           DirectoryPairChooserWidget::RequireEmptyMountPoint
-                       ) },
-                step { passwordChooser() },
-                step {
-                    activitiesChooser(),
-                    offlineOnlyChooser()
-                }
-            }
-        }
-    };
+                {"gocryptfs" / i18n("gocryptfs"),
+                 {step{directoryPairChooser(DirectoryPairChooserWidget::ShowDevicePicker | DirectoryPairChooserWidget::ShowMountPointPicker
+                                            | DirectoryPairChooserWidget::RequireExistingDevice | DirectoryPairChooserWidget::RequireEmptyMountPoint)},
+                  step{passwordChooser()},
+                  step{activitiesChooser(), offlineOnlyChooser()}}}};
 
     Private(VaultImportingWizard *parent)
         : WBASE(VaultImportingWizard)(parent)
@@ -92,7 +59,7 @@ public:
     void finish()
     {
         auto collectedPayload = firstStepModule->fields();
-        for (const auto* module: currentStepModules) {
+        for (const auto *module : currentStepModules) {
             collectedPayload.unite(module->fields());
         }
 
@@ -119,8 +86,6 @@ public:
     }
 };
 
-
-
 VaultImportingWizard::VaultImportingWizard(QWidget *parent)
     : QDialog(parent)
     , d(new Private(this))
@@ -128,11 +93,6 @@ VaultImportingWizard::VaultImportingWizard(QWidget *parent)
     setWindowTitle(i18nc("@title:window", "Import an Existing Vault"));
 }
 
-
-
 VaultImportingWizard::~VaultImportingWizard()
 {
 }
-
-
-

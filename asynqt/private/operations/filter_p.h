@@ -19,18 +19,15 @@
 
 #include "../utils_p.h"
 
-namespace AsynQt {
-namespace detail {
-
-template <typename _Type, typename _Predicate>
-class FilterFutureInterface
-    : public QObject
-    , public QFutureInterface<_Type> {
-
+namespace AsynQt
+{
+namespace detail
+{
+template<typename _Type, typename _Predicate>
+class FilterFutureInterface : public QObject, public QFutureInterface<_Type>
+{
 public:
-
-    FilterFutureInterface(QFuture<_Type> future,
-                          _Predicate predicate)
+    FilterFutureInterface(QFuture<_Type> future, _Predicate predicate)
         : m_future(future)
         , m_predicate(predicate)
     {
@@ -44,7 +41,9 @@ public:
             this->reportFinished();
         });
 
-        onCanceled(m_futureWatcher, [this]() { this->reportCanceled(); });
+        onCanceled(m_futureWatcher, [this]() {
+            this->reportCanceled();
+        });
 
         onResultReadyAt(m_futureWatcher, [this](int index) {
             auto result = m_future.resultAt(index);
@@ -66,40 +65,33 @@ private:
     std::unique_ptr<QFutureWatcher<_Type>> m_futureWatcher;
 };
 
-template <typename _Type, typename _Predicate>
-QFuture<_Type>
-filter_impl(const QFuture<_Type> &future, _Predicate &&predicate)
+template<typename _Type, typename _Predicate>
+QFuture<_Type> filter_impl(const QFuture<_Type> &future, _Predicate &&predicate)
 {
-    return (new FilterFutureInterface<_Type, _Predicate>(
-                future, std::forward<_Predicate>(predicate)))
-        ->start();
+    return (new FilterFutureInterface<_Type, _Predicate>(future, std::forward<_Predicate>(predicate)))->start();
 }
 
-
-namespace operators {
-
-
-    template <typename _Predicate>
-    class FilterModifier {
-    public:
-        FilterModifier(_Predicate predicate)
-            : m_predicate(predicate)
-        {
-        }
-
-        _Predicate m_predicate;
-    };
-
-    template <typename _Type, typename _Predicate>
-    auto operator | (const QFuture<_Type> &future,
-                     FilterModifier<_Predicate> &&modifier)
-        -> decltype(filter_impl(future, modifier.m_predicate))
+namespace operators
+{
+template<typename _Predicate>
+class FilterModifier
+{
+public:
+    FilterModifier(_Predicate predicate)
+        : m_predicate(predicate)
     {
-        return filter_impl(future, modifier.m_predicate);
     }
+
+    _Predicate m_predicate;
+};
+
+template<typename _Type, typename _Predicate>
+auto operator|(const QFuture<_Type> &future, FilterModifier<_Predicate> &&modifier) -> decltype(filter_impl(future, modifier.m_predicate))
+{
+    return filter_impl(future, modifier.m_predicate);
+}
 
 } // namespace operators
 
 } // namespace detail
 } // namespace AsynQt
-

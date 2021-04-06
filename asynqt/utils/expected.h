@@ -7,13 +7,14 @@
 #ifndef ASYNQT_EXPECTED_H
 #define ASYNQT_EXPECTED_H
 
-namespace AsynQt {
-
+namespace AsynQt
+{
 // Based on expected<T> by Alexandrescu,
 // with some nice syntax sugar on top
 
 template<typename T, typename E>
-class Expected {
+class Expected
+{
 protected:
     union {
         T m_value;
@@ -56,7 +57,7 @@ public:
         }
     }
 
-    Expected &operator= (Expected other)
+    Expected &operator=(Expected other)
     {
         swap(other);
         return *this;
@@ -73,12 +74,12 @@ public:
             } else {
                 // We are valid, but the other one is not
                 // we need to do the whole dance
-                auto temp = std::move(other.m_error);       // moving the error into the temp
-                other.m_error.~E();                         // destroying the original error object
+                auto temp = std::move(other.m_error); // moving the error into the temp
+                other.m_error.~E(); // destroying the original error object
                 new (&other.m_value) T(std::move(m_value)); // moving our value into the other
-                m_value.~T();                               // destroying our value object
-                new (&m_error) E(std::move(temp));          // moving the error saved to the temp into us
-                std::swap(m_isValid, other.m_isValid);      // swap the isValid flags
+                m_value.~T(); // destroying our value object
+                new (&m_error) E(std::move(temp)); // moving the error saved to the temp into us
+                std::swap(m_isValid, other.m_isValid); // swap the isValid flags
             }
 
         } else {
@@ -96,21 +97,21 @@ public:
         }
     }
 
-    template <typename... ConsParams>
-    static Expected success(ConsParams && ...params)
+    template<typename... ConsParams>
+    static Expected success(ConsParams &&...params)
     {
         Expected result;
         result.m_isValid = true;
-        new(&result.m_value) T(std::forward<ConsParams>(params)...);
+        new (&result.m_value) T(std::forward<ConsParams>(params)...);
         return result;
     }
 
-    template <typename... ConsParams>
-    static Expected error(ConsParams && ...params)
+    template<typename... ConsParams>
+    static Expected error(ConsParams &&...params)
     {
         Expected result;
         result.m_isValid = false;
-        new(&result.m_error) E(std::forward<ConsParams>(params)...);
+        new (&result.m_error) E(std::forward<ConsParams>(params)...);
         return result;
     }
 
@@ -119,76 +120,77 @@ public:
         return m_isValid;
     }
 
-
-
-    #ifdef QT_NO_EXCEPTIONS
-    #    define THROW_IF_EXCEPTIONS_ARE_ENABLED(WHAT) std::terminate()
-    #else
-    #    define THROW_IF_EXCEPTIONS_ARE_ENABLED(WHAT) throw std::logic_error(WHAT)
-    #endif
+#ifdef QT_NO_EXCEPTIONS
+#define THROW_IF_EXCEPTIONS_ARE_ENABLED(WHAT) std::terminate()
+#else
+#define THROW_IF_EXCEPTIONS_ARE_ENABLED(WHAT) throw std::logic_error(WHAT)
+#endif
 
     T &get()
     {
-        if (!m_isValid) THROW_IF_EXCEPTIONS_ARE_ENABLED("expected<T, E> contains no value");
+        if (!m_isValid)
+            THROW_IF_EXCEPTIONS_ARE_ENABLED("expected<T, E> contains no value");
         return m_value;
     }
 
     const T &get() const
     {
-        if (!m_isValid) THROW_IF_EXCEPTIONS_ARE_ENABLED("expected<T, E> contains no value");
+        if (!m_isValid)
+            THROW_IF_EXCEPTIONS_ARE_ENABLED("expected<T, E> contains no value");
         return m_value;
     }
 
-
-
-    T *operator-> ()
+    T *operator->()
     {
         return &get();
     }
 
-    const T *operator-> () const
+    const T *operator->() const
     {
         return &get();
     }
 
     E &error()
     {
-        if (m_isValid) THROW_IF_EXCEPTIONS_ARE_ENABLED("There is no error in this expected<T, E>");
+        if (m_isValid)
+            THROW_IF_EXCEPTIONS_ARE_ENABLED("There is no error in this expected<T, E>");
         return m_error;
     }
 
     const E &error() const
     {
-        if (m_isValid) THROW_IF_EXCEPTIONS_ARE_ENABLED("There is no error in this expected<T, E>");
+        if (m_isValid)
+            THROW_IF_EXCEPTIONS_ARE_ENABLED("There is no error in this expected<T, E>");
         return m_error;
     }
 
-    #undef THROW_IF_EXCEPTIONS_ARE_ENABLED
+#undef THROW_IF_EXCEPTIONS_ARE_ENABLED
 
-    template <typename F>
-    void visit(F f) {
+    template<typename F>
+    void visit(F f)
+    {
         if (m_isValid) {
             f(m_value);
         } else {
             f(m_error);
         }
     }
-
-
 };
 
-
 template<typename E>
-class Expected<void, E> {
+class Expected<void, E>
+{
 private:
     union {
-        void* m_value;
+        void *m_value;
         E m_error;
     };
 
     bool m_isValid;
 
-    Expected() {} //used internally
+    Expected()
+    {
+    } // used internally
 
 public:
     ~Expected()
@@ -220,7 +222,7 @@ public:
         }
     }
 
-    Expected &operator= (Expected other)
+    Expected &operator=(Expected other)
     {
         swap(other);
         return *this;
@@ -237,10 +239,10 @@ public:
             } else {
                 // We are valid, but the other one is not.
                 // We need to move the error into us
-                auto temp = std::move(other.m_error);    // moving the error into the temp
-                other.m_error.~E();                      // destroying the original error object
-                new (&m_error) E(std::move(temp));       // moving the error into us
-                std::swap(m_isValid, other.m_isValid);   // swapping the isValid flags
+                auto temp = std::move(other.m_error); // moving the error into the temp
+                other.m_error.~E(); // destroying the original error object
+                new (&m_error) E(std::move(temp)); // moving the error into us
+                std::swap(m_isValid, other.m_isValid); // swapping the isValid flags
             }
 
         } else {
@@ -266,12 +268,12 @@ public:
         return result;
     }
 
-    template <typename... ConsParams>
-    static Expected error(ConsParams && ...params)
+    template<typename... ConsParams>
+    static Expected error(ConsParams &&...params)
     {
         Expected result;
         result.m_isValid = false;
-        new(&result.m_error) E(std::forward<ConsParams>(params)...);
+        new (&result.m_error) E(std::forward<ConsParams>(params)...);
         return result;
     }
 
@@ -280,38 +282,39 @@ public:
         return m_isValid;
     }
 
-    #ifdef QT_NO_EXCEPTIONS
-    #    define THROW_IF_EXCEPTIONS_ARE_ENABLED(WHAT) std::terminate()
-    #else
-    #    define THROW_IF_EXCEPTIONS_ARE_ENABLED(WHAT) throw std::logic_error(WHAT)
-    #endif
+#ifdef QT_NO_EXCEPTIONS
+#define THROW_IF_EXCEPTIONS_ARE_ENABLED(WHAT) std::terminate()
+#else
+#define THROW_IF_EXCEPTIONS_ARE_ENABLED(WHAT) throw std::logic_error(WHAT)
+#endif
 
     E &error()
     {
-        if (m_isValid) THROW_IF_EXCEPTIONS_ARE_ENABLED("There is no error in this expected<T, E>");
+        if (m_isValid)
+            THROW_IF_EXCEPTIONS_ARE_ENABLED("There is no error in this expected<T, E>");
         return m_error;
     }
 
     const E &error() const
     {
-        if (m_isValid) THROW_IF_EXCEPTIONS_ARE_ENABLED("There is no error in this expected<T, E>");
+        if (m_isValid)
+            THROW_IF_EXCEPTIONS_ARE_ENABLED("There is no error in this expected<T, E>");
         return m_error;
     }
 
-    #undef THROW_IF_EXCEPTIONS_ARE_ENABLED
+#undef THROW_IF_EXCEPTIONS_ARE_ENABLED
 
-    template <typename F>
-    void visit(F f) {
+    template<typename F>
+    void visit(F f)
+    {
         if (m_isValid) {
             // f(m_value);
         } else {
             f(m_error);
         }
     }
-
 };
 
 } // namespace AsynQt
 
 #endif // ASYNQT_EXPECTED_H
-

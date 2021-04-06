@@ -16,8 +16,9 @@
 class KMessageWidget;
 class QAction;
 
-namespace PlasmaVault {
-    class Vault;
+namespace PlasmaVault
+{
+class Vault;
 }
 
 class MountDialog : public QDialog
@@ -31,8 +32,8 @@ protected:
 private:
     PlasmaVault::Vault *m_vault;
     Ui_MountDialog m_ui;
-    KMessageWidget* m_errorLabel;
-    QAction* m_detailsAction;
+    KMessageWidget *m_errorLabel;
+    QAction *m_detailsAction;
     PlasmaVault::Error m_lastError;
 };
 
