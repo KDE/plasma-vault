@@ -32,21 +32,20 @@ public:
     QFuture<_Result> start()
     {
         m_running = true;
+        auto onProcessFinished = [this] () {
+                    this->finished();
+                };
         QObject::connect(
                 m_process,
                 // Pretty new Qt connect syntax :)
                 (void (QProcess::*)(int, QProcess::ExitStatus)) &QProcess::finished,
-                this, [this] (int, QProcess::ExitStatus) {
-                    this->finished();
-                },
+                this, onProcessFinished,
                 Qt::QueuedConnection);
 
         QObject::connect(
                 m_process,
                 &QProcess::errorOccurred,
-                this, [this] (QProcess::ProcessError) {
-                    this->finished();
-                },
+                this, onProcessFinished,
                 Qt::QueuedConnection);
 
         this->reportStarted();

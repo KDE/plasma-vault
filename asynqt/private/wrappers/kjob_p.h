@@ -36,8 +36,9 @@ public:
 
     QFuture<_Result> start()
     {
+        auto onCallFinished = [this] () { callFinished(); };
         QObject::connect(job, &KJob::result,
-                         this, [this] () { callFinished(); },
+                         this, onCallFinished,
                          Qt::QueuedConnection);
 
         this->reportStarted();

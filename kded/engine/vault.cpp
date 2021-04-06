@@ -179,19 +179,19 @@ public:
 
                 emit q->statusChanged(data->status);
 
-                if (newStatus == VaultInfo::Closed
+                if (newStatus == VaultInfo::Closed //
                         || newStatus == VaultInfo::Opened) {
                     emit q->isOpenedChanged(newStatus == VaultInfo::Opened);
                 }
 
-                if (oldStatus == VaultInfo::NotInitialized
+                if (oldStatus == VaultInfo::NotInitialized //
                         || newStatus == VaultInfo::NotInitialized) {
                     emit q->isInitializedChanged(newStatus);
                 }
 
-                if (oldStatus == VaultInfo::Creating
-                        || oldStatus == VaultInfo::Opening
-                        || oldStatus == VaultInfo::Closing
+                if (oldStatus == VaultInfo::Creating //
+                        || oldStatus == VaultInfo::Opening //
+                        || oldStatus == VaultInfo::Closing //
                         || oldStatus == VaultInfo::Dismantling) {
                     emit q->isBusyChanged(false);
                 }

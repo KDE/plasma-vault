@@ -271,8 +271,8 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
             return vault.message;
 
         case VaultIsEnabled:
-            return !(vault.status == VaultInfo::Error) &&
-                   !(vault.status == VaultInfo::DeviceMissing);
+            return !(vault.status == VaultInfo::Error) //
+                    && !(vault.status == VaultInfo::DeviceMissing);
     }
 
     return {};

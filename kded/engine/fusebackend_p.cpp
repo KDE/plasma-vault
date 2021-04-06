@@ -126,6 +126,7 @@ FutureResult<> FuseBackend::import(const QString &name,
 {
     Q_UNUSED(name);
 
+    // clang-format off
     return
         !isInitialized(device) ?
             errorResult(Error::BackendError,
@@ -137,6 +138,7 @@ FutureResult<> FuseBackend::import(const QString &name,
 
         // otherwise
             mount(device, mountPoint, payload);
+    // clang-format on
 }
 
 
@@ -145,13 +147,8 @@ FutureResult<> FuseBackend::open(const Device &device,
                                  const MountPoint &mountPoint,
                                  const Vault::Payload &payload)
 {
-    return
-        isOpened(mountPoint) ?
-            errorResult(Error::BackendError,
-                        i18n("Device is already open")) :
-
-        // otherwise
-            mount(device, mountPoint, payload);
+    return isOpened(mountPoint) //
+            ? errorResult(Error::BackendError, i18n("Device is already open")) :  mount(device, mountPoint, payload);
 }
 
 

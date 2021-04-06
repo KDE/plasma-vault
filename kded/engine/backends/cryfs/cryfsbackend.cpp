@@ -156,6 +156,7 @@ FutureResult<> CryFsBackend::mount(const Device &device,
             return AsynQt::await(mount(device, mountPoint, new_payload));
         };
 
+        // clang-format off
         return
             // If we tried to mount into a non-empty location, report
             err.contains("'nonempty'") ?
@@ -184,6 +185,7 @@ FutureResult<> CryFsBackend::mount(const Device &device,
 
 
         });
+        // clang-format on
 
     // Writing the password
     process->write(password.toUtf8());
