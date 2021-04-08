@@ -21,3 +21,5 @@ GTAGS
 .clang-format
 CMakeLists.txt.user*
 /build*/
+.idea
+/cmake-build*
