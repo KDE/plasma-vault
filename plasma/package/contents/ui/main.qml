@@ -49,8 +49,8 @@ Item {
             Layout.fillHeight: true
 
             highlight: PlasmaComponents.Highlight {}
-            highlightMoveDuration: units.longDuration
-            highlightResizeDuration: units.longDuration
+            highlightMoveDuration: PlasmaCore.Units.longDuration
+            highlightResizeDuration: PlasmaCore.Units.longDuration
             delegate: VaultItem {
                 width: vaultsList.width
             }
@@ -61,7 +61,7 @@ Item {
                 id: noVaultsMessage
 
                 anchors.centerIn: parent
-                width: parent.width - (units.largeSpacing * 4)
+                width: parent.width - (PlasmaCore.Units.largeSpacing * 4)
 
                 visible: vaultsList.count === 0
 
