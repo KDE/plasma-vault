@@ -30,13 +30,9 @@ Item {
     }
 
     Plasmoid.fullRepresentation: ColumnLayout {
-        anchors {
-            fill: parent
-        }
 
         Layout.minimumWidth: PlasmaCore.Units.gridUnit * 18
         Layout.minimumHeight: PlasmaCore.Units.gridUnit * 12
-
 
         ListView {
             id: vaultsList
