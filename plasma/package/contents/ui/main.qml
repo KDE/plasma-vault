@@ -34,8 +34,8 @@ Item {
             fill: parent
         }
 
-        Layout.minimumWidth: 300 * units.devicePixelRatio
-        Layout.minimumHeight: 200 * units.devicePixelRatio
+        Layout.minimumWidth: PlasmaCore.Units.gridUnit * 18
+        Layout.minimumHeight: PlasmaCore.Units.gridUnit * 12
 
 
         ListView {
