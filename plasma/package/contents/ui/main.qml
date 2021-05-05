@@ -29,6 +29,14 @@ Item {
         plasmoid.nativeInterface.vaultsModel.reloadDevices();
     }
 
+    function action_createNewVault() {
+        vaultsModelActions.requestNewVault()
+    }
+
+    Component.onCompleted: {
+        plasmoid.setAction("createNewVault", i18nd("plasmavault-kde", "Create a New Vault..."), "list-add");
+    }
+
     Plasmoid.fullRepresentation: ColumnLayout {
 
         Layout.minimumWidth: PlasmaCore.Units.gridUnit * 18
@@ -68,9 +76,10 @@ Item {
                 text: i18nd("plasmavault-kde", "No Vaults have been set up")
 
                 helpfulAction: Action {
-                    text: i18nd("plasmavault-kde", "Create a New Vault...")
+                    text: plasmoid.action("createNewVault").text
                     icon.name: "list-add"
-                    onTriggered: vaultsModelActions.requestNewVault()
+
+                    onTriggered: { plasmoid.action("createNewVault").trigger() }
                 }
             }
         }
@@ -78,12 +87,12 @@ Item {
         PlasmaComponents3.Button {
             id: buttonCreateNewVault
 
-            visible: vaultsList.count > 0
+            visible: vaultsList.count > 0 && !(plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
 
-            text: i18nd("plasmavault-kde", "Create a New Vault...")
+            text: plasmoid.action("createNewVault").text
             icon.name: "list-add"
 
-            onClicked: vaultsModelActions.requestNewVault()
+            onClicked: { plasmoid.action("createNewVault").trigger() }
             Layout.alignment: Qt.AlignLeft
         }
     }
