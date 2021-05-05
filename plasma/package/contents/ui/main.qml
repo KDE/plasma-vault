@@ -37,9 +37,6 @@ Item {
         Layout.minimumWidth: 300 * units.devicePixelRatio
         Layout.minimumHeight: 200 * units.devicePixelRatio
 
-        // PlasmaExtras.Heading {
-        //    text: i18nd("plasmavault-kde", "Encrypted vaults")
-        // }
 
         ListView {
             id: vaultsList
