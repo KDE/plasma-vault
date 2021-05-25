@@ -58,7 +58,7 @@ PlasmaExtras.ExpandableListItem {
         },
         Action {
             icon.name: "configure"
-            text: i18nd("plasmavault-kde", "Configure Vault...")
+            text: i18nd("plasmavault-kde", "Configure Vault…")
             onTriggered: vaultsModelActions.configure(model.device);
         }
     ]

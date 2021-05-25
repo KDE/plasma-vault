@@ -34,7 +34,7 @@ Item {
     }
 
     Component.onCompleted: {
-        plasmoid.setAction("createNewVault", i18nd("plasmavault-kde", "Create a New Vault..."), "list-add");
+        plasmoid.setAction("createNewVault", i18nd("plasmavault-kde", "Create a New Vault…"), "list-add");
     }
 
     Plasmoid.fullRepresentation: ColumnLayout {

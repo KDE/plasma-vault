@@ -26,7 +26,7 @@ MountDialog::MountDialog(PlasmaVault::Vault *vault)
     m_errorLabel->setVisible(false);
 
     m_detailsAction = new QAction(this);
-    m_detailsAction->setToolTip(i18n("Details..."));
+    m_detailsAction->setToolTip(i18n("Details…"));
     m_detailsAction->setIcon(QIcon::fromTheme("view-list-details"));
 
     connect(m_detailsAction, &QAction::triggered, this, [this] {
