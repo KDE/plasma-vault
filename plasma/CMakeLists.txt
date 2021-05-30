@@ -14,7 +14,7 @@ set_source_files_properties (
    INCLUDE ../common/vaultinfo.h
    )
 
-qt5_add_dbus_interface (
+qt_add_dbus_interface (
    plasmavault_SRCS
    ../common/org.kde.plasmavault.xml
    plasmavault_interface
