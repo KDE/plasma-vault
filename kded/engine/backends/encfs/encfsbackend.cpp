@@ -51,6 +51,11 @@ FutureResult<> EncFsBackend::mount(const Device &device, const MountPoint &mount
         return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
     }
 
+    QFile dotDir(mountPoint.data() + QStringLiteral("/.directory"));
+    if (dotDir.exists()) {
+        dotDir.remove();
+    }
+
     auto process = encfs({
         "-S", // read password from stdin
         "--standard", // If creating a file system, use the default options

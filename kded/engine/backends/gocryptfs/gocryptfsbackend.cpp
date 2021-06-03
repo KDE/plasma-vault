@@ -76,6 +76,11 @@ FutureResult<> GocryptfsBackend::mount(const Device &device, const MountPoint &m
         return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
     }
 
+    QFile dotDir(mountPoint.data() + QStringLiteral("/.directory"));
+    if (dotDir.exists()) {
+        dotDir.remove();
+    }
+
     if (isInitialized(device)) {
         auto mountProcess = gocryptfs({
             device.data(), // cypher data directory
