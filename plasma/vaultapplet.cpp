@@ -32,6 +32,6 @@ QObject *VaultApplet::vaultsModel()
     return m_vaultsModel;
 }
 
-K_EXPORT_PLASMA_APPLET_WITH_JSON(vaultapplet, VaultApplet, "metadata.json")
+K_PLUGIN_CLASS_WITH_JSON(VaultApplet, "metadata.json")
 
 #include "vaultapplet.moc"
