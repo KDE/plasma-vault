@@ -41,6 +41,12 @@ protected:
     QProcess *fusermount(const QStringList &arguments = QStringList()) const;
 
     static Result<> hasProcessFinishedSuccessfully(QProcess *process);
+
+    // dolphin has a tendency to create a .directory file, which would
+    // disable our ability to mount there.
+    // Check the contents of the dir (should be empty) and if the only item
+    // there is the dot-directroy, delete it.
+    static void removeDotDirectory(const MountPoint &mountPoint);
 };
 
 } // namespace PlasmaVault

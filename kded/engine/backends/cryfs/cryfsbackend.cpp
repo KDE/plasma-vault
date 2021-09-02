@@ -91,6 +91,7 @@ FutureResult<> CryFsBackend::mount(const Device &device, const MountPoint &mount
     if (!dir.mkpath(device.data()) || !dir.mkpath(mountPoint.data())) {
         return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
     }
+    removeDotDirectory(mountPoint);
 
     auto process =
         // Cypher is specified, use it to create the device

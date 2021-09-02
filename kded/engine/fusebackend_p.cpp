@@ -51,6 +51,14 @@ Result<> FuseBackend::hasProcessFinishedSuccessfully(QProcess *process)
         Result<>::error(Error::CommandError, i18n("Unable to perform the operation"), out, err);
 }
 
+void FuseBackend::removeDotDirectory(const MountPoint &mountPoint)
+{
+    QDir dir(mountPoint.data());
+    const auto dirContents = dir.entryList(QDir::NoDotAndDotDot | QDir::Files | QDir::Hidden | QDir::Dirs);
+    if (dirContents.length() == 1 && dirContents.first() == QStringLiteral(".directory"))
+        dir.remove(QStringLiteral(".directory"));
+}
+
 FuseBackend::FuseBackend()
 {
 }
