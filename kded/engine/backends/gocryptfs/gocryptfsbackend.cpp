@@ -21,6 +21,7 @@
 #include <asynqt/operations/transform.h>
 #include <asynqt/wrappers/process.h>
 
+#include <qregularexpression.h>
 #include <singleton_p.h>
 
 using namespace AsynQt;
@@ -132,9 +133,54 @@ FutureResult<> GocryptfsBackend::validateBackend()
 {
     using namespace AsynQt::operators;
 
+    auto customCheckVersion = [](QProcess *process, const std::tuple<int, int> &requiredVersion) {
+        using namespace AsynQt::operators;
+
+        return makeFuture(process, [=](QProcess *process) {
+            if (process->exitStatus() != QProcess::NormalExit) {
+                return qMakePair(false, i18n("Failed to execute"));
+            }
+
+            // We don't care about the minor version for gocryptfs
+            QRegularExpression versionMatcher("([0-9]+)[.]([0-9]+)");
+
+            const auto out = process->readAllStandardOutput();
+            const auto err = process->readAllStandardError();
+
+            if (out.isEmpty() && err.isEmpty()) {
+                return qMakePair(false, i18n("Unable to detect the version"));
+            }
+
+            // gocryptfs prints out several versions separated by semicolons
+            // -- of itself, of go-fuse and of go
+            // We just need the first
+            const auto gocryptfsVersionString = (out + err).split(';').at(0);
+
+            if (!gocryptfsVersionString.startsWith("gocryptfs")) {
+                return qMakePair(false, i18n("Unable to detect the version, the version string is invalid"));
+            }
+
+            const auto matches = versionMatcher.match(gocryptfsVersionString);
+
+            if (!matches.hasMatch()) {
+                return qMakePair(false, i18n("Unable to detect the version"));
+            }
+
+            const auto matchedVersion = std::make_tuple(matches.captured(1).toInt(), matches.captured(2).toInt());
+
+            if (matchedVersion < requiredVersion) {
+                // Bad version, we need to notify the world
+                return qMakePair(false,
+                                 i18n("Wrong version installed. The required version is %1.%2", std::get<0>(requiredVersion), std::get<1>(requiredVersion)));
+            }
+
+            return qMakePair(true, i18n("Correct version found"));
+        });
+    };
+
     // We need to check whether all the commands are installed
     // and whether the user has permissions to run them
-    return collect(checkVersion(gocryptfs({"--version"}), std::make_tuple(1, 7, 1)), checkVersion(fusermount({"--version"}), std::make_tuple(2, 9, 7)))
+    return collect(customCheckVersion(gocryptfs({"--version"}), std::make_tuple(1, 8)), checkVersion(fusermount({"--version"}), std::make_tuple(2, 9, 7)))
 
         | transform([this](const QPair<bool, QString> &gocryptfs, const QPair<bool, QString> &fusermount) {
                bool success = gocryptfs.first && fusermount.first;
