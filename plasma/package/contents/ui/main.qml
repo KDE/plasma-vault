@@ -57,8 +57,8 @@ Item {
             Layout.fillHeight: true
 
             highlight: PlasmaComponents.Highlight {}
-            highlightMoveDuration: PlasmaCore.Units.longDuration
-            highlightResizeDuration: PlasmaCore.Units.longDuration
+            highlightMoveDuration: 0
+            highlightResizeDuration: 0
             delegate: VaultItem {
                 width: vaultsList.width
             }
