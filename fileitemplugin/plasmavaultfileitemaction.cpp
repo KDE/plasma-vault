@@ -49,7 +49,7 @@ QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListPropertie
     auto createAction = [this](const QIcon &icon, const QString &name, QString command, QString device, QWidget *parentWidget) {
         QAction *action = new QAction(icon, name, parentWidget);
 
-        connect(action, &QAction::triggered, this, [this, command, device]() {
+        connect(action, &QAction::triggered, this, [command, device]() {
             auto method = QDBusMessage::createMethodCall("org.kde.kded5", "/modules/plasmavault", "org.kde.plasmavault", command);
             method.setArguments({device});
 
