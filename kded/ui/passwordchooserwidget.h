@@ -15,7 +15,7 @@ class PasswordChooserWidget : public DialogDsl::DialogModule
 
 public:
     PasswordChooserWidget();
-    ~PasswordChooserWidget();
+    ~PasswordChooserWidget() override;
 
     PlasmaVault::Vault::Payload fields() const override;
 

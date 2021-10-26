@@ -15,7 +15,7 @@ class BackendChooserWidget : public DialogDsl::DialogModule
 
 public:
     BackendChooserWidget();
-    ~BackendChooserWidget();
+    ~BackendChooserWidget() override;
 
     void addItem(const QByteArray &id, const QString &title, int priority);
 

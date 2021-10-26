@@ -21,7 +21,7 @@ class Q_DECL_EXPORT PlasmaVaultService : public KDEDModule
 
 public:
     PlasmaVaultService(QObject *parent, const QVariantList &);
-    ~PlasmaVaultService();
+    ~PlasmaVaultService() override;
 
 public Q_SLOTS:
     Q_SCRIPTABLE void requestNewVault();

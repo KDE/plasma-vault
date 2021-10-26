@@ -29,7 +29,7 @@ public:
         job->setAutoDelete(false);
     }
 
-    ~KJobFutureInterface()
+    ~KJobFutureInterface() override
     {
     }
 

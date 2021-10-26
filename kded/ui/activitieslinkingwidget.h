@@ -15,7 +15,7 @@ class ActivitiesLinkingWidget : public DialogDsl::DialogModule
 
 public:
     ActivitiesLinkingWidget();
-    ~ActivitiesLinkingWidget();
+    ~ActivitiesLinkingWidget() override;
 
     PlasmaVault::Vault::Payload fields() const override;
 

@@ -20,7 +20,7 @@ class VaultConfigurationDialog : public QDialog
 
 public:
     VaultConfigurationDialog(PlasmaVault::Vault *vault, QWidget *parent = nullptr);
-    ~VaultConfigurationDialog();
+    ~VaultConfigurationDialog() override;
 
 Q_SIGNALS:
     void configurationChanged(PlasmaVault::Vault *vault);

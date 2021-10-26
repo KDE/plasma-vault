@@ -20,7 +20,7 @@ class VaultImportingWizard : public QDialog
 
 public:
     VaultImportingWizard(QWidget *parent = nullptr);
-    ~VaultImportingWizard();
+    ~VaultImportingWizard() override;
 
 Q_SIGNALS:
     void importedVault(PlasmaVault::Vault *vault);

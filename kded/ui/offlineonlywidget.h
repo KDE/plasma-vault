@@ -16,7 +16,7 @@ class OfflineOnlyChooserWidget : public DialogDsl::DialogModule
 public:
     OfflineOnlyChooserWidget();
 
-    ~OfflineOnlyChooserWidget();
+    ~OfflineOnlyChooserWidget() override;
 
     PlasmaVault::Vault::Payload fields() const override;
 

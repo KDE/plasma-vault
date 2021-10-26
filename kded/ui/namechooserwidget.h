@@ -15,7 +15,7 @@ class NameChooserWidget : public DialogDsl::DialogModule
 
 public:
     NameChooserWidget();
-    ~NameChooserWidget();
+    ~NameChooserWidget() override;
 
     PlasmaVault::Vault::Payload fields() const override;
     void init(const PlasmaVault::Vault::Payload &payload) override;

@@ -54,7 +54,7 @@ class Vault : public QObject
 
 public:
     Vault(const Device &device, QObject *parent = nullptr);
-    ~Vault();
+    ~Vault() override;
 
     typedef QHash<QByteArray, QVariant> Payload;
 

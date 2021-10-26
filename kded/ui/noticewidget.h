@@ -21,7 +21,7 @@ public:
 
     NoticeWidget(const QString &noticeId, const QString &message, Mode mode);
 
-    ~NoticeWidget();
+    ~NoticeWidget() override;
 
     PlasmaVault::Vault::Payload fields() const override;
 

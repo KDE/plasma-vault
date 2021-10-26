@@ -16,7 +16,7 @@ class VaultDeletionWidget : public DialogDsl::DialogModule
 public:
     VaultDeletionWidget();
 
-    ~VaultDeletionWidget();
+    ~VaultDeletionWidget() override;
 
     PlasmaVault::Vault::Payload fields() const override;
 

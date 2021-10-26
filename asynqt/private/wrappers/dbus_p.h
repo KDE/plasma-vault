@@ -28,7 +28,7 @@ public:
     {
     }
 
-    ~DBusCallFutureInterface()
+    ~DBusCallFutureInterface() override
     {
     }
 

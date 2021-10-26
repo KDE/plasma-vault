@@ -20,7 +20,7 @@ class VaultApplet : public Plasma::Applet
 
 public:
     explicit VaultApplet(QObject *parent, const QVariantList &args);
-    ~VaultApplet();
+    ~VaultApplet() override;
 
     QObject *vaultsModel();
 

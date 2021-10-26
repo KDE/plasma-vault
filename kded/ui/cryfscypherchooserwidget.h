@@ -15,7 +15,7 @@ class CryfsCypherChooserWidget : public DialogDsl::DialogModule
 
 public:
     CryfsCypherChooserWidget();
-    ~CryfsCypherChooserWidget();
+    ~CryfsCypherChooserWidget() override;
 
     PlasmaVault::Vault::Payload fields() const override;
 

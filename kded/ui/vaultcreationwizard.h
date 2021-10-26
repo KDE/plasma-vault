@@ -20,7 +20,7 @@ class VaultCreationWizard : public QDialog
 
 public:
     VaultCreationWizard(QWidget *parent = nullptr);
-    ~VaultCreationWizard();
+    ~VaultCreationWizard() override;
 
 Q_SIGNALS:
     void createdVault(PlasmaVault::Vault *vault);
