@@ -25,7 +25,7 @@ public:
 
     QString name() const override
     {
-        return "gocryptfs";
+        return QStringLiteral("gocryptfs");
     }
 
 protected:

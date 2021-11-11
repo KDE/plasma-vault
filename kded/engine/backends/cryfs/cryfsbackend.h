@@ -25,7 +25,7 @@ public:
 
     QString name() const override
     {
-        return "cryfs";
+        return QStringLiteral("cryfs");
     }
 
 protected:

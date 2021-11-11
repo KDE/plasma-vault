@@ -25,7 +25,7 @@ public:
 
     QString name() const override
     {
-        return "encfs";
+        return QStringLiteral("encfs");
     }
 
 protected:

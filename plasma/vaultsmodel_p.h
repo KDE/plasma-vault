@@ -18,7 +18,7 @@ class VaultsModel::Private : public QObject
     Q_OBJECT
 
 public:
-    Private(VaultsModel *parent);
+    explicit Private(VaultsModel *parent);
     QStringList vaultKeys;
     QMap<QString, PlasmaVault::VaultInfo> vaults;
 
