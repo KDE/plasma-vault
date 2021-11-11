@@ -5,8 +5,12 @@ include_directories (
    ${CMAKE_CURRENT_SOURCE_DIR}/engine
    )
 
-set (
-   kded_plasmavault_SRCS
+add_library (
+   kded_plasmavault
+   MODULE
+   )
+
+target_sources(kded_plasmavault PRIVATE
    engine/backend_p.cpp
    engine/backend_p.h
    engine/backends/cryfs/cryfsbackend.cpp
@@ -63,7 +67,7 @@ set (
    )
 
 ki18n_wrap_ui (
-   kded_plasmavault_SRCS
+   kded_plasmavault
    ui/activitieslinkingwidget.ui
    ui/backendchooserwidget.ui
    ui/cryfscypherchooserwidget.ui
@@ -81,10 +85,6 @@ ki18n_wrap_ui (
    ui/mountdialog.ui
    )
 
-add_library (
-   kded_plasmavault
-   MODULE ${kded_plasmavault_SRCS}
-   )
 
 set_target_properties (
    kded_plasmavault
