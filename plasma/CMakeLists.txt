@@ -3,9 +3,13 @@ set (
    plasmavault_SRCS
 
    vaultapplet.cpp
+   vaultapplet.h
    vaultsmodel.cpp
+   vaultsmodel.h
+   vaultsmodel_p.h
 
    ../common/vaultinfo.cpp
+   ../common/vaultinfo.h
    )
 
 set_source_files_properties (

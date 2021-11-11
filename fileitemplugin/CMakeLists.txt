@@ -1,7 +1,7 @@
 
 kcoreaddons_add_plugin(
     plasmavaultfileitemaction
-    SOURCES plasmavaultfileitemaction.cpp
+    SOURCES plasmavaultfileitemaction.cpp plasmavaultfileitemaction.h
     INSTALL_NAMESPACE "kf5/kfileitemaction")
 
 target_link_libraries(plasmavaultfileitemaction

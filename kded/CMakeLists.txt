@@ -7,36 +7,59 @@ include_directories (
 
 set (
    kded_plasmavault_SRCS
-   service.cpp
-
-   engine/vault.cpp
    engine/backend_p.cpp
-   engine/fusebackend_p.cpp
-   engine/types.cpp
-   engine/commandresult.cpp
-
-   engine/backends/encfs/encfsbackend.cpp
+   engine/backend_p.h
    engine/backends/cryfs/cryfsbackend.cpp
+   engine/backends/cryfs/cryfsbackend.h
+   engine/backends/encfs/encfsbackend.cpp
+   engine/backends/encfs/encfsbackend.h
    engine/backends/gocryptfs/gocryptfsbackend.cpp
-
-   ui/dialogdsl.cpp
+   engine/backends/gocryptfs/gocryptfsbackend.h
+   engine/commandresult.cpp
+   engine/commandresult.h
+   engine/fusebackend_p.cpp
+   engine/fusebackend_p.h
+   engine/singleton_p.h
+   engine/types.cpp
+   engine/types.h
+   engine/vault.cpp
+   engine/vault.h
+   service.cpp
+   service.h
    ui/activitieslinkingwidget.cpp
+   ui/activitieslinkingwidget.h
    ui/backendchooserwidget.cpp
+   ui/backendchooserwidget.h
    ui/cryfscypherchooserwidget.cpp
-   ui/directorypairchooserwidget.cpp
+   ui/cryfscypherchooserwidget.h
+   ui/dialogdsl.cpp
+   ui/dialogdsl.h
    ui/directorychooserwidget.cpp
-   ui/namechooserwidget.cpp
-   ui/noticewidget.cpp
-   ui/passwordchooserwidget.cpp
-   ui/offlineonlywidget.cpp
-   ui/vaultdeletionwidget.cpp
-
-   ui/vaultcreationwizard.cpp
-   ui/vaultimportingwizard.cpp
-   ui/vaultconfigurationdialog.cpp
+   ui/directorychooserwidget.h
+   ui/directorypairchooserwidget.cpp
+   ui/directorypairchooserwidget.h
    ui/mountdialog.cpp
+   ui/mountdialog.h
+   ui/namechooserwidget.cpp
+   ui/namechooserwidget.h
+   ui/noticewidget.cpp
+   ui/noticewidget.h
+   ui/offlineonlywidget.cpp
+   ui/offlineonlywidget.h
+   ui/passwordchooserwidget.cpp
+   ui/passwordchooserwidget.h
+   ui/vaultconfigurationdialog.cpp
+   ui/vaultconfigurationdialog.h
+   ui/vaultcreationwizard.cpp
+   ui/vaultcreationwizard.h
+   ui/vaultdeletionwidget.cpp
+   ui/vaultdeletionwidget.h
+   ui/vaultimportingwizard.cpp
+   ui/vaultimportingwizard.h
+   ui/vaultwizardbase.h
 
    ../common/vaultinfo.cpp
+   ../common/vaultinfo.h
    )
 
 ki18n_wrap_ui (
