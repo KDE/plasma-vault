@@ -8,12 +8,15 @@
 
 #include <QDBusObjectPath>
 #include <QMessageBox>
+#include <QProcess>
 
 #include <KActivities/Consumer>
+#include <KApplicationTrader>
+#include <KIO/ApplicationLauncherJob>
 #include <KLocalizedString>
 #include <KPasswordDialog>
 #include <KPluginFactory>
-#include <KRun>
+#include <KService>
 
 #include "engine/commandresult.h"
 #include "engine/vault.h"
@@ -352,16 +355,31 @@ void PlasmaVaultService::forceCloseVault(const QString &device)
 
 void PlasmaVaultService::openVaultInFileManager(const QString &device)
 {
+    auto openFileManager = [this](const auto &vault) {
+        KService::Ptr service = KApplicationTrader::preferredService(QStringLiteral("inode/directory"));
+
+        // A hack to always open a new dolphin window
+        // BUG: 445542
+        // https://bugs.kde.org/show_bug.cgi?id=445542
+        if (service->desktopEntryName() == QStringLiteral("org.kde.dolphin")) {
+            service->setExec(service->exec() + QStringLiteral(" --new-window"));
+        }
+
+        auto *job = new KIO::ApplicationLauncherJob(service, this);
+        job->setUrls({QUrl::fromLocalFile((QString)vault->mountPoint().data())});
+        job->start();
+    };
+
     if (auto vault = d->vaultFor(device)) {
         if (vault->isOpened()) {
-            new KRun(QUrl::fromLocalFile((QString)vault->mountPoint().data()), nullptr);
+            openFileManager(vault);
 
         } else {
             showPasswordMountDialog(
                 vault,
-                [this, vault] {
+                [this, vault, openFileManager] {
                     emit vaultChanged(vault->info());
-                    new KRun(QUrl::fromLocalFile((QString)vault->mountPoint().data()), nullptr);
+                    openFileManager(vault);
                 },
                 [this, vault] {
                     if (vault->status() != VaultInfo::Opened && d->savedNetworkingState) {
