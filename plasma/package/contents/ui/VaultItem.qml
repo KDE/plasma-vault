@@ -40,7 +40,7 @@ PlasmaExtras.ExpandableListItem {
         Action {
             enabled: model.isOpened
             icon.name: "document-open-folder"
-            text: i18n("Show in File Manager")
+            text: i18nd("plasmavault-kde", "Show in File Manager")
             onTriggered: {
                 vaultsModelActions.openInFileManager(model.device);
             }
