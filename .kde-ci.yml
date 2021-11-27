@@ -20,7 +20,10 @@ Dependencies:
     'frameworks/kservice': '@latest'
     'frameworks/kwidgetsaddons': '@latest'
     'frameworks/kwindowsystem': '@latest'
-    'frameworks/networkmanager-qt': '@latest'
     'frameworks/plasma-framework': '@latest'
     'frameworks/solid': '@latest'
     'plasma/libksysguard': '@same'
+
+- 'on': ['Linux']
+  'require':
+    'frameworks/networkmanager-qt': '@latest'
