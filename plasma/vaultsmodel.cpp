@@ -77,11 +77,11 @@ void VaultsModel::Private::loadData()
         q->endResetModel();
 
         if (vaultKeys.size() != oldSize) {
-            emit q->rowCountChanged(vaultKeys.size());
+            Q_EMIT q->rowCountChanged(vaultKeys.size());
         }
 
-        emit q->isBusyChanged(busyVaults.count() != 0);
-        emit q->hasErrorChanged(errorVaults.count() != 0);
+        Q_EMIT q->isBusyChanged(busyVaults.count() != 0);
+        Q_EMIT q->hasErrorChanged(errorVaults.count() != 0);
     });
 }
 
@@ -104,7 +104,7 @@ void VaultsModel::Private::onVaultAdded(const PlasmaVault::VaultInfo &vaultInfo)
     vaults[device] = vaultInfo;
     vaultKeys << device;
     q->endInsertRows();
-    emit q->rowCountChanged(vaultKeys.size());
+    Q_EMIT q->rowCountChanged(vaultKeys.size());
 }
 
 void VaultsModel::Private::onVaultRemoved(const QString &device)
@@ -118,7 +118,7 @@ void VaultsModel::Private::onVaultRemoved(const QString &device)
     vaultKeys.removeAt(row);
     vaults.remove(device);
     q->endRemoveRows();
-    emit q->rowCountChanged(vaultKeys.size());
+    Q_EMIT q->rowCountChanged(vaultKeys.size());
 }
 
 void VaultsModel::Private::onVaultChanged(const PlasmaVault::VaultInfo &vaultInfo)
@@ -134,14 +134,14 @@ void VaultsModel::Private::onVaultChanged(const PlasmaVault::VaultInfo &vaultInf
     if (vaultInfo.isBusy() && !busyVaults.contains(device)) {
         busyVaults << device;
         if (busyVaults.count() == 1) {
-            emit q->isBusyChanged(true);
+            Q_EMIT q->isBusyChanged(true);
         }
     }
 
     if (!vaultInfo.isBusy() && busyVaults.contains(device)) {
         busyVaults.remove(device);
         if (busyVaults.count() == 0) {
-            emit q->isBusyChanged(false);
+            Q_EMIT q->isBusyChanged(false);
         }
     }
 
@@ -149,14 +149,14 @@ void VaultsModel::Private::onVaultChanged(const PlasmaVault::VaultInfo &vaultInf
     if (!vaultInfo.message.isEmpty() && !errorVaults.contains(device)) {
         errorVaults << device;
         if (errorVaults.count() == 1) {
-            emit q->hasErrorChanged(true);
+            Q_EMIT q->hasErrorChanged(true);
         }
     }
 
     if (vaultInfo.message.isEmpty() && errorVaults.contains(device)) {
         errorVaults.remove(device);
         if (errorVaults.count() == 0) {
-            emit q->hasErrorChanged(false);
+            Q_EMIT q->hasErrorChanged(false);
         }
     }
 

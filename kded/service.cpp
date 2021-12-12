@@ -158,7 +158,7 @@ void PlasmaVaultService::requestImportVault()
 void PlasmaVaultService::slotRegistered(const QDBusObjectPath &path)
 {
     if (path.path() == QLatin1String("/modules/plasmavault")) {
-        emit registered();
+        Q_EMIT registered();
     }
 }
 
@@ -182,7 +182,7 @@ void PlasmaVaultService::registerVault(Vault *vault)
     connect(vault, &Vault::messageChanged, this, &PlasmaVaultService::onVaultMessageChanged);
     connect(vault, &Vault::infoChanged, this, &PlasmaVaultService::onVaultInfoChanged);
 
-    emit vaultAdded(vault->info());
+    Q_EMIT vaultAdded(vault->info());
 
     if (vault->status() == VaultInfo::Opened) {
         d->openVaults << vault->device();
@@ -196,7 +196,7 @@ void PlasmaVaultService::forgetVault(Vault *vault)
     // and therefore can not inhibit networking
     // ... d->savedNetworkingState ...
 
-    emit vaultRemoved(vault->device().data());
+    Q_EMIT vaultRemoved(vault->device().data());
 
     d->knownVaults.remove(vault->device());
     vault->deleteLater();
@@ -212,13 +212,13 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
     } else if (status == VaultInfo::Opened) {
         d->openVaults << vault->device();
         if (d->openVaults.size() == 1) {
-            emit hasOpenVaultsChanged(true);
+            Q_EMIT hasOpenVaultsChanged(true);
         }
 
     } else {
         d->openVaults.remove(vault->device());
         if (d->openVaults.isEmpty()) {
-            emit hasOpenVaultsChanged(false);
+            Q_EMIT hasOpenVaultsChanged(false);
         }
     }
 
@@ -249,20 +249,20 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
         d->restoreNetworkingState();
     }
 
-    emit vaultChanged(vault->info());
+    Q_EMIT vaultChanged(vault->info());
 }
 
 void PlasmaVaultService::onVaultInfoChanged()
 {
     const auto vault = static_cast<Vault *>(sender());
-    emit vaultChanged(vault->info());
+    Q_EMIT vaultChanged(vault->info());
 }
 
 void PlasmaVaultService::onVaultMessageChanged(const QString &message)
 {
     Q_UNUSED(message);
     const auto vault = static_cast<Vault *>(sender());
-    emit vaultChanged(vault->info());
+    Q_EMIT vaultChanged(vault->info());
 }
 
 template<typename OnAccepted, typename OnRejected>
@@ -312,7 +312,7 @@ void PlasmaVaultService::openVault(const QString &device)
         showPasswordMountDialog(
             vault,
             [this, vault, stopInhibiting] {
-                emit vaultChanged(vault->info());
+                Q_EMIT vaultChanged(vault->info());
                 stopInhibiting();
             },
             [this, vault, stopInhibiting] {
@@ -378,7 +378,7 @@ void PlasmaVaultService::openVaultInFileManager(const QString &device)
             showPasswordMountDialog(
                 vault,
                 [this, vault, openFileManager] {
-                    emit vaultChanged(vault->info());
+                    Q_EMIT vaultChanged(vault->info());
                     openFileManager(vault);
                 },
                 [this, vault] {
@@ -486,7 +486,7 @@ void PlasmaVaultService::onActivityRemoved(const QString &removedActivity)
         if (vaultActivities.removeAll(removedActivity) > 0) {
             vault->setActivities(vaultActivities);
             vault->saveConfiguration();
-            emit vaultChanged(vault->info());
+            Q_EMIT vaultChanged(vault->info());
         }
     }
 }

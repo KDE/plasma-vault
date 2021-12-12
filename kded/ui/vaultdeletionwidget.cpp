@@ -44,7 +44,7 @@ VaultDeletionWidget::VaultDeletionWidget()
 
     connect(d->ui.buttonDeleteVault, &QPushButton::clicked, this, [this] {
         d->ui.buttonDeleteVault->setEnabled(false);
-        emit requestCancellation();
+        Q_EMIT requestCancellation();
 
         QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/plasmavault"), QStringLiteral("org.kde.plasmavault"))
             .asyncCall("deleteVault", d->vaultDevice, d->vaultName);

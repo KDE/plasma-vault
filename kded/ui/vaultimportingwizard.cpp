@@ -74,7 +74,7 @@ public:
         auto result = AsynQt::await(future);
 
         if (result) {
-            emit q->importedVault(vault);
+            Q_EMIT q->importedVault(vault);
             q->QDialog::accept();
 
         } else {

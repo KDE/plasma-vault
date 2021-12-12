@@ -26,7 +26,7 @@ public:
 
 private:
     // Applet will be the parent of this object
-    QObject *m_vaultsModel;
+    QObject *m_vaultsModel = nullptr;
 };
 
 #endif // include guard

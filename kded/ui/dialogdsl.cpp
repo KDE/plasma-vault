@@ -33,7 +33,7 @@ void DialogModule::setIsValid(bool valid)
 
     m_isValid = valid;
 
-    emit isValidChanged(valid);
+    Q_EMIT isValidChanged(valid);
 }
 
 bool DialogModule::shouldBeShown() const

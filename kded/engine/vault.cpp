@@ -100,7 +100,7 @@ public:
         if (!data) return;
 
         data->message = message;
-        emit q->messageChanged(message);
+        Q_EMIT q->messageChanged(message);
     }
 
 
@@ -162,7 +162,7 @@ public:
                 KConfigGroup vaultConfig(config, device.data());
                 vaultConfig.deleteGroup();
 
-                emit q->statusChanged(data->status = VaultInfo::Dismantled);
+                Q_EMIT q->statusChanged(data->status = VaultInfo::Dismantled);
 
             } else {
                 QDir deviceDir(device.data());
@@ -177,23 +177,23 @@ public:
 
                 data->status = newStatus;
 
-                emit q->statusChanged(data->status);
+                Q_EMIT q->statusChanged(data->status);
 
                 if (newStatus == VaultInfo::Closed //
                         || newStatus == VaultInfo::Opened) {
-                    emit q->isOpenedChanged(newStatus == VaultInfo::Opened);
+                    Q_EMIT q->isOpenedChanged(newStatus == VaultInfo::Opened);
                 }
 
                 if (oldStatus == VaultInfo::NotInitialized //
                         || newStatus == VaultInfo::NotInitialized) {
-                    emit q->isInitializedChanged(newStatus);
+                    Q_EMIT q->isInitializedChanged(newStatus);
                 }
 
                 if (oldStatus == VaultInfo::Creating //
                         || oldStatus == VaultInfo::Opening //
                         || oldStatus == VaultInfo::Closing //
                         || oldStatus == VaultInfo::Dismantling) {
-                    emit q->isBusyChanged(false);
+                    Q_EMIT q->isBusyChanged(false);
                 }
 
                 writeConfiguration();
@@ -203,13 +203,13 @@ public:
             }
 
         } else {
-            emit q->isOpenedChanged(false);
-            emit q->isInitializedChanged(false);
-            emit q->isBusyChanged(false);
+            Q_EMIT q->isOpenedChanged(false);
+            Q_EMIT q->isInitializedChanged(false);
+            Q_EMIT q->isBusyChanged(false);
 
             writeConfiguration();
 
-            emit q->statusChanged(VaultInfo::Error);
+            Q_EMIT q->statusChanged(VaultInfo::Error);
         }
 
         if (data && data->status == VaultInfo::Opened) {
@@ -311,7 +311,7 @@ public:
     {
         using namespace AsynQt::operators;
 
-        emit q->isBusyChanged(true);
+        Q_EMIT q->isBusyChanged(true);
         data->status = whileNotFinished;
 
         deletionState = DeletionBlocked;
@@ -352,7 +352,7 @@ Vault::Vault(const Device &device, QObject *parent)
     connect(&d->savingDelay, &QTimer::timeout,
             this, [&] {
                 d->writeConfiguration();
-                emit infoChanged();
+                Q_EMIT infoChanged();
             });
 }
 
@@ -730,7 +730,7 @@ QStringList Vault::activities() const
 void Vault::setActivities(const QStringList &activities)
 {
     d->data->activities = activities;
-    emit activitiesChanged(activities);
+    Q_EMIT activitiesChanged(activities);
     saveConfiguration();
 }
 
@@ -744,7 +744,7 @@ bool Vault::isOfflineOnly() const
 void Vault::setIsOfflineOnly(bool isOfflineOnly)
 {
     d->data->isOfflineOnly = isOfflineOnly;
-    emit isOfflineOnlyChanged(isOfflineOnly);
+    Q_EMIT isOfflineOnlyChanged(isOfflineOnly);
     saveConfiguration();
 }
 
@@ -758,7 +758,7 @@ QString Vault::name() const
 void Vault::setName(const QString &name)
 {
     d->data->name = name;
-    emit nameChanged(name);
+    Q_EMIT nameChanged(name);
     saveConfiguration();
 }
 
