@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set (PLASMAVAULT_VERSION "0.1")
 
-set (QT_MIN_VERSION 5.12.0)
+set (QT_MIN_VERSION 5.15.0)
 
 # We don't build in-source
 if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
@@ -25,10 +25,11 @@ endif ()
 # Extra CMake stuff
 include (FeatureSummary)
 
-# KDE Frameworks
-set (KF5_DEP_VERSION "5.72.0") # handled by release scripts
+set(QT_MIN_VERSION "5.15.0")
+set(KF5_MIN_VERSION "5.86")
+set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
-find_package (ECM ${KF5_DEP_VERSION}  NO_MODULE)
+find_package (ECM ${KF5_MIN_VERSION}  NO_MODULE)
 set_package_properties (ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://projects.kde.org/projects/kdesupport/extra-cmake-modules")
 feature_summary (WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -53,7 +54,7 @@ find_package (
    )
 
 find_package (
-   KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS
+   KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
    Activities
    Config
    ConfigWidgets
@@ -64,7 +65,7 @@ find_package (
    Plasma
    WidgetsAddons
    )
-find_package (KF5NetworkManagerQt ${KF5_DEP_VERSION})
+find_package (KF5NetworkManagerQt ${KF5_MIN_VERSION})
 if (KF5NetworkManagerQt_FOUND)
     set (HAVE_NETWORKMANAGER TRUE)
 endif()
