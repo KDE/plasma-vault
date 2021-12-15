@@ -580,8 +580,8 @@ FutureResult<> Vault::dismantle(const Payload &payload)
 {
     const auto resolvedPath = [] (const QString& path) {
         auto result = QDir(path).canonicalPath();
-        if (!result.endsWith('/')) {
-            result += '/';
+        if (!result.endsWith(QLatin1Char('/'))) {
+            result += QLatin1Char('/');
         }
         return result;
     };
