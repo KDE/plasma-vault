@@ -37,63 +37,73 @@ Item {
         plasmoid.setAction("createNewVault", i18nd("plasmavault-kde", "Create a New Vault…"), "list-add");
     }
 
-    Plasmoid.fullRepresentation: ColumnLayout {
+    Plasmoid.fullRepresentation: PlasmaExtras.Representation {
 
         Layout.minimumWidth: PlasmaCore.Units.gridUnit * 18
         Layout.minimumHeight: PlasmaCore.Units.gridUnit * 12
 
-        ListView {
-            id: vaultsList
+        collapseMarginsHint: true
 
-            model:
-                PlasmaCore.SortFilterModel {
-                    sortRole: "name"
-                    sourceModel: vaultsModel
+        ScrollView {
+            id: scrollView
+            anchors.fill: parent
+            leftPadding: PlasmaCore.Units.smallSpacing * 2
+            rightPadding: PlasmaCore.Units.smallSpacing * 2
+
+            contentItem: ListView {
+                id: vaultsList
+
+                model:
+                    PlasmaCore.SortFilterModel {
+                        sortRole: "name"
+                        sourceModel: vaultsModel
+                    }
+
+                currentIndex: -1
+                topMargin: PlasmaCore.Units.smallSpacing * 2
+                bottomMargin: PlasmaCore.Units.smallSpacing * 2
+                spacing: PlasmaCore.Units.smallSpacing
+
+
+                highlight: PlasmaComponents.Highlight {}
+                highlightMoveDuration: 0
+                highlightResizeDuration: 0
+                delegate: VaultItem {
+                    width: vaultsList.width - (scrollView.PlasmaComponents3.ScrollBar.vertical.visible ? PlasmaCore.Units.smallSpacing * 4 : 0)
                 }
 
-            currentIndex: -1
+                PlasmaExtras.PlaceholderMessage {
+                    id: noVaultsMessage
 
-            Layout.fillWidth: true
-            Layout.fillHeight: true
+                    anchors.centerIn: parent
+                    width: parent.width - (PlasmaCore.Units.largeSpacing * 4)
 
-            highlight: PlasmaComponents.Highlight {}
-            highlightMoveDuration: 0
-            highlightResizeDuration: 0
-            delegate: VaultItem {
-                width: vaultsList.width
-            }
+                    visible: vaultsList.count === 0
 
-            interactive: false
+                    text: i18nd("plasmavault-kde", "No Vaults have been set up")
 
-            PlasmaExtras.PlaceholderMessage {
-                id: noVaultsMessage
+                    helpfulAction: Action {
+                        text: plasmoid.action("createNewVault").text
+                        icon.name: "list-add"
 
-                anchors.centerIn: parent
-                width: parent.width - (PlasmaCore.Units.largeSpacing * 4)
-
-                visible: vaultsList.count === 0
-
-                text: i18nd("plasmavault-kde", "No Vaults have been set up")
-
-                helpfulAction: Action {
-                    text: plasmoid.action("createNewVault").text
-                    icon.name: "list-add"
-
-                    onTriggered: { plasmoid.action("createNewVault").trigger() }
+                        onTriggered: { plasmoid.action("createNewVault").trigger() }
+                    }
                 }
             }
         }
 
-        PlasmaComponents3.Button {
-            id: buttonCreateNewVault
+        footer: RowLayout {
+            PlasmaComponents3.Button {
+                id: buttonCreateNewVault
 
-            visible: vaultsList.count > 0 && !(plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
+                visible: vaultsList.count > 0 && !(plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
 
-            text: plasmoid.action("createNewVault").text
-            icon.name: "list-add"
+                text: plasmoid.action("createNewVault").text
+                icon.name: "list-add"
 
-            onClicked: { plasmoid.action("createNewVault").trigger() }
-            Layout.alignment: Qt.AlignLeft
+                onClicked: { plasmoid.action("createNewVault").trigger() }
+                Layout.alignment: Qt.AlignLeft
+            }
         }
     }
 }
