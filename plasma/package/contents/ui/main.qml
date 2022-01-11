@@ -47,8 +47,6 @@ Item {
         ScrollView {
             id: scrollView
             anchors.fill: parent
-            leftPadding: PlasmaCore.Units.smallSpacing * 2
-            rightPadding: PlasmaCore.Units.smallSpacing * 2
 
             contentItem: ListView {
                 id: vaultsList
@@ -62,14 +60,15 @@ Item {
                 currentIndex: -1
                 topMargin: PlasmaCore.Units.smallSpacing * 2
                 bottomMargin: PlasmaCore.Units.smallSpacing * 2
+                leftMargin: PlasmaCore.Units.smallSpacing * 2
+                rightMargin: PlasmaCore.Units.smallSpacing * 2
                 spacing: PlasmaCore.Units.smallSpacing
-
 
                 highlight: PlasmaComponents.Highlight {}
                 highlightMoveDuration: 0
                 highlightResizeDuration: 0
                 delegate: VaultItem {
-                    width: vaultsList.width - (scrollView.PlasmaComponents3.ScrollBar.vertical.visible ? PlasmaCore.Units.smallSpacing * 4 : 0)
+                    width: vaultsList.width - PlasmaCore.Units.smallSpacing * 4
                 }
 
                 PlasmaExtras.PlaceholderMessage {
