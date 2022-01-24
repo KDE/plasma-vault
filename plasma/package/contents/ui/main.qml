@@ -44,9 +44,11 @@ Item {
 
         collapseMarginsHint: true
 
-        ScrollView {
-            id: scrollView
+        PlasmaComponents3.ScrollView {
             anchors.fill: parent
+
+            // HACK: workaround for https://bugreports.qt.io/browse/QTBUG-83890
+            PlasmaComponents3.ScrollBar.horizontal.policy: PlasmaComponents3.ScrollBar.AlwaysOff
 
             contentItem: ListView {
                 id: vaultsList
@@ -67,9 +69,7 @@ Item {
                 highlight: PlasmaComponents.Highlight {}
                 highlightMoveDuration: 0
                 highlightResizeDuration: 0
-                delegate: VaultItem {
-                    width: vaultsList.width - PlasmaCore.Units.smallSpacing * 4
-                }
+                delegate: VaultItem {}
 
                 PlasmaExtras.PlaceholderMessage {
                     id: noVaultsMessage
