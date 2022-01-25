@@ -5,7 +5,7 @@
  */
 
 import QtQuick 2.4
-import QtQuick.Controls 2.4
+import QtQuick.Controls 2.4 as QQC2
 import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
@@ -81,7 +81,7 @@ Item {
 
                     text: i18nd("plasmavault-kde", "No Vaults have been set up")
 
-                    helpfulAction: Action {
+                    helpfulAction: QQC2.Action {
                         text: plasmoid.action("createNewVault").text
                         icon.name: "list-add"
 
