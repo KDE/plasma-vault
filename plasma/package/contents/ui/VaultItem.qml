@@ -35,7 +35,7 @@ PlasmaExtras.ExpandableListItem {
         }
     }
     isBusy: Plasmoid.busy
-    isEnabled: model.isEnabled
+    enabled: model.isEnabled
     contextualActionsModel: [
         Action {
             enabled: model.isOpened
