@@ -13,8 +13,8 @@ import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 Item {
-    property var vaultsModel: plasmoid.nativeInterface.vaultsModel
-    property var vaultsModelActions: plasmoid.nativeInterface.vaultsModel.actionsModel()
+    property var vaultsModel: Plasmoid.nativeInterface.vaultsModel
+    property var vaultsModelActions: Plasmoid.nativeInterface.vaultsModel.actionsModel()
 
     property var expandedItem: null
 
@@ -25,7 +25,7 @@ Item {
     Plasmoid.status: vaultsModelActions.count > 0 ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
 
     Plasmoid.onExpandedChanged: {
-        plasmoid.nativeInterface.vaultsModel.reloadDevices();
+        Plasmoid.nativeInterface.vaultsModel.reloadDevices();
     }
 
     function action_createNewVault() {
@@ -33,7 +33,7 @@ Item {
     }
 
     Component.onCompleted: {
-        plasmoid.setAction("createNewVault", i18nd("plasmavault-kde", "Create a New Vault…"), "list-add");
+        Plasmoid.setAction("createNewVault", i18nd("plasmavault-kde", "Create a New Vault…"), "list-add");
     }
 
     Plasmoid.fullRepresentation: PlasmaExtras.Representation {
@@ -83,10 +83,10 @@ Item {
                     text: i18nd("plasmavault-kde", "No Vaults have been set up")
 
                     helpfulAction: QQC2.Action {
-                        text: plasmoid.action("createNewVault").text
+                        text: Plasmoid.action("createNewVault").text
                         icon.name: "list-add"
 
-                        onTriggered: { plasmoid.action("createNewVault").trigger() }
+                        onTriggered: { Plasmoid.action("createNewVault").trigger() }
                     }
                 }
             }
@@ -96,12 +96,12 @@ Item {
             PlasmaComponents3.Button {
                 id: buttonCreateNewVault
 
-                visible: vaultsList.count > 0 && !(plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
+                visible: vaultsList.count > 0 && !(Plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
 
-                text: plasmoid.action("createNewVault").text
+                text: Plasmoid.action("createNewVault").text
                 icon.name: "list-add"
 
-                onClicked: { plasmoid.action("createNewVault").trigger() }
+                onClicked: { Plasmoid.action("createNewVault").trigger() }
                 Layout.alignment: Qt.AlignLeft
             }
         }
