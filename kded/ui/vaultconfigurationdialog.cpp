@@ -117,7 +117,7 @@ public:
         qDebug() << "Getting the data";
         for (const auto *module : currentModuleDialogs) {
             qDebug() << "Data: " << module->fields();
-            collectedPayload.unite(module->fields());
+            collectedPayload.insert(module->fields());
         }
 
         const auto name = collectedPayload[KEY_NAME].toString();

@@ -60,7 +60,7 @@ public:
     {
         auto collectedPayload = firstStepModule->fields();
         for (const auto *module : currentStepModules) {
-            collectedPayload.unite(module->fields());
+            collectedPayload.insert(module->fields());
         }
 
         const auto name = collectedPayload[KEY_NAME].toString();

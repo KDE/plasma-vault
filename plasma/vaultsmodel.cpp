@@ -360,8 +360,11 @@ bool SortedVaultsModelProxy::lessThan(const QModelIndex &left, const QModelIndex
 {
     const auto leftData = sourceModel()->data(left, VaultsModel::VaultName);
     const auto rightData = sourceModel()->data(right, VaultsModel::VaultName);
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     return leftData < rightData;
+#else
+    return QPartialOrdering::Less == QVariant::compare(leftData, rightData);
+#endif
 }
 
 bool SortedVaultsModelProxy::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const

@@ -13,9 +13,10 @@
 #include <QUrl>
 #include <QPointer>
 
-#include <KSharedConfig>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KSharedConfig>
+#include <QRegularExpression>
 
 #include <processcore/process.h>
 #include <processcore/processes.h>
@@ -498,9 +499,7 @@ FutureResult<> Vault::close()
                             // based on ksolidnotify.cpp
                             QStringList blockApps;
 
-                            const auto &pidList =
-                            result.split(QRegExp(QStringLiteral("\\s+")),
-                                         Qt::SkipEmptyParts);
+                            const auto &pidList = result.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts);
 
                             if (pidList.isEmpty()) {
                                 d->updateMessage(i18n("Unable to close the vault because an application is using it"));
@@ -555,9 +554,7 @@ FutureResult<> Vault::forceClose()
             | onSuccess([] (const QString &result) {
                 // based on ksolidnotify.cpp
 
-                const auto &pidList =
-                result.split(QRegExp(QStringLiteral("\\s+")),
-                             Qt::SkipEmptyParts);
+                const auto &pidList = result.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts);
 
                 KSysGuard::Processes procs;
 

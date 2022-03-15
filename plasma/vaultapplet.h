@@ -19,7 +19,7 @@ class VaultApplet : public Plasma::Applet
     Q_PROPERTY(QObject *vaultsModel READ vaultsModel CONSTANT)
 
 public:
-    explicit VaultApplet(QObject *parent, const QVariantList &args);
+    explicit VaultApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~VaultApplet() override;
 
     QObject *vaultsModel();

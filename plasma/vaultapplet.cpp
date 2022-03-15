@@ -13,8 +13,8 @@
 
 #include "vaultsmodel.h"
 
-VaultApplet::VaultApplet(QObject *parent, const QVariantList &args)
-    : Plasma::Applet(parent, args)
+VaultApplet::VaultApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : Plasma::Applet(parent, data, args)
 {
 }
 

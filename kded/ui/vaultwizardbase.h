@@ -145,7 +145,7 @@ public:
         // previously collected data to it
         auto collectedPayload = firstStepModule == module ? PlasmaVault::Vault::Payload{} : firstStepModule->fields();
         for (const auto *module : currentStepModules) {
-            collectedPayload.unite(module->fields());
+            collectedPayload.insert(module->fields());
         }
         currentModule->init(collectedPayload);
     }

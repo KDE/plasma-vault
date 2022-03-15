@@ -101,7 +101,7 @@ PlasmaVault::Vault::Payload CompoundDialogModule::fields() const
     PlasmaVault::Vault::Payload result;
 
     for (const auto &child : m_children) {
-        result.unite(child->fields());
+        result.insert(child->fields());
     }
 
     return result;
