@@ -123,5 +123,5 @@ endif ()
 
 
 install (
-    TARGETS kded_plasmavault DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded)
+    TARGETS kded_plasmavault DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kded)
 
