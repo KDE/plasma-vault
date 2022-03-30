@@ -80,6 +80,7 @@ Item {
 
                     visible: vaultsList.count === 0
 
+                    iconName: "plasmavault"
                     text: i18nd("plasmavault-kde", "No Vaults have been set up")
 
                     helpfulAction: QQC2.Action {
