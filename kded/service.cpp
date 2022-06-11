@@ -31,7 +31,7 @@
 #include <asynqt/operations/listen.h>
 
 #include <config-plasma-vault.h>
-#ifdef HAVE_NETWORKMANAGER
+#if HAVE_NETWORKMANAGER
 #include <NetworkManagerQt/Manager>
 #else
 namespace NetworkManager

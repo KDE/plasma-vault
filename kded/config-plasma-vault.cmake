@@ -1,1 +1,1 @@
-#cmakedefine HAVE_NETWORKMANAGER
+#cmakedefine01 HAVE_NETWORKMANAGER
