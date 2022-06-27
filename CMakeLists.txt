@@ -12,8 +12,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set (PLASMAVAULT_VERSION "0.1")
 
-set (QT_MIN_VERSION 5.15.0)
-
 # We don't build in-source
 if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
    message (
