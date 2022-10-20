@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=Plasma Vault module
 Name[ar]=وحدة خزنة بلازما
-Name[ast]=Módulu de Plasma Vault
 Name[az]=Plasma Seyfi Modulu
 Name[bg]=Модул на трезор на Plasma
 Name[ca]=Mòdul del Plasma de Caixa forta
@@ -49,7 +48,6 @@ Name[zh_CN]=Plasma 保险库模块
 Name[zh_TW]=Plasma 儲存庫元件
 Comment=Provides encrypted vaults
 Comment[ar]=توفّر خزنات معمّاة
-Comment[ast]=Forne bagules cifraos
 Comment[az]=Şifrələnmiş seyflər təqdim edir
 Comment[bg]=Предоставя криптирани трезори
 Comment[ca]=Proporciona caixes fortes encriptades

@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=Vaults
 Name[ar]=الخزنات
-Name[ast]=Bagules
 Name[az]=Seyflər
 Name[bg]=Трезори
 Name[ca]=Caixes fortes
@@ -49,7 +48,6 @@ Name[zh_CN]=保险库
 Name[zh_TW]=儲存庫
 Comment=Create encrypted vaults
 Comment[ar]=أنشئ خزنات معمّاة
-Comment[ast]=Crea bagules cifraos
 Comment[az]=Şifrələnmiş seyf yaratmaq
 Comment[bg]=Създаване на криптирани трезори
 Comment[ca]=Crea caixes fortes encriptades
