@@ -6,15 +6,9 @@
 
 #include "vaultsmodel.h"
 #include "vaultsmodel_p.h"
-
-#include <asynqt/operations/listen.h>
-#include <asynqt/wrappers/dbus.h>
-
 #include <QFileInfo>
 
 using namespace PlasmaVault;
-using namespace AsynQt;
-using namespace AsynQt::operators;
 
 VaultsModel::Private::Private(VaultsModel *parent)
     : service("org.kde.kded5", "/modules/plasmavault", QDBusConnection::sessionBus())
@@ -52,7 +46,14 @@ void VaultsModel::Private::loadData()
     clearData();
 
     // Asynchronously load the devices
-    DBus::asyncCall<VaultInfoList>(&service, "availableDevices") | onSuccess([this](const VaultInfoList &vaultList) {
+    QDBusPendingReply<VaultInfoList> reply = service.availableDevices();
+    auto watcher = new QDBusPendingCallWatcher(reply);
+    connect(watcher, &QDBusPendingCallWatcher::finished, q, [this, reply, watcher] {
+        watcher->deleteLater();
+        if (reply.isError()) {
+            return;
+        }
+        const VaultInfoList &vaultList = reply.value();
         const int oldSize = vaultKeys.size();
         q->beginResetModel();
 
@@ -282,7 +283,7 @@ void VaultsModel::open(const QString &device)
     if (!d->vaults.contains(device))
         return;
 
-    DBus::asyncCall<>(&d->service, "openVault", device);
+    d->service.openVault(device);
 }
 
 void VaultsModel::close(const QString &device)
@@ -290,7 +291,7 @@ void VaultsModel::close(const QString &device)
     if (!d->vaults.contains(device))
         return;
 
-    DBus::asyncCall<>(&d->service, "closeVault", device);
+    d->service.closeVault(device);
 }
 
 void VaultsModel::toggle(const QString &device)
@@ -311,7 +312,7 @@ void VaultsModel::forceClose(const QString &device)
     if (!d->vaults.contains(device))
         return;
 
-    DBus::asyncCall<>(&d->service, "forceCloseVault", device);
+    d->service.forceCloseVault(device);
 }
 
 void VaultsModel::configure(const QString &device)
@@ -319,7 +320,7 @@ void VaultsModel::configure(const QString &device)
     if (!d->vaults.contains(device))
         return;
 
-    DBus::asyncCall<>(&d->service, "configureVault", device);
+    d->service.configureVault(device);
 }
 
 void VaultsModel::openInFileManager(const QString &device)
@@ -327,12 +328,12 @@ void VaultsModel::openInFileManager(const QString &device)
     if (!d->vaults.contains(device))
         return;
 
-    DBus::asyncCall<>(&d->service, "openVaultInFileManager", device);
+    d->service.openVaultInFileManager(device);
 }
 
 void VaultsModel::requestNewVault()
 {
-    DBus::asyncCall<>(&d->service, "requestNewVault");
+    d->service.requestNewVault();
 }
 
 bool VaultsModel::isBusy() const
