@@ -52,7 +52,11 @@ void VaultsModel::Private::loadData()
     clearData();
 
     // Asynchronously load the devices
-    DBus::asyncCall<VaultInfoList>(&service, "availableDevices") | onSuccess([this](const VaultInfoList &vaultList) {
+    QPointer<VaultsModel> thisGuard(q);
+    DBus::asyncCall<VaultInfoList>(&service, "availableDevices") | onSuccess([this, thisGuard](const VaultInfoList &vaultList) {
+        if (!thisGuard) {
+            return;
+        }
         const int oldSize = vaultKeys.size();
         q->beginResetModel();
 
