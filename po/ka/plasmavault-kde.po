@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:45+0000\n"
-"PO-Revision-Date: 2022-10-06 07:27+0200\n"
+"PO-Revision-Date: 2022-11-27 11:29+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:73
 #, kde-format
@@ -458,7 +458,7 @@ msgstr "ეს გაფრთხილება მეტჯერ აღარ
 #, kde-format
 msgid ""
 "Go offline while this vault is open (switch off networking and bluetooth)"
-msgstr ""
+msgstr "გადით ოფლაინ, როცა საცავი ღიაა (გამორთეთ ქსელი და Bluetooth)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/passwordchooserwidget.ui:22
@@ -467,6 +467,8 @@ msgid ""
 "Mind that there is no way to recover a forgotten password. If you forget the "
 "password, your data is as good as gone."
 msgstr ""
+"დაიმახსოვრეთ, რომ დავიწყებულ პაროლს ვერ აღადგენთ. თუ პაროლი დაგავიწყდათ, "
+"თქვენს მონაცემების აღდგენის შანსი ნულია."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
@@ -520,6 +522,7 @@ msgstr "ფანჯარა"
 #, kde-format
 msgid "The vault configuration can only be changed while it is closed."
 msgstr ""
+"საცავის კონფიგურაციის შეცვლა მხოლოდ მაშინაა შესაძლებელი, როცა ის დახურულია."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:58
