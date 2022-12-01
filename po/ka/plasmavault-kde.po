@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:45+0000\n"
-"PO-Revision-Date: 2022-11-27 11:29+0100\n"
+"PO-Revision-Date: 2022-11-30 06:53+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -613,7 +613,7 @@ msgstr "ახალი საცავის შექმნა"
 msgid ""
 "This action <b>cannot</b> be undone. This will permanently delete the "
 "selected vault!"
-msgstr ""
+msgstr "ეს ქმედება <b>შეუქცევადია</b>. მონიშნული საცავი სამუდამოდ წაიშლება!"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConfirm)
 #: kded/ui/vaultdeletionwidget.ui:29
