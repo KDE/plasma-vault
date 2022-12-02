@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:45+0000\n"
-"PO-Revision-Date: 2022-11-30 06:53+0100\n"
+"PO-Revision-Date: 2022-12-01 07:02+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -295,6 +295,9 @@ msgid ""
 "to an activity it should not be available in, it will automatically be "
 "closed."
 msgstr ""
+"თუ ამ საცავს გარკვეულ აქტივობებისთვის შეზღუდავს, ის აპლეტში მხოლოდ "
+"ქმედებების შესრულების დროს გამოჩნდება. უფრო მეტიც, თუ გადართავთ აქტივობაზე, "
+"რომელშიც ის ხელმისაწვდომი არ უნდა იყოს, ის ავტომატურად დაიხურება."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
