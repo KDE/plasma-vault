@@ -710,7 +710,7 @@ msgstr ""
 #: kded/ui/vaultdeletionwidget.ui:29
 #, kde-format
 msgid "Please type in the name of the vault to confirm:"
-msgstr "Introduïu el nom de la caixa forta per a confirmar:"
+msgstr "Introduïu el nom de la caixa forta que s'ha de confirmar:"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
 #: kded/ui/vaultdeletionwidget.ui:44
