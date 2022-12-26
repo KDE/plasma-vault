@@ -18,8 +18,6 @@
 
 #include "commandresult.h"
 
-class QDBusArgument;
-
 namespace PlasmaVault
 {
 // Main keys

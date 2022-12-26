@@ -26,8 +26,6 @@
 class QAction;
 class QWidget;
 
-class KFileItemListProperties;
-
 class PlasmaVaultFileItemAction : public KAbstractFileItemActionPlugin
 {
     Q_OBJECT
