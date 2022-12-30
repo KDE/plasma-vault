@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:45+0000\n"
-"PO-Revision-Date: 2022-12-05 05:42+0100\n"
+"PO-Revision-Date: 2022-12-30 03:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -461,7 +461,7 @@ msgstr "ეს გაფრთხილება მეტჯერ აღარ
 #, kde-format
 msgid ""
 "Go offline while this vault is open (switch off networking and bluetooth)"
-msgstr "გადით ოფლაინ, როცა საცავი ღიაა (გამორთეთ ქსელი და Bluetooth)"
+msgstr "გადით ოფლაინ, როცა საცავი ღიაა (გამორთეთ ქსელი და ბლუთუზი)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/passwordchooserwidget.ui:22
