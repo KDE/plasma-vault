@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:45+0000\n"
-"PO-Revision-Date: 2023-01-18 22:31+0300\n"
+"PO-Revision-Date: 2023-02-01 00:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,13 +22,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Close this Plasma Vault"
-msgstr "Bu Plasma Vault'u kapat"
+msgstr "Bu Plasma Kasası'nı kapat"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Open this Plasma Vault"
-msgstr "Bu Plasma Vault'u aç"
+msgstr "Bu Plasma Kasası'nı aç"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -41,7 +41,7 @@ msgstr "%1: %2"
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:77
 #, kde-format
 msgid "Failed to create directories, check your permissions"
-msgstr "Dizinleri oluşturma başarısız oldu, izinlerinizi kontrol edin"
+msgstr "Dizinleri oluşturma başarısız oldu, izinlerinizi denetleyin"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:131
 #, kde-format
@@ -78,7 +78,7 @@ msgstr ""
 #: kded/engine/fusebackend_p.cpp:42
 #, kde-format
 msgid "The mount point directory is not empty, refusing to open the vault"
-msgstr "Bağlama noktası dizini boş değil, vault'u açmak reddediliyor"
+msgstr "Bağlama noktası dizini boş değil, kasayı açma reddediliyor"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -88,7 +88,7 @@ msgstr "Yanlış parolayı girdiniz"
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
 #, kde-format
 msgid "The installed version of cryfs is too old to open this vault."
-msgstr "Yüklü cryfs sürümü bu kasayı açmak için pek eski."
+msgstr "cryfs'in kurulu sürümü bu kasayı açmak için pek eski."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -173,7 +173,7 @@ msgstr "Bağlama noktası için boş bir dizin seçmeniz gerekiyor"
 #: kded/engine/fusebackend_p.cpp:128
 #, kde-format
 msgid "Device is already open"
-msgstr "Aygıt zaten açık"
+msgstr "Aygıt halihazırda açık"
 
 #: kded/engine/fusebackend_p.cpp:136
 #, kde-format
@@ -248,7 +248,7 @@ msgstr "Kasa kapatılamıyor; çünkü %1 tarafından kullanılıyor"
 #: kded/engine/vault.cpp:552
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
-msgstr "Vault kullanan uygulamaların listesi getirilirken hata oluştu"
+msgstr "Kasa kullanan uygulamaların listesi getirilirken hata oluştu"
 
 #: kded/engine/vault.cpp:604
 #, kde-format
@@ -295,8 +295,8 @@ msgid ""
 "to an activity it should not be available in, it will automatically be "
 "closed."
 msgstr ""
-"Bu vault yalnızca belirli etkinliklerle sınırlarsanız, uygulama yalnızca bu "
-"etkinliklerdeyken gösterilir. Dahası, içinde olmaması gereken bir etkinliğe "
+"Bu kasayı yalnızca belirli etkinliklerle sınırlarsanız uygulama yalnızca bu "
+"etkinliklerde iken gösterilir. Dahası, içinde olmaması gereken bir etkinliğe "
 "geçtiğinizde otomatik olarak kapatılacaktır."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
@@ -314,7 +314,7 @@ msgstr "Belirtilen arka uç kullanılabilir değil"
 #: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
 #, kde-format
 msgid "Vaul&t name:"
-msgstr "Vaul&t adı:"
+msgstr "&Kasa adı:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/backendchooserwidget.ui:67
@@ -332,7 +332,7 @@ msgstr "Değiştir"
 #: kded/ui/backendchooserwidget.ui:132
 #, kde-format
 msgid "Choose the encryption system you want to use for this vault:"
-msgstr "Bu vault için kullanmak istediğiniz şifreleme sistemini seçin:"
+msgstr "Bu kasa için kullanmak istediğiniz şifreleme sistemini seçin:"
 
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
@@ -382,7 +382,7 @@ msgstr "Bağlama noktası"
 #, kde-format
 msgctxt "%1 is the name of the Plasma Vault to open"
 msgid "Open '%1' Plasma Vault"
-msgstr "'%1' Plasma Vault'u Aç"
+msgstr "'%1' Plasma Kasası'nı Aç"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -524,13 +524,13 @@ msgstr "Pencere"
 #: kded/ui/vaultconfigurationdialog.ui:38
 #, kde-format
 msgid "The vault configuration can only be changed while it is closed."
-msgstr "Vault yapılandırması yalnızca kapalıyken değiştirilebilirdir."
+msgstr "Kasa yapılandırması yalnızca kapalıyken değiştirilebilirdir."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:58
 #, kde-format
 msgid "Close the vault"
-msgstr "Vault'u kapat"
+msgstr "Kasayı kapat"
 
 #: kded/ui/vaultcreationwizard.cpp:35
 #, kde-format
@@ -750,7 +750,7 @@ msgstr "Kasa Kilidini Aç"
 #: plasma/package/contents/ui/VaultItem.qml:61
 #, kde-format
 msgid "Configure Vault…"
-msgstr "Vault'u Yapılandır…"
+msgstr "Kasa'yı Yapılandır…"
 
 #, fuzzy
 #~| msgid "Create a New Vault"
