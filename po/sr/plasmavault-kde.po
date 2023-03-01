@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-06-17 02:10+0200\n"
+"POT-Creation-Date: 2022-03-31 00:45+0000\n"
 "PO-Revision-Date: 2017-12-17 18:01+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -18,40 +18,40 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: fileitemplugin/plasmavaultfileitemaction.cpp:82
+#: fileitemplugin/plasmavaultfileitemaction.cpp:73
 #, fuzzy, kde-format
 #| msgid "Plasma Vault"
 msgctxt "@action Action to unmount a vault"
 msgid "Close this Plasma Vault"
 msgstr "Плазма трезор"
 
-#: fileitemplugin/plasmavaultfileitemaction.cpp:83
+#: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, fuzzy, kde-format
 #| msgid "Plasma Vault"
 msgctxt "@action Action to mount a vault"
 msgid "Open this Plasma Vault"
 msgstr "Плазма трезор"
 
-#: kded/engine/backend_p.cpp:78
+#: kded/engine/backend_p.cpp:46
 #, kde-format
 msgctxt "formatting the message for a command, as in encfs: not found"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: kded/engine/backends/cryfs/cryfsbackend.cpp:118
-#: kded/engine/backends/encfs/encfsbackend.cpp:74
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:100
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:92
+#: kded/engine/backends/encfs/encfsbackend.cpp:51
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:77
 #, kde-format
 msgid "Failed to create directories, check your permissions"
 msgstr "Не могу да правим фасцикле, проверите дозволе."
 
-#: kded/engine/backends/cryfs/cryfsbackend.cpp:159
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:131
 #, fuzzy, kde-format
 #| msgid "Close the vault"
 msgid "Upgrade the vault?"
 msgstr "Затвори трезор"
 
-#: kded/engine/backends/cryfs/cryfsbackend.cpp:160
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:132
 #, kde-format
 msgid ""
 "This vault was created with an older version of cryfs and needs to be "
@@ -63,65 +63,96 @@ msgid ""
 "Do you want to perform the upgrade now?"
 msgstr ""
 
-#: kded/engine/backends/cryfs/cryfsbackend.cpp:164
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:136
 #, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be opened with this version of "
 "cryfs"
 msgstr ""
 
-#: kded/engine/backends/cryfs/cryfsbackend.cpp:177
-#: kded/engine/fusebackend_p.cpp:60
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:150
+#: kded/engine/fusebackend_p.cpp:42
 #, kde-format
 msgid "The mount point directory is not empty, refusing to open the vault"
 msgstr "Фасцикла за тачку монтирања није празна, одбијам да отворим трезор."
 
-#: kded/engine/backends/cryfs/cryfsbackend.cpp:185
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
 msgid "You entered the wrong password"
 msgstr ""
 
-#: kded/engine/backends/cryfs/cryfsbackend.cpp:189
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:162
 #, kde-format
 msgid "The installed version of cryfs is too old to open this vault."
 msgstr ""
 
-#: kded/engine/backends/cryfs/cryfsbackend.cpp:196
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:143
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:169
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
 #, fuzzy, kde-format
 #| msgid "Unable to perform the operation"
 msgid "Unable to perform the operation (error code %1)."
 msgstr "Не могу да изведем поступак."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:131
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
 #, fuzzy, kde-format
 #| msgid "The mount point directory is not empty, refusing to open the vault"
 msgid "The cipher directory is not empty, cannot initialise the vault."
 msgstr "Фасцикла за тачку монтирања није празна, одбијам да отворим трезор."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:135
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
 #, kde-format
 msgid "The password is empty, cannot initialise the vault."
 msgstr ""
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:139
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:114
 #, fuzzy, kde-format
 #| msgid "Failed to create directories, check your permissions"
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
 msgstr "Не могу да правим фасцикле, проверите дозволе."
 
-#: kded/engine/fusebackend_p.cpp:69
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
+#: kded/engine/fusebackend_p.cpp:165
+#, kde-format
+msgid "Failed to execute"
+msgstr "Не могу да извршим."
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
+#: kded/engine/fusebackend_p.cpp:177
+#, kde-format
+msgid "Unable to detect the version"
+msgstr "Не могу да откријем издање."
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
+#, fuzzy, kde-format
+#| msgid "Unable to detect the version"
+msgid "Unable to detect the version, the version string is invalid"
+msgstr "Не могу да откријем издање."
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
+#, fuzzy, kde-format
+#| msgid "Wrong version installed. The required version is %1.%2.%3"
+msgid "Wrong version installed. The required version is %1.%2"
+msgstr "Инсталирано погрешно издање. Неопходно је издање %1.%2.%3."
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
+#: kded/engine/fusebackend_p.cpp:191
+#, kde-format
+msgid "Correct version found"
+msgstr "Нађено добро издање."
+
+#: kded/engine/fusebackend_p.cpp:51
 #, kde-format
 msgid "Unable to perform the operation"
 msgstr "Не могу да изведем поступак."
 
-#: kded/engine/fusebackend_p.cpp:125
+#: kded/engine/fusebackend_p.cpp:96
 #, kde-format
 msgid "This directory already contains encrypted data"
 msgstr "Ова фасцикла већ садржи шифроване податке."
 
-#: kded/engine/fusebackend_p.cpp:129
+#: kded/engine/fusebackend_p.cpp:99
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
@@ -130,13 +161,13 @@ msgstr ""
 "И за шифровано складиште и за тачке монтирања морате да бирате празне "
 "фасцикле."
 
-#: kded/engine/fusebackend_p.cpp:147
+#: kded/engine/fusebackend_p.cpp:114
 #, fuzzy, kde-format
 #| msgid "This directory already contains encrypted data"
 msgid "This directory doesn't contain encrypted data"
 msgstr "Ова фасцикла већ садржи шифроване податке."
 
-#: kded/engine/fusebackend_p.cpp:151
+#: kded/engine/fusebackend_p.cpp:118
 #, fuzzy, kde-format
 #| msgid ""
 #| "You need to select empty directories for the encrypted storage and for "
@@ -146,118 +177,132 @@ msgstr ""
 "И за шифровано складиште и за тачке монтирања морате да бирате празне "
 "фасцикле."
 
-#: kded/engine/fusebackend_p.cpp:166
+#: kded/engine/fusebackend_p.cpp:128
 #, kde-format
 msgid "Device is already open"
 msgstr "Уређај је већ отворен."
 
-#: kded/engine/fusebackend_p.cpp:182
+#: kded/engine/fusebackend_p.cpp:136
 #, kde-format
 msgid "Device is not open"
 msgstr "Уређај није отворен."
 
-#: kded/engine/fusebackend_p.cpp:229
-#, kde-format
-msgid "Failed to execute"
-msgstr "Не могу да извршим."
-
-#: kded/engine/fusebackend_p.cpp:243
-#, kde-format
-msgid "Unable to detect the version"
-msgstr "Не могу да откријем издање."
-
-#: kded/engine/fusebackend_p.cpp:255
+#: kded/engine/fusebackend_p.cpp:185
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr "Инсталирано погрешно издање. Неопходно је издање %1.%2.%3."
 
-#: kded/engine/fusebackend_p.cpp:264
-#, kde-format
-msgid "Correct version found"
-msgstr "Нађено добро издање."
-
-#: kded/engine/vault.cpp:251
+#: kded/engine/vault.cpp:239
 #, kde-format
 msgid "Unknown device"
 msgstr "Непознат уређај."
 
-#: kded/engine/vault.cpp:281
+#: kded/engine/vault.cpp:269
 #, kde-format
 msgid "Configured backend does not exist: %1"
 msgstr "Подешена позадина не постоји: %1"
 
-#: kded/engine/vault.cpp:286
+#: kded/engine/vault.cpp:274
 #, kde-format
 msgid "Mount point is not specified"
 msgstr "Тачка монтирања није задата."
 
-#: kded/engine/vault.cpp:291
+#: kded/engine/vault.cpp:279
 #, fuzzy, kde-format
 #| msgid "Can not create the mount point"
 msgid "Cannot create the mount point"
 msgstr "Не могу да направим тачку монтирања."
 
-#: kded/engine/vault.cpp:296
+#: kded/engine/vault.cpp:284
 #, fuzzy, kde-format
 #| msgid "Configured backend can not be instantiated: %1"
 msgid "Configured backend cannot be instantiated: %1"
 msgstr "Не може да се направи примерак подешене позадине: %1"
 
-#: kded/engine/vault.cpp:411
+#: kded/engine/vault.cpp:399
 #, fuzzy, kde-format
 #| msgid "This device is already registered. Can not recreate it."
 msgid "This device is already registered. Cannot recreate it."
 msgstr "Овај уређај је већ регистрован. Не могу поново да га направим."
 
-#: kded/engine/vault.cpp:416 kded/engine/vault.cpp:450
+#: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
 #, fuzzy, kde-format
 #| msgid "Unknown error, unable to create the backend."
 msgid "Unknown error; unable to create the backend."
 msgstr "Непозната грешка, не могу да направим позадину."
 
-#: kded/engine/vault.cpp:445
+#: kded/engine/vault.cpp:433
 #, fuzzy, kde-format
 #| msgid "This device is already registered. Can not recreate it."
 msgid "This device is not initialized. Cannot import it."
 msgstr "Овај уређај је већ регистрован. Не могу поново да га направим."
 
-#: kded/engine/vault.cpp:476
+#: kded/engine/vault.cpp:464
 #, fuzzy, kde-format
 #| msgid "Can not open an unknown vault."
 msgid "Cannot open an unknown vault."
 msgstr "Не могу да отворим непознати трезор."
 
-#: kded/engine/vault.cpp:493
+#: kded/engine/vault.cpp:481
 #, fuzzy, kde-format
 #| msgid "The vault is unknown, can not close it."
 msgid "The vault is unknown; cannot close it."
 msgstr "Трезор је непознат, не могу да га затворим."
 
-#: kded/engine/vault.cpp:508 kded/engine/vault.cpp:523
+#: kded/engine/vault.cpp:496 kded/engine/vault.cpp:505
 #, fuzzy, kde-format
 #| msgid "Unable to close the vault, an application is using it"
 msgid "Unable to close the vault because an application is using it"
 msgstr "Не могу да затворим трезор, користи га неки програм."
 
-#: kded/engine/vault.cpp:546
+#: kded/engine/vault.cpp:528
 #, fuzzy, kde-format
 #| msgid "Unable to close the vault, it is used by %1"
 msgid "Unable to close the vault because it is being used by %1"
 msgstr "Не могу да затворим трезор, користи га %1."
 
-#: kded/engine/vault.cpp:570
+#: kded/engine/vault.cpp:552
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr "Не могу да добавим листу програма који користе овај трезор."
 
-#: kded/engine/vault.cpp:606
+#: kded/engine/vault.cpp:604
+#, kde-format
+msgid "Cannot delete the vault; there are other vaults with overlapping paths."
+msgstr ""
+
+#: kded/engine/vault.cpp:609
 #, fuzzy, kde-format
 #| msgid "The vault is unknown, can not destroy it."
 msgid "The vault is unknown; cannot dismantle it."
 msgstr "Трезор је непознат, не могу да га уништим."
 
+#: kded/engine/vault.cpp:612
+#, fuzzy, kde-format
+#| msgid "Choose the encryption system you want to use for this vault:"
+msgid "Are you sure you want to delete this vault"
+msgstr "Жељени систем шифровања за овај трезор:"
+
+#: kded/engine/vault.cpp:613
+#, kde-format
+msgid ""
+"This operation will irreversibly delete the following:\n"
+"%1\n"
+"%2"
+msgstr ""
+
+#: kded/engine/vault.cpp:615
+#, kde-format
+msgid "Delete operation cancelled"
+msgstr ""
+
+#: kded/service.cpp:440
+#, kde-format
+msgid "Error deleting vault"
+msgstr ""
+
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/activitieslinkingwidget.ui:17
+#: kded/ui/activitieslinkingwidget.ui:22
 #, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
@@ -270,18 +315,18 @@ msgstr ""
 "не би требало да буде доступан, биће аутоматски затворен."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
-#: kded/ui/activitieslinkingwidget.ui:27
+#: kded/ui/activitieslinkingwidget.ui:32
 #, kde-format
 msgid "Limit to the selected activities:"
 msgstr "Ограничи на изабране активности:"
 
-#: kded/ui/backendchooserwidget.cpp:93
+#: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
 msgstr "Задата позадина није доступна."
 
 #. i18n: ectx: property (text), widget (QLabel, labelVaultName)
-#: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:17
+#: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
 #, kde-format
 msgid "Vaul&t name:"
 msgstr "Име &трезора:"
@@ -305,66 +350,66 @@ msgid "Choose the encryption system you want to use for this vault:"
 msgstr "Жељени систем шифровања за овај трезор:"
 
 # >> @item:inlistbox
-#: kded/ui/cryfscypherchooserwidget.cpp:74
+#: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
 msgstr "подразумевани шифрар"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCypher)
-#: kded/ui/cryfscypherchooserwidget.ui:17
+#: kded/ui/cryfscypherchooserwidget.ui:22
 #, fuzzy, kde-format
 #| msgid "Choose the used cypher:"
 msgid "Choose the used cipher:"
 msgstr "Избор шифрара:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDevice)
-#: kded/ui/directorychooserwidget.ui:17
+#: kded/ui/directorychooserwidget.ui:22
 #, kde-format
 msgid "Mount point:"
 msgstr "Тачка монтирања:"
 
-#: kded/ui/directorypairchooserwidget.cpp:72
+#: kded/ui/directorypairchooserwidget.cpp:58
 #, fuzzy, kde-format
 #| msgid "The specified backend is not available"
 msgid "The specified path does not exist"
 msgstr "Задата позадина није доступна."
 
-#: kded/ui/directorypairchooserwidget.cpp:78
+#: kded/ui/directorypairchooserwidget.cpp:64
 #, fuzzy, kde-format
 #| msgid "The specified backend is not available"
 msgid "The specified directory is not empty"
 msgstr "Задата позадина није доступна."
 
-#: kded/ui/directorypairchooserwidget.cpp:84
+#: kded/ui/directorypairchooserwidget.cpp:70
 #, kde-format
 msgid "The specified directory is empty"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelDevice)
-#: kded/ui/directorypairchooserwidget.ui:17
+#: kded/ui/directorypairchooserwidget.ui:22
 #, kde-format
 msgid "Encrypted data location"
 msgstr "Локација шифрованих података"
 
 #. i18n: ectx: property (text), widget (QLabel, labelMountPoint)
-#: kded/ui/directorypairchooserwidget.ui:31
+#: kded/ui/directorypairchooserwidget.ui:36
 #, kde-format
 msgid "Mount point"
 msgstr "Тачка монтирања"
 
-#: kded/ui/mountdialog.cpp:34
+#: kded/ui/mountdialog.cpp:20
 #, fuzzy, kde-format
 #| msgid "Plasma Vault"
 msgctxt "%1 is the name of the Plasma Vault to open"
 msgid "Open '%1' Plasma Vault"
 msgstr "Плазма трезор"
 
-#: kded/ui/mountdialog.cpp:43
+#: kded/ui/mountdialog.cpp:29
 #, kde-format
-msgid "Details..."
+msgid "Details…"
 msgstr ""
 
-#: kded/ui/mountdialog.cpp:53
+#: kded/ui/mountdialog.cpp:38
 #, kde-format
 msgid ""
 "Command output:\n"
@@ -373,30 +418,30 @@ msgid ""
 "Error output: %2"
 msgstr ""
 
-#: kded/ui/mountdialog.cpp:58
+#: kded/ui/mountdialog.cpp:43
 #, kde-format
 msgid "Error details"
 msgstr ""
 
-#: kded/ui/mountdialog.cpp:97
+#: kded/ui/mountdialog.cpp:83
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "Не могу да отворим: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/mountdialog.ui:57
+#: kded/ui/mountdialog.ui:62
 #, kde-format
 msgid "Please enter the password to open this vault:"
 msgstr "Унесите лозинку за отварање овог трезора:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
-#: kded/ui/mountdialog.ui:89
+#: kded/ui/mountdialog.ui:94
 #, kde-format
 msgid "Password:"
 msgstr "Лозинка:"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
-#: kded/ui/noticewidget.ui:33
+#: kded/ui/noticewidget.ui:38
 #, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
@@ -412,20 +457,20 @@ msgid ""
 msgstr "<html><p><br /></p></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeHidden)
-#: kded/ui/noticewidget.ui:40
+#: kded/ui/noticewidget.ui:45
 #, kde-format
 msgid "Do not show this notice again"
 msgstr "Не приказуј више ово обавештење"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
-#: kded/ui/offlineonlywidget.ui:29
+#: kded/ui/offlineonlywidget.ui:34
 #, kde-format
 msgid ""
 "Go offline while this vault is open (switch off networking and bluetooth)"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/passwordchooserwidget.ui:17
+#: kded/ui/passwordchooserwidget.ui:22
 #, kde-format
 msgid ""
 "Mind that there is no way to recover a forgotten password. If you forget the "
@@ -434,69 +479,69 @@ msgstr ""
 "Имајте у виду да заборављена лозинка не може да се поврати. Ако је "
 "заборавите, сви подаци су вам пропали."
 
-#: kded/ui/vaultconfigurationdialog.cpp:62
+#: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
 msgid "General"
 msgstr "Опште"
 
-#: kded/ui/vaultconfigurationdialog.cpp:67
+#: kded/ui/vaultconfigurationdialog.cpp:49
 #, kde-format
 msgid "Advanced"
 msgstr ""
 
-#: kded/ui/vaultconfigurationdialog.cpp:72
+#: kded/ui/vaultconfigurationdialog.cpp:51
 #, kde-format
 msgid "Delete"
 msgstr ""
 
 # >> @item
-#: kded/ui/vaultconfigurationdialog.cpp:79 kded/ui/vaultcreationwizard.cpp:50
-#: kded/ui/vaultimportingwizard.cpp:50
+#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
+#: kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
 msgid "EncFS"
 msgstr "енкФС"
 
 # >> @item
-#: kded/ui/vaultconfigurationdialog.cpp:83 kded/ui/vaultcreationwizard.cpp:82
-#: kded/ui/vaultimportingwizard.cpp:66
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
+#: kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
 msgstr "криФС"
 
-#: kded/ui/vaultconfigurationdialog.cpp:87 kded/ui/vaultcreationwizard.cpp:115
-#: kded/ui/vaultimportingwizard.cpp:82
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
+#: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
 msgstr ""
 
 # >> @title:window
-#: kded/ui/vaultconfigurationdialog.cpp:180
+#: kded/ui/vaultconfigurationdialog.cpp:142
 #, kde-format
 msgid "Configure"
 msgstr "Подешавање"
 
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, VaultImportingWizard)
 #. i18n: ectx: property (windowTitle), widget (QDialog, VaultCreationWizard)
-#. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
-#: kded/ui/vaultconfigurationdialog.ui:14 kded/ui/vaultcreationwizard.ui:14
-#: kded/ui/vaultimportingwizard.ui:14
+#: kded/ui/vaultconfigurationdialog.ui:19 kded/ui/vaultcreationwizard.ui:19
+#: kded/ui/vaultimportingwizard.ui:19
 #, kde-format
 msgid "Dialog"
 msgstr "Дијалог"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/vaultconfigurationdialog.ui:33
+#: kded/ui/vaultconfigurationdialog.ui:38
 #, kde-format
 msgid "The vault configuration can only be changed while it is closed."
 msgstr "Постава трезора може да се измени само док је затворен."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
-#: kded/ui/vaultconfigurationdialog.ui:53
+#: kded/ui/vaultconfigurationdialog.ui:58
 #, kde-format
 msgid "Close the vault"
 msgstr "Затвори трезор"
 
-#: kded/ui/vaultcreationwizard.cpp:53
+#: kded/ui/vaultcreationwizard.cpp:35
 #, fuzzy, kde-format
 #| msgid ""
 #| "<b>Security notice:</b>\n"
@@ -559,7 +604,7 @@ msgstr ""
 "шифрованим подацима.</p><p>Погледајте <a href='http://defuse.ca/audits/encfs."
 "htm'>defuse.ca/audits/encfs.htm</a> за више детаља.</p>"
 
-#: kded/ui/vaultcreationwizard.cpp:85
+#: kded/ui/vaultcreationwizard.cpp:56
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -587,7 +632,7 @@ msgstr ""
 "података.</p><p>Имајте у виду да, иако се криФС сматра безбедним, нема "
 "независне безбедносне ревизије која би то потврдила.</p>"
 
-#: kded/ui/vaultcreationwizard.cpp:118
+#: kded/ui/vaultcreationwizard.cpp:76
 #, fuzzy, kde-format
 #| msgid ""
 #| "<b>Security notice:</b>\n"
@@ -633,14 +678,14 @@ msgstr ""
 "података.</p><p>Имајте у виду да, иако се криФС сматра безбедним, нема "
 "независне безбедносне ревизије која би то потврдила.</p>"
 
-#: kded/ui/vaultcreationwizard.cpp:193
+#: kded/ui/vaultcreationwizard.cpp:138
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
 msgstr "Стварање новог трезора"
 
 #. i18n: ectx: property (text), widget (QLabel, labelWarning)
-#: kded/ui/vaultdeletionwidget.ui:17
+#: kded/ui/vaultdeletionwidget.ui:22
 #, kde-format
 msgid ""
 "This action <b>cannot</b> be undone. This will permanently delete the "
@@ -648,84 +693,93 @@ msgid ""
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, labelConfirm)
-#: kded/ui/vaultdeletionwidget.ui:24
+#: kded/ui/vaultdeletionwidget.ui:29
 #, kde-format
 msgid "Please type in the name of the vault to confirm:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
-#: kded/ui/vaultdeletionwidget.ui:39
+#: kded/ui/vaultdeletionwidget.ui:44
 #, fuzzy, kde-format
 #| msgid "Close the vault"
 msgid "Delete this vault"
 msgstr "Затвори трезор"
 
-#: kded/ui/vaultimportingwizard.cpp:102
+#: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
 msgid "Import"
 msgstr ""
 
-#: kded/ui/vaultimportingwizard.cpp:142
+#: kded/ui/vaultimportingwizard.cpp:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Import an Existing Vault"
 msgstr ""
 
-#: kded/ui/vaultwizardbase.h:50 kded/ui/vaultwizardbase.h:103
+#: kded/ui/vaultwizardbase.h:39 kded/ui/vaultwizardbase.h:90
 #, kde-format
 msgid "Next"
 msgstr ""
 
-#: kded/ui/vaultwizardbase.h:94
+#: kded/ui/vaultwizardbase.h:80
 #, kde-format
 msgid "Create"
 msgstr ""
 
-#: kded/ui/vaultwizardbase.h:101
+#: kded/ui/vaultwizardbase.h:87
 #, kde-format
 msgid "Previous"
 msgstr ""
 
-#: plasma/package/contents/ui/main.qml:88
+#: plasma/package/contents/ui/main.qml:36
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Create a New Vault"
+msgid "Create a New Vault…"
+msgstr "Стварање новог трезора"
+
+#: plasma/package/contents/ui/main.qml:84
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr ""
 
-#: plasma/package/contents/ui/main.qml:91
-#: plasma/package/contents/ui/main.qml:103
-#, kde-format
-msgid "Create a New Vault..."
-msgstr "Направи нови трезор..."
-
-#: plasma/package/contents/ui/VaultItem.qml:41
+#: plasma/package/contents/ui/VaultItem.qml:28
 #, kde-format
 msgid "Lock Vault"
 msgstr ""
 
-#: plasma/package/contents/ui/VaultItem.qml:41
+#: plasma/package/contents/ui/VaultItem.qml:28
 #, kde-format
-msgid "Unlock Vault"
+msgid "Unlock and Open"
 msgstr ""
 
-#: plasma/package/contents/ui/VaultItem.qml:51
+#: plasma/package/contents/ui/VaultItem.qml:43
 #, fuzzy, kde-format
 #| msgid "Open with File Manager"
 msgid "Show in File Manager"
 msgstr "Отвори менаџером фајлова"
 
-#: plasma/package/contents/ui/VaultItem.qml:51
-#, fuzzy, kde-format
-#| msgid "Open with File Manager"
-msgid "Unlock and Show in File Manager"
-msgstr "Отвори менаџером фајлова"
-
-#: plasma/package/contents/ui/VaultItem.qml:56
+#: plasma/package/contents/ui/VaultItem.qml:50
 #, fuzzy, kde-format
 #| msgid "Forcefully close "
 msgid "Forcefully Lock Vault"
 msgstr "Принудно затвори"
 
-#: plasma/package/contents/ui/VaultItem.qml:62
+#: plasma/package/contents/ui/VaultItem.qml:50
 #, kde-format
-msgid "Configure Vault..."
+msgid "Unlock Vault"
+msgstr ""
+
+#: plasma/package/contents/ui/VaultItem.qml:61
+#, fuzzy, kde-format
+#| msgid "Configure Vault..."
+msgid "Configure Vault…"
 msgstr "Подеси трезор..."
+
+#~ msgid "Create a New Vault..."
+#~ msgstr "Направи нови трезор..."
+
+#, fuzzy
+#~| msgid "Open with File Manager"
+#~ msgid "Unlock and Show in File Manager"
+#~ msgstr "Отвори менаџером фајлова"
