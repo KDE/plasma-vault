@@ -102,22 +102,22 @@ target_link_libraries (
    Qt::DBus
    Qt::Widgets
 
-   KF5::Activities
-   KF5::ConfigCore
-   KF5::ConfigWidgets
-   KF5::CoreAddons
-   KF5::DBusAddons
-   KF5::I18n
-   KF5::KIOCore
-   KF5::KIOWidgets
-   KF5::WidgetsAddons
+   KF6::Activities
+   KF6::ConfigCore
+   KF6::ConfigWidgets
+   KF6::CoreAddons
+   KF6::DBusAddons
+   KF6::I18n
+   KF6::KIOCore
+   KF6::KIOWidgets
+   KF6::WidgetsAddons
    KSysGuard::SysGuard
    KSysGuard::ProcessCore
    )
 if (HAVE_NETWORKMANAGER)
     target_link_libraries (
        kded_plasmavault
-       KF5::NetworkManagerQt
+       KF6::NetworkManagerQt
     )
 endif ()
 

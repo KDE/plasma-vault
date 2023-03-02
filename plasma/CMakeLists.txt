@@ -41,9 +41,9 @@ target_link_libraries (
    Qt::Gui
    Qt::DBus
 
-   KF5::Activities
-   KF5::I18n
-   KF5::Plasma
+   KF6::Activities
+   KF6::I18n
+   KF6::Plasma
    )
 
 install (

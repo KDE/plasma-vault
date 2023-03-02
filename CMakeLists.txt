@@ -24,10 +24,10 @@ endif ()
 include (FeatureSummary)
 
 set(QT_MIN_VERSION "5.15.2")
-set(KF5_MIN_VERSION "5.102.0")
+set(KF6_MIN_VERSION "5.102.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
-find_package (ECM ${KF5_MIN_VERSION}  NO_MODULE)
+find_package (ECM ${KF6_MIN_VERSION}  NO_MODULE)
 set_package_properties (ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://projects.kde.org/projects/kdesupport/extra-cmake-modules")
 feature_summary (WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -52,7 +52,7 @@ find_package (
    )
 
 find_package (
-   KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+   KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
    Activities
    Config
    ConfigWidgets
@@ -63,8 +63,8 @@ find_package (
    Plasma
    WidgetsAddons
    )
-find_package (KF5NetworkManagerQt ${KF5_MIN_VERSION})
-if (KF5NetworkManagerQt_FOUND)
+find_package (KF6NetworkManagerQt ${KF6_MIN_VERSION})
+if (KF6NetworkManagerQt_FOUND)
     set (HAVE_NETWORKMANAGER TRUE)
 endif()
 find_package (KSysGuard REQUIRED)
