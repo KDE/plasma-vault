@@ -91,10 +91,6 @@ set_target_properties (
    PROPERTIES OUTPUT_NAME plasmavault
    )
 
-kcoreaddons_desktop_to_json (
-   kded_plasmavault plasmavault.desktop
-   )
-
 target_link_libraries (
    kded_plasmavault
 

@@ -25,18 +25,12 @@ qt_add_dbus_interface (
    )
 
 add_library (
-    plasma_applet_vault
+    org.kde.plasma.vault
     MODULE ${plasmavault_SRCS}
     )
 
-kcoreaddons_desktop_to_json (
-   plasma_applet_vault
-   package/metadata.desktop
-   SERVICE_TYPES plasma-applet.desktop
-   )
-
 target_link_libraries (
-   plasma_applet_vault
+   org.kde.plasma.vault
 
    Qt::Gui
    Qt::DBus
@@ -47,7 +41,7 @@ target_link_libraries (
    )
 
 install (
-   TARGETS plasma_applet_vault
+   TARGETS org.kde.plasma.vault
    DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/applets
    )
 
