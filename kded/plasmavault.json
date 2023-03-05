@@ -1,7 +1,19 @@
 {
     "KPlugin": {
         "Description": "Provides encrypted vaults",
-        "Name": "Plasma Vault module"
+        "Description[es]": "Proporciona cajas fuertes cifradas",
+        "Description[fr]": "Fournit des coffres-forts chiffrés",
+        "Description[ka]": "დაშიფრული საცავები",
+        "Description[nn]": "Tilbyr krypterte datakvelv",
+        "Description[tr]": "Şifrelenmiş kasalar sağlar",
+        "Description[x-test]": "xxProvides encrypted vaultsxx",
+        "Name": "Plasma Vault module",
+        "Name[es]": "Módulo de caja fuerte de Plasma",
+        "Name[fr]": "Module « Vault » de Plasma",
+        "Name[ka]": "Plasma-ის საცავის მოდული",
+        "Name[nn]": "Modul for Plasma-datakvelv",
+        "Name[tr]": "Plasma Kasası modülü",
+        "Name[x-test]": "xxPlasma Vault modulexx"
     },
     "X-KDE-DBus-ModuleName": "plasmavault",
     "X-KDE-Kded-autoload": true,
