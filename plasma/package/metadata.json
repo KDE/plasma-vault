@@ -5,6 +5,7 @@
             {
                 "Email": "ivan.cukic at kde.org",
                 "Name": "Ivan Čukić",
+                "Name[ca@valencia]": "Ivan Čukić",
                 "Name[ca]": "Ivan Čukić",
                 "Name[es]": "Ivan Čukić",
                 "Name[eu]": "Ivan Čukić",
@@ -15,11 +16,13 @@
                 "Name[sl]": "Ivan Čukić",
                 "Name[tr]": "Ivan Čukić",
                 "Name[uk]": "Ivan Čukić",
-                "Name[x-test]": "xxIvan Čukićxx"
+                "Name[x-test]": "xxIvan Čukićxx",
+                "Name[zh_TW]": "Ivan Čukić"
             }
         ],
         "Category": "Utilities",
         "Description": "Create encrypted vaults",
+        "Description[ca@valencia]": "Crea caixes fortes encriptades",
         "Description[ca]": "Crea caixes fortes encriptades",
         "Description[es]": "Crear cajas fuertes cifradas",
         "Description[eu]": "Sortu zifratutako kutxa-gotorrak",
@@ -31,11 +34,13 @@
         "Description[tr]": "Şifrelenmiş kasalar oluştur",
         "Description[uk]": "Створення зашифрованих сховищ",
         "Description[x-test]": "xxCreate encrypted vaultsxx",
+        "Description[zh_TW]": "建立加密儲存庫",
         "EnabledByDefault": true,
         "Icon": "plasmavault",
         "Id": "org.kde.plasma.vault",
         "License": "GPL",
         "Name": "Vaults",
+        "Name[ca@valencia]": "Caixes fortes",
         "Name[ca]": "Caixes fortes",
         "Name[es]": "Cajas fuertes",
         "Name[eu]": "Kutxa-gotorrak",
@@ -47,6 +52,7 @@
         "Name[tr]": "Kasalar",
         "Name[uk]": "Сховища",
         "Name[x-test]": "xxVaultsxx",
+        "Name[zh_TW]": "儲存庫",
         "Version": "1.0",
         "Website": "https://kde.org/plasma-desktop/"
     },

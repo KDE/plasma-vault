@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Provides encrypted vaults",
+        "Description[ca@valencia]": "Proporciona caixes fortes encriptades",
         "Description[ca]": "Proporciona caixes fortes encriptades",
         "Description[es]": "Proporciona cajas fuertes cifradas",
         "Description[eu]": "Zifratutako kutxa-gotorrak hornitzen ditu",
@@ -12,7 +13,9 @@
         "Description[tr]": "Şifrelenmiş kasalar sağlar",
         "Description[uk]": "Надає доступ до шифрованих сховищ",
         "Description[x-test]": "xxProvides encrypted vaultsxx",
+        "Description[zh_TW]": "提供加密儲存庫",
         "Name": "Plasma Vault module",
+        "Name[ca@valencia]": "Mòdul de Plasma de Caixa forta",
         "Name[ca]": "Mòdul del Plasma de Caixa forta",
         "Name[es]": "Módulo de caja fuerte de Plasma",
         "Name[eu]": "Plasma Kutxa-gotor modulua",
@@ -23,7 +26,8 @@
         "Name[sl]": "Modul Plasma Vault",
         "Name[tr]": "Plasma Kasası modülü",
         "Name[uk]": "Модуль Сховища Плазми",
-        "Name[x-test]": "xxPlasma Vault modulexx"
+        "Name[x-test]": "xxPlasma Vault modulexx",
+        "Name[zh_TW]": "Plasma 儲存庫模組"
     },
     "X-KDE-DBus-ModuleName": "plasmavault",
     "X-KDE-Kded-autoload": true,
