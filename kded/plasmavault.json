@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Provides encrypted vaults",
+        "Description[ar]": "توفّر خزنات معمّاة",
         "Description[bg]": "Предоставя криптирани трезори",
         "Description[ca@valencia]": "Proporciona caixes fortes encriptades",
         "Description[ca]": "Proporciona caixes fortes encriptades",
@@ -9,6 +10,7 @@
         "Description[es]": "Proporciona cajas fuertes cifradas",
         "Description[eu]": "Zifratutako kutxa-gotorrak hornitzen ditu",
         "Description[fr]": "Fournit des coffres-forts chiffrés",
+        "Description[ia]": "Forni  cellarios cryptate",
         "Description[it]": "Caveau criptati forniti",
         "Description[ka]": "დაშიფრული საცავები",
         "Description[nl]": "Levert versleutelde kluizen",
@@ -19,6 +21,7 @@
         "Description[x-test]": "xxProvides encrypted vaultsxx",
         "Description[zh_TW]": "提供加密儲存庫",
         "Name": "Plasma Vault module",
+        "Name[ar]": "وحدة خزنة بلازما",
         "Name[bg]": "Модул на трезор на Plasma",
         "Name[ca@valencia]": "Mòdul de Plasma de Caixa forta",
         "Name[ca]": "Mòdul del Plasma de Caixa forta",
@@ -27,6 +30,7 @@
         "Name[es]": "Módulo de caja fuerte de Plasma",
         "Name[eu]": "Plasma Kutxa-gotor modulua",
         "Name[fr]": "Module « Vault » de Plasma",
+        "Name[ia]": "Modulo de Plasma Vault",
         "Name[it]": "Modulo del caveau di Plasma",
         "Name[ka]": "Plasma-ის საცავის მოდული",
         "Name[nl]": "Plasma Vault module",
