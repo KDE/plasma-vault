@@ -780,9 +780,3 @@ msgstr "Desbloca la caixa forta"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Configura la Caixa forta…"
-
-#~ msgid "Create a New Vault..."
-#~ msgstr "Crea una caixa forta nova..."
-
-#~ msgid "Unlock and Show in File Manager"
-#~ msgstr "Desbloca i mostra al gestor de fitxers"
