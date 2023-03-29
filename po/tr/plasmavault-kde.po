@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:45+0000\n"
-"PO-Revision-Date: 2023-03-24 17:13+0300\n"
+"PO-Revision-Date: 2023-03-28 14:51+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -253,7 +253,7 @@ msgstr "Kasa kullanan uygulamaların listesi getirilirken hata oluştu"
 #: kded/engine/vault.cpp:604
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
-msgstr "Kasa silinemiyor; üst üste binen yollu başka kasalar mevcut."
+msgstr "Kasa silinemiyor; örtüşen yollu başka kasalar mevcut."
 
 #: kded/engine/vault.cpp:609
 #, kde-format
