@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:45+0000\n"
-"PO-Revision-Date: 2023-05-09 01:09+0200\n"
+"PO-Revision-Date: 2023-05-23 01:47+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:73
 #, kde-format
@@ -460,19 +460,19 @@ msgstr ""
 #: kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
 msgid "EncFS"
-msgstr ""
+msgstr "EncFS"
 
 #: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
 #: kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
-msgstr ""
+msgstr "CryFS"
 
 #: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
-msgstr ""
+msgstr "gocryptfs"
 
 #: kded/ui/vaultconfigurationdialog.cpp:142
 #, kde-format
@@ -631,7 +631,7 @@ msgstr ""
 #: plasma/package/contents/ui/main.qml:84
 #, kde-format
 msgid "No Vaults have been set up"
-msgstr ""
+msgstr "Nun se configuró nengúna arca"
 
 #: plasma/package/contents/ui/VaultItem.qml:28
 #, kde-format
