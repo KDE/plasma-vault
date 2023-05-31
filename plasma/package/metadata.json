@@ -68,7 +68,6 @@
         "Description[zh_TW]": "建立加密儲存庫",
         "EnabledByDefault": true,
         "Icon": "plasmavault",
-        "Id": "org.kde.plasma.vault",
         "License": "GPL",
         "Name": "Vaults",
         "Name[ar]": "الخزنات",
