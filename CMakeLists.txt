@@ -43,7 +43,7 @@ include(KDEGitCommitHooks)
 # Qt
 set (CMAKE_AUTOMOC ON)
 find_package (
-   Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED
+   Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED
    COMPONENTS
       Core
       DBus
