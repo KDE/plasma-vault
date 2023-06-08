@@ -13,7 +13,7 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 
 PlasmaExtras.ExpandableListItem {
     id: expandableListItem
-    property var vaultsModelActions: Plasmoid.nativeInterface.vaultsModel.actionsModel()
+    property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
 
     icon: model.icon
     iconEmblem: model.message.length !== 0 ? "emblem-error" :
