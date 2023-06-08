@@ -12,9 +12,9 @@ import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 
-Item {
-    property var vaultsModel: Plasmoid.nativeInterface.vaultsModel
-    property var vaultsModelActions: Plasmoid.nativeInterface.vaultsModel.actionsModel()
+PlasmoidItem {
+    property var vaultsModel: Plasmoid.vaultsModel
+    property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
 
     property var expandedItem: null
 
@@ -24,8 +24,8 @@ Item {
 
     Plasmoid.status: vaultsModelActions.count > 0 ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
 
-    Plasmoid.onExpandedChanged: {
-        Plasmoid.nativeInterface.vaultsModel.reloadDevices();
+    onExpandedChanged: {
+        Plasmoid.vaultsModel.reloadDevices();
     }
 
     function action_createNewVault() {
@@ -36,7 +36,7 @@ Item {
         Plasmoid.setAction("createNewVault", i18nd("plasmavault-kde", "Create a New Vault…"), "list-add");
     }
 
-    Plasmoid.fullRepresentation: PlasmaExtras.Representation {
+    fullRepresentation: PlasmaExtras.Representation {
 
         Layout.minimumWidth: PlasmaCore.Units.gridUnit * 18
         Layout.minimumHeight: PlasmaCore.Units.gridUnit * 12
