@@ -14,7 +14,7 @@ make install
 
 Restart plasma to load the applet 
 (in a terminal type: 
-kquitapp plasmashell 
+kquitapp6 plasmashell 
 and then
 plasmashell)
 
