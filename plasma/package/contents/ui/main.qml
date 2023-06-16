@@ -8,6 +8,7 @@ import QtQuick 2.4
 import QtQuick.Controls 2.4 as QQC2
 import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.plasma.extras 2.0 as PlasmaExtras
@@ -38,8 +39,8 @@ PlasmoidItem {
 
     fullRepresentation: PlasmaExtras.Representation {
 
-        Layout.minimumWidth: PlasmaCore.Units.gridUnit * 18
-        Layout.minimumHeight: PlasmaCore.Units.gridUnit * 12
+        Layout.minimumWidth: Kirigami.Units.gridUnit * 18
+        Layout.minimumHeight: Kirigami.Units.gridUnit * 12
 
         collapseMarginsHint: true
 
@@ -61,11 +62,11 @@ PlasmoidItem {
                     }
 
                 currentIndex: -1
-                topMargin: PlasmaCore.Units.smallSpacing * 2
-                bottomMargin: PlasmaCore.Units.smallSpacing * 2
-                leftMargin: PlasmaCore.Units.smallSpacing * 2
-                rightMargin: PlasmaCore.Units.smallSpacing * 2
-                spacing: PlasmaCore.Units.smallSpacing
+                topMargin: Kirigami.Units.smallSpacing * 2
+                bottomMargin: Kirigami.Units.smallSpacing * 2
+                leftMargin: Kirigami.Units.smallSpacing * 2
+                rightMargin: Kirigami.Units.smallSpacing * 2
+                spacing: Kirigami.Units.smallSpacing
 
                 highlight: PlasmaExtras.Highlight {}
                 highlightMoveDuration: 0
@@ -76,7 +77,7 @@ PlasmoidItem {
                     id: noVaultsMessage
 
                     anchors.centerIn: parent
-                    width: parent.width - (PlasmaCore.Units.largeSpacing * 4)
+                    width: parent.width - (Kirigami.Units.gridUnit * 4)
 
                     visible: vaultsList.count === 0
 
