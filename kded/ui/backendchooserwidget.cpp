@@ -55,7 +55,7 @@ BackendChooserWidget::BackendChooserWidget()
 
     connect(d->ui.comboBackend, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, &BackendChooserWidget::checkCurrentBackend);
 
-    connect(d->ui.pickBackendButton, SIGNAL(clicked()), this, SLOT(showBackendSelector()));
+    connect(d->ui.pickBackendButton, &QPushButton::clicked, this, &BackendChooserWidget::showBackendSelector);
 }
 
 BackendChooserWidget::~BackendChooserWidget()
