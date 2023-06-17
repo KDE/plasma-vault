@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-03-31 00:45+0000\n"
+"POT-Creation-Date: 2023-06-17 02:07+0000\n"
 "PO-Revision-Date: 2021-09-13 14:56+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -717,12 +717,12 @@ msgstr "Ustvari"
 msgid "Previous"
 msgstr "Nazaj"
 
-#: plasma/package/contents/ui/main.qml:36
+#: plasma/package/contents/ui/main.qml:37
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Ustvari nov trezor…"
 
-#: plasma/package/contents/ui/main.qml:84
+#: plasma/package/contents/ui/main.qml:85
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Nobenega trezorja ni osnovanega"
