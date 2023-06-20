@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-17 02:07+0000\n"
+"POT-Creation-Date: 2023-06-20 02:59+0000\n"
 "PO-Revision-Date: 2020-01-18 20:16-0800\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -17,13 +17,13 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 19.12.1\n"
 
-#: fileitemplugin/plasmavaultfileitemaction.cpp:73
+#: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Close this Plasma Vault"
 msgstr "この Plasma Vault を閉じる"
 
-#: fileitemplugin/plasmavaultfileitemaction.cpp:74
+#: fileitemplugin/plasmavaultfileitemaction.cpp:75
 #, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Open this Plasma Vault"

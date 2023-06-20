@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-17 02:07+0000\n"
+"POT-Creation-Date: 2023-06-20 02:59+0000\n"
 "PO-Revision-Date: 2017-12-17 18:01+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -18,14 +18,14 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: fileitemplugin/plasmavaultfileitemaction.cpp:73
+#: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, fuzzy, kde-format
 #| msgid "Plasma Vault"
 msgctxt "@action Action to unmount a vault"
 msgid "Close this Plasma Vault"
 msgstr "Плазма трезор"
 
-#: fileitemplugin/plasmavaultfileitemaction.cpp:74
+#: fileitemplugin/plasmavaultfileitemaction.cpp:75
 #, fuzzy, kde-format
 #| msgid "Plasma Vault"
 msgctxt "@action Action to mount a vault"
