@@ -305,8 +305,8 @@ msgid ""
 "to an activity it should not be available in, it will automatically be "
 "closed."
 msgstr ""
-"Se limita a caixa forte a certas actividades, mostrarase no miniaplicativo "
-"só cando estea nesas actividades. Ademais, cando cambie a unha actividade na "
+"Se limita a caixa forte a certas actividades, amosarase no miniaplicativo só "
+"cando estea nesas actividades. Ademais, cando cambie a unha actividade na "
 "que non debería estar dispoñíbel, pecharase automaticamente."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
@@ -464,7 +464,7 @@ msgstr ""
 #: kded/ui/noticewidget.ui:45
 #, kde-format
 msgid "Do not show this notice again"
-msgstr "Non volver mostrar esta nota."
+msgstr "Non volver amosar esta nota."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
 #: kded/ui/offlineonlywidget.ui:34
@@ -571,8 +571,8 @@ msgid ""
 "                             See <a href='https://defuse.ca/audits/encfs."
 "htm'>defuse.ca/audits/encfs.htm</a> for more information."
 msgstr ""
-"<b>Nota de seguranza:</b>\n"
-"                             Segundo unha auditoría de seguranza por Taylor "
+"<b>Nota de seguridade:</b>\n"
+"                             Segundo unha auditoría de seguridade por Taylor "
 "Hornby (Defuse Security),\n"
 "                             a codificación actual de Encfs é vulnerábel ou "
 "potencialmente vulnerábel\n"
@@ -615,9 +615,9 @@ msgid ""
 "                             there is no independent security audit\n"
 "                             which confirms this."
 msgstr ""
-"<b>Nota de seguranza:</b>\n"
+"<b>Nota de seguridade:</b>\n"
 "                             CryFS cifra os ficheiros, así que pode "
-"almacenalos con seguranza\n"
+"almacenalos con seguridade\n"
 "                             en calquera lugar.\n"
 "                             Funciona ben en combinación con servizos na "
 "nube como Dropbox,\n"
@@ -745,12 +745,12 @@ msgstr "Pechar"
 #: plasma/package/contents/ui/VaultItem.qml:28
 #, kde-format
 msgid "Unlock and Open"
-msgstr "Abrir e mostrar"
+msgstr "Abrir e amosar"
 
 #: plasma/package/contents/ui/VaultItem.qml:43
 #, kde-format
 msgid "Show in File Manager"
-msgstr "Mostrar no xestor de ficheiros"
+msgstr "Amosar no xestor de ficheiros"
 
 #: plasma/package/contents/ui/VaultItem.qml:50
 #, kde-format
