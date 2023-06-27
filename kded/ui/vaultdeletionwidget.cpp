@@ -46,7 +46,7 @@ VaultDeletionWidget::VaultDeletionWidget()
         d->ui.buttonDeleteVault->setEnabled(false);
         Q_EMIT requestCancellation();
 
-        QDBusInterface(QStringLiteral("org.kde.kded5"), QStringLiteral("/modules/plasmavault"), QStringLiteral("org.kde.plasmavault"))
+        QDBusInterface(QStringLiteral("org.kde.kded6"), QStringLiteral("/modules/plasmavault"), QStringLiteral("org.kde.plasmavault"))
             .asyncCall("deleteVault", d->vaultDevice, d->vaultName);
     });
 }

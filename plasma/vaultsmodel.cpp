@@ -11,8 +11,8 @@
 using namespace PlasmaVault;
 
 VaultsModel::Private::Private(VaultsModel *parent)
-    : service("org.kde.kded5", "/modules/plasmavault", QDBusConnection::sessionBus())
-    , serviceWatcher("org.kde.kded5", QDBusConnection::sessionBus())
+    : service("org.kde.kded6", "/modules/plasmavault", QDBusConnection::sessionBus())
+    , serviceWatcher("org.kde.kded6", QDBusConnection::sessionBus())
     , q(parent)
 {
     connect(&service, &org::kde::plasmavault::vaultAdded, this, &Private::onVaultAdded);
@@ -22,7 +22,7 @@ VaultsModel::Private::Private(VaultsModel *parent)
     connect(&serviceWatcher, &QDBusServiceWatcher::serviceOwnerChanged, this, [this](const QString &service, const QString &oldOwner, const QString &newOwner) {
         Q_UNUSED(oldOwner);
 
-        if (service != "org.kde.kded5") {
+        if (service != "org.kde.kded6") {
             return;
         }
 
