@@ -29,13 +29,14 @@ PlasmoidItem {
         Plasmoid.vaultsModel.reloadDevices();
     }
 
-    function action_createNewVault() {
-        vaultsModelActions.requestNewVault()
-    }
-
-    Component.onCompleted: {
-        Plasmoid.setAction("createNewVault", i18nd("plasmavault-kde", "Create a New Vault…"), "list-add");
-    }
+    Plasmoid.contextualActions: [
+        PlasmaCore.Action {
+            id: createAction
+            text: i18nd("plasmavault-kde", "Create a New Vault…")
+            icon.name: "list-add"
+            onTriggered: vaultsModelActions.requestNewVault()
+        }
+    ]
 
     fullRepresentation: PlasmaExtras.Representation {
 
@@ -85,10 +86,10 @@ PlasmoidItem {
                     text: i18nd("plasmavault-kde", "No Vaults have been set up")
 
                     helpfulAction: QQC2.Action {
-                        text: Plasmoid.action("createNewVault").text
+                        text: createAction.text
                         icon.name: "list-add"
 
-                        onTriggered: { Plasmoid.action("createNewVault").trigger() }
+                        onTriggered: createAction.trigger()
                     }
                 }
             }
