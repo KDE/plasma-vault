@@ -40,3 +40,5 @@ void OfflineOnlyChooserWidget::init(const PlasmaVault::Vault::Payload &payload)
 {
     d->ui.checkShouldBeOffline->setChecked(payload[KEY_OFFLINEONLY].toBool());
 }
+
+#include "moc_offlineonlywidget.cpp"

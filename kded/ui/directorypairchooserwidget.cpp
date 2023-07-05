@@ -190,3 +190,5 @@ void DirectoryPairChooserWidget::init(const PlasmaVault::Vault::Payload &payload
     d->mountPointValidator.updateFor(d->ui.editMountPoint->url());
     setIsValid(d->allValid);
 }
+
+#include "moc_directorypairchooserwidget.cpp"

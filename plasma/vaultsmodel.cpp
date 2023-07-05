@@ -384,3 +384,7 @@ void SortedVaultsModelProxy::reloadDevices()
 {
     static_cast<VaultsModel *>(sourceModel())->reloadDevices();
 }
+
+#include "moc_vaultsmodel_p.cpp"
+
+#include "moc_vaultsmodel.cpp"

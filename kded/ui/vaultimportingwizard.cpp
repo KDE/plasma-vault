@@ -96,3 +96,5 @@ VaultImportingWizard::VaultImportingWizard(QWidget *parent)
 VaultImportingWizard::~VaultImportingWizard()
 {
 }
+
+#include "moc_vaultimportingwizard.cpp"

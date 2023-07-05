@@ -102,3 +102,5 @@ void ActivitiesLinkingWidget::init(const PlasmaVault::Vault::Payload &payload)
         }
     }
 }
+
+#include "moc_activitieslinkingwidget.cpp"

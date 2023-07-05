@@ -141,3 +141,5 @@ VaultCreationWizard::VaultCreationWizard(QWidget *parent)
 VaultCreationWizard::~VaultCreationWizard()
 {
 }
+
+#include "moc_vaultcreationwizard.cpp"

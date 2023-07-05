@@ -34,3 +34,5 @@ PlasmaVault::Vault::Payload PasswordChooserWidget::fields() const
 {
     return {{KEY_PASSWORD, d->ui.editPassword->password()}};
 }
+
+#include "moc_passwordchooserwidget.cpp"

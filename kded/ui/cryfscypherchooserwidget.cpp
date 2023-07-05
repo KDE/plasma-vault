@@ -73,3 +73,5 @@ PlasmaVault::Vault::Payload CryfsCypherChooserWidget::fields() const
 {
     return {{"cryfs-cipher", d->ui.comboCypher->currentData()}};
 }
+
+#include "moc_cryfscypherchooserwidget.cpp"

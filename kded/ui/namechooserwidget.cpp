@@ -49,3 +49,5 @@ void NameChooserWidget::init(const PlasmaVault::Vault::Payload &payload)
     d->ui.editVaultName->setText(name);
     setIsValid(!d->ui.editVaultName->text().isEmpty());
 }
+
+#include "moc_namechooserwidget.cpp"

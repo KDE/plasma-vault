@@ -115,3 +115,5 @@ void CompoundDialogModule::init(const PlasmaVault::Vault::Payload &payload)
 }
 
 } // namespace DialogDsl
+
+#include "moc_dialogdsl.cpp"

@@ -66,3 +66,5 @@ void VaultDeletionWidget::init(const PlasmaVault::Vault::Payload &payload)
     d->vaultDevice = payload[KEY_DEVICE].toString();
     d->ui.buttonDeleteVault->setEnabled(false);
 }
+
+#include "moc_vaultdeletionwidget.cpp"

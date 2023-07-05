@@ -492,3 +492,5 @@ void PlasmaVaultService::onActivityRemoved(const QString &removedActivity)
 }
 
 #include "service.moc"
+
+#include "moc_service.cpp"

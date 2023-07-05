@@ -34,3 +34,5 @@ QObject *VaultApplet::vaultsModel()
 K_PLUGIN_CLASS_WITH_JSON(VaultApplet, "package/metadata.json")
 
 #include "vaultapplet.moc"
+
+#include "moc_vaultapplet.cpp"

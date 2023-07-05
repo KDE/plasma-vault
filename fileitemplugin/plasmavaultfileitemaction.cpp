@@ -82,3 +82,5 @@ QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListPropertie
 }
 
 #include "plasmavaultfileitemaction.moc"
+
+#include "moc_plasmavaultfileitemaction.cpp"

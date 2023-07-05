@@ -159,3 +159,5 @@ VaultConfigurationDialog::VaultConfigurationDialog(Vault *vault, QWidget *parent
 VaultConfigurationDialog::~VaultConfigurationDialog()
 {
 }
+
+#include "moc_vaultconfigurationdialog.cpp"

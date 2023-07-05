@@ -806,4 +806,4 @@ void Vault::updateStatus()
 
 } // namespace PlasmaVault
 
-
+#include "moc_vault.cpp"

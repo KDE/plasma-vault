@@ -129,3 +129,5 @@ void BackendChooserWidget::checkBackendAvailable()
         showBackendSelector(); // show the more helpful selector
     }
 }
+
+#include "moc_backendchooserwidget.cpp"

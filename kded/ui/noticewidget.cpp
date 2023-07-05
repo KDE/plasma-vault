@@ -60,3 +60,5 @@ void NoticeWidget::aboutToBeHidden()
     noticeUi.writeEntry("SkipNotice-" + d->noticeId, d->ui.checkShouldBeHidden->isChecked());
     d->config->sync();
 }
+
+#include "moc_noticewidget.cpp"

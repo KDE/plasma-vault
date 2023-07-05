@@ -79,3 +79,5 @@ void DirectoryChooserWidget::init(const PlasmaVault::Vault::Payload &payload)
 
     d->setMountPointValid(d->isDirectoryValid(d->ui.editMountPoint->url()));
 }
+
+#include "moc_directorychooserwidget.cpp"
