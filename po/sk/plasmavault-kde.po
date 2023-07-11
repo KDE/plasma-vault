@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-20 02:59+0000\n"
+"POT-Creation-Date: 2023-07-11 02:03+0000\n"
 "PO-Revision-Date: 2021-09-15 18:49+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -706,12 +706,12 @@ msgstr "Vytvoriť"
 msgid "Previous"
 msgstr "Predchádzajúci"
 
-#: plasma/package/contents/ui/main.qml:37
+#: plasma/package/contents/ui/main.qml:35
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Vytvoriť nový trezor…"
 
-#: plasma/package/contents/ui/main.qml:85
+#: plasma/package/contents/ui/main.qml:86
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Žiadne trezory neboli nastavené"
