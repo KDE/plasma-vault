@@ -101,10 +101,10 @@ PlasmoidItem {
 
                 visible: vaultsList.count > 0 && !(Plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
 
-                text: Plasmoid.action("createNewVault").text
+                text: createAction.text
                 icon.name: "list-add"
 
-                onClicked: { Plasmoid.action("createNewVault").trigger() }
+                onClicked: { createAction.trigger() }
                 Layout.alignment: Qt.AlignLeft
             }
         }
