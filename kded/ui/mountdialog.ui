@@ -16,8 +16,7 @@ SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted
    </rect>
   </property>
   <property name="windowIcon">
-   <iconset theme="plasmavault">
-    <normaloff>.</normaloff>.</iconset>
+   <iconset theme="plasmavault"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
