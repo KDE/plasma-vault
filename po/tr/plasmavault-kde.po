@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-11 02:03+0000\n"
+"POT-Creation-Date: 2023-07-21 02:21+0000\n"
 "PO-Revision-Date: 2023-06-06 05:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -413,13 +413,13 @@ msgid "Failed to open: %1"
 msgstr "Açılamadı: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/mountdialog.ui:62
+#: kded/ui/mountdialog.ui:61
 #, kde-format
 msgid "Please enter the password to open this vault:"
 msgstr "Bu kasayı açmak için parolayı girin:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
-#: kded/ui/mountdialog.ui:94
+#: kded/ui/mountdialog.ui:93
 #, kde-format
 msgid "Password:"
 msgstr "Parola:"
@@ -521,13 +521,13 @@ msgid "Dialog"
 msgstr "Pencere"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/vaultconfigurationdialog.ui:38
+#: kded/ui/vaultconfigurationdialog.ui:37
 #, kde-format
 msgid "The vault configuration can only be changed while it is closed."
 msgstr "Kasa yapılandırması yalnızca kapalıyken değiştirilebilirdir."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
-#: kded/ui/vaultconfigurationdialog.ui:58
+#: kded/ui/vaultconfigurationdialog.ui:57
 #, kde-format
 msgid "Close the vault"
 msgstr "Kasayı kapat"

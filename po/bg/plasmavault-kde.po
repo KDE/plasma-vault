@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-11 02:03+0000\n"
+"POT-Creation-Date: 2023-07-21 02:21+0000\n"
 "PO-Revision-Date: 2022-02-20 17:43+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -423,13 +423,13 @@ msgid "Failed to open: %1"
 msgstr "Неуспешно отваряне: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/mountdialog.ui:62
+#: kded/ui/mountdialog.ui:61
 #, kde-format
 msgid "Please enter the password to open this vault:"
 msgstr "Моля, въведете паролата, за да отворите този трезор:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
-#: kded/ui/mountdialog.ui:94
+#: kded/ui/mountdialog.ui:93
 #, kde-format
 msgid "Password:"
 msgstr "Парола:"
@@ -532,13 +532,13 @@ msgid "Dialog"
 msgstr "Диалогов прозорец"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/vaultconfigurationdialog.ui:38
+#: kded/ui/vaultconfigurationdialog.ui:37
 #, kde-format
 msgid "The vault configuration can only be changed while it is closed."
 msgstr "Конфигурацията на трезора може да се променя само докато е затворен."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
-#: kded/ui/vaultconfigurationdialog.ui:58
+#: kded/ui/vaultconfigurationdialog.ui:57
 #, kde-format
 msgid "Close the vault"
 msgstr "Затваряне на трезора"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-11 02:03+0000\n"
+"POT-Creation-Date: 2023-07-21 02:21+0000\n"
 "PO-Revision-Date: 2022-09-20 21:15+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -421,13 +421,13 @@ msgid "Failed to open: %1"
 msgstr "Gagal membuka: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/mountdialog.ui:62
+#: kded/ui/mountdialog.ui:61
 #, kde-format
 msgid "Please enter the password to open this vault:"
 msgstr "Mohon masukkan sandi untuk membuka vault ini:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
-#: kded/ui/mountdialog.ui:94
+#: kded/ui/mountdialog.ui:93
 #, kde-format
 msgid "Password:"
 msgstr "Sandi:"
@@ -531,13 +531,13 @@ msgid "Dialog"
 msgstr "Dialog"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/vaultconfigurationdialog.ui:38
+#: kded/ui/vaultconfigurationdialog.ui:37
 #, kde-format
 msgid "The vault configuration can only be changed while it is closed."
 msgstr "Konfigurasi vault hanya bisa diubah ketika ditutup."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
-#: kded/ui/vaultconfigurationdialog.ui:58
+#: kded/ui/vaultconfigurationdialog.ui:57
 #, kde-format
 msgid "Close the vault"
 msgstr "Tutup si vault"
