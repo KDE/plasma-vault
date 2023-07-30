@@ -21,7 +21,7 @@ PlasmoidItem {
 
     Plasmoid.busy: vaultsModelActions.isBusy
 
-    Plasmoid.icon: vaultsModelActions.hasError ? "plasmavault_error" : "plasmavault";
+    Plasmoid.icon: vaultsModelActions.hasError ? "plasmavault_error" : "plasmavault-symbolic";
 
     Plasmoid.status: vaultsModelActions.count > 0 ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
 
