@@ -19,9 +19,22 @@ PlasmoidItem {
 
     property var expandedItem: null
 
+    readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
+        || Plasmoid.location === PlasmaCore.Types.RightEdge
+        || Plasmoid.location === PlasmaCore.Types.BottomEdge
+        || Plasmoid.location === PlasmaCore.Types.LeftEdge)
+
     Plasmoid.busy: vaultsModelActions.isBusy
 
-    Plasmoid.icon: vaultsModelActions.hasError ? "plasmavault_error" : "plasmavault-symbolic";
+    Plasmoid.icon: {
+        let iconName = (vaultsModelActions.hasError ? "plasmavault_error" : "plasmavault");
+
+        if (inPanel) {
+            return iconName += "-symbolic"
+        }
+
+        return iconName;
+    }
 
     Plasmoid.status: vaultsModelActions.count > 0 ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
 
