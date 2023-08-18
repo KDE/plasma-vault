@@ -18,13 +18,13 @@ PlasmaExtras.ExpandableListItem {
     icon: model.icon
     iconEmblem: model.message.length !== 0 ? "emblem-error" :
                             model.isOpened ? "emblem-mounted" :
-                        model.isOfflineOnly ? "network-disconnect" :
+                        model.isOfflineOnly ? "network-disconnect-symbolic" :
                                                 ""
     title: model.name
     subtitle: model.message
     subtitleCanWrap: true
     defaultActionButtonAction: Action {
-        icon.name: model.isOpened ? "lock" : "unlock"
+        icon.name: model.isOpened ? "lock-symbolic" : "unlock-symbolic"
         text: model.isOpened ? i18nd("plasmavault-kde", "Lock Vault") : i18nd("plasmavault-kde", "Unlock and Open")
         onTriggered: {
             if (model.isOpened) {
@@ -39,14 +39,14 @@ PlasmaExtras.ExpandableListItem {
     contextualActionsModel: [
         Action {
             enabled: model.isOpened
-            icon.name: "document-open-folder"
+            icon.name: "document-open-folder-symbolic"
             text: i18nd("plasmavault-kde", "Show in File Manager")
             onTriggered: {
                 vaultsModelActions.openInFileManager(model.device);
             }
         },
         Action {
-            icon.name: model.isOpened ? "window-close" : "unlock"
+            icon.name: model.isOpened ? "window-close-symbolic" : "unlock-symbolic"
             text: model.isOpened ? i18nd("plasmavault-kde", "Forcefully Lock Vault") : i18nd("plasmavault-kde", "Unlock Vault")
             onTriggered: {
                 if (model.isOpened) {
@@ -57,7 +57,7 @@ PlasmaExtras.ExpandableListItem {
             }
         },
         Action {
-            icon.name: "configure"
+            icon.name: "configure-symbolic"
             text: i18nd("plasmavault-kde", "Configure Vault…")
             onTriggered: vaultsModelActions.configure(model.device);
         }

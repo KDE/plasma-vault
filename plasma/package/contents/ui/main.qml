@@ -33,7 +33,7 @@ PlasmoidItem {
         PlasmaCore.Action {
             id: createAction
             text: i18nd("plasmavault-kde", "Create a New Vault…")
-            icon.name: "list-add"
+            icon.name: "list-add-symbolic"
             onTriggered: vaultsModelActions.requestNewVault()
         }
     ]
@@ -87,7 +87,7 @@ PlasmoidItem {
 
                     helpfulAction: QQC2.Action {
                         text: createAction.text
-                        icon.name: "list-add"
+                        icon.name: "list-add-symbolic"
 
                         onTriggered: createAction.trigger()
                     }

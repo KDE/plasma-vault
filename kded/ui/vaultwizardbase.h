@@ -34,10 +34,10 @@ public:
         lastModule = last;
         if (last) {
             buttonNext->setText(lastButtonText);
-            buttonNext->setIcon(QIcon::fromTheme("dialog-ok-apply"));
+            buttonNext->setIcon(QIcon::fromTheme("dialog-ok-apply-symbolic"));
         } else {
             buttonNext->setText(i18n("Next"));
-            buttonNext->setIcon(QIcon::fromTheme("go-next"));
+            buttonNext->setIcon(QIcon::fromTheme("go-next-symbolic"));
         }
     }
 
@@ -84,10 +84,10 @@ public:
     {
         // The dialog buttons do not have previous/next by default
         // so we need to create them
-        buttonPrevious = addDialogButton("go-previous", i18n("Previous"), [this] {
+        buttonPrevious = addDialogButton("go-previous-symbolic", i18n("Previous"), [this] {
             previousStep();
         });
-        buttonNext = addDialogButton("go-next", i18n("Next"), [this] {
+        buttonNext = addDialogButton("go-next-symbolic", i18n("Next"), [this] {
             if (lastModule)
                 self()->finish();
             else
