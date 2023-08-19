@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 02:21+0000\n"
+"POT-Creation-Date: 2023-08-19 01:58+0000\n"
 "PO-Revision-Date: 2023-01-27 04:31\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -722,12 +722,12 @@ msgstr "Стварыць"
 msgid "Previous"
 msgstr "Назад"
 
-#: plasma/package/contents/ui/main.qml:35
+#: plasma/package/contents/ui/main.qml:48
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Стварыць новае сховішча…"
 
-#: plasma/package/contents/ui/main.qml:86
+#: plasma/package/contents/ui/main.qml:99
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Няма наладжаных сховішчаў"

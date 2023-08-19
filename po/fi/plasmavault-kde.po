@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-21 02:21+0000\n"
+"POT-Creation-Date: 2023-08-19 01:58+0000\n"
 "PO-Revision-Date: 2021-10-12 20:17+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -713,12 +713,12 @@ msgstr "Luo"
 msgid "Previous"
 msgstr "Edellinen"
 
-#: plasma/package/contents/ui/main.qml:35
+#: plasma/package/contents/ui/main.qml:48
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Luo uusi holvi…"
 
-#: plasma/package/contents/ui/main.qml:86
+#: plasma/package/contents/ui/main.qml:99
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Holveja ei ole asetettu"
