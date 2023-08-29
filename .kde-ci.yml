@@ -15,6 +15,7 @@ Dependencies:
     'frameworks/kdbusaddons': '@latest-kf6'
     'frameworks/ki18n': '@latest-kf6'
     'frameworks/kio': '@latest-kf6'
+    'frameworks/kitemmodels': '@latest-kf6'
     'frameworks/kjobwidgets': '@latest-kf6'
     'frameworks/kpackage': '@latest-kf6'
     'frameworks/kservice': '@latest-kf6'

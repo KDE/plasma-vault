@@ -59,6 +59,7 @@ find_package (
    CoreAddons
    DBusAddons
    I18n
+   ItemModels
    KIO
    Plasma
    WidgetsAddons

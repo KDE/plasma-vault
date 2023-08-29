@@ -12,6 +12,7 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.kitemmodels as KItemModels
 
 PlasmoidItem {
     property var vaultsModel: Plasmoid.vaultsModel
@@ -70,8 +71,8 @@ PlasmoidItem {
                 id: vaultsList
 
                 model:
-                    PlasmaCore.SortFilterModel {
-                        sortRole: "name"
+                    KItemModels.KSortFilterProxyModel {
+                        sortRoleName: "name"
                         sourceModel: vaultsModel
                     }
 
