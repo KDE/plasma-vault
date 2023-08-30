@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-19 01:58+0000\n"
+"POT-Creation-Date: 2023-08-30 01:58+0000\n"
 "PO-Revision-Date: 2023-02-07 21:30+0100\n"
 "Last-Translator: Jannick Kuhr <opensource@kuhr.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -739,12 +739,12 @@ msgstr "Erstellen"
 msgid "Previous"
 msgstr "Zurück"
 
-#: plasma/package/contents/ui/main.qml:48
+#: plasma/package/contents/ui/main.qml:49
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Neuen Tresor erstellen ..."
 
-#: plasma/package/contents/ui/main.qml:99
+#: plasma/package/contents/ui/main.qml:100
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Es wurde kein Tresor eingerichtet"

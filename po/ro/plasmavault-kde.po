@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-19 01:58+0000\n"
+"POT-Creation-Date: 2023-08-30 01:58+0000\n"
 "PO-Revision-Date: 2022-02-06 20:29+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -724,12 +724,12 @@ msgstr "Creează"
 msgid "Previous"
 msgstr "Precedent"
 
-#: plasma/package/contents/ui/main.qml:48
+#: plasma/package/contents/ui/main.qml:49
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Creează o boltă nouă…"
 
-#: plasma/package/contents/ui/main.qml:99
+#: plasma/package/contents/ui/main.qml:100
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Nu a fost configurată nicio boltă"

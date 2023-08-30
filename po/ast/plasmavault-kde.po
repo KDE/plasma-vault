@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-19 01:58+0000\n"
+"POT-Creation-Date: 2023-08-30 01:58+0000\n"
 "PO-Revision-Date: 2023-05-23 01:47+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
@@ -623,12 +623,12 @@ msgstr ""
 msgid "Previous"
 msgstr ""
 
-#: plasma/package/contents/ui/main.qml:48
+#: plasma/package/contents/ui/main.qml:49
 #, kde-format
 msgid "Create a New Vault…"
 msgstr ""
 
-#: plasma/package/contents/ui/main.qml:99
+#: plasma/package/contents/ui/main.qml:100
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Nun se configuró nengúna arca"

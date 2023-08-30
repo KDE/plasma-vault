@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-19 01:58+0000\n"
+"POT-Creation-Date: 2023-08-30 01:58+0000\n"
 "PO-Revision-Date: 2021-09-14 23:29+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -731,12 +731,12 @@ msgstr "Crea"
 msgid "Previous"
 msgstr "Precedente"
 
-#: plasma/package/contents/ui/main.qml:48
+#: plasma/package/contents/ui/main.qml:49
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Crea un nuovo caveau…"
 
-#: plasma/package/contents/ui/main.qml:99
+#: plasma/package/contents/ui/main.qml:100
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Nessun caveau è stato impostato"

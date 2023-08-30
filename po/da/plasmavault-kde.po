@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-19 01:58+0000\n"
+"POT-Creation-Date: 2023-08-30 01:58+0000\n"
 "PO-Revision-Date: 2020-10-04 16:45+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -719,14 +719,14 @@ msgstr "Opret"
 msgid "Previous"
 msgstr "Forrige"
 
-#: plasma/package/contents/ui/main.qml:48
+#: plasma/package/contents/ui/main.qml:49
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create a New Vault"
 msgid "Create a New Vault…"
 msgstr "Opret ny sikkerhedsboks"
 
-#: plasma/package/contents/ui/main.qml:99
+#: plasma/package/contents/ui/main.qml:100
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Ingen sikkerhedsbokse er sat op"
