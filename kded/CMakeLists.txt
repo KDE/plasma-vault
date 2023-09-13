@@ -106,6 +106,7 @@ target_link_libraries (
    KF6::I18n
    KF6::KIOCore
    KF6::KIOWidgets
+   KF6::Service
    KF6::WidgetsAddons
    KSysGuard::SysGuard
    KSysGuard::ProcessCore

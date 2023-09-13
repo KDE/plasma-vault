@@ -62,6 +62,7 @@ find_package (
    ItemModels
    KIO
    Plasma
+   Service
    WidgetsAddons
    )
 find_package (KF6NetworkManagerQt ${KF6_MIN_VERSION})
