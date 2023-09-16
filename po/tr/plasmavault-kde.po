@@ -22,13 +22,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Close this Plasma Vault"
-msgstr "Bu Plasma Kasası'nı kapat"
+msgstr "Bu Plasma Kasası'nı Kapat"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
 #, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Open this Plasma Vault"
-msgstr "Bu Plasma Kasası'nı aç"
+msgstr "Bu Plasma Kasası'nı Aç"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -750,17 +750,4 @@ msgstr "Kasa Kilidini Aç"
 #: plasma/package/contents/ui/VaultItem.qml:61
 #, kde-format
 msgid "Configure Vault…"
-msgstr "Kasa'yı Yapılandır…"
-
-#, fuzzy
-#~| msgid "Create a New Vault"
-#~ msgid "Create a New Vault..."
-#~ msgstr "Yeni bir Vault Oluştur"
-
-#, fuzzy
-#~| msgid "Open with File Manager"
-#~ msgid "Unlock and Show in File Manager"
-#~ msgstr "Dosya Yöneticisi ile Aç"
-
-#~ msgid "Activities"
-#~ msgstr "Etkinlikler"
+msgstr "Kasayı Yapılandır…"
