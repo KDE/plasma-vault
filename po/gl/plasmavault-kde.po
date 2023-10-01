@@ -40,7 +40,7 @@ msgstr "%1: %2"
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:77
 #, kde-format
 msgid "Failed to create directories, check your permissions"
-msgstr "Non se puideron crear os directorios, comprobe os seus permisos."
+msgstr "Non foi posíbel crear os directorios, comprobe os seus permisos."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:131
 #, kde-format
@@ -97,7 +97,7 @@ msgstr ""
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
 #, kde-format
 msgid "Unable to perform the operation (error code %1)."
-msgstr "Non se pode realizar a operación (código de erro: %1)."
+msgstr "Non é posíbel realizar a operación (código de erro: %1)."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
 #, kde-format
@@ -115,14 +115,14 @@ msgstr "O contrasinal está baleiro, non se pode preparar a caixa forte."
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
 msgstr ""
-"Non se pode escribir gocryptfs.conf no directorio de cifraxe, comprobe os "
+"Non é posíbel escribir gocryptfs.conf no directorio de cifraxe, comprobe os "
 "seus permisos."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
 #: kded/engine/fusebackend_p.cpp:165
 #, kde-format
 msgid "Failed to execute"
-msgstr "Non se puido executar."
+msgstr "Non foi posíbel executar."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
@@ -134,7 +134,7 @@ msgstr "Non foi posíbel detectar a versión."
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
 #, kde-format
 msgid "Unable to detect the version, the version string is invalid"
-msgstr "Non se pode detectar a versión, a cadea de versión non é válida"
+msgstr "Non é posíbel detectar a versión, a cadea de versión non é válida"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
 #, kde-format
@@ -209,12 +209,12 @@ msgstr "Non se indicou un punto de montaxe"
 #: kded/engine/vault.cpp:279
 #, kde-format
 msgid "Cannot create the mount point"
-msgstr "Non se pode crear o punto de montaxe."
+msgstr "Non é posíbel crear o punto de montaxe."
 
 #: kded/engine/vault.cpp:284
 #, kde-format
 msgid "Configured backend cannot be instantiated: %1"
-msgstr "Non se pode crear unha instancia da infraestrutura configurada: %1"
+msgstr "Non é posíbel crear unha instancia da infraestrutura configurada: %1"
 
 #: kded/engine/vault.cpp:399
 #, kde-format
@@ -256,13 +256,13 @@ msgstr "Non foi posíbel pechar a caixa forte porque %1 está usándoa"
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr ""
-"Non se puido obter a lista de aplicacións que están a usar a caixa forte"
+"Non foi posíbel obter a lista de aplicacións que están a usar a caixa forte"
 
 #: kded/engine/vault.cpp:604
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
-"Non se pode eliminar a caixa forte; hai outras caixas fortes con rutas "
+"Non é posíbel eliminar a caixa forte; hai outras caixas fortes con rutas "
 "superpostas."
 
 #: kded/engine/vault.cpp:609
@@ -420,7 +420,7 @@ msgstr "Detalles do erro"
 #: kded/ui/mountdialog.cpp:83
 #, kde-format
 msgid "Failed to open: %1"
-msgstr "Non se puido abrir: %1"
+msgstr "Non foi posíbel abrir: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
