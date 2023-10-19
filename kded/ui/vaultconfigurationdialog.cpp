@@ -7,11 +7,11 @@
 #include "vaultconfigurationdialog.h"
 #include "ui_vaultconfigurationdialog.h"
 
+#include <QList>
 #include <QMap>
 #include <QPushButton>
 #include <QStackedLayout>
 #include <QTabWidget>
-#include <QVector>
 
 #include "dialogdsl.h"
 #include "vault.h"
@@ -41,7 +41,7 @@ public:
     QStackedLayout *layout;
 
     steps currentSteps;
-    QVector<DialogDsl::DialogModule *> currentModuleDialogs;
+    QList<DialogDsl::DialogModule *> currentModuleDialogs;
     QSet<DialogDsl::DialogModule *> invalidModules;
 
     steps defaultSteps{i18n("General") / step{nameChooser(), directoryChooser(DirectoryChooserWidget::RequireEmptyMountPoint)},

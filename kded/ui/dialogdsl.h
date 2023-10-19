@@ -70,13 +70,13 @@ private:
 
 typedef std::function<DialogModule *()> ModuleFactory;
 
-class step : public QVector<ModuleFactory>
+class step : public QList<ModuleFactory>
 {
 public:
     step() = default;
 
     step(const std::initializer_list<ModuleFactory> &modules)
-        : QVector<ModuleFactory>(modules)
+        : QList<ModuleFactory>(modules)
     {
     }
 
@@ -96,7 +96,7 @@ private:
     QString m_title;
 };
 
-typedef QVector<step> steps;
+typedef QList<step> steps;
 typedef QMap<Key, steps> Logic;
 
 // If we want to have a single page containing multiple modules
@@ -109,7 +109,7 @@ public:
     void init(const PlasmaVault::Vault::Payload &payload) override;
 
 private:
-    QVector<DialogModule *> m_children;
+    QList<DialogModule *> m_children;
     QSet<DialogModule *> m_invalidChildren;
 };
 

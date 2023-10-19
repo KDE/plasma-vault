@@ -41,7 +41,7 @@ public:
         }
     }
 
-    QVector<DialogDsl::DialogModule *> currentStepModules;
+    QList<DialogDsl::DialogModule *> currentStepModules;
     steps currentSteps;
     BackendChooserWidget *firstStepModule = nullptr;
     DialogDsl::DialogModule *currentModule = nullptr;

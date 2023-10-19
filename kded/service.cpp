@@ -63,7 +63,7 @@ public:
 
     struct NetworkingState {
         bool wasNetworkingEnabled;
-        QVector<QString> devicesInhibittingNetworking;
+        QList<QString> devicesInhibittingNetworking;
     };
     // Ideally, this would be std::optional... lovely C++17
     Expected<NetworkingState, int> savedNetworkingState = Expected<NetworkingState, int>::error(0);

@@ -7,10 +7,10 @@
 #include "vaultimportingwizard.h"
 #include "ui_vaultimportingwizard.h"
 
+#include <QList>
 #include <QMap>
 #include <QPushButton>
 #include <QStackedLayout>
-#include <QVector>
 
 #include "dialogdsl.h"
 #include "vault.h"
