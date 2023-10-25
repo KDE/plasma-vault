@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Provides encrypted vaults",
         "Description[ar]": "توفّر خزنات معمّاة",
+        "Description[ast]": "Forne arques cifraes",
         "Description[bg]": "Предоставя криптирани трезори",
         "Description[ca@valencia]": "Proporciona caixes fortes encriptades",
         "Description[ca]": "Proporciona caixes fortes encriptades",
@@ -31,6 +32,7 @@
         "Description[zh_TW]": "提供加密儲存庫",
         "Name": "Plasma Vault module",
         "Name[ar]": "وحدة خزنة بلازما",
+        "Name[ast]": "Módulu de Plasma Vault",
         "Name[bg]": "Модул на трезор на Plasma",
         "Name[ca@valencia]": "Mòdul de Plasma de Caixa forta",
         "Name[ca]": "Mòdul del Plasma de Caixa forta",
