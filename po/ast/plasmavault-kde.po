@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the plasma-vault package.
 #
-# Enol P. <enolp@softastur.org>, 2023.
+# SPDX-FileCopyrightText: 2023 Enol P. <enolp@softastur.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-30 01:58+0000\n"
-"PO-Revision-Date: 2023-05-23 01:47+0200\n"
+"PO-Revision-Date: 2023-10-25 09:33+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, kde-format
@@ -45,7 +45,7 @@ msgstr ""
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:131
 #, kde-format
 msgid "Upgrade the vault?"
-msgstr ""
+msgstr "¿Quies anovar l'arca?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:132
 #, kde-format
@@ -86,7 +86,7 @@ msgstr ""
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
 #, kde-format
 msgid "Unable to perform the operation (error code %1)."
-msgstr ""
+msgstr "Nun ye posible facer la operación (códigu d'error %1)."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
 #, kde-format
@@ -115,7 +115,7 @@ msgstr ""
 #: kded/engine/fusebackend_p.cpp:177
 #, kde-format
 msgid "Unable to detect the version"
-msgstr ""
+msgstr "Nun ye posible detectar la versión"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
 #, kde-format
@@ -136,12 +136,12 @@ msgstr ""
 #: kded/engine/fusebackend_p.cpp:51
 #, kde-format
 msgid "Unable to perform the operation"
-msgstr ""
+msgstr "Nun ye posible facer la operación"
 
 #: kded/engine/fusebackend_p.cpp:96
 #, kde-format
 msgid "This directory already contains encrypted data"
-msgstr ""
+msgstr "Esti direutoriu xá contién datos cifraos"
 
 #: kded/engine/fusebackend_p.cpp:99
 #, kde-format
@@ -153,7 +153,7 @@ msgstr ""
 #: kded/engine/fusebackend_p.cpp:114
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
-msgstr ""
+msgstr "Esti direutoriu nun contién datos cifraos"
 
 #: kded/engine/fusebackend_p.cpp:118
 #, kde-format
@@ -193,7 +193,7 @@ msgstr ""
 #: kded/engine/vault.cpp:279
 #, kde-format
 msgid "Cannot create the mount point"
-msgstr ""
+msgstr "Nun se pue crear el puntu de montaxe"
 
 #: kded/engine/vault.cpp:284
 #, kde-format
@@ -203,7 +203,7 @@ msgstr ""
 #: kded/engine/vault.cpp:399
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
-msgstr ""
+msgstr "Esti preséu xá ta rexistráu, nun se pue volver crear."
 
 #: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
 #, kde-format
@@ -228,12 +228,12 @@ msgstr ""
 #: kded/engine/vault.cpp:496 kded/engine/vault.cpp:505
 #, kde-format
 msgid "Unable to close the vault because an application is using it"
-msgstr ""
+msgstr "Nun ye posibe zarrar l'arca porque hai una aplicación usándola"
 
 #: kded/engine/vault.cpp:528
 #, kde-format
 msgid "Unable to close the vault because it is being used by %1"
-msgstr ""
+msgstr "Nun ye posibe zarrar l'arca porque «%1» ta usándola"
 
 #: kded/engine/vault.cpp:552
 #, kde-format
@@ -292,7 +292,7 @@ msgstr ""
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
-msgstr ""
+msgstr "El backend especificáu nun ta disponible"
 
 #. i18n: ectx: property (text), widget (QLabel, labelVaultName)
 #: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
@@ -333,12 +333,12 @@ msgstr ""
 #: kded/ui/directorychooserwidget.ui:22
 #, kde-format
 msgid "Mount point:"
-msgstr ""
+msgstr "Puntu de montaxe:"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
 msgid "The specified path does not exist"
-msgstr ""
+msgstr "El camín especificáu nun esiste"
 
 #: kded/ui/directorypairchooserwidget.cpp:64
 #, kde-format
@@ -371,7 +371,7 @@ msgstr ""
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
 msgid "Details…"
-msgstr ""
+msgstr "Detalles…"
 
 #: kded/ui/mountdialog.cpp:38
 #, kde-format
@@ -486,7 +486,7 @@ msgstr ""
 #: kded/ui/vaultimportingwizard.ui:19
 #, kde-format
 msgid "Dialog"
-msgstr ""
+msgstr "Diálogu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
@@ -631,7 +631,7 @@ msgstr ""
 #: plasma/package/contents/ui/main.qml:100
 #, kde-format
 msgid "No Vaults have been set up"
-msgstr "Nun se configuró nengúna arca"
+msgstr "Nun se configuró nenguna arca"
 
 #: plasma/package/contents/ui/VaultItem.qml:28
 #, kde-format
