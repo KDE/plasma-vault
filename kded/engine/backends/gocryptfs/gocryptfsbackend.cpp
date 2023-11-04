@@ -97,7 +97,7 @@ FutureResult<> GocryptfsBackend::mount(const Device &device, const MountPoint &m
             device.data(),
         });
 
-        auto initResult = makeFuture(initProcess, [=](QProcess *process) {
+        auto initResult = makeFuture(initProcess, [this, device, mountPoint, payload](QProcess *process) {
             auto const exitCode = static_cast<ExitCode>(process->exitCode());
 
             switch (exitCode) {
