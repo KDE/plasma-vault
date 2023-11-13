@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-30 01:58+0000\n"
-"PO-Revision-Date: 2023-05-19 12:14+0100\n"
+"PO-Revision-Date: 2023-11-12 16:39+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -126,7 +126,7 @@ msgstr ""
 #: kded/engine/fusebackend_p.cpp:165
 #, kde-format
 msgid "Failed to execute"
-msgstr "Malsukcesis ekzekuti"
+msgstr "Malsukcesis plenumi"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
