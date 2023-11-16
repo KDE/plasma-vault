@@ -36,7 +36,7 @@ PlasmaExtras.ExpandableListItem {
     }
     isBusy: Plasmoid.busy
     enabled: model.isEnabled
-    contextualActionsModel: [
+    contextualActions: [
         Action {
             enabled: model.isOpened
             icon.name: "document-open-folder-symbolic"
