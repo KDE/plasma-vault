@@ -10,7 +10,7 @@
 
 #include <QItemDelegate>
 
-#include <KActivities/ActivitiesModel>
+#include <PlasmaActivities/ActivitiesModel>
 
 class ActivitiesLinkingWidget::Private
 {

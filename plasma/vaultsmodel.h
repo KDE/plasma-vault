@@ -10,7 +10,7 @@
 #include <QAbstractListModel>
 #include <QSortFilterProxyModel>
 
-#include <KActivities/Consumer>
+#include <PlasmaActivities/Consumer>
 
 #include <common/vaultinfo.h>
 

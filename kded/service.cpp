@@ -10,7 +10,7 @@
 #include <QMessageBox>
 #include <QProcess>
 
-#include <KActivities/Consumer>
+#include <PlasmaActivities/Consumer>
 #include <KApplicationTrader>
 #include <KIO/ApplicationLauncherJob>
 #include <KLocalizedString>

@@ -8,7 +8,7 @@
 
 #include <QSortFilterProxyModel>
 
-#include <KActivities/Consumer>
+#include <PlasmaActivities/Consumer>
 #include <klocalizedstring.h>
 
 #include "vaultsmodel.h"

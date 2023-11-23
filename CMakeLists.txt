@@ -65,7 +65,7 @@ find_package (
    )
 
 find_package(KF6Plasma ${PROJECT_VERSION} REQUIRED)
-find_package(KF6Activities ${PROJECT_VERSION} REQUIRED)
+find_package(PlasmaActivities ${PROJECT_VERSION} REQUIRED)
 
 find_package (KF6NetworkManagerQt ${KF6_MIN_VERSION})
 if (KF6NetworkManagerQt_FOUND)

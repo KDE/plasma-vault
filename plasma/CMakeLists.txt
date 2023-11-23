@@ -35,7 +35,7 @@ target_link_libraries (
    Qt::Gui
    Qt::DBus
 
-   KF6::Activities
+   Plasma::Activities
    KF6::I18n
    KF6::Plasma
    )

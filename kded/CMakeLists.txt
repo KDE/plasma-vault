@@ -98,7 +98,7 @@ target_link_libraries (
    Qt::DBus
    Qt::Widgets
 
-   KF6::Activities
+   Plasma::Activities
    KF6::ConfigCore
    KF6::ConfigWidgets
    KF6::CoreAddons
