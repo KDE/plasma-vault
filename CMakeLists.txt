@@ -64,7 +64,7 @@ find_package (
    WidgetsAddons
    )
 
-find_package(KF6Plasma ${PROJECT_VERSION} REQUIRED)
+find_package(Plasma ${PROJECT_VERSION} REQUIRED)
 find_package(PlasmaActivities ${PROJECT_VERSION} REQUIRED)
 
 find_package (KF6NetworkManagerQt ${KF6_MIN_VERSION})

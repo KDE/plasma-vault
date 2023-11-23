@@ -37,7 +37,7 @@ target_link_libraries (
 
    Plasma::Activities
    KF6::I18n
-   KF6::Plasma
+   Plasma::Plasma
    )
 
 install (
