@@ -20,9 +20,9 @@ Dependencies:
     'frameworks/kwidgetsaddons': '@latest'
     'frameworks/kwindowsystem': '@latest'
     'frameworks/solid': '@latest'
-    'plasma/plasma-framework': 'kf5'
+    'plasma/libplasma': 'kf5'
     'plasma/libksysguard': '@same'
-    'plasma/kactivities': '@latest' # Different branch scheme due to formerly being a Framework
+    'plasma/plasma-activities': '@latest' # Different branch scheme due to formerly being a Framework
 
 - 'on': ['Linux']
   'require':
