@@ -36,18 +36,16 @@ PlasmaVaultFileItemAction::PlasmaVaultFileItemAction(QObject *parent, const QVar
 {
 }
 
-QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget)
+QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListProperties &fileItemInfos, QWidget * /*parentWidget*/)
 {
     if (fileItemInfos.urlList().size() != 1 || !fileItemInfos.isDirectory() || !fileItemInfos.isLocal())
         return {};
 
-    QList<QAction *> actions;
     const QIcon icon = QIcon::fromTheme(QStringLiteral("plasmavault"));
 
     auto fileItem = fileItemInfos.urlList()[0].toLocalFile();
 
-    auto createAction = [this](const QIcon &icon, const QString &name, QString command, QString device, QWidget *parentWidget) {
-        Q_UNUSED(parentWidget)
+    auto createAction = [this](const QIcon &icon, const QString &name, QString command, QString device) {
         QAction *action = new QAction(icon, name, this);
 
         connect(action, &QAction::triggered, this, [command, device]() {
@@ -74,7 +72,7 @@ QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListPropertie
             const QString title = mounted ? i18nc("@action Action to unmount a vault", "Close this Plasma Vault")
                                           : i18nc("@action Action to mount a vault", "Open this Plasma Vault");
 
-            return {createAction(icon, title, command, group, parentWidget)};
+            return {createAction(icon, title, command, group)};
         }
     }
 

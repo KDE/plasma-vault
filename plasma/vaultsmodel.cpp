@@ -175,9 +175,8 @@ VaultsModel::~VaultsModel()
 {
 }
 
-int VaultsModel::rowCount(const QModelIndex &parent) const
+int VaultsModel::rowCount(const QModelIndex & /*parent*/) const
 {
-    Q_UNUSED(parent);
     return d->vaultKeys.size();
 }
 

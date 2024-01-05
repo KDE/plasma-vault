@@ -97,29 +97,18 @@ FutureResult<> FuseBackend::initialize(const QString &name, const Device &device
 
         directoryExists(device.data()) || directoryExists(mountPoint.data())
         ? errorResult(Error::BackendError, i18n("You need to select empty directories for the encrypted storage and for the mount point"))
-        :
-
-        // otherwise
-        mount(device, mountPoint, payload);
+        : mount(device, mountPoint, payload);
 }
 
 FutureResult<> FuseBackend::import(const QString &name, const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload)
 {
     Q_UNUSED(name);
 
-    // clang-format off
-    return
-        !isInitialized(device) ?
-            errorResult(Error::BackendError,
-                        i18n("This directory doesn't contain encrypted data")) :
+    return !isInitialized(device) ? errorResult(Error::BackendError, i18n("This directory doesn't contain encrypted data")) :
 
-        !directoryExists(device.data()) || directoryExists(mountPoint.data()) ?
-            errorResult(Error::BackendError,
-                        i18n("You need to select an empty directory for the mount point")) :
-
-        // otherwise
-            mount(device, mountPoint, payload);
-    // clang-format on
+        !directoryExists(device.data()) || directoryExists(mountPoint.data())
+        ? errorResult(Error::BackendError, i18n("You need to select an empty directory for the mount point"))
+        : mount(device, mountPoint, payload);
 }
 
 FutureResult<> FuseBackend::open(const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload)
@@ -139,15 +128,13 @@ FutureResult<> FuseBackend::close(const Device &device, const MountPoint &mountP
         makeFuture(fusermount({"-u", mountPoint.data()}), hasProcessFinishedSuccessfully);
 }
 
-FutureResult<> FuseBackend::dismantle(const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload)
+FutureResult<> FuseBackend::dismantle(const Device &device, const MountPoint &mountPoint, const Vault::Payload & /*payload*/)
 {
     // TODO:
     // mount
     // unmount
     // remove the directories
     // return Fuse::dismantle(device, mountPoint, password);
-
-    Q_UNUSED(payload)
 
     // Removing the data and the mount point
     return transform(makeFuture<KJob *>(KIO::del({QUrl::fromLocalFile(device.data()), QUrl::fromLocalFile(mountPoint.data())})), [](KJob *job) {

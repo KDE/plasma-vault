@@ -41,9 +41,8 @@ bool isNetworkingEnabled()
     return true;
 }
 
-void setNetworkingEnabled(bool enabled)
+void setNetworkingEnabled(bool /*enabled*/)
 {
-    Q_UNUSED(enabled);
 }
 }
 #endif
@@ -258,9 +257,8 @@ void PlasmaVaultService::onVaultInfoChanged()
     Q_EMIT vaultChanged(vault->info());
 }
 
-void PlasmaVaultService::onVaultMessageChanged(const QString &message)
+void PlasmaVaultService::onVaultMessageChanged(const QString & /*message*/)
 {
-    Q_UNUSED(message);
     const auto vault = static_cast<Vault *>(sender());
     Q_EMIT vaultChanged(vault->info());
 }

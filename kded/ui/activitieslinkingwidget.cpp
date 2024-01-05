@@ -43,10 +43,8 @@ public:
         drawDisplay(painter, option, textRect, index.data(Qt::DisplayRole).toString());
     }
 
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override
+    QSize sizeHint(const QStyleOptionViewItem & /*option*/, const QModelIndex & /*index*/) const override
     {
-        Q_UNUSED(option);
-        Q_UNUSED(index);
         return QSize(100, 22);
     }
 }; //^
