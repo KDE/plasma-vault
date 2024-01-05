@@ -152,7 +152,7 @@ QFuture<QPair<bool, QString>> FuseBackend::checkVersion(QProcess *process, const
             return qMakePair(false, i18n("Failed to execute"));
         }
 
-        QRegularExpression versionMatcher("([0-9]+)[.]([0-9]+)[.]([0-9]+)");
+        const static QRegularExpression versionMatcher("([0-9]+)[.]([0-9]+)[.]([0-9]+)");
 
         const auto out = process->readAllStandardOutput();
         const auto err = process->readAllStandardError();

@@ -143,7 +143,7 @@ FutureResult<> GocryptfsBackend::validateBackend()
             }
 
             // We don't care about the minor version for gocryptfs
-            QRegularExpression versionMatcher("([0-9]+)[.]([0-9]+)");
+            const static QRegularExpression versionMatcher("([0-9]+)[.]([0-9]+)");
 
             const auto out = process->readAllStandardOutput();
             const auto err = process->readAllStandardError();
