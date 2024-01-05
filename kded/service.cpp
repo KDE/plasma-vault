@@ -100,7 +100,7 @@ public:
     }
 };
 
-PlasmaVaultService::PlasmaVaultService(QObject *parent, const QVariantList &)
+PlasmaVaultService::PlasmaVaultService(QObject *parent)
     : KDEDModule(parent)
     , d(new Private())
 {
