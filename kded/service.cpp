@@ -442,9 +442,8 @@ void PlasmaVaultService::deleteVault(const QString &device, const QString &name)
 
 void PlasmaVaultService::updateStatus()
 {
-    for (const auto &device : d->knownVaults.keys()) {
-        auto vault = d->knownVaults[device];
-        vault->updateStatus();
+    for (auto it = d->knownVaults.begin(), end = d->knownVaults.end(); it != end; ++it) {
+        it.value()->updateStatus();
     }
 }
 
