@@ -130,7 +130,7 @@ PlasmaVaultService::~PlasmaVaultService()
 PlasmaVault::VaultInfoList PlasmaVaultService::availableDevices() const
 {
     PlasmaVault::VaultInfoList result;
-    for (const auto &vault : d->knownVaults.values()) {
+    for (const Vault *vault : d->knownVaults) {
         result << vault->info();
     }
     return result;
@@ -454,7 +454,7 @@ void PlasmaVaultService::onActivitiesChanged(const QStringList &knownActivities)
         return;
     qDebug() << "Known activities:" << knownActivities;
 
-    for (auto *vault : d->knownVaults.values()) {
+    for (Vault *vault : d->knownVaults) {
         auto vaultActivities = vault->activities();
         const auto removedBegin = std::remove_if(vaultActivities.begin(), vaultActivities.end(), [&knownActivities](const QString &vaultActivity) {
             return !knownActivities.contains(vaultActivity);
@@ -469,7 +469,7 @@ void PlasmaVaultService::onActivitiesChanged(const QStringList &knownActivities)
 
 void PlasmaVaultService::onCurrentActivityChanged(const QString &currentActivity)
 {
-    for (auto *vault : d->knownVaults.values()) {
+    for (Vault *vault : d->knownVaults) {
         const auto vaultActivities = vault->activities();
         if (!vaultActivities.isEmpty() && !vaultActivities.contains(currentActivity)) {
             vault->close();
@@ -479,7 +479,7 @@ void PlasmaVaultService::onCurrentActivityChanged(const QString &currentActivity
 
 void PlasmaVaultService::onActivityRemoved(const QString &removedActivity)
 {
-    for (auto *vault : d->knownVaults.values()) {
+    for (Vault *vault : d->knownVaults) {
         auto vaultActivities = vault->activities();
         if (vaultActivities.removeAll(removedActivity) > 0) {
             vault->setActivities(vaultActivities);
