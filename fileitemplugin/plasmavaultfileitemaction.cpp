@@ -43,7 +43,7 @@ QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListPropertie
 
     const QIcon icon = QIcon::fromTheme(QStringLiteral("plasmavault"));
 
-    auto fileItem = fileItemInfos.urlList()[0].toLocalFile();
+    auto fileItem = fileItemInfos.urlList().constFirst().toLocalFile();
 
     auto createAction = [this](const QIcon &icon, const QString &name, QString command, QString device) {
         QAction *action = new QAction(icon, name, this);
@@ -59,8 +59,8 @@ QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListPropertie
     };
 
     KConfig config("plasmavaultrc");
-    for (auto group : config.groupList()) {
-        auto mountPoint = config.entryMap(group)["mountPoint"];
+    for (const QString &group : config.groupList()) {
+        auto mountPoint = config.entryMap(group).value("mountPoint");
         if (mountPoint == fileItem) {
             const auto currentMounts = KMountPoint::currentMountPoints();
 

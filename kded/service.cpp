@@ -128,7 +128,7 @@ PlasmaVaultService::~PlasmaVaultService()
 PlasmaVault::VaultInfoList PlasmaVaultService::availableDevices() const
 {
     PlasmaVault::VaultInfoList result;
-    for (const Vault *vault : d->knownVaults) {
+    for (const Vault *vault : std::as_const(d->knownVaults)) {
         result << vault->info();
     }
     return result;
@@ -395,14 +395,14 @@ bool PlasmaVaultService::hasOpenVaults() const
 
 void PlasmaVaultService::closeAllVaults()
 {
-    for (const auto &device : d->openVaults) {
+    for (const auto &device : std::as_const(d->openVaults)) {
         closeVault(device.data());
     }
 }
 
 void PlasmaVaultService::forceCloseAllVaults()
 {
-    for (const auto &device : d->openVaults) {
+    for (const auto &device : std::as_const(d->openVaults)) {
         forceCloseVault(device.data());
     }
 }
@@ -451,7 +451,7 @@ void PlasmaVaultService::onActivitiesChanged(const QStringList &knownActivities)
         return;
     qDebug() << "Known activities:" << knownActivities;
 
-    for (Vault *vault : d->knownVaults) {
+    for (Vault *vault : std::as_const(d->knownVaults)) {
         auto vaultActivities = vault->activities();
         const auto removedBegin = std::remove_if(vaultActivities.begin(), vaultActivities.end(), [&knownActivities](const QString &vaultActivity) {
             return !knownActivities.contains(vaultActivity);
@@ -466,7 +466,7 @@ void PlasmaVaultService::onActivitiesChanged(const QStringList &knownActivities)
 
 void PlasmaVaultService::onCurrentActivityChanged(const QString &currentActivity)
 {
-    for (Vault *vault : d->knownVaults) {
+    for (Vault *vault : std::as_const(d->knownVaults)) {
         const auto vaultActivities = vault->activities();
         if (!vaultActivities.isEmpty() && !vaultActivities.contains(currentActivity)) {
             vault->close();
@@ -476,7 +476,7 @@ void PlasmaVaultService::onCurrentActivityChanged(const QString &currentActivity
 
 void PlasmaVaultService::onActivityRemoved(const QString &removedActivity)
 {
-    for (Vault *vault : d->knownVaults) {
+    for (Vault *vault : std::as_const(d->knownVaults)) {
         auto vaultActivities = vault->activities();
         if (vaultActivities.removeAll(removedActivity) > 0) {
             vault->setActivities(vaultActivities);
