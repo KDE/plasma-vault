@@ -173,10 +173,10 @@ void DirectoryPairChooserWidget::init(const PlasmaVault::Vault::Payload &payload
 
         Q_ASSERT(!name.isEmpty());
 
-        QString path = QString("%1/%2.enc").arg(basePath).arg(name);
+        QString path = QLatin1String("%1/%2.enc").arg(basePath, name);
         int index = 1;
         while (QDir(path).exists()) {
-            path = QString("%1/%2_%3.enc").arg(basePath).arg(name).arg(index++);
+            path = QLatin1String("%1/%2_%3.enc").arg(basePath, name).arg(index++);
         }
 
         d->ui.editDevice->setText(path);
