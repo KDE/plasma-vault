@@ -17,7 +17,6 @@
 
 #include <asynqt/operations/transform.h>
 
-
 namespace AsynQt
 {
 namespace detail
