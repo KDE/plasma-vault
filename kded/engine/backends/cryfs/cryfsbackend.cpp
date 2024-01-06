@@ -18,8 +18,6 @@
 #include <KMountPoint>
 #include <KSharedConfig>
 
-#include <algorithm>
-
 #include <asynqt/basic/all.h>
 #include <asynqt/operations/collect.h>
 #include <asynqt/operations/transform.h>

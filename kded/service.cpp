@@ -10,13 +10,13 @@
 #include <QMessageBox>
 #include <QProcess>
 
-#include <PlasmaActivities/Consumer>
 #include <KApplicationTrader>
 #include <KIO/ApplicationLauncherJob>
 #include <KLocalizedString>
 #include <KPasswordDialog>
 #include <KPluginFactory>
 #include <KService>
+#include <PlasmaActivities/Consumer>
 
 #include "engine/commandresult.h"
 #include "engine/vault.h"
@@ -25,8 +25,6 @@
 #include "ui/vaultconfigurationdialog.h"
 #include "ui/vaultcreationwizard.h"
 #include "ui/vaultimportingwizard.h"
-
-#include <functional>
 
 #include <asynqt/operations/listen.h>
 

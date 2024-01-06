@@ -14,15 +14,11 @@
 #include <KLocalizedString>
 #include <KMountPoint>
 
-#include <algorithm>
-
 #include <asynqt/basic/all.h>
 #include <asynqt/operations/collect.h>
 #include <asynqt/operations/transform.h>
 #include <asynqt/wrappers/kjob.h>
 #include <asynqt/wrappers/process.h>
-
-#include "singleton_p.h"
 
 using namespace AsynQt;
 

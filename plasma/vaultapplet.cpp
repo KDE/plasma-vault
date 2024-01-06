@@ -6,11 +6,6 @@
 
 #include "vaultapplet.h"
 
-#include <QSortFilterProxyModel>
-
-#include <PlasmaActivities/Consumer>
-#include <klocalizedstring.h>
-
 #include "vaultsmodel.h"
 
 VaultApplet::VaultApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
@@ -33,6 +28,5 @@ QObject *VaultApplet::vaultsModel()
 
 K_PLUGIN_CLASS(VaultApplet)
 
-#include "vaultapplet.moc"
-
 #include "moc_vaultapplet.cpp"
+#include "vaultapplet.moc"
