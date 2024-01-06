@@ -304,6 +304,19 @@ public:
     {
         return data && data->backend->isOpened(data->mountPoint);
     }
+
+    QList<int> parseResult(const QString &result)
+    {
+        const static QRegularExpression splitRegex(QStringLiteral("\\s+"));
+        const QStringList pidList = result.split(splitRegex, Qt::SkipEmptyParts);
+        QList<int> ret;
+        for (const QString &pid : pidList) {
+            if (int num = pid.toInt()) {
+                ret << num;
+            }
+        }
+        return ret;
+    }
 };
 
 Vault::Vault(const Device &device, QObject *parent)
@@ -415,7 +428,7 @@ FutureResult<> Vault::close()
                     // based on ksolidnotify.cpp
                     QStringList blockApps;
 
-                    const auto &pidList = result.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts);
+                    const QList<int> pidList = d->parseResult(result);
 
                     if (pidList.isEmpty()) {
                         d->updateMessage(i18n("Unable to close the vault because an application is using it"));
@@ -423,17 +436,10 @@ FutureResult<> Vault::close()
 
                     } else {
                         KSysGuard::Processes procs;
-
-                        for (const QString &pidStr : pidList) {
-                            int pid = pidStr.toInt();
-                            if (!pid) {
-                                continue;
-                            }
-
+                        for (int pid : pidList) {
                             procs.updateOrAddProcess(pid);
 
                             KSysGuard::Process *proc = procs.getProcess(pid);
-
                             if (!blockApps.contains(proc->name())) {
                                 blockApps << proc->name();
                             }
@@ -460,19 +466,11 @@ FutureResult<> Vault::forceClose()
     AsynQt::await(AsynQt::Process::getOutput(QStringLiteral("lsof"), {QStringLiteral("-t"), mountPoint().data()}) | cast<QString>() | onError([this] {
                       d->updateMessage(i18n("Failed to fetch the list of applications using this vault"));
                   })
-                  | onSuccess([](const QString &result) {
+                  | onSuccess([this](const QString &result) {
                         // based on ksolidnotify.cpp
-
-                        const auto &pidList = result.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts);
-
+                        const QList<int> pidList = d->parseResult(result);
                         KSysGuard::Processes procs;
-
-                        for (const QString &pidStr : pidList) {
-                            int pid = pidStr.toInt();
-                            if (!pid) {
-                                continue;
-                            }
-
+                        for (int pid : pidList) {
                             procs.sendSignal(pid, SIGKILL);
                         }
                     }));
