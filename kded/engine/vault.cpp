@@ -648,7 +648,8 @@ QList<Device> Vault::availableDevices()
     const KConfigGroup general(config, "EncryptedDevices");
 
     QList<Device> results;
-    for (const auto& item: general.keyList()) {
+    const QStringList keys = general.keyList();
+    for (const auto &item : keys) {
         results << Device(item);
     }
     return results;
