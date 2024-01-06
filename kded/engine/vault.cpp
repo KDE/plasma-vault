@@ -584,7 +584,6 @@ FutureResult<> Vault::dismantle(const Payload &payload)
     };
 
     const auto resolvedDevice = resolvedPath(d->device.data());
-    const auto resolvedMount  = resolvedPath(d->data->mountPoint.data());
 
     const auto devices = availableDevices();
     const int matches = std::count_if(devices.cbegin(), devices.cend(),
