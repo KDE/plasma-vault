@@ -76,7 +76,6 @@ public:
 
     void updateStatus();
 
-public Q_SLOTS:
     QString message() const;
     VaultInfo::Status status() const;
 
@@ -99,7 +98,7 @@ public Q_SLOTS:
     bool isOfflineOnly() const;
     void setIsOfflineOnly(bool isOfflineOnly);
 
-    void saveConfiguration();
+    Q_SLOT void saveConfiguration();
 
 Q_SIGNALS:
     void mountPointChanged(const QString &mountPoint);

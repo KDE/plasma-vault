@@ -49,6 +49,9 @@ public:
         VaultIsEnabled, ///< Can the vault be mounted
     };
 
+    bool isBusy() const;
+    bool hasError() const;
+
 public Q_SLOTS:
     void refresh();
 
@@ -72,9 +75,6 @@ public Q_SLOTS:
 
     // Open in file manager
     void openInFileManager(const QString &device);
-
-    bool isBusy() const;
-    bool hasError() const;
 
 Q_SIGNALS:
     void isBusyChanged(bool isBusy);
