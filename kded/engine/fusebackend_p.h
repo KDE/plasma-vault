@@ -47,6 +47,7 @@ protected:
     // Check the contents of the dir (should be empty) and if the only item
     // there is the dot-directroy, delete it.
     static void removeDotDirectory(const MountPoint &mountPoint);
+    Q_DISABLE_COPY(FuseBackend)
 };
 
 } // namespace PlasmaVault
