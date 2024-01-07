@@ -162,7 +162,7 @@ void VaultsModel::Private::onVaultChanged(const PlasmaVault::VaultInfo &vaultInf
     }
 
     vaults[device] = vaultInfo;
-    q->dataChanged(q->index(row), q->index(row));
+    Q_EMIT q->dataChanged(q->index(row), q->index(row));
 }
 
 VaultsModel::VaultsModel(QObject *parent)
