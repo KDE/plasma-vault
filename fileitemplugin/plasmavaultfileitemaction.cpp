@@ -45,7 +45,7 @@ QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListPropertie
 
     auto fileItem = fileItemInfos.urlList().constFirst().toLocalFile();
 
-    auto createAction = [this](const QIcon &icon, const QString &name, QString command, QString device) {
+    auto createAction = [this](const QIcon &icon, const QString &name, const QString &command, const QString &device) {
         QAction *action = new QAction(icon, name, this);
 
         connect(action, &QAction::triggered, this, [command, device]() {

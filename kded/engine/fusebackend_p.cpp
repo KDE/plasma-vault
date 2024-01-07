@@ -139,7 +139,7 @@ FutureResult<> FuseBackend::dismantle(const Device &device, const MountPoint &mo
     });
 }
 
-QFuture<QPair<bool, QString>> FuseBackend::checkVersion(QProcess *process, const std::tuple<int, int, int> &requiredVersion) const
+QFuture<QPair<bool, QString>> FuseBackend::checkVersion(QProcess *process, std::tuple<int, int, int> requiredVersion) const
 {
     using namespace AsynQt::operators;
 

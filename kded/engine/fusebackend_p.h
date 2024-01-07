@@ -36,7 +36,7 @@ protected:
 
     QProcess *process(const QString &command, const QStringList &args, const QHash<QString, QString> &environment) const;
 
-    QFuture<QPair<bool, QString>> checkVersion(QProcess *process, const std::tuple<int, int, int> &requiredVersion) const;
+    QFuture<QPair<bool, QString>> checkVersion(QProcess *process, std::tuple<int, int, int> requiredVersion) const;
 
     QProcess *fusermount(const QStringList &arguments = QStringList()) const;
 

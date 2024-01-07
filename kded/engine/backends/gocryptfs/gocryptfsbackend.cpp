@@ -134,7 +134,7 @@ FutureResult<> GocryptfsBackend::validateBackend()
 {
     using namespace AsynQt::operators;
 
-    auto customCheckVersion = [](QProcess *process, const std::tuple<int, int> &requiredVersion) {
+    auto customCheckVersion = [](QProcess *process, std::tuple<int, int> requiredVersion) {
         using namespace AsynQt::operators;
 
         return makeFuture(process, [=](QProcess *process) {
