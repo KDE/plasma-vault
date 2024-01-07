@@ -95,7 +95,6 @@ endif ()
 
 add_subdirectory (kded)
 add_subdirectory (plasma)
-add_subdirectory (icons)
 add_subdirectory (fileitemplugin)
 
 # add clang-format target for all our real source files
