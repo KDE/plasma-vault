@@ -34,10 +34,10 @@ public:
         lastModule = last;
         if (last) {
             buttonNext->setText(lastButtonText);
-            buttonNext->setIcon(QIcon::fromTheme("dialog-ok-apply-symbolic"));
+            buttonNext->setIcon(QIcon::fromTheme(QStringLiteral("dialog-ok-apply-symbolic")));
         } else {
             buttonNext->setText(i18n("Next"));
-            buttonNext->setIcon(QIcon::fromTheme("go-next-symbolic"));
+            buttonNext->setIcon(QIcon::fromTheme(QStringLiteral("go-next-symbolic")));
         }
     }
 

@@ -82,7 +82,7 @@ QProcess *FuseBackend::process(const QString &executable, const QStringList &arg
 
 QProcess *FuseBackend::fusermount(const QStringList &arguments) const
 {
-    return process("fusermount", arguments, {});
+    return process(QStringLiteral("fusermount"), arguments, {});
 }
 
 FutureResult<> FuseBackend::initialize(const QString &name, const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload)
@@ -148,7 +148,7 @@ QFuture<QPair<bool, QString>> FuseBackend::checkVersion(QProcess *process, std::
             return qMakePair(false, i18n("Failed to execute"));
         }
 
-        const static QRegularExpression versionMatcher("([0-9]+)[.]([0-9]+)[.]([0-9]+)");
+        const static QRegularExpression versionMatcher(QStringLiteral("([0-9]+)[.]([0-9]+)[.]([0-9]+)"));
 
         const auto out = process->readAllStandardOutput();
         const auto err = process->readAllStandardError();

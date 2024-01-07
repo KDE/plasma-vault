@@ -7,11 +7,9 @@
 #define MOUNTDIALOG_H
 
 #include <QDialog>
-#include <functional>
-
-#include "ui_mountdialog.h"
 
 #include "engine/vault.h"
+#include "ui_mountdialog.h"
 
 class KMessageWidget;
 class QAction;
@@ -21,7 +19,7 @@ namespace PlasmaVault
 class Vault;
 }
 
-class MountDialog : public QDialog
+class MountDialog : public QDialog // clazy:exclude=missing-qobject-macro
 {
 public:
     MountDialog(PlasmaVault::Vault *vault);

@@ -8,9 +8,8 @@
 
 #include "ui_activitieslinkingwidget.h"
 
-#include <QItemDelegate>
-
 #include <PlasmaActivities/ActivitiesModel>
+#include <QItemDelegate>
 
 class ActivitiesLinkingWidget::Private
 {
@@ -20,8 +19,8 @@ public:
 
 namespace
 {
-class CheckboxDelegate : public QItemDelegate
-{ //_
+class CheckboxDelegate : public QItemDelegate // clazy:exclude=missing-qobject-macro
+{
 public:
     CheckboxDelegate(QObject *parent)
         : QItemDelegate(parent)

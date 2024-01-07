@@ -39,11 +39,11 @@ void CryfsCypherChooserWidget::initializeCyphers()
     // TODO: This needs to be prettier -- for modules to be able
     // to reach their backends directly
     auto process = new QProcess();
-    process->setProgram("cryfs");
+    process->setProgram(QStringLiteral("cryfs"));
     process->setArguments({"--show-ciphers"});
 
     auto env = process->processEnvironment();
-    env.insert("CRYFS_FRONTEND", "noninteractive");
+    env.insert(QStringLiteral("CRYFS_FRONTEND"), QStringLiteral("noninteractive"));
     process->setProcessEnvironment(env);
 
     auto combo = d->ui.comboCypher;

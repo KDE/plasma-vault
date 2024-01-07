@@ -15,8 +15,6 @@
 #include <KMountPoint>
 #include <KSharedConfig>
 
-#include <algorithm>
-
 #include <asynqt/basic/all.h>
 #include <asynqt/operations/collect.h>
 #include <asynqt/operations/transform.h>
@@ -80,7 +78,8 @@ FutureResult<> EncFsBackend::validateBackend()
 
         | transform([this](const QPair<bool, QString> &encfs, const QPair<bool, QString> &encfsctl, const QPair<bool, QString> &fusermount) {
                bool success = encfs.first && encfsctl.first && fusermount.first;
-               QString message = formatMessageLine("encfs", encfs) + formatMessageLine("encfsctl", encfsctl) + formatMessageLine("fusermount", fusermount);
+               QString message = formatMessageLine(QStringLiteral("encfs"), encfs) + formatMessageLine(QStringLiteral("encfsctl"), encfsctl)
+                   + formatMessageLine(QStringLiteral("fusermount"), fusermount);
 
                return success ? Result<>::success() : Result<>::error(Error::BackendError, message);
            });
@@ -99,14 +98,14 @@ bool EncFsBackend::isInitialized(const Device &device) const
 QProcess *EncFsBackend::encfs(const QStringList &arguments) const
 {
     auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
-    KConfigGroup backendConfig(config, "EncfsBackend");
+    KConfigGroup backendConfig(config, QStringLiteral("EncfsBackend"));
 
-    return process("encfs", arguments + backendConfig.readEntry("extraMountOptions", QStringList{}), {});
+    return process(QStringLiteral("encfs"), arguments + backendConfig.readEntry("extraMountOptions", QStringList{}), {});
 }
 
 QProcess *EncFsBackend::encfsctl(const QStringList &arguments) const
 {
-    return process("encfsctl", arguments, {});
+    return process(QStringLiteral("encfsctl"), arguments, {});
 }
 
 } // namespace PlasmaVault

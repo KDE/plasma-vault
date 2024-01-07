@@ -100,7 +100,7 @@ typedef QList<step> steps;
 typedef QMap<Key, steps> Logic;
 
 // If we want to have a single page containing multiple modules
-class CompoundDialogModule : public DialogModule
+class CompoundDialogModule : public DialogModule // clazy:exclude=missing-qobject-macro
 {
 public:
     CompoundDialogModule(const step &children);

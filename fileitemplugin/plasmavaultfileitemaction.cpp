@@ -49,7 +49,10 @@ QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListPropertie
         QAction *action = new QAction(icon, name, this);
 
         connect(action, &QAction::triggered, this, [command, device]() {
-            auto method = QDBusMessage::createMethodCall("org.kde.kded6", "/modules/plasmavault", "org.kde.plasmavault", command);
+            auto method = QDBusMessage::createMethodCall(QStringLiteral("org.kde.kded6"),
+                                                         QStringLiteral("/modules/plasmavault"),
+                                                         QStringLiteral("org.kde.plasmavault"),
+                                                         command);
             method.setArguments({device});
 
             QDBusConnection::sessionBus().call(method, QDBus::NoBlock);
@@ -58,9 +61,9 @@ QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListPropertie
         return action;
     };
 
-    KConfig config("plasmavaultrc");
+    KConfig config(QStringLiteral("plasmavaultrc"));
     for (const QString &group : config.groupList()) {
-        auto mountPoint = config.entryMap(group).value("mountPoint");
+        auto mountPoint = config.entryMap(group).value(QStringLiteral("mountPoint"));
         if (mountPoint == fileItem) {
             const auto currentMounts = KMountPoint::currentMountPoints();
 

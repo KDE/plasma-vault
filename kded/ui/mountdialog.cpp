@@ -22,12 +22,12 @@ MountDialog::MountDialog(PlasmaVault::Vault *vault)
     m_errorLabel = new KMessageWidget(this);
     m_errorLabel->setMessageType(KMessageWidget::Error);
     m_errorLabel->setCloseButtonVisible(false);
-    m_errorLabel->setIcon(QIcon::fromTheme("dialog-error"));
+    m_errorLabel->setIcon(QIcon::fromTheme(QStringLiteral("dialog-error")));
     m_errorLabel->setVisible(false);
 
     m_detailsAction = new QAction(this);
     m_detailsAction->setToolTip(i18n("Details…"));
-    m_detailsAction->setIcon(QIcon::fromTheme("view-list-details-symbolic"));
+    m_detailsAction->setIcon(QIcon::fromTheme(QStringLiteral("view-list-details-symbolic")));
 
     connect(m_detailsAction, &QAction::triggered, this, [this] {
         QString message;

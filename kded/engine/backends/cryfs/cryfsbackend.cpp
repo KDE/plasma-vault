@@ -188,7 +188,7 @@ FutureResult<> CryFsBackend::validateBackend()
 
         | transform([this](const QPair<bool, QString> &cryfs, const QPair<bool, QString> &fusermount) {
                bool success = cryfs.first && fusermount.first;
-               QString message = formatMessageLine("cryfs", cryfs) + formatMessageLine("fusermount", fusermount);
+               QString message = formatMessageLine(QStringLiteral("cryfs"), cryfs) + formatMessageLine(QStringLiteral("fusermount"), fusermount);
 
                return success ? Result<>::success() : Result<>::error(Error::BackendError, message);
            });
@@ -203,9 +203,9 @@ bool CryFsBackend::isInitialized(const Device &device) const
 QProcess *CryFsBackend::cryfs(const QStringList &arguments) const
 {
     auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
-    KConfigGroup backendConfig(config, "CryfsBackend");
+    KConfigGroup backendConfig(config, QStringLiteral("CryfsBackend"));
 
-    return process("cryfs", arguments + backendConfig.readEntry("extraMountOptions", QStringList{}), {{"CRYFS_FRONTEND", "noninteractive"}});
+    return process(QStringLiteral("cryfs"), arguments + backendConfig.readEntry("extraMountOptions", QStringList{}), {{"CRYFS_FRONTEND", "noninteractive"}});
 }
 
 } // namespace PlasmaVault

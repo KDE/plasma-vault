@@ -14,8 +14,6 @@
 #include <KMountPoint>
 #include <KSharedConfig>
 
-#include <algorithm>
-
 #include <asynqt/basic/all.h>
 #include <asynqt/operations/collect.h>
 #include <asynqt/operations/transform.h>
@@ -143,7 +141,7 @@ FutureResult<> GocryptfsBackend::validateBackend()
             }
 
             // We don't care about the minor version for gocryptfs
-            const static QRegularExpression versionMatcher("([0-9]+)[.]([0-9]+)");
+            const static QRegularExpression versionMatcher(QStringLiteral("([0-9]+)[.]([0-9]+)"));
 
             const auto out = process->readAllStandardOutput();
             const auto err = process->readAllStandardError();
@@ -185,7 +183,7 @@ FutureResult<> GocryptfsBackend::validateBackend()
 
         | transform([this](const QPair<bool, QString> &gocryptfs, const QPair<bool, QString> &fusermount) {
                bool success = gocryptfs.first && fusermount.first;
-               QString message = formatMessageLine("gocryptfs", gocryptfs) + formatMessageLine("fusermount", fusermount);
+               QString message = formatMessageLine(QStringLiteral("gocryptfs"), gocryptfs) + formatMessageLine(QStringLiteral("fusermount"), fusermount);
 
                return success ? Result<>::success() : Result<>::error(Error::BackendError, message);
            });
@@ -200,9 +198,9 @@ bool GocryptfsBackend::isInitialized(const Device &device) const
 QProcess *GocryptfsBackend::gocryptfs(const QStringList &arguments) const
 {
     auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
-    KConfigGroup backendConfig(config, "GocryptfsBackend");
+    KConfigGroup backendConfig(config, QStringLiteral("GocryptfsBackend"));
 
-    return process("gocryptfs", arguments + backendConfig.readEntry("extraMountOptions", QStringList{}), {});
+    return process(QStringLiteral("gocryptfs"), arguments + backendConfig.readEntry("extraMountOptions", QStringList{}), {});
 }
 
 QString GocryptfsBackend::getConfigFilePath(const Device &device) const

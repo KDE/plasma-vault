@@ -31,7 +31,7 @@ public:
 
         KMessageWidget *widget = nullptr;
 
-        DirectoryValidator(bool requireEmptyDirectory, bool requireExisting, QString defaultPath, std::function<void()> update)
+        DirectoryValidator(bool requireEmptyDirectory, bool requireExisting, const QString &defaultPath, const std::function<void()> &update)
             : requireEmptyDirectory(requireEmptyDirectory)
             , requireExisting(requireExisting)
             , valid(!requireEmptyDirectory && !requireExisting)

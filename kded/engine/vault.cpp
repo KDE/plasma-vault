@@ -112,7 +112,7 @@ public:
             Q_ASSERT(!deviceStr.isEmpty() && !mountPointStr.isEmpty());
 
             // Saving the data for the current mount
-            KConfigGroup generalConfig(config, "EncryptedDevices");
+            KConfigGroup generalConfig(config, QStringLiteral("EncryptedDevices"));
             generalConfig.writeEntry(deviceStr, true);
 
             KConfigGroup vaultConfig(config, deviceStr);
@@ -125,7 +125,7 @@ public:
             vaultConfig.writeEntry(CFG_OFFLINEONLY, data->isOfflineOnly);
 
         } else {
-            KConfigGroup generalConfig(config, "EncryptedDevices");
+            KConfigGroup generalConfig(config, QStringLiteral("EncryptedDevices"));
             generalConfig.writeEntry(device.data(), false);
 
             KConfigGroup vaultConfig(config, device.data());
@@ -150,7 +150,7 @@ public:
 
             if (oldStatus == VaultInfo::Dismantling) {
                 // This means that the vault should be forgotten
-                KConfigGroup generalConfig(config, "EncryptedDevices");
+                KConfigGroup generalConfig(config, QStringLiteral("EncryptedDevices"));
                 generalConfig.deleteEntry(device.data());
 
                 KConfigGroup vaultConfig(config, device.data());
@@ -529,7 +529,7 @@ Device Vault::device() const
 QList<Device> Vault::availableDevices()
 {
     const auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
-    const KConfigGroup general(config, "EncryptedDevices");
+    const KConfigGroup general(config, QStringLiteral("EncryptedDevices"));
 
     QList<Device> results;
     const QStringList keys = general.keyList();

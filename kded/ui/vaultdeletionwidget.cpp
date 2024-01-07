@@ -33,7 +33,7 @@ VaultDeletionWidget::VaultDeletionWidget()
     auto messageWidget = new KMessageWidget(d->ui.labelWarning->text(), this);
     messageWidget->setMessageType(KMessageWidget::Warning);
     messageWidget->setCloseButtonVisible(false);
-    messageWidget->setIcon(QIcon::fromTheme("dialog-warning"));
+    messageWidget->setIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
     static_cast<QBoxLayout *>(layout())->insertWidget(0, messageWidget);
 
     d->ui.labelWarning->hide();
@@ -47,7 +47,7 @@ VaultDeletionWidget::VaultDeletionWidget()
         Q_EMIT requestCancellation();
 
         QDBusInterface(QStringLiteral("org.kde.kded6"), QStringLiteral("/modules/plasmavault"), QStringLiteral("org.kde.plasmavault"))
-            .asyncCall("deleteVault", d->vaultDevice, d->vaultName);
+            .asyncCall(QStringLiteral("deleteVault"), d->vaultDevice, d->vaultName);
     });
 }
 
