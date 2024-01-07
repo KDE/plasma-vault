@@ -37,7 +37,7 @@ private:
 inline DialogDsl::ModuleFactory notice(const QByteArray &noticeId, const QString &message, NoticeWidget::Mode mode = NoticeWidget::DoNotShowAgainOption)
 {
     return [=] {
-        return new NoticeWidget(noticeId, message, mode);
+        return new NoticeWidget(QString::fromLocal8Bit(noticeId), message, mode);
     };
 }
 

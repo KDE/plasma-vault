@@ -103,7 +103,7 @@ void BackendChooserWidget::addItem(const QByteArray &id, const QString &title, i
     d->ui.comboBackend->addItem(title, id);
 
     if (priority > d->bestBackendPrio) {
-        const auto backend = PlasmaVault::Backend::instance(id);
+        const auto backend = PlasmaVault::Backend::instance(QString::fromLocal8Bit(id));
         Q_ASSERT(backend); // backend and UI out of sync. Its an assert since they both are part of the same .so
         if (backend && AsynQt::await(backend->validateBackend())) {
             d->bestBackendPrio = priority;

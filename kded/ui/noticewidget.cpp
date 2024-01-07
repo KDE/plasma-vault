@@ -45,7 +45,7 @@ PlasmaVault::Vault::Payload NoticeWidget::fields() const
 void NoticeWidget::aboutToBeShown()
 {
     KConfigGroup noticeUi(d->config, QStringLiteral("UI-notice"));
-    d->shouldBeShown = !noticeUi.readEntry("SkipNotice-" + d->noticeId, false);
+    d->shouldBeShown = !noticeUi.readEntry(QLatin1String("SkipNotice-") + d->noticeId, false);
     d->ui.checkShouldBeHidden->setChecked(!d->shouldBeShown);
 }
 
@@ -57,7 +57,7 @@ bool NoticeWidget::shouldBeShown() const
 void NoticeWidget::aboutToBeHidden()
 {
     KConfigGroup noticeUi(d->config, QStringLiteral("UI-notice"));
-    noticeUi.writeEntry("SkipNotice-" + d->noticeId, d->ui.checkShouldBeHidden->isChecked());
+    noticeUi.writeEntry(QLatin1String("SkipNotice-") + d->noticeId, d->ui.checkShouldBeHidden->isChecked());
     d->config->sync();
 }
 

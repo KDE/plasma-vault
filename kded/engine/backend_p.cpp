@@ -41,7 +41,8 @@ QString Backend::formatMessageLine(const QString &command, const QPair<bool, QSt
     const auto valid = result.first;
     const auto message = result.second;
 
-    QString htmlMessage = (valid ? QString() : QStringLiteral("<b>")) + message + (valid ? QString() : QStringLiteral("</b>")) + "<br />\n";
+    QString htmlMessage =
+        (valid ? QLatin1String() : QLatin1String("<b>")) + message + (valid ? QLatin1String() : QLatin1String("</b>")) + QLatin1String("<br />\n");
 
     return i18nc("formatting the message for a command, as in encfs: not found", "%1: %2", command, htmlMessage);
 }

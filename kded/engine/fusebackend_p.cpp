@@ -44,7 +44,7 @@ Result<> FuseBackend::hasProcessFinishedSuccessfully(QProcess *process)
         //                     out) :
 
         // otherwise just report that we failed
-        Result<>::error(Error::CommandError, i18n("Unable to perform the operation"), out, err);
+        Result<>::error(Error::CommandError, i18n("Unable to perform the operation"), QString::fromLocal8Bit(out), QString::fromLocal8Bit(err));
 }
 
 void FuseBackend::removeDotDirectory(const MountPoint &mountPoint)
@@ -121,7 +121,7 @@ FutureResult<> FuseBackend::close(const Device &device, const MountPoint &mountP
     return !isOpened(mountPoint) ? errorResult(Error::BackendError, i18n("Device is not open")) :
 
                                  // otherwise
-        makeFuture(fusermount({"-u", mountPoint.data()}), hasProcessFinishedSuccessfully);
+        makeFuture(fusermount({QStringLiteral("-u"), mountPoint.data()}), hasProcessFinishedSuccessfully);
 }
 
 FutureResult<> FuseBackend::dismantle(const Device &device, const MountPoint &mountPoint, const Vault::Payload & /*payload*/)
@@ -152,7 +152,7 @@ QFuture<QPair<bool, QString>> FuseBackend::checkVersion(QProcess *process, std::
 
         const auto out = process->readAllStandardOutput();
         const auto err = process->readAllStandardError();
-        const auto all = out + err;
+        const QString all = QString::fromLocal8Bit(out + err);
 
         const auto matches = versionMatcher.match(all);
 

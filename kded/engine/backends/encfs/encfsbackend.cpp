@@ -51,8 +51,8 @@ FutureResult<> EncFsBackend::mount(const Device &device, const MountPoint &mount
     removeDotDirectory(mountPoint);
 
     auto process = encfs({
-        "-S", // read password from stdin
-        "--standard", // If creating a file system, use the default options
+        QStringLiteral("-S"), // read password from stdin
+        QStringLiteral("--standard"), // If creating a file system, use the default options
         device.data(), // source directory to initialize encfs in
         mountPoint.data() // where to mount the file system
     });
@@ -72,9 +72,9 @@ FutureResult<> EncFsBackend::validateBackend()
 
     // We need to check whether all the commands are installed
     // and whether the user has permissions to run them
-    return collect(checkVersion(encfs({"--version"}), std::make_tuple(1, 9, 1)),
-                   checkVersion(encfsctl({"--version"}), std::make_tuple(1, 9, 1)),
-                   checkVersion(fusermount({"--version"}), std::make_tuple(2, 9, 7)))
+    return collect(checkVersion(encfs({QStringLiteral("--version")}), std::make_tuple(1, 9, 1)),
+                   checkVersion(encfsctl({QStringLiteral("--version")}), std::make_tuple(1, 9, 1)),
+                   checkVersion(fusermount({QStringLiteral("--version")}), std::make_tuple(2, 9, 7)))
 
         | transform([this](const QPair<bool, QString> &encfs, const QPair<bool, QString> &encfsctl, const QPair<bool, QString> &fusermount) {
                bool success = encfs.first && encfsctl.first && fusermount.first;

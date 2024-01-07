@@ -422,13 +422,13 @@ FutureResult<> Vault::close()
             } else {
                 // We want to check whether there is an application
                 // that is accessing the vault
-                AsynQt::Process::getOutput(QStringLiteral("lsof"), {QStringLiteral("-t"), mountPoint().data()}) | cast<QString>() | onError([this] {
+                AsynQt::Process::getOutput(QStringLiteral("lsof"), {QStringLiteral("-t"), mountPoint().data()}) | cast<QByteArray>() | onError([this] {
                     d->updateMessage(i18n("Unable to close the vault because an application is using it"));
-                }) | onSuccess([this](const QString &result) {
+                }) | onSuccess([this](const QByteArray &result) {
                     // based on ksolidnotify.cpp
                     QStringList blockApps;
 
-                    const QList<int> pidList = d->parseResult(result);
+                    const QList<int> pidList = d->parseResult(QString::fromLocal8Bit(result));
 
                     if (pidList.isEmpty()) {
                         d->updateMessage(i18n("Unable to close the vault because an application is using it"));
@@ -463,12 +463,12 @@ FutureResult<> Vault::forceClose()
 {
     using namespace AsynQt::operators;
 
-    AsynQt::await(AsynQt::Process::getOutput(QStringLiteral("lsof"), {QStringLiteral("-t"), mountPoint().data()}) | cast<QString>() | onError([this] {
+    AsynQt::await(AsynQt::Process::getOutput(QStringLiteral("lsof"), {QStringLiteral("-t"), mountPoint().data()}) | cast<QByteArray>() | onError([this] {
                       d->updateMessage(i18n("Failed to fetch the list of applications using this vault"));
                   })
-                  | onSuccess([this](const QString &result) {
+                  | onSuccess([this](const QByteArray &result) {
                         // based on ksolidnotify.cpp
-                        const QList<int> pidList = d->parseResult(result);
+                        const QList<int> pidList = d->parseResult(QString::fromLocal8Bit(result));
                         KSysGuard::Processes procs;
                         for (int pid : pidList) {
                             procs.sendSignal(pid, SIGKILL);

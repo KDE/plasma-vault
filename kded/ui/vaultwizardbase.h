@@ -48,9 +48,9 @@ public:
 
     // to suggest the highest priority to the user as a starting value
     QMap<QString, int> priorities = {
-        {"gocryptfs", 1},
-        {"encfs", 2},
-        {"cryfs", 3},
+        {QStringLiteral("gocryptfs"), 1},
+        {QStringLiteral("encfs"), 2},
+        {QStringLiteral("cryfs"), 3},
     };
 
     template<typename ClickHandler>
@@ -84,10 +84,10 @@ public:
     {
         // The dialog buttons do not have previous/next by default
         // so we need to create them
-        buttonPrevious = addDialogButton("go-previous-symbolic", i18n("Previous"), [this] {
+        buttonPrevious = addDialogButton(QStringLiteral("go-previous-symbolic"), i18n("Previous"), [this] {
             previousStep();
         });
-        buttonNext = addDialogButton("go-next-symbolic", i18n("Next"), [this] {
+        buttonNext = addDialogButton(QStringLiteral("go-next-symbolic"), i18n("Next"), [this] {
             if (lastModule)
                 self()->finish();
             else
@@ -106,7 +106,7 @@ public:
 
         // Loading the backends to the combo box
         for (const auto &key : self()->logic.keys()) {
-            firstStepModule->addItem(key, key.translation(), priorities.value(key));
+            firstStepModule->addItem(key, key.translation(), priorities.value(QString::fromLocal8Bit(key)));
         }
         firstStepModule->checkBackendAvailable();
     }

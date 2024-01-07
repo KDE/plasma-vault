@@ -114,8 +114,8 @@ FutureResult<> GocryptfsBackend::mount(const Device &device, const MountPoint &m
             default:
                 return Result<>::error(Error::CommandError,
                                        i18n("Unable to perform the operation (error code %1).", QString::number((int)exitCode)),
-                                       process->readAllStandardOutput(),
-                                       process->readAllStandardError());
+                                       QString::fromLocal8Bit(process->readAllStandardOutput()),
+                                       QString::fromLocal8Bit(process->readAllStandardError()));
             }
         });
 

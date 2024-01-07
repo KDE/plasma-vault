@@ -229,7 +229,7 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
         const bool alreadyInhibiting = devicesInhibittingNetworking.contains(vault->device().data());
 
         if (status == VaultInfo::Opened && !alreadyInhibiting) {
-            auto deviceOpeningHandle = "{opening}" + vault->device().data();
+            QString deviceOpeningHandle = QLatin1String("{opening}") + vault->device().data();
             devicesInhibittingNetworking.removeAll(deviceOpeningHandle);
             devicesInhibittingNetworking << vault->device().data();
         }
@@ -282,8 +282,8 @@ void PlasmaVaultService::openVault(const QString &device)
         if (vault->isOfflineOnly()) {
             d->saveNetworkingState();
 
-            auto &devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
-            auto deviceOpeningHandle = "{opening}" + vault->device().data();
+            QList<QString> &devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
+            QString deviceOpeningHandle = QLatin1String("{opening}") + vault->device().data();
 
             // We need to check whether this vault
             // should be added or removed from the
@@ -299,8 +299,8 @@ void PlasmaVaultService::openVault(const QString &device)
 
         auto stopInhibiting = [this, vault] {
             if (d->savedNetworkingState) {
-                auto &devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
-                auto deviceOpeningHandle = "{opening}" + vault->device().data();
+                QList<QString> &devicesInhibittingNetworking = d->savedNetworkingState->devicesInhibittingNetworking;
+                QString deviceOpeningHandle = QLatin1String("{opening}") + vault->device().data();
                 devicesInhibittingNetworking.removeAll(deviceOpeningHandle);
             }
         };

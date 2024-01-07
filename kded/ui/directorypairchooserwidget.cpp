@@ -106,13 +106,13 @@ public:
         , q(parent)
         , deviceValidator(flags & RequireEmptyDevice,
                           flags & RequireExistingDevice,
-                          nullptr,
+                          QString(),
                           [&] {
                               updateValidity();
                           })
         , mountPointValidator(flags & RequireEmptyMountPoint,
                               flags & RequireExistingMountPoint,
-                              nullptr,
+                              QString(),
                               [&] {
                                   updateValidity();
                               })

@@ -20,7 +20,7 @@ static QString normalizePath(const QString &path)
         result = path;
     }
 
-    if (result.endsWith('/')) {
+    if (result.endsWith(QLatin1Char('/'))) {
         result.chop(1);
     }
 

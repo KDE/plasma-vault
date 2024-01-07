@@ -214,16 +214,16 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
             return QStringLiteral("document-close");
 
         case VaultInfo::NotInitialized:
-            return "folder-gray";
+            return QStringLiteral("folder-gray");
 
         case VaultInfo::Closed:
-            return "folder-encrypted";
+            return QStringLiteral("folder-encrypted");
 
         case VaultInfo::Opened:
-            return "folder-decrypted";
+            return QStringLiteral("folder-decrypted");
 
         default:
-            return "";
+            return QString();
         }
     }
 

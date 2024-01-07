@@ -71,7 +71,7 @@ QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListPropertie
                 return mount->mountPoint() == mountPoint;
             });
 
-            const QString command = mounted ? "closeVault" : "openVault";
+            const QString command = mounted ? QStringLiteral("closeVault") : QStringLiteral("openVault");
             const QString title = mounted ? i18nc("@action Action to unmount a vault", "Close this Plasma Vault")
                                           : i18nc("@action Action to mount a vault", "Open this Plasma Vault");
 
