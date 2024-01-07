@@ -40,7 +40,7 @@ void CryfsCypherChooserWidget::initializeCyphers()
     // to reach their backends directly
     auto process = new QProcess();
     process->setProgram(QStringLiteral("cryfs"));
-    process->setArguments({"--show-ciphers"});
+    process->setArguments({QStringLiteral("--show-ciphers")});
 
     auto env = process->processEnvironment();
     env.insert(QStringLiteral("CRYFS_FRONTEND"), QStringLiteral("noninteractive"));
@@ -58,7 +58,7 @@ void CryfsCypherChooserWidget::initializeCyphers()
 
     combo->addItem(i18n("Use the default cipher"), QString());
 
-    for (const auto &item : QString::fromLatin1(err).split('\n')) {
+    for (const auto &item : QString::fromLatin1(err).split(QLatin1Char('\n'))) {
         if (!item.isEmpty()) {
             combo->addItem(item, item);
         }

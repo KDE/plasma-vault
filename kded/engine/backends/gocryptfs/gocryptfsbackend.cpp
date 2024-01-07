@@ -91,7 +91,7 @@ FutureResult<> GocryptfsBackend::mount(const Device &device, const MountPoint &m
     } else {
         // Initialise cipherdir
         auto initProcess = gocryptfs({
-            "-init",
+            QStringLiteral("-init"),
             device.data(),
         });
 
@@ -143,8 +143,8 @@ FutureResult<> GocryptfsBackend::validateBackend()
             // We don't care about the minor version for gocryptfs
             const static QRegularExpression versionMatcher(QStringLiteral("([0-9]+)[.]([0-9]+)"));
 
-            const auto out = process->readAllStandardOutput();
-            const auto err = process->readAllStandardError();
+            const QByteArray out = process->readAllStandardOutput();
+            const QByteArray err = process->readAllStandardError();
 
             if (out.isEmpty() && err.isEmpty()) {
                 return qMakePair(false, i18n("Unable to detect the version"));
@@ -153,9 +153,9 @@ FutureResult<> GocryptfsBackend::validateBackend()
             // gocryptfs prints out several versions separated by semicolons
             // -- of itself, of go-fuse and of go
             // We just need the first
-            const auto gocryptfsVersionString = (out + err).split(';').at(0);
+            const auto gocryptfsVersionString = QString::fromLocal8Bit(out + err).split(QLatin1Char(';')).at(0);
 
-            if (!gocryptfsVersionString.startsWith("gocryptfs")) {
+            if (!gocryptfsVersionString.startsWith(QLatin1String("gocryptfs"))) {
                 return qMakePair(false, i18n("Unable to detect the version, the version string is invalid"));
             }
 
@@ -179,7 +179,8 @@ FutureResult<> GocryptfsBackend::validateBackend()
 
     // We need to check whether all the commands are installed
     // and whether the user has permissions to run them
-    return collect(customCheckVersion(gocryptfs({"--version"}), std::make_tuple(1, 8)), checkVersion(fusermount({"--version"}), std::make_tuple(2, 9, 7)))
+    return collect(customCheckVersion(gocryptfs({QStringLiteral("--version")}), std::make_tuple(1, 8)),
+                   checkVersion(fusermount({QStringLiteral("--version")}), std::make_tuple(2, 9, 7)))
 
         | transform([this](const QPair<bool, QString> &gocryptfs, const QPair<bool, QString> &fusermount) {
                bool success = gocryptfs.first && fusermount.first;

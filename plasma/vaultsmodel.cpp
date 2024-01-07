@@ -208,10 +208,10 @@ QVariant VaultsModel::data(const QModelIndex &index, int role) const
     case VaultIcon: {
         switch (vault.status) {
         case VaultInfo::Error:
-            return "document-close";
+            return QStringLiteral("document-close");
 
         case VaultInfo::DeviceMissing:
-            return "document-close";
+            return QStringLiteral("document-close");
 
         case VaultInfo::NotInitialized:
             return "folder-gray";

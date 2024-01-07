@@ -94,7 +94,7 @@ FutureResult<> CryFsBackend::mount(const Device &device, const MountPoint &mount
     auto process =
         // Cypher is specified, use it to create the device
         (!cypher.isEmpty()) ? cryfs({
-            "--cipher",
+            QStringLiteral("--cipher"),
             cypher,
             device.data(), // source directory to initialize cryfs in
             mountPoint.data() // where to mount the file system
@@ -103,7 +103,7 @@ FutureResult<> CryFsBackend::mount(const Device &device, const MountPoint &mount
         // Cypher is not specified, use the default, whatever it is
         : shouldUpgrade ? cryfs({device.data(), // source directory to initialize cryfs in
                                  mountPoint.data(), // where to mount the file system
-                                 "--allow-filesystem-upgrade"})
+                                 QStringLiteral("--allow-filesystem-upgrade")})
 
                         : cryfs({
                             device.data(), // source directory to initialize cryfs in
@@ -184,7 +184,8 @@ FutureResult<> CryFsBackend::validateBackend()
 
     // We need to check whether all the commands are installed
     // and whether the user has permissions to run them
-    return collect(checkVersion(cryfs({"--version"}), std::make_tuple(0, 9, 9)), checkVersion(fusermount({"--version"}), std::make_tuple(2, 9, 7)))
+    return collect(checkVersion(cryfs({QStringLiteral("--version")}), std::make_tuple(0, 9, 9)),
+                   checkVersion(fusermount({QStringLiteral("--version")}), std::make_tuple(2, 9, 7)))
 
         | transform([this](const QPair<bool, QString> &cryfs, const QPair<bool, QString> &fusermount) {
                bool success = cryfs.first && fusermount.first;
@@ -205,7 +206,9 @@ QProcess *CryFsBackend::cryfs(const QStringList &arguments) const
     auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
     KConfigGroup backendConfig(config, QStringLiteral("CryfsBackend"));
 
-    return process(QStringLiteral("cryfs"), arguments + backendConfig.readEntry("extraMountOptions", QStringList{}), {{"CRYFS_FRONTEND", "noninteractive"}});
+    return process(QStringLiteral("cryfs"),
+                   arguments + backendConfig.readEntry("extraMountOptions", QStringList{}),
+                   {{QStringLiteral("CRYFS_FRONTEND"), QStringLiteral("noninteractive")}});
 }
 
 } // namespace PlasmaVault

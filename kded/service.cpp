@@ -447,7 +447,7 @@ void PlasmaVaultService::updateStatus()
 
 void PlasmaVaultService::onActivitiesChanged(const QStringList &knownActivities)
 {
-    if (knownActivities == QStringList{"00000000-0000-0000-0000-000000000000"})
+    if (knownActivities == QStringList{QStringLiteral("00000000-0000-0000-0000-000000000000")})
         return;
     qDebug() << "Known activities:" << knownActivities;
 
