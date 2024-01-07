@@ -75,7 +75,7 @@ class step : public QList<ModuleFactory>
 public:
     step() = default;
 
-    step(const std::initializer_list<ModuleFactory> &modules)
+    step(std::initializer_list<ModuleFactory> modules)
         : QList<ModuleFactory>(modules)
     {
     }
