@@ -98,11 +98,10 @@ public:
 
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
-public Q_SLOTS:
-    QObject *actionsModel() const;
+    Q_INVOKABLE QObject *actionsModel() const;
 
     // This forces detection of removable drives
-    void reloadDevices();
+    Q_SLOT void reloadDevices();
 
 private:
     VaultsModel *m_source;
