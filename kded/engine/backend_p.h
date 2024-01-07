@@ -59,6 +59,7 @@ public:
 
         return !dir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries).isEmpty();
     }
+    Q_DISABLE_COPY(Backend)
 };
 
 } // namespace PlasmaVault

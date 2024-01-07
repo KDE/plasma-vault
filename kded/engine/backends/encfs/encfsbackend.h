@@ -34,6 +34,7 @@ protected:
 private:
     QProcess *encfs(const QStringList &arguments) const;
     QProcess *encfsctl(const QStringList &arguments) const;
+    Q_DISABLE_COPY(EncFsBackend)
 };
 
 } // namespace PlasmaVault

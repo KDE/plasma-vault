@@ -34,6 +34,7 @@ protected:
 private:
     QProcess *gocryptfs(const QStringList &arguments) const;
     QString getConfigFilePath(const Device &device) const;
+    Q_DISABLE_COPY(GocryptfsBackend)
 };
 
 } // namespace PlasmaVault

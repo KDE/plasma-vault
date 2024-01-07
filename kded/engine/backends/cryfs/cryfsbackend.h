@@ -33,6 +33,7 @@ protected:
 
 private:
     QProcess *cryfs(const QStringList &arguments) const;
+    Q_DISABLE_COPY(CryFsBackend)
 };
 
 } // namespace PlasmaVault
