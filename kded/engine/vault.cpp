@@ -50,7 +50,7 @@ public:
     Vault *const q;
 
     KSharedConfigPtr config;
-    Device device;
+    const Device device;
 
     FILE *deviceDirectoryLock = nullptr;
 

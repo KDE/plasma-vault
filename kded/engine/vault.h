@@ -35,7 +35,7 @@ class Vault : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(PlasmaVault::Device device READ device)
+    Q_PROPERTY(PlasmaVault::Device device READ device CONSTANT)
     Q_PROPERTY(PlasmaVault::MountPoint mountPoint READ mountPoint NOTIFY mountPointChanged)
 
     Q_PROPERTY(VaultInfo::Status status READ status NOTIFY statusChanged)

@@ -1,0 +1,108 @@
+---
+MainSourceFile:  '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+Diagnostics:
+  - DiagnosticName:  clazy-ctor-missing-parent-argument
+    DiagnosticMessage:
+      Message:         'AsynQt::detail::DelayedFutureInterface should take QObject parent argument in CTOR'
+      FilePath:        '/home/user/kde/src/plasma-vault/asynqt/basic/../private/basic/delayedfuture_p.h'
+      FileOffset:      484
+      Replacements:    []
+    Level:           Warning
+    BuildDirectory:  ''
+  - DiagnosticName:  clazy-ctor-missing-parent-argument
+    DiagnosticMessage:
+      Message:         'AsynQt::detail::DelayedVoidFutureInterface should take QObject parent argument in CTOR'
+      FilePath:        '/home/user/kde/src/plasma-vault/asynqt/basic/../private/basic/delayedfuture_p.h'
+      FileOffset:      1102
+      Replacements:    []
+    Level:           Warning
+    BuildDirectory:  ''
+  - DiagnosticName:  clazy-copyable-polymorphic
+    DiagnosticMessage:
+      Message:         'Polymorphic class PlasmaVault::Backend is copyable. Potential slicing.'
+      FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/backend_p.h'
+      FileOffset:      427
+      Replacements:
+        - FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/backend_p.h'
+          Offset:          442
+          Length:          0
+          ReplacementText: "\npublic:\n\tBackend() = default;"
+        - FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/backend_p.h'
+          Offset:          1812
+          Length:          0
+          ReplacementText: "\tQ_DISABLE_COPY(Backend)\n"
+    Level:           Warning
+    BuildDirectory:  ''
+  - DiagnosticName:  clazy-ctor-missing-parent-argument
+    DiagnosticMessage:
+      Message:         'AsynQt::detail::TransformFutureInterface should take QObject parent argument in CTOR'
+      FilePath:        '/home/user/kde/src/plasma-vault/asynqt/operations/../private/operations/transform_p.h'
+      FileOffset:      1163
+      Replacements:    []
+    Level:           Warning
+    BuildDirectory:  ''
+  - DiagnosticName:  clazy-qstring-allocations
+    DiagnosticMessage:
+      Message:         'QString(const char*) being called'
+      FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+      FileOffset:      2562
+      Replacements:
+        - FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+          Offset:          2562
+          Length:          0
+          ReplacementText: 'QStringLiteral('
+        - FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+          Offset:          2580
+          Length:          0
+          ReplacementText: ')'
+    Level:           Warning
+    BuildDirectory:  ''
+  - DiagnosticName:  clazy-qstring-allocations
+    DiagnosticMessage:
+      Message:         'QString(const char*) being called'
+      FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+      FileOffset:      3176
+      Replacements:
+        - FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+          Offset:          3176
+          Length:          0
+          ReplacementText: 'QStringLiteral('
+        - FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+          Offset:          3194
+          Length:          0
+          ReplacementText: ')'
+    Level:           Warning
+    BuildDirectory:  ''
+  - DiagnosticName:  clazy-qstring-allocations
+    DiagnosticMessage:
+      Message:         'QString(const char*) being called'
+      FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+      FileOffset:      4259
+      Replacements:
+        - FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+          Offset:          4259
+          Length:          0
+          ReplacementText: 'QStringLiteral('
+        - FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+          Offset:          4277
+          Length:          0
+          ReplacementText: ')'
+    Level:           Warning
+    BuildDirectory:  ''
+  - DiagnosticName:  clazy-qstring-allocations
+    DiagnosticMessage:
+      Message:         'QString(const char*) being called'
+      FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+      FileOffset:      18958
+      Replacements:
+        - FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+          Offset:          18958
+          Length:          0
+          ReplacementText: 'QStringLiteral('
+        - FilePath:        '/home/user/kde/src/plasma-vault/kded/engine/vault.cpp'
+          Offset:          18976
+          Length:          0
+          ReplacementText: ')'
+    Level:           Warning
+    BuildDirectory:  ''
+...
