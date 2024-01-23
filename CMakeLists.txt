@@ -23,6 +23,7 @@ endif ()
 # Extra CMake stuff
 include (FeatureSummary)
 
+set(PROJECT_DEP_VERSION "6.0.80")
 set(QT_MIN_VERSION "6.6.0")
 set(KF6_MIN_VERSION "5.240.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
@@ -64,8 +65,8 @@ find_package (
    WidgetsAddons
    )
 
-find_package(Plasma ${PROJECT_VERSION} REQUIRED)
-find_package(PlasmaActivities ${PROJECT_VERSION} REQUIRED)
+find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)
+find_package(PlasmaActivities ${PROJECT_DEP_VERSION} REQUIRED)
 
 find_package (KF6NetworkManagerQt ${KF6_MIN_VERSION})
 if (KF6NetworkManagerQt_FOUND)
