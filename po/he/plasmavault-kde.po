@@ -1,21 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-vault package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-30 01:58+0000\n"
-"PO-Revision-Date: 2024-01-28 09:16+0200\n"
+"PO-Revision-Date: 2024-01-30 21:17+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -110,7 +109,7 @@ msgstr ""
 #: kded/engine/fusebackend_p.cpp:165
 #, kde-format
 msgid "Failed to execute"
-msgstr ""
+msgstr "ההפעלה נכשלה"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
@@ -133,34 +132,34 @@ msgstr ""
 #: kded/engine/fusebackend_p.cpp:191
 #, kde-format
 msgid "Correct version found"
-msgstr ""
+msgstr "נמצאה גרסה נכונה"
 
 #: kded/engine/fusebackend_p.cpp:51
 #, kde-format
 msgid "Unable to perform the operation"
-msgstr ""
+msgstr "לא ניתן לבצע את הפעולה הזאת"
 
 #: kded/engine/fusebackend_p.cpp:96
 #, kde-format
 msgid "This directory already contains encrypted data"
-msgstr ""
+msgstr "התיקייה הזאת כבר מכילה נתונים מוצפנים"
 
 #: kded/engine/fusebackend_p.cpp:99
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
 "mount point"
-msgstr ""
+msgstr "צריך לבחור תיקיות ריקות לאחסון המוצפן ועבור נקודת העגינה"
 
 #: kded/engine/fusebackend_p.cpp:114
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
-msgstr ""
+msgstr "התיקייה הזאת לא מכילה נתונים מוצפנים"
 
 #: kded/engine/fusebackend_p.cpp:118
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
-msgstr ""
+msgstr "צריך לבחור תיקייה ריקה לנקודת העגינה"
 
 #: kded/engine/fusebackend_p.cpp:128
 #, kde-format
@@ -175,7 +174,7 @@ msgstr "ההתקן לא פתוח"
 #: kded/engine/fusebackend_p.cpp:185
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
-msgstr ""
+msgstr "מותקנת גרסה שגויה. הגרסה הרצויה היא %1.%2.%3"
 
 #: kded/engine/vault.cpp:239
 #, kde-format
@@ -200,32 +199,32 @@ msgstr "לא ניתן ליצור נקודת עגינה"
 #: kded/engine/vault.cpp:284
 #, kde-format
 msgid "Configured backend cannot be instantiated: %1"
-msgstr ""
+msgstr "לא ניתן להפעיל את המנגנון המוגדר: %1"
 
 #: kded/engine/vault.cpp:399
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
-msgstr ""
+msgstr "ההתקן הזה כבר רשום. אי אפשר ליצור אותו מחדש."
 
 #: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
 #, kde-format
 msgid "Unknown error; unable to create the backend."
-msgstr ""
+msgstr "שגיאה לא ידועה, לא ניתן ליצור את המנגנון."
 
 #: kded/engine/vault.cpp:433
 #, kde-format
 msgid "This device is not initialized. Cannot import it."
-msgstr ""
+msgstr "ההתקן לא אותחל. אי אפשר לייבא אותו."
 
 #: kded/engine/vault.cpp:464
 #, kde-format
 msgid "Cannot open an unknown vault."
-msgstr ""
+msgstr "אי אפשר לפתוח כספת לא ידועה."
 
 #: kded/engine/vault.cpp:481
 #, kde-format
 msgid "The vault is unknown; cannot close it."
-msgstr ""
+msgstr "הכספת אינה מוכרת, אי אפשר לסגור אותה."
 
 #: kded/engine/vault.cpp:496 kded/engine/vault.cpp:505
 #, kde-format
@@ -340,7 +339,7 @@ msgstr "נקודת עגינה:"
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
 msgid "The specified path does not exist"
-msgstr ""
+msgstr "הנתיב שצוין לא קיים"
 
 #: kded/ui/directorypairchooserwidget.cpp:64
 #, kde-format
