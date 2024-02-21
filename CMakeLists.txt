@@ -25,7 +25,7 @@ include (FeatureSummary)
 
 set(PROJECT_DEP_VERSION "5.93.0")
 set(QT_MIN_VERSION "6.6.0")
-set(KF6_MIN_VERSION "5.240.0")
+set(KF6_MIN_VERSION "6.0.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
 find_package (ECM ${KF6_MIN_VERSION}  NO_MODULE)
