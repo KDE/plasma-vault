@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the plasma-vault package.
 #
-# SPDX-FileCopyrightText: 2023 Enol P. <enolp@softastur.org>
+# SPDX-FileCopyrightText: 2023, 2024 Enol P. <enolp@softastur.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-30 01:58+0000\n"
-"PO-Revision-Date: 2023-12-23 00:15+0100\n"
+"PO-Revision-Date: 2024-03-15 01:17+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Assamese <alministradores@softastur.org>\n"
 "Language: ast\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, kde-format
@@ -141,7 +141,7 @@ msgstr "Nun ye posible facer la operación"
 #: kded/engine/fusebackend_p.cpp:96
 #, kde-format
 msgid "This directory already contains encrypted data"
-msgstr "Esti direutoriu xá contién datos cifraos"
+msgstr "Esti direutoriu yá contién datos cifraos"
 
 #: kded/engine/fusebackend_p.cpp:99
 #, kde-format
@@ -149,7 +149,7 @@ msgid ""
 "You need to select empty directories for the encrypted storage and for the "
 "mount point"
 msgstr ""
-"Tienes de seleicionar direutorios baleros pal almacenamientu cifráu ya pal "
+"Tienes de seleicionar direutorios baleros pal almacenamientu cifráu y pal "
 "puntu de montaxe"
 
 #: kded/engine/fusebackend_p.cpp:114
@@ -165,7 +165,7 @@ msgstr "Tienes de seleicionar un direutoriu baleru pal puntu de montaxe"
 #: kded/engine/fusebackend_p.cpp:128
 #, kde-format
 msgid "Device is already open"
-msgstr "El preséu xá ta abiertu"
+msgstr "El preséu yá ta abiertu"
 
 #: kded/engine/fusebackend_p.cpp:136
 #, kde-format
@@ -205,7 +205,7 @@ msgstr ""
 #: kded/engine/vault.cpp:399
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
-msgstr "Esti preséu xá ta rexistráu, nun se pue volver crear."
+msgstr "Esti preséu yá ta rexistráu, nun se pue volver crear."
 
 #: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
 #, kde-format
@@ -654,7 +654,7 @@ msgstr "Bloquiar l'arca"
 #: plasma/package/contents/ui/VaultItem.qml:28
 #, kde-format
 msgid "Unlock and Open"
-msgstr "Desbloquiar ya abrir"
+msgstr "Desbloquiar y abrir"
 
 #: plasma/package/contents/ui/VaultItem.qml:43
 #, kde-format
