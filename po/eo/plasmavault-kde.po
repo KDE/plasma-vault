@@ -1,51 +1,54 @@
+# translation of plasmavault-kde.pot to Esperanto
+# Copyright (C) 2019 Free Software Foundation, Inc.
+# This file is distributed under the same license as the plasma-vault package.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+#
+# Minuskloj: ĉ ĝ ĵ ĥ ŝ ŭ   Majuskloj: Ĉ Ĝ Ĵ Ĥ Ŝ Ŭ
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:45+0000\n"
-"PO-Revision-Date: 2024-03-28 19:24\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2024-01-03 14:17+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-stable/messages/plasma-vault/plasmavault-kde.pot\n"
-"X-Crowdin-File-ID: 6159\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:73
 #, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Close this Plasma Vault"
-msgstr "关闭此 Plasma 保险库"
+msgstr "Fermi ĉi tiun Plasman trezorejon"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Open this Plasma Vault"
-msgstr "打开此 Plasma 保险库"
+msgstr "Malfermi ĉi tiun Plasma trezorejon"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
 msgctxt "formatting the message for a command, as in encfs: not found"
 msgid "%1: %2"
-msgstr "%1：%2"
+msgstr "%1: %2"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:92
 #: kded/engine/backends/encfs/encfsbackend.cpp:51
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:77
 #, kde-format
 msgid "Failed to create directories, check your permissions"
-msgstr "创建目录失败，请检查您的权限"
+msgstr "Malsukcesis krei dosierujojn, kontrolu viajn permesojn"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:131
 #, kde-format
 msgid "Upgrade the vault?"
-msgstr "升级保险库？"
+msgstr "Ĉu altgradigi la trezorejon?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:132
 #, kde-format
@@ -58,207 +61,221 @@ msgid ""
 "\n"
 "Do you want to perform the upgrade now?"
 msgstr ""
-"此保险库是用旧版本的 cryfs 创建的，需要升级。\n"
+"Ĉi tiu trezorejo estis kreita kun pli malnova versio de cryfs kaj devas esti "
+"ĝisdatigita.\n"
 "\n"
-"注意, 此过程是不可逆的，并且存储库将不能再使用旧版本的 cryfs 打开。\n"
+"Atentu, ke ĉi tiu procezo estas neinversigebla kaj la trezorejo ne plu "
+"funkcios kun pli malnovaj versioj de cryfs.\n"
 "\n"
-"是否立即执行升级？"
+"Ĉu vi volas fari la ĝisdatigon nun?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
 #, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be opened with this version of "
 "cryfs"
-msgstr "保险库需要升级，然后才能用此版本的 cryfs 打开。"
+msgstr ""
+"La trezorejo devas esti ĝisdatigita antaŭ ol ĝi povas esti malfermita kun ĉi "
+"tiu versio de cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:42
 #, kde-format
 msgid "The mount point directory is not empty, refusing to open the vault"
-msgstr "挂载点目录不是空的，拒绝打开保险库"
+msgstr ""
+"La muntapunkta dosierujo ne estas malplena, rifuzante malfermi la trezorejon"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
 msgid "You entered the wrong password"
-msgstr "您输入了错误的密码"
+msgstr "Vi enigis malĝustan pasvorton"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
 #, kde-format
 msgid "The installed version of cryfs is too old to open this vault."
-msgstr "安装的 cryfs 版本太旧, 无法打开此保险库。"
+msgstr ""
+"La instalita versio de cryfs estas tro malnova por malfermi ĉi tiun "
+"trezorejon."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
 #, kde-format
 msgid "Unable to perform the operation (error code %1)."
-msgstr "无法执行操作 (错误代码 %1)。"
+msgstr "Ne eblas plenumi la operacion (erara kodo %1)."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
 #, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
-msgstr "密码目录不是空的，无法初始化保险库。"
+msgstr ""
+"La ĉifra dosierujo ne estas malplena, ne povas pravalorigi la trezorejon."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
 #, kde-format
 msgid "The password is empty, cannot initialise the vault."
-msgstr "密码为空，不能初始化保险库。"
+msgstr "La pasvorto estas malplena, ne povas pravalorigi la trezorejon."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:114
 #, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
-msgstr "无法在密码目录中写入 gocryptfs.conf 文件，请检查您的权限。"
+msgstr ""
+"Ne povas skribi gocryptfs.conf ene de ĉifro dosierujo, kontrolu viajn "
+"permesojn."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
 #: kded/engine/fusebackend_p.cpp:165
 #, kde-format
 msgid "Failed to execute"
-msgstr "未能执行"
+msgstr "Malsukcesis plenumi"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
 #: kded/engine/fusebackend_p.cpp:177
 #, kde-format
 msgid "Unable to detect the version"
-msgstr "无法检测版本"
+msgstr "Ne eblas detekti la version"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
 #, kde-format
 msgid "Unable to detect the version, the version string is invalid"
-msgstr "无法检测版本，版本字符串无效"
+msgstr "Ne eblas detekti la version, la versio ĉeno estas nevalida"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2"
-msgstr "安装了错误的版本。所需的版本是 %1.%2"
+msgstr "Malĝusta versio instalita. La bezonata versio estas %1.%2"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
 #: kded/engine/fusebackend_p.cpp:191
 #, kde-format
 msgid "Correct version found"
-msgstr "找到正确的版本"
+msgstr "Ĝusta versio trovita"
 
 #: kded/engine/fusebackend_p.cpp:51
 #, kde-format
 msgid "Unable to perform the operation"
-msgstr "无法执行该操作"
+msgstr "Ne eblas plenumi la operacion"
 
 #: kded/engine/fusebackend_p.cpp:96
 #, kde-format
 msgid "This directory already contains encrypted data"
-msgstr "此目录已包含加密的数据"
+msgstr "Ĉi tiu dosierujo jam enhavas ĉifritajn datumojn"
 
 #: kded/engine/fusebackend_p.cpp:99
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
 "mount point"
-msgstr "您需要为加密存储和挂载点选择空的目录"
+msgstr ""
+"Vi devas elekti malplenajn dosierujojn por la ĉifrita konservado kaj por la "
+"munta punkto"
 
 #: kded/engine/fusebackend_p.cpp:114
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
-msgstr "此目录不包含加密数据"
+msgstr "Ĉi tiu dosierujo ne enhavas ĉifritajn datumojn"
 
 #: kded/engine/fusebackend_p.cpp:118
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
-msgstr "您需要选择一个空的目录作为挂载点。"
+msgstr "Vi devas elekti malplenan dosierujon por la munta punkto"
 
 #: kded/engine/fusebackend_p.cpp:128
 #, kde-format
 msgid "Device is already open"
-msgstr "设备已打开"
+msgstr "La aparato jam estas malfermita"
 
 #: kded/engine/fusebackend_p.cpp:136
 #, kde-format
 msgid "Device is not open"
-msgstr "设备未打开"
+msgstr "La aparato ne estas malfermita"
 
 #: kded/engine/fusebackend_p.cpp:185
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
-msgstr "安装了错误的版本。所需的版本是 %1.%2.%3"
+msgstr "Malĝusta versio instalita. La bezonata versio estas %1.%2.%3"
 
 #: kded/engine/vault.cpp:239
 #, kde-format
 msgid "Unknown device"
-msgstr "未知设备"
+msgstr "Nekonata aparato"
 
 #: kded/engine/vault.cpp:269
 #, kde-format
 msgid "Configured backend does not exist: %1"
-msgstr "已配置的后端不存在：%1"
+msgstr "Agordita backend ne ekzistas: %1"
 
 #: kded/engine/vault.cpp:274
 #, kde-format
 msgid "Mount point is not specified"
-msgstr "未指定挂载点"
+msgstr "Montpunkto ne estas precizigita"
 
 #: kded/engine/vault.cpp:279
 #, kde-format
 msgid "Cannot create the mount point"
-msgstr "不能创建挂载点"
+msgstr "Ne povas krei la muntan punkton"
 
 #: kded/engine/vault.cpp:284
 #, kde-format
 msgid "Configured backend cannot be instantiated: %1"
-msgstr "配置的后端不能实例化：%1"
+msgstr "Agordita backend ne povas esti instantiigita: %1"
 
 #: kded/engine/vault.cpp:399
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
-msgstr "此设备已被注册。不能重新创建它。"
+msgstr "Ĉi tiu aparato jam estas registrita. Ne povas rekrei ĝin."
 
 #: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
 #, kde-format
 msgid "Unknown error; unable to create the backend."
-msgstr "未知的错误；无法创建后端。"
+msgstr "Nekonata eraro; ne povas krei la backend."
 
 #: kded/engine/vault.cpp:433
 #, kde-format
 msgid "This device is not initialized. Cannot import it."
-msgstr "设备未初始化。无法导入。"
+msgstr "Ĉi tiu aparato ne estas pravigita. Ne povas importi ĝin."
 
 #: kded/engine/vault.cpp:464
 #, kde-format
 msgid "Cannot open an unknown vault."
-msgstr "不能打开未知的保险库。"
+msgstr "Ne povas malfermi nekonatan trezorejon."
 
 #: kded/engine/vault.cpp:481
 #, kde-format
 msgid "The vault is unknown; cannot close it."
-msgstr "未知保险库；无法关闭。"
+msgstr "La trezorejo estas nekonata; ne povas fermi ĝin."
 
 #: kded/engine/vault.cpp:496 kded/engine/vault.cpp:505
 #, kde-format
 msgid "Unable to close the vault because an application is using it"
-msgstr "无法关闭保险库，有应用程序正在使用它"
+msgstr "Ne eblas fermi la trezorejon ĉar aplikaĵo uzas ĝin"
 
 #: kded/engine/vault.cpp:528
 #, kde-format
 msgid "Unable to close the vault because it is being used by %1"
-msgstr "无法关闭保险库，它在被 %1 使用"
+msgstr "Ne eblas fermi la trezorejon ĉar ĝi estas uzata de %1"
 
 #: kded/engine/vault.cpp:552
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
-msgstr "未能获取使用此保险库的应用程序列表"
+msgstr "Malsukcesis alporti la liston de aplikaĵoj uzante ĉi tiun trezorejon"
 
 #: kded/engine/vault.cpp:604
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
-msgstr "无法删除该保险库；存在其他使用重叠路径的保险库。"
+msgstr ""
+"Ne povas forigi la trezorejon; estas aliaj trezorejoj kun interkovritaj "
+"padoj."
 
 #: kded/engine/vault.cpp:609
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
-msgstr "未知保险库；无法销毁它。"
+msgstr "La trezorejo estas nekonata; ne povas malmunti ĝin."
 
 #: kded/engine/vault.cpp:612
 #, kde-format
 msgid "Are you sure you want to delete this vault"
-msgstr "您确定要删除此保险库吗"
+msgstr "Ĉu vi certas, ke vi volas forigi ĉi tiun trezorejon"
 
 #: kded/engine/vault.cpp:613
 #, kde-format
@@ -267,19 +284,19 @@ msgid ""
 "%1\n"
 "%2"
 msgstr ""
-"此操作将不可撤销地删除以下内容：\n"
+"Ĉi tiu operacio neinversigeble forigos la jenon:\n"
 "%1\n"
 "%2"
 
 #: kded/engine/vault.cpp:615
 #, kde-format
 msgid "Delete operation cancelled"
-msgstr "删除操作已取消"
+msgstr "Forigi operacio nuligita"
 
 #: kded/service.cpp:440
 #, kde-format
 msgid "Error deleting vault"
-msgstr "删除保险库出错"
+msgstr "Eraro dum forigo de la trezorejo"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
@@ -290,98 +307,99 @@ msgid ""
 "to an activity it should not be available in, it will automatically be "
 "closed."
 msgstr ""
-"如果您限制只在某些活动中使用此保险库，它将只在进行那些活动时才会在小程序中显"
-"示。此外，当您切换到它不可用的活动时，它会自动关闭。"
+"Se vi limigas ĉi tiun trezorejon nur al certaj agadoj, ĝi estos montrita en "
+"la apleto nur kiam vi estas en tiuj agadoj. Krome, kiam vi ŝanĝas al agado, "
+"en kiu ĝi ne devus esti disponebla, ĝi aŭtomate fermiĝos."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr "限制为选定的活动："
+msgstr "Limigi al la elektitaj agadoj:"
 
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
-msgstr "指定后端不可用"
+msgstr "La specifita backend ne estas disponebla"
 
 #. i18n: ectx: property (text), widget (QLabel, labelVaultName)
 #: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
 #, kde-format
 msgid "Vaul&t name:"
-msgstr "保险库名称(&T)："
+msgstr "Vol&t nomo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/backendchooserwidget.ui:67
 #, kde-format
 msgid "Backend:"
-msgstr "后端："
+msgstr "Backend:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pickBackendButton)
 #: kded/ui/backendchooserwidget.ui:94
 #, kde-format
 msgid "Change"
-msgstr "更改"
+msgstr "Ŝanĝi"
 
 #. i18n: ectx: property (text), widget (QLabel, labelEncryptionSystem)
 #: kded/ui/backendchooserwidget.ui:132
 #, kde-format
 msgid "Choose the encryption system you want to use for this vault:"
-msgstr "选择您想要为此保险库使用的加密系统："
+msgstr "Elektu la ĉifradan sistemon, kiun vi volas uzi por ĉi tiu trezorejo:"
 
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
-msgstr "默认加密方式"
+msgstr "Uzi la defaŭltan ĉifron"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCypher)
 #: kded/ui/cryfscypherchooserwidget.ui:22
 #, kde-format
 msgid "Choose the used cipher:"
-msgstr "选择使用的加密方式："
+msgstr "Elektu la uzatan ĉifron:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDevice)
 #: kded/ui/directorychooserwidget.ui:22
 #, kde-format
 msgid "Mount point:"
-msgstr "挂载点："
+msgstr "Montpunkto:"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
 msgid "The specified path does not exist"
-msgstr "指定的路径不存在"
+msgstr "La specifita vojo ne ekzistas"
 
 #: kded/ui/directorypairchooserwidget.cpp:64
 #, kde-format
 msgid "The specified directory is not empty"
-msgstr "指定的目录非空"
+msgstr "La specifita dosierujo ne estas malplena"
 
 #: kded/ui/directorypairchooserwidget.cpp:70
 #, kde-format
 msgid "The specified directory is empty"
-msgstr "指定的目录为空"
+msgstr "La specifita dosierujo estas malplena"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDevice)
 #: kded/ui/directorypairchooserwidget.ui:22
 #, kde-format
 msgid "Encrypted data location"
-msgstr "加密数据位置"
+msgstr "Ĉifrita datumloko"
 
 #. i18n: ectx: property (text), widget (QLabel, labelMountPoint)
 #: kded/ui/directorypairchooserwidget.ui:36
 #, kde-format
 msgid "Mount point"
-msgstr "挂载点"
+msgstr "Montpunkto"
 
 #: kded/ui/mountdialog.cpp:20
 #, kde-format
 msgctxt "%1 is the name of the Plasma Vault to open"
 msgid "Open '%1' Plasma Vault"
-msgstr "打开“%1” Plasma 保险库"
+msgstr "Malfermi '%1' Plasma trezorejon"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
 msgid "Details…"
-msgstr "详情…"
+msgstr "Detaloj…"
 
 #: kded/ui/mountdialog.cpp:38
 #, kde-format
@@ -391,32 +409,32 @@ msgid ""
 "\n"
 "Error output: %2"
 msgstr ""
-"命令输出：\n"
+"Komanda eligo:\n"
 "%1\n"
 "\n"
-"错误输出：%2"
+"Erara eligo: %2"
 
 #: kded/ui/mountdialog.cpp:43
 #, kde-format
 msgid "Error details"
-msgstr "错误详情"
+msgstr "Detaloj pri eraro"
 
 #: kded/ui/mountdialog.cpp:83
 #, kde-format
 msgid "Failed to open: %1"
-msgstr "打开 %1 失败"
+msgstr "Malsukcesis malfermi: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:62
 #, kde-format
 msgid "Please enter the password to open this vault:"
-msgstr "请输入密码以打开此保险库："
+msgstr "Bonvolu enigi la pasvorton por malfermi ĉi tiun trezorejon:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:94
 #, kde-format
 msgid "Password:"
-msgstr "密码："
+msgstr "Pasvorto:"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
 #: kded/ui/noticewidget.ui:38
@@ -435,27 +453,29 @@ msgid ""
 msgstr ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"<html> <head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
 "\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"<p style=\"-qt-paragraph-type:malplena; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent: 0px;"
 "\"><br /></p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeHidden)
 #: kded/ui/noticewidget.ui:45
 #, kde-format
 msgid "Do not show this notice again"
-msgstr "不再显示此提示"
+msgstr "Ne montri ĉi tiun avizon denove"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
 #: kded/ui/offlineonlywidget.ui:34
 #, kde-format
 msgid ""
 "Go offline while this vault is open (switch off networking and bluetooth)"
-msgstr "打开此保险库时脱机 (关闭网络和蓝牙)"
+msgstr ""
+"Malkonektas dum ĉi tiu trezorejo estas malfermita (malŝaltu reton kaj "
+"bluetooth)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/passwordchooserwidget.ui:22
@@ -463,22 +483,24 @@ msgstr "打开此保险库时脱机 (关闭网络和蓝牙)"
 msgid ""
 "Mind that there is no way to recover a forgotten password. If you forget the "
 "password, your data is as good as gone."
-msgstr "请注意忘记的密码将无法恢复。如果您忘记了密码，您的数据也就一并遗失了。"
+msgstr ""
+"Atentu, ke ne ekzistas maniero reakiri forgesitan pasvorton. Se vi forgesas "
+"la pasvorton, viaj datumoj estas kiel malaperintaj."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
 msgid "General"
-msgstr "常规"
+msgstr "Ĝenerala"
 
 #: kded/ui/vaultconfigurationdialog.cpp:49
 #, kde-format
 msgid "Advanced"
-msgstr "高级"
+msgstr "Altnivela"
 
 #: kded/ui/vaultconfigurationdialog.cpp:51
 #, kde-format
 msgid "Delete"
-msgstr "删除"
+msgstr "Forigi"
 
 #: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
 #: kded/ui/vaultimportingwizard.cpp:34
@@ -501,7 +523,7 @@ msgstr "gocryptfs"
 #: kded/ui/vaultconfigurationdialog.cpp:142
 #, kde-format
 msgid "Configure"
-msgstr "配置"
+msgstr "Agordi"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
 #. i18n: ectx: property (windowTitle), widget (QDialog, VaultImportingWizard)
@@ -510,19 +532,19 @@ msgstr "配置"
 #: kded/ui/vaultimportingwizard.ui:19
 #, kde-format
 msgid "Dialog"
-msgstr "对话框"
+msgstr "Dialogo"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:38
 #, kde-format
 msgid "The vault configuration can only be changed while it is closed."
-msgstr "只能在保险库关闭的时候更改它的配置。"
+msgstr "La trezorejo povas esti ŝanĝita nur dum ĝi estas fermita."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:58
 #, kde-format
 msgid "Close the vault"
-msgstr "关闭保险库"
+msgstr "Fermi la trezorejon"
 
 #: kded/ui/vaultcreationwizard.cpp:35
 #, kde-format
@@ -551,21 +573,22 @@ msgid ""
 "                             See <a href='https://defuse.ca/audits/encfs."
 "htm'>defuse.ca/audits/encfs.htm</a> for more information."
 msgstr ""
-"<b>安全注意：</b>\n"
-"                             根据 Taylor Hornby (来自 Defuse Security) 的安全"
-"审计，当前 Encfs\n"
-"                             的实现是易受攻击或潜在易受攻击的。比如，具有读写"
-"访问加密数据\n"
-"                             权限的攻击者可以随后附加加密数据，而不被正常用户"
-"察觉，从而降\n"
-"                             低解密复杂度，或者使用时间分析来推断信息。\n"
-"                             <br /><br />\n"
-"                             这意味着您不应当将加密的数据同步到云存储服务，或"
-"者用在任何攻\n"
-"                             击者可频繁访问加密数据的情况。\n"
-"                             <br /><br />\n"
-"                             查看 <a href='http://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> 获取更多信息。"
+"<b>Avizo pri sekureco:</b>\n"
+" Laŭ sekureca revizio de Taylor Hornby (Malfunkciigi Sekurecon),\n"
+" la nuna efektivigo de Encfs estas vundebla aŭ eble vundebla\n"
+" kontraŭ multoblaj specoj de atakoj.\n"
+" Ekzemple, atakanto kun legado/skriba aliro\n"
+" al ĉifritaj datumoj povus malaltigi la malĉifritan kompleksecon\n"
+" por poste ĉifritaj datumoj sen ke tio estu rimarkita de legitima uzanto,\n"
+" aŭ povus uzi tempan analizon por dedukti informojn.\n"
+" <br /><br />\n"
+" Ĉi tio signifas, ke vi ne devas sinkronigi\n"
+" la ĉifritajn datumojn al nubkonserveja servo,\n"
+" aŭ uzi ĝin en aliaj cirkonstancoj kie la atakanto\n"
+" povas ofte aliri la ĉifritajn datumojn.\n"
+" <br /><br />\n"
+" Vidu <a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs."
+"htm</a> por pliaj informoj."
 
 #: kded/ui/vaultcreationwizard.cpp:56
 #, kde-format
@@ -587,19 +610,20 @@ msgid ""
 "                             there is no independent security audit\n"
 "                             which confirms this."
 msgstr ""
-"<b>安全提示：</b>\n"
-"                             CryFS 加密您的文件，您可以安全地将他们存放在任何"
-"位置。\n"
-"                             它与 Dropbox，iCloud，OneDrive 和其他与服务能协"
-"同工作。\n"
-"                             <br /><br />\n"
-"                             不像其他文件系统覆盖解决方案，它并不会暴露目录结"
-"构，文件\n"
-"                             数量，或是文件尺寸于加密数据中。\n"
-"                             <br /><br />\n"
-"                             需要注意的是，尽管 CryFS 被认为是安全的，但是尚"
-"未有独立的\n"
-"                             安全审计确认这一点。"
+"<b>Avizo pri sekureco:</b>\n"
+" CryFS ĉifras viajn dosierojn, do vi povas sekure konservi ilin ie ajn.\n"
+" Ĝi bone funkcias kune kun nubaj servoj kiel Dropbox, iCloud, OneDrive kaj "
+"aliaj.\n"
+" <br /><br />\n"
+" Male al iuj aliaj dosiersistemaj superkovraj solvoj,\n"
+" ĝi ne elmontras la dosierujon,\n"
+" la nombron da dosieroj nek la dosiergrandojn\n"
+" per la ĉifrita datumformato.\n"
+" <br /><br />\n"
+" Unu grava afero por noti estas ke,\n"
+" dum CryFS estas konsiderata sekura,\n"
+" ekzistas neniu sendependa sekureca revizio\n"
+" kiu konfirmas tion."
 
 #: kded/ui/vaultcreationwizard.cpp:76
 #, kde-format
@@ -622,28 +646,25 @@ msgid ""
 "                             See <a href='https://defuse.ca/audits/gocryptfs."
 "htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."
 msgstr ""
-"<b>安全提示：</b>\n"
-"                             Gocryptfs 加密您的文件，让您可以在任何地方进行安"
-"全存储。\n"
-"                             它和其他云服务可以一起正常使用，例如 Dropbox、"
-"iCloud、OneDrive 和其他服务。\n"
-"                             <br /><br />\n"
-"                             gocryptfs 作者提供了威胁模型的说"
-"明                              <a href='https://nuetzlich.net/gocryptfs/"
-"threat_model'>nuetzlich.net/gocryptfs/threat_model</"
-"a>。                              <br /><br />\n"
-"                             根据 2017 年 Taylor Hornby (Defuse Security) 进"
-"行的安全审计，\n"
-"                             gocryptfs 保证文件内容对可以读写密文的攻击者保"
-"密。                              <br /><br />\n"
-"                             查看 <a href='https://defuse.ca/audits/"
-"gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a> 获取更多信息。"
+"<b>Avizo pri sekureco:</b>\n"
+" Gocryptfs ĉifras viajn dosierojn, do vi povas sekure konservi ilin ie ajn.\n"
+" Ĝi bone funkcias kune kun nubaj servoj kiel Dropbox, iCloud, OneDrive kaj "
+"aliaj.\n"
+" <br /><br />\n"
+" Minacmodelo por gocryptfs estas provizita de la aŭtoro ĉe <a href='https://"
+"nuetzlich.net/gocryptfs/threat_model'>nuetzlich.net/gocryptfs/threat_model</"
+"a>. <br /><br />\n"
+" Laŭ sekureca revizio farita en 2017 de Taylor Hornby (Defuse Security),\n"
+" gocryptfs konservas dosierenhavon sekreta kontraŭ kontraŭulo, kiu povas "
+"legi kaj modifi la ĉifrtekston. <br /><br />\n"
+" Vidu <a href='https://defuse.ca/audits/gocryptfs.htm'>defuse.ca/audits/"
+"gocryptfs.htm</a> por pliaj informoj."
 
 #: kded/ui/vaultcreationwizard.cpp:138
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
-msgstr "创建新保险库"
+msgstr "Krei Novan Trezorejon"
 
 #. i18n: ectx: property (text), widget (QLabel, labelWarning)
 #: kded/ui/vaultdeletionwidget.ui:22
@@ -651,82 +672,84 @@ msgstr "创建新保险库"
 msgid ""
 "This action <b>cannot</b> be undone. This will permanently delete the "
 "selected vault!"
-msgstr "此操作<b>无法</b>撤销。这将永久性删除所选的保险库！"
+msgstr ""
+"Ĉi tiu ago <b>ne povas</b> esti malfarita. Ĉi tio konstante forigos la "
+"elektitan trezorejon!"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConfirm)
 #: kded/ui/vaultdeletionwidget.ui:29
 #, kde-format
 msgid "Please type in the name of the vault to confirm:"
-msgstr "请键入保险库的名称以确认："
+msgstr "Bonvolu tajpi la nomon de la trezorejo por konfirmi:"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
 #: kded/ui/vaultdeletionwidget.ui:44
 #, kde-format
 msgid "Delete this vault"
-msgstr "删除此保险库"
+msgstr "Forigi ĉi tiun trezorejon"
 
 #: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
 msgid "Import"
-msgstr "导入"
+msgstr "Importi"
 
 #: kded/ui/vaultimportingwizard.cpp:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Import an Existing Vault"
-msgstr "导入现有的保险库"
+msgstr "Importi Ekzistantan Trezorejon"
 
 #: kded/ui/vaultwizardbase.h:39 kded/ui/vaultwizardbase.h:90
 #, kde-format
 msgid "Next"
-msgstr "下一步"
+msgstr "Poste"
 
 #: kded/ui/vaultwizardbase.h:80
 #, kde-format
 msgid "Create"
-msgstr "新建"
+msgstr "Krei"
 
 #: kded/ui/vaultwizardbase.h:87
 #, kde-format
 msgid "Previous"
-msgstr "上一步"
+msgstr "Antaŭa"
 
 #: plasma/package/contents/ui/main.qml:36
 #, kde-format
 msgid "Create a New Vault…"
-msgstr "新建保险库…"
+msgstr "Krei Novan Trezorejon…"
 
 #: plasma/package/contents/ui/main.qml:84
 #, kde-format
 msgid "No Vaults have been set up"
-msgstr "未设置任何保险库"
+msgstr "Neniuj Trezorejoj estis starigitaj"
 
 #: plasma/package/contents/ui/VaultItem.qml:28
 #, kde-format
 msgid "Lock Vault"
-msgstr "锁定保险库"
+msgstr "Ŝlosi Trezorejon"
 
 #: plasma/package/contents/ui/VaultItem.qml:28
 #, kde-format
 msgid "Unlock and Open"
-msgstr "解锁并打开"
+msgstr "Malŝlosi kaj Malfermi"
 
 #: plasma/package/contents/ui/VaultItem.qml:43
 #, kde-format
 msgid "Show in File Manager"
-msgstr "在文件管理器中打开"
+msgstr "Montri en Dosiera Administranto"
 
 #: plasma/package/contents/ui/VaultItem.qml:50
 #, kde-format
 msgid "Forcefully Lock Vault"
-msgstr "强制锁定保险库"
+msgstr "Perforte Ŝlosi Trezorejon"
 
 #: plasma/package/contents/ui/VaultItem.qml:50
 #, kde-format
 msgid "Unlock Vault"
-msgstr "解锁保险库"
+msgstr "Malŝlosi Trezorejon"
 
 #: plasma/package/contents/ui/VaultItem.qml:61
 #, kde-format
 msgid "Configure Vault…"
-msgstr "配置保险库…"
+msgstr "Agordi Trezorejon…"
