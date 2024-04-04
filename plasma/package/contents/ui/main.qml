@@ -116,7 +116,7 @@ PlasmoidItem {
                 visible: vaultsList.count > 0 && !(Plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
 
                 text: createAction.text
-                icon.name: "list-add"
+                icon.name: "list-add-symbolic"
 
                 onClicked: { createAction.trigger() }
                 Layout.alignment: Qt.AlignLeft
