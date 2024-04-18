@@ -20,6 +20,7 @@ class VaultsModel : public QAbstractListModel
 
     Q_PROPERTY(bool isBusy READ isBusy NOTIFY isBusyChanged)
     Q_PROPERTY(bool hasError READ hasError NOTIFY hasErrorChanged)
+    Q_PROPERTY(bool hasOpenVaults READ hasOpenVaults NOTIFY hasOpenVaultsChanged)
     Q_PROPERTY(int count READ rowCount NOTIFY rowCountChanged)
 
 public:
@@ -75,10 +76,12 @@ public Q_SLOTS:
 
     bool isBusy() const;
     bool hasError() const;
+    bool hasOpenVaults() const;
 
 Q_SIGNALS:
     void isBusyChanged(bool isBusy);
     void hasErrorChanged(bool hasError);
+    void hasOpenVaultsChanged(bool hasOpenVaults);
     void rowCountChanged(int count);
 
 private:

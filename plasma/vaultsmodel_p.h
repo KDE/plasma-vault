@@ -36,6 +36,7 @@ public:
 
     QSet<QString> busyVaults;
     QSet<QString> errorVaults;
+    QSet<QString> openVaults;
 
     VaultsModel *const q;
 };

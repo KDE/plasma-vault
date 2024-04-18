@@ -61,6 +61,7 @@ void VaultsModel::Private::loadData()
         vaultKeys.clear();
         busyVaults.clear();
         errorVaults.clear();
+        openVaults.clear();
 
         for (const auto &vault : vaultList) {
             vaults[vault.device] = vault;
@@ -68,6 +69,10 @@ void VaultsModel::Private::loadData()
 
             if (vault.isBusy()) {
                 busyVaults << vault.device;
+            }
+
+            if (vault.isOpened()) {
+                openVaults << vault.device;
             }
 
             if (!vault.message.isEmpty()) {
@@ -82,6 +87,7 @@ void VaultsModel::Private::loadData()
         }
 
         Q_EMIT q->isBusyChanged(busyVaults.count() != 0);
+        Q_EMIT q->hasOpenVaultsChanged(openVaults.count() != 0);
         Q_EMIT q->hasErrorChanged(errorVaults.count() != 0);
     });
 }
@@ -158,6 +164,19 @@ void VaultsModel::Private::onVaultChanged(const PlasmaVault::VaultInfo &vaultInf
         errorVaults.remove(device);
         if (errorVaults.count() == 0) {
             Q_EMIT q->hasErrorChanged(false);
+        }
+    }
+
+    // Let's see whether this warrants updates to the opened flag
+    if (vaultInfo.isOpened() && !openVaults.contains(device)) {
+        openVaults << device;
+        Q_EMIT q->hasOpenVaultsChanged(true);
+    }
+
+    if (!vaultInfo.isOpened() && openVaults.contains(device)) {
+        openVaults.remove(device);
+        if (openVaults.count() == 0) {
+            Q_EMIT q->hasOpenVaultsChanged(false);
         }
     }
 
@@ -344,6 +363,11 @@ bool VaultsModel::isBusy() const
 bool VaultsModel::hasError() const
 {
     return !d->errorVaults.isEmpty();
+}
+
+bool VaultsModel::hasOpenVaults() const
+{
+    return !d->openVaults.isEmpty();
 }
 
 SortedVaultsModelProxy::SortedVaultsModelProxy(QObject *parent)

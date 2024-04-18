@@ -37,7 +37,7 @@ PlasmoidItem {
         return iconName;
     }
 
-    Plasmoid.status: vaultsModelActions.count > 0 ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+    Plasmoid.status: vaultsModelActions.hasOpenVaults ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
 
     onExpandedChanged: {
         Plasmoid.vaultsModel.reloadDevices();
