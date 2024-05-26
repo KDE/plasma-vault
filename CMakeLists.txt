@@ -79,9 +79,6 @@ include_directories (
    ${CMAKE_CURRENT_SOURCE_DIR}/common
    )
 
-# Basic includes
-include (CPack)
-
 include (ECMSetupVersion)
 
 add_definitions (-DQT_NO_URL_CAST_FROM_STRING)
