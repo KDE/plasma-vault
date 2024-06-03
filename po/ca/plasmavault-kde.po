@@ -1,17 +1,17 @@
 # Translation of plasmavault-kde.po to Catalan
-# Copyright (C) 2017-2023 This_file_is_part_of_KDE
+# Copyright (C) 2017-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2017, 2020, 2022.
-# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2018, 2019, 2020, 2021, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2017, 2018, 2019, 2020, 2021, 2023, 2024.
 # Empar Montoro Martín <montoro_mde@gva.es>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:45+0000\n"
-"PO-Revision-Date: 2023-10-08 19:26+0200\n"
+"PO-Revision-Date: 2024-06-02 11:34+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -590,10 +590,10 @@ msgstr ""
 "                             atacant amb accés de lectura/escriptura a les "
 "dades encriptades podria\n"
 "                             reduir la complexitat del desencriptatge de les "
-"dades encriptades,\n"
-"                             de manera que després puguin ser vistes per un "
-"usuari legitimat, o\n"
-"                             podrà usar l'anàlisi temporal per a deduir la "
+"dades encriptades\n"
+"                             posteriors sense que això ho percebi un usuari "
+"legítim, o es podria\n"
+"                             usar l'anàlisi temporal per a deduir la "
 "informació.\n"
 "                             <br /><br />\n"
 "                             Això vol dir que no heu de sincronitzar dades "
