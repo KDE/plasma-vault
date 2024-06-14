@@ -102,7 +102,7 @@ PlasmoidItem {
 
                     helpfulAction: QQC2.Action {
                         text: createAction.text
-                        icon.name: "list-add-symbolic"
+                        icon.name: createAction.icon.name
 
                         onTriggered: source => createAction.trigger()
                     }
@@ -117,7 +117,7 @@ PlasmoidItem {
                 visible: vaultsList.count > 0 && !(Plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
 
                 text: createAction.text
-                icon.name: "list-add-symbolic"
+                icon.name: createAction.icon.name
 
                 onClicked: createAction.trigger()
                 Layout.alignment: Qt.AlignLeft
