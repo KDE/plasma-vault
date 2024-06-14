@@ -76,6 +76,7 @@ PlasmoidItem {
                     sourceModel: vaultsModel
                 }
 
+                clip: true
                 currentIndex: -1
                 topMargin: Kirigami.Units.smallSpacing * 2
                 bottomMargin: Kirigami.Units.smallSpacing * 2
