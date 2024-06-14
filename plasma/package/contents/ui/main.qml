@@ -4,6 +4,8 @@
  *   SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -17,7 +19,7 @@ import org.kde.plasma.plasmoid
 
 PlasmoidItem {
     property var vaultsModel: Plasmoid.vaultsModel
-    property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
+    readonly property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
 
     readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
         || Plasmoid.location === PlasmaCore.Types.RightEdge
@@ -47,7 +49,7 @@ PlasmoidItem {
             id: createAction
             text: i18nd("plasmavault-kde", "Create a New Vault…")
             icon.name: "list-add-symbolic"
-            onTriggered: checked => vaultsModelActions.requestNewVault()
+            onTriggered: checked => root.vaultsModelActions.requestNewVault()
         }
     ]
 
@@ -64,7 +66,7 @@ PlasmoidItem {
             // HACK: workaround for https://bugreports.qt.io/browse/QTBUG-83890
             PlasmaComponents3.ScrollBar.horizontal.policy: PlasmaComponents3.ScrollBar.AlwaysOff
 
-            contentWidth: availableWidth - contentItem.leftMargin - contentItem.rightMargin
+            contentWidth: availableWidth - vaultsList.leftMargin - vaultsList.rightMargin
 
             contentItem: ListView {
                 id: vaultsList

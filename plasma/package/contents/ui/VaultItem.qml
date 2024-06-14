@@ -5,6 +5,8 @@
  *   SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls as QQC2
 
@@ -12,8 +14,12 @@ import org.kde.plasma.extras as PlasmaExtras
 import org.kde.plasma.plasmoid
 
 PlasmaExtras.ExpandableListItem {
-    id: expandableListItem
-    property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
+    id: root
+
+    required property int index
+    required property var model
+
+    readonly property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
 
     icon: model.icon
     iconEmblem: {
@@ -32,13 +38,13 @@ PlasmaExtras.ExpandableListItem {
     subtitle: model.message
     subtitleCanWrap: true
     defaultActionButtonAction: QQC2.Action {
-        icon.name: model.isOpened ? "lock-symbolic" : "unlock-symbolic"
-        text: model.isOpened ? i18nd("plasmavault-kde", "Lock Vault") : i18nd("plasmavault-kde", "Unlock and Open")
+        icon.name: root.model.isOpened ? "lock-symbolic" : "unlock-symbolic"
+        text: root.model.isOpened ? i18nd("plasmavault-kde", "Lock Vault") : i18nd("plasmavault-kde", "Unlock and Open")
         onTriggered: source => {
-            if (model.isOpened) {
-                vaultsModelActions.toggle(model.device);
+            if (root.model.isOpened) {
+                root.vaultsModelActions.toggle(root.model.device);
             } else {
-                vaultsModelActions.openInFileManager(model.device);
+                root.vaultsModelActions.openInFileManager(root.model.device);
             }
         }
     }
@@ -46,28 +52,28 @@ PlasmaExtras.ExpandableListItem {
     enabled: model.isEnabled
     contextualActions: [
         QQC2.Action {
-            enabled: model.isOpened
+            enabled: root.model.isOpened
             icon.name: "document-open-folder-symbolic"
             text: i18nd("plasmavault-kde", "Show in File Manager")
             onTriggered: source => {
-                vaultsModelActions.openInFileManager(model.device);
+                root.vaultsModelActions.openInFileManager(root.model.device);
             }
         },
         QQC2.Action {
-            icon.name: model.isOpened ? "window-close-symbolic" : "unlock-symbolic"
-            text: model.isOpened ? i18nd("plasmavault-kde", "Forcefully Lock Vault") : i18nd("plasmavault-kde", "Unlock Vault")
+            icon.name: root.model.isOpened ? "window-close-symbolic" : "unlock-symbolic"
+            text: root.model.isOpened ? i18nd("plasmavault-kde", "Forcefully Lock Vault") : i18nd("plasmavault-kde", "Unlock Vault")
             onTriggered: source => {
-                if (model.isOpened) {
-                    vaultsModelActions.forceClose(model.device);
+                if (root.model.isOpened) {
+                    root.vaultsModelActions.forceClose(root.model.device);
                 } else {
-                    vaultsModelActions.toggle(model.device);
+                    root.vaultsModelActions.toggle(root.model.device);
                 }
             }
         },
         QQC2.Action {
             icon.name: "configure-symbolic"
             text: i18nd("plasmavault-kde", "Configure Vault…")
-            onTriggered: source => vaultsModelActions.configure(model.device);
+            onTriggered: source => root.vaultsModelActions.configure(root.model.device);
         }
     ]
 }
