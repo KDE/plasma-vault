@@ -5,11 +5,11 @@
  *   SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
 
-import QtQuick 2.1
-import QtQuick.Controls 2.12
+import QtQuick
+import QtQuick.Controls
 
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.plasma.plasmoid
+import org.kde.plasma.extras as PlasmaExtras
 
 PlasmaExtras.ExpandableListItem {
     id: expandableListItem
