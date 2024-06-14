@@ -18,7 +18,6 @@ import org.kde.plasma.extras as PlasmaExtras
 import org.kde.plasma.plasmoid
 
 PlasmoidItem {
-    property var vaultsModel: Plasmoid.vaultsModel
     readonly property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
 
     readonly property bool inPanel: [
@@ -75,7 +74,7 @@ PlasmoidItem {
 
                 model: KItemModels.KSortFilterProxyModel {
                     sortRoleName: "name"
-                    sourceModel: vaultsModel
+                    sourceModel: Plasmoid.vaultsModel
                 }
 
                 clip: true
