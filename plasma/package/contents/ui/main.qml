@@ -71,11 +71,10 @@ PlasmoidItem {
             contentItem: ListView {
                 id: vaultsList
 
-                model:
-                    KItemModels.KSortFilterProxyModel {
-                        sortRoleName: "name"
-                        sourceModel: vaultsModel
-                    }
+                model: KItemModels.KSortFilterProxyModel {
+                    sortRoleName: "name"
+                    sourceModel: vaultsModel
+                }
 
                 currentIndex: -1
                 topMargin: Kirigami.Units.smallSpacing * 2
