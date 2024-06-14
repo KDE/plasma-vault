@@ -21,10 +21,12 @@ PlasmoidItem {
     property var vaultsModel: Plasmoid.vaultsModel
     readonly property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
 
-    readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
-        || Plasmoid.location === PlasmaCore.Types.RightEdge
-        || Plasmoid.location === PlasmaCore.Types.BottomEdge
-        || Plasmoid.location === PlasmaCore.Types.LeftEdge)
+    readonly property bool inPanel: [
+        PlasmaCore.Types.TopEdge,
+        PlasmaCore.Types.RightEdge,
+        PlasmaCore.Types.BottomEdge,
+        PlasmaCore.Types.LeftEdge,
+    ].includes(Plasmoid.location)
 
     Plasmoid.busy: vaultsModelActions.isBusy
 
