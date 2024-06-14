@@ -16,10 +16,18 @@ PlasmaExtras.ExpandableListItem {
     property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
 
     icon: model.icon
-    iconEmblem: model.message.length !== 0 ? "emblem-error" :
-                            model.isOpened ? "emblem-mounted" :
-                        model.isOfflineOnly ? "network-disconnect-symbolic" :
-                                                ""
+    iconEmblem: {
+        if (model.message.length !== 0) {
+            return "emblem-error";
+        } else if (model.isOpened) {
+            return "emblem-mounted";
+        } else if (model.isOfflineOnly) {
+            return "network-disconnect-symbolic";
+        } else {
+            return "";
+        }
+    }
+
     title: model.name
     subtitle: model.message
     subtitleCanWrap: true
