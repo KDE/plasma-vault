@@ -110,17 +110,19 @@ PlasmoidItem {
             }
         }
 
-        footer: RowLayout {
-            PlasmaComponents3.Button {
-                id: buttonCreateNewVault
+        footer: PlasmaExtras.PlasmoidHeading {
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.smallSpacing
 
-                visible: vaultsList.count > 0 && !(Plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
+                PlasmaComponents3.ToolButton {
+                    visible: vaultsList.count > 0 && !(Plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
 
-                text: createAction.text
-                icon.name: createAction.icon.name
+                    text: createAction.text
+                    icon.name: createAction.icon.name
 
-                onClicked: createAction.trigger()
-                Layout.alignment: Qt.AlignLeft
+                    onClicked: createAction.trigger()
+                    Layout.alignment: Qt.AlignLeft
+                }
             }
         }
     }
