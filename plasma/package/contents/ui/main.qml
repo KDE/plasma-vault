@@ -109,11 +109,12 @@ PlasmoidItem {
         }
 
         footer: PlasmaExtras.PlasmoidHeading {
+            visible: vaultsList.count > 0 && !(Plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
+
             contentItem: RowLayout {
                 spacing: Kirigami.Units.smallSpacing
 
                 PlasmaComponents3.ToolButton {
-                    visible: vaultsList.count > 0 && !(Plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentDrawsPlasmoidHeading)
 
                     text: createAction.text
                     icon.name: createAction.icon.name
