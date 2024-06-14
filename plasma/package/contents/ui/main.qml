@@ -7,12 +7,13 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
-import org.kde.plasma.core as PlasmaCore
+
 import org.kde.kirigami as Kirigami
-import org.kde.plasma.plasmoid
-import org.kde.plasma.components as PlasmaComponents3
-import org.kde.plasma.extras as PlasmaExtras
 import org.kde.kitemmodels as KItemModels
+import org.kde.plasma.components as PlasmaComponents3
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.extras as PlasmaExtras
+import org.kde.plasma.plasmoid
 
 PlasmoidItem {
     property var vaultsModel: Plasmoid.vaultsModel

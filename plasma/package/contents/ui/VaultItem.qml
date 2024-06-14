@@ -8,8 +8,8 @@
 import QtQuick
 import QtQuick.Controls
 
-import org.kde.plasma.plasmoid
 import org.kde.plasma.extras as PlasmaExtras
+import org.kde.plasma.plasmoid
 
 PlasmaExtras.ExpandableListItem {
     id: expandableListItem
