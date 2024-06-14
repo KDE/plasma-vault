@@ -6,7 +6,7 @@
  */
 
 import QtQuick
-import QtQuick.Controls
+import QtQuick.Controls as QQC2
 
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.plasma.plasmoid
@@ -23,7 +23,7 @@ PlasmaExtras.ExpandableListItem {
     title: model.name
     subtitle: model.message
     subtitleCanWrap: true
-    defaultActionButtonAction: Action {
+    defaultActionButtonAction: QQC2.Action {
         icon.name: model.isOpened ? "lock-symbolic" : "unlock-symbolic"
         text: model.isOpened ? i18nd("plasmavault-kde", "Lock Vault") : i18nd("plasmavault-kde", "Unlock and Open")
         onTriggered: {
@@ -37,7 +37,7 @@ PlasmaExtras.ExpandableListItem {
     isBusy: Plasmoid.busy
     enabled: model.isEnabled
     contextualActions: [
-        Action {
+        QQC2.Action {
             enabled: model.isOpened
             icon.name: "document-open-folder-symbolic"
             text: i18nd("plasmavault-kde", "Show in File Manager")
@@ -45,7 +45,7 @@ PlasmaExtras.ExpandableListItem {
                 vaultsModelActions.openInFileManager(model.device);
             }
         },
-        Action {
+        QQC2.Action {
             icon.name: model.isOpened ? "window-close-symbolic" : "unlock-symbolic"
             text: model.isOpened ? i18nd("plasmavault-kde", "Forcefully Lock Vault") : i18nd("plasmavault-kde", "Unlock Vault")
             onTriggered: {
@@ -56,7 +56,7 @@ PlasmaExtras.ExpandableListItem {
                 }
             }
         },
-        Action {
+        QQC2.Action {
             icon.name: "configure-symbolic"
             text: i18nd("plasmavault-kde", "Configure Vault…")
             onTriggered: vaultsModelActions.configure(model.device);
