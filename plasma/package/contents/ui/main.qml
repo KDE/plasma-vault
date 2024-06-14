@@ -49,7 +49,7 @@ PlasmoidItem {
             id: createAction
             text: i18nd("plasmavault-kde", "Create a New Vault…")
             icon.name: "list-add-symbolic"
-            onTriggered: vaultsModelActions.requestNewVault()
+            onTriggered: checked => vaultsModelActions.requestNewVault()
         }
     ]
 
@@ -104,7 +104,7 @@ PlasmoidItem {
                         text: createAction.text
                         icon.name: "list-add-symbolic"
 
-                        onTriggered: createAction.trigger()
+                        onTriggered: source => createAction.trigger()
                     }
                 }
             }
@@ -119,7 +119,7 @@ PlasmoidItem {
                 text: createAction.text
                 icon.name: "list-add-symbolic"
 
-                onClicked: { createAction.trigger() }
+                onClicked: createAction.trigger()
                 Layout.alignment: Qt.AlignLeft
             }
         }

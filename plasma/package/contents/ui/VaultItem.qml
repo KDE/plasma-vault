@@ -26,7 +26,7 @@ PlasmaExtras.ExpandableListItem {
     defaultActionButtonAction: QQC2.Action {
         icon.name: model.isOpened ? "lock-symbolic" : "unlock-symbolic"
         text: model.isOpened ? i18nd("plasmavault-kde", "Lock Vault") : i18nd("plasmavault-kde", "Unlock and Open")
-        onTriggered: {
+        onTriggered: source => {
             if (model.isOpened) {
                 vaultsModelActions.toggle(model.device);
             } else {
@@ -41,14 +41,14 @@ PlasmaExtras.ExpandableListItem {
             enabled: model.isOpened
             icon.name: "document-open-folder-symbolic"
             text: i18nd("plasmavault-kde", "Show in File Manager")
-            onTriggered: {
+            onTriggered: source => {
                 vaultsModelActions.openInFileManager(model.device);
             }
         },
         QQC2.Action {
             icon.name: model.isOpened ? "window-close-symbolic" : "unlock-symbolic"
             text: model.isOpened ? i18nd("plasmavault-kde", "Forcefully Lock Vault") : i18nd("plasmavault-kde", "Unlock Vault")
-            onTriggered: {
+            onTriggered: source => {
                 if (model.isOpened) {
                     vaultsModelActions.forceClose(model.device);
                 } else {
@@ -59,7 +59,7 @@ PlasmaExtras.ExpandableListItem {
         QQC2.Action {
             icon.name: "configure-symbolic"
             text: i18nd("plasmavault-kde", "Configure Vault…")
-            onTriggered: vaultsModelActions.configure(model.device);
+            onTriggered: source => vaultsModelActions.configure(model.device);
         }
     ]
 }
