@@ -78,11 +78,11 @@ PlasmoidItem {
 
                 clip: true
                 currentIndex: -1
-                topMargin: Kirigami.Units.smallSpacing * 2
-                bottomMargin: Kirigami.Units.smallSpacing * 2
-                leftMargin: Kirigami.Units.smallSpacing * 2
-                rightMargin: Kirigami.Units.smallSpacing * 2
                 spacing: Kirigami.Units.smallSpacing
+                topMargin: Kirigami.Units.largeSpacing
+                leftMargin: Kirigami.Units.largeSpacing
+                rightMargin: Kirigami.Units.largeSpacing
+                bottomMargin: Kirigami.Units.largeSpacing
 
                 highlight: PlasmaExtras.Highlight {}
                 highlightMoveDuration: Kirigami.Units.shortDuration
