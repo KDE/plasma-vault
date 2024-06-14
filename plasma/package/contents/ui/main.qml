@@ -19,8 +19,6 @@ PlasmoidItem {
     property var vaultsModel: Plasmoid.vaultsModel
     property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
 
-    property var expandedItem: null
-
     readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
         || Plasmoid.location === PlasmaCore.Types.RightEdge
         || Plasmoid.location === PlasmaCore.Types.BottomEdge
