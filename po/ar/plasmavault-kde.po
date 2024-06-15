@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 01:58+0000\n"
+"POT-Creation-Date: 2024-06-15 00:40+0000\n"
 "PO-Revision-Date: 2021-12-11 21:25+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -708,42 +708,42 @@ msgstr "أنشئ"
 msgid "Previous"
 msgstr "السّابق"
 
-#: plasma/package/contents/ui/main.qml:49
+#: plasma/package/contents/ui/main.qml:51
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "أنشئ خزنة جديدة..."
 
-#: plasma/package/contents/ui/main.qml:100
+#: plasma/package/contents/ui/main.qml:102
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "لم تهيئ أي خزنة"
 
-#: plasma/package/contents/ui/VaultItem.qml:28
+#: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Lock Vault"
 msgstr "اقفل الخزنة"
 
-#: plasma/package/contents/ui/VaultItem.qml:28
+#: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Unlock and Open"
 msgstr "فك القفل وافتح"
 
-#: plasma/package/contents/ui/VaultItem.qml:43
+#: plasma/package/contents/ui/VaultItem.qml:57
 #, kde-format
 msgid "Show in File Manager"
 msgstr "أعرض في مدير الملفّات"
 
-#: plasma/package/contents/ui/VaultItem.qml:50
+#: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Forcefully Lock Vault"
 msgstr "أغلق الخزنة بالقوّة"
 
-#: plasma/package/contents/ui/VaultItem.qml:50
+#: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Unlock Vault"
 msgstr "فك قفل الخزنة"
 
-#: plasma/package/contents/ui/VaultItem.qml:61
+#: plasma/package/contents/ui/VaultItem.qml:75
 #, kde-format
 msgid "Configure Vault…"
 msgstr "اضبط الخزنة..."

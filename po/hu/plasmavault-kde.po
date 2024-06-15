@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 01:58+0000\n"
+"POT-Creation-Date: 2024-06-15 00:40+0000\n"
 "PO-Revision-Date: 2021-09-30 16:01+0200\n"
 "Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -721,42 +721,42 @@ msgstr "Létrehozás"
 msgid "Previous"
 msgstr "Vissza"
 
-#: plasma/package/contents/ui/main.qml:49
+#: plasma/package/contents/ui/main.qml:51
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Új titkos tároló létrehozása…"
 
-#: plasma/package/contents/ui/main.qml:100
+#: plasma/package/contents/ui/main.qml:102
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Nincsenek beállítva titkos tárolók"
 
-#: plasma/package/contents/ui/VaultItem.qml:28
+#: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Lock Vault"
 msgstr "Titkos tároló zárolása"
 
-#: plasma/package/contents/ui/VaultItem.qml:28
+#: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Unlock and Open"
 msgstr "Feloldás és megnyitás"
 
-#: plasma/package/contents/ui/VaultItem.qml:43
+#: plasma/package/contents/ui/VaultItem.qml:57
 #, kde-format
 msgid "Show in File Manager"
 msgstr "Megjelenítés fájlkezelőben"
 
-#: plasma/package/contents/ui/VaultItem.qml:50
+#: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Forcefully Lock Vault"
 msgstr "Titkos tároló kényszerített zárolása"
 
-#: plasma/package/contents/ui/VaultItem.qml:50
+#: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Unlock Vault"
 msgstr "Titkos tároló feloldása"
 
-#: plasma/package/contents/ui/VaultItem.qml:61
+#: plasma/package/contents/ui/VaultItem.qml:75
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Titkos tároló beállításai…"

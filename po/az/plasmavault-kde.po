@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 01:58+0000\n"
+"POT-Creation-Date: 2024-06-15 00:40+0000\n"
 "PO-Revision-Date: 2022-07-03 14:23+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -710,42 +710,42 @@ msgstr "Yaratmaq"
 msgid "Previous"
 msgstr "Əvvəlki"
 
-#: plasma/package/contents/ui/main.qml:49
+#: plasma/package/contents/ui/main.qml:51
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Yeni Seyf Yaratmaq"
 
-#: plasma/package/contents/ui/main.qml:100
+#: plasma/package/contents/ui/main.qml:102
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Seyf təyin edilməyib"
 
-#: plasma/package/contents/ui/VaultItem.qml:28
+#: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Lock Vault"
 msgstr "Sefi kilidləmək"
 
-#: plasma/package/contents/ui/VaultItem.qml:28
+#: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Unlock and Open"
 msgstr "Kiliddən çıxarmaq və Açmaq"
 
-#: plasma/package/contents/ui/VaultItem.qml:43
+#: plasma/package/contents/ui/VaultItem.qml:57
 #, kde-format
 msgid "Show in File Manager"
 msgstr "Fayl Menecerində göstərmək"
 
-#: plasma/package/contents/ui/VaultItem.qml:50
+#: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Forcefully Lock Vault"
 msgstr "Seyfi məcburi kilidləmək"
 
-#: plasma/package/contents/ui/VaultItem.qml:50
+#: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Unlock Vault"
 msgstr "Seyfi kiliddən çıxarmaq"
 
-#: plasma/package/contents/ui/VaultItem.qml:61
+#: plasma/package/contents/ui/VaultItem.qml:75
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Seyfi Tənzimləmək..."

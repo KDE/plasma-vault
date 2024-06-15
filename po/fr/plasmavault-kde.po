@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-30 01:58+0000\n"
+"POT-Creation-Date: 2024-06-15 00:40+0000\n"
 "PO-Revision-Date: 2024-05-03 09:36+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -736,42 +736,42 @@ msgstr "Créer"
 msgid "Previous"
 msgstr "Précédent"
 
-#: plasma/package/contents/ui/main.qml:49
+#: plasma/package/contents/ui/main.qml:51
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Créer un nouveau coffre-fort..."
 
-#: plasma/package/contents/ui/main.qml:100
+#: plasma/package/contents/ui/main.qml:102
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Aucun coffre-fort n'a été configuré"
 
-#: plasma/package/contents/ui/VaultItem.qml:28
+#: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Lock Vault"
 msgstr "Verrouiller le coffre-fort"
 
-#: plasma/package/contents/ui/VaultItem.qml:28
+#: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Unlock and Open"
 msgstr "Déverrouiller et ouvrir"
 
-#: plasma/package/contents/ui/VaultItem.qml:43
+#: plasma/package/contents/ui/VaultItem.qml:57
 #, kde-format
 msgid "Show in File Manager"
 msgstr "Afficher dans le gestionnaire de fichiers"
 
-#: plasma/package/contents/ui/VaultItem.qml:50
+#: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Forcefully Lock Vault"
 msgstr "Forcer la fermeture du coffre-fort"
 
-#: plasma/package/contents/ui/VaultItem.qml:50
+#: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Unlock Vault"
 msgstr "Déverrouiller le coffre-fort"
 
-#: plasma/package/contents/ui/VaultItem.qml:61
+#: plasma/package/contents/ui/VaultItem.qml:75
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Configurer un coffre-fort..."
