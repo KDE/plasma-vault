@@ -11,6 +11,7 @@
 #include <QDBusServiceWatcher>
 
 #include "plasmavault_interface.h"
+#include "vaultsmodel.h"
 #include <common/vaultinfo.h>
 
 class VaultsModel::Private : public QObject
