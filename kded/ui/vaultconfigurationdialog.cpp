@@ -147,11 +147,11 @@ VaultConfigurationDialog::VaultConfigurationDialog(Vault *vault, QWidget *parent
         vault->close();
     });
 
-    connect(vault, &Vault::isOpenedChanged, this, [=](bool isOpened) {
+    connect(vault, &Vault::isOpenedChanged, this, [this](bool isOpened) {
         d->setVaultOpened(isOpened);
     });
 
-    connect(d->ui.buttons, &QDialogButtonBox::accepted, this, [=] {
+    connect(d->ui.buttons, &QDialogButtonBox::accepted, this, [this]() {
         d->saveConfiguration();
     });
 }
