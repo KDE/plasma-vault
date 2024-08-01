@@ -45,6 +45,7 @@ include(GenerateExportHeader)
 include(ECMGenerateHeaders)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
+include(ECMDeprecationSettings)
 # Qt
 set(CMAKE_AUTOMOC ON)
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
@@ -81,6 +82,9 @@ include_directories(
 )
 
 include(ECMSetupVersion)
+ecm_set_disabled_deprecation_versions(QT 6.7.0
+    KF 6.4.0
+)
 
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 add_definitions(-DQT_NO_CAST_TO_ASCII)
