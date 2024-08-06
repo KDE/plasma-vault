@@ -18,6 +18,8 @@ import org.kde.plasma.extras as PlasmaExtras
 import org.kde.plasma.plasmoid
 
 PlasmoidItem {
+    id: root
+
     readonly property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
 
     readonly property bool inPanel: [
