@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:40+0000\n"
+"POT-Creation-Date: 2024-08-07 00:42+0000\n"
 "PO-Revision-Date: 2024-05-03 09:36+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -736,12 +736,12 @@ msgstr "Créer"
 msgid "Previous"
 msgstr "Précédent"
 
-#: plasma/package/contents/ui/main.qml:51
+#: plasma/package/contents/ui/main.qml:53
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Créer un nouveau coffre-fort..."
 
-#: plasma/package/contents/ui/main.qml:102
+#: plasma/package/contents/ui/main.qml:104
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Aucun coffre-fort n'a été configuré"

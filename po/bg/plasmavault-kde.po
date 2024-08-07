@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:40+0000\n"
+"POT-Creation-Date: 2024-08-07 00:42+0000\n"
 "PO-Revision-Date: 2024-05-30 19:17+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -724,12 +724,12 @@ msgstr "Създаване"
 msgid "Previous"
 msgstr "Предишен"
 
-#: plasma/package/contents/ui/main.qml:51
+#: plasma/package/contents/ui/main.qml:53
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "Създаване на нов трезор…"
 
-#: plasma/package/contents/ui/main.qml:102
+#: plasma/package/contents/ui/main.qml:104
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "Не са създадени трезори"

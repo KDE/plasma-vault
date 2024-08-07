@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-15 00:40+0000\n"
+"POT-Creation-Date: 2024-08-07 00:42+0000\n"
 "PO-Revision-Date: 2021-11-12 01:21+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -712,12 +712,12 @@ msgstr "생성"
 msgid "Previous"
 msgstr "이전"
 
-#: plasma/package/contents/ui/main.qml:51
+#: plasma/package/contents/ui/main.qml:53
 #, kde-format
 msgid "Create a New Vault…"
 msgstr "새 비밀 공간 만들기…"
 
-#: plasma/package/contents/ui/main.qml:102
+#: plasma/package/contents/ui/main.qml:104
 #, kde-format
 msgid "No Vaults have been set up"
 msgstr "설정한 비밀 공간 없음"
