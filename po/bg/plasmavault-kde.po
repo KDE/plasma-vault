@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-07 00:42+0000\n"
-"PO-Revision-Date: 2024-05-30 19:17+0200\n"
+"PO-Revision-Date: 2024-09-30 16:27+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.07.70\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
@@ -472,7 +472,8 @@ msgstr "&Изключване на предупреждението"
 msgid ""
 "Go offline while this vault is open (switch off networking and bluetooth)"
 msgstr ""
-"Излезте офлайн, докато този трезор е отворен (изключете мрежата и Bluetooth)"
+"Включване на режим \"извън линия\", докато този трезор е отворен (изключване "
+"на мрежата и Bluetooth)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/passwordchooserwidget.ui:22
