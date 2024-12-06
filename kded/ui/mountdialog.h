@@ -30,7 +30,7 @@ protected:
     void accept() override;
 
 private:
-    PlasmaVault::Vault *m_vault;
+    PlasmaVault::Vault *const m_vault;
     Ui_MountDialog m_ui;
     KMessageWidget *m_errorLabel;
     QAction *m_detailsAction;
