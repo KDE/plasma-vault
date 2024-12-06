@@ -73,7 +73,7 @@ QProcess *FuseBackend::process(const QString &executable, const QStringList &arg
     result->setProgram(executable);
     result->setArguments(arguments);
 
-    if (environment.count() > 0) {
+    if (!environment.isEmpty()) {
         auto env = result->processEnvironment();
         for (const auto &key : environment.keys()) {
             env.insert(key, environment[key]);
