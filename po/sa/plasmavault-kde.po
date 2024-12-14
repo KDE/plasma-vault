@@ -1,0 +1,723 @@
+# Sanskrit translations for plasma-vault package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the plasma-vault package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-vault\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-08-07 00:42+0000\n"
+"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: fileitemplugin/plasmavaultfileitemaction.cpp:74
+#, kde-format
+msgctxt "@action Action to unmount a vault"
+msgid "Close this Plasma Vault"
+msgstr ""
+
+#: fileitemplugin/plasmavaultfileitemaction.cpp:75
+#, kde-format
+msgctxt "@action Action to mount a vault"
+msgid "Open this Plasma Vault"
+msgstr ""
+
+#: kded/engine/backend_p.cpp:46
+#, kde-format
+msgctxt "formatting the message for a command, as in encfs: not found"
+msgid "%1: %2"
+msgstr ""
+
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:92
+#: kded/engine/backends/encfs/encfsbackend.cpp:51
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:77
+#, kde-format
+msgid "Failed to create directories, check your permissions"
+msgstr "निर्देशिकाः निर्मातुं असफलः, भवतः अनुमतिः परीक्ष्यताम्"
+
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:131
+#, kde-format
+msgid "Upgrade the vault?"
+msgstr "तिजोरी उन्नयनं कुर्वन्तु?"
+
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:132
+#, kde-format
+msgid ""
+"This vault was created with an older version of cryfs and needs to be "
+"upgraded.\n"
+"\n"
+"Mind that this process is irreversible and the vault will no longer work "
+"with older versions of cryfs.\n"
+"\n"
+"Do you want to perform the upgrade now?"
+msgstr ""
+"इदं तिजोरी cryfs इत्यस्य प्राचीनसंस्करणेन सह निर्मितम् अस्ति, तस्य उन्नयनस्य आवश्यकता अस्ति "
+"।\n"
+"\n"
+"मनसि यत् एषा प्रक्रिया अपरिवर्तनीया अस्ति तथा च तिजोरी cryfs इत्यस्य प्राचीनसंस्करणैः "
+"सह कार्यं न करिष्यति।\n"
+"\n"
+"इदानीं उन्नयनं कर्तुम् इच्छति वा ?"
+
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:136
+#, kde-format
+msgid ""
+"The vault needs to be upgraded before it can be opened with this version of "
+"cryfs"
+msgstr "cryfs इत्यस्य एतेन संस्करणेन उद्घाटयितुं पूर्वं तिजोरी उन्नयनं करणीयम्"
+
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:150
+#: kded/engine/fusebackend_p.cpp:42
+#, kde-format
+msgid "The mount point directory is not empty, refusing to open the vault"
+msgstr "माउण्ट् बिन्दुनिर्देशिका रिक्तं नास्ति, तिजोरीं उद्घाटयितुं नकारयति"
+
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:158
+#, kde-format
+msgid "You entered the wrong password"
+msgstr "भवता गलत् गुप्तशब्दः प्रविष्टः"
+
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:162
+#, kde-format
+msgid "The installed version of cryfs is too old to open this vault."
+msgstr ""
+"cryfs इत्यस्य संस्थापितं संस्करणम् अतीव पुरातनम् अस्ति यत् एतत् तिजोरी उद्घाटयितुं न शक्नोति ।"
+
+#: kded/engine/backends/cryfs/cryfsbackend.cpp:169
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
+#, kde-format
+msgid "Unable to perform the operation (error code %1)."
+msgstr "कार्यं कर्तुं असमर्थः (त्रुटिसङ्केतः %1) ।"
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
+#, kde-format
+msgid "The cipher directory is not empty, cannot initialise the vault."
+msgstr "सिफर निर्देशिका रिक्तं नास्ति, तिजोरी आरम्भं कर्तुं न शक्नोति ।"
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
+#, kde-format
+msgid "The password is empty, cannot initialise the vault."
+msgstr "गुप्तशब्दः रिक्तः अस्ति, तिजोरी आरम्भं कर्तुं न शक्नोति ।"
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:114
+#, kde-format
+msgid ""
+"Cannot write gocryptfs.conf inside cipher directory, check your permissions."
+msgstr ""
+"cipher निर्देशिकायाः अन्तः gocryptfs.conf इति लिखितुं न शक्यते, स्वस्य अनुमतिः "
+"परीक्ष्यताम् ।"
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
+#: kded/engine/fusebackend_p.cpp:165
+#, kde-format
+msgid "Failed to execute"
+msgstr "निष्पादने असफलः अभवत्"
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
+#: kded/engine/fusebackend_p.cpp:177
+#, kde-format
+msgid "Unable to detect the version"
+msgstr "संस्करणं ज्ञातुं असमर्थः"
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
+#, kde-format
+msgid "Unable to detect the version, the version string is invalid"
+msgstr "संस्करणं ज्ञातुं असमर्थः, संस्करणमाला अमान्यः अस्ति"
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
+#, kde-format
+msgid "Wrong version installed. The required version is %1.%2"
+msgstr "गलत संस्करणं संस्थापितम्। आवश्यकं संस्करणं %1.%2 अस्ति"
+
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
+#: kded/engine/fusebackend_p.cpp:191
+#, kde-format
+msgid "Correct version found"
+msgstr "सम्यक् संस्करणं प्राप्तम्"
+
+#: kded/engine/fusebackend_p.cpp:51
+#, kde-format
+msgid "Unable to perform the operation"
+msgstr "शल्यक्रियां कर्तुं असमर्थः"
+
+#: kded/engine/fusebackend_p.cpp:96
+#, kde-format
+msgid "This directory already contains encrypted data"
+msgstr "अस्मिन् निर्देशिकायां पूर्वमेव गुप्तदत्तांशः अस्ति"
+
+#: kded/engine/fusebackend_p.cpp:99
+#, kde-format
+msgid ""
+"You need to select empty directories for the encrypted storage and for the "
+"mount point"
+msgstr ""
+"भवद्भिः एन्क्रिप्टेड् भण्डारणस्य कृते तथा च माउण्ट् बिन्दुस्य कृते रिक्तनिर्देशिकाः चिन्वितव्याः"
+
+#: kded/engine/fusebackend_p.cpp:114
+#, kde-format
+msgid "This directory doesn't contain encrypted data"
+msgstr "अस्मिन् निर्देशिकायां गुप्तदत्तांशः नास्ति"
+
+#: kded/engine/fusebackend_p.cpp:118
+#, kde-format
+msgid "You need to select an empty directory for the mount point"
+msgstr "भवद्भिः माउण्ट्-बिन्दुस्य कृते रिक्तं निर्देशिकां चिन्वितव्यम्"
+
+#: kded/engine/fusebackend_p.cpp:128
+#, kde-format
+msgid "Device is already open"
+msgstr "यन्त्रं पूर्वमेव उद्घाटितम् अस्ति"
+
+#: kded/engine/fusebackend_p.cpp:136
+#, kde-format
+msgid "Device is not open"
+msgstr "यन्त्रं उद्घाटितं नास्ति"
+
+#: kded/engine/fusebackend_p.cpp:185
+#, kde-format
+msgid "Wrong version installed. The required version is %1.%2.%3"
+msgstr "गलत संस्करणं संस्थापितम्। आवश्यकं संस्करणं %1.%2.%3 अस्ति"
+
+#: kded/engine/vault.cpp:239
+#, kde-format
+msgid "Unknown device"
+msgstr "अज्ञातं यन्त्रम्"
+
+#: kded/engine/vault.cpp:269
+#, kde-format
+msgid "Configured backend does not exist: %1"
+msgstr "विन्यस्तः पृष्ठभागः नास्ति: %1"
+
+#: kded/engine/vault.cpp:274
+#, kde-format
+msgid "Mount point is not specified"
+msgstr "माउण्ट्-बिन्दुः निर्दिष्टः नास्ति"
+
+#: kded/engine/vault.cpp:279
+#, kde-format
+msgid "Cannot create the mount point"
+msgstr "माउण्ट्-बिन्दुं निर्मातुं न शक्यते"
+
+#: kded/engine/vault.cpp:284
+#, kde-format
+msgid "Configured backend cannot be instantiated: %1"
+msgstr "विन्यस्तं पृष्ठभागं उदाहरणं कर्तुं न शक्यते: %1"
+
+#: kded/engine/vault.cpp:399
+#, kde-format
+msgid "This device is already registered. Cannot recreate it."
+msgstr "एतत् यन्त्रं पूर्वमेव पञ्जीकृतम् अस्ति । पुनः सृजितुं न शक्नोति।"
+
+#: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
+#, kde-format
+msgid "Unknown error; unable to create the backend."
+msgstr "अज्ञातदोषः; पृष्ठभागं निर्मातुं असमर्थः ।"
+
+#: kded/engine/vault.cpp:433
+#, kde-format
+msgid "This device is not initialized. Cannot import it."
+msgstr "एतत् यन्त्रं प्रारम्भं न भवति । आयातं कर्तुं न शक्यते।"
+
+#: kded/engine/vault.cpp:464
+#, kde-format
+msgid "Cannot open an unknown vault."
+msgstr "अज्ञातं तिजोरीं उद्घाटयितुं न शक्नोति।"
+
+#: kded/engine/vault.cpp:481
+#, kde-format
+msgid "The vault is unknown; cannot close it."
+msgstr "तिजोरी अज्ञाता अस्ति; न शक्नोति तत् पिधातुम्।"
+
+#: kded/engine/vault.cpp:496 kded/engine/vault.cpp:505
+#, kde-format
+msgid "Unable to close the vault because an application is using it"
+msgstr "एकः अनुप्रयोगः तस्य उपयोगं कुर्वन् अस्ति इति कारणेन तिजोरीं पिधातुं असमर्थः"
+
+#: kded/engine/vault.cpp:528
+#, kde-format
+msgid "Unable to close the vault because it is being used by %1"
+msgstr "%1 द्वारा उपयुज्यमानत्वात् तिजोरीं पिधातुं असमर्थः"
+
+#: kded/engine/vault.cpp:552
+#, kde-format
+msgid "Failed to fetch the list of applications using this vault"
+msgstr "एतत् तिजोरी उपयुज्य अनुप्रयोगानाम् सूचीं आनेतुं असफलम्"
+
+#: kded/engine/vault.cpp:604
+#, kde-format
+msgid "Cannot delete the vault; there are other vaults with overlapping paths."
+msgstr "तिजोरीं विलोपयितुं न शक्नोति; अन्ये अपि आच्छादितमार्गयुक्ताः कक्ष्याः सन्ति ।"
+
+#: kded/engine/vault.cpp:609
+#, kde-format
+msgid "The vault is unknown; cannot dismantle it."
+msgstr "तिजोरी अज्ञाता अस्ति; न शक्नोति तस्य विच्छेदनं कर्तुं।"
+
+#: kded/engine/vault.cpp:612
+#, kde-format
+msgid "Are you sure you want to delete this vault"
+msgstr "किं भवन्तः निश्चितरूपेण एतत् तिजोरीं विलोपयितुम् इच्छन्ति"
+
+#: kded/engine/vault.cpp:613
+#, kde-format
+msgid ""
+"This operation will irreversibly delete the following:\n"
+"%1\n"
+"%2"
+msgstr ""
+"एतत् क्रिया निम्नलिखितम् अपरिवर्तनीयरूपेण विलोपयिष्यति ।\n"
+"%1\n"
+"%2"
+
+#: kded/engine/vault.cpp:615
+#, kde-format
+msgid "Delete operation cancelled"
+msgstr "विलोपनक्रिया रद्दीकृता"
+
+#: kded/service.cpp:440
+#, kde-format
+msgid "Error deleting vault"
+msgstr "तिजोरीं विलोपयन् त्रुटिः"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/activitieslinkingwidget.ui:22
+#, kde-format
+msgid ""
+"If you limit this vault only to certain activities, it will be shown in the "
+"applet only when you are in those activities. Furthermore, when you switch "
+"to an activity it should not be available in, it will automatically be "
+"closed."
+msgstr ""
+"यदि भवान् एतत् कक्षं केवलं कतिपयेषु कार्येषु एव सीमितं करोति तर्हि एप्लेट् मध्ये केवलं तदा एव "
+"दर्शितं भविष्यति यदा भवान् तेषु कार्येषु भवति । अपि च, यदा भवन्तः कस्मिंश्चित् क्रियाकलापे "
+"परिवर्तयन्ति यस्मिन् तत् उपलब्धं न भवितुमर्हति तदा तत् स्वयमेव पिहितं भविष्यति ।"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
+#: kded/ui/activitieslinkingwidget.ui:32
+#, kde-format
+msgid "Limit to the selected activities:"
+msgstr "चयनितक्रियाकलापानाम् सीमाः १."
+
+#: kded/ui/backendchooserwidget.cpp:74
+#, kde-format
+msgid "The specified backend is not available"
+msgstr "निर्दिष्टः पृष्ठभागः उपलब्धः नास्ति"
+
+#. i18n: ectx: property (text), widget (QLabel, labelVaultName)
+#: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
+#, kde-format
+msgid "Vaul&t name:"
+msgstr "वौल&त नाम : १."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/backendchooserwidget.ui:67
+#, kde-format
+msgid "Backend:"
+msgstr "पृष्ठभागः : १."
+
+#. i18n: ectx: property (text), widget (QPushButton, pickBackendButton)
+#: kded/ui/backendchooserwidget.ui:94
+#, kde-format
+msgid "Change"
+msgstr "परिवर्तय"
+
+#. i18n: ectx: property (text), widget (QLabel, labelEncryptionSystem)
+#: kded/ui/backendchooserwidget.ui:132
+#, kde-format
+msgid "Choose the encryption system you want to use for this vault:"
+msgstr "अस्य तिजोरीयाः कृते यत् एन्क्रिप्शन-प्रणालीं उपयोक्तुं इच्छति तत् चिनोतु:"
+
+#: kded/ui/cryfscypherchooserwidget.cpp:59
+#, kde-format
+msgid "Use the default cipher"
+msgstr "पूर्वनिर्धारितं सिफरं उपयुज्यताम्"
+
+#. i18n: ectx: property (text), widget (QLabel, labelCypher)
+#: kded/ui/cryfscypherchooserwidget.ui:22
+#, kde-format
+msgid "Choose the used cipher:"
+msgstr "प्रयुक्तं सिफरं चिनोतु :"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorychooserwidget.ui:22
+#, kde-format
+msgid "Mount point:"
+msgstr "माउण्ट् बिन्दुः : १."
+
+#: kded/ui/directorypairchooserwidget.cpp:58
+#, kde-format
+msgid "The specified path does not exist"
+msgstr "निर्दिष्टः मार्गः नास्ति"
+
+#: kded/ui/directorypairchooserwidget.cpp:64
+#, kde-format
+msgid "The specified directory is not empty"
+msgstr "निर्दिष्टनिर्देशिका रिक्तं नास्ति"
+
+#: kded/ui/directorypairchooserwidget.cpp:70
+#, kde-format
+msgid "The specified directory is empty"
+msgstr "निर्दिष्टनिर्देशिका रिक्तम् अस्ति"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorypairchooserwidget.ui:22
+#, kde-format
+msgid "Encrypted data location"
+msgstr "एन्क्रिप्टेड् दत्तांशस्थानं"
+
+#. i18n: ectx: property (text), widget (QLabel, labelMountPoint)
+#: kded/ui/directorypairchooserwidget.ui:36
+#, kde-format
+msgid "Mount point"
+msgstr "माउण्ट् बिन्दु"
+
+#: kded/ui/mountdialog.cpp:20
+#, kde-format
+msgctxt "%1 is the name of the Plasma Vault to open"
+msgid "Open '%1' Plasma Vault"
+msgstr ""
+
+#: kded/ui/mountdialog.cpp:29
+#, kde-format
+msgid "Details…"
+msgstr "वर्णन…"
+
+#: kded/ui/mountdialog.cpp:38
+#, kde-format
+msgid ""
+"Command output:\n"
+"%1\n"
+"\n"
+"Error output: %2"
+msgstr ""
+"आदेशनिर्गमः : १.\n"
+"%1\n"
+"\n"
+"त्रुटिनिर्गमः %2"
+
+#: kded/ui/mountdialog.cpp:43
+#, kde-format
+msgid "Error details"
+msgstr "त्रुटिविवरणम्"
+
+#: kded/ui/mountdialog.cpp:83
+#, kde-format
+msgid "Failed to open: %1"
+msgstr "उद्घाटयितुं असफलम्: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/mountdialog.ui:61
+#, kde-format
+msgid "Please enter the password to open this vault:"
+msgstr "कृपया एतत् तिजोरीं उद्घाटयितुं गुप्तशब्दं प्रविशन्तु:"
+
+#. i18n: ectx: property (text), widget (QLabel, pwdLabel)
+#: kded/ui/mountdialog.ui:93
+#, kde-format
+msgid "Password:"
+msgstr "समाभाष्:"
+
+#. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
+#: kded/ui/noticewidget.ui:38
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeHidden)
+#: kded/ui/noticewidget.ui:45
+#, kde-format
+msgid "Do not show this notice again"
+msgstr "पुनः एतत् सूचनां न दर्शयतु"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
+#: kded/ui/offlineonlywidget.ui:34
+#, kde-format
+msgid ""
+"Go offline while this vault is open (switch off networking and bluetooth)"
+msgstr ""
+"एतत् तिजोरी उद्घाटितं भवति चेत् अफलाइनं गच्छन्तु (संजालीकरणं ब्लूटूथं च निष्क्रियं कुर्वन्तु)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/passwordchooserwidget.ui:22
+#, kde-format
+msgid ""
+"Mind that there is no way to recover a forgotten password. If you forget the "
+"password, your data is as good as gone."
+msgstr ""
+"विस्मृतं गुप्तशब्दं पुनः प्राप्तुं कोऽपि उपायः नास्ति इति मनसि। यदि भवान् गुप्तशब्दं विस्मरति "
+"तर्हि भवतः दत्तांशः गतः इव उत्तमः अस्ति ।"
+
+#: kded/ui/vaultconfigurationdialog.cpp:47
+#, kde-format
+msgid "General"
+msgstr "सामान्य"
+
+#: kded/ui/vaultconfigurationdialog.cpp:49
+#, kde-format
+msgid "Advanced"
+msgstr "उन्नतं"
+
+#: kded/ui/vaultconfigurationdialog.cpp:51
+#, kde-format
+msgid "Delete"
+msgstr "लुप्"
+
+#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
+#: kded/ui/vaultimportingwizard.cpp:34
+#, kde-format
+msgid "EncFS"
+msgstr "EncFS"
+
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
+#: kded/ui/vaultimportingwizard.cpp:40
+#, kde-format
+msgid "CryFS"
+msgstr "CryFS"
+
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
+#: kded/ui/vaultimportingwizard.cpp:46
+#, kde-format
+msgid "gocryptfs"
+msgstr "gocryptfs"
+
+#: kded/ui/vaultconfigurationdialog.cpp:142
+#, kde-format
+msgid "Configure"
+msgstr "विन्यस्तं कुर्वन्तु"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultImportingWizard)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultCreationWizard)
+#: kded/ui/vaultconfigurationdialog.ui:19 kded/ui/vaultcreationwizard.ui:19
+#: kded/ui/vaultimportingwizard.ui:19
+#, kde-format
+msgid "Dialog"
+msgstr "संवादः"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/vaultconfigurationdialog.ui:37
+#, kde-format
+msgid "The vault configuration can only be changed while it is closed."
+msgstr "तिजोरीविन्यासः केवलं पिहितसमये एव परिवर्तयितुं शक्यते ।"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
+#: kded/ui/vaultconfigurationdialog.ui:57
+#, kde-format
+msgid "Close the vault"
+msgstr "तिजोरीं पिधाय"
+
+#: kded/ui/vaultcreationwizard.cpp:35
+#, kde-format
+msgid ""
+"<b>Security notice:</b>\n"
+"                             According to a security audit by Taylor Hornby "
+"(Defuse Security),\n"
+"                             the current implementation of Encfs is "
+"vulnerable or potentially vulnerable\n"
+"                             to multiple types of attacks.\n"
+"                             For example, an attacker with read/write "
+"access\n"
+"                             to encrypted data might lower the decryption "
+"complexity\n"
+"                             for subsequently encrypted data without this "
+"being noticed by a legitimate user,\n"
+"                             or might use timing analysis to deduce "
+"information.\n"
+"                             <br /><br />\n"
+"                             This means that you should not synchronize\n"
+"                             the encrypted data to a cloud storage service,\n"
+"                             or use it in other circumstances where the "
+"attacker\n"
+"                             can frequently access the encrypted data.\n"
+"                             <br /><br />\n"
+"                             See <a href='https://defuse.ca/audits/encfs."
+"htm'>defuse.ca/audits/encfs.htm</a> for more information."
+msgstr ""
+"<b>सुरक्षासूचना:</b> Taylor Hornby (Defuse Security) इत्यस्य सुरक्षालेखापरीक्षायाः "
+"अनुसारं Encfs इत्यस्य वर्तमानकार्यन्वयनं बहुप्रकारस्य आक्रमणानां कृते दुर्बलं वा सम्भाव्यतया "
+"दुर्बलं वा अस्ति यथा, एन्क्रिप्टेड्-दत्तांशस्य पठन/लेखन-प्रवेशं विद्यमानः आक्रमणकारी तदनन्तरं "
+"एन्क्रिप्टेड्-दत्तांशस्य कृते विगुप्तीकरण-जटिलतां न्यूनीकर्तुं शक्नोति, एतत् वैध-उपयोक्तृणा न "
+"लक्षितं, अथवा सूचनां निष्कर्षयितुं समय-विश्लेषणस्य उपयोगं कर्तुं शक्नोति<br /><br /> अस्य "
+"अर्थः अस्ति यत् भवद्भिः गुप्तदत्तांशं मेघभण्डारणसेवायां समन्वयनं न कर्तव्यम्, अन्येषु परिस्थितिषु "
+"वा यत्र आक्रमणकर्त्ता गुप्तदत्तांशं बहुधा प्राप्तुं शक्नोति तत्र तस्य उपयोगं न कर्तव्यम्<br /"
+"><br /> अधिकविवरणार्थं <a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/"
+"audits/encfs.htm</a> पश्यन्तु ।"
+
+#: kded/ui/vaultcreationwizard.cpp:56
+#, kde-format
+msgid ""
+"<b>Security notice:</b>\n"
+"                             CryFS encrypts your files, so you can safely "
+"store them anywhere.\n"
+"                             It works well together with cloud services like "
+"Dropbox, iCloud, OneDrive and others.\n"
+"                             <br /><br />\n"
+"                             Unlike some other file-system overlay "
+"solutions,\n"
+"                             it does not expose the directory structure,\n"
+"                             the number of files nor the file sizes\n"
+"                             through the encrypted data format.\n"
+"                             <br /><br />\n"
+"                             One important thing to note is that,\n"
+"                             while CryFS is considered safe,\n"
+"                             there is no independent security audit\n"
+"                             which confirms this."
+msgstr ""
+"<b>सुरक्षासूचना:</b> CryFS भवतः सञ्चिकाः गुप्तीकरणं करोति, अतः भवान् तान् कुत्रापि "
+"सुरक्षिततया संग्रहीतुं शक्नोति । इदं Dropbox, iCloud, OneDrive इत्यादिभिः क्लाउड् "
+"सेवाभिः सह मिलित्वा सम्यक् कार्यं करोति ।<br /><br /> अन्येषां केषाञ्चन सञ्चिका-प्रणाली-"
+"आच्छादन-समाधानानाम् विपरीतम्, एतत् एन्क्रिप्टेड्-दत्तांश-स्वरूपस्य माध्यमेन निर्देशिका-संरचनां, "
+"सञ्चिकानां संख्यां, सञ्चिका-आकारं वा न प्रकाशयति ।<br /><br /> एकं महत्त्वपूर्णं वस्तु "
+"ज्ञातव्यं यत्, यद्यपि CryFS सुरक्षितं मन्यते तथापि स्वतन्त्रं सुरक्षालेखापरीक्षा नास्ति यत् एतस्य "
+"पुष्टिं करोति ।"
+
+#: kded/ui/vaultcreationwizard.cpp:76
+#, kde-format
+msgid ""
+"<b>Security notice:</b>\n"
+"                             Gocryptfs encrypts your files, so you can "
+"safely store them anywhere.\n"
+"                             It works well together with cloud services like "
+"Dropbox, iCloud, OneDrive and others.\n"
+"                             <br /><br />\n"
+"                             A threat model for gocryptfs is provided by the "
+"author at                              <a href='https://nuetzlich.net/"
+"gocryptfs/threat_model'>nuetzlich.net/gocryptfs/threat_model</"
+"a>.                              <br /><br />\n"
+"                             According to a security audit performed in 2017 "
+"by Taylor Hornby (Defuse Security),\n"
+"                             gocryptfs keeps file contents secret against an "
+"adversary that can read and modify the                              "
+"ciphertext.                              <br /><br />\n"
+"                             See <a href='https://defuse.ca/audits/gocryptfs."
+"htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."
+msgstr ""
+"<b>सुरक्षासूचना:</b> Gocryptfs भवतः सञ्चिकाः गुप्तीकरणं करोति, अतः भवान् तान् कुत्रापि "
+"सुरक्षिततया संग्रहीतुं शक्नोति । इदं Dropbox, iCloud, OneDrive इत्यादिभिः क्लाउड् "
+"सेवाभिः सह मिलित्वा सम्यक् कार्यं करोति ।<br /><br /> gocryptfs कृते धमकीप्रतिरूपं लेखकेन "
+"<a href='https://nuetzlich.net/gocryptfs/threat_model'>nuetzlich.net/"
+"gocryptfs/threat_model</a> इत्यत्र प्रदत्तम् अस्ति ।<br /><br /> टेलर हॉर्न्बी "
+"(Defuse Security) इत्यनेन २०१७ तमे वर्षे कृतस्य सुरक्षालेखापरीक्षायाः अनुसारं gocryptfs "
+"इत्यनेन सञ्चिकासामग्रीः गुप्तरूपेण रक्षिता यस्य प्रतिद्वन्द्वस्य विरुद्धं भवति यः सिफरपाठं पठितुं "
+"परिवर्तयितुं च शक्नोति<br /><br /> अधिकसूचनार्थं <a href='https://defuse.ca/audits/"
+"gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a> पश्यन्तु ।"
+
+#: kded/ui/vaultcreationwizard.cpp:138
+#, kde-format
+msgctxt "@title:window"
+msgid "Create a New Vault"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, labelWarning)
+#: kded/ui/vaultdeletionwidget.ui:22
+#, kde-format
+msgid ""
+"This action <b>cannot</b> be undone. This will permanently delete the "
+"selected vault!"
+msgstr ""
+"एतत् कर्म न निवर्तयितुं <b>शक्यते</b> । एतेन चयनितं तिजोरी स्थायिरूपेण विलोपितं भविष्यति!"
+
+#. i18n: ectx: property (text), widget (QLabel, labelConfirm)
+#: kded/ui/vaultdeletionwidget.ui:29
+#, kde-format
+msgid "Please type in the name of the vault to confirm:"
+msgstr "कृपया पुष्ट्यर्थं तिजोरीयाः नाम टङ्कयन्तु:"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
+#: kded/ui/vaultdeletionwidget.ui:44
+#, kde-format
+msgid "Delete this vault"
+msgstr "एतत् तिजोरीं विलोपयन्तु"
+
+#: kded/ui/vaultimportingwizard.cpp:55
+#, kde-format
+msgid "Import"
+msgstr "आयात"
+
+#: kded/ui/vaultimportingwizard.cpp:93
+#, kde-format
+msgctxt "@title:window"
+msgid "Import an Existing Vault"
+msgstr ""
+
+#: kded/ui/vaultwizardbase.h:39 kded/ui/vaultwizardbase.h:90
+#, kde-format
+msgid "Next"
+msgstr "अग्रिम"
+
+#: kded/ui/vaultwizardbase.h:80
+#, kde-format
+msgid "Create"
+msgstr "निर्मियताम्"
+
+#: kded/ui/vaultwizardbase.h:87
+#, kde-format
+msgid "Previous"
+msgstr "पूर्वतनम्‌"
+
+#: plasma/package/contents/ui/main.qml:53
+#, kde-format
+msgid "Create a New Vault…"
+msgstr "एकं नवीनं तिजोरी रचयन्तु..."
+
+#: plasma/package/contents/ui/main.qml:104
+#, kde-format
+msgid "No Vaults have been set up"
+msgstr "न कोऽपि Vaults स्थापितः अस्ति"
+
+#: plasma/package/contents/ui/VaultItem.qml:42
+#, kde-format
+msgid "Lock Vault"
+msgstr "ताला तिजोरी"
+
+#: plasma/package/contents/ui/VaultItem.qml:42
+#, kde-format
+msgid "Unlock and Open"
+msgstr "अनलॉक् तथा ओपन"
+
+#: plasma/package/contents/ui/VaultItem.qml:57
+#, kde-format
+msgid "Show in File Manager"
+msgstr "सञ्चिकाप्रबन्धके दर्शयतु"
+
+#: plasma/package/contents/ui/VaultItem.qml:64
+#, kde-format
+msgid "Forcefully Lock Vault"
+msgstr "बलात् लॉक वॉल्ट"
+
+#: plasma/package/contents/ui/VaultItem.qml:64
+#, kde-format
+msgid "Unlock Vault"
+msgstr "तिजोरी अनलॉक करू"
+
+#: plasma/package/contents/ui/VaultItem.qml:75
+#, kde-format
+msgid "Configure Vault…"
+msgstr "तिजोरी विन्यस्तं कुर्वन्तु..."
