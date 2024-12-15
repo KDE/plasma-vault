@@ -82,8 +82,8 @@ include_directories(
 )
 
 include(ECMSetupVersion)
-ecm_set_disabled_deprecation_versions(QT 6.7.0
-    KF 6.5.0
+ecm_set_disabled_deprecation_versions(QT 6.8.1
+    KF 6.9.0
 )
 
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
