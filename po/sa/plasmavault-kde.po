@@ -20,19 +20,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Close this Plasma Vault"
-msgstr ""
+msgstr "एतत् Plasma Vault बन्दं कुर्वन्तु"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
 #, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Open this Plasma Vault"
-msgstr ""
+msgstr "एतत् Plasma Vault उद्घाटयन्तु"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
 msgctxt "formatting the message for a command, as in encfs: not found"
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:92
 #: kded/engine/backends/encfs/encfsbackend.cpp:51
@@ -382,7 +382,7 @@ msgstr "माउण्ट् बिन्दु"
 #, kde-format
 msgctxt "%1 is the name of the Plasma Vault to open"
 msgid "Open '%1' Plasma Vault"
-msgstr ""
+msgstr "'%1' प्लाज्मा तिजोरी उद्घाटयन्तु"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -633,7 +633,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
-msgstr ""
+msgstr "एकं नवीनं तिजोरीं रचयन्तु"
 
 #. i18n: ectx: property (text), widget (QLabel, labelWarning)
 #: kded/ui/vaultdeletionwidget.ui:22
@@ -665,7 +665,7 @@ msgstr "आयात"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import an Existing Vault"
-msgstr ""
+msgstr "एकं विद्यमानं तिजोरी आयातयन्तु"
 
 #: kded/ui/vaultwizardbase.h:39 kded/ui/vaultwizardbase.h:90
 #, kde-format
