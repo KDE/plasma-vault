@@ -309,7 +309,7 @@ msgid ""
 "closed."
 msgstr ""
 "Si vous limitez le coffre-fort uniquement à certaines activités, il sera "
-"affiché dans l'applet uniquement si vous être dans ces activités. De plus, "
+"affiché dans l'applet uniquement si vous êtes dans ces activités. De plus, "
 "lorsque vous passez à une activité dans laquelle il ne devrait pas être "
 "disponible, il sera automatiquement fermé."
 
@@ -353,13 +353,13 @@ msgstr ""
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
-msgstr "Utiliser le code secret par défaut"
+msgstr "Utiliser le type de chiffrement secret par défaut"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCypher)
 #: kded/ui/cryfscypherchooserwidget.ui:22
 #, kde-format
 msgid "Choose the used cipher:"
-msgstr "Choisir le code secret utilisé :"
+msgstr "Choisir le type de chiffrement utilisé :"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDevice)
 #: kded/ui/directorychooserwidget.ui:22
