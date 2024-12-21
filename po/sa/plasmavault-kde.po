@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the plasma-vault package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-07 00:42+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-20 21:54+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, kde-format
@@ -304,7 +306,7 @@ msgstr ""
 #: kded/ui/activitieslinkingwidget.ui:32
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr "चयनितक्रियाकलापानाम् सीमाः १."
+msgstr "चयनितक्रियाकलापानाम् सीमाः"
 
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
@@ -315,13 +317,13 @@ msgstr "निर्दिष्टः पृष्ठभागः उपलब�
 #: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
 #, kde-format
 msgid "Vaul&t name:"
-msgstr "वौल&त नाम : १."
+msgstr "वौल&त नाम :"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/backendchooserwidget.ui:67
 #, kde-format
 msgid "Backend:"
-msgstr "पृष्ठभागः : १."
+msgstr "पृष्ठभागः :"
 
 #. i18n: ectx: property (text), widget (QPushButton, pickBackendButton)
 #: kded/ui/backendchooserwidget.ui:94
@@ -350,7 +352,7 @@ msgstr "प्रयुक्तं सिफरं चिनोतु :"
 #: kded/ui/directorychooserwidget.ui:22
 #, kde-format
 msgid "Mount point:"
-msgstr "माउण्ट् बिन्दुः : १."
+msgstr "माउण्ट् बिन्दुः :"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
