@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
+# SPDX-FileCopyrightText: 2025 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:45+0000\n"
-"PO-Revision-Date: 2023-03-25 13:48+0100\n"
+"PO-Revision-Date: 2025-01-12 15:56+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:73
 #, kde-format
@@ -483,7 +483,7 @@ msgid ""
 "password, your data is as good as gone."
 msgstr ""
 "Teña en conta que non hai xeito de recuperar un contrasinal esquecido. Se "
-"esquece o contrasinal, non poderá acceder ao datos."
+"esquece o contrasinal, perderá os datos."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
