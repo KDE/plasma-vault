@@ -7,6 +7,7 @@
 #ifndef PLASMAVAULT_KDED_ENGINE_COMMAND_RESULT_H
 #define PLASMAVAULT_KDED_ENGINE_COMMAND_RESULT_H
 
+#include <QDebug>
 #include <QFuture>
 
 #include "asynqt/basic/all.h"
