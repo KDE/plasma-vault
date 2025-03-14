@@ -79,6 +79,7 @@ void MountDialog::accept()
     } else {
         m_lastError = result.error();
         m_ui.password->lineEdit()->setText({});
+        m_ui.password->lineEdit()->setFocus();
 
         m_errorLabel->setText(i18n("Failed to open: %1", m_lastError.message()));
         m_errorLabel->setVisible(true);
