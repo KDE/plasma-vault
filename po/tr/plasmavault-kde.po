@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Volkan Gezer <volkangezer@gmail.com>, 2021, 2022.
-# SPDX-FileCopyrightText: 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-07 00:42+0000\n"
-"PO-Revision-Date: 2024-08-01 13:19+0300\n"
+"PO-Revision-Date: 2025-03-13 23:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,19 +16,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Close this Plasma Vault"
-msgstr "Bu Plasma Kasası'nı Kapat"
+msgstr "Bu Plasma Kasası’nı Kapat"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
 #, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Open this Plasma Vault"
-msgstr "Bu Plasma Kasası'nı Aç"
+msgstr "Bu Plasma Kasası’nı Aç"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -59,10 +59,10 @@ msgid ""
 "\n"
 "Do you want to perform the upgrade now?"
 msgstr ""
-"Bu kasa cryfs'nin eski bir sürümüyle oluşturulmuş ve yükseltilmesi "
+"Bu kasa cryfs’nin eski bir sürümüyle oluşturulmuş ve yükseltilmesi "
 "gerekiyor.\n"
 "\n"
-"Bu işlem geri alınamaz ve kasa cryfs'nin eski sürümleriyle çalışmayacaktır.\n"
+"Bu işlem geri alınamaz ve kasa cryfs’nin eski sürümleriyle çalışmayacaktır.\n"
 "\n"
 "Yükseltmeyi şimdi gerçekleştirmek istiyor musunuz?"
 
@@ -72,7 +72,8 @@ msgid ""
 "The vault needs to be upgraded before it can be opened with this version of "
 "cryfs"
 msgstr ""
-"Kasanın cryfs'nin bu sürümüyle açılabilmesi için önce yükseltilmesi gerekiyor"
+"Kasanın cryfs’nin bu sürümüyle açılabilmesi için önce yükseltilmesi "
+"gerekiyor."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:42
@@ -88,7 +89,7 @@ msgstr "Yanlış parolayı girdiniz"
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
 #, kde-format
 msgid "The installed version of cryfs is too old to open this vault."
-msgstr "cryfs'in kurulu sürümü bu kasayı açmak için pek eski."
+msgstr "cryfs’in kurulu sürümü bu kasayı açmak için pek eski."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -382,7 +383,7 @@ msgstr "Bağlama noktası"
 #, kde-format
 msgctxt "%1 is the name of the Plasma Vault to open"
 msgid "Open '%1' Plasma Vault"
-msgstr "“%1” Plasma Kasası'nı Aç"
+msgstr "“%1” Plasma Kasası’nı Aç"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -461,7 +462,7 @@ msgstr "Bu duyuruyu bir daha gösterme"
 #, kde-format
 msgid ""
 "Go offline while this vault is open (switch off networking and bluetooth)"
-msgstr "Bu kasa açıkken çevrimdişi çalış (ağ ve Bluetooth'u kapat)"
+msgstr "Bu kasa açıkken çevrimdışı çalış (ağı ve Bluetooth’u kapat)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/passwordchooserwidget.ui:22
@@ -560,30 +561,19 @@ msgid ""
 "htm'>defuse.ca/audits/encfs.htm</a> for more information."
 msgstr ""
 "<b>Güvenlik uyarısı:</b>\n"
-"                             Taylor Hornby tarafından yapılan bir güvenlik "
-"denetimine göre (Defuse Security),\n"
-"                             Encfs'in mevcut uygulaması, birden çok saldırı "
-"türüne karşı savunmasız,\n"
-"                             veya potansiyel olarak savunmasızdır.\n"
-"                             Örneğin, okuma/yazma erişimi olan bir "
-"saldırgan\n"
-"                             şifreli verilere şifre çözme karmaşıklığını "
-"düşürebilir\n"
-"                             meşru bir kullanıcı tarafından fark edilmeden "
-"sonradan şifrelenmiş veriler için\n"
-"                             veya bilgi çıkarmak için zamanlama analizini "
-"kullanabilir.\n"
-"                             <br /><br />\n"
-"                             Bu, senkronize edilmemeniz gerektiği anlamına "
-"gelir\n"
-"                             şifrelenmiş verileri bir bulut depolama "
-"hizmetine,\n"
-"                             veya başka durumlarda saldırganın "
-"kullanabileceği\n"
-"                             sıklıkla şifreli verilere erişebilir. \\ "
-"n                             <br /><br />\n"
-"                             Daha fazla bilgi için <a href='https://defuse."
-"ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> konusuna bakın."
+"Taylor Hornby’nin (Defuse Security) yaptığı bir güvenlik denetimine göre,\n"
+"Encfs’nin geçerli uygulaması birden fazla saldırı türüne karşı savunmasız\n"
+"veya potansiyel olarak savunmasızdır. Örneğin, şifrelenmiş verilere\n"
+"okuma/yazma erişimi olan bir saldırgan, meşru bir kullanıcı tarafından fark\n"
+"edilmeden daha sonra şifrelenen veriler için şifre çözme karmaşıklığını\n"
+"düşürebilir veya bilgi çıkarmak için zamanlama çözümlemesini kullanabilir. "
+"<br /><br />Bu, şifrelenmiş verileri bir bulut depolama hizmetiyle "
+"eşzamanlama\n"
+"yapmamanız veya saldırganın şifrelenmiş verilere sıklıkla erişebileceği "
+"diğer\n"
+"durumlarda kullanmamanız gerektiği anlamına gelir.<br /><br /> Daha fazla "
+"bilgi için <a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/audits/"
+"encfs.htm</a> sayfasına bakın."
 
 #: kded/ui/vaultcreationwizard.cpp:56
 #, kde-format
@@ -643,22 +633,18 @@ msgid ""
 "                             See <a href='https://defuse.ca/audits/gocryptfs."
 "htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."
 msgstr ""
-"<b>Güvenlik bildirisi:</b>\n"
-"                             Gocryptfs dosyalarını şifreler, böylece onları "
-"her zaman güvenli bir biçimde depolayabilirsiniz.\n"
-"                             Dropbox, iCloud, OneDrive ve diğerleri gibi "
-"bulut depolama hizmetleriyle uyumlu bir biçimde çalışır.\n"
-"                             <br /><br />\n"
-"                             gocryptfs için <a href='https://nuetzlich.net/"
-"gocryptfs/threat_model'>nuetzlich.net/gocryptfs/threat_model</a> adresindeki "
-"yazar tarafından bir tehdit modeli sağlanmıştır.\n"
-"                             Taylor Hornby (Defuse Security) tarafından "
-"gerçekleştirilen bir güvenlik denetimine göre,\n"
-"                             gocryptfs dosya içeriğini şifreli metni okuyup "
-"değiştirebilen bir düşmana karşı güvenli tuttuğunu göstermektedir.<br /><br /"
-">\n"
-"                             Daha fazla bilgi için <a href='https://defuse."
-"ca/audits/gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a> adresine bakın."
+"<b>Güvenlik uyarısı:</b>\n"
+"Gocryptfs dosyalarınızı şifreler, böylece onları her yerde güvenle\n"
+"saklayabilirsiniz. Dropbox, iCloud, OneDrive ve diğerleri gibi bulut\n"
+"hizmetleriyle iyi bir şekilde birlikte çalışır.<br /><br /> gocryptfs için "
+"bir tehdit modeli, yazar tarafından\n"
+"<a href='https://nuetzlich.net/gocryptfs/threat_model'>nuetzlich.net/"
+"gocryptfs/threat_model</a> adresinde sağlanmıştır. <br /><br />Taylor Hornby "
+"(Defuse Security) tarafından 2017 yılında\n"
+"gerçekleştirilen bir güvenlik denetimine göre, gocryptfs, şifreli metni\n"
+"okuyabilen ve değiştirebilen bir saldırgana karşı dosya içeriğini gizli "
+"tutar. <br /><br />Daha fazla bilgi için <a href='https://defuse.ca/audits/"
+"encfs.htm'>defuse.ca/audits/encfs.htm</a> sayfasına bakın."
 
 #: kded/ui/vaultcreationwizard.cpp:138
 #, kde-format
