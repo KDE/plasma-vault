@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-07 00:42+0000\n"
+"POT-Creation-Date: 2025-03-15 00:44+0000\n"
 "PO-Revision-Date: 2021-09-15 18:49+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -410,7 +410,7 @@ msgstr ""
 msgid "Error details"
 msgstr "Podrobnosti chyby"
 
-#: kded/ui/mountdialog.cpp:83
+#: kded/ui/mountdialog.cpp:84
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "Zlyhalo otvorenie: %1"
@@ -491,19 +491,18 @@ msgstr "Pokročilé"
 msgid "Delete"
 msgstr "Vymazať"
 
-#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
-#: kded/ui/vaultimportingwizard.cpp:34
+#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
 msgid "EncFS"
 msgstr "EncFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:34
 #: kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
 msgstr "CryFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:54
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
@@ -539,50 +538,6 @@ msgstr "Zatvoriť trezor"
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
-"                             According to a security audit by Taylor Hornby "
-"(Defuse Security),\n"
-"                             the current implementation of Encfs is "
-"vulnerable or potentially vulnerable\n"
-"                             to multiple types of attacks.\n"
-"                             For example, an attacker with read/write "
-"access\n"
-"                             to encrypted data might lower the decryption "
-"complexity\n"
-"                             for subsequently encrypted data without this "
-"being noticed by a legitimate user,\n"
-"                             or might use timing analysis to deduce "
-"information.\n"
-"                             <br /><br />\n"
-"                             This means that you should not synchronize\n"
-"                             the encrypted data to a cloud storage service,\n"
-"                             or use it in other circumstances where the "
-"attacker\n"
-"                             can frequently access the encrypted data.\n"
-"                             <br /><br />\n"
-"                             See <a href='https://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> for more information."
-msgstr ""
-"<b>Bezpečnostné upozornenie:</b>\n"
-"Podľa bezpečnostného auditu od Taylora Hornbyho (Defuse Security),\n"
-"aktuálna implementácia Encfs je zraniteľná alebo potenciálne zraniteľná.\n"
-"na viacero typov útokov.\n"
-"Napríklad, ak útočník s prístupom na čítanie a zápis\n"
-"k šifrovaným údajom môže znížiť zložitosť šifrovania\n"
-"na následne šifrované údaje bez povšimnutia bežným používateľom,\n"
-"alebo môže použiť časovú analýzu na zistenie informácií.\n"
-"<br /><br />\n"
-"To znamená, že by ste nemali synchronizovať\n"
-"šifrované údaje na cloudové úložisko,\n"
-"alebo použiť ich v podmienkach, kde útočník\n"
-"môže často pristupovať k šifrovaným údajom.\n"
-"<br /><br />\n"
-"Navštívte <a href='http://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs."
-"htm</a> pre viac informácií."
-
-#: kded/ui/vaultcreationwizard.cpp:56
-#, kde-format
-msgid ""
-"<b>Security notice:</b>\n"
 "                             CryFS encrypts your files, so you can safely "
 "store them anywhere.\n"
 "                             It works well together with cloud services like "
@@ -614,7 +569,7 @@ msgstr ""
 "nie je žiadny nezávislý bezpečnostný audit\n"
 "ktorý by to potvrdil."
 
-#: kded/ui/vaultcreationwizard.cpp:76
+#: kded/ui/vaultcreationwizard.cpp:55
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -654,7 +609,7 @@ msgstr ""
 "                             Pozrite si <a href='https://defuse.ca/audits/"
 "gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a>pre viac informácií."
 
-#: kded/ui/vaultcreationwizard.cpp:138
+#: kded/ui/vaultcreationwizard.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
@@ -745,6 +700,49 @@ msgstr "Odomknúť trezor"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Nastaviť trezor…"
+
+#~ msgid ""
+#~ "<b>Security notice:</b>\n"
+#~ "                             According to a security audit by Taylor "
+#~ "Hornby (Defuse Security),\n"
+#~ "                             the current implementation of Encfs is "
+#~ "vulnerable or potentially vulnerable\n"
+#~ "                             to multiple types of attacks.\n"
+#~ "                             For example, an attacker with read/write "
+#~ "access\n"
+#~ "                             to encrypted data might lower the decryption "
+#~ "complexity\n"
+#~ "                             for subsequently encrypted data without this "
+#~ "being noticed by a legitimate user,\n"
+#~ "                             or might use timing analysis to deduce "
+#~ "information.\n"
+#~ "                             <br /><br />\n"
+#~ "                             This means that you should not synchronize\n"
+#~ "                             the encrypted data to a cloud storage "
+#~ "service,\n"
+#~ "                             or use it in other circumstances where the "
+#~ "attacker\n"
+#~ "                             can frequently access the encrypted data.\n"
+#~ "                             <br /><br />\n"
+#~ "                             See <a href='https://defuse.ca/audits/encfs."
+#~ "htm'>defuse.ca/audits/encfs.htm</a> for more information."
+#~ msgstr ""
+#~ "<b>Bezpečnostné upozornenie:</b>\n"
+#~ "Podľa bezpečnostného auditu od Taylora Hornbyho (Defuse Security),\n"
+#~ "aktuálna implementácia Encfs je zraniteľná alebo potenciálne zraniteľná.\n"
+#~ "na viacero typov útokov.\n"
+#~ "Napríklad, ak útočník s prístupom na čítanie a zápis\n"
+#~ "k šifrovaným údajom môže znížiť zložitosť šifrovania\n"
+#~ "na následne šifrované údaje bez povšimnutia bežným používateľom,\n"
+#~ "alebo môže použiť časovú analýzu na zistenie informácií.\n"
+#~ "<br /><br />\n"
+#~ "To znamená, že by ste nemali synchronizovať\n"
+#~ "šifrované údaje na cloudové úložisko,\n"
+#~ "alebo použiť ich v podmienkach, kde útočník\n"
+#~ "môže často pristupovať k šifrovaným údajom.\n"
+#~ "<br /><br />\n"
+#~ "Navštívte <a href='http://defuse.ca/audits/encfs.htm'>defuse.ca/audits/"
+#~ "encfs.htm</a> pre viac informácií."
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "Vytvoriť nový trezor..."

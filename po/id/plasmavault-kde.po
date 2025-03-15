@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-07 00:42+0000\n"
+"POT-Creation-Date: 2025-03-15 00:44+0000\n"
 "PO-Revision-Date: 2022-09-20 21:15+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -415,7 +415,7 @@ msgstr ""
 msgid "Error details"
 msgstr "Rincian kesalahan"
 
-#: kded/ui/mountdialog.cpp:83
+#: kded/ui/mountdialog.cpp:84
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "Gagal membuka: %1"
@@ -498,19 +498,18 @@ msgstr "Tingkat Lanjut"
 msgid "Delete"
 msgstr "Hapus"
 
-#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
-#: kded/ui/vaultimportingwizard.cpp:34
+#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
 msgid "EncFS"
 msgstr "EncFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:34
 #: kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
 msgstr "CryFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:54
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
@@ -543,59 +542,6 @@ msgid "Close the vault"
 msgstr "Tutup si vault"
 
 #: kded/ui/vaultcreationwizard.cpp:35
-#, kde-format
-msgid ""
-"<b>Security notice:</b>\n"
-"                             According to a security audit by Taylor Hornby "
-"(Defuse Security),\n"
-"                             the current implementation of Encfs is "
-"vulnerable or potentially vulnerable\n"
-"                             to multiple types of attacks.\n"
-"                             For example, an attacker with read/write "
-"access\n"
-"                             to encrypted data might lower the decryption "
-"complexity\n"
-"                             for subsequently encrypted data without this "
-"being noticed by a legitimate user,\n"
-"                             or might use timing analysis to deduce "
-"information.\n"
-"                             <br /><br />\n"
-"                             This means that you should not synchronize\n"
-"                             the encrypted data to a cloud storage service,\n"
-"                             or use it in other circumstances where the "
-"attacker\n"
-"                             can frequently access the encrypted data.\n"
-"                             <br /><br />\n"
-"                             See <a href='https://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> for more information."
-msgstr ""
-"<b>Notifikasi keamanan:</b>\n"
-"                             Menurut audit keamanan oleh Taylor Hornby "
-"(Defuse Security),\n"
-"                             implementasi pada Encfs saat ini adalah rentan "
-"atau berpotensi mudah diserang\n"
-"                             terhadap berbagai jenis serangan.\n"
-"                             Contohnya, penyerang dengan akses baca/tulis\n"
-"                             terhadap data terenkripsi yang mungkin "
-"rendahnya tingkat kesulitan dekripsi\n"
-"                             bagi data yang terenkripsi secara berurutan "
-"tanpa notifikasi oleh keabsahan pengguna,\n"
-"                             atau mungkin menggunakan timing analisis untuk "
-"mengambil informasi.\n"
-"                             <br /><br />\n"
-"                             Ini berarti bahwa Anda tidak harus "
-"menyinkronkan\n"
-"                             data yang terenkripsi ke sebuah layanan "
-"penyimpanan awan,\n"
-"                             atau menggunakannya dalam keadaan lain sehingga "
-"penyerang\n"
-"                             bisa kerap kali mengakses data yang "
-"terenkripsi.\n"
-"                             <br /><br />\n"
-"                             Lihat <a href='https://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> untuk informasi selebihnya."
-
-#: kded/ui/vaultcreationwizard.cpp:56
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -632,7 +578,7 @@ msgstr ""
 "                             tidak ada audit keamanan independen\n"
 "                             yang mengonfirmasi ini."
 
-#: kded/ui/vaultcreationwizard.cpp:76
+#: kded/ui/vaultcreationwizard.cpp:55
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -672,7 +618,7 @@ msgstr ""
 "gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a> untuk informasi lebih "
 "lanjut."
 
-#: kded/ui/vaultcreationwizard.cpp:138
+#: kded/ui/vaultcreationwizard.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
@@ -769,6 +715,59 @@ msgstr "Tutup si vault"
 #| msgid "Configure Vault..."
 msgid "Configure Vault…"
 msgstr "Konfigurasikan Vault..."
+
+#~ msgid ""
+#~ "<b>Security notice:</b>\n"
+#~ "                             According to a security audit by Taylor "
+#~ "Hornby (Defuse Security),\n"
+#~ "                             the current implementation of Encfs is "
+#~ "vulnerable or potentially vulnerable\n"
+#~ "                             to multiple types of attacks.\n"
+#~ "                             For example, an attacker with read/write "
+#~ "access\n"
+#~ "                             to encrypted data might lower the decryption "
+#~ "complexity\n"
+#~ "                             for subsequently encrypted data without this "
+#~ "being noticed by a legitimate user,\n"
+#~ "                             or might use timing analysis to deduce "
+#~ "information.\n"
+#~ "                             <br /><br />\n"
+#~ "                             This means that you should not synchronize\n"
+#~ "                             the encrypted data to a cloud storage "
+#~ "service,\n"
+#~ "                             or use it in other circumstances where the "
+#~ "attacker\n"
+#~ "                             can frequently access the encrypted data.\n"
+#~ "                             <br /><br />\n"
+#~ "                             See <a href='https://defuse.ca/audits/encfs."
+#~ "htm'>defuse.ca/audits/encfs.htm</a> for more information."
+#~ msgstr ""
+#~ "<b>Notifikasi keamanan:</b>\n"
+#~ "                             Menurut audit keamanan oleh Taylor Hornby "
+#~ "(Defuse Security),\n"
+#~ "                             implementasi pada Encfs saat ini adalah "
+#~ "rentan atau berpotensi mudah diserang\n"
+#~ "                             terhadap berbagai jenis serangan.\n"
+#~ "                             Contohnya, penyerang dengan akses baca/"
+#~ "tulis\n"
+#~ "                             terhadap data terenkripsi yang mungkin "
+#~ "rendahnya tingkat kesulitan dekripsi\n"
+#~ "                             bagi data yang terenkripsi secara berurutan "
+#~ "tanpa notifikasi oleh keabsahan pengguna,\n"
+#~ "                             atau mungkin menggunakan timing analisis "
+#~ "untuk mengambil informasi.\n"
+#~ "                             <br /><br />\n"
+#~ "                             Ini berarti bahwa Anda tidak harus "
+#~ "menyinkronkan\n"
+#~ "                             data yang terenkripsi ke sebuah layanan "
+#~ "penyimpanan awan,\n"
+#~ "                             atau menggunakannya dalam keadaan lain "
+#~ "sehingga penyerang\n"
+#~ "                             bisa kerap kali mengakses data yang "
+#~ "terenkripsi.\n"
+#~ "                             <br /><br />\n"
+#~ "                             Lihat <a href='https://defuse.ca/audits/"
+#~ "encfs.htm'>defuse.ca/audits/encfs.htm</a> untuk informasi selebihnya."
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "Ciptakan sebuah Vault Baru..."

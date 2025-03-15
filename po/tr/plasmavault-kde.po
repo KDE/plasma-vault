@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-07 00:42+0000\n"
+"POT-Creation-Date: 2025-03-15 00:44+0000\n"
 "PO-Revision-Date: 2025-03-13 23:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -408,7 +408,7 @@ msgstr ""
 msgid "Error details"
 msgstr "Hata ayrıntıları"
 
-#: kded/ui/mountdialog.cpp:83
+#: kded/ui/mountdialog.cpp:84
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "Açılamadı: %1"
@@ -489,19 +489,18 @@ msgstr "Gelişmiş"
 msgid "Delete"
 msgstr "Sil"
 
-#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
-#: kded/ui/vaultimportingwizard.cpp:34
+#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
 msgid "EncFS"
 msgstr "EncFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:34
 #: kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
 msgstr "CryFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:54
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
@@ -534,48 +533,6 @@ msgid "Close the vault"
 msgstr "Kasayı kapat"
 
 #: kded/ui/vaultcreationwizard.cpp:35
-#, kde-format
-msgid ""
-"<b>Security notice:</b>\n"
-"                             According to a security audit by Taylor Hornby "
-"(Defuse Security),\n"
-"                             the current implementation of Encfs is "
-"vulnerable or potentially vulnerable\n"
-"                             to multiple types of attacks.\n"
-"                             For example, an attacker with read/write "
-"access\n"
-"                             to encrypted data might lower the decryption "
-"complexity\n"
-"                             for subsequently encrypted data without this "
-"being noticed by a legitimate user,\n"
-"                             or might use timing analysis to deduce "
-"information.\n"
-"                             <br /><br />\n"
-"                             This means that you should not synchronize\n"
-"                             the encrypted data to a cloud storage service,\n"
-"                             or use it in other circumstances where the "
-"attacker\n"
-"                             can frequently access the encrypted data.\n"
-"                             <br /><br />\n"
-"                             See <a href='https://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> for more information."
-msgstr ""
-"<b>Güvenlik uyarısı:</b>\n"
-"Taylor Hornby’nin (Defuse Security) yaptığı bir güvenlik denetimine göre,\n"
-"Encfs’nin geçerli uygulaması birden fazla saldırı türüne karşı savunmasız\n"
-"veya potansiyel olarak savunmasızdır. Örneğin, şifrelenmiş verilere\n"
-"okuma/yazma erişimi olan bir saldırgan, meşru bir kullanıcı tarafından fark\n"
-"edilmeden daha sonra şifrelenen veriler için şifre çözme karmaşıklığını\n"
-"düşürebilir veya bilgi çıkarmak için zamanlama çözümlemesini kullanabilir. "
-"<br /><br />Bu, şifrelenmiş verileri bir bulut depolama hizmetiyle "
-"eşzamanlama\n"
-"yapmamanız veya saldırganın şifrelenmiş verilere sıklıkla erişebileceği "
-"diğer\n"
-"durumlarda kullanmamanız gerektiği anlamına gelir.<br /><br /> Daha fazla "
-"bilgi için <a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/audits/"
-"encfs.htm</a> sayfasına bakın."
-
-#: kded/ui/vaultcreationwizard.cpp:56
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -612,7 +569,7 @@ msgstr ""
 "                              bağımsız bir güvenlik denetimi yok\n"
 "                              bunu doğrulamaktadır."
 
-#: kded/ui/vaultcreationwizard.cpp:76
+#: kded/ui/vaultcreationwizard.cpp:55
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -646,7 +603,7 @@ msgstr ""
 "tutar. <br /><br />Daha fazla bilgi için <a href='https://defuse.ca/audits/"
 "encfs.htm'>defuse.ca/audits/encfs.htm</a> sayfasına bakın."
 
-#: kded/ui/vaultcreationwizard.cpp:138
+#: kded/ui/vaultcreationwizard.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
@@ -737,3 +694,47 @@ msgstr "Kasa Kilidini Aç"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Kasayı Yapılandır…"
+
+#~ msgid ""
+#~ "<b>Security notice:</b>\n"
+#~ "                             According to a security audit by Taylor "
+#~ "Hornby (Defuse Security),\n"
+#~ "                             the current implementation of Encfs is "
+#~ "vulnerable or potentially vulnerable\n"
+#~ "                             to multiple types of attacks.\n"
+#~ "                             For example, an attacker with read/write "
+#~ "access\n"
+#~ "                             to encrypted data might lower the decryption "
+#~ "complexity\n"
+#~ "                             for subsequently encrypted data without this "
+#~ "being noticed by a legitimate user,\n"
+#~ "                             or might use timing analysis to deduce "
+#~ "information.\n"
+#~ "                             <br /><br />\n"
+#~ "                             This means that you should not synchronize\n"
+#~ "                             the encrypted data to a cloud storage "
+#~ "service,\n"
+#~ "                             or use it in other circumstances where the "
+#~ "attacker\n"
+#~ "                             can frequently access the encrypted data.\n"
+#~ "                             <br /><br />\n"
+#~ "                             See <a href='https://defuse.ca/audits/encfs."
+#~ "htm'>defuse.ca/audits/encfs.htm</a> for more information."
+#~ msgstr ""
+#~ "<b>Güvenlik uyarısı:</b>\n"
+#~ "Taylor Hornby’nin (Defuse Security) yaptığı bir güvenlik denetimine "
+#~ "göre,\n"
+#~ "Encfs’nin geçerli uygulaması birden fazla saldırı türüne karşı "
+#~ "savunmasız\n"
+#~ "veya potansiyel olarak savunmasızdır. Örneğin, şifrelenmiş verilere\n"
+#~ "okuma/yazma erişimi olan bir saldırgan, meşru bir kullanıcı tarafından "
+#~ "fark\n"
+#~ "edilmeden daha sonra şifrelenen veriler için şifre çözme karmaşıklığını\n"
+#~ "düşürebilir veya bilgi çıkarmak için zamanlama çözümlemesini "
+#~ "kullanabilir. <br /><br />Bu, şifrelenmiş verileri bir bulut depolama "
+#~ "hizmetiyle eşzamanlama\n"
+#~ "yapmamanız veya saldırganın şifrelenmiş verilere sıklıkla erişebileceği "
+#~ "diğer\n"
+#~ "durumlarda kullanmamanız gerektiği anlamına gelir.<br /><br /> Daha fazla "
+#~ "bilgi için <a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/audits/"
+#~ "encfs.htm</a> sayfasına bakın."

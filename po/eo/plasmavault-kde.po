@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-07 00:42+0000\n"
+"POT-Creation-Date: 2025-03-15 00:44+0000\n"
 "PO-Revision-Date: 2024-01-03 14:17+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -419,7 +419,7 @@ msgstr ""
 msgid "Error details"
 msgstr "Detaloj pri eraro"
 
-#: kded/ui/mountdialog.cpp:83
+#: kded/ui/mountdialog.cpp:84
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "Malsukcesis malfermi: %1"
@@ -502,19 +502,18 @@ msgstr "Altnivela"
 msgid "Delete"
 msgstr "Forigi"
 
-#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
-#: kded/ui/vaultimportingwizard.cpp:34
+#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
 msgid "EncFS"
 msgstr "EncFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:34
 #: kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
 msgstr "CryFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:54
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
@@ -550,50 +549,6 @@ msgstr "Fermi la trezorejon"
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
-"                             According to a security audit by Taylor Hornby "
-"(Defuse Security),\n"
-"                             the current implementation of Encfs is "
-"vulnerable or potentially vulnerable\n"
-"                             to multiple types of attacks.\n"
-"                             For example, an attacker with read/write "
-"access\n"
-"                             to encrypted data might lower the decryption "
-"complexity\n"
-"                             for subsequently encrypted data without this "
-"being noticed by a legitimate user,\n"
-"                             or might use timing analysis to deduce "
-"information.\n"
-"                             <br /><br />\n"
-"                             This means that you should not synchronize\n"
-"                             the encrypted data to a cloud storage service,\n"
-"                             or use it in other circumstances where the "
-"attacker\n"
-"                             can frequently access the encrypted data.\n"
-"                             <br /><br />\n"
-"                             See <a href='https://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> for more information."
-msgstr ""
-"<b>Avizo pri sekureco:</b>\n"
-" Laŭ sekureca revizio de Taylor Hornby (Malfunkciigi Sekurecon),\n"
-" la nuna efektivigo de Encfs estas vundebla aŭ eble vundebla\n"
-" kontraŭ multoblaj specoj de atakoj.\n"
-" Ekzemple, atakanto kun legado/skriba aliro\n"
-" al ĉifritaj datumoj povus malaltigi la malĉifritan kompleksecon\n"
-" por poste ĉifritaj datumoj sen ke tio estu rimarkita de legitima uzanto,\n"
-" aŭ povus uzi tempan analizon por dedukti informojn.\n"
-" <br /><br />\n"
-" Ĉi tio signifas, ke vi ne devas sinkronigi\n"
-" la ĉifritajn datumojn al nubkonserveja servo,\n"
-" aŭ uzi ĝin en aliaj cirkonstancoj kie la atakanto\n"
-" povas ofte aliri la ĉifritajn datumojn.\n"
-" <br /><br />\n"
-" Vidu <a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs."
-"htm</a> por pliaj informoj."
-
-#: kded/ui/vaultcreationwizard.cpp:56
-#, kde-format
-msgid ""
-"<b>Security notice:</b>\n"
 "                             CryFS encrypts your files, so you can safely "
 "store them anywhere.\n"
 "                             It works well together with cloud services like "
@@ -625,7 +580,7 @@ msgstr ""
 " ekzistas neniu sendependa sekureca revizio\n"
 " kiu konfirmas tion."
 
-#: kded/ui/vaultcreationwizard.cpp:76
+#: kded/ui/vaultcreationwizard.cpp:55
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -660,7 +615,7 @@ msgstr ""
 " Vidu <a href='https://defuse.ca/audits/gocryptfs.htm'>defuse.ca/audits/"
 "gocryptfs.htm</a> por pliaj informoj."
 
-#: kded/ui/vaultcreationwizard.cpp:138
+#: kded/ui/vaultcreationwizard.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
@@ -753,3 +708,47 @@ msgstr "Malŝlosi Trezorejon"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Agordi Trezorejon…"
+
+#~ msgid ""
+#~ "<b>Security notice:</b>\n"
+#~ "                             According to a security audit by Taylor "
+#~ "Hornby (Defuse Security),\n"
+#~ "                             the current implementation of Encfs is "
+#~ "vulnerable or potentially vulnerable\n"
+#~ "                             to multiple types of attacks.\n"
+#~ "                             For example, an attacker with read/write "
+#~ "access\n"
+#~ "                             to encrypted data might lower the decryption "
+#~ "complexity\n"
+#~ "                             for subsequently encrypted data without this "
+#~ "being noticed by a legitimate user,\n"
+#~ "                             or might use timing analysis to deduce "
+#~ "information.\n"
+#~ "                             <br /><br />\n"
+#~ "                             This means that you should not synchronize\n"
+#~ "                             the encrypted data to a cloud storage "
+#~ "service,\n"
+#~ "                             or use it in other circumstances where the "
+#~ "attacker\n"
+#~ "                             can frequently access the encrypted data.\n"
+#~ "                             <br /><br />\n"
+#~ "                             See <a href='https://defuse.ca/audits/encfs."
+#~ "htm'>defuse.ca/audits/encfs.htm</a> for more information."
+#~ msgstr ""
+#~ "<b>Avizo pri sekureco:</b>\n"
+#~ " Laŭ sekureca revizio de Taylor Hornby (Malfunkciigi Sekurecon),\n"
+#~ " la nuna efektivigo de Encfs estas vundebla aŭ eble vundebla\n"
+#~ " kontraŭ multoblaj specoj de atakoj.\n"
+#~ " Ekzemple, atakanto kun legado/skriba aliro\n"
+#~ " al ĉifritaj datumoj povus malaltigi la malĉifritan kompleksecon\n"
+#~ " por poste ĉifritaj datumoj sen ke tio estu rimarkita de legitima "
+#~ "uzanto,\n"
+#~ " aŭ povus uzi tempan analizon por dedukti informojn.\n"
+#~ " <br /><br />\n"
+#~ " Ĉi tio signifas, ke vi ne devas sinkronigi\n"
+#~ " la ĉifritajn datumojn al nubkonserveja servo,\n"
+#~ " aŭ uzi ĝin en aliaj cirkonstancoj kie la atakanto\n"
+#~ " povas ofte aliri la ĉifritajn datumojn.\n"
+#~ " <br /><br />\n"
+#~ " Vidu <a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs."
+#~ "htm</a> por pliaj informoj."

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-07 00:42+0000\n"
+"POT-Creation-Date: 2025-03-15 00:44+0000\n"
 "PO-Revision-Date: 2020-01-18 20:16-0800\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -419,7 +419,7 @@ msgstr ""
 msgid "Error details"
 msgstr ""
 
-#: kded/ui/mountdialog.cpp:83
+#: kded/ui/mountdialog.cpp:84
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "開けませんでした:%1"
@@ -492,19 +492,18 @@ msgstr "高度"
 msgid "Delete"
 msgstr "削除"
 
-#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
-#: kded/ui/vaultimportingwizard.cpp:34
+#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
 msgid "EncFS"
 msgstr "EncFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:34
 #: kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
 msgstr "CryFs"
 
-#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:54
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
@@ -540,48 +539,6 @@ msgstr "Vault を閉じる"
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
-"                             According to a security audit by Taylor Hornby "
-"(Defuse Security),\n"
-"                             the current implementation of Encfs is "
-"vulnerable or potentially vulnerable\n"
-"                             to multiple types of attacks.\n"
-"                             For example, an attacker with read/write "
-"access\n"
-"                             to encrypted data might lower the decryption "
-"complexity\n"
-"                             for subsequently encrypted data without this "
-"being noticed by a legitimate user,\n"
-"                             or might use timing analysis to deduce "
-"information.\n"
-"                             <br /><br />\n"
-"                             This means that you should not synchronize\n"
-"                             the encrypted data to a cloud storage service,\n"
-"                             or use it in other circumstances where the "
-"attacker\n"
-"                             can frequently access the encrypted data.\n"
-"                             <br /><br />\n"
-"                             See <a href='https://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> for more information."
-msgstr ""
-"<b>セキュリティ通知:</b>\n"
-"                             Taylor Hornby (Defuse Security) のセキュリティ監"
-"査によると、\n"
-"                             現在の Encfs の実装はいくつかの種類の攻撃に脆弱"
-"である、もしくはその可能性があります。\n"
-"                             例えば、暗号化されたデータに読み書き権限があるア"
-"タッカーは、正規ユーザに気づかれることなく、攻撃後に書きこまれるデータの暗号"
-"強度を下げたり、タイミング解析で情報を推察したりできる可能性があります。<br /"
-"><br />\n"
-"                             つまり、暗号化されたデータをクラウドストレージで"
-"同期したり、アタッカーが頻繁に暗号化されたデータにアクセスできるような状況で"
-"使用すべきではないということです。<br /><br />\n"
-"                            詳細情報については <a href='http://defuse.ca/"
-"audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> をご覧ください。"
-
-#: kded/ui/vaultcreationwizard.cpp:56
-#, kde-format
-msgid ""
-"<b>Security notice:</b>\n"
 "                             CryFS encrypts your files, so you can safely "
 "store them anywhere.\n"
 "                             It works well together with cloud services like "
@@ -614,7 +571,7 @@ msgstr ""
 "                             これを裏付ける独立したセキュリティ監査はないとい"
 "うことに注意してください。"
 
-#: kded/ui/vaultcreationwizard.cpp:76
+#: kded/ui/vaultcreationwizard.cpp:55
 #, fuzzy, kde-format
 #| msgid ""
 #| "<b>Security notice:</b>\n"
@@ -668,7 +625,7 @@ msgstr ""
 "                             これを裏付ける独立したセキュリティ監査はないとい"
 "うことに注意してください。"
 
-#: kded/ui/vaultcreationwizard.cpp:138
+#: kded/ui/vaultcreationwizard.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
@@ -765,3 +722,44 @@ msgstr "Vault を閉じる"
 #| msgid "Configure Vault..."
 msgid "Configure Vault…"
 msgstr "Vault の設定..."
+
+#~ msgid ""
+#~ "<b>Security notice:</b>\n"
+#~ "                             According to a security audit by Taylor "
+#~ "Hornby (Defuse Security),\n"
+#~ "                             the current implementation of Encfs is "
+#~ "vulnerable or potentially vulnerable\n"
+#~ "                             to multiple types of attacks.\n"
+#~ "                             For example, an attacker with read/write "
+#~ "access\n"
+#~ "                             to encrypted data might lower the decryption "
+#~ "complexity\n"
+#~ "                             for subsequently encrypted data without this "
+#~ "being noticed by a legitimate user,\n"
+#~ "                             or might use timing analysis to deduce "
+#~ "information.\n"
+#~ "                             <br /><br />\n"
+#~ "                             This means that you should not synchronize\n"
+#~ "                             the encrypted data to a cloud storage "
+#~ "service,\n"
+#~ "                             or use it in other circumstances where the "
+#~ "attacker\n"
+#~ "                             can frequently access the encrypted data.\n"
+#~ "                             <br /><br />\n"
+#~ "                             See <a href='https://defuse.ca/audits/encfs."
+#~ "htm'>defuse.ca/audits/encfs.htm</a> for more information."
+#~ msgstr ""
+#~ "<b>セキュリティ通知:</b>\n"
+#~ "                             Taylor Hornby (Defuse Security) のセキュリ"
+#~ "ティ監査によると、\n"
+#~ "                             現在の Encfs の実装はいくつかの種類の攻撃に脆"
+#~ "弱である、もしくはその可能性があります。\n"
+#~ "                             例えば、暗号化されたデータに読み書き権限があ"
+#~ "るアタッカーは、正規ユーザに気づかれることなく、攻撃後に書きこまれるデータ"
+#~ "の暗号強度を下げたり、タイミング解析で情報を推察したりできる可能性がありま"
+#~ "す。<br /><br />\n"
+#~ "                             つまり、暗号化されたデータをクラウドストレー"
+#~ "ジで同期したり、アタッカーが頻繁に暗号化されたデータにアクセスできるような"
+#~ "状況で使用すべきではないということです。<br /><br />\n"
+#~ "                            詳細情報については <a href='http://defuse.ca/"
+#~ "audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> をご覧ください。"

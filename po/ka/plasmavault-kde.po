@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-07 00:42+0000\n"
+"POT-Creation-Date: 2025-03-15 00:44+0000\n"
 "PO-Revision-Date: 2022-12-30 03:36+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -407,7 +407,7 @@ msgstr ""
 msgid "Error details"
 msgstr "შეცდომის დეტალები"
 
-#: kded/ui/mountdialog.cpp:83
+#: kded/ui/mountdialog.cpp:84
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "გახსნის შეცდომა: %1"
@@ -488,19 +488,18 @@ msgstr "დამატებითი"
 msgid "Delete"
 msgstr "წაშლა"
 
-#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
-#: kded/ui/vaultimportingwizard.cpp:34
+#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
 msgid "EncFS"
 msgstr "EncFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:34
 #: kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
 msgstr "CryFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:54
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
@@ -534,58 +533,6 @@ msgid "Close the vault"
 msgstr "საცავის დახურვა"
 
 #: kded/ui/vaultcreationwizard.cpp:35
-#, kde-format
-msgid ""
-"<b>Security notice:</b>\n"
-"                             According to a security audit by Taylor Hornby "
-"(Defuse Security),\n"
-"                             the current implementation of Encfs is "
-"vulnerable or potentially vulnerable\n"
-"                             to multiple types of attacks.\n"
-"                             For example, an attacker with read/write "
-"access\n"
-"                             to encrypted data might lower the decryption "
-"complexity\n"
-"                             for subsequently encrypted data without this "
-"being noticed by a legitimate user,\n"
-"                             or might use timing analysis to deduce "
-"information.\n"
-"                             <br /><br />\n"
-"                             This means that you should not synchronize\n"
-"                             the encrypted data to a cloud storage service,\n"
-"                             or use it in other circumstances where the "
-"attacker\n"
-"                             can frequently access the encrypted data.\n"
-"                             <br /><br />\n"
-"                             See <a href='https://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> for more information."
-msgstr ""
-"<b>უსაფრთხოების შენიშვნა:</b>\n"
-"                             Taylor Hornby (Defuse Security)-ის უსაფრთხოების "
-"აუდიტის ანგარიშიდან გამომდნარე,\n"
-"                             Encfs -ის მიმდინარე განხორციელება პოტენციურად "
-"მოწყვლადია\n"
-"                             ბევრი ტიპის შეტევების წინააღმდეგ.\n"
-"                             მაგალითად, წერა-კითხვის წვდომის მქონე შემტევს "
-"შეუძლია\n"
-"                             დაშიფრული მონაცემების შიფრაციის სირთულე "
-"დაწიოს,\n"
-"                             რაც ნამდვილი მომხმარებლის მიერ შეუმჩნეველი "
-"დარჩება,\n"
-"                             ან მონაცემები შეიძლება ათვლის ანალიზით "
-"დაიკარგოს.\n"
-"                             <br /><br />\n"
-"                             ეს ნიშნავს, რომ თქვენ არ უნდა დაასინქრონოთ "
-"დაშიფრული მონაცემები\n"
-"                             ღრუბლოვანი საცავის სერვისებთან,\n"
-"                             ან გამოიყენოთ ისეთ ვითარებაში, სადაც შემტევს "
-"დაშიფრულ მონაცემებზე\n"
-"                             ხშირი წვდომა გააჩნია.\n"
-"                             <br /><br />\n"
-"                             მეტი ინფორმაციისთვის იხილეთ <a href='https://"
-"defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a>."
-
-#: kded/ui/vaultcreationwizard.cpp:56
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -623,7 +570,7 @@ msgstr ""
 "დაამტკიცებს,\n"
 "                             არ არსებობს."
 
-#: kded/ui/vaultcreationwizard.cpp:76
+#: kded/ui/vaultcreationwizard.cpp:55
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -660,7 +607,7 @@ msgstr ""
 "                             მეტი ინფორმაციისთვის იხილეთ <a href='https://"
 "defuse.ca/audits/gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a>."
 
-#: kded/ui/vaultcreationwizard.cpp:138
+#: kded/ui/vaultcreationwizard.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
@@ -751,3 +698,54 @@ msgstr "საცავის განბლოკვა"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "საცავის მორგება…"
+
+#~ msgid ""
+#~ "<b>Security notice:</b>\n"
+#~ "                             According to a security audit by Taylor "
+#~ "Hornby (Defuse Security),\n"
+#~ "                             the current implementation of Encfs is "
+#~ "vulnerable or potentially vulnerable\n"
+#~ "                             to multiple types of attacks.\n"
+#~ "                             For example, an attacker with read/write "
+#~ "access\n"
+#~ "                             to encrypted data might lower the decryption "
+#~ "complexity\n"
+#~ "                             for subsequently encrypted data without this "
+#~ "being noticed by a legitimate user,\n"
+#~ "                             or might use timing analysis to deduce "
+#~ "information.\n"
+#~ "                             <br /><br />\n"
+#~ "                             This means that you should not synchronize\n"
+#~ "                             the encrypted data to a cloud storage "
+#~ "service,\n"
+#~ "                             or use it in other circumstances where the "
+#~ "attacker\n"
+#~ "                             can frequently access the encrypted data.\n"
+#~ "                             <br /><br />\n"
+#~ "                             See <a href='https://defuse.ca/audits/encfs."
+#~ "htm'>defuse.ca/audits/encfs.htm</a> for more information."
+#~ msgstr ""
+#~ "<b>უსაფრთხოების შენიშვნა:</b>\n"
+#~ "                             Taylor Hornby (Defuse Security)-ის "
+#~ "უსაფრთხოების აუდიტის ანგარიშიდან გამომდნარე,\n"
+#~ "                             Encfs -ის მიმდინარე განხორციელება "
+#~ "პოტენციურად მოწყვლადია\n"
+#~ "                             ბევრი ტიპის შეტევების წინააღმდეგ.\n"
+#~ "                             მაგალითად, წერა-კითხვის წვდომის მქონე "
+#~ "შემტევს შეუძლია\n"
+#~ "                             დაშიფრული მონაცემების შიფრაციის სირთულე "
+#~ "დაწიოს,\n"
+#~ "                             რაც ნამდვილი მომხმარებლის მიერ შეუმჩნეველი "
+#~ "დარჩება,\n"
+#~ "                             ან მონაცემები შეიძლება ათვლის ანალიზით "
+#~ "დაიკარგოს.\n"
+#~ "                             <br /><br />\n"
+#~ "                             ეს ნიშნავს, რომ თქვენ არ უნდა დაასინქრონოთ "
+#~ "დაშიფრული მონაცემები\n"
+#~ "                             ღრუბლოვანი საცავის სერვისებთან,\n"
+#~ "                             ან გამოიყენოთ ისეთ ვითარებაში, სადაც შემტევს "
+#~ "დაშიფრულ მონაცემებზე\n"
+#~ "                             ხშირი წვდომა გააჩნია.\n"
+#~ "                             <br /><br />\n"
+#~ "                             მეტი ინფორმაციისთვის იხილეთ <a href='https://"
+#~ "defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a>."

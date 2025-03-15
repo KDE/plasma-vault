@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-07 00:42+0000\n"
+"POT-Creation-Date: 2025-03-15 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -401,7 +401,7 @@ msgstr ""
 msgid "Error details"
 msgstr "错误详情"
 
-#: kded/ui/mountdialog.cpp:83
+#: kded/ui/mountdialog.cpp:84
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "打开 %1 失败"
@@ -480,19 +480,18 @@ msgstr "高级"
 msgid "Delete"
 msgstr "删除"
 
-#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
-#: kded/ui/vaultimportingwizard.cpp:34
+#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
 msgid "EncFS"
 msgstr "EncFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:34
 #: kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
 msgstr "CryFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:54
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
@@ -528,49 +527,6 @@ msgstr "关闭保险库"
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
-"                             According to a security audit by Taylor Hornby "
-"(Defuse Security),\n"
-"                             the current implementation of Encfs is "
-"vulnerable or potentially vulnerable\n"
-"                             to multiple types of attacks.\n"
-"                             For example, an attacker with read/write "
-"access\n"
-"                             to encrypted data might lower the decryption "
-"complexity\n"
-"                             for subsequently encrypted data without this "
-"being noticed by a legitimate user,\n"
-"                             or might use timing analysis to deduce "
-"information.\n"
-"                             <br /><br />\n"
-"                             This means that you should not synchronize\n"
-"                             the encrypted data to a cloud storage service,\n"
-"                             or use it in other circumstances where the "
-"attacker\n"
-"                             can frequently access the encrypted data.\n"
-"                             <br /><br />\n"
-"                             See <a href='https://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> for more information."
-msgstr ""
-"<b>安全注意：</b>\n"
-"                             根据 Taylor Hornby (来自 Defuse Security) 的安全"
-"审计，当前 Encfs\n"
-"                             的实现是易受攻击或潜在易受攻击的。比如，具有读写"
-"访问加密数据\n"
-"                             权限的攻击者可以随后附加加密数据，而不被正常用户"
-"察觉，从而降\n"
-"                             低解密复杂度，或者使用时间分析来推断信息。\n"
-"                             <br /><br />\n"
-"                             这意味着您不应当将加密的数据同步到云存储服务，或"
-"者用在任何攻\n"
-"                             击者可频繁访问加密数据的情况。\n"
-"                             <br /><br />\n"
-"                             查看 <a href='http://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> 获取更多信息。"
-
-#: kded/ui/vaultcreationwizard.cpp:56
-#, kde-format
-msgid ""
-"<b>Security notice:</b>\n"
 "                             CryFS encrypts your files, so you can safely "
 "store them anywhere.\n"
 "                             It works well together with cloud services like "
@@ -601,7 +557,7 @@ msgstr ""
 "未有独立的\n"
 "                             安全审计确认这一点。"
 
-#: kded/ui/vaultcreationwizard.cpp:76
+#: kded/ui/vaultcreationwizard.cpp:55
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -639,7 +595,7 @@ msgstr ""
 "                             查看 <a href='https://defuse.ca/audits/"
 "gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a> 获取更多信息。"
 
-#: kded/ui/vaultcreationwizard.cpp:138
+#: kded/ui/vaultcreationwizard.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
@@ -730,3 +686,45 @@ msgstr "解锁保险库"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "配置保险库…"
+
+#~ msgid ""
+#~ "<b>Security notice:</b>\n"
+#~ "                             According to a security audit by Taylor "
+#~ "Hornby (Defuse Security),\n"
+#~ "                             the current implementation of Encfs is "
+#~ "vulnerable or potentially vulnerable\n"
+#~ "                             to multiple types of attacks.\n"
+#~ "                             For example, an attacker with read/write "
+#~ "access\n"
+#~ "                             to encrypted data might lower the decryption "
+#~ "complexity\n"
+#~ "                             for subsequently encrypted data without this "
+#~ "being noticed by a legitimate user,\n"
+#~ "                             or might use timing analysis to deduce "
+#~ "information.\n"
+#~ "                             <br /><br />\n"
+#~ "                             This means that you should not synchronize\n"
+#~ "                             the encrypted data to a cloud storage "
+#~ "service,\n"
+#~ "                             or use it in other circumstances where the "
+#~ "attacker\n"
+#~ "                             can frequently access the encrypted data.\n"
+#~ "                             <br /><br />\n"
+#~ "                             See <a href='https://defuse.ca/audits/encfs."
+#~ "htm'>defuse.ca/audits/encfs.htm</a> for more information."
+#~ msgstr ""
+#~ "<b>安全注意：</b>\n"
+#~ "                             根据 Taylor Hornby (来自 Defuse Security) 的"
+#~ "安全审计，当前 Encfs\n"
+#~ "                             的实现是易受攻击或潜在易受攻击的。比如，具有"
+#~ "读写访问加密数据\n"
+#~ "                             权限的攻击者可以随后附加加密数据，而不被正常"
+#~ "用户察觉，从而降\n"
+#~ "                             低解密复杂度，或者使用时间分析来推断信息。\n"
+#~ "                             <br /><br />\n"
+#~ "                             这意味着您不应当将加密的数据同步到云存储服"
+#~ "务，或者用在任何攻\n"
+#~ "                             击者可频繁访问加密数据的情况。\n"
+#~ "                             <br /><br />\n"
+#~ "                             查看 <a href='http://defuse.ca/audits/encfs."
+#~ "htm'>defuse.ca/audits/encfs.htm</a> 获取更多信息。"

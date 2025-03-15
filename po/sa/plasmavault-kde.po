@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-07 00:42+0000\n"
+"POT-Creation-Date: 2025-03-15 00:44+0000\n"
 "PO-Revision-Date: 2024-12-20 21:54+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -410,7 +410,7 @@ msgstr ""
 msgid "Error details"
 msgstr "त्रुटिविवरणम्"
 
-#: kded/ui/mountdialog.cpp:83
+#: kded/ui/mountdialog.cpp:84
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "उद्घाटयितुं असफलम्: %1"
@@ -492,19 +492,18 @@ msgstr "उन्नतं"
 msgid "Delete"
 msgstr "लुप्"
 
-#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
-#: kded/ui/vaultimportingwizard.cpp:34
+#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
 msgid "EncFS"
 msgstr "EncFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:34
 #: kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
 msgstr "CryFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:54
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
@@ -540,43 +539,6 @@ msgstr "तिजोरीं पिधाय"
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
-"                             According to a security audit by Taylor Hornby "
-"(Defuse Security),\n"
-"                             the current implementation of Encfs is "
-"vulnerable or potentially vulnerable\n"
-"                             to multiple types of attacks.\n"
-"                             For example, an attacker with read/write "
-"access\n"
-"                             to encrypted data might lower the decryption "
-"complexity\n"
-"                             for subsequently encrypted data without this "
-"being noticed by a legitimate user,\n"
-"                             or might use timing analysis to deduce "
-"information.\n"
-"                             <br /><br />\n"
-"                             This means that you should not synchronize\n"
-"                             the encrypted data to a cloud storage service,\n"
-"                             or use it in other circumstances where the "
-"attacker\n"
-"                             can frequently access the encrypted data.\n"
-"                             <br /><br />\n"
-"                             See <a href='https://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> for more information."
-msgstr ""
-"<b>सुरक्षासूचना:</b> Taylor Hornby (Defuse Security) इत्यस्य सुरक्षालेखापरीक्षायाः "
-"अनुसारं Encfs इत्यस्य वर्तमानकार्यन्वयनं बहुप्रकारस्य आक्रमणानां कृते दुर्बलं वा सम्भाव्यतया "
-"दुर्बलं वा अस्ति यथा, एन्क्रिप्टेड्-दत्तांशस्य पठन/लेखन-प्रवेशं विद्यमानः आक्रमणकारी तदनन्तरं "
-"एन्क्रिप्टेड्-दत्तांशस्य कृते विगुप्तीकरण-जटिलतां न्यूनीकर्तुं शक्नोति, एतत् वैध-उपयोक्तृणा न "
-"लक्षितं, अथवा सूचनां निष्कर्षयितुं समय-विश्लेषणस्य उपयोगं कर्तुं शक्नोति<br /><br /> अस्य "
-"अर्थः अस्ति यत् भवद्भिः गुप्तदत्तांशं मेघभण्डारणसेवायां समन्वयनं न कर्तव्यम्, अन्येषु परिस्थितिषु "
-"वा यत्र आक्रमणकर्त्ता गुप्तदत्तांशं बहुधा प्राप्तुं शक्नोति तत्र तस्य उपयोगं न कर्तव्यम्<br /"
-"><br /> अधिकविवरणार्थं <a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/"
-"audits/encfs.htm</a> पश्यन्तु ।"
-
-#: kded/ui/vaultcreationwizard.cpp:56
-#, kde-format
-msgid ""
-"<b>Security notice:</b>\n"
 "                             CryFS encrypts your files, so you can safely "
 "store them anywhere.\n"
 "                             It works well together with cloud services like "
@@ -601,7 +563,7 @@ msgstr ""
 "ज्ञातव्यं यत्, यद्यपि CryFS सुरक्षितं मन्यते तथापि स्वतन्त्रं सुरक्षालेखापरीक्षा नास्ति यत् एतस्य "
 "पुष्टिं करोति ।"
 
-#: kded/ui/vaultcreationwizard.cpp:76
+#: kded/ui/vaultcreationwizard.cpp:55
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -632,7 +594,7 @@ msgstr ""
 "परिवर्तयितुं च शक्नोति<br /><br /> अधिकसूचनार्थं <a href='https://defuse.ca/audits/"
 "gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a> पश्यन्तु ।"
 
-#: kded/ui/vaultcreationwizard.cpp:138
+#: kded/ui/vaultcreationwizard.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
@@ -724,3 +686,39 @@ msgstr "तिजोरी अनलॉक करू"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "तिजोरी विन्यस्तं कुर्वन्तु..."
+
+#~ msgid ""
+#~ "<b>Security notice:</b>\n"
+#~ "                             According to a security audit by Taylor "
+#~ "Hornby (Defuse Security),\n"
+#~ "                             the current implementation of Encfs is "
+#~ "vulnerable or potentially vulnerable\n"
+#~ "                             to multiple types of attacks.\n"
+#~ "                             For example, an attacker with read/write "
+#~ "access\n"
+#~ "                             to encrypted data might lower the decryption "
+#~ "complexity\n"
+#~ "                             for subsequently encrypted data without this "
+#~ "being noticed by a legitimate user,\n"
+#~ "                             or might use timing analysis to deduce "
+#~ "information.\n"
+#~ "                             <br /><br />\n"
+#~ "                             This means that you should not synchronize\n"
+#~ "                             the encrypted data to a cloud storage "
+#~ "service,\n"
+#~ "                             or use it in other circumstances where the "
+#~ "attacker\n"
+#~ "                             can frequently access the encrypted data.\n"
+#~ "                             <br /><br />\n"
+#~ "                             See <a href='https://defuse.ca/audits/encfs."
+#~ "htm'>defuse.ca/audits/encfs.htm</a> for more information."
+#~ msgstr ""
+#~ "<b>सुरक्षासूचना:</b> Taylor Hornby (Defuse Security) इत्यस्य सुरक्षालेखापरीक्षायाः "
+#~ "अनुसारं Encfs इत्यस्य वर्तमानकार्यन्वयनं बहुप्रकारस्य आक्रमणानां कृते दुर्बलं वा सम्भाव्यतया "
+#~ "दुर्बलं वा अस्ति यथा, एन्क्रिप्टेड्-दत्तांशस्य पठन/लेखन-प्रवेशं विद्यमानः आक्रमणकारी तदनन्तरं "
+#~ "एन्क्रिप्टेड्-दत्तांशस्य कृते विगुप्तीकरण-जटिलतां न्यूनीकर्तुं शक्नोति, एतत् वैध-उपयोक्तृणा न "
+#~ "लक्षितं, अथवा सूचनां निष्कर्षयितुं समय-विश्लेषणस्य उपयोगं कर्तुं शक्नोति<br /><br /> अस्य "
+#~ "अर्थः अस्ति यत् भवद्भिः गुप्तदत्तांशं मेघभण्डारणसेवायां समन्वयनं न कर्तव्यम्, अन्येषु "
+#~ "परिस्थितिषु वा यत्र आक्रमणकर्त्ता गुप्तदत्तांशं बहुधा प्राप्तुं शक्नोति तत्र तस्य उपयोगं न "
+#~ "कर्तव्यम्<br /><br /> अधिकविवरणार्थं <a href='https://defuse.ca/audits/encfs."
+#~ "htm'>defuse.ca/audits/encfs.htm</a> पश्यन्तु ।"

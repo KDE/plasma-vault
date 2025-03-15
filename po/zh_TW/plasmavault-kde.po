@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-07 00:42+0000\n"
+"POT-Creation-Date: 2025-03-15 00:44+0000\n"
 "PO-Revision-Date: 2022-12-30 18:50+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -403,7 +403,7 @@ msgstr ""
 msgid "Error details"
 msgstr "錯誤詳細資訊"
 
-#: kded/ui/mountdialog.cpp:83
+#: kded/ui/mountdialog.cpp:84
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "無法開啟：%1"
@@ -482,19 +482,18 @@ msgstr "進階"
 msgid "Delete"
 msgstr "刪除"
 
-#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultcreationwizard.cpp:34
-#: kded/ui/vaultimportingwizard.cpp:34
+#: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
 msgid "EncFS"
 msgstr "EncFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:55
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:34
 #: kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
 msgstr "CryFS"
 
-#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:75
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:54
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
@@ -530,41 +529,6 @@ msgstr "關閉儲存庫"
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
-"                             According to a security audit by Taylor Hornby "
-"(Defuse Security),\n"
-"                             the current implementation of Encfs is "
-"vulnerable or potentially vulnerable\n"
-"                             to multiple types of attacks.\n"
-"                             For example, an attacker with read/write "
-"access\n"
-"                             to encrypted data might lower the decryption "
-"complexity\n"
-"                             for subsequently encrypted data without this "
-"being noticed by a legitimate user,\n"
-"                             or might use timing analysis to deduce "
-"information.\n"
-"                             <br /><br />\n"
-"                             This means that you should not synchronize\n"
-"                             the encrypted data to a cloud storage service,\n"
-"                             or use it in other circumstances where the "
-"attacker\n"
-"                             can frequently access the encrypted data.\n"
-"                             <br /><br />\n"
-"                             See <a href='https://defuse.ca/audits/encfs."
-"htm'>defuse.ca/audits/encfs.htm</a> for more information."
-msgstr ""
-"<b>安全性警示：</b>根據 Taylor Hornby (Defuse Security) 的安全性稽核報告指出"
-"目前的 Encfs 實作對若干攻擊手法存在安全疑慮或潛在風險。<br />例如：對已加密資"
-"料具有讀寫權限的攻擊者有機會降低資料解密的複雜度而不被原合法使用者知道。或者"
-"攻擊者也能藉由時間序列分析推敲出有用資訊。<br /><br />而這也表示本加密方法不"
-"適合上傳至雲端儲存伺服器， 或用於他人能頻繁存取已加密資料的情境。<br /><br />"
-"詳情請參閱以下網址：<a href='https://defuse.ca/audits/encfs.htm'>defuse.ca/"
-"audits/encfs.htm</a>"
-
-#: kded/ui/vaultcreationwizard.cpp:56
-#, kde-format
-msgid ""
-"<b>Security notice:</b>\n"
 "                             CryFS encrypts your files, so you can safely "
 "store them anywhere.\n"
 "                             It works well together with cloud services like "
@@ -587,7 +551,7 @@ msgstr ""
 "檔案佔用的容量。<br /><br />然而值得注意的是：雖然 CryFS 應該是安全的，但目前"
 "並沒有獨立的安全稽核機構能為其安全性背書。"
 
-#: kded/ui/vaultcreationwizard.cpp:76
+#: kded/ui/vaultcreationwizard.cpp:55
 #, kde-format
 msgid ""
 "<b>Security notice:</b>\n"
@@ -617,7 +581,7 @@ msgstr ""
 "閱以下網址：<a href='https://defuse.ca/audits/gocryptfs.htm'>defuse.ca/"
 "audits/encfs.htm</a>"
 
-#: kded/ui/vaultcreationwizard.cpp:138
+#: kded/ui/vaultcreationwizard.cpp:117
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
@@ -708,6 +672,40 @@ msgstr "解鎖儲存庫"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "設定儲存庫…"
+
+#~ msgid ""
+#~ "<b>Security notice:</b>\n"
+#~ "                             According to a security audit by Taylor "
+#~ "Hornby (Defuse Security),\n"
+#~ "                             the current implementation of Encfs is "
+#~ "vulnerable or potentially vulnerable\n"
+#~ "                             to multiple types of attacks.\n"
+#~ "                             For example, an attacker with read/write "
+#~ "access\n"
+#~ "                             to encrypted data might lower the decryption "
+#~ "complexity\n"
+#~ "                             for subsequently encrypted data without this "
+#~ "being noticed by a legitimate user,\n"
+#~ "                             or might use timing analysis to deduce "
+#~ "information.\n"
+#~ "                             <br /><br />\n"
+#~ "                             This means that you should not synchronize\n"
+#~ "                             the encrypted data to a cloud storage "
+#~ "service,\n"
+#~ "                             or use it in other circumstances where the "
+#~ "attacker\n"
+#~ "                             can frequently access the encrypted data.\n"
+#~ "                             <br /><br />\n"
+#~ "                             See <a href='https://defuse.ca/audits/encfs."
+#~ "htm'>defuse.ca/audits/encfs.htm</a> for more information."
+#~ msgstr ""
+#~ "<b>安全性警示：</b>根據 Taylor Hornby (Defuse Security) 的安全性稽核報告指"
+#~ "出目前的 Encfs 實作對若干攻擊手法存在安全疑慮或潛在風險。<br />例如：對已"
+#~ "加密資料具有讀寫權限的攻擊者有機會降低資料解密的複雜度而不被原合法使用者知"
+#~ "道。或者攻擊者也能藉由時間序列分析推敲出有用資訊。<br /><br />而這也表示本"
+#~ "加密方法不適合上傳至雲端儲存伺服器， 或用於他人能頻繁存取已加密資料的情"
+#~ "境。<br /><br />詳情請參閱以下網址：<a href='https://defuse.ca/audits/"
+#~ "encfs.htm'>defuse.ca/audits/encfs.htm</a>"
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "建立新儲存庫…"
