@@ -22,6 +22,7 @@ public:
     PlasmaVault::Vault::Payload fields() const override;
 
     void checkBackendAvailable();
+    void hideBackendSelector();
 
 private Q_SLOTS:
     void checkCurrentBackend();

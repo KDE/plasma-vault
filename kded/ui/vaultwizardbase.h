@@ -111,6 +111,11 @@ public:
         firstStepModule->checkBackendAvailable();
     }
 
+    void hideBackendSelector()
+    {
+        firstStepModule->hideBackendSelector();
+    }
+
     void setCurrentModule(DialogDsl::DialogModule *module)
     {
         // If there is a current module already, disconnect it

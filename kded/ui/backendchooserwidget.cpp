@@ -91,8 +91,14 @@ void BackendChooserWidget::checkCurrentBackend()
     d->setBackendValid(backendValid);
 }
 
+void BackendChooserWidget::hideBackendSelector()
+{
+    d->ui.vaultEncryptionConfig->setVisible(false);
+}
+
 void BackendChooserWidget::showBackendSelector()
 {
+    d->ui.vaultEncryptionConfig->setVisible(true);
     d->ui.vaultEncryptionConfig->setCurrentWidget(d->ui.page2);
 
     checkCurrentBackend();
