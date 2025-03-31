@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-15 00:44+0000\n"
+"POT-Creation-Date: 2025-03-31 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 15:58+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -461,13 +461,12 @@ msgstr ""
 msgid "EncFS"
 msgstr ""
 
-#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultcreationwizard.cpp:34
-#: kded/ui/vaultimportingwizard.cpp:40
+#: kded/ui/vaultconfigurationdialog.cpp:55 kded/ui/vaultimportingwizard.cpp:40
 #, kde-format
 msgid "CryFS"
 msgstr ""
 
-#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:54
+#: kded/ui/vaultconfigurationdialog.cpp:57 kded/ui/vaultcreationwizard.cpp:34
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
@@ -499,50 +498,7 @@ msgstr ""
 msgid "Close the vault"
 msgstr ""
 
-#: kded/ui/vaultcreationwizard.cpp:35
-#, kde-format
-msgid ""
-"<b>Security notice:</b>\n"
-"                             CryFS encrypts your files, so you can safely "
-"store them anywhere.\n"
-"                             It works well together with cloud services like "
-"Dropbox, iCloud, OneDrive and others.\n"
-"                             <br /><br />\n"
-"                             Unlike some other file-system overlay "
-"solutions,\n"
-"                             it does not expose the directory structure,\n"
-"                             the number of files nor the file sizes\n"
-"                             through the encrypted data format.\n"
-"                             <br /><br />\n"
-"                             One important thing to note is that,\n"
-"                             while CryFS is considered safe,\n"
-"                             there is no independent security audit\n"
-"                             which confirms this."
-msgstr ""
-
-#: kded/ui/vaultcreationwizard.cpp:55
-#, kde-format
-msgid ""
-"<b>Security notice:</b>\n"
-"                             Gocryptfs encrypts your files, so you can "
-"safely store them anywhere.\n"
-"                             It works well together with cloud services like "
-"Dropbox, iCloud, OneDrive and others.\n"
-"                             <br /><br />\n"
-"                             A threat model for gocryptfs is provided by the "
-"author at                              <a href='https://nuetzlich.net/"
-"gocryptfs/threat_model'>nuetzlich.net/gocryptfs/threat_model</"
-"a>.                              <br /><br />\n"
-"                             According to a security audit performed in 2017 "
-"by Taylor Hornby (Defuse Security),\n"
-"                             gocryptfs keeps file contents secret against an "
-"adversary that can read and modify the                              "
-"ciphertext.                              <br /><br />\n"
-"                             See <a href='https://defuse.ca/audits/gocryptfs."
-"htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."
-msgstr ""
-
-#: kded/ui/vaultcreationwizard.cpp:117
+#: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
