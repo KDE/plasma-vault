@@ -358,10 +358,14 @@ void PlasmaVaultService::openVaultInFileManager(const QString &device)
     auto openFileManager = [this](const auto &vault) {
         KService::Ptr service = KApplicationTrader::preferredService(QStringLiteral("inode/directory"));
 
-        // A hack to always open a new dolphin window
+        // A hack to open a new Dolphin window when circumstances require it
         // BUG: 445542
         // https://bugs.kde.org/show_bug.cgi?id=445542
-        if (service->desktopEntryName() == QStringLiteral("org.kde.dolphin")) {
+        const bool fileManagerIsDolphin = service->desktopEntryName() == QStringLiteral("org.kde.dolphin");
+        const bool hasMultipleActivities = d->kamd.activities().count() > 1;
+        const bool vaultIsActivitySpecific = vault->activities().count() > 0;
+
+        if (fileManagerIsDolphin && hasMultipleActivities && vaultIsActivitySpecific) {
             service->setExec(service->exec() + QStringLiteral(" --new-window"));
         }
 
