@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-31 00:43+0000\n"
+"POT-Creation-Date: 2025-04-19 00:43+0000\n"
 "PO-Revision-Date: 2022-02-06 20:29+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -285,7 +285,7 @@ msgstr ""
 msgid "Delete operation cancelled"
 msgstr "Operație de ștergere anulată"
 
-#: kded/service.cpp:440
+#: kded/service.cpp:444
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Eroare la ștergerea bolții"

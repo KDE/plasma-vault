@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-31 00:43+0000\n"
+"POT-Creation-Date: 2025-04-19 00:43+0000\n"
 "PO-Revision-Date: 2024-02-03 01:27+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
@@ -288,7 +288,7 @@ msgstr ""
 msgid "Delete operation cancelled"
 msgstr "Ištrynimo operacijos atsisakyta"
 
-#: kded/service.cpp:440
+#: kded/service.cpp:444
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Klaida ištrinant slėptuvę"

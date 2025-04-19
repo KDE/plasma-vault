@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-31 00:43+0000\n"
+"POT-Creation-Date: 2025-04-19 00:43+0000\n"
 "PO-Revision-Date: 2021-09-10 10:45+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -292,7 +292,7 @@ msgstr ""
 msgid "Delete operation cancelled"
 msgstr "Bewerking verwijderen geannuleerd"
 
-#: kded/service.cpp:440
+#: kded/service.cpp:444
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Fout bij verwijderen van kluis"

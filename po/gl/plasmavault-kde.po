@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-31 00:43+0000\n"
+"POT-Creation-Date: 2025-04-19 00:43+0000\n"
 "PO-Revision-Date: 2025-01-12 15:56+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -291,7 +291,7 @@ msgstr ""
 msgid "Delete operation cancelled"
 msgstr "Cancelouse a operación de eliminación"
 
-#: kded/service.cpp:440
+#: kded/service.cpp:444
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Erro ao eliminar a caixa forte"
