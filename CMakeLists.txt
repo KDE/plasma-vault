@@ -35,7 +35,7 @@ set_package_properties(ECM PROPERTIES
 )
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
@@ -74,6 +74,15 @@ if (KF6NetworkManagerQt_FOUND)
     set(HAVE_NETWORKMANAGER TRUE)
 endif()
 find_package(KSysGuard REQUIRED)
+
+find_package(Gocryptfs)
+set_package_properties(Gocryptfs PROPERTIES
+    TYPE REQUIRED
+    DESCRIPTION "Encrypted filesystem backend written in Go"
+    PURPOSE "Required at runtime to create and unlock Vaults"
+    TYPE RUNTIME
+    URL "https://nuetzlich.net/gocryptfs/"
+)
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
