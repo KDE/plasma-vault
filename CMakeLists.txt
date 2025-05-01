@@ -77,7 +77,6 @@ find_package(KSysGuard REQUIRED)
 
 find_package(Gocryptfs)
 set_package_properties(Gocryptfs PROPERTIES
-    TYPE REQUIRED
     DESCRIPTION "Encrypted filesystem backend written in Go"
     PURPOSE "Required at runtime to create and unlock Vaults"
     TYPE RUNTIME
