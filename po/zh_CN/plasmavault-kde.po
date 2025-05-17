@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/plasma-vault/plasmavault-kde.pot\n"
-"X-Crowdin-File-ID: 42491\n"
+"X-Crowdin-File: /kf6-stable/messages/plasma-vault/plasmavault-kde.pot\n"
+"X-Crowdin-File-ID: 50288\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, kde-format
