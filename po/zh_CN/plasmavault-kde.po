@@ -597,7 +597,7 @@ msgstr "解锁并打开"
 #: plasma/package/contents/ui/VaultItem.qml:57
 #, kde-format
 msgid "Show in File Manager"
-msgstr "在文件管理器中打开"
+msgstr "用文件管理器打开"
 
 #: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
