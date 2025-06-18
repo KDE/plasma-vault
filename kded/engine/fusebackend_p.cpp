@@ -8,6 +8,7 @@
 
 #include <QDir>
 #include <QRegularExpression>
+#include <QStandardPaths>
 #include <QUrl>
 
 #include <KIO/DeleteJob>
@@ -60,7 +61,10 @@ void FuseBackend::removeDotDirectory(const MountPoint &mountPoint)
 }
 
 FuseBackend::FuseBackend()
+    : fusermountExecutable(QStringLiteral("fusermount3"))
 {
+    if (QStandardPaths::findExecutable(fusermountExecutable).isEmpty())
+        fusermountExecutable = QStringLiteral("fusermount");
 }
 
 FuseBackend::~FuseBackend()
@@ -86,7 +90,7 @@ QProcess *FuseBackend::process(const QString &executable, const QStringList &arg
 
 QProcess *FuseBackend::fusermount(const QStringList &arguments) const
 {
-    return process("fusermount", arguments, {});
+    return process(fusermountExecutable, arguments, {});
 }
 
 FutureResult<> FuseBackend::initialize(const QString &name, const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload)
