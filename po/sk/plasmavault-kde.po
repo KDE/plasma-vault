@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:43+0000\n"
+"POT-Creation-Date: 2025-06-19 00:44+0000\n"
 "PO-Revision-Date: 2021-09-15 18:49+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -75,7 +75,7 @@ msgstr ""
 "Tento trezor potrebuje byť inovovaný pred otvorením s touto verziou cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
-#: kded/engine/fusebackend_p.cpp:42
+#: kded/engine/fusebackend_p.cpp:43
 #, kde-format
 msgid "The mount point directory is not empty, refusing to open the vault"
 msgstr "Adresár prípojného bodu nie je prázdny, odmietam otvoriť trezor"
@@ -115,14 +115,14 @@ msgstr ""
 "oprávnenia."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
-#: kded/engine/fusebackend_p.cpp:165
+#: kded/engine/fusebackend_p.cpp:169
 #, kde-format
 msgid "Failed to execute"
 msgstr "Zlyhalo spustenie"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
-#: kded/engine/fusebackend_p.cpp:177
+#: kded/engine/fusebackend_p.cpp:181
 #, kde-format
 msgid "Unable to detect the version"
 msgstr "Nemôžem zistiť verziu"
@@ -138,22 +138,22 @@ msgid "Wrong version installed. The required version is %1.%2"
 msgstr "Nainštalovaná nesprávna verzia. Požadovaná verzia je %1.%2"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
-#: kded/engine/fusebackend_p.cpp:191
+#: kded/engine/fusebackend_p.cpp:195
 #, kde-format
 msgid "Correct version found"
 msgstr "Našla sa správna verzia"
 
-#: kded/engine/fusebackend_p.cpp:51
+#: kded/engine/fusebackend_p.cpp:52
 #, kde-format
 msgid "Unable to perform the operation"
 msgstr "Nemôžem vykonať operáciu"
 
-#: kded/engine/fusebackend_p.cpp:96
+#: kded/engine/fusebackend_p.cpp:100
 #, kde-format
 msgid "This directory already contains encrypted data"
 msgstr "Tento adresár už obsahuje šifrované údaje"
 
-#: kded/engine/fusebackend_p.cpp:99
+#: kded/engine/fusebackend_p.cpp:103
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
@@ -161,27 +161,27 @@ msgid ""
 msgstr ""
 "Musíte vybrať prázdne adresáre na šifrované úložisko a pre prípojný bod"
 
-#: kded/engine/fusebackend_p.cpp:114
+#: kded/engine/fusebackend_p.cpp:118
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
 msgstr "Tento adresár neobsahuje šifrované údaje"
 
-#: kded/engine/fusebackend_p.cpp:118
+#: kded/engine/fusebackend_p.cpp:122
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
 msgstr "Musíte vybrať prázdny adresár pre prípojný bod"
 
-#: kded/engine/fusebackend_p.cpp:128
+#: kded/engine/fusebackend_p.cpp:132
 #, kde-format
 msgid "Device is already open"
 msgstr "Zariadenie je už otvorené"
 
-#: kded/engine/fusebackend_p.cpp:136
+#: kded/engine/fusebackend_p.cpp:140
 #, kde-format
 msgid "Device is not open"
 msgstr "Zariadenie nie je otvorené"
 
-#: kded/engine/fusebackend_p.cpp:185
+#: kded/engine/fusebackend_p.cpp:189
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr "Nainštalovaná zlá verzia. Vyžadovaná verzia je %1.%2.%3"

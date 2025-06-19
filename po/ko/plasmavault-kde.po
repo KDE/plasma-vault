@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:43+0000\n"
+"POT-Creation-Date: 2025-06-19 00:44+0000\n"
 "PO-Revision-Date: 2021-11-12 01:21+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -73,7 +73,7 @@ msgid ""
 msgstr "이 비밀 공간을 현재 버전의 cryfs에서 열려면 업그레이드해야 함"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
-#: kded/engine/fusebackend_p.cpp:42
+#: kded/engine/fusebackend_p.cpp:43
 #, kde-format
 msgid "The mount point directory is not empty, refusing to open the vault"
 msgstr "마운트 지점 디렉터리가 비어 있지 않아서 비밀 공간을 열지 않음"
@@ -112,14 +112,14 @@ msgstr ""
 "암호화된 디렉터리에 gocryptfs.conf 파일을 만들 수 없음, 권한을 확인하십시오"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
-#: kded/engine/fusebackend_p.cpp:165
+#: kded/engine/fusebackend_p.cpp:169
 #, kde-format
 msgid "Failed to execute"
 msgstr "실행할 수 없음"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
-#: kded/engine/fusebackend_p.cpp:177
+#: kded/engine/fusebackend_p.cpp:181
 #, kde-format
 msgid "Unable to detect the version"
 msgstr "버전을 확인할 수 없음"
@@ -135,49 +135,49 @@ msgid "Wrong version installed. The required version is %1.%2"
 msgstr "잘못된 버전이 설치되었습니다. 버전 %1.%2이(가) 필요합니다"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
-#: kded/engine/fusebackend_p.cpp:191
+#: kded/engine/fusebackend_p.cpp:195
 #, kde-format
 msgid "Correct version found"
 msgstr "올바른 버전을 찾았음"
 
-#: kded/engine/fusebackend_p.cpp:51
+#: kded/engine/fusebackend_p.cpp:52
 #, kde-format
 msgid "Unable to perform the operation"
 msgstr "작업을 수행할 수 없음"
 
-#: kded/engine/fusebackend_p.cpp:96
+#: kded/engine/fusebackend_p.cpp:100
 #, kde-format
 msgid "This directory already contains encrypted data"
 msgstr "디렉터리에 이미 암호화된 데이터가 있음"
 
-#: kded/engine/fusebackend_p.cpp:99
+#: kded/engine/fusebackend_p.cpp:103
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
 "mount point"
 msgstr "암호화된 저장소와 마운트 지점에 사용할 디렉터리는 비어 있어야 함"
 
-#: kded/engine/fusebackend_p.cpp:114
+#: kded/engine/fusebackend_p.cpp:118
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
 msgstr "디렉터리에 암호화된 데이터가 없음"
 
-#: kded/engine/fusebackend_p.cpp:118
+#: kded/engine/fusebackend_p.cpp:122
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
 msgstr "마운트 지점에 사용할 디렉터리는 비어 있어야 함"
 
-#: kded/engine/fusebackend_p.cpp:128
+#: kded/engine/fusebackend_p.cpp:132
 #, kde-format
 msgid "Device is already open"
 msgstr "장치가 이미 열렸음"
 
-#: kded/engine/fusebackend_p.cpp:136
+#: kded/engine/fusebackend_p.cpp:140
 #, kde-format
 msgid "Device is not open"
 msgstr "장치가 열리지 않았음"
 
-#: kded/engine/fusebackend_p.cpp:185
+#: kded/engine/fusebackend_p.cpp:189
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr "잘못된 버전이 설치되었습니다. 버전 %1.%2.%3이(가) 필요합니다"

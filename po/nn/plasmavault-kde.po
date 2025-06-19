@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:43+0000\n"
+"POT-Creation-Date: 2025-06-19 00:44+0000\n"
 "PO-Revision-Date: 2021-09-19 12:33+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -77,7 +77,7 @@ msgid ""
 msgstr "Datakvelvet må oppgraderast for å verka med denne versjonen av CryFS"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
-#: kded/engine/fusebackend_p.cpp:42
+#: kded/engine/fusebackend_p.cpp:43
 #, kde-format
 msgid "The mount point directory is not empty, refusing to open the vault"
 msgstr "Monteringspunktsmappa er ikkje tom – nektar å opna datakvelvet"
@@ -117,14 +117,14 @@ msgstr ""
 "Kan ikkje lagra geocryptfs.conf i chiffer-mappa. Kontroller skriveløyva."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
-#: kded/engine/fusebackend_p.cpp:165
+#: kded/engine/fusebackend_p.cpp:169
 #, kde-format
 msgid "Failed to execute"
 msgstr "Klarte ikkje køyra"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
-#: kded/engine/fusebackend_p.cpp:177
+#: kded/engine/fusebackend_p.cpp:181
 #, kde-format
 msgid "Unable to detect the version"
 msgstr "Klarte ikkje oppdaga versjonen"
@@ -140,22 +140,22 @@ msgid "Wrong version installed. The required version is %1.%2"
 msgstr "Feil versjon installert. Du treng versjon %1.%2."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
-#: kded/engine/fusebackend_p.cpp:191
+#: kded/engine/fusebackend_p.cpp:195
 #, kde-format
 msgid "Correct version found"
 msgstr "Fann rett versjon"
 
-#: kded/engine/fusebackend_p.cpp:51
+#: kded/engine/fusebackend_p.cpp:52
 #, kde-format
 msgid "Unable to perform the operation"
 msgstr "Kan ikkje utføra operasjon"
 
-#: kded/engine/fusebackend_p.cpp:96
+#: kded/engine/fusebackend_p.cpp:100
 #, kde-format
 msgid "This directory already contains encrypted data"
 msgstr "Denne mappa inneheld alt kryptert data"
 
-#: kded/engine/fusebackend_p.cpp:99
+#: kded/engine/fusebackend_p.cpp:103
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
@@ -164,27 +164,27 @@ msgstr ""
 "Du må velja tomme mapper for det krypterte lagringsområdet og for "
 "monteringspunktet"
 
-#: kded/engine/fusebackend_p.cpp:114
+#: kded/engine/fusebackend_p.cpp:118
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
 msgstr "Denne mappa inneheld ikkje krypterte data"
 
-#: kded/engine/fusebackend_p.cpp:118
+#: kded/engine/fusebackend_p.cpp:122
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
 msgstr "Du må velja ei tom mappe for monteringspunktet"
 
-#: kded/engine/fusebackend_p.cpp:128
+#: kded/engine/fusebackend_p.cpp:132
 #, kde-format
 msgid "Device is already open"
 msgstr "Eininga er alt open"
 
-#: kded/engine/fusebackend_p.cpp:136
+#: kded/engine/fusebackend_p.cpp:140
 #, kde-format
 msgid "Device is not open"
 msgstr "Eininga er ikkje open"
 
-#: kded/engine/fusebackend_p.cpp:185
+#: kded/engine/fusebackend_p.cpp:189
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr "Feil versjon installert. Du treng versjon %1.%2.%3."

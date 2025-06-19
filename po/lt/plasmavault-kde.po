@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:43+0000\n"
+"POT-Creation-Date: 2025-06-19 00:44+0000\n"
 "PO-Revision-Date: 2024-02-03 01:27+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
@@ -78,7 +78,7 @@ msgstr ""
 "atnaujinta"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
-#: kded/engine/fusebackend_p.cpp:42
+#: kded/engine/fusebackend_p.cpp:43
 #, kde-format
 msgid "The mount point directory is not empty, refusing to open the vault"
 msgstr "Prijungimo taško katalogas nėra tuščias, atsisakoma atverti slėptuvę"
@@ -118,14 +118,14 @@ msgstr ""
 "leidimus."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
-#: kded/engine/fusebackend_p.cpp:165
+#: kded/engine/fusebackend_p.cpp:169
 #, kde-format
 msgid "Failed to execute"
 msgstr "Nepavyko įvykdyti"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
-#: kded/engine/fusebackend_p.cpp:177
+#: kded/engine/fusebackend_p.cpp:181
 #, kde-format
 msgid "Unable to detect the version"
 msgstr "Nepavyko aptikti versijos"
@@ -141,22 +141,22 @@ msgid "Wrong version installed. The required version is %1.%2"
 msgstr "Įdiegta neteisinga versija. Reikalinga versija yra %1.%2"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
-#: kded/engine/fusebackend_p.cpp:191
+#: kded/engine/fusebackend_p.cpp:195
 #, kde-format
 msgid "Correct version found"
 msgstr "Rasta teisinga versija"
 
-#: kded/engine/fusebackend_p.cpp:51
+#: kded/engine/fusebackend_p.cpp:52
 #, kde-format
 msgid "Unable to perform the operation"
 msgstr "Nepavyko įvykdyti operacijos"
 
-#: kded/engine/fusebackend_p.cpp:96
+#: kded/engine/fusebackend_p.cpp:100
 #, kde-format
 msgid "This directory already contains encrypted data"
 msgstr "Šiame kataloge jau yra šifruoti duomenys"
 
-#: kded/engine/fusebackend_p.cpp:99
+#: kded/engine/fusebackend_p.cpp:103
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
@@ -165,27 +165,27 @@ msgstr ""
 "Jums reikia pasirinkti tuščius katalogus, skirtus šifruotai saugyklai ir "
 "prijungimo taškui"
 
-#: kded/engine/fusebackend_p.cpp:114
+#: kded/engine/fusebackend_p.cpp:118
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
 msgstr "Šiame kataloge nėra šifruotų duomenų"
 
-#: kded/engine/fusebackend_p.cpp:118
+#: kded/engine/fusebackend_p.cpp:122
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
 msgstr "Prijungimo taškui turite pasirinkti tuščią katalogą"
 
-#: kded/engine/fusebackend_p.cpp:128
+#: kded/engine/fusebackend_p.cpp:132
 #, kde-format
 msgid "Device is already open"
 msgstr "Įrenginys jau yra atvertas"
 
-#: kded/engine/fusebackend_p.cpp:136
+#: kded/engine/fusebackend_p.cpp:140
 #, kde-format
 msgid "Device is not open"
 msgstr "Įrenginys nėra atvertas"
 
-#: kded/engine/fusebackend_p.cpp:185
+#: kded/engine/fusebackend_p.cpp:189
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr "Įdiegta neteisinga versija. Reikalinga versija yra %1.%2.%3"
