@@ -22,7 +22,7 @@ endif()
 # Extra CMake stuff
 include(FeatureSummary)
 
-set(PROJECT_DEP_VERSION "6.4.0")
+set(PROJECT_DEP_VERSION "6.4.1")
 set(QT_MIN_VERSION "6.8.0")
 set(KF6_MIN_VERSION "6.14.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
