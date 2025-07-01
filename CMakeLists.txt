@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(PlasmaVault)
 
-set(PROJECT_VERSION "6.4.1")
+set(PROJECT_VERSION "6.4.2")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
