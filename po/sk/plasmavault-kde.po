@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2021-09-15 18:49+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -289,15 +289,70 @@ msgstr "Operácia vymazania zrušená"
 msgid "Error deleting vault"
 msgstr "Chyba pri mazaní trezora"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/activitieslinkingwidget.ui:22
+#, kde-format
+msgid ""
+"If you limit this vault only to certain activities, it will be shown in the "
+"applet only when you are in those activities. Furthermore, when you switch "
+"to an activity it should not be available in, it will automatically be "
+"closed."
+msgstr ""
+"Ak obmedzíte tento trezor na určité aktivity, zobrazí sa v applete iba pri "
+"použití týchto aktivít. Teda keď sa prepnete na aktivitu, kde by nemal byť "
+"dostupný, automaticky sa zavrie."
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
+#: kded/ui/activitieslinkingwidget.ui:32
+#, kde-format
+msgid "Limit to the selected activities:"
+msgstr "Obmedziť na vybrané aktivity:"
+
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
 msgstr "Určený backend nie je dostupný"
 
+#. i18n: ectx: property (text), widget (QLabel, labelVaultName)
+#: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
+#, kde-format
+msgid "Vaul&t name:"
+msgstr "Názov trezora:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/backendchooserwidget.ui:67
+#, kde-format
+msgid "Backend:"
+msgstr "Backend:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pickBackendButton)
+#: kded/ui/backendchooserwidget.ui:94
+#, kde-format
+msgid "Change"
+msgstr "Zmeniť"
+
+#. i18n: ectx: property (text), widget (QLabel, labelEncryptionSystem)
+#: kded/ui/backendchooserwidget.ui:132
+#, kde-format
+msgid "Choose the encryption system you want to use for this vault:"
+msgstr "Vyberte systém šifrovania, ktorý chcete použiť pre tento trezor:"
+
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
 msgstr "Použiť predvolenú šifru"
+
+#. i18n: ectx: property (text), widget (QLabel, labelCypher)
+#: kded/ui/cryfscypherchooserwidget.ui:22
+#, kde-format
+msgid "Choose the used cipher:"
+msgstr "Vybrať použitú šifru:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorychooserwidget.ui:22
+#, kde-format
+msgid "Mount point:"
+msgstr "Bod pripojenia:"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
@@ -313,6 +368,18 @@ msgstr "Určený priečinok nie je prázdny"
 #, kde-format
 msgid "The specified directory is empty"
 msgstr "Určený priečinok je prázdny"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorypairchooserwidget.ui:22
+#, kde-format
+msgid "Encrypted data location"
+msgstr "Umiestnenie šifrovaných údajov"
+
+#. i18n: ectx: property (text), widget (QLabel, labelMountPoint)
+#: kded/ui/directorypairchooserwidget.ui:36
+#, kde-format
+msgid "Mount point"
+msgstr "Bod pripojenia"
 
 #: kded/ui/mountdialog.cpp:20
 #, kde-format
@@ -347,6 +414,67 @@ msgstr "Podrobnosti chyby"
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "Zlyhalo otvorenie: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/mountdialog.ui:62
+#, kde-format
+msgid "Please enter the password to open this vault:"
+msgstr "Prosím zadajte heslo na otvorenie tohto trezora:"
+
+#. i18n: ectx: property (text), widget (QLabel, pwdLabel)
+#: kded/ui/mountdialog.ui:94
+#, kde-format
+msgid "Password:"
+msgstr "Heslo:"
+
+#. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
+#: kded/ui/noticewidget.ui:38
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeHidden)
+#: kded/ui/noticewidget.ui:45
+#, kde-format
+msgid "Do not show this notice again"
+msgstr "Nezobrazovať tento oznam"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
+#: kded/ui/offlineonlywidget.ui:34
+#, kde-format
+msgid ""
+"Go offline while this vault is open (switch off networking and bluetooth)"
+msgstr "Prejsť offline keď je tento trezor otvorený (vypnúť sieť a bluetooth)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/passwordchooserwidget.ui:22
+#, kde-format
+msgid ""
+"Mind that there is no way to recover a forgotten password. If you forget the "
+"password, your data is as good as gone."
+msgstr ""
+"Pamätajte, že nie je možné obnoviť zabudnuté heslo. Ak zabudnete heslo, vaše "
+"údaje sa stratia."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
@@ -385,6 +513,27 @@ msgstr "gocryptfs"
 #, kde-format
 msgid "Configure"
 msgstr "Nastaviť"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultImportingWizard)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultCreationWizard)
+#: kded/ui/vaultconfigurationdialog.ui:19 kded/ui/vaultcreationwizard.ui:19
+#: kded/ui/vaultimportingwizard.ui:19
+#, kde-format
+msgid "Dialog"
+msgstr "Dialóg"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/vaultconfigurationdialog.ui:38
+#, kde-format
+msgid "The vault configuration can only be changed while it is closed."
+msgstr "Nastavenie trezora sa dá zmeniť iba pokiaľ je zatvorený."
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
+#: kded/ui/vaultconfigurationdialog.ui:58
+#, kde-format
+msgid "Close the vault"
+msgstr "Zatvoriť trezor"
 
 #: kded/ui/vaultcreationwizard.cpp:35
 #, kde-format
@@ -511,6 +660,26 @@ msgctxt "@title:window"
 msgid "Create a New Vault"
 msgstr "Vytvoriť nový trezor"
 
+#. i18n: ectx: property (text), widget (QLabel, labelWarning)
+#: kded/ui/vaultdeletionwidget.ui:22
+#, kde-format
+msgid ""
+"This action <b>cannot</b> be undone. This will permanently delete the "
+"selected vault!"
+msgstr "Táto akcia sa <b>nedá</b> vrátiť. Toto trvale vymaže vybraný trezor!"
+
+#. i18n: ectx: property (text), widget (QLabel, labelConfirm)
+#: kded/ui/vaultdeletionwidget.ui:29
+#, kde-format
+msgid "Please type in the name of the vault to confirm:"
+msgstr "Prosím zadajte meno trezora na potvrdenie:"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
+#: kded/ui/vaultdeletionwidget.ui:44
+#, kde-format
+msgid "Delete this vault"
+msgstr "Vymazať tento trezor"
+
 #: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
 msgid "Import"
@@ -576,108 +745,6 @@ msgstr "Odomknúť trezor"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Nastaviť trezor…"
-
-#~ msgid ""
-#~ "If you limit this vault only to certain activities, it will be shown in "
-#~ "the applet only when you are in those activities. Furthermore, when you "
-#~ "switch to an activity it should not be available in, it will "
-#~ "automatically be closed."
-#~ msgstr ""
-#~ "Ak obmedzíte tento trezor na určité aktivity, zobrazí sa v applete iba "
-#~ "pri použití týchto aktivít. Teda keď sa prepnete na aktivitu, kde by "
-#~ "nemal byť dostupný, automaticky sa zavrie."
-
-#~ msgid "Limit to the selected activities:"
-#~ msgstr "Obmedziť na vybrané aktivity:"
-
-#~ msgid "Vaul&t name:"
-#~ msgstr "Názov trezora:"
-
-#~ msgid "Backend:"
-#~ msgstr "Backend:"
-
-#~ msgid "Change"
-#~ msgstr "Zmeniť"
-
-#~ msgid "Choose the encryption system you want to use for this vault:"
-#~ msgstr "Vyberte systém šifrovania, ktorý chcete použiť pre tento trezor:"
-
-#~ msgid "Choose the used cipher:"
-#~ msgstr "Vybrať použitú šifru:"
-
-#~ msgid "Mount point:"
-#~ msgstr "Bod pripojenia:"
-
-#~ msgid "Encrypted data location"
-#~ msgstr "Umiestnenie šifrovaných údajov"
-
-#~ msgid "Mount point"
-#~ msgstr "Bod pripojenia"
-
-#~ msgid "Please enter the password to open this vault:"
-#~ msgstr "Prosím zadajte heslo na otvorenie tohto trezora:"
-
-#~ msgid "Password:"
-#~ msgstr "Heslo:"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-#~ "weight:400; font-style:normal;\">\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"><br /></p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-#~ "weight:400; font-style:normal;\">\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"><br /></p></body></html>"
-
-#~ msgid "Do not show this notice again"
-#~ msgstr "Nezobrazovať tento oznam"
-
-#~ msgid ""
-#~ "Go offline while this vault is open (switch off networking and bluetooth)"
-#~ msgstr ""
-#~ "Prejsť offline keď je tento trezor otvorený (vypnúť sieť a bluetooth)"
-
-#~ msgid ""
-#~ "Mind that there is no way to recover a forgotten password. If you forget "
-#~ "the password, your data is as good as gone."
-#~ msgstr ""
-#~ "Pamätajte, že nie je možné obnoviť zabudnuté heslo. Ak zabudnete heslo, "
-#~ "vaše údaje sa stratia."
-
-#~ msgid "Dialog"
-#~ msgstr "Dialóg"
-
-#~ msgid "The vault configuration can only be changed while it is closed."
-#~ msgstr "Nastavenie trezora sa dá zmeniť iba pokiaľ je zatvorený."
-
-#~ msgid "Close the vault"
-#~ msgstr "Zatvoriť trezor"
-
-#~ msgid ""
-#~ "This action <b>cannot</b> be undone. This will permanently delete the "
-#~ "selected vault!"
-#~ msgstr ""
-#~ "Táto akcia sa <b>nedá</b> vrátiť. Toto trvale vymaže vybraný trezor!"
-
-#~ msgid "Please type in the name of the vault to confirm:"
-#~ msgstr "Prosím zadajte meno trezora na potvrdenie:"
-
-#~ msgid "Delete this vault"
-#~ msgstr "Vymazať tento trezor"
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "Vytvoriť nový trezor..."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2022-12-30 18:50+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -283,15 +283,69 @@ msgstr "取消刪除指令"
 msgid "Error deleting vault"
 msgstr "刪除儲存庫出錯"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/activitieslinkingwidget.ui:22
+#, kde-format
+msgid ""
+"If you limit this vault only to certain activities, it will be shown in the "
+"applet only when you are in those activities. Furthermore, when you switch "
+"to an activity it should not be available in, it will automatically be "
+"closed."
+msgstr ""
+"若限制此儲存庫於特定活動，則僅當使用者處於該活動中時，儲存庫才會在元件中顯"
+"示。此外，當您切換到其他非指定活動時，儲存庫將自動關閉。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
+#: kded/ui/activitieslinkingwidget.ui:32
+#, kde-format
+msgid "Limit to the selected activities:"
+msgstr "僅允許以下活動存取本儲存庫："
+
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
 msgstr "無法使用指定後端"
 
+#. i18n: ectx: property (text), widget (QLabel, labelVaultName)
+#: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
+#, kde-format
+msgid "Vaul&t name:"
+msgstr "儲存庫名稱(&T)："
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/backendchooserwidget.ui:67
+#, kde-format
+msgid "Backend:"
+msgstr "後端："
+
+#. i18n: ectx: property (text), widget (QPushButton, pickBackendButton)
+#: kded/ui/backendchooserwidget.ui:94
+#, kde-format
+msgid "Change"
+msgstr "變更"
+
+#. i18n: ectx: property (text), widget (QLabel, labelEncryptionSystem)
+#: kded/ui/backendchooserwidget.ui:132
+#, kde-format
+msgid "Choose the encryption system you want to use for this vault:"
+msgstr "選擇此儲存庫使用的加密系統："
+
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
 msgstr "使用預設的加密演算法"
+
+#. i18n: ectx: property (text), widget (QLabel, labelCypher)
+#: kded/ui/cryfscypherchooserwidget.ui:22
+#, kde-format
+msgid "Choose the used cipher:"
+msgstr "選擇使用過的加密演算法："
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorychooserwidget.ui:22
+#, kde-format
+msgid "Mount point:"
+msgstr "掛載點："
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
@@ -307,6 +361,18 @@ msgstr "指定目錄不是空的"
 #, kde-format
 msgid "The specified directory is empty"
 msgstr "指定目錄是空的"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorypairchooserwidget.ui:22
+#, kde-format
+msgid "Encrypted data location"
+msgstr "加密資料存放位置"
+
+#. i18n: ectx: property (text), widget (QLabel, labelMountPoint)
+#: kded/ui/directorypairchooserwidget.ui:36
+#, kde-format
+msgid "Mount point"
+msgstr "掛載點"
 
 #: kded/ui/mountdialog.cpp:20
 #, kde-format
@@ -341,6 +407,65 @@ msgstr "錯誤詳細資訊"
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "無法開啟：%1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/mountdialog.ui:62
+#, kde-format
+msgid "Please enter the password to open this vault:"
+msgstr "請輸入用來開啟此儲存庫的密碼："
+
+#. i18n: ectx: property (text), widget (QLabel, pwdLabel)
+#: kded/ui/mountdialog.ui:94
+#, kde-format
+msgid "Password:"
+msgstr "密碼："
+
+#. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
+#: kded/ui/noticewidget.ui:38
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeHidden)
+#: kded/ui/noticewidget.ui:45
+#, kde-format
+msgid "Do not show this notice again"
+msgstr "請勿再次顯示本提醒"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
+#: kded/ui/offlineonlywidget.ui:34
+#, kde-format
+msgid ""
+"Go offline while this vault is open (switch off networking and bluetooth)"
+msgstr "在此儲存庫開啟期間斷開連線（關閉網路與藍牙）"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/passwordchooserwidget.ui:22
+#, kde-format
+msgid ""
+"Mind that there is no way to recover a forgotten password. If you forget the "
+"password, your data is as good as gone."
+msgstr "注意：您將無法找回遺忘的密碼。若您忘記密碼，則您的資料將完全消失。"
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
@@ -379,6 +504,27 @@ msgstr "gocryptfs"
 #, kde-format
 msgid "Configure"
 msgstr "設定"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultImportingWizard)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultCreationWizard)
+#: kded/ui/vaultconfigurationdialog.ui:19 kded/ui/vaultcreationwizard.ui:19
+#: kded/ui/vaultimportingwizard.ui:19
+#, kde-format
+msgid "Dialog"
+msgstr "對話框"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/vaultconfigurationdialog.ui:38
+#, kde-format
+msgid "The vault configuration can only be changed while it is closed."
+msgstr "儲存庫只能在關閉時變更設定。"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
+#: kded/ui/vaultconfigurationdialog.ui:58
+#, kde-format
+msgid "Close the vault"
+msgstr "關閉儲存庫"
 
 #: kded/ui/vaultcreationwizard.cpp:35
 #, kde-format
@@ -477,6 +623,26 @@ msgctxt "@title:window"
 msgid "Create a New Vault"
 msgstr "新增儲存庫"
 
+#. i18n: ectx: property (text), widget (QLabel, labelWarning)
+#: kded/ui/vaultdeletionwidget.ui:22
+#, kde-format
+msgid ""
+"This action <b>cannot</b> be undone. This will permanently delete the "
+"selected vault!"
+msgstr "此動作 <b>無法</b> 復原，將永久刪除選取的儲存庫！"
+
+#. i18n: ectx: property (text), widget (QLabel, labelConfirm)
+#: kded/ui/vaultdeletionwidget.ui:29
+#, kde-format
+msgid "Please type in the name of the vault to confirm:"
+msgstr "請輸入此儲存庫的名稱以確認："
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
+#: kded/ui/vaultdeletionwidget.ui:44
+#, kde-format
+msgid "Delete this vault"
+msgstr "刪除此儲存庫"
+
 #: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
 msgid "Import"
@@ -542,103 +708,6 @@ msgstr "解鎖儲存庫"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "設定儲存庫…"
-
-#~ msgid ""
-#~ "If you limit this vault only to certain activities, it will be shown in "
-#~ "the applet only when you are in those activities. Furthermore, when you "
-#~ "switch to an activity it should not be available in, it will "
-#~ "automatically be closed."
-#~ msgstr ""
-#~ "若限制此儲存庫於特定活動，則僅當使用者處於該活動中時，儲存庫才會在元件中顯"
-#~ "示。此外，當您切換到其他非指定活動時，儲存庫將自動關閉。"
-
-#~ msgid "Limit to the selected activities:"
-#~ msgstr "僅允許以下活動存取本儲存庫："
-
-#~ msgid "Vaul&t name:"
-#~ msgstr "儲存庫名稱(&T)："
-
-#~ msgid "Backend:"
-#~ msgstr "後端："
-
-#~ msgid "Change"
-#~ msgstr "變更"
-
-#~ msgid "Choose the encryption system you want to use for this vault:"
-#~ msgstr "選擇此儲存庫使用的加密系統："
-
-#~ msgid "Choose the used cipher:"
-#~ msgstr "選擇使用過的加密演算法："
-
-#~ msgid "Mount point:"
-#~ msgstr "掛載點："
-
-#~ msgid "Encrypted data location"
-#~ msgstr "加密資料存放位置"
-
-#~ msgid "Mount point"
-#~ msgstr "掛載點"
-
-#~ msgid "Please enter the password to open this vault:"
-#~ msgstr "請輸入用來開啟此儲存庫的密碼："
-
-#~ msgid "Password:"
-#~ msgstr "密碼："
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-#~ "weight:400; font-style:normal;\">\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"><br /></p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-#~ "weight:400; font-style:normal;\">\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"><br /></p></body></html>"
-
-#~ msgid "Do not show this notice again"
-#~ msgstr "請勿再次顯示本提醒"
-
-#~ msgid ""
-#~ "Go offline while this vault is open (switch off networking and bluetooth)"
-#~ msgstr "在此儲存庫開啟期間斷開連線（關閉網路與藍牙）"
-
-#~ msgid ""
-#~ "Mind that there is no way to recover a forgotten password. If you forget "
-#~ "the password, your data is as good as gone."
-#~ msgstr "注意：您將無法找回遺忘的密碼。若您忘記密碼，則您的資料將完全消失。"
-
-#~ msgid "Dialog"
-#~ msgstr "對話框"
-
-#~ msgid "The vault configuration can only be changed while it is closed."
-#~ msgstr "儲存庫只能在關閉時變更設定。"
-
-#~ msgid "Close the vault"
-#~ msgstr "關閉儲存庫"
-
-#~ msgid ""
-#~ "This action <b>cannot</b> be undone. This will permanently delete the "
-#~ "selected vault!"
-#~ msgstr "此動作 <b>無法</b> 復原，將永久刪除選取的儲存庫！"
-
-#~ msgid "Please type in the name of the vault to confirm:"
-#~ msgstr "請輸入此儲存庫的名稱以確認："
-
-#~ msgid "Delete this vault"
-#~ msgstr "刪除此儲存庫"
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "建立新儲存庫…"

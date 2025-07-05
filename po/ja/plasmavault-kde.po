@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2020-01-18 20:16-0800\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -300,15 +300,70 @@ msgstr ""
 msgid "Error deleting vault"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/activitieslinkingwidget.ui:22
+#, kde-format
+msgid ""
+"If you limit this vault only to certain activities, it will be shown in the "
+"applet only when you are in those activities. Furthermore, when you switch "
+"to an activity it should not be available in, it will automatically be "
+"closed."
+msgstr ""
+"この Vault を特定のアクティビティのみに制限した場合、それらのアクティビティで"
+"のみアプレットに表示されます。また、利用できないアクティビティに移動した場合"
+"に Vault は自動的に閉じられます。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
+#: kded/ui/activitieslinkingwidget.ui:32
+#, kde-format
+msgid "Limit to the selected activities:"
+msgstr "選択されたアクティビティに限定する:"
+
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
 msgstr "指定されたバックエンドは利用不可です"
 
+#. i18n: ectx: property (text), widget (QLabel, labelVaultName)
+#: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
+#, kde-format
+msgid "Vaul&t name:"
+msgstr "Vault 名(&T):"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/backendchooserwidget.ui:67
+#, kde-format
+msgid "Backend:"
+msgstr "バックエンド:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pickBackendButton)
+#: kded/ui/backendchooserwidget.ui:94
+#, kde-format
+msgid "Change"
+msgstr "変更"
+
+#. i18n: ectx: property (text), widget (QLabel, labelEncryptionSystem)
+#: kded/ui/backendchooserwidget.ui:132
+#, kde-format
+msgid "Choose the encryption system you want to use for this vault:"
+msgstr "この Vault で利用する暗号化システムを選択:"
+
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
 msgstr "デフォルトの暗号を利用"
+
+#. i18n: ectx: property (text), widget (QLabel, labelCypher)
+#: kded/ui/cryfscypherchooserwidget.ui:22
+#, kde-format
+msgid "Choose the used cipher:"
+msgstr "使用された暗号を選択:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorychooserwidget.ui:22
+#, kde-format
+msgid "Mount point:"
+msgstr "マウントポイント:"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
@@ -324,6 +379,18 @@ msgstr "指定したディレクトリは空ではありません"
 #, kde-format
 msgid "The specified directory is empty"
 msgstr "指定したディレクトリは空です"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorypairchooserwidget.ui:22
+#, kde-format
+msgid "Encrypted data location"
+msgstr "暗号化されたデータの場所"
+
+#. i18n: ectx: property (text), widget (QLabel, labelMountPoint)
+#: kded/ui/directorypairchooserwidget.ui:36
+#, kde-format
+msgid "Mount point"
+msgstr "マウントポイント"
 
 #: kded/ui/mountdialog.cpp:20
 #, fuzzy, kde-format
@@ -356,6 +423,59 @@ msgstr ""
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "開けませんでした:%1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/mountdialog.ui:62
+#, kde-format
+msgid "Please enter the password to open this vault:"
+msgstr "この Vault を開くためにはパスワードを入力してください:"
+
+#. i18n: ectx: property (text), widget (QLabel, pwdLabel)
+#: kded/ui/mountdialog.ui:94
+#, kde-format
+msgid "Password:"
+msgstr "パスワード:"
+
+#. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
+#: kded/ui/noticewidget.ui:38
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeHidden)
+#: kded/ui/noticewidget.ui:45
+#, kde-format
+msgid "Do not show this notice again"
+msgstr "この通知を再度表示しない"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
+#: kded/ui/offlineonlywidget.ui:34
+#, kde-format
+msgid ""
+"Go offline while this vault is open (switch off networking and bluetooth)"
+msgstr ""
+"この Vault が開かれている間はオフラインにする (ネットワークと Bluetooth をオ"
+"フにする)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/passwordchooserwidget.ui:22
+#, kde-format
+msgid ""
+"Mind that there is no way to recover a forgotten password. If you forget the "
+"password, your data is as good as gone."
+msgstr ""
+"忘れたパスワードを回復する方法がないことに留意してください。もしパスワードを"
+"忘れると、データを復元することはできません。"
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
@@ -394,6 +514,27 @@ msgstr ""
 #, kde-format
 msgid "Configure"
 msgstr "設定"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultImportingWizard)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultCreationWizard)
+#: kded/ui/vaultconfigurationdialog.ui:19 kded/ui/vaultcreationwizard.ui:19
+#: kded/ui/vaultimportingwizard.ui:19
+#, kde-format
+msgid "Dialog"
+msgstr "ダイアログ"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/vaultconfigurationdialog.ui:38
+#, kde-format
+msgid "The vault configuration can only be changed while it is closed."
+msgstr "Vault が閉じられているときだけ設定を変更できます。"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
+#: kded/ui/vaultconfigurationdialog.ui:58
+#, kde-format
+msgid "Close the vault"
+msgstr "Vault を閉じる"
 
 #: kded/ui/vaultcreationwizard.cpp:35
 #, kde-format
@@ -533,6 +674,26 @@ msgctxt "@title:window"
 msgid "Create a New Vault"
 msgstr "新しい Vault を作成"
 
+#. i18n: ectx: property (text), widget (QLabel, labelWarning)
+#: kded/ui/vaultdeletionwidget.ui:22
+#, kde-format
+msgid ""
+"This action <b>cannot</b> be undone. This will permanently delete the "
+"selected vault!"
+msgstr "この動作は元に<b>戻せません</b>。選択された Vault を完全に削除します！"
+
+#. i18n: ectx: property (text), widget (QLabel, labelConfirm)
+#: kded/ui/vaultdeletionwidget.ui:29
+#, kde-format
+msgid "Please type in the name of the vault to confirm:"
+msgstr "確認のため Vault の名前を入力してください:"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
+#: kded/ui/vaultdeletionwidget.ui:44
+#, kde-format
+msgid "Delete this vault"
+msgstr "この Vault を削除"
+
 #: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
 msgid "Import"
@@ -604,83 +765,3 @@ msgstr "Vault を閉じる"
 #| msgid "Configure Vault..."
 msgid "Configure Vault…"
 msgstr "Vault の設定..."
-
-#~ msgid ""
-#~ "If you limit this vault only to certain activities, it will be shown in "
-#~ "the applet only when you are in those activities. Furthermore, when you "
-#~ "switch to an activity it should not be available in, it will "
-#~ "automatically be closed."
-#~ msgstr ""
-#~ "この Vault を特定のアクティビティのみに制限した場合、それらのアクティビ"
-#~ "ティでのみアプレットに表示されます。また、利用できないアクティビティに移動"
-#~ "した場合に Vault は自動的に閉じられます。"
-
-#~ msgid "Limit to the selected activities:"
-#~ msgstr "選択されたアクティビティに限定する:"
-
-#~ msgid "Vaul&t name:"
-#~ msgstr "Vault 名(&T):"
-
-#~ msgid "Backend:"
-#~ msgstr "バックエンド:"
-
-#~ msgid "Change"
-#~ msgstr "変更"
-
-#~ msgid "Choose the encryption system you want to use for this vault:"
-#~ msgstr "この Vault で利用する暗号化システムを選択:"
-
-#~ msgid "Choose the used cipher:"
-#~ msgstr "使用された暗号を選択:"
-
-#~ msgid "Mount point:"
-#~ msgstr "マウントポイント:"
-
-#~ msgid "Encrypted data location"
-#~ msgstr "暗号化されたデータの場所"
-
-#~ msgid "Mount point"
-#~ msgstr "マウントポイント"
-
-#~ msgid "Please enter the password to open this vault:"
-#~ msgstr "この Vault を開くためにはパスワードを入力してください:"
-
-#~ msgid "Password:"
-#~ msgstr "パスワード:"
-
-#~ msgid "Do not show this notice again"
-#~ msgstr "この通知を再度表示しない"
-
-#~ msgid ""
-#~ "Go offline while this vault is open (switch off networking and bluetooth)"
-#~ msgstr ""
-#~ "この Vault が開かれている間はオフラインにする (ネットワークと Bluetooth を"
-#~ "オフにする)"
-
-#~ msgid ""
-#~ "Mind that there is no way to recover a forgotten password. If you forget "
-#~ "the password, your data is as good as gone."
-#~ msgstr ""
-#~ "忘れたパスワードを回復する方法がないことに留意してください。もしパスワード"
-#~ "を忘れると、データを復元することはできません。"
-
-#~ msgid "Dialog"
-#~ msgstr "ダイアログ"
-
-#~ msgid "The vault configuration can only be changed while it is closed."
-#~ msgstr "Vault が閉じられているときだけ設定を変更できます。"
-
-#~ msgid "Close the vault"
-#~ msgstr "Vault を閉じる"
-
-#~ msgid ""
-#~ "This action <b>cannot</b> be undone. This will permanently delete the "
-#~ "selected vault!"
-#~ msgstr ""
-#~ "この動作は元に<b>戻せません</b>。選択された Vault を完全に削除します！"
-
-#~ msgid "Please type in the name of the vault to confirm:"
-#~ msgstr "確認のため Vault の名前を入力してください:"
-
-#~ msgid "Delete this vault"
-#~ msgstr "この Vault を削除"

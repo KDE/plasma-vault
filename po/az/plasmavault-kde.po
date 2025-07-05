@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2022-07-03 14:23+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -284,15 +284,70 @@ msgstr "Silinmə əməliyyatı ləğv edildi"
 msgid "Error deleting vault"
 msgstr "Seyfin silinməsi xətası"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/activitieslinkingwidget.ui:22
+#, kde-format
+msgid ""
+"If you limit this vault only to certain activities, it will be shown in the "
+"applet only when you are in those activities. Furthermore, when you switch "
+"to an activity it should not be available in, it will automatically be "
+"closed."
+msgstr ""
+"Əgər seyfin işini bir neçə İş otağı ilə məhdudlaşdırsanız, o zaman o yalnız "
+"seçilmiş İş otağında vidjet şəklində görünəcəkdir. Seyfin görünmədiyi Otağa "
+"keçid zamanı seyf avtomatik bağlanacaqdır."
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
+#: kded/ui/activitieslinkingwidget.ui:32
+#, kde-format
+msgid "Limit to the selected activities:"
+msgstr "Bu otaqlarla məhdudlaşdırmaq:"
+
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
 msgstr "Göstərilmiş xidmət modulu mövcud deyil"
 
+#. i18n: ectx: property (text), widget (QLabel, labelVaultName)
+#: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
+#, kde-format
+msgid "Vaul&t name:"
+msgstr "Sey&fin adı:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/backendchooserwidget.ui:67
+#, kde-format
+msgid "Backend:"
+msgstr "Modul:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pickBackendButton)
+#: kded/ui/backendchooserwidget.ui:94
+#, kde-format
+msgid "Change"
+msgstr "Dəyişmək"
+
+#. i18n: ectx: property (text), widget (QLabel, labelEncryptionSystem)
+#: kded/ui/backendchooserwidget.ui:132
+#, kde-format
+msgid "Choose the encryption system you want to use for this vault:"
+msgstr "Bu seyfi üçün istədiyiniz şifrələmə sistemini seçin:"
+
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
 msgstr "Standart alqoritmi istifadə etmək"
+
+#. i18n: ectx: property (text), widget (QLabel, labelCypher)
+#: kded/ui/cryfscypherchooserwidget.ui:22
+#, kde-format
+msgid "Choose the used cipher:"
+msgstr "Şifrələmə alqoritmini seçin:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorychooserwidget.ui:22
+#, kde-format
+msgid "Mount point:"
+msgstr "Qoşulma nöqtəsi:"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
@@ -308,6 +363,18 @@ msgstr "Göstərilmiş qovluq boş deyil"
 #, kde-format
 msgid "The specified directory is empty"
 msgstr "Göstərilmiş qovluq boşdur"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorypairchooserwidget.ui:22
+#, kde-format
+msgid "Encrypted data location"
+msgstr "Şifrələnmiş məlumat yeri"
+
+#. i18n: ectx: property (text), widget (QLabel, labelMountPoint)
+#: kded/ui/directorypairchooserwidget.ui:36
+#, kde-format
+msgid "Mount point"
+msgstr "Qoşulma nöqtəsi"
 
 #: kded/ui/mountdialog.cpp:20
 #, kde-format
@@ -342,6 +409,69 @@ msgstr "Xətanın təfərrüatları"
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "Açılacaq fayl: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/mountdialog.ui:62
+#, kde-format
+msgid "Please enter the password to open this vault:"
+msgstr "Bu seyfi açmaq üçün, lütfən, şifrəni daxil edin:"
+
+#. i18n: ectx: property (text), widget (QLabel, pwdLabel)
+#: kded/ui/mountdialog.ui:94
+#, kde-format
+msgid "Password:"
+msgstr "Şifrə:"
+
+#. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
+#: kded/ui/noticewidget.ui:38
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeHidden)
+#: kded/ui/noticewidget.ui:45
+#, kde-format
+msgid "Do not show this notice again"
+msgstr "Bu bidirişi bir daha göstərməmək"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
+#: kded/ui/offlineonlywidget.ui:34
+#, kde-format
+msgid ""
+"Go offline while this vault is open (switch off networking and bluetooth)"
+msgstr ""
+"Bu seyf açılan zaman şəbəkə əlaqəsini bağlayın (şəbəkə və bluetooth'u "
+"söndürmək)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/passwordchooserwidget.ui:22
+#, kde-format
+msgid ""
+"Mind that there is no way to recover a forgotten password. If you forget the "
+"password, your data is as good as gone."
+msgstr ""
+"Yadda saxlayın ki, unudulan şifrəni bərpa etmək mümkün deyil. Əgər şifrəni "
+"unutsanız şifrələnmiş məlumatlarınız itiriləcəkdir."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
@@ -380,6 +510,27 @@ msgstr "gocryptfs"
 #, kde-format
 msgid "Configure"
 msgstr "Tənzimləmək"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultImportingWizard)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultCreationWizard)
+#: kded/ui/vaultconfigurationdialog.ui:19 kded/ui/vaultcreationwizard.ui:19
+#: kded/ui/vaultimportingwizard.ui:19
+#, kde-format
+msgid "Dialog"
+msgstr "Dialoq"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/vaultconfigurationdialog.ui:38
+#, kde-format
+msgid "The vault configuration can only be changed while it is closed."
+msgstr "Bu seyfin tənziçləmələri yalnız o bağlanarkən dəyişdirilə bilər."
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
+#: kded/ui/vaultconfigurationdialog.ui:58
+#, kde-format
+msgid "Close the vault"
+msgstr "Seyfi bağlamaq"
 
 #: kded/ui/vaultcreationwizard.cpp:35
 #, kde-format
@@ -511,6 +662,28 @@ msgctxt "@title:window"
 msgid "Create a New Vault"
 msgstr "Yeni Seyf Yaratmaq"
 
+#. i18n: ectx: property (text), widget (QLabel, labelWarning)
+#: kded/ui/vaultdeletionwidget.ui:22
+#, kde-format
+msgid ""
+"This action <b>cannot</b> be undone. This will permanently delete the "
+"selected vault!"
+msgstr ""
+"Bu əməliyyatı ləğv etmək <b>mümkün deyil</b>. Seşilmiş seyf birdəfəlik "
+"silinəcək!"
+
+#. i18n: ectx: property (text), widget (QLabel, labelConfirm)
+#: kded/ui/vaultdeletionwidget.ui:29
+#, kde-format
+msgid "Please type in the name of the vault to confirm:"
+msgstr "Silinməni təsdiq etmək üçün seyfin adını yazın:"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
+#: kded/ui/vaultdeletionwidget.ui:44
+#, kde-format
+msgid "Delete this vault"
+msgstr "Bu seyfi silmək"
+
 #: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
 msgid "Import"
@@ -576,110 +749,6 @@ msgstr "Seyfi kiliddən çıxarmaq"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Seyfi Tənzimləmək..."
-
-#~ msgid ""
-#~ "If you limit this vault only to certain activities, it will be shown in "
-#~ "the applet only when you are in those activities. Furthermore, when you "
-#~ "switch to an activity it should not be available in, it will "
-#~ "automatically be closed."
-#~ msgstr ""
-#~ "Əgər seyfin işini bir neçə İş otağı ilə məhdudlaşdırsanız, o zaman o "
-#~ "yalnız seçilmiş İş otağında vidjet şəklində görünəcəkdir. Seyfin "
-#~ "görünmədiyi Otağa keçid zamanı seyf avtomatik bağlanacaqdır."
-
-#~ msgid "Limit to the selected activities:"
-#~ msgstr "Bu otaqlarla məhdudlaşdırmaq:"
-
-#~ msgid "Vaul&t name:"
-#~ msgstr "Sey&fin adı:"
-
-#~ msgid "Backend:"
-#~ msgstr "Modul:"
-
-#~ msgid "Change"
-#~ msgstr "Dəyişmək"
-
-#~ msgid "Choose the encryption system you want to use for this vault:"
-#~ msgstr "Bu seyfi üçün istədiyiniz şifrələmə sistemini seçin:"
-
-#~ msgid "Choose the used cipher:"
-#~ msgstr "Şifrələmə alqoritmini seçin:"
-
-#~ msgid "Mount point:"
-#~ msgstr "Qoşulma nöqtəsi:"
-
-#~ msgid "Encrypted data location"
-#~ msgstr "Şifrələnmiş məlumat yeri"
-
-#~ msgid "Mount point"
-#~ msgstr "Qoşulma nöqtəsi"
-
-#~ msgid "Please enter the password to open this vault:"
-#~ msgstr "Bu seyfi açmaq üçün, lütfən, şifrəni daxil edin:"
-
-#~ msgid "Password:"
-#~ msgstr "Şifrə:"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-#~ "weight:400; font-style:normal;\">\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"><br /></p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-#~ "weight:400; font-style:normal;\">\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"><br /></p></body></html>"
-
-#~ msgid "Do not show this notice again"
-#~ msgstr "Bu bidirişi bir daha göstərməmək"
-
-#~ msgid ""
-#~ "Go offline while this vault is open (switch off networking and bluetooth)"
-#~ msgstr ""
-#~ "Bu seyf açılan zaman şəbəkə əlaqəsini bağlayın (şəbəkə və bluetooth'u "
-#~ "söndürmək)"
-
-#~ msgid ""
-#~ "Mind that there is no way to recover a forgotten password. If you forget "
-#~ "the password, your data is as good as gone."
-#~ msgstr ""
-#~ "Yadda saxlayın ki, unudulan şifrəni bərpa etmək mümkün deyil. Əgər "
-#~ "şifrəni unutsanız şifrələnmiş məlumatlarınız itiriləcəkdir."
-
-#~ msgid "Dialog"
-#~ msgstr "Dialoq"
-
-#~ msgid "The vault configuration can only be changed while it is closed."
-#~ msgstr "Bu seyfin tənziçləmələri yalnız o bağlanarkən dəyişdirilə bilər."
-
-#~ msgid "Close the vault"
-#~ msgstr "Seyfi bağlamaq"
-
-#~ msgid ""
-#~ "This action <b>cannot</b> be undone. This will permanently delete the "
-#~ "selected vault!"
-#~ msgstr ""
-#~ "Bu əməliyyatı ləğv etmək <b>mümkün deyil</b>. Seşilmiş seyf birdəfəlik "
-#~ "silinəcək!"
-
-#~ msgid "Please type in the name of the vault to confirm:"
-#~ msgstr "Silinməni təsdiq etmək üçün seyfin adını yazın:"
-
-#~ msgid "Delete this vault"
-#~ msgstr "Bu seyfi silmək"
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "Yeni seyf yaratmaq..."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:22+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2021-09-18 15:04+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -303,15 +303,71 @@ msgstr "Удаление отменено"
 msgid "Error deleting vault"
 msgstr "Ошибка удаления зашифрованной папки"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/activitieslinkingwidget.ui:22
+#, kde-format
+msgid ""
+"If you limit this vault only to certain activities, it will be shown in the "
+"applet only when you are in those activities. Furthermore, when you switch "
+"to an activity it should not be available in, it will automatically be "
+"closed."
+msgstr ""
+"Если ограничить работу с зашифрованной папкой некоторыми комнатами, она "
+"будет видна в виджете только в выбранных комнатах. При переключении на "
+"комнату, в которой папка не видна, зашифрованная папка будет автоматически "
+"закрыта."
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
+#: kded/ui/activitieslinkingwidget.ui:32
+#, kde-format
+msgid "Limit to the selected activities:"
+msgstr "Ограничить доступ следующими комнатами:"
+
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
 msgstr "Указанный служебный модуль не существует"
 
+#. i18n: ectx: property (text), widget (QLabel, labelVaultName)
+#: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
+#, kde-format
+msgid "Vaul&t name:"
+msgstr "&Имя зашифрованной папки:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/backendchooserwidget.ui:67
+#, kde-format
+msgid "Backend:"
+msgstr "Модуль:"
+
+#. i18n: ectx: property (text), widget (QPushButton, pickBackendButton)
+#: kded/ui/backendchooserwidget.ui:94
+#, kde-format
+msgid "Change"
+msgstr "Изменить"
+
+#. i18n: ectx: property (text), widget (QLabel, labelEncryptionSystem)
+#: kded/ui/backendchooserwidget.ui:132
+#, kde-format
+msgid "Choose the encryption system you want to use for this vault:"
+msgstr "Выберите систему шифрования для этой папки:"
+
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
 msgstr "Использовать алгоритм по умолчанию"
+
+#. i18n: ectx: property (text), widget (QLabel, labelCypher)
+#: kded/ui/cryfscypherchooserwidget.ui:22
+#, kde-format
+msgid "Choose the used cipher:"
+msgstr "Выберите алгоритм шифрования:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorychooserwidget.ui:22
+#, kde-format
+msgid "Mount point:"
+msgstr "Точка подключения:"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
@@ -327,6 +383,18 @@ msgstr "Указанный каталог не пуст"
 #, kde-format
 msgid "The specified directory is empty"
 msgstr "Указанный каталог пуст"
+
+#. i18n: ectx: property (text), widget (QLabel, labelDevice)
+#: kded/ui/directorypairchooserwidget.ui:22
+#, kde-format
+msgid "Encrypted data location"
+msgstr "Расположение зашифрованных данных:"
+
+#. i18n: ectx: property (text), widget (QLabel, labelMountPoint)
+#: kded/ui/directorypairchooserwidget.ui:36
+#, kde-format
+msgid "Mount point"
+msgstr "Точка подключения:"
 
 #: kded/ui/mountdialog.cpp:20
 #, kde-format
@@ -361,6 +429,69 @@ msgstr "Подробные сведения об ошибке"
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "Не удалось открыть: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/mountdialog.ui:62
+#, kde-format
+msgid "Please enter the password to open this vault:"
+msgstr "Введите пароль для открытия этой зашифрованной папки:"
+
+#. i18n: ectx: property (text), widget (QLabel, pwdLabel)
+#: kded/ui/mountdialog.ui:94
+#, kde-format
+msgid "Password:"
+msgstr "Пароль:"
+
+#. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
+#: kded/ui/noticewidget.ui:38
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+"\"><br /></p></body></html>"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeHidden)
+#: kded/ui/noticewidget.ui:45
+#, kde-format
+msgid "Do not show this notice again"
+msgstr "Больше не показывать это предупреждение"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
+#: kded/ui/offlineonlywidget.ui:34
+#, kde-format
+msgid ""
+"Go offline while this vault is open (switch off networking and bluetooth)"
+msgstr ""
+"Отключать сеть (сетевые соединения и Bluetooth), когда эта зашифрованная "
+"папка открыта"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/passwordchooserwidget.ui:22
+#, kde-format
+msgid ""
+"Mind that there is no way to recover a forgotten password. If you forget the "
+"password, your data is as good as gone."
+msgstr ""
+"Помните, что невозможно восстановить пароль. Если вы забудете пароль, "
+"зашифрованные данные будут потеряны."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
@@ -399,6 +530,28 @@ msgstr "gocryptfs"
 #, kde-format
 msgid "Configure"
 msgstr "Настройка"
+
+# BUGME: should not be translatable --aspotashev
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultImportingWizard)
+#. i18n: ectx: property (windowTitle), widget (QDialog, VaultCreationWizard)
+#: kded/ui/vaultconfigurationdialog.ui:19 kded/ui/vaultcreationwizard.ui:19
+#: kded/ui/vaultimportingwizard.ui:19
+#, kde-format
+msgid "Dialog"
+msgstr "Диалог"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: kded/ui/vaultconfigurationdialog.ui:38
+#, kde-format
+msgid "The vault configuration can only be changed while it is closed."
+msgstr "Параметры можно менять, только когда зашифрованная папка закрыта."
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
+#: kded/ui/vaultconfigurationdialog.ui:58
+#, kde-format
+msgid "Close the vault"
+msgstr "Закрыть зашифрованную папку"
 
 #: kded/ui/vaultcreationwizard.cpp:35
 #, kde-format
@@ -536,6 +689,28 @@ msgctxt "@title:window"
 msgid "Create a New Vault"
 msgstr "Создание зашифрованной папки"
 
+#. i18n: ectx: property (text), widget (QLabel, labelWarning)
+#: kded/ui/vaultdeletionwidget.ui:22
+#, kde-format
+msgid ""
+"This action <b>cannot</b> be undone. This will permanently delete the "
+"selected vault!"
+msgstr ""
+"Это действие <b>невозможно</b> отменить. Выбранная зашифрованная папка будет "
+"удалена навсегда."
+
+#. i18n: ectx: property (text), widget (QLabel, labelConfirm)
+#: kded/ui/vaultdeletionwidget.ui:29
+#, kde-format
+msgid "Please type in the name of the vault to confirm:"
+msgstr "Для подтверждения удаления введите имя зашифрованной папки:"
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
+#: kded/ui/vaultdeletionwidget.ui:44
+#, kde-format
+msgid "Delete this vault"
+msgstr "Удалить зашифрованную папку"
+
 #: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
 msgid "Import"
@@ -601,112 +776,6 @@ msgstr "Разблокировать папку"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Настроить папку..."
-
-#~ msgid ""
-#~ "If you limit this vault only to certain activities, it will be shown in "
-#~ "the applet only when you are in those activities. Furthermore, when you "
-#~ "switch to an activity it should not be available in, it will "
-#~ "automatically be closed."
-#~ msgstr ""
-#~ "Если ограничить работу с зашифрованной папкой некоторыми комнатами, она "
-#~ "будет видна в виджете только в выбранных комнатах. При переключении на "
-#~ "комнату, в которой папка не видна, зашифрованная папка будет "
-#~ "автоматически закрыта."
-
-#~ msgid "Limit to the selected activities:"
-#~ msgstr "Ограничить доступ следующими комнатами:"
-
-#~ msgid "Vaul&t name:"
-#~ msgstr "&Имя зашифрованной папки:"
-
-#~ msgid "Backend:"
-#~ msgstr "Модуль:"
-
-#~ msgid "Change"
-#~ msgstr "Изменить"
-
-#~ msgid "Choose the encryption system you want to use for this vault:"
-#~ msgstr "Выберите систему шифрования для этой папки:"
-
-#~ msgid "Choose the used cipher:"
-#~ msgstr "Выберите алгоритм шифрования:"
-
-#~ msgid "Mount point:"
-#~ msgstr "Точка подключения:"
-
-#~ msgid "Encrypted data location"
-#~ msgstr "Расположение зашифрованных данных:"
-
-#~ msgid "Mount point"
-#~ msgstr "Точка подключения:"
-
-#~ msgid "Please enter the password to open this vault:"
-#~ msgstr "Введите пароль для открытия этой зашифрованной папки:"
-
-#~ msgid "Password:"
-#~ msgstr "Пароль:"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-#~ "weight:400; font-style:normal;\">\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"><br /></p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-#~ "weight:400; font-style:normal;\">\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"><br /></p></body></html>"
-
-#~ msgid "Do not show this notice again"
-#~ msgstr "Больше не показывать это предупреждение"
-
-#~ msgid ""
-#~ "Go offline while this vault is open (switch off networking and bluetooth)"
-#~ msgstr ""
-#~ "Отключать сеть (сетевые соединения и Bluetooth), когда эта зашифрованная "
-#~ "папка открыта"
-
-#~ msgid ""
-#~ "Mind that there is no way to recover a forgotten password. If you forget "
-#~ "the password, your data is as good as gone."
-#~ msgstr ""
-#~ "Помните, что невозможно восстановить пароль. Если вы забудете пароль, "
-#~ "зашифрованные данные будут потеряны."
-
-# BUGME: should not be translatable --aspotashev
-#~ msgid "Dialog"
-#~ msgstr "Диалог"
-
-#~ msgid "The vault configuration can only be changed while it is closed."
-#~ msgstr "Параметры можно менять, только когда зашифрованная папка закрыта."
-
-#~ msgid "Close the vault"
-#~ msgstr "Закрыть зашифрованную папку"
-
-#~ msgid ""
-#~ "This action <b>cannot</b> be undone. This will permanently delete the "
-#~ "selected vault!"
-#~ msgstr ""
-#~ "Это действие <b>невозможно</b> отменить. Выбранная зашифрованная папка "
-#~ "будет удалена навсегда."
-
-#~ msgid "Please type in the name of the vault to confirm:"
-#~ msgstr "Для подтверждения удаления введите имя зашифрованной папки:"
-
-#~ msgid "Delete this vault"
-#~ msgstr "Удалить зашифрованную папку"
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "Создать зашифрованную папку..."
