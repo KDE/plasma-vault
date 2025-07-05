@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-03-31 00:45+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2021-11-12 01:21+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -284,70 +284,15 @@ msgstr "삭제 작업이 취소됨"
 msgid "Error deleting vault"
 msgstr "비밀 공간 삭제 오류"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/activitieslinkingwidget.ui:22
-#, kde-format
-msgid ""
-"If you limit this vault only to certain activities, it will be shown in the "
-"applet only when you are in those activities. Furthermore, when you switch "
-"to an activity it should not be available in, it will automatically be "
-"closed."
-msgstr ""
-"이 비밀 공간을 특정 활동으로 제한하면 해당 활동이 활성화되어 있을 때에만 비"
-"밀 공간을 표시합니다. 해당 비밀 공간이 활성화되어 있지 않은 활동으로 전환하"
-"면 비밀 공간을 자동으로 닫습니다."
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
-#: kded/ui/activitieslinkingwidget.ui:32
-#, kde-format
-msgid "Limit to the selected activities:"
-msgstr "다음 활동으로 제한:"
-
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
 msgstr "지정한 백엔드를 사용할 수 없음"
 
-#. i18n: ectx: property (text), widget (QLabel, labelVaultName)
-#: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
-#, kde-format
-msgid "Vaul&t name:"
-msgstr "비밀 공간 이름(&T):"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/backendchooserwidget.ui:67
-#, kde-format
-msgid "Backend:"
-msgstr "백엔드:"
-
-#. i18n: ectx: property (text), widget (QPushButton, pickBackendButton)
-#: kded/ui/backendchooserwidget.ui:94
-#, kde-format
-msgid "Change"
-msgstr "변경"
-
-#. i18n: ectx: property (text), widget (QLabel, labelEncryptionSystem)
-#: kded/ui/backendchooserwidget.ui:132
-#, kde-format
-msgid "Choose the encryption system you want to use for this vault:"
-msgstr "비밀 공간에 사용할 암호화 시스템을 선택하십시오:"
-
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
 msgstr "기본 암호화 사용"
-
-#. i18n: ectx: property (text), widget (QLabel, labelCypher)
-#: kded/ui/cryfscypherchooserwidget.ui:22
-#, kde-format
-msgid "Choose the used cipher:"
-msgstr "다음 암호화 사용:"
-
-#. i18n: ectx: property (text), widget (QLabel, labelDevice)
-#: kded/ui/directorychooserwidget.ui:22
-#, kde-format
-msgid "Mount point:"
-msgstr "마운트 지점:"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
@@ -363,18 +308,6 @@ msgstr "지정한 디렉터리가 비어 있지 않음"
 #, kde-format
 msgid "The specified directory is empty"
 msgstr "지정한 디렉터리가 비어 있음"
-
-#. i18n: ectx: property (text), widget (QLabel, labelDevice)
-#: kded/ui/directorypairchooserwidget.ui:22
-#, kde-format
-msgid "Encrypted data location"
-msgstr "암호화된 데이터 위치"
-
-#. i18n: ectx: property (text), widget (QLabel, labelMountPoint)
-#: kded/ui/directorypairchooserwidget.ui:36
-#, kde-format
-msgid "Mount point"
-msgstr "마운트 지점"
 
 #: kded/ui/mountdialog.cpp:20
 #, kde-format
@@ -409,68 +342,6 @@ msgstr "자세한 오류 정보"
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "열 수 없음: %1"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/mountdialog.ui:62
-#, kde-format
-msgid "Please enter the password to open this vault:"
-msgstr "비밀 공간을 열려면 암호를 입력하십시오:"
-
-#. i18n: ectx: property (text), widget (QLabel, pwdLabel)
-#: kded/ui/mountdialog.ui:94
-#, kde-format
-msgid "Password:"
-msgstr "암호:"
-
-#. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
-#: kded/ui/noticewidget.ui:38
-#, kde-format
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-"\"><br /></p></body></html>"
-msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-"\"><br /></p></body></html>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeHidden)
-#: kded/ui/noticewidget.ui:45
-#, kde-format
-msgid "Do not show this notice again"
-msgstr "이 메시지 다시 보지 않기"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
-#: kded/ui/offlineonlywidget.ui:34
-#, kde-format
-msgid ""
-"Go offline while this vault is open (switch off networking and bluetooth)"
-msgstr ""
-"이 비밀 공간이 열려 있을 때 오프라인으로 전환(네트워크와 블루투스 비활성화)"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/passwordchooserwidget.ui:22
-#, kde-format
-msgid ""
-"Mind that there is no way to recover a forgotten password. If you forget the "
-"password, your data is as good as gone."
-msgstr ""
-"비밀 공간의 암호를 잊어버리면 복구할 수 있는 방법이 없습니다. 암호를 잊어버리"
-"면 해당 데이터에 접근할 수 없습니다."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
@@ -509,27 +380,6 @@ msgstr "gocryptfs"
 #, kde-format
 msgid "Configure"
 msgstr "설정"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, VaultImportingWizard)
-#. i18n: ectx: property (windowTitle), widget (QDialog, VaultCreationWizard)
-#: kded/ui/vaultconfigurationdialog.ui:19 kded/ui/vaultcreationwizard.ui:19
-#: kded/ui/vaultimportingwizard.ui:19
-#, kde-format
-msgid "Dialog"
-msgstr "대화 상자"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/vaultconfigurationdialog.ui:38
-#, kde-format
-msgid "The vault configuration can only be changed while it is closed."
-msgstr "비밀 공간 설정을 변경하려면 먼저 닫아야 합니다."
-
-#. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
-#: kded/ui/vaultconfigurationdialog.ui:58
-#, kde-format
-msgid "Close the vault"
-msgstr "비밀 공간 닫기"
 
 #: kded/ui/vaultcreationwizard.cpp:35
 #, kde-format
@@ -664,28 +514,6 @@ msgctxt "@title:window"
 msgid "Create a New Vault"
 msgstr "새 비밀 공간 만들기"
 
-#. i18n: ectx: property (text), widget (QLabel, labelWarning)
-#: kded/ui/vaultdeletionwidget.ui:22
-#, kde-format
-msgid ""
-"This action <b>cannot</b> be undone. This will permanently delete the "
-"selected vault!"
-msgstr ""
-"이 작업은 실행 취소할 수 <b>없습니다</b>. 선택한 비밀 공간을 영구적으로 삭제"
-"합니다!"
-
-#. i18n: ectx: property (text), widget (QLabel, labelConfirm)
-#: kded/ui/vaultdeletionwidget.ui:29
-#, kde-format
-msgid "Please type in the name of the vault to confirm:"
-msgstr "계속 진행하려면 비밀 공간 이름을 입력하십시오:"
-
-#. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
-#: kded/ui/vaultdeletionwidget.ui:44
-#, kde-format
-msgid "Delete this vault"
-msgstr "비밀 공간 지우기"
-
 #: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
 msgid "Import"
@@ -751,6 +579,110 @@ msgstr "비밀 공간 잠금 해제"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "비밀 공간 설정…"
+
+#~ msgid ""
+#~ "If you limit this vault only to certain activities, it will be shown in "
+#~ "the applet only when you are in those activities. Furthermore, when you "
+#~ "switch to an activity it should not be available in, it will "
+#~ "automatically be closed."
+#~ msgstr ""
+#~ "이 비밀 공간을 특정 활동으로 제한하면 해당 활동이 활성화되어 있을 때에만 "
+#~ "비밀 공간을 표시합니다. 해당 비밀 공간이 활성화되어 있지 않은 활동으로 전"
+#~ "환하면 비밀 공간을 자동으로 닫습니다."
+
+#~ msgid "Limit to the selected activities:"
+#~ msgstr "다음 활동으로 제한:"
+
+#~ msgid "Vaul&t name:"
+#~ msgstr "비밀 공간 이름(&T):"
+
+#~ msgid "Backend:"
+#~ msgstr "백엔드:"
+
+#~ msgid "Change"
+#~ msgstr "변경"
+
+#~ msgid "Choose the encryption system you want to use for this vault:"
+#~ msgstr "비밀 공간에 사용할 암호화 시스템을 선택하십시오:"
+
+#~ msgid "Choose the used cipher:"
+#~ msgstr "다음 암호화 사용:"
+
+#~ msgid "Mount point:"
+#~ msgstr "마운트 지점:"
+
+#~ msgid "Encrypted data location"
+#~ msgstr "암호화된 데이터 위치"
+
+#~ msgid "Mount point"
+#~ msgstr "마운트 지점"
+
+#~ msgid "Please enter the password to open this vault:"
+#~ msgstr "비밀 공간을 열려면 암호를 입력하십시오:"
+
+#~ msgid "Password:"
+#~ msgstr "암호:"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"><br /></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"><br /></p></body></html>"
+
+#~ msgid "Do not show this notice again"
+#~ msgstr "이 메시지 다시 보지 않기"
+
+#~ msgid ""
+#~ "Go offline while this vault is open (switch off networking and bluetooth)"
+#~ msgstr ""
+#~ "이 비밀 공간이 열려 있을 때 오프라인으로 전환(네트워크와 블루투스 비활성"
+#~ "화)"
+
+#~ msgid ""
+#~ "Mind that there is no way to recover a forgotten password. If you forget "
+#~ "the password, your data is as good as gone."
+#~ msgstr ""
+#~ "비밀 공간의 암호를 잊어버리면 복구할 수 있는 방법이 없습니다. 암호를 잊어"
+#~ "버리면 해당 데이터에 접근할 수 없습니다."
+
+#~ msgid "Dialog"
+#~ msgstr "대화 상자"
+
+#~ msgid "The vault configuration can only be changed while it is closed."
+#~ msgstr "비밀 공간 설정을 변경하려면 먼저 닫아야 합니다."
+
+#~ msgid "Close the vault"
+#~ msgstr "비밀 공간 닫기"
+
+#~ msgid ""
+#~ "This action <b>cannot</b> be undone. This will permanently delete the "
+#~ "selected vault!"
+#~ msgstr ""
+#~ "이 작업은 실행 취소할 수 <b>없습니다</b>. 선택한 비밀 공간을 영구적으로 삭"
+#~ "제합니다!"
+
+#~ msgid "Please type in the name of the vault to confirm:"
+#~ msgstr "계속 진행하려면 비밀 공간 이름을 입력하십시오:"
+
+#~ msgid "Delete this vault"
+#~ msgstr "비밀 공간 지우기"
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "새 비밀 공간 만들기..."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-03-31 00:45+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2021-09-10 12:18+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -303,71 +303,15 @@ msgstr "Operación de borrado cancelada"
 msgid "Error deleting vault"
 msgstr "Ha ocurrido un error al borrar la caja fuerte"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/activitieslinkingwidget.ui:22
-#, kde-format
-msgid ""
-"If you limit this vault only to certain activities, it will be shown in the "
-"applet only when you are in those activities. Furthermore, when you switch "
-"to an activity it should not be available in, it will automatically be "
-"closed."
-msgstr ""
-"Si limita esta caja fuerte solo a ciertas actividades, se mostrará en la "
-"miniaplicación solo cuando esté en dichas actividades. Además, cuando cambie "
-"a una actividad en la que no deba estar disponible, se cerrará "
-"automáticamente."
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
-#: kded/ui/activitieslinkingwidget.ui:32
-#, kde-format
-msgid "Limit to the selected activities:"
-msgstr "Limitar a las actividades seleccionadas:"
-
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
 msgstr "El motor indicado no está disponible"
 
-#. i18n: ectx: property (text), widget (QLabel, labelVaultName)
-#: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
-#, kde-format
-msgid "Vaul&t name:"
-msgstr "Nombre de la ca&ja fuerte:"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/backendchooserwidget.ui:67
-#, kde-format
-msgid "Backend:"
-msgstr "Motor:"
-
-#. i18n: ectx: property (text), widget (QPushButton, pickBackendButton)
-#: kded/ui/backendchooserwidget.ui:94
-#, kde-format
-msgid "Change"
-msgstr "Cambiar"
-
-#. i18n: ectx: property (text), widget (QLabel, labelEncryptionSystem)
-#: kded/ui/backendchooserwidget.ui:132
-#, kde-format
-msgid "Choose the encryption system you want to use for this vault:"
-msgstr "Escoja el sistema de cifrado que desea usar en esta caja fuerte:"
-
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
 msgstr "Usar el cifrado por omisión"
-
-#. i18n: ectx: property (text), widget (QLabel, labelCypher)
-#: kded/ui/cryfscypherchooserwidget.ui:22
-#, kde-format
-msgid "Choose the used cipher:"
-msgstr "Escoja el cifrado usado:"
-
-#. i18n: ectx: property (text), widget (QLabel, labelDevice)
-#: kded/ui/directorychooserwidget.ui:22
-#, kde-format
-msgid "Mount point:"
-msgstr "Punto de montaje:"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
@@ -383,18 +327,6 @@ msgstr "El directorio indicado no está vacío"
 #, kde-format
 msgid "The specified directory is empty"
 msgstr "El directorio indicado está vacío"
-
-#. i18n: ectx: property (text), widget (QLabel, labelDevice)
-#: kded/ui/directorypairchooserwidget.ui:22
-#, kde-format
-msgid "Encrypted data location"
-msgstr "Ubicación de los datos cifrados"
-
-#. i18n: ectx: property (text), widget (QLabel, labelMountPoint)
-#: kded/ui/directorypairchooserwidget.ui:36
-#, kde-format
-msgid "Mount point"
-msgstr "Punto de montaje"
 
 #: kded/ui/mountdialog.cpp:20
 #, kde-format
@@ -429,69 +361,6 @@ msgstr "Detalles del error"
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "No se ha podido abrir: %1"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/mountdialog.ui:62
-#, kde-format
-msgid "Please enter the password to open this vault:"
-msgstr "Por favor, introduzca la contraseña para abrir esta caja fuerte:"
-
-#. i18n: ectx: property (text), widget (QLabel, pwdLabel)
-#: kded/ui/mountdialog.ui:94
-#, kde-format
-msgid "Password:"
-msgstr "Contraseña:"
-
-#. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
-#: kded/ui/noticewidget.ui:38
-#, kde-format
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-"\"><br /></p></body></html>"
-msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-"\"><br /></p></body></html>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeHidden)
-#: kded/ui/noticewidget.ui:45
-#, kde-format
-msgid "Do not show this notice again"
-msgstr "No volver a mostrar este aviso"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
-#: kded/ui/offlineonlywidget.ui:34
-#, kde-format
-msgid ""
-"Go offline while this vault is open (switch off networking and bluetooth)"
-msgstr ""
-"Ir al modo sin conexión cuando esta caja fuerte esté abierta (desconecta la "
-"red y bluetooth)"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/passwordchooserwidget.ui:22
-#, kde-format
-msgid ""
-"Mind that there is no way to recover a forgotten password. If you forget the "
-"password, your data is as good as gone."
-msgstr ""
-"Recuerde que no hay ningún modo de recuperar una contraseña olvidada. Si "
-"olvida la contraseña, sus datos están prácticamente perdidos."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
@@ -530,29 +399,6 @@ msgstr "gocryptfs"
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, VaultImportingWizard)
-#. i18n: ectx: property (windowTitle), widget (QDialog, VaultCreationWizard)
-#: kded/ui/vaultconfigurationdialog.ui:19 kded/ui/vaultcreationwizard.ui:19
-#: kded/ui/vaultimportingwizard.ui:19
-#, kde-format
-msgid "Dialog"
-msgstr "Diálogo"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/vaultconfigurationdialog.ui:38
-#, kde-format
-msgid "The vault configuration can only be changed while it is closed."
-msgstr ""
-"La configuración de la caja fuerte solo se puede modificar cuando está "
-"cerrada."
-
-#. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
-#: kded/ui/vaultconfigurationdialog.ui:58
-#, kde-format
-msgid "Close the vault"
-msgstr "Cerrar la caja fuerte"
 
 #: kded/ui/vaultcreationwizard.cpp:35
 #, kde-format
@@ -691,28 +537,6 @@ msgctxt "@title:window"
 msgid "Create a New Vault"
 msgstr "Crear una nueva caja fuerte"
 
-#. i18n: ectx: property (text), widget (QLabel, labelWarning)
-#: kded/ui/vaultdeletionwidget.ui:22
-#, kde-format
-msgid ""
-"This action <b>cannot</b> be undone. This will permanently delete the "
-"selected vault!"
-msgstr ""
-"Esta acción <b>no</b> se puede deshacer. Esto borrará permanentemente la "
-"caja fuerte seleccionada."
-
-#. i18n: ectx: property (text), widget (QLabel, labelConfirm)
-#: kded/ui/vaultdeletionwidget.ui:29
-#, kde-format
-msgid "Please type in the name of the vault to confirm:"
-msgstr "Escriba el nombre de la caja fuerte para confirmar:"
-
-#. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
-#: kded/ui/vaultdeletionwidget.ui:44
-#, kde-format
-msgid "Delete this vault"
-msgstr "Borrar esta caja fuerte"
-
 #: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
 msgid "Import"
@@ -778,6 +602,113 @@ msgstr "Desbloquear la caja fuerte"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Configurar la caja fuerte..."
+
+#~ msgid ""
+#~ "If you limit this vault only to certain activities, it will be shown in "
+#~ "the applet only when you are in those activities. Furthermore, when you "
+#~ "switch to an activity it should not be available in, it will "
+#~ "automatically be closed."
+#~ msgstr ""
+#~ "Si limita esta caja fuerte solo a ciertas actividades, se mostrará en la "
+#~ "miniaplicación solo cuando esté en dichas actividades. Además, cuando "
+#~ "cambie a una actividad en la que no deba estar disponible, se cerrará "
+#~ "automáticamente."
+
+#~ msgid "Limit to the selected activities:"
+#~ msgstr "Limitar a las actividades seleccionadas:"
+
+#~ msgid "Vaul&t name:"
+#~ msgstr "Nombre de la ca&ja fuerte:"
+
+#~ msgid "Backend:"
+#~ msgstr "Motor:"
+
+#~ msgid "Change"
+#~ msgstr "Cambiar"
+
+#~ msgid "Choose the encryption system you want to use for this vault:"
+#~ msgstr "Escoja el sistema de cifrado que desea usar en esta caja fuerte:"
+
+#~ msgid "Choose the used cipher:"
+#~ msgstr "Escoja el cifrado usado:"
+
+#~ msgid "Mount point:"
+#~ msgstr "Punto de montaje:"
+
+#~ msgid "Encrypted data location"
+#~ msgstr "Ubicación de los datos cifrados"
+
+#~ msgid "Mount point"
+#~ msgstr "Punto de montaje"
+
+#~ msgid "Please enter the password to open this vault:"
+#~ msgstr "Por favor, introduzca la contraseña para abrir esta caja fuerte:"
+
+#~ msgid "Password:"
+#~ msgstr "Contraseña:"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"><br /></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"><br /></p></body></html>"
+
+#~ msgid "Do not show this notice again"
+#~ msgstr "No volver a mostrar este aviso"
+
+#~ msgid ""
+#~ "Go offline while this vault is open (switch off networking and bluetooth)"
+#~ msgstr ""
+#~ "Ir al modo sin conexión cuando esta caja fuerte esté abierta (desconecta "
+#~ "la red y bluetooth)"
+
+#~ msgid ""
+#~ "Mind that there is no way to recover a forgotten password. If you forget "
+#~ "the password, your data is as good as gone."
+#~ msgstr ""
+#~ "Recuerde que no hay ningún modo de recuperar una contraseña olvidada. Si "
+#~ "olvida la contraseña, sus datos están prácticamente perdidos."
+
+#~ msgid "Dialog"
+#~ msgstr "Diálogo"
+
+#~ msgid "The vault configuration can only be changed while it is closed."
+#~ msgstr ""
+#~ "La configuración de la caja fuerte solo se puede modificar cuando está "
+#~ "cerrada."
+
+#~ msgid "Close the vault"
+#~ msgstr "Cerrar la caja fuerte"
+
+#~ msgid ""
+#~ "This action <b>cannot</b> be undone. This will permanently delete the "
+#~ "selected vault!"
+#~ msgstr ""
+#~ "Esta acción <b>no</b> se puede deshacer. Esto borrará permanentemente la "
+#~ "caja fuerte seleccionada."
+
+#~ msgid "Please type in the name of the vault to confirm:"
+#~ msgstr "Escriba el nombre de la caja fuerte para confirmar:"
+
+#~ msgid "Delete this vault"
+#~ msgstr "Borrar esta caja fuerte"
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "Crear una nueva caja fuerte..."

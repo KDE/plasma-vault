@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-03-31 00:45+0000\n"
+"POT-Creation-Date: 2025-07-05 03:22+0000\n"
 "PO-Revision-Date: 2021-09-14 23:29+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -298,71 +298,15 @@ msgstr "Operazione di eliminazione annullata"
 msgid "Error deleting vault"
 msgstr "Errore durante l'eliminazione del caveau"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/activitieslinkingwidget.ui:22
-#, kde-format
-msgid ""
-"If you limit this vault only to certain activities, it will be shown in the "
-"applet only when you are in those activities. Furthermore, when you switch "
-"to an activity it should not be available in, it will automatically be "
-"closed."
-msgstr ""
-"Se limiti questo caveau solo ad alcune attività, sarà mostrato nell'applet "
-"solo quando ti trovi in quelle attività. Inoltre, quando passi ad "
-"un'attività in cui non dovrebbe essere disponibile, sarà chiuso "
-"automaticamente."
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
-#: kded/ui/activitieslinkingwidget.ui:32
-#, kde-format
-msgid "Limit to the selected activities:"
-msgstr "Limita alle attività selezionate:"
-
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
 msgstr "Il motore specificato non è disponibile"
 
-#. i18n: ectx: property (text), widget (QLabel, labelVaultName)
-#: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
-#, kde-format
-msgid "Vaul&t name:"
-msgstr "Nome del cave&au:"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/backendchooserwidget.ui:67
-#, kde-format
-msgid "Backend:"
-msgstr "Motore:"
-
-#. i18n: ectx: property (text), widget (QPushButton, pickBackendButton)
-#: kded/ui/backendchooserwidget.ui:94
-#, kde-format
-msgid "Change"
-msgstr "Modifica"
-
-#. i18n: ectx: property (text), widget (QLabel, labelEncryptionSystem)
-#: kded/ui/backendchooserwidget.ui:132
-#, kde-format
-msgid "Choose the encryption system you want to use for this vault:"
-msgstr "Scegli il sistema di cifratura che vuoi usare per questo caveau:"
-
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
 msgstr "Usa il cifrario predefinito"
-
-#. i18n: ectx: property (text), widget (QLabel, labelCypher)
-#: kded/ui/cryfscypherchooserwidget.ui:22
-#, kde-format
-msgid "Choose the used cipher:"
-msgstr "Scegli il cifrario da usare:"
-
-#. i18n: ectx: property (text), widget (QLabel, labelDevice)
-#: kded/ui/directorychooserwidget.ui:22
-#, kde-format
-msgid "Mount point:"
-msgstr "Punto di montaggio:"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
@@ -378,18 +322,6 @@ msgstr "La cartella specificata non è vuota"
 #, kde-format
 msgid "The specified directory is empty"
 msgstr "La cartella specificata è vuota"
-
-#. i18n: ectx: property (text), widget (QLabel, labelDevice)
-#: kded/ui/directorypairchooserwidget.ui:22
-#, kde-format
-msgid "Encrypted data location"
-msgstr "Posizione dei dati cifrati"
-
-#. i18n: ectx: property (text), widget (QLabel, labelMountPoint)
-#: kded/ui/directorypairchooserwidget.ui:36
-#, kde-format
-msgid "Mount point"
-msgstr "Punto di montaggio"
 
 #: kded/ui/mountdialog.cpp:20
 #, kde-format
@@ -424,69 +356,6 @@ msgstr "Dettagli errore"
 #, kde-format
 msgid "Failed to open: %1"
 msgstr "Impossibile aprire: %1"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/mountdialog.ui:62
-#, kde-format
-msgid "Please enter the password to open this vault:"
-msgstr "Inserisci la password per aprire questo caveau:"
-
-#. i18n: ectx: property (text), widget (QLabel, pwdLabel)
-#: kded/ui/mountdialog.ui:94
-#, kde-format
-msgid "Password:"
-msgstr "Password:"
-
-#. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
-#: kded/ui/noticewidget.ui:38
-#, kde-format
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-"\"><br /></p></body></html>"
-msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-"\"><br /></p></body></html>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeHidden)
-#: kded/ui/noticewidget.ui:45
-#, kde-format
-msgid "Do not show this notice again"
-msgstr "Non mostrare più questa notifica"
-
-#. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
-#: kded/ui/offlineonlywidget.ui:34
-#, kde-format
-msgid ""
-"Go offline while this vault is open (switch off networking and bluetooth)"
-msgstr ""
-"Va fuori linea quando il caveau è aperto (disattivando la rete ed il "
-"bluetooth)"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/passwordchooserwidget.ui:22
-#, kde-format
-msgid ""
-"Mind that there is no way to recover a forgotten password. If you forget the "
-"password, your data is as good as gone."
-msgstr ""
-"Si presti attenzione al fatto che non c'è modo di recuperare una password "
-"dimenticata. Se dimentichi la password, i dati sono perduti."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
@@ -525,27 +394,6 @@ msgstr "gocryptfs"
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
-
-#. i18n: ectx: property (windowTitle), widget (QDialog, VaultConfigurationDialog)
-#. i18n: ectx: property (windowTitle), widget (QDialog, VaultImportingWizard)
-#. i18n: ectx: property (windowTitle), widget (QDialog, VaultCreationWizard)
-#: kded/ui/vaultconfigurationdialog.ui:19 kded/ui/vaultcreationwizard.ui:19
-#: kded/ui/vaultimportingwizard.ui:19
-#, kde-format
-msgid "Dialog"
-msgstr "Finestra di dialogo"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: kded/ui/vaultconfigurationdialog.ui:38
-#, kde-format
-msgid "The vault configuration can only be changed while it is closed."
-msgstr "La configurazione del caveau può essere cambiata solo quando è chiuso."
-
-#. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
-#: kded/ui/vaultconfigurationdialog.ui:58
-#, kde-format
-msgid "Close the vault"
-msgstr "Chiudi il caveau"
 
 #: kded/ui/vaultcreationwizard.cpp:35
 #, kde-format
@@ -683,28 +531,6 @@ msgctxt "@title:window"
 msgid "Create a New Vault"
 msgstr "Crea un nuovo caveau"
 
-#. i18n: ectx: property (text), widget (QLabel, labelWarning)
-#: kded/ui/vaultdeletionwidget.ui:22
-#, kde-format
-msgid ""
-"This action <b>cannot</b> be undone. This will permanently delete the "
-"selected vault!"
-msgstr ""
-"Questa azione <b>non può</b> essere annullata. Provocherà l'eliminazione "
-"definitiva del caveau selezionato."
-
-#. i18n: ectx: property (text), widget (QLabel, labelConfirm)
-#: kded/ui/vaultdeletionwidget.ui:29
-#, kde-format
-msgid "Please type in the name of the vault to confirm:"
-msgstr "Digita il nome del caveau per la conferma:"
-
-#. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
-#: kded/ui/vaultdeletionwidget.ui:44
-#, kde-format
-msgid "Delete this vault"
-msgstr "Elimina questo caveau"
-
 #: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
 msgid "Import"
@@ -770,6 +596,112 @@ msgstr "Sblocca caveau"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Configura caveau…"
+
+#~ msgid ""
+#~ "If you limit this vault only to certain activities, it will be shown in "
+#~ "the applet only when you are in those activities. Furthermore, when you "
+#~ "switch to an activity it should not be available in, it will "
+#~ "automatically be closed."
+#~ msgstr ""
+#~ "Se limiti questo caveau solo ad alcune attività, sarà mostrato "
+#~ "nell'applet solo quando ti trovi in quelle attività. Inoltre, quando "
+#~ "passi ad un'attività in cui non dovrebbe essere disponibile, sarà chiuso "
+#~ "automaticamente."
+
+#~ msgid "Limit to the selected activities:"
+#~ msgstr "Limita alle attività selezionate:"
+
+#~ msgid "Vaul&t name:"
+#~ msgstr "Nome del cave&au:"
+
+#~ msgid "Backend:"
+#~ msgstr "Motore:"
+
+#~ msgid "Change"
+#~ msgstr "Modifica"
+
+#~ msgid "Choose the encryption system you want to use for this vault:"
+#~ msgstr "Scegli il sistema di cifratura che vuoi usare per questo caveau:"
+
+#~ msgid "Choose the used cipher:"
+#~ msgstr "Scegli il cifrario da usare:"
+
+#~ msgid "Mount point:"
+#~ msgstr "Punto di montaggio:"
+
+#~ msgid "Encrypted data location"
+#~ msgstr "Posizione dei dati cifrati"
+
+#~ msgid "Mount point"
+#~ msgstr "Punto di montaggio"
+
+#~ msgid "Please enter the password to open this vault:"
+#~ msgstr "Inserisci la password per aprire questo caveau:"
+
+#~ msgid "Password:"
+#~ msgstr "Password:"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"><br /></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'hlv'; font-size:9pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"><br /></p></body></html>"
+
+#~ msgid "Do not show this notice again"
+#~ msgstr "Non mostrare più questa notifica"
+
+#~ msgid ""
+#~ "Go offline while this vault is open (switch off networking and bluetooth)"
+#~ msgstr ""
+#~ "Va fuori linea quando il caveau è aperto (disattivando la rete ed il "
+#~ "bluetooth)"
+
+#~ msgid ""
+#~ "Mind that there is no way to recover a forgotten password. If you forget "
+#~ "the password, your data is as good as gone."
+#~ msgstr ""
+#~ "Si presti attenzione al fatto che non c'è modo di recuperare una password "
+#~ "dimenticata. Se dimentichi la password, i dati sono perduti."
+
+#~ msgid "Dialog"
+#~ msgstr "Finestra di dialogo"
+
+#~ msgid "The vault configuration can only be changed while it is closed."
+#~ msgstr ""
+#~ "La configurazione del caveau può essere cambiata solo quando è chiuso."
+
+#~ msgid "Close the vault"
+#~ msgstr "Chiudi il caveau"
+
+#~ msgid ""
+#~ "This action <b>cannot</b> be undone. This will permanently delete the "
+#~ "selected vault!"
+#~ msgstr ""
+#~ "Questa azione <b>non può</b> essere annullata. Provocherà l'eliminazione "
+#~ "definitiva del caveau selezionato."
+
+#~ msgid "Please type in the name of the vault to confirm:"
+#~ msgstr "Digita il nome del caveau per la conferma:"
+
+#~ msgid "Delete this vault"
+#~ msgstr "Elimina questo caveau"
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "Crea un nuovo caveau..."
