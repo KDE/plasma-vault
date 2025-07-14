@@ -337,7 +337,7 @@ msgstr "აირჩიეთ დაშიფვრის სისტემა,
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
-msgstr "ნაგულისხმები დაშიფვრის გამოყენება"
+msgstr "ნაგულისხმევი დაშიფვრის გამოყენება"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCypher)
 #: kded/ui/cryfscypherchooserwidget.ui:22
