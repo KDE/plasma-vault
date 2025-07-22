@@ -3,21 +3,22 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2017, 2018, 2019, 2020, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2018, 2022.
 # Jannick Kuhr <opensource@kuhr.org>, 2023.
+# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2023-02-07 21:30+0100\n"
-"Last-Translator: Jannick Kuhr <opensource@kuhr.org>\n"
+"PO-Revision-Date: 2025-06-29 18:58+0200\n"
+"Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:73
 #, kde-format
@@ -65,8 +66,8 @@ msgstr ""
 "Dieser Tresor wurde mit einer älteren Version von „cryfs“ erstellt und muss "
 "aktualisiert werden.\n"
 "\n"
-"Dieser Prozess kann nicht rückgängig gemacht werden und der Tresor "
-"funktioniert nicht mehr mit älteren Versionen von „cryfs“.\n"
+"Dieser Prozess kann nicht rückgängig gemacht werden und der Tresor wird "
+"nicht mehr mit älteren Versionen von „cryfs“ funktionieren.\n"
 "\n"
 "Möchten Sie diese Aktualisierung jetzt durchführen?"
 
@@ -83,7 +84,7 @@ msgstr ""
 #: kded/engine/fusebackend_p.cpp:42
 #, kde-format
 msgid "The mount point directory is not empty, refusing to open the vault"
-msgstr "Der Einhängepunkt ist nicht leer. Tresor kann nicht eingebunden werden"
+msgstr "Der Einhängepunkt ist nicht leer, Tresor wird nicht geöffnet"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -179,7 +180,7 @@ msgstr "Dieser Ordner enthält keine verschlüsselte Daten"
 #: kded/engine/fusebackend_p.cpp:118
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
-msgstr "Sie müssen einen leeren Ordner für den Einhängepunkt auswählen"
+msgstr "Sie müssen einen leeren Ordner als Einhängepunkt auswählen"
 
 #: kded/engine/fusebackend_p.cpp:128
 #, kde-format
@@ -241,23 +242,22 @@ msgstr "Dieses Gerät ist nicht initialisiert. Es kann nicht importiert werden."
 #: kded/engine/vault.cpp:464
 #, kde-format
 msgid "Cannot open an unknown vault."
-msgstr "Unbekannter Tresor kann nicht geöffnet werden."
+msgstr "Ein unbekannter Tresor kann nicht geöffnet werden."
 
 #: kded/engine/vault.cpp:481
 #, kde-format
 msgid "The vault is unknown; cannot close it."
-msgstr "Tresor unbekannt. Er kann nicht geschlossen werden."
+msgstr "Der Tresor ist unbekannt. Er kann nicht geschlossen werden."
 
 #: kded/engine/vault.cpp:496 kded/engine/vault.cpp:505
 #, kde-format
 msgid "Unable to close the vault because an application is using it"
-msgstr ""
-"Tresor kann nicht geschlossen werden, da eine Anwendung darauf zugreift"
+msgstr "Tresor kann nicht geschlossen werden, da eine Anwendung ihn verwendet"
 
 #: kded/engine/vault.cpp:528
 #, kde-format
 msgid "Unable to close the vault because it is being used by %1"
-msgstr "Tresor kann nicht geschlossen werden, da er von %1 benutzt wird"
+msgstr "Tresor kann nicht geschlossen werden, da er von %1 verwendet wird"
 
 #: kded/engine/vault.cpp:552
 #, kde-format
@@ -276,7 +276,7 @@ msgstr ""
 #: kded/engine/vault.cpp:609
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
-msgstr "Tresor ist unbekannt. Er kann nicht zerstört werden."
+msgstr "Der Tresor ist unbekannt. Er kann nicht zerstört werden."
 
 #: kded/engine/vault.cpp:612
 #, kde-format
@@ -313,7 +313,7 @@ msgid ""
 "to an activity it should not be available in, it will automatically be "
 "closed."
 msgstr ""
-"Wenn der Tresor auf bestimmte Aktivitäten beschränkt wird, zeigt das "
+"Wenn dieser Tresor auf bestimmte Aktivitäten beschränkt wird, zeigt das "
 "Miniprogramm ihn nur an, wenn die entsprechende Aktivität aktiv ist. Des "
 "weiteren wird der Tresor automatisch geschlossen, wenn zu einer Aktivität "
 "gewechselt wird, in der er nicht verfügbar sein soll."
@@ -322,7 +322,7 @@ msgstr ""
 #: kded/ui/activitieslinkingwidget.ui:32
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr "Auf ausgewählte Aktivitäten beschränken:"
+msgstr "Auf die ausgewählten Aktivitäten beschränken:"
 
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
@@ -333,7 +333,7 @@ msgstr "Das angegebene Backend ist nicht verfügbar"
 #: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
 #, kde-format
 msgid "Vaul&t name:"
-msgstr "Name des Vaul&ts:"
+msgstr "Name des &Tresors:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/backendchooserwidget.ui:67
@@ -356,13 +356,13 @@ msgstr "Wählen Sie das Verschlüsselungssystem für diesen Tresor:"
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
-msgstr "Standard-Verschlüsselung benutzen"
+msgstr "Standard-Verschlüsselungsverfahren verwenden"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCypher)
 #: kded/ui/cryfscypherchooserwidget.ui:22
 #, kde-format
 msgid "Choose the used cipher:"
-msgstr "Verschlüsselung auswählen:"
+msgstr "Wählen Sie das verwendete Verschlüsselungsverfahren aus:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDevice)
 #: kded/ui/directorychooserwidget.ui:22
@@ -406,7 +406,7 @@ msgstr "Plasma Tresor „%1“ öffnen"
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
 msgid "Details…"
-msgstr "Details ..."
+msgstr "Details …"
 
 #: kded/ui/mountdialog.cpp:38
 #, kde-format
@@ -492,7 +492,7 @@ msgid ""
 "password, your data is as good as gone."
 msgstr ""
 "Bitte beachten Sie, dass es keine Möglichkeit gibt, ein vergessenes Passwort "
-"wieder herzustellen. Wenn Sie Ihr Passwort vergessen, sind Ihre Daten so gut "
+"wiederherzustellen. Wenn Sie Ihr Passwort vergessen, sind Ihre Daten so gut "
 "wie verloren."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
@@ -584,25 +584,25 @@ msgid ""
 "htm'>defuse.ca/audits/encfs.htm</a> for more information."
 msgstr ""
 "<b>Sicherheitshinweis:</b>\n"
-"                             Gemäß eines Sicherheitsaudit von Taylor Hornby "
+"                             Gemäß einem Sicherheitsaudit von Taylor Hornby "
 "(Defuse Security),\n"
 "                             ist die aktuelle Implementierung von Encfs "
 "anfällig oder potentiell anfällig \n"
 "                             für verschiedene Arten von Angriffen.\n"
-"                             Zum Beispiel kann ein Angreifer mit Lese-/"
+"                             Beispielsweise kann ein Angreifer mit Lese-/"
 "Schreibrechten\n"
 "                             zu den verschlüsselten Daten den "
-"Verschlüsselungsgrad herabsetzen\n"
+"Verschlüsselungsgrad herabsetzen,\n"
 "                             ohne dass dies durch einen legitimierten "
 "Benutzer bemerkt werden würde.\n"
-"                             Informationen können mit Timing-Analysen "
-"ebenfalls abgeleitet werden.\n"
+"                             Auch können Informationen mittels Timing-"
+"Analysen abgeleitet werden.\n"
 "                             <br /><br />\n"
-"                             Dies bedeutet, Sie sollten Ihre verschlüsselten "
+"                             Dies bedeutet, dass Sie Ihre verschlüsselten "
 "Daten\n"
-"                             nicht mit Cloud-Diensten abgleichen,\n"
-"                             oder in anderen Szenarien einsetzen, wo ein "
-"Angreifer\n"
+"                             nicht mit Cloud-Diensten abgleichen oder\n"
+"                             in anderen Szenarien einsetzen sollten, in "
+"denen ein Angreifer\n"
 "                             regelmäßigen Zugriff auf die verschlüsselten "
 "Daten hat.\n"
 "                             <br /><br />\n"
@@ -630,7 +630,7 @@ msgid ""
 "                             which confirms this."
 msgstr ""
 "<b>Sicherheitshinweis:</b>\n"
-"                             CryFS verschlüsselt Ihre Daten, so dass Sie "
+"                             CryFS verschlüsselt Ihre Daten, sodass Sie "
 "diese überall sicher aufbewahren können.\n"
 "                             Dies funktioniert auch gut mit Cloud-Diensten "
 "wie Dropbox, iCloud, OneDrive und anderen.\n"
@@ -638,13 +638,14 @@ msgstr ""
 "                             Anders als bei anderen Dateisystem-Overlay-"
 "Lösungen\n"
 "                             wird weder die Ordnerstruktur,\n"
-"                             noch die Anzahl und Größe der Dateien,\n"
+"                             noch die Anzahl und Größe der Dateien\n"
 "                             im verschlüsselten Format preisgegeben.\n"
 "                             <br /><br />\n"
-"                             Ein wichtiger Hinweis sei jedoch,\n"
-"                             dass obwohl CryFS als sicher gilt,\n"
-"                             bisher kein unabhängiger Sicherheitsaudit\n"
-"                             zur Bestätigung durchgeführt wurde."
+"                             Ein wichtiger Hinweis ist jedoch,\n"
+"                             dass CryFS zwar als sicher gilt,\n"
+"                             aber bisher noch kein unabhängiger "
+"Sicherheitsaudit\n"
+"                             durchgeführt wurde, der das bestätigt."
 
 #: kded/ui/vaultcreationwizard.cpp:76
 #, kde-format
@@ -668,28 +669,29 @@ msgid ""
 "htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."
 msgstr ""
 "<b>Sicherheitshinweis:</b>\n"
-"                             Gocryptfs verschlüsselt Ihre Daten, so dass Sie "
+"                             Gocryptfs verschlüsselt Ihre Daten, sodass Sie "
 "diese überall sicher aufbewahren können.\n"
 "                             Dies funktioniert auch gut mit Cloud-Diensten "
 "wie Dropbox, iCloud, OneDrive und anderen.\n"
 "                             <br /><br />\n"
-"                             Ein Threat-Modell für gocryptfs wird durch den "
-"Author auf                              <a href='https://nuetzlich.net/"
-"gocryptfs/threat_model'>nuetzlich.net/gocryptfs/threat_model</a> zu "
-"Verfügung gestellt.                              <br /><br />\n"
-"                             Entsprechend einem Sicherheits-Audit in 2017 "
-"von Taylor Hornby (Defuse Security),\n"
-"                             hälz gocryptfs hält den Dateiinhalt geheim vor "
-"einem Gegner, der den Geheimtext lesen und verändern "
-"kann.                              <br /><br />\n"
-"                             Weitere Informationen auf <a href='https://"
-"defuse.ca/audits/gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a>."
+"                             Ein Bedrohungsszenario für gocryptfs wird durch "
+"den Autor auf <a href='https://nuetzlich.net/gocryptfs/"
+"threat_model'>nuetzlich.net/gocryptfs/threat_model</a> zu Verfügung gestellt."
+"<br /><br />\n"
+"                             Laut einem 2017 durchgeführten Sicherheits-"
+"Audit von Taylor Hornby (Defuse Security)\n"
+"                             hält gocryptfs den Dateiinhalt vor einem "
+"Gegner, der den Verschlüsselungstext lesen und verändern kann, geheim.<br /"
+"><br />\n"
+"                             Weitere Informationen finden Sie auf <a "
+"href='https://defuse.ca/audits/gocryptfs.htm'>defuse.ca/audits/gocryptfs."
+"htm</a>."
 
 #: kded/ui/vaultcreationwizard.cpp:138
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
-msgstr "Neuen Tresor erstellen"
+msgstr "Einen neuen Tresor erstellen"
 
 #. i18n: ectx: property (text), widget (QLabel, labelWarning)
 #: kded/ui/vaultdeletionwidget.ui:22
@@ -698,8 +700,8 @@ msgid ""
 "This action <b>cannot</b> be undone. This will permanently delete the "
 "selected vault!"
 msgstr ""
-"Diese Aktion kann <b>nicht</b> rückgängig gemacht werden. Der Tresor wird "
-"unwiderruflich gelöscht."
+"Diese Aktion kann <b>nicht</b> rückgängig gemacht werden. Der ausgewählte "
+"Tresor wird unwiderruflich gelöscht!"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConfirm)
 #: kded/ui/vaultdeletionwidget.ui:29
@@ -722,7 +724,7 @@ msgstr "Importieren"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import an Existing Vault"
-msgstr "Vorhandenen Tresor importieren"
+msgstr "Einen bestehenden Tresor importieren"
 
 #: kded/ui/vaultwizardbase.h:39 kded/ui/vaultwizardbase.h:90
 #, kde-format
@@ -742,7 +744,7 @@ msgstr "Zurück"
 #: plasma/package/contents/ui/main.qml:36
 #, kde-format
 msgid "Create a New Vault…"
-msgstr "Neuen Tresor erstellen ..."
+msgstr "Einen neuen Tresor erstellen …"
 
 #: plasma/package/contents/ui/main.qml:84
 #, kde-format
@@ -777,7 +779,7 @@ msgstr "Tresor entsperren"
 #: plasma/package/contents/ui/VaultItem.qml:61
 #, kde-format
 msgid "Configure Vault…"
-msgstr "Tresor einrichten ..."
+msgstr "Tresor einrichten …"
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "Neues Vault erstellen ..."
