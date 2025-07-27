@@ -56,14 +56,12 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Config
-    ConfigWidgets
     CoreAddons
     DBusAddons
     I18n
     ItemModels
     KIO
     Service
-    WidgetsAddons
 )
 
 find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)

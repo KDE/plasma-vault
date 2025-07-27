@@ -92,14 +92,12 @@ target_link_libraries(kded_plasmavault
 
     Plasma::Activities
     KF6::ConfigCore
-    KF6::ConfigWidgets
     KF6::CoreAddons
     KF6::DBusAddons
     KF6::I18n
     KF6::KIOCore
     KF6::KIOWidgets
     KF6::Service
-    KF6::WidgetsAddons
     KSysGuard::ProcessCore
 )
 if (HAVE_NETWORKMANAGER)
