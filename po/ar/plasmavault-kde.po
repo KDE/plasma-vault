@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2017.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021.
+# SPDX-FileCopyrightText: 2021, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-19 00:43+0000\n"
-"PO-Revision-Date: 2021-12-11 21:25+0400\n"
+"PO-Revision-Date: 2025-08-03 15:48+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, kde-format
@@ -99,7 +100,7 @@ msgstr "تعذّر إجراء العمليّة (رمز الخطأ %1)."
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
 #, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
-msgstr "دليل التشفير ليس فارغًا ، ولا يمكن تهيئة الخزنة."
+msgstr "دليل التعمية ليس فارغًا ، ولا يمكن تهيئة الخزنة."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
 #, kde-format
@@ -110,7 +111,7 @@ msgstr "كلمة السر فارغة، لا يمكن تهيئة الخزنة."
 #, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
-msgstr "تعذر كتابة gocryptfs.conf بدخل دليل التشفير، افحص التّصاريح لديك."
+msgstr "تعذر كتابة gocryptfs.conf بدخل دليل التعمية، افحص التّصاريح لديك."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
 #: kded/engine/fusebackend_p.cpp:165
@@ -270,7 +271,7 @@ msgid ""
 "%1\n"
 "%2"
 msgstr ""
-"هذه الملية ستحذف الآتي بدون رجعة:\n"
+"هذه الملية ستحذف الآتي دون رجعة:\n"
 "%1\n"
 "%2"
 
@@ -335,13 +336,13 @@ msgstr "اختر نظام التّعمية لاستخدامه لهذه الخز�
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
-msgstr "استخدم التشفير المبدئي"
+msgstr "استخدم التعمية المبدئي"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCypher)
 #: kded/ui/cryfscypherchooserwidget.ui:22
 #, kde-format
 msgid "Choose the used cipher:"
-msgstr "اختر التشفير المستخدم:"
+msgstr "اختر التعمية المستخدم:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDevice)
 #: kded/ui/directorychooserwidget.ui:22
@@ -414,13 +415,13 @@ msgstr "فشل فتح:  %1"
 #: kded/ui/mountdialog.ui:61
 #, kde-format
 msgid "Please enter the password to open this vault:"
-msgstr "يرجي إدخال كلمة المرور لفتح هذه الخزنة:"
+msgstr "يرجي إدخال كلمة السر لفتح هذه الخزنة:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
 #, kde-format
 msgid "Password:"
-msgstr "كلمة المرور:"
+msgstr "كلمة السر:"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
 #: kded/ui/noticewidget.ui:38
@@ -470,8 +471,8 @@ msgid ""
 "Mind that there is no way to recover a forgotten password. If you forget the "
 "password, your data is as good as gone."
 msgstr ""
-"ضع في اعتبارك أنه لا توجد طريقة لاستعادة كلمة المرور المنسية. إذا نسيت كلمة "
-"المرور ، فستكون بياناتك كأنها لم تكن."
+"ضع في اعتبارك أنه لا توجد طريقة لاستعادة كلمة السر المنسية. إذا نسيت كلمة "
+"السر ، فستكون بياناتك كأنها لم تكن."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
