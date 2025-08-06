@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-19 00:44+0000\n"
-"PO-Revision-Date: 2025-08-03 15:48+0400\n"
+"PO-Revision-Date: 2025-08-05 13:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -192,7 +192,7 @@ msgstr "جهاز مجهول"
 #: kded/engine/vault.cpp:269
 #, kde-format
 msgid "Configured backend does not exist: %1"
-msgstr "السّند المضبوط غير موجود: %1"
+msgstr "الخلفية المضبوطة غير موجودة: %1"
 
 #: kded/engine/vault.cpp:274
 #, kde-format
@@ -307,7 +307,7 @@ msgstr "اقصر على الأنشطة المحدّدة:"
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
-msgstr "السّند المحدّد غير متوفّر"
+msgstr "الخلفية المحدّدة غير متوفّرة"
 
 #. i18n: ectx: property (text), widget (QLabel, labelVaultName)
 #: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
