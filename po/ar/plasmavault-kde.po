@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2025-08-03 15:48+0400\n"
+"PO-Revision-Date: 2025-08-05 13:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -192,7 +192,7 @@ msgstr "جهاز مجهول"
 #: kded/engine/vault.cpp:269
 #, kde-format
 msgid "Configured backend does not exist: %1"
-msgstr "السّند المضبوط غير موجود: %1"
+msgstr "الخلفية المضبوطة غير موجودة: %1"
 
 #: kded/engine/vault.cpp:274
 #, kde-format
@@ -307,7 +307,7 @@ msgstr "اقصر على الأنشطة المحدّدة:"
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
-msgstr "السّند المحدّد غير متوفّر"
+msgstr "الخلفية المحدّدة غير متوفّرة"
 
 #. i18n: ectx: property (text), widget (QLabel, labelVaultName)
 #: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
@@ -644,18 +644,18 @@ msgstr ""
 "<b> إشعار الأمان: </b> \n"
 "                              يقوم Gocryptfs بتعمية ملفاتك ، لذا يمكنك "
 "تخزينها بأمان في أي مكان. \n"
-"                              إنه يعمل بشكل جيد مع الخدمات السحابية "
-"مثلDropbox و iCloud و OneDrive وغيرها. \n"
+"                              إنه يعمل بشكل جيد مع الخدمات السحابية مثل "
+"Dropbox و iCloud و OneDrive وغيرها. \n"
 "                              <br/> <br/> \n"
-"                              يتم توفير نموذج تهديد لـ gocryptfs "
-"بواسطةالمؤلف في <a href='https://nuetzlich.net/gocryptfs/threat_model'> "
-"nuetzlich.net/gocryptfs/threat_model </a>. <br/> <br/> \n"
-"                              وفقًا للتدقيق الأمني الذي تم إجراؤه في عام "
-"2017بواسطة Taylor Hornby (Defuse Security)، \n"
+"                              يتم توفير نموذج تهديد لـ gocryptfs بواسطة "
+"المؤلف في <a href='https://nuetzlich.net/gocryptfs/threat_model'> nuetzlich."
+"net/gocryptfs/threat_model </a>. <br/> <br/> \n"
+"                              وفقًا للتدقيق الأمني الذي أجري في عام 2017 "
+"بواسطة Taylor Hornby (Defuse Security)، \n"
 "                              يحافظ gocryptfs على سرية محتويات الملف مقابل "
-"المهاجم الذييمكنه قراءة النص المشفر وتعديله. <br/> <br/> \n"
+"المهاجم الذي يمكنه قراءة النص المشفر وتعديله. <br/> <br/> \n"
 "                              راجع <a href = 'https: //defuse.ca/audits/"
-"gocryptfs.htm '> defuse.ca/audits/gocryptfs.htm </a> لمزيد من المعلومات. "
+"gocryptfs.htm '> defuse.ca/audits/gocryptfs.htm </a> لمزيد من المعلومات."
 
 #: kded/ui/vaultcreationwizard.cpp:138
 #, kde-format
