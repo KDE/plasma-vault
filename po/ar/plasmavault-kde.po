@@ -42,7 +42,7 @@ msgstr "%1: %2"
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:77
 #, kde-format
 msgid "Failed to create directories, check your permissions"
-msgstr "فشل إنشاء المجلّدات، افحص التّصاريح لديك"
+msgstr "فشل إنشاء المجلّدات، افحص الأذونات لديك"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:131
 #, kde-format
@@ -100,7 +100,7 @@ msgstr "تعذّر إجراء العمليّة (رمز الخطأ %1)."
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
 #, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
-msgstr "دليل التعمية ليس فارغًا ، ولا يمكن تهيئة الخزنة."
+msgstr "دليل التعمية ليس فارغًا، ولا يمكن تهيئة الخزنة."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
 #, kde-format
@@ -111,7 +111,7 @@ msgstr "كلمة السر فارغة، لا يمكن تهيئة الخزنة."
 #, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
-msgstr "تعذر كتابة gocryptfs.conf بدخل دليل التعمية، افحص التّصاريح لديك."
+msgstr "تعذر كتابة gocryptfs.conf بدخل دليل التعمية، افحص الأذونات لديك."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
 #: kded/engine/fusebackend_p.cpp:165
@@ -472,7 +472,7 @@ msgid ""
 "password, your data is as good as gone."
 msgstr ""
 "ضع في اعتبارك أنه لا توجد طريقة لاستعادة كلمة السر المنسية. إذا نسيت كلمة "
-"السر ، فستكون بياناتك كأنها لم تكن."
+"السر، فستكون بياناتك كأنها لم تكن."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
@@ -567,8 +567,8 @@ msgstr ""
 "عرضة للإصابة بالهجمات \n"
 "                             أو يحتمل أن يكون عرضة لأنواع متعددة من "
 "الهجمات. \n"
-"                             على سبيل المثال ، مهاجم لديه حق الوصول "
-"للقراءة / الكتابة \n"
+"                             على سبيل المثال، مهاجم لديه حق الوصول للقراءة / "
+"الكتابة \n"
 "                             البيانات المعماة قد يقلل من تعقيد فك التعمية \n"
 "                             للبيانات المعماة لاحقًا دون أن يلاحظها مستخدم "
 "شرعي، \n"
@@ -604,18 +604,18 @@ msgid ""
 "                             which confirms this."
 msgstr ""
 "<b> إشعار الأمان: </b> \n"
-"                              يقوم CryFS بتعمية ملفاتك ، لذا يمكنك تخزينها "
+"                              يقوم CryFS بتعمية ملفاتك، لذا يمكنك تخزينها "
 "بأمان في أي مكان. \n"
 "                              إنه يعمل بشكل جيد مع الخدمات السحابية مثل "
 "Dropbox و iCloud و OneDrive وغيرها.\n"
 "                              <br/> <br/> \n"
 "                              بخلاف بعض الحلول الأخرى التي تتقاطع مع نظام "
 "الملفات، \n"
-"                              لا يعرض بنية الدليل ، \n"
+"                              لا يعرض بنية الدليل، \n"
 "                              ولا عدد الملفات ولا أحجام الملفات\n"
 "                              من خلال تنسيق البيانات المعماة.\n"
 "                              <br/> <br/> \n"
-"                              من الأمور المهمة التي يجب ملاحظتها ، \n"
+"                              من الأمور المهمة التي يجب ملاحظتها، \n"
 "                              بينما يعتبر CryFS آمنًا، \n"
 "                              لا يوجد تدقيق أمان مستقل \n"
 "                               يؤكد هذا."
@@ -642,7 +642,7 @@ msgid ""
 "htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."
 msgstr ""
 "<b> إشعار الأمان: </b> \n"
-"                              يقوم Gocryptfs بتعمية ملفاتك ، لذا يمكنك "
+"                              يقوم Gocryptfs بتعمية ملفاتك، لذا يمكنك "
 "تخزينها بأمان في أي مكان. \n"
 "                              إنه يعمل بشكل جيد مع الخدمات السحابية مثل "
 "Dropbox و iCloud و OneDrive وغيرها. \n"
