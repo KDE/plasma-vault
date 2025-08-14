@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-19 00:44+0000\n"
-"PO-Revision-Date: 2025-08-05 13:33+0400\n"
+"PO-Revision-Date: 2025-08-09 19:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -42,7 +42,7 @@ msgstr "%1: %2"
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:77
 #, kde-format
 msgid "Failed to create directories, check your permissions"
-msgstr "فشل إنشاء المجلّدات، افحص التّصاريح لديك"
+msgstr "فشل إنشاء المجلّدات، افحص الأذونات لديك"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:131
 #, kde-format
@@ -100,7 +100,7 @@ msgstr "تعذّر إجراء العمليّة (رمز الخطأ %1)."
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
 #, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
-msgstr "دليل التعمية ليس فارغًا ، ولا يمكن تهيئة الخزنة."
+msgstr "دليل التعمية ليس فارغًا، ولا يمكن تهيئة الخزنة."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
 #, kde-format
@@ -111,7 +111,7 @@ msgstr "كلمة السر فارغة، لا يمكن تهيئة الخزنة."
 #, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
-msgstr "تعذر كتابة gocryptfs.conf بدخل دليل التعمية، افحص التّصاريح لديك."
+msgstr "تعذر كتابة gocryptfs.conf بدخل دليل التعمية، افحص الأذونات لديك."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
 #: kded/engine/fusebackend_p.cpp:169
@@ -472,7 +472,7 @@ msgid ""
 "password, your data is as good as gone."
 msgstr ""
 "ضع في اعتبارك أنه لا توجد طريقة لاستعادة كلمة السر المنسية. إذا نسيت كلمة "
-"السر ، فستكون بياناتك كأنها لم تكن."
+"السر، فستكون بياناتك كأنها لم تكن."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
