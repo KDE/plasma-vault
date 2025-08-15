@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2025-08-09 19:47+0400\n"
+"PO-Revision-Date: 2025-08-14 11:35+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -150,7 +150,7 @@ msgstr "تعذّر إجراء العمليّة"
 #: kded/engine/fusebackend_p.cpp:96
 #, kde-format
 msgid "This directory already contains encrypted data"
-msgstr "يحتوي الدّليل بيانات معمّاة بالفعل"
+msgstr "يحتوي الدّليل بيانات معمّاة فعلًا"
 
 #: kded/engine/fusebackend_p.cpp:99
 #, kde-format
@@ -172,7 +172,7 @@ msgstr "عليك اختيار دليل فارغ لنقطة الضّم"
 #: kded/engine/fusebackend_p.cpp:128
 #, kde-format
 msgid "Device is already open"
-msgstr "الجهاز مفتوح بالفعل"
+msgstr "الجهاز مفتوح فعلًا"
 
 #: kded/engine/fusebackend_p.cpp:136
 #, kde-format
@@ -212,7 +212,7 @@ msgstr "تعذّر تمهيد الخلفية المضبوطة: %1"
 #: kded/engine/vault.cpp:399
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
-msgstr "الجهاز مسجّل بالفعل. لا يمكن إعادة إنشائه."
+msgstr "الجهاز مسجّل فعلًا. لا يمكن إعادة إنشائه."
 
 #: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
 #, kde-format
@@ -294,9 +294,9 @@ msgid ""
 "to an activity it should not be available in, it will automatically be "
 "closed."
 msgstr ""
-"إذا قمت بقصر هذه الخزنة على أنشطة معينة فقط، فستعرض في التطبيق الصغير فقط "
-"عندما تكون في تلك الأنشطة. علاوة على ذلك، عند التبديل إلى نشاط لا ينبغي أن "
-"يكون متاحًا فيه، فسيغلق آليًّا."
+"إذا قصرت هذه الخزنة على أنشطة معينة فقط، فستعرض في التطبيق الصغير فقط عندما "
+"تكون في تلك الأنشطة. علاوة على ذلك، عند التبديل إلى نشاط لا ينبغي أن يكون "
+"متاحًا فيه، فسيغلق آليًّا."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -461,8 +461,7 @@ msgstr "لا تعرض هذه الملاحظة مجدّدًا"
 msgid ""
 "Go offline while this vault is open (switch off networking and bluetooth)"
 msgstr ""
-"انتقل إلى وضع عدم الاتصال أثناء فتح هذه الخزنة (قم بإيقاف تشغيل الشبكة "
-"والبلوتوث)"
+"انتقل إلى وضع عدم الاتصال أثناء فتح هذه الخزنة (أوقف تشغيل الشبكة والبلوتوث)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/passwordchooserwidget.ui:22
@@ -604,8 +603,8 @@ msgid ""
 "                             which confirms this."
 msgstr ""
 "<b> إشعار الأمان: </b> \n"
-"                              يقوم CryFS بتعمية ملفاتك، لذا يمكنك تخزينها "
-"بأمان في أي مكان. \n"
+"                              يعمي CryFS ملفاتك، لذا يمكنك تخزينها بأمان في "
+"أي مكان. \n"
 "                              إنه يعمل بشكل جيد مع الخدمات السحابية مثل "
 "Dropbox و iCloud و OneDrive وغيرها.\n"
 "                              <br/> <br/> \n"
@@ -642,8 +641,8 @@ msgid ""
 "htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."
 msgstr ""
 "<b> إشعار الأمان: </b> \n"
-"                              يقوم Gocryptfs بتعمية ملفاتك، لذا يمكنك "
-"تخزينها بأمان في أي مكان. \n"
+"                              يعمي Gocryptfs ملفاتك، لذا يمكنك تخزينها بأمان "
+"في أي مكان. \n"
 "                              إنه يعمل بشكل جيد مع الخدمات السحابية مثل "
 "Dropbox و iCloud و OneDrive وغيرها. \n"
 "                              <br/> <br/> \n"
