@@ -45,7 +45,6 @@ Name[sv]=Valv
 Name[tg]=Анборҳои рамзгузорӣ
 Name[tr]=Kasalar
 Name[uk]=Сховища
-Name[x-test]=xxVaultsxx
 Name[zh_CN]=保险库
 Name[zh_TW]=儲存庫
 Comment=Create encrypted vaults
@@ -94,7 +93,6 @@ Comment[sv]=Skapa krypterade valv
 Comment[tg]=Эҷод кардани анборҳои рамзгузорӣ
 Comment[tr]=Şifrelenmiş kasa oluştur
 Comment[uk]=Створення шифрованих сховищ
-Comment[x-test]=xxCreate encrypted vaultsxx
 Comment[zh_CN]=创建加密的保险库
 Comment[zh_TW]=建立加密過的儲存庫
 
