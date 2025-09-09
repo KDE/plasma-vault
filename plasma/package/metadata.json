@@ -43,7 +43,6 @@
                 "Name[sv]": "Ivan Čukić",
                 "Name[tr]": "Ivan Čukić",
                 "Name[uk]": "Ivan Čukić",
-                "Name[x-test]": "xxIvan Čukićxx",
                 "Name[zh_CN]": "Ivan Čukić",
                 "Name[zh_TW]": "Ivan Čukić"
             }
@@ -90,7 +89,6 @@
         "Description[sv]": "Skapa krypterade valv",
         "Description[tr]": "Şifrelenmiş kasalar oluşturun",
         "Description[uk]": "Створення зашифрованих сховищ",
-        "Description[x-test]": "xxCreate encrypted vaultsxx",
         "Description[zh_CN]": "创建加密的保险库",
         "Description[zh_TW]": "建立加密儲存庫",
         "EnabledByDefault": true,
@@ -137,7 +135,6 @@
         "Name[sv]": "Valv",
         "Name[tr]": "Kasalar",
         "Name[uk]": "Сховища",
-        "Name[x-test]": "xxVaultsxx",
         "Name[zh_CN]": "保险库",
         "Name[zh_TW]": "儲存庫",
         "Version": "1.0",
