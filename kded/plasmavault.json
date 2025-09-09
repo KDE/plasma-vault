@@ -40,7 +40,6 @@
         "Description[sv]": "Tillhandahåller krypterade valv",
         "Description[tr]": "Şifrelenmiş kasalar sağlar",
         "Description[uk]": "Надає доступ до шифрованих сховищ",
-        "Description[x-test]": "xxProvides encrypted vaultsxx",
         "Description[zh_CN]": "提供加密的保险库",
         "Description[zh_TW]": "提供加密儲存庫",
         "Name": "Plasma Vault module",
@@ -83,7 +82,6 @@
         "Name[sv]": "Plasma valvmodul",
         "Name[tr]": "Plasma Kasası modülü",
         "Name[uk]": "Модуль Сховища Плазми",
-        "Name[x-test]": "xxPlasma Vault modulexx",
         "Name[zh_CN]": "Plasma 保险库模块",
         "Name[zh_TW]": "Plasma 儲存庫模組"
     },
