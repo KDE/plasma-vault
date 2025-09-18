@@ -40,7 +40,7 @@ Result<> FuseBackend::hasProcessFinishedSuccessfully(QProcess *process)
 
                                                                                     // If we tried to mount into a non-empty location, report
         (err.contains("'nonempty'") || err.contains("non empty"))
-        ? Result<>::error(Error::CommandError, i18n("The mount point directory is not empty, refusing to open the vault"))
+        ? Result<>::error(Error::CommandError, i18n("The mount point directory is not empty; refusing to unlock the vault"))
         :
 
         // If we have a message for the user, report it

@@ -34,7 +34,7 @@ SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>The vault configuration can only be changed while it is closed.</string>
+         <string>The vault configuration can only be changed while it is locked.</string>
         </property>
        </widget>
       </item>
@@ -54,7 +54,7 @@ SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted
       <item>
        <widget class="QPushButton" name="buttonCloseVault">
         <property name="text">
-         <string>Close the vault</string>
+         <string>Lock the vault</string>
         </property>
        </widget>
       </item>

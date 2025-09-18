@@ -133,7 +133,7 @@ FutureResult<> CryFsBackend::mount(const Device &device, const MountPoint &mount
                          "vault will no longer work with older versions of cryfs.\n\nDo you want to perform the upgrade now?"));
 
             if (!upgrade) {
-                return Result<>::error(Error::BackendError, i18n("The vault needs to be upgraded before it can be opened with this version of cryfs"));
+                return Result<>::error(Error::BackendError, i18n("The vault needs to be upgraded before it can be unlocked with this version of cryfs"));
             }
 
             auto new_payload = payload;
@@ -147,7 +147,7 @@ FutureResult<> CryFsBackend::mount(const Device &device, const MountPoint &mount
             // If we tried to mount into a non-empty location, report
             err.contains("'nonempty'") ?
                 Result<>::error(Error::CommandError,
-                                i18n("The mount point directory is not empty, refusing to open the vault")) :
+                                i18n("The mount point directory is not empty; refusing to unlock the vault")) :
 
             // If all went well, just return success
             (process->exitStatus() == QProcess::NormalExit && exitCode == ExitCode::Success) ?
@@ -159,7 +159,7 @@ FutureResult<> CryFsBackend::mount(const Device &device, const MountPoint &mount
 
             exitCode == ExitCode::TooNewFilesystemFormat ?
                 Result<>::error(Error::BackendError,
-                                i18n("The installed version of cryfs is too old to open this vault.")) :
+                                i18n("The installed version of cryfs is too old to unlock this vault.")) :
 
             exitCode == ExitCode::TooOldFilesystemFormat ?
                 upgradeFileSystem() :

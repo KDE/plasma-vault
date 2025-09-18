@@ -17,7 +17,7 @@ MountDialog::MountDialog(PlasmaVault::Vault *vault)
     : m_vault(vault)
 {
     m_ui.setupUi(this);
-    setWindowTitle(i18nc("%1 is the name of the Plasma Vault to open", "Open '%1' Plasma Vault", vault->name()));
+    setWindowTitle(i18nc("%1 is the name of the Plasma Vault to unlock", "Unlock '%1' Plasma Vault", vault->name()));
 
     m_errorLabel = new KMessageWidget(this);
     m_errorLabel->setMessageType(KMessageWidget::Error);
@@ -81,7 +81,7 @@ void MountDialog::accept()
         m_ui.password->lineEdit()->setText({});
         m_ui.password->lineEdit()->setFocus();
 
-        m_errorLabel->setText(i18n("Failed to open: %1", m_lastError.message()));
+        m_errorLabel->setText(i18n("Failed to unlock: %1", m_lastError.message()));
         m_errorLabel->setVisible(true);
 
         if (!m_lastError.out().isEmpty() || !m_lastError.err().isEmpty()) {

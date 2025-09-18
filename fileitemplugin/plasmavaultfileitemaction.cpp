@@ -71,8 +71,8 @@ QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListPropertie
             });
 
             const QString command = mounted ? "closeVault" : "openVault";
-            const QString title = mounted ? i18nc("@action Action to unmount a vault", "Close this Plasma Vault")
-                                          : i18nc("@action Action to mount a vault", "Open this Plasma Vault");
+            const QString title = mounted ? i18nc("@action Action to unmount a vault", "Lock this Plasma Vault")
+                                          : i18nc("@action Action to mount a vault", "Unlock this Plasma Vault");
 
             return {createAction(icon, title, command, group, parentWidget)};
         }

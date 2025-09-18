@@ -460,12 +460,10 @@ FutureResult<> Vault::open(const Payload &payload)
     return
         // We can not mount something that has not been registered
         // with us before
-        !d->data ? errorResult(Error::BackendError,
-                               i18n("Cannot open an unknown vault.")) :
+        !d->data ? errorResult(Error::BackendError, i18n("Cannot unlock an unknown vault.")) :
 
-        // otherwise
-        d->followFuture(VaultInfo::Opening,
-                        d->data->backend->open(d->device, d->data->mountPoint, payload));
+                 // otherwise
+        d->followFuture(VaultInfo::Opening, d->data->backend->open(d->device, d->data->mountPoint, payload));
 }
 
 
@@ -477,59 +475,53 @@ FutureResult<> Vault::close()
     return
         // We can not mount something that has not been registered
         // with us before
-        !d->data ? errorResult(Error::BackendError,
-                               i18n("The vault is unknown; cannot close it.")) :
+        !d->data ? errorResult(Error::BackendError, i18n("The vault is unknown; cannot lock it.")) :
 
-        // otherwise
-        d->followFuture(VaultInfo::Closing,
-                        d->data->backend->close(d->device, d->data->mountPoint))
-            | onSuccess([this] (const Result<> &result) {
-                if (!isOpened() || result) {
-                    d->updateMessage(QString());
+                 // otherwise
+        d->followFuture(VaultInfo::Closing, d->data->backend->close(d->device, d->data->mountPoint)) | onSuccess([this](const Result<> &result) {
+            if (!isOpened() || result) {
+                d->updateMessage(QString());
 
-                } else {
-                    // We want to check whether there is an application
-                    // that is accessing the vault
-                    AsynQt::Process::getOutput(QStringLiteral("lsof"), { QStringLiteral("-t"), mountPoint().data() })
-                        | cast<QString>()
-                        | onError([this] {
-                            d->updateMessage(i18n("Unable to close the vault because an application is using it"));
-                        })
-                        | onSuccess([this] (const QString &result) {
-                            // based on ksolidnotify.cpp
-                            QStringList blockApps;
+            } else {
+                // We want to check whether there is an application
+                // that is accessing the vault
+                AsynQt::Process::getOutput(QStringLiteral("lsof"), {QStringLiteral("-t"), mountPoint().data()}) | cast<QString>() | onError([this] {
+                    d->updateMessage(i18n("Unable to lock the vault because an application is using it"));
+                }) | onSuccess([this](const QString &result) {
+                    // based on ksolidnotify.cpp
+                    QStringList blockApps;
 
-                            const auto &pidList = result.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts);
+                    const auto &pidList = result.split(QRegularExpression(QStringLiteral("\\s+")), Qt::SkipEmptyParts);
 
-                            if (pidList.isEmpty()) {
-                                d->updateMessage(i18n("Unable to close the vault because an application is using it"));
-                                close();
+                    if (pidList.isEmpty()) {
+                        d->updateMessage(i18n("Unable to lock the vault because an application is using it"));
+                        close();
 
-                            } else {
-                                KSysGuard::Processes procs;
+                    } else {
+                        KSysGuard::Processes procs;
 
-                                for (const QString &pidStr: pidList) {
-                                    int pid = pidStr.toInt();
-                                    if (!pid) {
-                                        continue;
-                                    }
-
-                                    procs.updateOrAddProcess(pid);
-
-                                    KSysGuard::Process *proc = procs.getProcess(pid);
-
-                                    if (!blockApps.contains(proc->name())) {
-                                        blockApps << proc->name();
-                                    }
-                                }
-
-                                blockApps.removeDuplicates();
-
-                                d->updateMessage(i18n("Unable to close the vault because it is being used by %1", blockApps.join(QStringLiteral(", "))));
+                        for (const QString &pidStr : pidList) {
+                            int pid = pidStr.toInt();
+                            if (!pid) {
+                                continue;
                             }
-                        });
+
+                            procs.updateOrAddProcess(pid);
+
+                            KSysGuard::Process *proc = procs.getProcess(pid);
+
+                            if (!blockApps.contains(proc->name())) {
+                                blockApps << proc->name();
+                            }
+                        }
+
+                        blockApps.removeDuplicates();
+
+                        d->updateMessage(i18n("Unable to lock the vault because it is being used by %1", blockApps.join(QStringLiteral(", "))));
                     }
                 });
+            }
+        });
 }
 
 

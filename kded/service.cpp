@@ -425,7 +425,7 @@ void PlasmaVaultService::deleteVault(const QString &device, const QString &name)
     auto vault = d->knownVaults[Device(device)];
 
     if (vault->status() == VaultInfo::Opened) {
-        qWarning() << "Can not delete an open vault: " << device;
+        qWarning() << "Can not delete an unlocked vault: " << device;
         return;
     }
 

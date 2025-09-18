@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>If you limit this vault only to certain activities, it will be shown in the applet only when you are in those activities. Furthermore, when you switch to an activity it should not be available in, it will automatically be closed.</string>
+      <string>If you limit this vault only to certain activities, it will be shown in the applet only when you are in those activities. Furthermore, when you switch to an activity it should not be available in, it will automatically be locked.</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
