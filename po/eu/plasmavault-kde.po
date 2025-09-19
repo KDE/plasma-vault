@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-19 00:44+0000\n"
+"POT-Creation-Date: 2025-09-19 00:44+0000\n"
 "PO-Revision-Date: 2021-09-13 22:51+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -22,16 +22,20 @@ msgstr ""
 "X-Generator: Lokalize 21.08.1\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action Action to unmount a vault"
+#| msgid "Close this Plasma Vault"
 msgctxt "@action Action to unmount a vault"
-msgid "Close this Plasma Vault"
+msgid "Lock this Plasma Vault"
 msgstr "Itxi Plasma kutxa-gotor hau"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action Action to unmount a vault"
+#| msgid "Close this Plasma Vault"
 msgctxt "@action Action to mount a vault"
-msgid "Open this Plasma Vault"
-msgstr "Ireki kutxa-gotor hau"
+msgid "Unlock this Plasma Vault"
+msgstr "Itxi Plasma kutxa-gotor hau"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -71,18 +75,22 @@ msgstr ""
 "Bertsio-berritzea orain burutu nahi duzu?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The vault needs to be upgraded before it can be opened with this version "
+#| "of cryfs"
 msgid ""
-"The vault needs to be upgraded before it can be opened with this version of "
-"cryfs"
+"The vault needs to be upgraded before it can be unlocked with this version "
+"of cryfs"
 msgstr ""
 "Kutxa-gotorra bertsio-berritu behar da «cryfs» bertsio honekin ireki ahal "
 "izateko"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, kde-format
-msgid "The mount point directory is not empty, refusing to open the vault"
+#, fuzzy, kde-format
+#| msgid "The mount point directory is not empty, refusing to open the vault"
+msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
 "Muntatze-puntuko direktorioa ez dago hutsik, kutxa-gotorra irekitzea "
 "errefusatzen"
@@ -93,8 +101,9 @@ msgid "You entered the wrong password"
 msgstr "Pasahitz okerra sartu duzu"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, kde-format
-msgid "The installed version of cryfs is too old to open this vault."
+#, fuzzy, kde-format
+#| msgid "The installed version of cryfs is too old to open this vault."
+msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
 "Instalatuta dagoen «cryfs» bertsioa zaharregia da kutxa-gotor hau irekitzeko."
 
@@ -236,50 +245,54 @@ msgstr "Errore ezezaguna; ezin da bizkarraldekoa sortu."
 msgid "This device is not initialized. Cannot import it."
 msgstr "Gailu hau ez dago hasieratuta. Ezin da berau inportatu."
 
-#: kded/engine/vault.cpp:464
-#, kde-format
-msgid "Cannot open an unknown vault."
+#: kded/engine/vault.cpp:463
+#, fuzzy, kde-format
+#| msgid "Cannot open an unknown vault."
+msgid "Cannot unlock an unknown vault."
 msgstr "Ezin da ireki kutxa-gotor ezezagun bat."
 
-#: kded/engine/vault.cpp:481
-#, kde-format
-msgid "The vault is unknown; cannot close it."
+#: kded/engine/vault.cpp:478
+#, fuzzy, kde-format
+#| msgid "The vault is unknown; cannot close it."
+msgid "The vault is unknown; cannot lock it."
 msgstr "Kutxa-gotorra ezezaguna da; ezin da itxi."
 
-#: kded/engine/vault.cpp:496 kded/engine/vault.cpp:505
-#, kde-format
-msgid "Unable to close the vault because an application is using it"
+#: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
+#, fuzzy, kde-format
+#| msgid "Unable to close the vault because an application is using it"
+msgid "Unable to lock the vault because an application is using it"
 msgstr "Ezin da kutxa-gotorra itxi aplikazio bat hura erabiltzen ari delako"
 
-#: kded/engine/vault.cpp:528
-#, kde-format
-msgid "Unable to close the vault because it is being used by %1"
+#: kded/engine/vault.cpp:520
+#, fuzzy, kde-format
+#| msgid "Unable to close the vault because it is being used by %1"
+msgid "Unable to lock the vault because it is being used by %1"
 msgstr "Ezin da kutxa-gotorra itxi %1 bera erabiltzen ari delako"
 
-#: kded/engine/vault.cpp:552
+#: kded/engine/vault.cpp:544
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr ""
 "Huts egin du kutxa-gotor hau erabiltzen duen aplikazio zerrenda lortzea"
 
-#: kded/engine/vault.cpp:604
+#: kded/engine/vault.cpp:596
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
 "Ezin du kutxa-gotorra ezabatu; gainjarritako bide-izenak dituzten beste "
 "kutxa-gotor batzuk daude."
 
-#: kded/engine/vault.cpp:609
+#: kded/engine/vault.cpp:601
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
 msgstr "kutxa-gotorra ezezaguna da; ezin da desmuntatu."
 
-#: kded/engine/vault.cpp:612
+#: kded/engine/vault.cpp:604
 #, kde-format
 msgid "Are you sure you want to delete this vault"
 msgstr "Ziur zaude kutxa-gotor hori ezabatu nahi duzula?"
 
-#: kded/engine/vault.cpp:613
+#: kded/engine/vault.cpp:605
 #, kde-format
 msgid ""
 "This operation will irreversibly delete the following:\n"
@@ -290,7 +303,7 @@ msgstr ""
 "%1\n"
 "%2"
 
-#: kded/engine/vault.cpp:615
+#: kded/engine/vault.cpp:607
 #, kde-format
 msgid "Delete operation cancelled"
 msgstr "Ezabatzeko eragiketa bertan behera utzi da"
@@ -302,12 +315,17 @@ msgstr "Errorea kutxa-gotorra ezabatzean"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "If you limit this vault only to certain activities, it will be shown in "
+#| "the applet only when you are in those activities. Furthermore, when you "
+#| "switch to an activity it should not be available in, it will "
+#| "automatically be closed."
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
 "to an activity it should not be available in, it will automatically be "
-"closed."
+"locked."
 msgstr ""
 "Kutxa-gotor hau jarduera jakin batzuetara mugatzen baduzu, appletean "
 "erakutsiko da soilik jarduera horietan zaudenean. Gainera, erabilgarria egon "
@@ -394,9 +412,11 @@ msgid "Mount point"
 msgstr "Muntatze-puntua"
 
 #: kded/ui/mountdialog.cpp:20
-#, kde-format
-msgctxt "%1 is the name of the Plasma Vault to open"
-msgid "Open '%1' Plasma Vault"
+#, fuzzy, kde-format
+#| msgctxt "%1 is the name of the Plasma Vault to open"
+#| msgid "Open '%1' Plasma Vault"
+msgctxt "%1 is the name of the Plasma Vault to unlock"
+msgid "Unlock '%1' Plasma Vault"
 msgstr "Ireki '%1' kutxa-gotorra"
 
 #: kded/ui/mountdialog.cpp:29
@@ -423,14 +443,16 @@ msgid "Error details"
 msgstr "Errorearen xehetasunak"
 
 #: kded/ui/mountdialog.cpp:84
-#, kde-format
-msgid "Failed to open: %1"
+#, fuzzy, kde-format
+#| msgid "Failed to open: %1"
+msgid "Failed to unlock: %1"
 msgstr "Irekitzea huts egin du: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, kde-format
-msgid "Please enter the password to open this vault:"
+#, fuzzy, kde-format
+#| msgid "Please enter the password to open this vault:"
+msgid "Please enter the password to unlock this vault:"
 msgstr "Sartu kutxa-gotor hau irekitzeko pasahitza:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
@@ -537,14 +559,16 @@ msgstr "Elkarrizketa-koadroa"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, kde-format
-msgid "The vault configuration can only be changed while it is closed."
+#, fuzzy, kde-format
+#| msgid "The vault configuration can only be changed while it is closed."
+msgid "The vault configuration can only be changed while it is locked."
 msgstr "Kutxa-gotorraren konfigurazioa aldatu daiteke soilik itxita dagoenean."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, kde-format
-msgid "Close the vault"
+#, fuzzy, kde-format
+#| msgid "Close the vault"
+msgid "Lock the vault"
 msgstr "Itxi kutxa-gotorra"
 
 #: kded/ui/vaultcreationwizard.cpp:86
@@ -640,6 +664,10 @@ msgstr "Giltzapetik askatu kutxa-gotorra"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Konfiguratu Kutxa-gotorra..."
+
+#~ msgctxt "@action Action to mount a vault"
+#~ msgid "Open this Plasma Vault"
+#~ msgstr "Ireki kutxa-gotor hau"
 
 #~ msgid ""
 #~ "<b>Security notice:</b>\n"

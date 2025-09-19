@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-19 00:44+0000\n"
+"POT-Creation-Date: 2025-09-19 00:44+0000\n"
 "PO-Revision-Date: 2024-12-20 21:54+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -20,16 +20,20 @@ msgstr ""
 "X-Generator: Lokalize 24.08.2\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action Action to unmount a vault"
+#| msgid "Close this Plasma Vault"
 msgctxt "@action Action to unmount a vault"
-msgid "Close this Plasma Vault"
+msgid "Lock this Plasma Vault"
 msgstr "एतत् Plasma Vault बन्दं कुर्वन्तु"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action Action to unmount a vault"
+#| msgid "Close this Plasma Vault"
 msgctxt "@action Action to mount a vault"
-msgid "Open this Plasma Vault"
-msgstr "एतत् Plasma Vault उद्घाटयन्तु"
+msgid "Unlock this Plasma Vault"
+msgstr "एतत् Plasma Vault बन्दं कुर्वन्तु"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -69,16 +73,20 @@ msgstr ""
 "इदानीं उन्नयनं कर्तुम् इच्छति वा ?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The vault needs to be upgraded before it can be opened with this version "
+#| "of cryfs"
 msgid ""
-"The vault needs to be upgraded before it can be opened with this version of "
-"cryfs"
+"The vault needs to be upgraded before it can be unlocked with this version "
+"of cryfs"
 msgstr "cryfs इत्यस्य एतेन संस्करणेन उद्घाटयितुं पूर्वं तिजोरी उन्नयनं करणीयम्"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, kde-format
-msgid "The mount point directory is not empty, refusing to open the vault"
+#, fuzzy, kde-format
+#| msgid "The mount point directory is not empty, refusing to open the vault"
+msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr "माउण्ट् बिन्दुनिर्देशिका रिक्तं नास्ति, तिजोरीं उद्घाटयितुं नकारयति"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
@@ -87,8 +95,9 @@ msgid "You entered the wrong password"
 msgstr "भवता गलत् गुप्तशब्दः प्रविष्टः"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, kde-format
-msgid "The installed version of cryfs is too old to open this vault."
+#, fuzzy, kde-format
+#| msgid "The installed version of cryfs is too old to open this vault."
+msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
 "cryfs इत्यस्य संस्थापितं संस्करणम् अतीव पुरातनम् अस्ति यत् एतत् तिजोरी उद्घाटयितुं न शक्नोति ।"
 
@@ -228,47 +237,51 @@ msgstr "अज्ञातदोषः; पृष्ठभागं निर्
 msgid "This device is not initialized. Cannot import it."
 msgstr "एतत् यन्त्रं प्रारम्भं न भवति । आयातं कर्तुं न शक्यते।"
 
-#: kded/engine/vault.cpp:464
-#, kde-format
-msgid "Cannot open an unknown vault."
+#: kded/engine/vault.cpp:463
+#, fuzzy, kde-format
+#| msgid "Cannot open an unknown vault."
+msgid "Cannot unlock an unknown vault."
 msgstr "अज्ञातं तिजोरीं उद्घाटयितुं न शक्नोति।"
 
-#: kded/engine/vault.cpp:481
-#, kde-format
-msgid "The vault is unknown; cannot close it."
+#: kded/engine/vault.cpp:478
+#, fuzzy, kde-format
+#| msgid "The vault is unknown; cannot close it."
+msgid "The vault is unknown; cannot lock it."
 msgstr "तिजोरी अज्ञाता अस्ति; न शक्नोति तत् पिधातुम्।"
 
-#: kded/engine/vault.cpp:496 kded/engine/vault.cpp:505
-#, kde-format
-msgid "Unable to close the vault because an application is using it"
+#: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
+#, fuzzy, kde-format
+#| msgid "Unable to close the vault because an application is using it"
+msgid "Unable to lock the vault because an application is using it"
 msgstr "एकः अनुप्रयोगः तस्य उपयोगं कुर्वन् अस्ति इति कारणेन तिजोरीं पिधातुं असमर्थः"
 
-#: kded/engine/vault.cpp:528
-#, kde-format
-msgid "Unable to close the vault because it is being used by %1"
+#: kded/engine/vault.cpp:520
+#, fuzzy, kde-format
+#| msgid "Unable to close the vault because it is being used by %1"
+msgid "Unable to lock the vault because it is being used by %1"
 msgstr "%1 द्वारा उपयुज्यमानत्वात् तिजोरीं पिधातुं असमर्थः"
 
-#: kded/engine/vault.cpp:552
+#: kded/engine/vault.cpp:544
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr "एतत् तिजोरी उपयुज्य अनुप्रयोगानाम् सूचीं आनेतुं असफलम्"
 
-#: kded/engine/vault.cpp:604
+#: kded/engine/vault.cpp:596
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr "तिजोरीं विलोपयितुं न शक्नोति; अन्ये अपि आच्छादितमार्गयुक्ताः कक्ष्याः सन्ति ।"
 
-#: kded/engine/vault.cpp:609
+#: kded/engine/vault.cpp:601
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
 msgstr "तिजोरी अज्ञाता अस्ति; न शक्नोति तस्य विच्छेदनं कर्तुं।"
 
-#: kded/engine/vault.cpp:612
+#: kded/engine/vault.cpp:604
 #, kde-format
 msgid "Are you sure you want to delete this vault"
 msgstr "किं भवन्तः निश्चितरूपेण एतत् तिजोरीं विलोपयितुम् इच्छन्ति"
 
-#: kded/engine/vault.cpp:613
+#: kded/engine/vault.cpp:605
 #, kde-format
 msgid ""
 "This operation will irreversibly delete the following:\n"
@@ -279,7 +292,7 @@ msgstr ""
 "%1\n"
 "%2"
 
-#: kded/engine/vault.cpp:615
+#: kded/engine/vault.cpp:607
 #, kde-format
 msgid "Delete operation cancelled"
 msgstr "विलोपनक्रिया रद्दीकृता"
@@ -291,12 +304,17 @@ msgstr "तिजोरीं विलोपयन् त्रुटिः"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "If you limit this vault only to certain activities, it will be shown in "
+#| "the applet only when you are in those activities. Furthermore, when you "
+#| "switch to an activity it should not be available in, it will "
+#| "automatically be closed."
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
 "to an activity it should not be available in, it will automatically be "
-"closed."
+"locked."
 msgstr ""
 "यदि भवान् एतत् कक्षं केवलं कतिपयेषु कार्येषु एव सीमितं करोति तर्हि एप्लेट् मध्ये केवलं तदा एव "
 "दर्शितं भविष्यति यदा भवान् तेषु कार्येषु भवति । अपि च, यदा भवन्तः कस्मिंश्चित् क्रियाकलापे "
@@ -382,9 +400,11 @@ msgid "Mount point"
 msgstr "माउण्ट् बिन्दु"
 
 #: kded/ui/mountdialog.cpp:20
-#, kde-format
-msgctxt "%1 is the name of the Plasma Vault to open"
-msgid "Open '%1' Plasma Vault"
+#, fuzzy, kde-format
+#| msgctxt "%1 is the name of the Plasma Vault to open"
+#| msgid "Open '%1' Plasma Vault"
+msgctxt "%1 is the name of the Plasma Vault to unlock"
+msgid "Unlock '%1' Plasma Vault"
 msgstr "'%1' प्लाज्मा तिजोरी उद्घाटयन्तु"
 
 #: kded/ui/mountdialog.cpp:29
@@ -411,14 +431,16 @@ msgid "Error details"
 msgstr "त्रुटिविवरणम्"
 
 #: kded/ui/mountdialog.cpp:84
-#, kde-format
-msgid "Failed to open: %1"
+#, fuzzy, kde-format
+#| msgid "Failed to open: %1"
+msgid "Failed to unlock: %1"
 msgstr "उद्घाटयितुं असफलम्: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, kde-format
-msgid "Please enter the password to open this vault:"
+#, fuzzy, kde-format
+#| msgid "Please enter the password to open this vault:"
+msgid "Please enter the password to unlock this vault:"
 msgstr "कृपया एतत् तिजोरीं उद्घाटयितुं गुप्तशब्दं प्रविशन्तु:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
@@ -524,14 +546,16 @@ msgstr "संवादः"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, kde-format
-msgid "The vault configuration can only be changed while it is closed."
+#, fuzzy, kde-format
+#| msgid "The vault configuration can only be changed while it is closed."
+msgid "The vault configuration can only be changed while it is locked."
 msgstr "तिजोरीविन्यासः केवलं पिहितसमये एव परिवर्तयितुं शक्यते ।"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, kde-format
-msgid "Close the vault"
+#, fuzzy, kde-format
+#| msgid "Close the vault"
+msgid "Lock the vault"
 msgstr "तिजोरीं पिधाय"
 
 #: kded/ui/vaultcreationwizard.cpp:86
@@ -626,6 +650,10 @@ msgstr "तिजोरी अनलॉक करू"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "तिजोरी विन्यस्तं कुर्वन्तु..."
+
+#~ msgctxt "@action Action to mount a vault"
+#~ msgid "Open this Plasma Vault"
+#~ msgstr "एतत् Plasma Vault उद्घाटयन्तु"
 
 #~ msgid ""
 #~ "<b>Security notice:</b>\n"

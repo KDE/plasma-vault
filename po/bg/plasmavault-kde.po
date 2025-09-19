@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-19 00:44+0000\n"
+"POT-Creation-Date: 2025-09-19 00:44+0000\n"
 "PO-Revision-Date: 2024-11-10 20:12+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -18,16 +18,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action Action to unmount a vault"
+#| msgid "Close this Plasma Vault"
 msgctxt "@action Action to unmount a vault"
-msgid "Close this Plasma Vault"
+msgid "Lock this Plasma Vault"
 msgstr "Затваряне на трезора"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action Action to unmount a vault"
+#| msgid "Close this Plasma Vault"
 msgctxt "@action Action to mount a vault"
-msgid "Open this Plasma Vault"
-msgstr "Отваряне на трезора"
+msgid "Unlock this Plasma Vault"
+msgstr "Затваряне на трезора"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -67,18 +71,22 @@ msgstr ""
 "Искате ли да извършите надстройката сега?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The vault needs to be upgraded before it can be opened with this version "
+#| "of cryfs"
 msgid ""
-"The vault needs to be upgraded before it can be opened with this version of "
-"cryfs"
+"The vault needs to be upgraded before it can be unlocked with this version "
+"of cryfs"
 msgstr ""
 "Трезорът трябва да бъде актуализиран, преди да може да бъде отворен с тази "
 "версия на cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, kde-format
-msgid "The mount point directory is not empty, refusing to open the vault"
+#, fuzzy, kde-format
+#| msgid "The mount point directory is not empty, refusing to open the vault"
+msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
 "Директорията на точката на монтиране не е празна, отказ от отваряне на "
 "трезора"
@@ -89,8 +97,9 @@ msgid "You entered the wrong password"
 msgstr "Въведохте грешна парола"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, kde-format
-msgid "The installed version of cryfs is too old to open this vault."
+#, fuzzy, kde-format
+#| msgid "The installed version of cryfs is too old to open this vault."
+msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
 "Инсталираната версия на cryfs е твърде стара, за да отвори този трезор."
 
@@ -231,49 +240,53 @@ msgstr "Неизвестна грешка; не може да създаде б�
 msgid "This device is not initialized. Cannot import it."
 msgstr "Това устройство не е инициализирано. Не можете да го импортирате."
 
-#: kded/engine/vault.cpp:464
-#, kde-format
-msgid "Cannot open an unknown vault."
+#: kded/engine/vault.cpp:463
+#, fuzzy, kde-format
+#| msgid "Cannot open an unknown vault."
+msgid "Cannot unlock an unknown vault."
 msgstr "Не може да се отвори неизвестен трезор."
 
-#: kded/engine/vault.cpp:481
-#, kde-format
-msgid "The vault is unknown; cannot close it."
+#: kded/engine/vault.cpp:478
+#, fuzzy, kde-format
+#| msgid "The vault is unknown; cannot close it."
+msgid "The vault is unknown; cannot lock it."
 msgstr "Трезорът е неизвестен; не може да се затвори."
 
-#: kded/engine/vault.cpp:496 kded/engine/vault.cpp:505
-#, kde-format
-msgid "Unable to close the vault because an application is using it"
+#: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
+#, fuzzy, kde-format
+#| msgid "Unable to close the vault because an application is using it"
+msgid "Unable to lock the vault because an application is using it"
 msgstr "Не може да се затвори трезора, защото някое приложение го използва"
 
-#: kded/engine/vault.cpp:528
-#, kde-format
-msgid "Unable to close the vault because it is being used by %1"
+#: kded/engine/vault.cpp:520
+#, fuzzy, kde-format
+#| msgid "Unable to close the vault because it is being used by %1"
+msgid "Unable to lock the vault because it is being used by %1"
 msgstr "Не може да се затвори трезора, защото се използва от %1"
 
-#: kded/engine/vault.cpp:552
+#: kded/engine/vault.cpp:544
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr ""
 "Извличането на списъка с приложения, използващи този трезор, е неуспешно"
 
-#: kded/engine/vault.cpp:604
+#: kded/engine/vault.cpp:596
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
 "Не може да изтрие трезор; Има и други трезори с припокриващи се пътища."
 
-#: kded/engine/vault.cpp:609
+#: kded/engine/vault.cpp:601
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
 msgstr "Трезорът е неизвестен; не може да се демонтира."
 
-#: kded/engine/vault.cpp:612
+#: kded/engine/vault.cpp:604
 #, kde-format
 msgid "Are you sure you want to delete this vault"
 msgstr "Наистина ли искате да изтриете този трезор"
 
-#: kded/engine/vault.cpp:613
+#: kded/engine/vault.cpp:605
 #, kde-format
 msgid ""
 "This operation will irreversibly delete the following:\n"
@@ -284,7 +297,7 @@ msgstr ""
 "%1\n"
 "%2"
 
-#: kded/engine/vault.cpp:615
+#: kded/engine/vault.cpp:607
 #, kde-format
 msgid "Delete operation cancelled"
 msgstr "Отменено действие за изтриване"
@@ -296,12 +309,17 @@ msgstr "Грешка при изтриване на трезора"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "If you limit this vault only to certain activities, it will be shown in "
+#| "the applet only when you are in those activities. Furthermore, when you "
+#| "switch to an activity it should not be available in, it will "
+#| "automatically be closed."
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
 "to an activity it should not be available in, it will automatically be "
-"closed."
+"locked."
 msgstr ""
 "Ако ограничите този трезор само до определени дейности, той ще бъде показан "
 "в аплет само, когато сте в тези дейности. Освен това, когато превключвате "
@@ -389,9 +407,11 @@ msgid "Mount point"
 msgstr "Точка на монтиране"
 
 #: kded/ui/mountdialog.cpp:20
-#, kde-format
-msgctxt "%1 is the name of the Plasma Vault to open"
-msgid "Open '%1' Plasma Vault"
+#, fuzzy, kde-format
+#| msgctxt "%1 is the name of the Plasma Vault to open"
+#| msgid "Open '%1' Plasma Vault"
+msgctxt "%1 is the name of the Plasma Vault to unlock"
+msgid "Unlock '%1' Plasma Vault"
 msgstr "Отваряне на „%1“ трезор"
 
 #: kded/ui/mountdialog.cpp:29
@@ -418,14 +438,16 @@ msgid "Error details"
 msgstr "Подробности за грешка"
 
 #: kded/ui/mountdialog.cpp:84
-#, kde-format
-msgid "Failed to open: %1"
+#, fuzzy, kde-format
+#| msgid "Failed to open: %1"
+msgid "Failed to unlock: %1"
 msgstr "Неуспешно отваряне: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, kde-format
-msgid "Please enter the password to open this vault:"
+#, fuzzy, kde-format
+#| msgid "Please enter the password to open this vault:"
+msgid "Please enter the password to unlock this vault:"
 msgstr "Моля, въведете паролата, за да отворите този трезор:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
@@ -532,14 +554,16 @@ msgstr "Диалогов прозорец"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, kde-format
-msgid "The vault configuration can only be changed while it is closed."
+#, fuzzy, kde-format
+#| msgid "The vault configuration can only be changed while it is closed."
+msgid "The vault configuration can only be changed while it is locked."
 msgstr "Конфигурацията на трезора може да се променя само докато е затворен."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, kde-format
-msgid "Close the vault"
+#, fuzzy, kde-format
+#| msgid "Close the vault"
+msgid "Lock the vault"
 msgstr "Затваряне на трезора"
 
 #: kded/ui/vaultcreationwizard.cpp:86
@@ -635,3 +659,7 @@ msgstr "Отключване на трезор"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Конфигуриране на трезор…"
+
+#~ msgctxt "@action Action to mount a vault"
+#~ msgid "Open this Plasma Vault"
+#~ msgstr "Отваряне на трезора"

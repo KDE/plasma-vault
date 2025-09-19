@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-19 00:44+0000\n"
+"POT-Creation-Date: 2025-09-19 00:44+0000\n"
 "PO-Revision-Date: 2024-01-03 14:00-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -18,16 +18,20 @@ msgstr ""
 "X-Generator: Lokalize 23.08.4\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action Action to unmount a vault"
+#| msgid "Close this Plasma Vault"
 msgctxt "@action Action to unmount a vault"
-msgid "Close this Plasma Vault"
+msgid "Lock this Plasma Vault"
 msgstr "ਇਹ ਪਲਾਜ਼ਮਾ ਵਾਲਟ ਬੰਦ ਕਰੋ"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action Action to unmount a vault"
+#| msgid "Close this Plasma Vault"
 msgctxt "@action Action to mount a vault"
-msgid "Open this Plasma Vault"
-msgstr "ਇਹ ਪਲਾਜ਼ਮਾ ਵਾਲਟ ਖੋਲ੍ਹੋ"
+msgid "Unlock this Plasma Vault"
+msgstr "ਇਹ ਪਲਾਜ਼ਮਾ ਵਾਲਟ ਬੰਦ ਕਰੋ"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -66,16 +70,20 @@ msgstr ""
 "ਕੀ ਤੁਸੀਂ ਹੁਣੇ ਅੱਪਗਰੇਡ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The vault needs to be upgraded before it can be opened with this version "
+#| "of cryfs"
 msgid ""
-"The vault needs to be upgraded before it can be opened with this version of "
-"cryfs"
+"The vault needs to be upgraded before it can be unlocked with this version "
+"of cryfs"
 msgstr "cryfs ਦੇ ਇਸ ਵਰਜ਼ਨ ਨਾਲ ਵਾਲਟ ਖੋਲ੍ਹਣ ਤੋਂ ਪਹਿਲਾਂ ਵਾਲਟ ਨੂੰ ਅੱਪਗਰੇਡ ਕਰਨਾ ਪਵੇਗਾ"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, kde-format
-msgid "The mount point directory is not empty, refusing to open the vault"
+#, fuzzy, kde-format
+#| msgid "The mount point directory is not empty, refusing to open the vault"
+msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr "ਮਾਊਂਟ ਪੁਆਇੰਟ ਡਾਇਰੈਕਟਰੀ ਖਾਲੀ ਨਹੀਂ ਹੈ, ਵਾਲਟ ਖੋਲ੍ਹਣ ਤੋਂ ਇਨਕਾਰੀ"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
@@ -84,8 +92,9 @@ msgid "You entered the wrong password"
 msgstr "ਤੁਸੀਂ ਗਲਤ ਪਾਸਵਰਡ ਦਿੱਤਾ ਸੀ"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, kde-format
-msgid "The installed version of cryfs is too old to open this vault."
+#, fuzzy, kde-format
+#| msgid "The installed version of cryfs is too old to open this vault."
+msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr "ਇਹ ਵਾਲਟ ਖੋਲ੍ਹਣ ਲਈ cryfs ਦਾ ਇੰਸਟਾਲ ਹੋਇਆ ਵਰਜ਼ਨ ਬਹੁਤ ਪੁਰਾਣਾ ਹੈ।"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
@@ -222,47 +231,51 @@ msgstr "ਅਣਪਛਾਤੀ ਗ਼ਲਤੀ; ਬੈਕਡਐਂਡ ਬਣਾ�
 msgid "This device is not initialized. Cannot import it."
 msgstr "ਇਹ ਡਿਵਾਈਸ ਸ਼ੁਰੂ ਨਹੀ ਕੀਤਾ ਹੈ। ਇਹ ਇੰਪੋਰਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"
 
-#: kded/engine/vault.cpp:464
-#, kde-format
-msgid "Cannot open an unknown vault."
+#: kded/engine/vault.cpp:463
+#, fuzzy, kde-format
+#| msgid "Cannot open an unknown vault."
+msgid "Cannot unlock an unknown vault."
 msgstr "ਅਣਪਛਾਤਾ ਵਾਲਟ ਖੋਲ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ।"
 
-#: kded/engine/vault.cpp:481
-#, kde-format
-msgid "The vault is unknown; cannot close it."
+#: kded/engine/vault.cpp:478
+#, fuzzy, kde-format
+#| msgid "The vault is unknown; cannot close it."
+msgid "The vault is unknown; cannot lock it."
 msgstr "ਵਾਲਟ ਅਣਪਛਾਤਾ ਹੈ; ਇਸ ਨੂੰ ਬੰਦ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"
 
-#: kded/engine/vault.cpp:496 kded/engine/vault.cpp:505
-#, kde-format
-msgid "Unable to close the vault because an application is using it"
+#: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
+#, fuzzy, kde-format
+#| msgid "Unable to close the vault because an application is using it"
+msgid "Unable to lock the vault because an application is using it"
 msgstr "ਐਪਲੀਕੇਸ਼ਨ ਵਲੋਂ ਵਾਲਟ ਵਰਤੇ ਜਾਣ ਕਰਕੇ ਇਸ ਨੂੰ ਬੰਦ ਕਰਨ ਲਈ ਅਸਮਰੱਥ ਹੈ"
 
-#: kded/engine/vault.cpp:528
-#, kde-format
-msgid "Unable to close the vault because it is being used by %1"
+#: kded/engine/vault.cpp:520
+#, fuzzy, kde-format
+#| msgid "Unable to close the vault because it is being used by %1"
+msgid "Unable to lock the vault because it is being used by %1"
 msgstr "%1 ਵਲੋਂ ਵਾਲਟ ਵਰਤੇ ਜਾਣ ਕਰਕੇ ਇਸ ਨੂੰ ਬੰਦ ਕਰਨ ਲਈ ਅਸਮਰੱਥ ਹੈ"
 
-#: kded/engine/vault.cpp:552
+#: kded/engine/vault.cpp:544
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr "ਇਸ ਵਾਲਟ ਵਰਤਣ ਵਾਲੀਆਂ ਐਪਲੀਕੇਸ਼ਨਾਂ ਦੀ ਸੂਚੀ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਅਸਫ਼ਲ ਹੈ"
 
-#: kded/engine/vault.cpp:604
+#: kded/engine/vault.cpp:596
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr "ਵਾਲਟ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ; ਹੋਰ ਵਾਲਟ ਮਾਰਗ ਉੱਤੇ ਹਨ।"
 
-#: kded/engine/vault.cpp:609
+#: kded/engine/vault.cpp:601
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
 msgstr "ਵਾਲਟ ਅਣਪਛਾਤਾ ਹੈ; ਇਸ ਨੂੰ ਨਸ਼ਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"
 
-#: kded/engine/vault.cpp:612
+#: kded/engine/vault.cpp:604
 #, kde-format
 msgid "Are you sure you want to delete this vault"
 msgstr "ਕੀ ਤੁਸੀਂ ਇਹ ਵਾਲਟ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ"
 
-#: kded/engine/vault.cpp:613
+#: kded/engine/vault.cpp:605
 #, kde-format
 msgid ""
 "This operation will irreversibly delete the following:\n"
@@ -273,7 +286,7 @@ msgstr ""
 "%1\n"
 "%2"
 
-#: kded/engine/vault.cpp:615
+#: kded/engine/vault.cpp:607
 #, kde-format
 msgid "Delete operation cancelled"
 msgstr "ਹਟਾਉਣ ਕਾਰਵਾਈ ਰੱਦ ਕੀਤੀ"
@@ -290,7 +303,7 @@ msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
 "to an activity it should not be available in, it will automatically be "
-"closed."
+"locked."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
@@ -373,9 +386,11 @@ msgid "Mount point"
 msgstr "ਮਾਊਂਟ ਪੁਆਇੰਟ"
 
 #: kded/ui/mountdialog.cpp:20
-#, kde-format
-msgctxt "%1 is the name of the Plasma Vault to open"
-msgid "Open '%1' Plasma Vault"
+#, fuzzy, kde-format
+#| msgctxt "%1 is the name of the Plasma Vault to open"
+#| msgid "Open '%1' Plasma Vault"
+msgctxt "%1 is the name of the Plasma Vault to unlock"
+msgid "Unlock '%1' Plasma Vault"
 msgstr "'%1' ਪਲਾਜ਼ਮਾ ਵਾਲਟ ਖੋਲ੍ਹੋ"
 
 #: kded/ui/mountdialog.cpp:29
@@ -402,14 +417,16 @@ msgid "Error details"
 msgstr "ਗਲਤੀਆਂ ਦੇ ਵੇਰਵੇ"
 
 #: kded/ui/mountdialog.cpp:84
-#, kde-format
-msgid "Failed to open: %1"
+#, fuzzy, kde-format
+#| msgid "Failed to open: %1"
+msgid "Failed to unlock: %1"
 msgstr "ਖੋਲ੍ਹਣ ਲਈ ਅਸਫ਼ਲ: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, kde-format
-msgid "Please enter the password to open this vault:"
+#, fuzzy, kde-format
+#| msgid "Please enter the password to open this vault:"
+msgid "Please enter the password to unlock this vault:"
 msgstr "ਇਹ ਵਾਲਟ ਖੋਲ੍ਹਣ ਲਈ ਪਾਸਵਰਡ ਦਿਓ:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
@@ -514,14 +531,16 @@ msgstr "ਡਾਈਲਾਗ"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, kde-format
-msgid "The vault configuration can only be changed while it is closed."
+#, fuzzy, kde-format
+#| msgid "The vault configuration can only be changed while it is closed."
+msgid "The vault configuration can only be changed while it is locked."
 msgstr "ਵਾਲਟ ਸੰਰਚਨਾ ਨੂੰ ਇਸ ਦੇ ਬੰਦ ਹੋਣ ਦੌਰਾਨ ਹੀ ਬਦਲਿਆ ਜਾ ਸਕਦਾ ਹੈ।"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, kde-format
-msgid "Close the vault"
+#, fuzzy, kde-format
+#| msgid "Close the vault"
+msgid "Lock the vault"
 msgstr "ਵਾਲਟ ਬੰਦ ਕਰੋ"
 
 #: kded/ui/vaultcreationwizard.cpp:86
@@ -616,6 +635,10 @@ msgstr "ਵਾਲਟ ਅਣ-ਲਾਕ ਕਰੋ"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "…ਵਾਲਟ ਦੀ ਸੰਰਚਨਾ ਕਰੋ"
+
+#~ msgctxt "@action Action to mount a vault"
+#~ msgid "Open this Plasma Vault"
+#~ msgstr "ਇਹ ਪਲਾਜ਼ਮਾ ਵਾਲਟ ਖੋਲ੍ਹੋ"
 
 #~ msgid "Create a New Vault..."
 #~ msgstr "...ਨਵਾਂ ਵਾਲਟ ਬਣਾਓ"
