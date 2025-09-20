@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2022-12-30 03:36+0100\n"
+"PO-Revision-Date: 2025-09-19 07:16+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,20 +16,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.7\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
 msgstr "Plasma -ის ამ საცავის დახურვა"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
 msgstr "Plasma -ის ამ საცავის დახურვა"
@@ -71,10 +67,7 @@ msgstr ""
 "გნებავთ განახლება ახლა განახორციელოთ?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
@@ -82,8 +75,7 @@ msgstr "სანამ საცავი cryfs-ის ამ ვერსი�
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr "მისამაგრებელი საქაღალდე ცარიელი არაა. საცავის გახსნა არ მოხდება"
 
@@ -93,8 +85,7 @@ msgid "You entered the wrong password"
 msgstr "შეყვანილი პაროლი არასწორია"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr "ამ საცავის გასახსნელად cryfs-ის თქვენი ვერსია ძალიან ძველია."
 
@@ -234,26 +225,22 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "მოწყობილობა ინიციალიზირებული არაა. მისი შემოტანა შეუძლებელია."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
 msgstr "უცნობი საცავის გახსნა შეუძლებელია."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
 msgstr "საცავი უცნობია. დახურვა შეუძლებელია."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "საცავის დახურვა შეუძლებელია. აპლიკაცია იყენებს მას"
+msgstr "საცავის დახურვა შეუძლებელია, რადგან მას აპლიკაცია იყენებს"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
 msgstr "საცავის დახურვა შეუძლებელია. გამოიყენება %1-ის მიერ"
 
@@ -301,12 +288,7 @@ msgstr "საცავის წაშლის შეცდომა"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -397,12 +379,10 @@ msgid "Mount point"
 msgstr "მიმაგრების წერტილი"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "%1 Plasma-ის საცავის გახსნა"
+msgstr "'%1' Plasma-ის საცავის გახსნა"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -428,15 +408,13 @@ msgid "Error details"
 msgstr "შეცდომის დეტალები"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "გახსნის შეცდომა: %1"
+msgstr "განბლოკვა ჩავარდა: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
 msgstr "საცავის გასახსნელად შეიყვანეთ პაროლი:"
 
@@ -542,16 +520,14 @@ msgstr "ფანჯარა"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
 msgstr ""
 "საცავის კონფიგურაციის შეცვლა მხოლოდ მაშინაა შესაძლებელი, როცა ის დახურულია."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
 msgstr "საცავის დახურვა"
 

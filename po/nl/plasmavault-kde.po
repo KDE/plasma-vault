@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2017, 2018, 2019, 2020, 2021.
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2021-09-10 10:45+0200\n"
+"PO-Revision-Date: 2025-09-19 11:38+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,23 +15,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Plasma Vault (kluis) sluiten"
+msgstr "Plasma Vault (kluis) vergrendelen"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Plasma Vault (kluis) sluiten"
+msgstr "Plasma Vault (kluis) ontgrendelen"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -71,24 +67,21 @@ msgstr ""
 "Wilt u nu de opwaardering uitvoeren?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"De kluis moet opgewaardeerd worden voordat deze geopend kan worden met deze "
-"versie van cryfs"
+"De kluis moet opgewaardeerd worden voordat deze ontgrendeld kan worden met "
+"deze versie van cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
-"De map voor aankoppelen is niet leeg, openen van de kluis wordt geweigerd"
+"De map voor aankoppelen is niet leeg, ontgrendelen van de kluis wordt "
+"geweigerd"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -96,10 +89,10 @@ msgid "You entered the wrong password"
 msgstr "U hebt het verkeerde wachtwoord ingevoerd"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
-msgstr "De geïnstalleerde versie van cryfs is te oud om deze kluis te openen."
+msgstr ""
+"De geïnstalleerde versie van cryfs is te oud om deze kluis te ontgrendelen."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -242,30 +235,26 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "Het apparaat is niet geïnitialiseerd. Kan het niet importeren."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Kan een onbekende kluis niet openen."
+msgstr "Kan een onbekende kluis niet ontgrendelen."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "De kluis is niet bekend; kan het niet sluiten."
+msgstr "De kluis is niet bekend; kan het niet vergrendelen."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
 msgstr ""
-"Niet in staat om de kluis te sluiten; omdat een toepassing deze gebruikt"
+"Niet in staat om de kluis te vergrendelen; omdat een toepassing deze gebruikt"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
 msgstr ""
-"Niet in staat om de kluis te sluiten; omdat deze wordt gebruikt door %1"
+"Niet in staat om de kluis te vergrendelen; omdat deze wordt gebruikt door %1"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -312,12 +301,7 @@ msgstr "Fout bij verwijderen van kluis"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -327,7 +311,7 @@ msgstr ""
 "Als u deze kluis beperkt tot alleen bepaalde activiteiten, zal het in de "
 "applet alleen getoond worden wanneer u zich in die activiteiten bevindt. "
 "Verder, wanneer u omschakelt naar een activiteit waarin het niet beschikbaar "
-"zou moeten zijn, dan zal het automatisch gesloten worden."
+"zou moeten zijn, dan zal het automatisch vergrendeld worden."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -410,12 +394,10 @@ msgid "Mount point"
 msgstr "Aankoppelpunt"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Plasma Vault (kluis) '%1' openen"
+msgstr "Plasma Vault (kluis) '%1' ontgrendelen"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -441,17 +423,15 @@ msgid "Error details"
 msgstr "Foutdetails"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Openen is mislukt: %1"
+msgstr "Ontgrendelen is mislukt: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Geef het wachtwoord op om deze kluis te openen:"
+msgstr "Voer het wachtwoord in om deze kluis te ontgrendelen:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -556,19 +536,17 @@ msgstr "Dialoog"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
 msgstr ""
 "De configuratie van de kluis kan alleen gewijzigd worden wanneer deze is "
-"gesloten."
+"vergrendeld."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "De kluis sluiten"
+msgstr "De kluis vergrendelen"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format

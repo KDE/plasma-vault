@@ -1,38 +1,34 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-vault package.
 #
-# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2024-02-01 21:49+0200\n"
+"PO-Revision-Date: 2025-09-19 08:03+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.08.0\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "סגירת כספת הפלזמה הזאת"
+msgstr "נעילת כספת הפלזמה הזאת"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "סגירת כספת הפלזמה הזאת"
+msgstr "שחרור נעילת כספת הפלזמה הזאת"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -71,21 +67,18 @@ msgstr ""
 "לשדרג עכשיו?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
-msgstr "יש לשדרג את הכספת לפני שיתאפשר לפתוח אותה עם הגרסה הזאת של cryfs"
+msgstr ""
+"יש לשדרג את הכספת לפני שיתאפשר לשחרר את הנעילה שלה עם הגרסה הזאת של cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
-msgstr "תיקיית נקודת העגינה לא ריקה, פתיחת הכספת מסורבת"
+msgstr "תיקיית נקודת העגינה לא ריקה, שחרור נעילת הכספת מסורב"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -93,10 +86,9 @@ msgid "You entered the wrong password"
 msgstr "מילאת סיסמה שגויה"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
-msgstr "הגרסה המותקנת של cryfs ישנה מכדי לפתוח את הכספת הזאת."
+msgstr "הגרסה המותקנת של cryfs ישנה מכדי לשחרר את נעילת הכספת הזאת."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -233,28 +225,24 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "ההתקן לא אותחל. אי אפשר לייבא אותו."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "אי אפשר לפתוח כספת לא ידועה."
+msgstr "אי אפשר לשחרר נעילה של כספת לא ידועה."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "הכספת אינה מוכרת, אי אפשר לסגור אותה."
+msgstr "הכספת אינה מוכרת, אי אפשר לנעול אותה."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "לא ניתן לסגור את הכספת כיוון שיישום משתמש בה."
+msgstr "לא ניתן לנעול את הכספת כיוון שיישום משתמש בה."
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "לא ניתן לסגור את הכספת כיוון שהיישום %1 משתמש בה"
+msgstr "לא ניתן לנעול את הכספת כיוון שהיישום %1 משתמש בה"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -299,12 +287,7 @@ msgstr "שגיאה במחיקת הכספת"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -395,12 +378,10 @@ msgid "Mount point"
 msgstr "נקודת עגינה"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "פתיחת כספת הפלזמה ‚%1’"
+msgstr "שחרור נעילת כספת הפלזמה ‚%1’"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -426,17 +407,15 @@ msgid "Error details"
 msgstr "פרטי השגיאה"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "הפתיחה נכשלה: %1"
+msgstr "שחרור הנעילה נכשל: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "נא למלא את הסיסמה כדי לפתוח את הכספת הזאת:"
+msgstr "נא למלא את הסיסמה כדי לשחרר את נעילת הכספת הזאת:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -540,17 +519,15 @@ msgstr "חלונית"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "אפשר לשנות את הגדרות הכספת רק כשהיא סגורה."
+msgstr "אפשר לשנות את הגדרות הכספת רק כשהיא נעולה."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "סגירת הכספת"
+msgstr "נעילת הכספת"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
