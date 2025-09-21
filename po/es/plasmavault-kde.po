@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-19 00:44+0000\n"
-"PO-Revision-Date: 2025-06-04 19:28+0100\n"
+"PO-Revision-Date: 2025-09-20 14:52+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
 #, kde-format
@@ -618,12 +618,12 @@ msgstr "No se han configurado cajas fuertes"
 #: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Lock Vault"
-msgstr "Bloquear la caja fuerte"
+msgstr "Cerrar la caja fuerte"
 
 #: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Unlock and Open"
-msgstr "Desbloquear y abrir"
+msgstr "Abrir"
 
 #: plasma/package/contents/ui/VaultItem.qml:57
 #, kde-format
@@ -633,12 +633,12 @@ msgstr "Mostrar en el gestor de archivos"
 #: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Forcefully Lock Vault"
-msgstr "Forzar el bloqueo de la caja fuerte"
+msgstr "Forzar el cierre de la caja fuerte"
 
 #: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Unlock Vault"
-msgstr "Desbloquear la caja fuerte"
+msgstr "Abrir la caja fuerte"
 
 #: plasma/package/contents/ui/VaultItem.qml:75
 #, kde-format
