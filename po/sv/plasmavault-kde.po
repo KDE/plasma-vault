@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Stefan Asserhäll <stefan.asserhall@gmail.com>, 2017, 2018, 2019, 2020, 2021.
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2021-09-11 07:51+0200\n"
+"PO-Revision-Date: 2025-09-20 10:05+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,23 +15,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.08.1\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Stäng Plasma valvet"
+msgstr "Lås Plasma valvet"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Stäng Plasma valvet"
+msgstr "Lås upp Plasma valvet"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -70,22 +66,19 @@ msgstr ""
 "Vill du utföra uppgraderingen nu?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"Valvet måste uppgraderas innan det kan öppnas med den här versionen av cryfs"
+"Valvet måste uppgraderas innan det kan låsas upp med den här versionen av "
+"cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
-msgstr "Monteringsplatsens katalog är inte tom, vägrar att öppna valvet"
+msgstr "Monteringsplatsens katalog är inte tom, vägrar att låsa upp valvet"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -93,11 +86,10 @@ msgid "You entered the wrong password"
 msgstr "Du har skrivit in felaktigt lösenord"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
-"Den installerade versionen av cryfs är för gammal för att öppna valvet."
+"Den installerade versionen av cryfs är för gammal för att låsa upp valvet."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -237,28 +229,24 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "Enheten är inte initierad. Kan inte importera den."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Kan inte öppna ett okänt valv."
+msgstr "Kan inte låsa upp ett okänt valv."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "Valvet är okänt, kan inte stänga det."
+msgstr "Valvet är okänt, kan inte låsa det."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Kan inte stänga valvet, eftersom ett program använder det"
+msgstr "Kan inte låsa valvet, eftersom ett program använder det"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Kan inte stänga valvet, eftersom det används av %1"
+msgstr "Kan inte låsa valvet, eftersom det används av %1"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -305,12 +293,7 @@ msgstr "Fel vid borttagning av valv"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -319,7 +302,7 @@ msgid ""
 msgstr ""
 "Om valvet begränsas till vissa aktiviteter, visas det bara i miniprogrammet "
 "när de aktiviteterna används. Dessutom, om du byter till en aktivitet där "
-"det inte ska vara tillgängligt, stängs det automatiskt."
+"det inte ska vara tillgängligt, låses det automatiskt."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -401,12 +384,10 @@ msgid "Mount point"
 msgstr "Monteringsplats"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Öppna Plasma valv '%1'"
+msgstr "Lås upp Plasma valv '%1'"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -432,17 +413,15 @@ msgid "Error details"
 msgstr "Detaljerad felinformation"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Misslyckades öppna: %1"
+msgstr "Misslyckades låsa upp: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Ange lösenordet för att öppna valvet:"
+msgstr "Ange lösenordet för att låsa upp valvet:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -546,17 +525,15 @@ msgstr "Dialogruta"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "Valvinställningen kan bara ändras när det är stängt."
+msgstr "Valvinställningen kan bara ändras när det är låst."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Stäng valvet"
+msgstr "Lås valvet"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format

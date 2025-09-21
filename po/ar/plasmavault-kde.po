@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2025-08-14 11:35+0400\n"
+"PO-Revision-Date: 2025-09-20 20:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -20,20 +20,16 @@ msgstr ""
 "X-Generator: Lokalize 23.08.5\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "أغلق خزنة بلازما هذه"
+msgstr "اقفل خزنة بلازما هذه"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "أغلق خزنة بلازما هذه"
+msgstr "فك قفل خزنة بلازما هذه"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -72,22 +68,18 @@ msgstr ""
 "هل تريد إجراء الترقية الآن؟"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"تحتاج إلى ترقية الخزنة قبل أن تتمكن من فتحها بواسطة هذه الإصدارة من cryfs"
+"تحتاج إلى ترقية الخزنة قبل أن تتمكن من فك قفلها بواسطة هذه الإصدارة من cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
-msgstr "دليل نقطة الضّمّ ليس فارغًا، رُفض فتح الخزنة"
+msgstr "دليل نقطة الضّمّ ليس فارغًا، رُفض فك قفل الخزنة"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -95,10 +87,9 @@ msgid "You entered the wrong password"
 msgstr "أدخلت كلمة سرّ خاطئة"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
-msgstr "النسخة المثبّتة من cryfs قديمة بحيث لا يمكن فتح هذه الخزنة بها."
+msgstr "النسخة المثبّتة من cryfs قديمة بحيث لا يمكن فك قفل هذه الخزنة بها."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -234,28 +225,24 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "هذا الجهاز غير مهيأ. لا يمكن استيراده."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "لا يمكن فتح خزنة مجهولة."
+msgstr "لا يمكن فك قفل خزنة مجهولة."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "الخزنة مجهولة، لا يمكن إغلاقها."
+msgstr "الخزنة مجهولة، لا يمكن قفلها."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "تعذّر إغلاق الخزنة، ثمّة تطبيق يستخدمها."
+msgstr "تعذّر قفل الخزنة، ثمّة تطبيق يستخدمها."
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "تعذّر إغلاق الخزنة، %1 يستخدمها"
+msgstr "تعذّر قفل الخزنة، %1 يستخدمها"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -300,12 +287,7 @@ msgstr "خطأ في حذف الخزنة"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -314,7 +296,7 @@ msgid ""
 msgstr ""
 "إذا قصرت هذه الخزنة على أنشطة معينة فقط، فستعرض في التطبيق الصغير فقط عندما "
 "تكون في تلك الأنشطة. علاوة على ذلك، عند التبديل إلى نشاط لا ينبغي أن يكون "
-"متاحًا فيه، فسيغلق آليًّا."
+"متاحًا فيه، فستقفل آليًّا."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -396,12 +378,10 @@ msgid "Mount point"
 msgstr "نقطة الضّمّ"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "افتح خزنة بلازما '%1'"
+msgstr "فك قفل خزنة بلازما '%1'"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -427,17 +407,15 @@ msgid "Error details"
 msgstr "تفاصيل الخطأ"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "فشل فتح:  %1"
+msgstr "فشل فك قفل:  %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "يرجي إدخال كلمة السر لفتح هذه الخزنة:"
+msgstr "يرجي إدخال كلمة السر لفك قفل هذه الخزنة:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -542,17 +520,15 @@ msgstr "حواريّ"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "يمكن تغيير ضبط الخزنة عندما تكون مغلقة فقط."
+msgstr "يمكن تغيير ضبط الخزنة عندما تكون مقفلة فقط."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "أغلق الخزنة"
+msgstr "اقفل الخزنة"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format

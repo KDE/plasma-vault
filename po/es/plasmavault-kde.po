@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2025-09-19 14:07+0100\n"
+"PO-Revision-Date: 2025-09-20 14:52+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -23,13 +23,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Bloquear esta caja fuerte de Plasma"
+msgstr "Cerrar esta caja fuerte de Plasma"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
 #, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Desbloquear esta caja fuerte de Plasma"
+msgstr "Abrir esta caja fuerte de Plasma"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -74,16 +74,16 @@ msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"Necesita actualizar la caja fuerte antes de poder desbloquearla con esta "
-"versión de cryfs."
+"Necesita actualizar la caja fuerte antes de poder abrirla con esta versión "
+"de cryfs."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
 #, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
-"El directorio del punto de montaje no está vacío: se ha rechazado el "
-"desbloqueo de la caja fuerte."
+"El directorio del punto de montaje no está vacío: se ha rechazado la "
+"apertura de la caja fuerte."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -94,8 +94,8 @@ msgstr "Ha introducido una contraseña incorrecta"
 #, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
-"La versión instalada de cryfs es demasiado antigua para desbloquear esta "
-"caja fuerte."
+"La versión instalada de cryfs es demasiado antigua para abrir esta caja "
+"fuerte."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -239,23 +239,23 @@ msgstr "Este dispositivo no está inicializado. No se puede importar."
 #: kded/engine/vault.cpp:463
 #, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "No se puede desbloquear una caja fuerte desconocida."
+msgstr "No se puede abrir una caja fuerte desconocida."
 
 #: kded/engine/vault.cpp:478
 #, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "No se reconoce la caja fuerte: no se puede bloquear."
+msgstr "No se reconoce la caja fuerte: no se puede cerrar."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
 #, kde-format
 msgid "Unable to lock the vault because an application is using it"
 msgstr ""
-"No se ha podido bloquear la caja fuerte porque una aplicación la está usando."
+"No se ha podido cerrar la caja fuerte porque una aplicación la está usando."
 
 #: kded/engine/vault.cpp:520
 #, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "No se ha podido bloquear la caja fuerte porque la está usando %1."
+msgstr "No se ha podido cerrar la caja fuerte porque la está usando %1."
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -313,7 +313,7 @@ msgid ""
 msgstr ""
 "Si limita esta caja fuerte solo a ciertas actividades, se mostrará en la "
 "miniaplicación solo cuando esté en dichas actividades. Además, cuando cambie "
-"a una actividad en la que no deba estar disponible, se bloqueará "
+"a una actividad en la que no deba estar disponible, se cerrará "
 "automáticamente."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
@@ -399,7 +399,7 @@ msgstr "Punto de montaje"
 #, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Desbloquear la caja fuerte de Plasma «%1»"
+msgstr "Abrir la caja fuerte de Plasma «%1»"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -427,13 +427,13 @@ msgstr "Detalles del error"
 #: kded/ui/mountdialog.cpp:84
 #, kde-format
 msgid "Failed to unlock: %1"
-msgstr "No se ha podido desbloquear: %1"
+msgstr "No se ha podido abrir: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
 #, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Introduzca la contraseña para desbloquear esta caja fuerte:"
+msgstr "Introduzca la contraseña para abrir esta caja fuerte:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -543,13 +543,13 @@ msgstr "Diálogo"
 msgid "The vault configuration can only be changed while it is locked."
 msgstr ""
 "La configuración de la caja fuerte solo se puede modificar cuando está "
-"bloqueada."
+"cerrada."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
 #, kde-format
 msgid "Lock the vault"
-msgstr "Bloquear la caja fuerte"
+msgstr "Cerrar la caja fuerte"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
@@ -618,12 +618,12 @@ msgstr "No se han configurado cajas fuertes"
 #: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Lock Vault"
-msgstr "Bloquear la caja fuerte"
+msgstr "Cerrar la caja fuerte"
 
 #: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Unlock and Open"
-msgstr "Desbloquear y abrir"
+msgstr "Abrir"
 
 #: plasma/package/contents/ui/VaultItem.qml:57
 #, kde-format
@@ -633,12 +633,12 @@ msgstr "Mostrar en el gestor de archivos"
 #: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Forcefully Lock Vault"
-msgstr "Forzar el bloqueo de la caja fuerte"
+msgstr "Forzar el cierre de la caja fuerte"
 
 #: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Unlock Vault"
-msgstr "Desbloquear la caja fuerte"
+msgstr "Abrir la caja fuerte"
 
 #: plasma/package/contents/ui/VaultItem.qml:75
 #, kde-format
