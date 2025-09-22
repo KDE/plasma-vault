@@ -1,16 +1,15 @@
 # Spanish translations for plasmavault-kde.po package.
-# Copyright (C) 2017 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
+# Copyright (C) 2017-2025 This file is copyright:
+# This file is distributed under the same license as the plasma-vault package.
 # Automatically generated, 2017.
-# Eloy <ecuadra@eloihr.net>, 2017.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2017, 2018, 2019, 2020, 2021.
+#
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2021-09-10 12:18+0200\n"
+"PO-Revision-Date: 2025-09-22 01:31+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -405,7 +404,7 @@ msgstr "Abrir la fuerte de Plasma «%1»"
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
 msgid "Details…"
-msgstr "Detalles..."
+msgstr "Detalles…"
 
 #: kded/ui/mountdialog.cpp:38
 #, kde-format
@@ -742,7 +741,7 @@ msgstr "Anterior"
 #: plasma/package/contents/ui/main.qml:36
 #, kde-format
 msgid "Create a New Vault…"
-msgstr "Crear una nueva caja fuerte..."
+msgstr "Crear una nueva caja fuerte…"
 
 #: plasma/package/contents/ui/main.qml:84
 #, kde-format
@@ -777,31 +776,4 @@ msgstr "Desbloquear la caja fuerte"
 #: plasma/package/contents/ui/VaultItem.qml:61
 #, kde-format
 msgid "Configure Vault…"
-msgstr "Configurar la caja fuerte..."
-
-#~ msgid "Create a New Vault..."
-#~ msgstr "Crear una nueva caja fuerte..."
-
-#~ msgid "Unlock and Show in File Manager"
-#~ msgstr "Desbloquear y mostrar en el gestor de archivos"
-
-#~ msgid "Open vault"
-#~ msgstr "Abrir caja fuerte"
-
-#~ msgid "Plasma Vault"
-#~ msgstr "Cajas fuertes de Plasma"
-
-#~ msgid "Activities"
-#~ msgstr "Actividades"
-
-#~ msgid "cryfs: %1"
-#~ msgstr "cryfs: %1"
-
-#~ msgid "fusermount: %1"
-#~ msgstr "fusermount: %1"
-
-#~ msgid "encfs: %1"
-#~ msgstr "encfs: %1"
-
-#~ msgid "encfsctl: %1"
-#~ msgstr "encfsctl: %1"
+msgstr "Configurar la caja fuerte…"
