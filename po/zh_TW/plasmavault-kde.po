@@ -1,39 +1,35 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the plasma-vault package.
 #
 # pan93412 <pan93412@gmail.com>, 2019, 2020.
 # Chaoting Liu <brli@chakralinux.org>, 2021.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2022-12-30 18:50+0900\n"
+"PO-Revision-Date: 2025-09-22 04:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "關閉此 Plasma 儲存庫"
+msgstr "鎖定此 Plasma 儲存庫"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "關閉此 Plasma 儲存庫"
+msgstr "解鎖此 Plasma 儲存庫"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -71,21 +67,17 @@ msgstr ""
 "是否馬上升級？"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
-msgstr "需要升級儲存庫才能以此 CryFS 版本開啟"
+msgstr "需要升級儲存庫才能以此 CryFS 版本解鎖"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
-msgstr "掛載點目錄不是空的，拒絕開啟儲存庫"
+msgstr "掛載點目錄不是空的，拒絕解鎖儲存庫"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -93,10 +85,9 @@ msgid "You entered the wrong password"
 msgstr "輸入密碼錯誤"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
-msgstr "因安裝的 CryFS 版本過舊而無法開啟此儲存庫。"
+msgstr "因安裝的 CryFS 版本過舊而無法解鎖此儲存庫。"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -232,28 +223,24 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "此裝置未經初始化，無法匯入。"
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "無法開啟未知儲存庫。"
+msgstr "無法解鎖未知儲存庫。"
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "未知儲存庫；無法關閉。"
+msgstr "未知儲存庫；無法鎖定。"
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "無法關閉儲存庫 ，其他應用程式使用中"
+msgstr "無法鎖定儲存庫 - 其他應用程式使用中"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "無法關閉儲存庫 - 因 %1 正在使用該儲存庫"
+msgstr "無法鎖定儲存庫 - 因 %1 正在使用該儲存庫"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -298,12 +285,7 @@ msgstr "刪除儲存庫出錯"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -311,7 +293,7 @@ msgid ""
 "locked."
 msgstr ""
 "若限制此儲存庫於特定活動，則僅當使用者處於該活動中時，儲存庫才會在元件中顯"
-"示。此外，當您切換到其他非指定活動時，儲存庫將自動關閉。"
+"示。此外，當您切換到其他非指定活動時，儲存庫將自動鎖定。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -393,12 +375,10 @@ msgid "Mount point"
 msgstr "掛載點"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "開啟 Plasma 儲存庫 %1"
+msgstr "解鎖 Plasma 儲存庫 %1"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -424,17 +404,15 @@ msgid "Error details"
 msgstr "錯誤詳細資訊"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "無法開啟：%1"
+msgstr "無法解鎖：%1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "請輸入用來開啟此儲存庫的密碼："
+msgstr "請輸入密碼來解鎖此儲存庫："
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -536,17 +514,15 @@ msgstr "對話框"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "儲存庫只能在關閉時變更設定。"
+msgstr "儲存庫設定只能在已鎖定時變更。"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "關閉儲存庫"
+msgstr "鎖定儲存庫"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
