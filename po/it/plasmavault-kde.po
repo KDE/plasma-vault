@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the plasmavault-kde package.
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2017, 2018, 2019, 2020, 2021.
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2025 Luigi Toscano <luigi.toscano@tiscali.it>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2021-09-14 23:29+0200\n"
+"PO-Revision-Date: 2025-09-20 21:43+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,23 +15,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.08.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Chiudi questo caveau di Plasma"
+msgstr "Blocca questo caveau di Plasma"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Chiudi questo caveau di Plasma"
+msgstr "Sblocca questo caveau di Plasma"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -71,24 +67,20 @@ msgstr ""
 "Vuoi effettuare l'aggiornamento adesso?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"Il caveau deve essere aggiornato prima di poter essere aperto con questa "
+"Il caveau deve essere aggiornato prima di poter essere sbloccato con questa "
 "versione di cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
-"La cartella punto di montaggio non è vuota, l'apertura del caveau è stata "
+"La cartella punto di montaggio non è vuota, lo sblocco del caveau è stata "
 "rifiutata"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
@@ -97,11 +89,10 @@ msgid "You entered the wrong password"
 msgstr "Hai inserito la password sbagliata"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
-"La versione installata di cryfs è troppo vecchia per aprire questo caveau."
+"La versione installata di cryfs è troppo vecchia per sbloccare questo caveau."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -243,28 +234,24 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "Il dispositivo non è inizializzato. Non è possibile importarlo."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Impossibile aprire un caveau sconosciuto."
+msgstr "Impossibile sbloccare un caveau sconosciuto."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "Il caveau è sconosciuto; non è possibile chiuderlo."
+msgstr "Il caveau è sconosciuto; non è possibile bloccarlo."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Impossibile chiudere il caveau perché un'applicazione lo sta usando"
+msgstr "Impossibile bloccare il caveau perché un'applicazione lo sta usando"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Impossibile chiudere il caveau, perché è usato da %1"
+msgstr "Impossibile bloccare il caveau, perché è usato da %1"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -313,12 +300,7 @@ msgstr "Errore durante l'eliminazione del caveau"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -327,7 +309,7 @@ msgid ""
 msgstr ""
 "Se limiti questo caveau solo ad alcune attività, sarà mostrato nell'applet "
 "solo quando ti trovi in quelle attività. Inoltre, quando passi ad "
-"un'attività in cui non dovrebbe essere disponibile, sarà chiuso "
+"un'attività in cui non dovrebbe essere disponibile, sarà bloccato "
 "automaticamente."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
@@ -410,12 +392,10 @@ msgid "Mount point"
 msgstr "Punto di montaggio"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Apri il caveau di Plasma «%1»"
+msgstr "Sblocca il caveau di Plasma «%1»"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -441,17 +421,15 @@ msgid "Error details"
 msgstr "Dettagli errore"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Impossibile aprire: %1"
+msgstr "Impossibile sbloccare: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Inserisci la password per aprire questo caveau:"
+msgstr "Inserisci la password per sbloccare questo caveau:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -557,17 +535,16 @@ msgstr "Finestra di dialogo"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "La configurazione del caveau può essere cambiata solo quando è chiuso."
+msgstr ""
+"La configurazione del caveau può essere cambiata solo quando è bloccato."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Chiudi il caveau"
+msgstr "Blocca il caveau"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format

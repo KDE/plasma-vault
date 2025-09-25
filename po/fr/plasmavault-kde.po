@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2020, 2021, 2024 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2020, 2021, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Johan Claude-Breuninger <johan.claudebreuninger@gmail.com>, 2017, 2018.
 # Vincent Pinon <vpinon@kde.org>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019, 2020.
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2024-05-03 09:36+0200\n"
+"PO-Revision-Date: 2025-09-20 10:26+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -15,26 +15,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.08.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Fermer ce coffre-fort de Plasma"
+msgstr "Verrouiller ce coffre-fort de Plasma"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Fermer ce coffre-fort de Plasma"
+msgstr "Déverrouiller ce coffre-fort de Plasma"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -74,25 +70,21 @@ msgstr ""
 "Voulez-vous réaliser la mise à niveau maintenant ?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"Le coffre-fort doit être mis à niveau avant de pouvoir être ouvert par cette "
-"version de cryfs."
+"Le coffre-fort doit être mis à niveau avant de pouvoir être déverrouillé par "
+"cette version de cryfs."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
-"Le dossier de point de montage n'est pas vide, l'ouverture du coffre-fort "
-"est refusée"
+"Le dossier du point de montage n'est pas vide. Le déverrouillage du coffre-"
+"fort est refusé."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -100,10 +92,10 @@ msgid "You entered the wrong password"
 msgstr "Vous avez saisi un mot de passe incorrect"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
-msgstr "Cette version de cryfs est trop ancienne pour ouvrir ce coffre-fort."
+msgstr ""
+"La version de cryfs est trop ancienne pour déverrouiller ce coffre-fort."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -246,29 +238,26 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "Ce périphérique n'est pas initialisé. Impossible de l'importer."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Impossible d'ouvrir un coffre-fort inconnu."
+msgstr "Impossible de déverrouiller un coffre-fort inconnu."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "Le coffre-fort est inconnu ; impossible de le fermer."
+msgstr "Le coffre-fort est inconnu. Impossible de le verrouiller."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
 msgstr ""
-"Impossible de fermer le coffre-fort, car il est utilisé par une application"
+"Impossible de verrouiller le coffre-fort car il est utilisé par une "
+"application"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Impossible de fermer le coffre-fort, car il est utilisé par %1"
+msgstr "Impossible de verrouiller le coffre-fort car il est utilisé par %1"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -314,12 +303,7 @@ msgstr "Erreur lors de la suppression du coffre-fort"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -328,8 +312,8 @@ msgid ""
 msgstr ""
 "Si vous limitez le coffre-fort uniquement à certaines activités, il sera "
 "affiché dans l'applet uniquement si vous êtes dans ces activités. De plus, "
-"lorsque vous passez à une activité dans laquelle il ne devrait pas être "
-"disponible, il sera automatiquement fermé."
+"lorsque vous passez à une autre activité dans laquelle il ne devrait pas "
+"être disponible, il sera automatiquement verrouillé."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -413,12 +397,10 @@ msgid "Mount point"
 msgstr "Point de montage"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Ouvrir le Plasma Vault « %1 »"
+msgstr "Déverrouiller le coffre-fort « %1 » de Plasma"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -444,17 +426,15 @@ msgid "Error details"
 msgstr "Détails de l'erreur"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Impossible d'ouvrir : %1"
+msgstr "Impossible de déverrouiller : %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Veuillez saisir le mot de passe pour ouvrir ce coffre-fort :"
+msgstr "Veuillez saisir le mot de passe pour déverrouiller ce coffre-fort :"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -560,19 +540,17 @@ msgstr "Dialogue"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
 msgstr ""
-"La configuration du coffre-fort peut être changée uniquement lorsqu'il est "
-"fermé."
+"La configuration du coffre-fort ne peut être modifiée que lorsqu'il est "
+"verrouillé."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Fermer le coffre-fort"
+msgstr "Verrouiller le coffre-fort"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
