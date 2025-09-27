@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # SPDX-FileCopyrightText: 2017, 2018, 2025 Alexander Potashev <aspotashev@gmail.com>
-# Alexander Yavorsky <kekcuha@gmail.com>, 2019, 2020, 2021.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2025 Alexander Yavorsky <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2025-09-09 23:26+0200\n"
-"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
+"PO-Revision-Date: 2025-09-26 13:16+0200\n"
+"Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -17,23 +17,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Закрыть эту зашифрованную папку"
+msgstr "Заблокировать эту зашифрованную папку"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Закрыть эту зашифрованную папку"
+msgstr "Разблокировать эту зашифрованную папку"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -73,24 +69,21 @@ msgstr ""
 "Выполнить обновление сейчас?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"Чтобы открыть данную зашифрованную папку при помощи текущей версии CryFS, "
-"папку необходимо обновить"
+"Зашифрованную папку нужно обновить, прежде чем её можно будет разблокировать "
+"этой версией cryfs."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
-"Каталог точки подключения не пуст, невозможно открыть зашифрованную папку"
+"Каталог точки подключения не пуст, невозможно разблокировать зашифрованную "
+"папку"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -98,12 +91,11 @@ msgid "You entered the wrong password"
 msgstr "Вы ввели неверный пароль."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
-"Установленная версия CryFS слишком старая, поэтому не способна работать с "
-"этой зашифрованной папкой."
+"Установленная версия cryfs слишком старая, поэтому не может быть "
+"использована для разблокирования этой зашифрованной папки."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -249,28 +241,25 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "Это устройство не инициализировано, его импорт невозможен."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Зашифрованная папка неизвестна, открыть её невозможно."
+msgstr "Зашифрованная папка неизвестна, разблокировать её невозможно."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "Невозможно закрыть зашифрованную папку, потому что она неизвестна."
+msgstr ""
+"Невозможно заблокировать зашифрованную папку, потому что она неизвестна."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Невозможно закрыть папку, она используется приложением"
+msgstr "Невозможно заблокировать папку, она используется приложением"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Невозможно закрыть папку, она используется %1"
+msgstr "Невозможно заблокировать папку, она используется %1"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -318,12 +307,7 @@ msgstr "Ошибка удаления зашифрованной папки"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -333,7 +317,7 @@ msgstr ""
 "Если ограничить работу с зашифрованной папкой некоторыми комнатами, она "
 "будет видна в виджете только в выбранных комнатах. При переключении на "
 "комнату, в которой папка не видна, зашифрованная папка будет автоматически "
-"закрыта."
+"заблокирована."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -415,12 +399,10 @@ msgid "Mount point"
 msgstr "Точка подключения:"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Открыть зашифрованную папку «%1»"
+msgstr "Разблокировать зашифрованную папку «%1»"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -446,17 +428,15 @@ msgid "Error details"
 msgstr "Подробные сведения об ошибке"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Не удалось открыть: %1"
+msgstr "Не удалось разблокировать: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Введите пароль для открытия этой зашифрованной папки:"
+msgstr "Введите пароль для разблокирования этой зашифрованной папки:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -563,17 +543,16 @@ msgstr "Диалог"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "Параметры можно менять, только когда зашифрованная папка закрыта."
+msgstr ""
+"Параметры можно менять, только когда зашифрованная папка заблокирована."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Закрыть зашифрованную папку"
+msgstr "Заблокировать зашифрованную папку"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
