@@ -654,7 +654,3 @@ msgstr "Lås opp datakvelv"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Set opp datakvelv …"
-
-#~ msgctxt "@action Action to mount a vault"
-#~ msgid "Open this Plasma Vault"
-#~ msgstr "Opna Plasma-datakvelvet"
