@@ -19,20 +19,16 @@ msgstr ""
 "X-Generator: Lokalize 21.08.1\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Zavřít tento Sejf Plasma"
+msgstr ""
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Zavřít tento Sejf Plasma"
+msgstr ""
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -73,10 +69,9 @@ msgstr ""
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
-msgstr "Adresář přípojného bodu není prázdný. Otevření sejfu zamítnuto."
+msgstr ""
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -84,10 +79,9 @@ msgid "You entered the wrong password"
 msgstr "Zadali jste neplatné heslo"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
-msgstr "Nainstalovaná verze cryfs je pro otevření tohoto sejfu příliš stará."
+msgstr ""
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -223,10 +217,9 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "Toto zařízení není inicializováno. Nelze jej importovat."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Nelze otevřít neznámý sejf."
+msgstr ""
 
 #: kded/engine/vault.cpp:478
 #, kde-format
@@ -234,16 +227,14 @@ msgid "The vault is unknown; cannot lock it."
 msgstr ""
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Sejf nejde zavřít protože je používán aplikací"
+msgstr ""
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Sejf nejde zavřít protože je používán aplikací"
+msgstr ""
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -376,12 +367,10 @@ msgid "Mount point"
 msgstr "Přípojný bod"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Zavřít tento Sejf Plasma"
+msgstr ""
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -403,10 +392,9 @@ msgid "Error details"
 msgstr "Podrobnosti chyb"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Otevření selhalo: %1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
@@ -514,17 +502,15 @@ msgstr "Dialog"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "Nastavení sejfu lze změnit pouze pokud je uzavřen."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Zavřít sejf"
+msgstr ""
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
@@ -617,7 +603,3 @@ msgstr "Odemknout sejf"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Nastavit sejf…"
-
-#~ msgctxt "@action Action to mount a vault"
-#~ msgid "Open this Plasma Vault"
-#~ msgstr "Otevřít tento Sejf Plasma"
