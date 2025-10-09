@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2017, 2018, 2019, 2020, 2021.
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2021-11-12 01:21+0100\n"
+"PO-Revision-Date: 2025-10-09 01:32+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,23 +15,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "이 Plasma 비밀 공간 닫기"
+msgstr "이 Plasma 비밀 공간 잠금"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "이 Plasma 비밀 공간 닫기"
+msgstr "이 Plasma 비밀 공간 잠금 해제"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -70,21 +66,18 @@ msgstr ""
 "지금 업그레이드하시겠습니까?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
-msgstr "이 비밀 공간을 현재 버전의 cryfs에서 열려면 업그레이드해야 함"
+msgstr "이 비밀 공간을 현재 버전의 cryfs에서 잠금 해제하려면 업그레이드해야 함"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
-msgstr "마운트 지점 디렉터리가 비어 있지 않아서 비밀 공간을 열지 않음"
+msgstr ""
+"마운트 지점 디렉터리가 비어 있지 않아서 비밀 공간의 잠금을 해제하지 않음"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -92,10 +85,11 @@ msgid "You entered the wrong password"
 msgstr "암호가 잘못되었습니다"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
-msgstr "이 비밀 공간을 열기에는 현재 설치된 cryfs 버전이 너무 오래 되었습니다."
+msgstr ""
+"이 비밀 공간의 잠금을 해제하기에는 현재 설치된 cryfs 버전이 너무 오래 되었습"
+"니다."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -232,28 +226,24 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "장치가 초기화되지 않았습니다. 가져올 수 없습니다."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "알 수 없는 비밀 공간을 열 수 없습니다."
+msgstr "알 수 없는 비밀 공간의 잠금을 해제할 수 없습니다."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "비밀 공간을 알 수 없어서 닫을 수 없습니다."
+msgstr "비밀 공간을 알 수 없어서 잠글 수 없습니다."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "앱에서 비밀 공간을 사용하고 있어서 닫을 수 없음"
+msgstr "앱에서 비밀 공간을 사용하고 있어서 잠글 수 없음"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "%1에서 비밀 공간을 사용하고 있어서 닫을 수 없음"
+msgstr "%1에서 비밀 공간을 사용하고 있어서 잠글 수 없음"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -299,12 +289,7 @@ msgstr "비밀 공간 삭제 오류"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -313,7 +298,7 @@ msgid ""
 msgstr ""
 "이 비밀 공간을 특정 활동으로 제한하면 해당 활동이 활성화되어 있을 때에만 비"
 "밀 공간을 표시합니다. 해당 비밀 공간이 활성화되어 있지 않은 활동으로 전환하"
-"면 비밀 공간을 자동으로 닫습니다."
+"면 비밀 공간을 자동으로 잠급니다."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -395,12 +380,10 @@ msgid "Mount point"
 msgstr "마운트 지점"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "'%1' Plasma 비밀 공간 열기"
+msgstr "'%1' Plasma 비밀 공간 잠금 해제"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -426,17 +409,15 @@ msgid "Error details"
 msgstr "자세한 오류 정보"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "열 수 없음: %1"
+msgstr "잠금 해제할 수 없음: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "비밀 공간을 열려면 암호를 입력하십시오:"
+msgstr "비밀 공간의 잠금을 해제하려면 암호를 입력하십시오:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -541,17 +522,15 @@ msgstr "대화 상자"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "비밀 공간 설정을 변경하려면 먼저 닫아야 합니다."
+msgstr "비밀 공간 설정을 변경하려면 먼저 잠가야 합니다."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "비밀 공간 닫기"
+msgstr "비밀 공간 잠금"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format

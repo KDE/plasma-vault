@@ -2,36 +2,33 @@
 # This file is distributed under the same license as the plasma-vault package.
 #
 # SPDX-FileCopyrightText: 2023, 2024 Guðmundur Erlingsson <gudmundure@gmail.com>
+# SPDX-FileCopyrightText: 2025 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2024-02-14 10:19+0000\n"
-"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-10-08 12:53+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Loka þessari Plasma öryggisgeymslu"
+msgstr "Læsa þessari Plasma-öryggisgeymslu"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Loka þessari Plasma öryggisgeymslu"
+msgstr "Aflæsa þessari Plasma-öryggisgeymslu"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -71,23 +68,19 @@ msgstr ""
 "Viltu uppfæra núna?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"Uppfæra þarf öryggisgeymsluna til að hægt sé að opna hana með þessari útgáfu "
-"af cryfs"
+"Uppfæra þarf öryggisgeymsluna til að hægt sé að aflæsa henni með þessari "
+"útgáfu af cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
-msgstr "Tengipunktsmappan er ekki tóm, neita að opna öryggisgeymsluna"
+msgstr "Tengipunktsmappan er ekki tóm, neita að aflæsa öryggisgeymslunni"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -95,11 +88,10 @@ msgid "You entered the wrong password"
 msgstr "Þú slóst inn rangt lykilorð"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
-"Uppsetta útgáfan af cryfs er of gömul til að geta opnað öryggisgeymsluna."
+"Uppsetta útgáfan af cryfs er of gömul til að geta aflæst öryggisgeymslunni."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -239,28 +231,24 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "Þetta tæki er ekki frumstillt. Get ekki flutt það inn."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
 msgstr "Get ekki opnað óþekkta öryggisgeymslu."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "Öryggisgeymslan er óþekkt, get ekki lokað henni."
+msgstr "Öryggisgeymslan er óþekkt, get ekki læst henni."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Get ekki lokað öryggisgeymslunni þar sem forrit er að nota hana"
+msgstr "Get ekki læst öryggisgeymslunni þar sem forrit er að nota hana"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Get ekki lokað öryggisgeymslu þar sem %1 er að nota hana"
+msgstr "Get ekki læst öryggisgeymslunni þar sem %1 er að nota hana"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -307,19 +295,14 @@ msgstr "Villa við að eyða öryggisgeymslu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
 "to an activity it should not be available in, it will automatically be "
 "locked."
 msgstr ""
-"Ef þú takmarkar þessa öryggisgeymslu aðeins við tilteknar athafnir birtist "
+"Ef þú takmarkar þessa öryggisgeymslu aðeins við tilteknar athafnir, birtist "
 "hún bara í smáforritinu þegar þú ert í þeim athöfnum. Þegar þú skiptir svo "
 "yfir í athöfn þar sem hún á ekki að vera í boði verður henni sjálfkrafa "
 "lokað."
@@ -404,12 +387,10 @@ msgid "Mount point"
 msgstr "Tengipunktur"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Opna '%1' Plasma öryggisgeymslu"
+msgstr "Aflæsa '%1' Plasma-öryggisgeymslu"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -442,10 +423,9 @@ msgstr "Mistókst að opna: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Sláðu inn lykilorð til að opna öryggisgeymsluna:"
+msgstr "Settu inn lykilorð til að aflæsa öryggisgeymslunni:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -551,19 +531,17 @@ msgstr "Svargluggi"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
 msgstr ""
-"Grunnstillingum öryggisgeymslunnar er aðeis hægt að breyta þegar hún er "
-"lokuð."
+"Grunnstillingum öryggisgeymslunnar er aðeins hægt að breyta þegar hún er "
+"læst."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Loka öryggisgeymslunni"
+msgstr "Læsa öryggisgeymslunni"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
