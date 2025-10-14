@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Tommi Nieminen <translator@legisign.org>, 2018, 2019, 2020, 2021.
+# SPDX-FileCopyrightText: 2018, 2019, 2020, 2021, 2025 Tommi Nieminen <translator@legisign.org>
 # SPDX-FileCopyrightText: 2024 Kimmo Kujansuu <mrkujansuu@gmail.com>
 #
 msgid ""
@@ -8,30 +8,27 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-19 00:44+0000\n"
-"PO-Revision-Date: 2024-02-06 00:05+0200\n"
-"Last-Translator: Kimmo Kujansuu <mrkujansuu@gmail.com>\n"
+"PO-Revision-Date: 2025-10-02 18:32+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Sulje tämä Plasma-holvi"
+msgstr "Lukitse tämä Plasma-holvi"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Sulje tämä Plasma-holvi"
+msgstr "Avaa tämän Plasma-holvin lukitus"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -70,21 +67,20 @@ msgstr ""
 "Haluatko päivittää nyt?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
-msgstr "Holvi on päivitettävä ennen kuin sen voi avata tällä cryfsin versiolla"
+msgstr ""
+"Holvi on päivitettävä ennen kuin sen lukituksen voi avata tällä cryfsin "
+"versiolla"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
-msgstr "Liitospistekansio ei ole tyhjä: holvia ei voi avata"
+msgstr ""
+"Liitospistekansio ei ole tyhjä: kieltäydytään holvin lukituksen avaamisesta"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -92,10 +88,10 @@ msgid "You entered the wrong password"
 msgstr "Annoit väärän salasanan"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
-msgstr "cryfsin asennettu versio on liian vanha tämän holvin avaamiseen."
+msgstr ""
+"cryfsin asennettu versio on liian vanha tämän holvin lukituksen avaamiseen."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -233,28 +229,24 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "Laitetta ei ole alustettu: sitä ei voi tuoda."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Tuntematonta holvia ei voi avata."
+msgstr "Tuntemattoman holvin lukitusta ei voi avata."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "Holvi on tuntematon, joten sitä ei voi sulkea."
+msgstr "Holvi on tuntematon: sitä ei voi lukita."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Holvia ei voi sulkea, koska sovellus käyttää sitä"
+msgstr "Holvia ei voi lukita, koska sovellus käyttää sitä"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Holvia ei voi sulkea, koska %1 käyttää sitä"
+msgstr "Holvia ei voi lukita, koska %1 käyttää sitä"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -299,21 +291,16 @@ msgstr "Virhe poistettaessa holvia"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
 "to an activity it should not be available in, it will automatically be "
 "locked."
 msgstr ""
-"Jos rajoitat holvin vain tietyille aktiviteeteille, se näkyy sovelmana vain "
-"ollessasi jossakin niistä. Lisäksi vaihtaessasi aktiviteettiin, jolle holvi "
-"ei ole käytössä, holvi suljetaan automaattisesti."
+"Jos holvin rajoittaa vain tiettyihin aktiviteetteihin, sovelma näkyy vain "
+"ollessasi jossakin niistä. Lisäksi vaihtaessasi aktiviteettiin, jossa holvi "
+"ei ole käytössä, se automaattisesti lukitaan."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -395,12 +382,10 @@ msgid "Mount point"
 msgstr "Liitospiste"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Avaa Plasma-holvi ”%1”"
+msgstr "Avaa Plasma-holvin ”%1” lukitus"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -426,17 +411,15 @@ msgid "Error details"
 msgstr "Virheen yksityiskohdat"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Ei voitu avata: %1"
+msgstr "Lukitusta ei voi avata: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Anna tämän holvin avaava salasana:"
+msgstr "Anna tämän holvin lukituksen avaava salasana:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -540,17 +523,15 @@ msgstr "Valintaikkuna"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "Holvin asetuksia voi muuttaa vain, kun se ei ole auki."
+msgstr "Holvin asetuksia voi muuttaa vain, kun se ei ole lukittu."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Sulje holvi"
+msgstr "Lukitse holvi"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
