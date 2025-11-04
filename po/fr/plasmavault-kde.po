@@ -140,7 +140,7 @@ msgstr "Impossible de détecter la version"
 #, kde-format
 msgid "Unable to detect the version, the version string is invalid"
 msgstr ""
-"Impossible de détecter la version. La chaîne de la version est non valable."
+"Impossible de détecter la version. La chaine de la version est non valable."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
 #, kde-format
