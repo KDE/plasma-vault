@@ -635,7 +635,3 @@ msgstr "Отключване на трезор"
 #, kde-format
 msgid "Configure Vault…"
 msgstr "Конфигуриране на трезор…"
-
-#~ msgctxt "@action Action to mount a vault"
-#~ msgid "Open this Plasma Vault"
-#~ msgstr "Отваряне на трезора"
