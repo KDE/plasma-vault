@@ -16,7 +16,7 @@ import org.kde.plasma.plasmoid
 PlasmaExtras.ExpandableListItem {
     id: root
 
-    required property int index
+    required index
     required property var model
 
     readonly property var vaultsModelActions: Plasmoid.vaultsModel.actionsModel()
