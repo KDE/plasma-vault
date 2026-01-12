@@ -45,7 +45,8 @@ msgstr "%1: %2"
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:77
 #, kde-format
 msgid "Failed to create directories, check your permissions"
-msgstr "No s'han pogut crear els directoris, comproveu els vostres permisos"
+msgstr ""
+"Ha fallat mentre es creaven els directoris, comproveu els vostres permisos"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:131
 #, kde-format
@@ -129,7 +130,7 @@ msgstr ""
 #: kded/engine/fusebackend_p.cpp:165
 #, kde-format
 msgid "Failed to execute"
-msgstr "No s'ha pogut executar"
+msgstr "Ha fallat mentre s'executava"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
@@ -263,8 +264,8 @@ msgstr "No s'ha pogut tancar la caixa forta perquè l'està utilitzant %1"
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr ""
-"No s'ha pogut recuperar la llista d'aplicacions que utilitzen esta caixa "
-"forta"
+"Ha fallat mentre es recuperava la llista d'aplicacions que utilitzen esta "
+"caixa forta"
 
 #: kded/engine/vault.cpp:604
 #, kde-format
@@ -302,7 +303,7 @@ msgstr "S'ha cancel·lat l'operació de supressió"
 #: kded/service.cpp:440
 #, kde-format
 msgid "Error deleting vault"
-msgstr "S'ha produït un error en suprimir la caixa forta"
+msgstr "S'ha produït un error mentre se suprimia la caixa forta"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
@@ -430,7 +431,7 @@ msgstr "Detalls de l'error"
 #: kded/ui/mountdialog.cpp:83
 #, kde-format
 msgid "Failed to open: %1"
-msgstr "No s'ha pogut obrir: %1"
+msgstr "Ha fallat mentre s'obria: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:62
