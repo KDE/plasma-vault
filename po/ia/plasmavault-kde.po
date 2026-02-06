@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the plasma-vault package.
 #
-# giovanni <g.sora@tiscali.it>, 2021, 2022.
+# SPDX-FileCopyrightText: 2021, 2022, 2026 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2022-01-24 14:05+0100\n"
+"PO-Revision-Date: 2026-02-05 16:57+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,23 +15,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Claude iste Plasma Vault (Cellario de Plasma)"
+msgstr "Serra iste Plasma Vault (Cellario de Plasma)"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Claude iste Plasma Vault (Cellario de Plasma)"
+msgstr "Disserra iste Plasma Vault (Cellario de Plasma)"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -71,25 +67,21 @@ msgstr ""
 "Tu vole exequer le actualisation nunc?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"Le cellario necessita esser actualisate ante poter esser aperite con iste "
+"Le cellario necessita esser actualisate ante poter esser disserrate con iste "
 "version de cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
-"Le directorio del puncto de montage non es vacue, assi que il refusa aperir "
-"le cellario"
+"Le directorio del puncto de montage non es vacue, assi que il refusa "
+"disserrarle cellario"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -97,11 +89,10 @@ msgid "You entered the wrong password"
 msgstr "Tu insertava le contrasigno errate"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
-"Le version installate de cryfs es troppo vetule per aperir iste cellario."
+"Le version installate de cryfs es troppo vetule per disserrar iste cellario."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
@@ -244,28 +235,24 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "Iste dispositivo non es initialisate. Non pote importar lo."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Non pote aperir un cellario vacue."
+msgstr "Non pote disserrar un cellario incognite."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "Le cellario es incognite; non pote clauder lo."
+msgstr "Le cellario es incognite; non pote serrar lo."
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Incapace a clauder le cellario proque un application es usante illo"
+msgstr "Incapace a serrar le cellario proque un application es usante illo"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Incapace a clauder le cellario proque illo es usate per %1"
+msgstr "Incapace a serrar le cellario proque illo es usate per %1"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
@@ -311,12 +298,7 @@ msgstr "Error delente cellario"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -326,7 +308,7 @@ msgstr ""
 "Si tu limita iste cellario solmente a certe activitates, illo essera "
 "monstrate in le applet solmente quando tu es in celle activitates. In ultra, "
 "quando tu commuta a un activitate ubi illo non deberea esser disponibile, "
-"illo essera claudite automaticamente."
+"illo essera serrate automaticamente."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -408,12 +390,10 @@ msgid "Mount point"
 msgstr "Puncto de montage"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Aperi '%1' Plasma Vault (Cellario de Plasma)"
+msgstr "Disserra '%1' Plasma Vault (Cellario de Plasma)"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -439,17 +419,15 @@ msgid "Error details"
 msgstr "Detalios de error"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Falleva aperir : %1"
+msgstr "Falleva a disserrar : %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Pro favor inserta le contrasigno per aperir iste cellario:"
+msgstr "Pro favor inserta le contrasigno per disserrar iste cellario:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -555,19 +533,17 @@ msgstr "Dialogo"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
 msgstr ""
 "Le configuration de cellario pote esser modificate solmente quando illo es "
-"claudite."
+"serrate."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Claude le cellario"
+msgstr "Serra le cellario"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
