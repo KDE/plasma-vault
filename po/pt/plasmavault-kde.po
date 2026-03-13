@@ -1,16 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2026 André Barata <andretiagob@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2021-10-29 09:32+0100\n"
-"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
-"Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
+"PO-Revision-Date: 2026-03-04 22:25+0000\n"
+"Last-Translator: André Barata <andretiagob@protonmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,22 +18,19 @@ msgstr ""
 "X-POFile-SpellExtra: wrap Encfs white Defuse Security Cloud Vault cryfs\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-POFile-SpellExtra: gocryptfs conf\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Fechar este Cofre do Plasma"
+msgstr "Bloquear este Cofre do Plasma"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Fechar este Cofre do Plasma"
+msgstr "Desbloquear este Cofre do Plasma"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -47,12 +43,12 @@ msgstr "%1: %2"
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:77
 #, kde-format
 msgid "Failed to create directories, check your permissions"
-msgstr "Não foi possível criar as pastas; verifique as suas permissões"
+msgstr "Não foi possível criar os diretórios. Verifique as suas permissões"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:131
 #, kde-format
 msgid "Upgrade the vault?"
-msgstr "Actualizar o cofre?"
+msgstr "Atualizar o Cofre?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:132
 #, kde-format
@@ -65,70 +61,68 @@ msgid ""
 "\n"
 "Do you want to perform the upgrade now?"
 msgstr ""
-"Este cofre foi criado com uma versão anterior do 'cryfs' e precisa de ser "
-"actualizada.\n"
+"Este Cofre foi criado com uma versão anterior do 'cryfs' e necessita de ser "
+"atualizado.\n"
 "\n"
-"Lembre-se que este processo é irreversível e o cofre deixará de funcionar "
-"com as versões mais antigas do 'cryfs'.\n"
+"Tenha atenção de que este processo é irreversível e o Cofre deixará de "
+"funcionar com as versões mais antigas do 'cryfs'.\n"
 "\n"
-"Deseja efectuar a actualização agora?"
+"Pretende efetuar a atualização agora?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"O cofre precisa de ser actualizado antes de poder ser aberto com esta versão "
-"do 'cryfs'"
+"O Cofre necessita de ser atualizado antes de poder ser desbloqueado com esta "
+"versão do 'cryfs'"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:43
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
-"A pasta do ponto de montagem não está vazia; o pedido de abertura do cofre "
-"foi recusado"
+"O pedido para desbloquear o Cofre foi recusado porque o diretório do ponto "
+"de montagem não está vazio"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
 msgid "You entered the wrong password"
-msgstr "Introduziu a senha errada"
+msgstr "Introduziu a palavra-passe errada"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
-"A versão instalada do 'cryfs' é demasiado antiga para abrir este cofre."
+"A versão instalada do 'cryfs' é demasiado antiga para abrir este Cofre."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
 #, kde-format
 msgid "Unable to perform the operation (error code %1)."
-msgstr "Não foi possível efectuar a operação (código de erro %1)."
+msgstr "Não foi possível efetuar a operação (código de erro %1)."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
 #, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
-msgstr "A pasta da cifra não está vazia; não é possível inicializar o cofre."
+msgstr ""
+"Não foi possível inicializar o Cofre porque o diretório, que contém a cifra, "
+"não está vazio."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
 #, kde-format
 msgid "The password is empty, cannot initialise the vault."
-msgstr "A senha está vazia; não é possível inicializar o cofre."
+msgstr ""
+"Não foi possível inicializar o Cofre porque a palavra-passe está vazia."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:114
 #, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
 msgstr ""
-"Não foi possível gravar o 'gocryptfs.conf' dentro da pasta de cifra; "
-"verifique as suas permissões."
+"Não foi possível escrever no ficheiro 'gocryptfs.conf' dentro do diretório "
+"da cifra. Verifique as suas permissões."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
 #: kded/engine/fusebackend_p.cpp:169
@@ -141,33 +135,33 @@ msgstr "Não foi possível executar"
 #: kded/engine/fusebackend_p.cpp:181
 #, kde-format
 msgid "Unable to detect the version"
-msgstr "Não foi possível detectar a versão"
+msgstr "Não foi possível detetar a versão"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
 #, kde-format
 msgid "Unable to detect the version, the version string is invalid"
-msgstr "Não foi possível detectar a versão, porque o texto está inválido"
+msgstr "Não foi possível detetar a versão, porque o texto desta está inválido"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2"
-msgstr "Foi instalada a versão errada. A versão necessária é a %1.%2"
+msgstr "Versão instalada incorreta. A versão necessária é a %1.%2"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
 #: kded/engine/fusebackend_p.cpp:195
 #, kde-format
 msgid "Correct version found"
-msgstr "Versão correcta encontrada"
+msgstr "Foi encontrada a versão correta"
 
 #: kded/engine/fusebackend_p.cpp:52
 #, kde-format
 msgid "Unable to perform the operation"
-msgstr "Não foi possível efectuar a operação"
+msgstr "Não foi possível efetuar a operação"
 
 #: kded/engine/fusebackend_p.cpp:100
 #, kde-format
 msgid "This directory already contains encrypted data"
-msgstr "Esta pasta já contém dados encriptados"
+msgstr "Este diretório já contém dados encriptados"
 
 #: kded/engine/fusebackend_p.cpp:103
 #, kde-format
@@ -175,18 +169,18 @@ msgid ""
 "You need to select empty directories for the encrypted storage and for the "
 "mount point"
 msgstr ""
-"Tem de seleccionar pastas vazias para o armazenamento encriptado e para o "
-"ponto de montagem"
+"É necessário selecionar diretórios vazios para o armazenamento encriptado e "
+"para o ponto de montagem"
 
 #: kded/engine/fusebackend_p.cpp:118
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
-msgstr "Esta pasta não contém dados encriptados"
+msgstr "Este diretório não contém dados encriptados"
 
 #: kded/engine/fusebackend_p.cpp:122
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
-msgstr "Tem de seleccionar uma pasta vazia para o ponto de montagem"
+msgstr "É necessário selecionar um diretório vazio para o ponto de montagem"
 
 #: kded/engine/fusebackend_p.cpp:132
 #, kde-format
@@ -201,7 +195,7 @@ msgstr "O dispositivo não está aberto"
 #: kded/engine/fusebackend_p.cpp:189
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
-msgstr "Foi instalada a versão errada. A versão necessária é a %1.%2.%3"
+msgstr "Versão instalada incorreta. A versão necessária é a %1.%2.%3"
 
 #: kded/engine/vault.cpp:239
 #, kde-format
@@ -216,78 +210,78 @@ msgstr "A infra-estrutura configurada não existe: %1"
 #: kded/engine/vault.cpp:274
 #, kde-format
 msgid "Mount point is not specified"
-msgstr "O ponto de montagem não foi definido"
+msgstr "O ponto de montagem não foi especificado"
 
 #: kded/engine/vault.cpp:279
 #, kde-format
 msgid "Cannot create the mount point"
-msgstr "Não é possível criar o ponto de montagem"
+msgstr "Não foi possível criar o ponto de montagem"
 
 #: kded/engine/vault.cpp:284
 #, kde-format
 msgid "Configured backend cannot be instantiated: %1"
-msgstr "Não é possível instanciar a infra-estrutura configurada: %1"
+msgstr "Não foi possível instanciar a infra-estrutura configurada: %1"
 
 #: kded/engine/vault.cpp:399
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
-msgstr "Este dispositivo já está registado. Não é possível criá-lo de novo."
+msgstr ""
+"Não é possível criar este dispositivo porque este já se encontra registado."
 
 #: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
 #, kde-format
 msgid "Unknown error; unable to create the backend."
-msgstr "Erro desconhecido - não é possível criar a infra-estrutura."
+msgstr "Erro desconhecido. Não foi possível criar a infra-estrutura."
 
 #: kded/engine/vault.cpp:433
 #, kde-format
 msgid "This device is not initialized. Cannot import it."
-msgstr "Este dispositivo não está inicializado. Não é possível importá-lo."
+msgstr ""
+"Não foi possível importar este dispositivo porque este não está inicializado."
 
 #: kded/engine/vault.cpp:463
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Não é possível abrir um cofre desconhecido."
+msgstr "Não é possível abrir um Cofre desconhecido."
 
 #: kded/engine/vault.cpp:478
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "O cofre é desconhecido; não é possível fechá-lo."
+msgstr "Não é possível bloquear o Cofre porque este é desconhecido"
 
 #: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Não foi possível fechar o cofre, porque uma aplicação está a usá-lo"
+msgstr ""
+"Não foi possível bloquear o Cofre porque este está a ser usado por uma "
+"aplicação"
 
 #: kded/engine/vault.cpp:520
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Não foi possível fechar o cofre, porque está em uso pelo %1"
+msgstr "Não foi possível bloquear o Cofre porque este está a ser usado por %1"
 
 #: kded/engine/vault.cpp:544
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
-msgstr "Não foi possível obter a lista de aplicações que usam este cofre"
+msgstr "Não foi possível obter a lista de aplicações que usam este Cofre"
 
 #: kded/engine/vault.cpp:596
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
-"Não é possível apagar o cofre; existem outros cofres com localizações "
-"sobrepostas."
+"Não foi possível eliminar o Cofre porque existem outros Cofres com "
+"localizações sobrepostas."
 
 #: kded/engine/vault.cpp:601
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
-msgstr "O cofre é desconhecido; não é possível destruí-lo."
+msgstr "Não foi possível desmontar o Cofre porque é desconhecido."
 
 #: kded/engine/vault.cpp:604
 #, kde-format
 msgid "Are you sure you want to delete this vault"
-msgstr "Tem a certeza que deseja apagar este cofre"
+msgstr "Tem a certeza de que pretende eliminar este cofre"
 
 #: kded/engine/vault.cpp:605
 #, kde-format
@@ -296,55 +290,50 @@ msgid ""
 "%1\n"
 "%2"
 msgstr ""
-"Esta opção irá apagar de forma irreversíveĺ o seguinte:\n"
+"Esta operação irá eliminar de forma irreversível o seguinte:\n"
 "%1\n"
 "%2"
 
 #: kded/engine/vault.cpp:607
 #, kde-format
 msgid "Delete operation cancelled"
-msgstr "A operação de remoção foi cancelada"
+msgstr "A operação de eliminação foi cancelada"
 
 #: kded/service.cpp:444
 #, kde-format
 msgid "Error deleting vault"
-msgstr "Erro ao remover o cofre"
+msgstr "Erro ao eliminar o Cofre"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
 "to an activity it should not be available in, it will automatically be "
 "locked."
 msgstr ""
-"Se limitar este cofre apenas a certas actividades, ele será apresentado na "
-"'applet' apenas quando estiver nessas actividades. Para além disso, quando "
-"mudar para uma actividade em que não deva estar disponível, o mesmo cofre "
-"será fechado automaticamente."
+"Se limitar este Cofre apenas a certas atividades, este será apresentado na "
+"'applet' apenas quando estiver nessas atividades. Igualmente, quando mudar "
+"para uma atividade em que este não esteja disponível, o mesmo Cofre será "
+"fechado automaticamente."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
 #, kde-format
 msgid "Limit to the selected activities:"
-msgstr "Limitar às actividades seleccionadas:"
+msgstr "Limite das atividades selecionadas:"
 
 #: kded/ui/backendchooserwidget.cpp:74
 #, kde-format
 msgid "The specified backend is not available"
-msgstr "A infra-estrutura indicada não está disponível"
+msgstr "A infra-estrutura especificada não está disponível"
 
 #. i18n: ectx: property (text), widget (QLabel, labelVaultName)
 #: kded/ui/backendchooserwidget.ui:17 kded/ui/namechooserwidget.ui:22
 #, kde-format
 msgid "Vaul&t name:"
-msgstr "Nome do &cofre:"
+msgstr "Nome do &Cofre:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/backendchooserwidget.ui:67
@@ -356,45 +345,45 @@ msgstr "Infra-estrutura:"
 #: kded/ui/backendchooserwidget.ui:94
 #, kde-format
 msgid "Change"
-msgstr "Modificar"
+msgstr "Alterar"
 
 #. i18n: ectx: property (text), widget (QLabel, labelEncryptionSystem)
 #: kded/ui/backendchooserwidget.ui:132
 #, kde-format
 msgid "Choose the encryption system you want to use for this vault:"
-msgstr "Escolha o sistema de encriptação que deseja usar para este cofre:"
+msgstr "Escolha o sistema de encriptação que pretende usar para este Cofre:"
 
 #: kded/ui/cryfscypherchooserwidget.cpp:59
 #, kde-format
 msgid "Use the default cipher"
-msgstr "Usar a cifra por omissão"
+msgstr "Usar a cifra predefinida"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCypher)
 #: kded/ui/cryfscypherchooserwidget.ui:22
 #, kde-format
 msgid "Choose the used cipher:"
-msgstr "Escolher a cifra usada:"
+msgstr "Escolha a cifra usada:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDevice)
 #: kded/ui/directorychooserwidget.ui:22
 #, kde-format
 msgid "Mount point:"
-msgstr "Montar em:"
+msgstr "Ponto de montagem:"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
 #, kde-format
 msgid "The specified path does not exist"
-msgstr "A localização indicada não existe"
+msgstr "O caminho especificado não existe"
 
 #: kded/ui/directorypairchooserwidget.cpp:64
 #, kde-format
 msgid "The specified directory is not empty"
-msgstr "A pasta indicada não está vazia"
+msgstr "O diretório especificado não está vazio"
 
 #: kded/ui/directorypairchooserwidget.cpp:70
 #, kde-format
 msgid "The specified directory is empty"
-msgstr "A pasta indicada está vazia"
+msgstr "O diretório especificado está vazio"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDevice)
 #: kded/ui/directorypairchooserwidget.ui:22
@@ -409,12 +398,10 @@ msgid "Mount point"
 msgstr "Ponto de montagem"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Abrir o Cofre do Plasma '%1'"
+msgstr "Desbloquear o Cofre do Plasma '%1'"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -440,23 +427,21 @@ msgid "Error details"
 msgstr "Detalhes do erro"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Não foi possível abrir: %1"
+msgstr "Não foi possível desbloquear: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Por favor, indique a senha para abrir este cofre:"
+msgstr "Insira a palavra-passe para desbloquear este Cofre, por favor:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
 #, kde-format
 msgid "Password:"
-msgstr "Senha:"
+msgstr "Palavra-passe:"
 
 #. i18n: ectx: property (html), widget (QTextBrowser, textNotice)
 #: kded/ui/noticewidget.ui:38
@@ -488,7 +473,7 @@ msgstr ""
 #: kded/ui/noticewidget.ui:45
 #, kde-format
 msgid "Do not show this notice again"
-msgstr "Não mostrar este aviso de novo"
+msgstr "Não mostrar novamente este aviso"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkShouldBeOffline)
 #: kded/ui/offlineonlywidget.ui:34
@@ -496,7 +481,8 @@ msgstr "Não mostrar este aviso de novo"
 msgid ""
 "Go offline while this vault is open (switch off networking and bluetooth)"
 msgstr ""
-"Desligar-se enquanto este cofre está aberto (desligar a rede e o Bluetooth)"
+"Entrar em modo offline enquanto este Cofre está aberto (desligar a rede e o "
+"Bluetooth)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/passwordchooserwidget.ui:22
@@ -505,8 +491,9 @@ msgid ""
 "Mind that there is no way to recover a forgotten password. If you forget the "
 "password, your data is as good as gone."
 msgstr ""
-"Lembre-se que não existe nenhuma forma de recuperar uma senha esquecida. Se "
-"esquecer a sua senha, pode considerar os seus dados como perdidos."
+"Tenha em mente de que não existe nenhuma forma de recuperar uma palavra-"
+"passe esquecida. No caso de se esquecer da sua senha, pode considerar os "
+"seus dados como perdidos."
 
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
@@ -521,7 +508,7 @@ msgstr "Avançado"
 #: kded/ui/vaultconfigurationdialog.cpp:51
 #, kde-format
 msgid "Delete"
-msgstr "Apagar"
+msgstr "Eliminar"
 
 #: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultimportingwizard.cpp:34
 #, kde-format
@@ -555,24 +542,23 @@ msgstr "Janela"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
 msgstr ""
-"A configuração do cofre só poderá ser modificada enquanto estiver fechada."
+"A configuração do Cofre só poderá ser alterada enquanto este estiver "
+"bloqueado."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Fechar o cofre"
+msgstr "Bloquear o Cofre"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
 msgctxt "@title:window"
 msgid "Create a New Vault"
-msgstr "Criar um Novo Cofre"
+msgstr "Criar um novo Cofre"
 
 #. i18n: ectx: property (text), widget (QLabel, labelWarning)
 #: kded/ui/vaultdeletionwidget.ui:22
@@ -581,20 +567,20 @@ msgid ""
 "This action <b>cannot</b> be undone. This will permanently delete the "
 "selected vault!"
 msgstr ""
-"Esta acção <b>não pode</b> ser anulada. Isto irá remover de forma permanente "
-"o cofre seleccionado!"
+"Esta ação <b>não pode</b> ser anulada. Isto irá eliminar de forma permanente "
+"o Cofre selecionado!"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConfirm)
 #: kded/ui/vaultdeletionwidget.ui:29
 #, kde-format
 msgid "Please type in the name of the vault to confirm:"
-msgstr "Por favor, escreva o nome do cofre para confirmar:"
+msgstr "Escreva o nome do Cofre para confirmar, por favor:"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
 #: kded/ui/vaultdeletionwidget.ui:44
 #, kde-format
 msgid "Delete this vault"
-msgstr "Apagar este cofre"
+msgstr "Eliminar este Cofre"
 
 #: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
@@ -605,7 +591,7 @@ msgstr "Importar"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import an Existing Vault"
-msgstr "Importar um Cofre Existente..."
+msgstr "Importar um Cofre existente"
 
 #: kded/ui/vaultwizardbase.h:39 kded/ui/vaultwizardbase.h:90
 #, kde-format
@@ -625,12 +611,12 @@ msgstr "Anterior"
 #: plasma/package/contents/ui/main.qml:53
 #, kde-format
 msgid "Create a New Vault…"
-msgstr "Criar um Novo Cofre…"
+msgstr "Criar um novo Cofre…"
 
 #: plasma/package/contents/ui/main.qml:104
 #, kde-format
 msgid "No Vaults have been set up"
-msgstr "Não foram configurados nenhuns cofres"
+msgstr "Não foram configurados quaisquer Cofres"
 
 #: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
@@ -640,7 +626,7 @@ msgstr "Bloquear o Cofre"
 #: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Unlock and Open"
-msgstr "Desbloquear e Abrir"
+msgstr "Desbloquear e abrir"
 
 #: plasma/package/contents/ui/VaultItem.qml:57
 #, kde-format
@@ -650,7 +636,7 @@ msgstr "Mostrar no Gestor de Ficheiros"
 #: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Forcefully Lock Vault"
-msgstr "Bloquear à Força o Cofre"
+msgstr "Forçar o bloquear do Cofre"
 
 #: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
