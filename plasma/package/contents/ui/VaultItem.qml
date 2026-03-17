@@ -26,9 +26,9 @@ PlasmaExtras.ExpandableListItem {
         if (model.message.length !== 0) {
             return "emblem-error";
         } else if (model.isOpened) {
-            return "emblem-mounted";
+            return "emblem-encrypted-unlocked";
         } else if (model.isOfflineOnly) {
-            return "network-disconnect-symbolic";
+            return "emblem-unmounted";
         } else {
             return "";
         }
