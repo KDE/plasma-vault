@@ -183,6 +183,10 @@ public:
                 if (newStatus == VaultInfo::Closed //
                         || newStatus == VaultInfo::Opened) {
                     Q_EMIT q->isOpenedChanged(newStatus == VaultInfo::Opened);
+
+                    // lock the mountpoint when the vault is closed
+                    if (newStatus == VaultInfo::Closed)
+                        data->backend->lockMountPoint(data->mountPoint, true);
                 }
 
                 if (oldStatus == VaultInfo::NotInitialized //
@@ -685,8 +689,9 @@ MountPoint Vault::mountPoint() const
 void Vault::setMountPoint(const MountPoint &mountPoint)
 {
     if (d->data->mountPoint.data() != mountPoint.data()) {
-        QDir().rmpath(d->data->mountPoint.data());
-        QDir().mkpath(mountPoint.data());
+        d->data->backend->lockMountPoint(d->data->mountPoint, false);
+        QDir().rename(d->data->mountPoint.data(), mountPoint.data());
+        d->data->backend->lockMountPoint(mountPoint, true);
 
         d->data->mountPoint = mountPoint;
         saveConfiguration();

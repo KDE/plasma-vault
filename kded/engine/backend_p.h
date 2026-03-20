@@ -29,6 +29,7 @@ public:
 
     virtual bool isInitialized(const Device &device) const = 0;
     virtual bool isOpened(const MountPoint &mountPoint) const = 0;
+    virtual void lockMountPoint(const MountPoint &mountPoint, bool lock) const = 0;
 
     virtual FutureResult<> initialize(const QString &name, const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload) = 0;
 

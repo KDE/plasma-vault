@@ -20,6 +20,7 @@ public:
     ~FuseBackend() override;
 
     bool isOpened(const MountPoint &mountPoint) const override;
+    void lockMountPoint(const MountPoint &mountPoint, bool lock) const override;
 
     FutureResult<> initialize(const QString &name, const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload) override;
 

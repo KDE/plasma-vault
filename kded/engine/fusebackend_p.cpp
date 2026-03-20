@@ -11,6 +11,8 @@
 #include <QStandardPaths>
 #include <QUrl>
 
+#include <KConfigGroup>
+#include <KDesktopFile>
 #include <KIO/DeleteJob>
 #include <KLocalizedString>
 #include <KMountPoint>
@@ -69,7 +71,7 @@ void FuseBackend::setupMountPoint(const MountPoint &mountPoint)
 
     if (dotDir.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&dotDir);
-        out << "[Desktop Entry]\nIcon=folder-encrypted\n";
+        out << "[Desktop Entry]\nIcon=folder-encrypted\nX-KDE-LockVaultMountPoint=true\n";
     }
 }
 
@@ -110,6 +112,8 @@ FutureResult<> FuseBackend::initialize(const QString &name, const Device &device
 {
     Q_UNUSED(name);
 
+    lockMountPoint(mountPoint, false);
+
     return isInitialized(device) ? errorResult(Error::BackendError, i18n("This directory already contains encrypted data")) :
 
         directoryExists(device.data()) || directoryExists(mountPoint.data())
@@ -123,6 +127,8 @@ FutureResult<> FuseBackend::initialize(const QString &name, const Device &device
 FutureResult<> FuseBackend::import(const QString &name, const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload)
 {
     Q_UNUSED(name);
+
+    lockMountPoint(mountPoint, false);
 
     // clang-format off
     return
@@ -141,6 +147,8 @@ FutureResult<> FuseBackend::import(const QString &name, const Device &device, co
 
 FutureResult<> FuseBackend::open(const Device &device, const MountPoint &mountPoint, const Vault::Payload &payload)
 {
+    lockMountPoint(mountPoint, false);
+
     return isOpened(mountPoint) //
         ? errorResult(Error::BackendError, i18n("Device is already open"))
         : mount(device, mountPoint, payload);
@@ -165,6 +173,8 @@ FutureResult<> FuseBackend::dismantle(const Device &device, const MountPoint &mo
     // return Fuse::dismantle(device, mountPoint, password);
 
     Q_UNUSED(payload)
+
+    lockMountPoint(mountPoint, false);
 
     // Removing the data and the mount point
     return transform(makeFuture<KJob *>(KIO::del({QUrl::fromLocalFile(device.data()), QUrl::fromLocalFile(mountPoint.data())})), [](KJob *job) {
@@ -218,6 +228,26 @@ bool FuseBackend::isOpened(const MountPoint &mountPoint) const
     // KMountPoint can not get the source
 
     return ptr && ptr->mountPoint() == mountPoint.data();
+}
+
+void FuseBackend::lockMountPoint(const MountPoint &mountPoint, bool lock) const
+{
+    // only lock mount points that opt into this new behavior
+    const QString dotDir = mountPoint.data() + QLatin1String("/.directory");
+    if (!QFileInfo(dotDir).isFile()) {
+        return;
+    }
+
+    KDesktopFile cfg(dotDir);
+    if (!cfg.desktopGroup().readEntry("X-KDE-LockVaultMountPoint", false)) {
+        return;
+    }
+
+    // prevent the user from accidentally modifying the unmounted / locked vault mount point
+    if (lock)
+        QFile::setPermissions(mountPoint.data(), QFileDevice::ExeOwner);
+    else
+        QFile::setPermissions(mountPoint.data(), QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner);
 }
 
 } // namespace PlasmaVault
