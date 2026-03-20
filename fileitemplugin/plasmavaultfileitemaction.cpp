@@ -63,6 +63,10 @@ QList<QAction *> PlasmaVaultFileItemAction::actions(const KFileItemListPropertie
     KConfig config("plasmavaultrc");
     for (auto group : config.groupList()) {
         auto mountPoint = config.entryMap(group)["mountPoint"];
+        if (mountPoint.isEmpty()) {
+            continue;
+        }
+
         if (mountPoint == fileItem) {
             const auto currentMounts = KMountPoint::currentMountPoints();
 
