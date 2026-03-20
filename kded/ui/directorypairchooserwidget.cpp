@@ -54,7 +54,7 @@ public:
 
             QDir dir(url.toLocalFile());
 
-            if (!dir.exists()) {
+            if (!requireEmptyDirectory && !dir.exists()) {
                 widget->setText(i18n("The specified path does not exist"));
                 widget->show();
                 return false;
