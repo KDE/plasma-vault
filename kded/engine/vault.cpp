@@ -318,13 +318,13 @@ public:
         deletionState = DeletionBlocked;
 
         return future | onSuccess([this] {
-                updateStatus();
+            updateStatus();
 
-                if (deletionState == DeletionScheduled) {
-                    q->deleteLater();
-                }
-                deletionState = Normal;
-            });
+            if (deletionState == DeletionScheduled) {
+                q->deleteLater();
+            }
+            deletionState = Normal;
+        });
     }
 
 
@@ -391,31 +391,27 @@ FutureResult<> Vault::create(const QString &name, const MountPoint &mountPoint,
 {
     using namespace AsynQt::operators;
 
-    return
-        // If the backend is already known, and the device is initialized,
-        // we do not want to do it again
-        d->data && d->data->backend->isInitialized(d->device) ?
-            errorResult(Error::DeviceError,
-                        i18n("This device is already registered. Cannot recreate it.")) :
+    // If the backend is already known, and the device is initialized,
+    // we do not want to do it again
+    if (d->data && d->data->backend->isInitialized(d->device)) {
+        return errorResult(Error::DeviceError, i18n("This device is already registered. Cannot recreate it."));
+    }
 
-        // Mount not open, check the error messages
-        !(d->data = d->loadVault(d->device, name, mountPoint, payload)) ?
-            errorResult(Error::BackendError,
-                        i18n("Unknown error; unable to create the backend.")) :
+    if (!(d->data = d->loadVault(d->device, name, mountPoint, payload))) {
+        return errorResult(Error::BackendError, i18n("Unknown error; unable to create the backend."));
+    }
 
-        // otherwise
-        d->followFuture(VaultInfo::Creating,
-                        d->data->backend->initialize(name, d->device, mountPoint, payload))
-            | onSuccess([mountPoint] {
-                // If we have successfully created the vault,
-                // lets try to set its icon
-                QFile dotDir(mountPoint.data() + QStringLiteral("/.directory"));
+    // otherwise
+    return d->followFuture(VaultInfo::Creating, d->data->backend->initialize(name, d->device, mountPoint, payload)) | onSuccess([mountPoint](Result<> result) {
+               // If we have successfully created the vault,
+               // lets try to set its icon
+               QFile dotDir(mountPoint.data() + QStringLiteral("/.directory"));
 
-                if (dotDir.open(QIODevice::WriteOnly | QIODevice::Text)) {
-                    QTextStream out(&dotDir);
-                    out << "[Desktop Entry]\nIcon=folder-decrypted\n";
-                }
-            });
+               if (result && dotDir.open(QIODevice::WriteOnly | QIODevice::Text)) {
+                   QTextStream out(&dotDir);
+                   out << "[Desktop Entry]\nIcon=folder-decrypted\n";
+               }
+           });
 }
 
 
@@ -425,31 +421,26 @@ FutureResult<> Vault::import(const QString &name, const MountPoint &mountPoint,
 {
     using namespace AsynQt::operators;
 
-    return
-        // If the backend is already known, and the device is initialized,
-        // we do not want to do it again
-        d->data && (!d->data->backend->isInitialized(d->device)) ?
-            errorResult(Error::DeviceError,
-                        i18n("This device is not initialized. Cannot import it.")) :
+    // If the backend is already known, and the device is initialized,
+    // we do not want to do it again
+    if (d->data && !d->data->backend->isInitialized(d->device)) {
+        return errorResult(Error::DeviceError, i18n("This device is not initialized. Cannot import it."));
+    }
 
-        // Mount not open, check the error messages
-        !(d->data = d->loadVault(d->device, name, mountPoint, payload)) ?
-            errorResult(Error::BackendError,
-                        i18n("Unknown error; unable to create the backend.")) :
+    if (!(d->data = d->loadVault(d->device, name, mountPoint, payload))) {
+        return errorResult(Error::BackendError, i18n("Unknown error; unable to create the backend."));
+    }
 
-        // otherwise
-        d->followFuture(VaultInfo::Creating,
-                        d->data->backend->import(name, d->device, mountPoint, payload))
-            | onSuccess([mountPoint] {
-                // If we have successfully created the vault,
-                // lets try to set its icon
-                QFile dotDir(mountPoint.data() + QStringLiteral("/.directory"));
+    return d->followFuture(VaultInfo::Creating, d->data->backend->import(name, d->device, mountPoint, payload)) | onSuccess([mountPoint](Result<> result) {
+               // If we have successfully created the vault,
+               // lets try to set its icon
+               QFile dotDir(mountPoint.data() + QStringLiteral("/.directory"));
 
-                if (dotDir.open(QIODevice::WriteOnly | QIODevice::Text)) {
-                    QTextStream out(&dotDir);
-                    out << "[Desktop Entry]\nIcon=folder-decrypted\n";
-                }
-            });
+               if (result && dotDir.open(QIODevice::WriteOnly | QIODevice::Text)) {
+                   QTextStream out(&dotDir);
+                   out << "[Desktop Entry]\nIcon=folder-decrypted\n";
+               }
+           });
 }
 
 
@@ -485,8 +476,10 @@ FutureResult<> Vault::close()
             } else {
                 // We want to check whether there is an application
                 // that is accessing the vault
-                AsynQt::Process::getOutput(QStringLiteral("lsof"), {QStringLiteral("-t"), mountPoint().data()}) | cast<QString>() | onError([this] {
-                    d->updateMessage(i18n("Unable to lock the vault because an application is using it"));
+                AsynQt::Process::getOutput(QStringLiteral("lsof"), {QStringLiteral("-t"), mountPoint().data()}) | cast<QString>() | onError([this, result] {
+                    // no application seems to be accessing the vault, bubble
+                    // through the original unmount error
+                    d->updateMessage(result.error().message());
                 }) | onSuccess([this](const QString &result) {
                     // based on ksolidnotify.cpp
                     QStringList blockApps;
@@ -495,7 +488,6 @@ FutureResult<> Vault::close()
 
                     if (pidList.isEmpty()) {
                         d->updateMessage(i18n("Unable to lock the vault because an application is using it"));
-                        close();
 
                     } else {
                         KSysGuard::Processes procs;
