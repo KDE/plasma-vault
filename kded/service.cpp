@@ -7,16 +7,18 @@
 #include "service.h"
 
 #include <QDBusObjectPath>
+#include <QFile>
 #include <QMessageBox>
 #include <QProcess>
+#include <QSocketNotifier>
 
-#include <PlasmaActivities/Consumer>
 #include <KApplicationTrader>
 #include <KIO/ApplicationLauncherJob>
 #include <KLocalizedString>
 #include <KPasswordDialog>
 #include <KPluginFactory>
 #include <KService>
+#include <PlasmaActivities/Consumer>
 
 #include "engine/commandresult.h"
 #include "engine/vault.h"
@@ -60,6 +62,9 @@ public:
     QHash<Device, Vault *> knownVaults;
     QSet<Device> openVaults;
     KActivities::Consumer kamd;
+
+    QFile mountsFile;
+    std::unique_ptr<QSocketNotifier> mountsNotifier;
 
     struct NetworkingState {
         bool wasNetworkingEnabled;
@@ -116,6 +121,19 @@ PlasmaVaultService::PlasmaVaultService(QObject *parent, const QVariantList &)
     // When activities are loaded, remove activities that no longer exist
     // the vaults
     connect(&d->kamd, &KActivities::Consumer::activitiesChanged, this, &PlasmaVaultService::onActivitiesChanged);
+
+    // Update vault statuses when /proc/mounts is modified (the kernel wakes up the FD with a POLLPRI event)
+    d->mountsFile.setFileName("/proc/mounts");
+    if (d->mountsFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        d->mountsNotifier = std::make_unique<QSocketNotifier>(d->mountsFile.handle(), QSocketNotifier::Exception, this);
+
+        connect(d->mountsNotifier.get(), &QSocketNotifier::activated, this, [this](QSocketDescriptor socket, QSocketNotifier::Type type) {
+            Q_UNUSED(socket)
+            Q_UNUSED(type)
+
+            updateStatus();
+        });
+    }
 
     for (const Device &device : Vault::availableDevices()) {
         registerVault(new Vault(device, this));
