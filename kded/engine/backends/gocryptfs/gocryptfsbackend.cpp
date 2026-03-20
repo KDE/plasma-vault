@@ -76,10 +76,10 @@ FutureResult<> GocryptfsBackend::mount(const Device &device, const MountPoint &m
     if (!dir.mkpath(device.data()) || !dir.mkpath(mountPoint.data())) {
         return errorResult(Error::BackendError, i18n("Failed to create directories, check your permissions"));
     }
-    removeDotDirectory(mountPoint);
 
     if (isInitialized(device)) {
         auto mountProcess = gocryptfs({
+            "-nonempty",
             device.data(), // cypher data directory
             mountPoint.data() // mount point
         });
@@ -92,6 +92,8 @@ FutureResult<> GocryptfsBackend::mount(const Device &device, const MountPoint &m
         return mountResult;
     } else {
         // Initialise cipherdir
+        setupMountPoint(mountPoint);
+
         auto initProcess = gocryptfs({
             "-init",
             device.data(),

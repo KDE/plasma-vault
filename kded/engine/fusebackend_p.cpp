@@ -60,6 +60,19 @@ void FuseBackend::removeDotDirectory(const MountPoint &mountPoint)
         dir.remove(QStringLiteral(".directory"));
 }
 
+void FuseBackend::setupMountPoint(const MountPoint &mountPoint)
+{
+    removeDotDirectory(mountPoint);
+
+    // write a .directory file to set the icon
+    QFile dotDir(mountPoint.data() + QStringLiteral("/.directory"));
+
+    if (dotDir.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QTextStream out(&dotDir);
+        out << "[Desktop Entry]\nIcon=folder-encrypted\n";
+    }
+}
+
 FuseBackend::FuseBackend()
     : fusermountExecutable(QStringLiteral("fusermount3"))
 {

@@ -48,6 +48,10 @@ protected:
     // there is the dot-directroy, delete it.
     static void removeDotDirectory(const MountPoint &mountPoint);
 
+    // sets up the mount point directory icon & permissions
+    // requires that the backend is capable of mounting over non-empty directories
+    static void setupMountPoint(const MountPoint &mountPoint);
+
     // fusermount3 if possible, otherwise fusermount
     QString fusermountExecutable;
 };
