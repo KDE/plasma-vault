@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2026-03-24 00:46+0000\n"
 "PO-Revision-Date: 2024-06-03 19:40\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -22,7 +22,7 @@ msgstr ""
 "plasmavault-kde.po\n"
 "X-Crowdin-File-ID: 10740\n"
 
-#: fileitemplugin/plasmavaultfileitemaction.cpp:74
+#: fileitemplugin/plasmavaultfileitemaction.cpp:78
 #, fuzzy, kde-format
 #| msgctxt "@action Action to unmount a vault"
 #| msgid "Close this Plasma Vault"
@@ -30,7 +30,7 @@ msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
 msgstr "Закрыць гэтае сховішча Plasma Vault"
 
-#: fileitemplugin/plasmavaultfileitemaction.cpp:75
+#: fileitemplugin/plasmavaultfileitemaction.cpp:79
 #, fuzzy, kde-format
 #| msgctxt "@action Action to unmount a vault"
 #| msgid "Close this Plasma Vault"

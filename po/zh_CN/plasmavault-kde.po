@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2026-03-24 00:46+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,13 +17,13 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/plasma-vault/plasmavault-kde.pot\n"
 "X-Crowdin-File-ID: 42491\n"
 
-#: fileitemplugin/plasmavaultfileitemaction.cpp:74
+#: fileitemplugin/plasmavaultfileitemaction.cpp:78
 #, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
 msgstr "锁定此 Plasma 保险库"
 
-#: fileitemplugin/plasmavaultfileitemaction.cpp:75
+#: fileitemplugin/plasmavaultfileitemaction.cpp:79
 #, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
