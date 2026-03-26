@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:46+0000\n"
+"POT-Creation-Date: 2026-03-26 00:47+0000\n"
 "PO-Revision-Date: 2025-09-20 20:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -76,7 +76,7 @@ msgstr ""
 "تحتاج إلى ترقية الخزنة قبل أن تتمكن من فك قفلها بواسطة هذه الإصدارة من cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
-#: kded/engine/fusebackend_p.cpp:43
+#: kded/engine/fusebackend_p.cpp:45
 #, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr "دليل نقطة الضّمّ ليس فارغًا، رُفض فك قفل الخزنة"
@@ -92,179 +92,179 @@ msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr "النسخة المثبّتة من cryfs قديمة بحيث لا يمكن فك قفل هذه الخزنة بها."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:120
 #, kde-format
 msgid "Unable to perform the operation (error code %1)."
 msgstr "تعذّر إجراء العمليّة (رمز الخطأ %1)."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:110
 #, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
 msgstr "دليل التعمية ليس فارغًا، ولا يمكن تهيئة الخزنة."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:113
 #, kde-format
 msgid "The password is empty, cannot initialise the vault."
 msgstr "كلمة السر فارغة، لا يمكن تهيئة الخزنة."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:114
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:116
 #, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
 msgstr "تعذر كتابة gocryptfs.conf بدخل دليل التعمية، افحص الأذونات لديك."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
-#: kded/engine/fusebackend_p.cpp:169
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:144
+#: kded/engine/fusebackend_p.cpp:192
 #, kde-format
 msgid "Failed to execute"
 msgstr "فشل التّنفيذ"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
-#: kded/engine/fusebackend_p.cpp:181
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:154
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:169
+#: kded/engine/fusebackend_p.cpp:204
 #, kde-format
 msgid "Unable to detect the version"
 msgstr "تعذّر اكتشاف الإصدارة"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:163
 #, kde-format
 msgid "Unable to detect the version, the version string is invalid"
 msgstr "تعذّر اكتشاف الإصدارة، نص الإصدارة غير صالح"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:177
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2"
 msgstr "الإصدارة المثبّتة خاطئة. الإصدارة المطلوبة هي %1.%2"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
-#: kded/engine/fusebackend_p.cpp:195
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:180
+#: kded/engine/fusebackend_p.cpp:218
 #, kde-format
 msgid "Correct version found"
 msgstr "عُثر على الإصدارة الصّحيحة"
 
-#: kded/engine/fusebackend_p.cpp:52
+#: kded/engine/fusebackend_p.cpp:54
 #, kde-format
 msgid "Unable to perform the operation"
 msgstr "تعذّر إجراء العمليّة"
 
-#: kded/engine/fusebackend_p.cpp:100
+#: kded/engine/fusebackend_p.cpp:117
 #, kde-format
 msgid "This directory already contains encrypted data"
 msgstr "يحتوي الدّليل بيانات معمّاة فعلًا"
 
-#: kded/engine/fusebackend_p.cpp:103
+#: kded/engine/fusebackend_p.cpp:120
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
 "mount point"
 msgstr "عليك اختيار أدلّة فارغة للتّخزين المعمّى ولنقطة الضّم"
 
-#: kded/engine/fusebackend_p.cpp:118
+#: kded/engine/fusebackend_p.cpp:137
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
 msgstr "لا يحتوي الدّليل على بيانات معمّاة"
 
-#: kded/engine/fusebackend_p.cpp:122
+#: kded/engine/fusebackend_p.cpp:141
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
 msgstr "عليك اختيار دليل فارغ لنقطة الضّم"
 
-#: kded/engine/fusebackend_p.cpp:132
+#: kded/engine/fusebackend_p.cpp:153
 #, kde-format
 msgid "Device is already open"
 msgstr "الجهاز مفتوح فعلًا"
 
-#: kded/engine/fusebackend_p.cpp:140
+#: kded/engine/fusebackend_p.cpp:161
 #, kde-format
 msgid "Device is not open"
 msgstr "الجهاز ليس مفتوحًا"
 
-#: kded/engine/fusebackend_p.cpp:189
+#: kded/engine/fusebackend_p.cpp:212
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr "الإصدارة المثبّتة خاطئة. الإصدارة المطلوبة هي %1.%2.%3"
 
-#: kded/engine/vault.cpp:239
+#: kded/engine/vault.cpp:243
 #, kde-format
 msgid "Unknown device"
 msgstr "جهاز مجهول"
 
-#: kded/engine/vault.cpp:269
+#: kded/engine/vault.cpp:273
 #, kde-format
 msgid "Configured backend does not exist: %1"
 msgstr "الخلفية المضبوطة غير موجودة: %1"
 
-#: kded/engine/vault.cpp:274
+#: kded/engine/vault.cpp:278
 #, kde-format
 msgid "Mount point is not specified"
 msgstr "لم تُحدّد نقطة الضّمّ"
 
-#: kded/engine/vault.cpp:279
+#: kded/engine/vault.cpp:283
 #, kde-format
 msgid "Cannot create the mount point"
 msgstr "تعذّر إنشاء نقطة الضّمّ"
 
-#: kded/engine/vault.cpp:284
+#: kded/engine/vault.cpp:288
 #, kde-format
 msgid "Configured backend cannot be instantiated: %1"
 msgstr "تعذّر تمهيد الخلفية المضبوطة: %1"
 
-#: kded/engine/vault.cpp:399
+#: kded/engine/vault.cpp:401
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
 msgstr "الجهاز مسجّل فعلًا. لا يمكن إعادة إنشائه."
 
-#: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
+#: kded/engine/vault.cpp:405 kded/engine/vault.cpp:435
 #, kde-format
 msgid "Unknown error; unable to create the backend."
 msgstr "خطأ مجهول، تعذّر إنشاء الخلفية."
 
-#: kded/engine/vault.cpp:433
+#: kded/engine/vault.cpp:431
 #, kde-format
 msgid "This device is not initialized. Cannot import it."
 msgstr "هذا الجهاز غير مهيأ. لا يمكن استيراده."
 
-#: kded/engine/vault.cpp:463
+#: kded/engine/vault.cpp:458
 #, kde-format
 msgid "Cannot unlock an unknown vault."
 msgstr "لا يمكن فك قفل خزنة مجهولة."
 
-#: kded/engine/vault.cpp:478
+#: kded/engine/vault.cpp:473
 #, kde-format
 msgid "The vault is unknown; cannot lock it."
 msgstr "الخزنة مجهولة، لا يمكن قفلها."
 
-#: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
+#: kded/engine/vault.cpp:494
 #, kde-format
 msgid "Unable to lock the vault because an application is using it"
 msgstr "تعذّر قفل الخزنة، ثمّة تطبيق يستخدمها."
 
-#: kded/engine/vault.cpp:520
+#: kded/engine/vault.cpp:516
 #, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
 msgstr "تعذّر قفل الخزنة، %1 يستخدمها"
 
-#: kded/engine/vault.cpp:544
+#: kded/engine/vault.cpp:540
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr "فشل جلب قائمة التّطبيقات التي تستخدم هذه الخزنة"
 
-#: kded/engine/vault.cpp:596
+#: kded/engine/vault.cpp:592
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr "تعذر حذف الخزنة، هناك خزنات أخرى ذات مسارات متداخلة."
 
-#: kded/engine/vault.cpp:601
+#: kded/engine/vault.cpp:597
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
 msgstr "الخزنة مجهولة، لا يمكن تدميرها."
 
-#: kded/engine/vault.cpp:604
+#: kded/engine/vault.cpp:600
 #, kde-format
 msgid "Are you sure you want to delete this vault"
 msgstr "أمتأكد من حذف هذه الخزنة"
 
-#: kded/engine/vault.cpp:605
+#: kded/engine/vault.cpp:601
 #, kde-format
 msgid ""
 "This operation will irreversibly delete the following:\n"
@@ -275,12 +275,12 @@ msgstr ""
 "%1\n"
 "%2"
 
-#: kded/engine/vault.cpp:607
+#: kded/engine/vault.cpp:603
 #, kde-format
 msgid "Delete operation cancelled"
 msgstr "ألغيت عملية الحذف"
 
-#: kded/service.cpp:444
+#: kded/service.cpp:462
 #, kde-format
 msgid "Error deleting vault"
 msgstr "خطأ في حذف الخزنة"

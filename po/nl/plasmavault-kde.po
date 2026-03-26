@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:46+0000\n"
+"POT-Creation-Date: 2026-03-26 00:47+0000\n"
 "PO-Revision-Date: 2025-09-19 11:38+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -76,7 +76,7 @@ msgstr ""
 "deze versie van cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
-#: kded/engine/fusebackend_p.cpp:43
+#: kded/engine/fusebackend_p.cpp:45
 #, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
@@ -95,23 +95,23 @@ msgstr ""
 "De geïnstalleerde versie van cryfs is te oud om deze kluis te ontgrendelen."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:120
 #, kde-format
 msgid "Unable to perform the operation (error code %1)."
 msgstr "Niet in staat om de bewerking uit te voeren (foutcode %1)."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:110
 #, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
 msgstr ""
 "De map voor vercijfering is niet leeg, kan de kluis niet initialiseren."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:113
 #, kde-format
 msgid "The password is empty, cannot initialise the vault."
 msgstr "Het wachtwoord is leeg, kan de kluis niet initialiseren."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:114
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:116
 #, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
@@ -119,48 +119,48 @@ msgstr ""
 "Kan gocryptfs.conf niet in de map voor vercijfering schrijven, controleer uw "
 "rechten."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
-#: kded/engine/fusebackend_p.cpp:169
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:144
+#: kded/engine/fusebackend_p.cpp:192
 #, kde-format
 msgid "Failed to execute"
 msgstr "Uitvoeren is mislukt"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
-#: kded/engine/fusebackend_p.cpp:181
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:154
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:169
+#: kded/engine/fusebackend_p.cpp:204
 #, kde-format
 msgid "Unable to detect the version"
 msgstr "Niet in staat om de versie te detecteren"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:163
 #, kde-format
 msgid "Unable to detect the version, the version string is invalid"
 msgstr ""
 "Niet in staat om de versie te detecteren, de tekenreeks met versie in "
 "ongeldig"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:177
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2"
 msgstr "Verkeerde versie geïnstalleerd. De vereiste versie is %1.%2"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
-#: kded/engine/fusebackend_p.cpp:195
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:180
+#: kded/engine/fusebackend_p.cpp:218
 #, kde-format
 msgid "Correct version found"
 msgstr "Juiste versie gevonden"
 
-#: kded/engine/fusebackend_p.cpp:52
+#: kded/engine/fusebackend_p.cpp:54
 #, kde-format
 msgid "Unable to perform the operation"
 msgstr "Niet in staat om de bewerking uit te voeren"
 
-#: kded/engine/fusebackend_p.cpp:100
+#: kded/engine/fusebackend_p.cpp:117
 #, kde-format
 msgid "This directory already contains encrypted data"
 msgstr "Deze map bevat al versleutelde gegevens"
 
-#: kded/engine/fusebackend_p.cpp:103
+#: kded/engine/fusebackend_p.cpp:120
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
@@ -169,116 +169,116 @@ msgstr ""
 "U moet een lege map selecteren voor de versleutelde opslag en voor het "
 "aankoppelpunt"
 
-#: kded/engine/fusebackend_p.cpp:118
+#: kded/engine/fusebackend_p.cpp:137
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
 msgstr "Deze map bevat geen versleutelde gegevens"
 
-#: kded/engine/fusebackend_p.cpp:122
+#: kded/engine/fusebackend_p.cpp:141
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
 msgstr "U moet een lege map selecteren voor het aankoppelpunt"
 
-#: kded/engine/fusebackend_p.cpp:132
+#: kded/engine/fusebackend_p.cpp:153
 #, kde-format
 msgid "Device is already open"
 msgstr "Apparaat is al geopend"
 
-#: kded/engine/fusebackend_p.cpp:140
+#: kded/engine/fusebackend_p.cpp:161
 #, kde-format
 msgid "Device is not open"
 msgstr "Apparaat is niet open"
 
-#: kded/engine/fusebackend_p.cpp:189
+#: kded/engine/fusebackend_p.cpp:212
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr "Verkeerde versie geïnstalleerd. De vereiste versie is %1.%2.%3"
 
-#: kded/engine/vault.cpp:239
+#: kded/engine/vault.cpp:243
 #, kde-format
 msgid "Unknown device"
 msgstr "Onbekend apparaat"
 
-#: kded/engine/vault.cpp:269
+#: kded/engine/vault.cpp:273
 #, kde-format
 msgid "Configured backend does not exist: %1"
 msgstr "Geconfigureerde backend bestaat niet: %1"
 
-#: kded/engine/vault.cpp:274
+#: kded/engine/vault.cpp:278
 #, kde-format
 msgid "Mount point is not specified"
 msgstr "Aankoppelpunt is niet gespecificeerd"
 
-#: kded/engine/vault.cpp:279
+#: kded/engine/vault.cpp:283
 #, kde-format
 msgid "Cannot create the mount point"
 msgstr "Kan aankoppelpunt niet aanmaken"
 
-#: kded/engine/vault.cpp:284
+#: kded/engine/vault.cpp:288
 #, kde-format
 msgid "Configured backend cannot be instantiated: %1"
 msgstr "Geconfigureerde backend kan niet geïnitieerd worden: %1"
 
-#: kded/engine/vault.cpp:399
+#: kded/engine/vault.cpp:401
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
 msgstr "Het apparaat is al geregistreerd. Kan het niet opnieuw aanmaken."
 
-#: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
+#: kded/engine/vault.cpp:405 kded/engine/vault.cpp:435
 #, kde-format
 msgid "Unknown error; unable to create the backend."
 msgstr "Onbekende fout; kan de backend niet aanmaken."
 
-#: kded/engine/vault.cpp:433
+#: kded/engine/vault.cpp:431
 #, kde-format
 msgid "This device is not initialized. Cannot import it."
 msgstr "Het apparaat is niet geïnitialiseerd. Kan het niet importeren."
 
-#: kded/engine/vault.cpp:463
+#: kded/engine/vault.cpp:458
 #, kde-format
 msgid "Cannot unlock an unknown vault."
 msgstr "Kan een onbekende kluis niet ontgrendelen."
 
-#: kded/engine/vault.cpp:478
+#: kded/engine/vault.cpp:473
 #, kde-format
 msgid "The vault is unknown; cannot lock it."
 msgstr "De kluis is niet bekend; kan het niet vergrendelen."
 
-#: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
+#: kded/engine/vault.cpp:494
 #, kde-format
 msgid "Unable to lock the vault because an application is using it"
 msgstr ""
 "Niet in staat om de kluis te vergrendelen; omdat een toepassing deze gebruikt"
 
-#: kded/engine/vault.cpp:520
+#: kded/engine/vault.cpp:516
 #, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
 msgstr ""
 "Niet in staat om de kluis te vergrendelen; omdat deze wordt gebruikt door %1"
 
-#: kded/engine/vault.cpp:544
+#: kded/engine/vault.cpp:540
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr ""
 "Ophalen van de lijst met toepassingen die deze kluis gebruiken is mislukt"
 
-#: kded/engine/vault.cpp:596
+#: kded/engine/vault.cpp:592
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
 "Kan de kluis niet verwijderen; er zijn andere kluizen met overlappende paden."
 
-#: kded/engine/vault.cpp:601
+#: kded/engine/vault.cpp:597
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
 msgstr "De kluis is niet bekend; kan het niet ontmantelen."
 
-#: kded/engine/vault.cpp:604
+#: kded/engine/vault.cpp:600
 #, kde-format
 msgid "Are you sure you want to delete this vault"
 msgstr "Wilt u deze kluis verwijderen?"
 
-#: kded/engine/vault.cpp:605
+#: kded/engine/vault.cpp:601
 #, kde-format
 msgid ""
 "This operation will irreversibly delete the following:\n"
@@ -289,12 +289,12 @@ msgstr ""
 "%1\n"
 "%2"
 
-#: kded/engine/vault.cpp:607
+#: kded/engine/vault.cpp:603
 #, kde-format
 msgid "Delete operation cancelled"
 msgstr "Bewerking verwijderen geannuleerd"
 
-#: kded/service.cpp:444
+#: kded/service.cpp:462
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Fout bij verwijderen van kluis"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:46+0000\n"
+"POT-Creation-Date: 2026-03-26 00:47+0000\n"
 "PO-Revision-Date: 2026-02-03 17:32+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -76,7 +76,7 @@ msgstr ""
 "version de cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
-#: kded/engine/fusebackend_p.cpp:43
+#: kded/engine/fusebackend_p.cpp:45
 #, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
@@ -95,24 +95,24 @@ msgstr ""
 "Le version installate de cryfs es troppo vetule per disserrar iste cellario."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:120
 #, kde-format
 msgid "Unable to perform the operation (error code %1)."
 msgstr "Incapace a exequer le operation (codice de error %1)."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:110
 #, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
 msgstr ""
 "Le directorio de cifra non es vacue, assi que il refusa initialisar le "
 "cellario."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:113
 #, kde-format
 msgid "The password is empty, cannot initialise the vault."
 msgstr "Le contrasigno es vacue, il non pote initialisar le cellario."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:114
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:116
 #, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
@@ -120,46 +120,46 @@ msgstr ""
 "Il non pote scriber gocryptfs.conf intra directorio de cifra, verifica tu "
 "permissiones."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
-#: kded/engine/fusebackend_p.cpp:169
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:144
+#: kded/engine/fusebackend_p.cpp:192
 #, kde-format
 msgid "Failed to execute"
 msgstr "Falleva a executar"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
-#: kded/engine/fusebackend_p.cpp:181
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:154
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:169
+#: kded/engine/fusebackend_p.cpp:204
 #, kde-format
 msgid "Unable to detect the version"
 msgstr "Incapace a relevar version"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:163
 #, kde-format
 msgid "Unable to detect the version, the version string is invalid"
 msgstr "Incapace a relevar le version, le catena de version es invalide"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:177
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2"
 msgstr "Version errate installate. Le version requirite es %1.%2."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
-#: kded/engine/fusebackend_p.cpp:195
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:180
+#: kded/engine/fusebackend_p.cpp:218
 #, kde-format
 msgid "Correct version found"
 msgstr "Il trovava le version correcte"
 
-#: kded/engine/fusebackend_p.cpp:52
+#: kded/engine/fusebackend_p.cpp:54
 #, kde-format
 msgid "Unable to perform the operation"
 msgstr "Incapace a exequer le operation"
 
-#: kded/engine/fusebackend_p.cpp:100
+#: kded/engine/fusebackend_p.cpp:117
 #, kde-format
 msgid "This directory already contains encrypted data"
 msgstr "Iste directorio ja contine datos cryptate"
 
-#: kded/engine/fusebackend_p.cpp:103
+#: kded/engine/fusebackend_p.cpp:120
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
@@ -168,114 +168,114 @@ msgstr ""
 "Tu necessita selectionar directorios vacue per le immagazinage cryptate per "
 "le puncto de montage"
 
-#: kded/engine/fusebackend_p.cpp:118
+#: kded/engine/fusebackend_p.cpp:137
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
 msgstr "Iste directorio non contine datos cryptate"
 
-#: kded/engine/fusebackend_p.cpp:122
+#: kded/engine/fusebackend_p.cpp:141
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
 msgstr "Tu necessita seliger un directorio vacue como puncto de montage"
 
-#: kded/engine/fusebackend_p.cpp:132
+#: kded/engine/fusebackend_p.cpp:153
 #, kde-format
 msgid "Device is already open"
 msgstr "Dispositivo jam aperite"
 
-#: kded/engine/fusebackend_p.cpp:140
+#: kded/engine/fusebackend_p.cpp:161
 #, kde-format
 msgid "Device is not open"
 msgstr "Dispositivo non es aperite"
 
-#: kded/engine/fusebackend_p.cpp:189
+#: kded/engine/fusebackend_p.cpp:212
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr "Version errate installate. Le version requirite es %1.%2.%3"
 
-#: kded/engine/vault.cpp:239
+#: kded/engine/vault.cpp:243
 #, kde-format
 msgid "Unknown device"
 msgstr "Dispositivo incognite"
 
-#: kded/engine/vault.cpp:269
+#: kded/engine/vault.cpp:273
 #, kde-format
 msgid "Configured backend does not exist: %1"
 msgstr "Le retroadministration (backend) configurate non existe: %1"
 
-#: kded/engine/vault.cpp:274
+#: kded/engine/vault.cpp:278
 #, kde-format
 msgid "Mount point is not specified"
 msgstr "Puncto de montage non es specificate"
 
-#: kded/engine/vault.cpp:279
+#: kded/engine/vault.cpp:283
 #, kde-format
 msgid "Cannot create the mount point"
 msgstr "Non pote crear le puncto de montage"
 
-#: kded/engine/vault.cpp:284
+#: kded/engine/vault.cpp:288
 #, kde-format
 msgid "Configured backend cannot be instantiated: %1"
 msgstr ""
 "Le retroadministration (backend) configurate non pote esser instantiate: %1"
 
-#: kded/engine/vault.cpp:399
+#: kded/engine/vault.cpp:401
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
 msgstr "Iste dispositivo ja es registrate. Non pote crear illo."
 
-#: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
+#: kded/engine/vault.cpp:405 kded/engine/vault.cpp:435
 #, kde-format
 msgid "Unknown error; unable to create the backend."
 msgstr "Error Incognite; incapace a crear le retroadministration (backend)."
 
-#: kded/engine/vault.cpp:433
+#: kded/engine/vault.cpp:431
 #, kde-format
 msgid "This device is not initialized. Cannot import it."
 msgstr "Iste dispositivo non es initialisate. Non pote importar lo."
 
-#: kded/engine/vault.cpp:463
+#: kded/engine/vault.cpp:458
 #, kde-format
 msgid "Cannot unlock an unknown vault."
 msgstr "Non pote disserrar un cellario incognite."
 
-#: kded/engine/vault.cpp:478
+#: kded/engine/vault.cpp:473
 #, kde-format
 msgid "The vault is unknown; cannot lock it."
 msgstr "Le cellario es incognite; non pote serrar lo."
 
-#: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
+#: kded/engine/vault.cpp:494
 #, kde-format
 msgid "Unable to lock the vault because an application is using it"
 msgstr "Incapace a serrar le cellario proque un application es usante illo"
 
-#: kded/engine/vault.cpp:520
+#: kded/engine/vault.cpp:516
 #, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
 msgstr "Incapace a serrar le cellario proque illo es usate per %1"
 
-#: kded/engine/vault.cpp:544
+#: kded/engine/vault.cpp:540
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr "Falleva a reportar le lista de applicationes usante iste cellario"
 
-#: kded/engine/vault.cpp:596
+#: kded/engine/vault.cpp:592
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
 "Non pote deler le cellario; il ha altere cellarios con percursos imbricante."
 
-#: kded/engine/vault.cpp:601
+#: kded/engine/vault.cpp:597
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
 msgstr "Le cellario es incognite; non pote dismantellar lo."
 
-#: kded/engine/vault.cpp:604
+#: kded/engine/vault.cpp:600
 #, kde-format
 msgid "Are you sure you want to delete this vault"
 msgstr "Tu es secur que tu vole deler iste cellario"
 
-#: kded/engine/vault.cpp:605
+#: kded/engine/vault.cpp:601
 #, kde-format
 msgid ""
 "This operation will irreversibly delete the following:\n"
@@ -286,12 +286,12 @@ msgstr ""
 "%1\n"
 "%2"
 
-#: kded/engine/vault.cpp:607
+#: kded/engine/vault.cpp:603
 #, kde-format
 msgid "Delete operation cancelled"
 msgstr "Operation de deler cancellate"
 
-#: kded/service.cpp:444
+#: kded/service.cpp:462
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Error delente cellario"

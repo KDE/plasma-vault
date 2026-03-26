@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:46+0000\n"
+"POT-Creation-Date: 2026-03-26 00:47+0000\n"
 "PO-Revision-Date: 2024-09-19 16:42+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -85,7 +85,7 @@ msgstr ""
 "έκδοση του cryfs"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
-#: kded/engine/fusebackend_p.cpp:43
+#: kded/engine/fusebackend_p.cpp:45
 #, fuzzy, kde-format
 #| msgid "The mount point directory is not empty, refusing to open the vault"
 msgid "The mount point directory is not empty; refusing to unlock the vault"
@@ -107,25 +107,25 @@ msgstr ""
 "θησαυροφυλάκιο."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:120
 #, kde-format
 msgid "Unable to perform the operation (error code %1)."
 msgstr "Αδυναμία εκτέλεσης της λειτουργίας (κωδικός σφάλματος %1)."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:110
 #, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
 msgstr ""
 "Ο κατάλογος του κρυπτογραφήματος δεν είναι κενός, αδυναμία αρχικοποίησης του "
 "θησαυροφυλακίου"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:113
 #, kde-format
 msgid "The password is empty, cannot initialise the vault."
 msgstr ""
 "Ο κωδικός πρόσβασης είναι κενός, αδυναμία αρχικοποίησης του θησαυροφυλακίου"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:114
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:116
 #, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
@@ -133,48 +133,48 @@ msgstr ""
 "Αδυναμία εγγραφής του gocryptfs.conf μέσα στον κατάλογο του "
 "κρυπτογραφήματος, ελέγξτε τα δικαιώματά σας."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
-#: kded/engine/fusebackend_p.cpp:169
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:144
+#: kded/engine/fusebackend_p.cpp:192
 #, kde-format
 msgid "Failed to execute"
 msgstr "Αποτυχία εκτέλεσης"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
-#: kded/engine/fusebackend_p.cpp:181
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:154
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:169
+#: kded/engine/fusebackend_p.cpp:204
 #, kde-format
 msgid "Unable to detect the version"
 msgstr "Αδυναμία ανίχνευσης έκδοσης"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:163
 #, kde-format
 msgid "Unable to detect the version, the version string is invalid"
 msgstr ""
 "Αδυναμία ανίχνευσης έκδοσης, η συμβολοσειρά της έκδοσης δεν είναι έγκυρη"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:177
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2"
 msgstr ""
 "Έχει εγκατασταθεί λανθασμένη έκδοση. Η απαιτούμενη έκδοση είναι η %1.%2"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
-#: kded/engine/fusebackend_p.cpp:195
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:180
+#: kded/engine/fusebackend_p.cpp:218
 #, kde-format
 msgid "Correct version found"
 msgstr "Βρέθηκε η σωστή έκδοση"
 
-#: kded/engine/fusebackend_p.cpp:52
+#: kded/engine/fusebackend_p.cpp:54
 #, kde-format
 msgid "Unable to perform the operation"
 msgstr "Αδυναμία εκτέλεσης λειτουργίας"
 
-#: kded/engine/fusebackend_p.cpp:100
+#: kded/engine/fusebackend_p.cpp:117
 #, kde-format
 msgid "This directory already contains encrypted data"
 msgstr "Αυτός ο κατάλογος περιέχει ήδη κρυπτογραφημένα δεδομένα"
 
-#: kded/engine/fusebackend_p.cpp:103
+#: kded/engine/fusebackend_p.cpp:120
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
@@ -183,122 +183,122 @@ msgstr ""
 "Πρέπει να επιλέξετε άδειους καταλόγους για τον χώρο κρυπτογραφημένης "
 "αποθήκευσης και το σημείο προσάρτησης"
 
-#: kded/engine/fusebackend_p.cpp:118
+#: kded/engine/fusebackend_p.cpp:137
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
 msgstr "Αυτός ο κατάλογος δεν περιέχει κρυπτογραφημένα δεδομένα"
 
-#: kded/engine/fusebackend_p.cpp:122
+#: kded/engine/fusebackend_p.cpp:141
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
 msgstr "Πρέπει να επιλέξετε έναν κενό κατάλογο για το σημείο προσάρτησης"
 
-#: kded/engine/fusebackend_p.cpp:132
+#: kded/engine/fusebackend_p.cpp:153
 #, kde-format
 msgid "Device is already open"
 msgstr "Η συσκευή είναι ήδη ανοιχτή"
 
-#: kded/engine/fusebackend_p.cpp:140
+#: kded/engine/fusebackend_p.cpp:161
 #, kde-format
 msgid "Device is not open"
 msgstr "Η συσκευή δεν είναι ανοιχτή"
 
-#: kded/engine/fusebackend_p.cpp:189
+#: kded/engine/fusebackend_p.cpp:212
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr ""
 "Έχει εγκατασταθεί λανθασμένη έκδοση. Η απαιτούμενη έκδοση είναι η %1.%2.%3"
 
-#: kded/engine/vault.cpp:239
+#: kded/engine/vault.cpp:243
 #, kde-format
 msgid "Unknown device"
 msgstr "Άγνωστη συσκευή"
 
-#: kded/engine/vault.cpp:269
+#: kded/engine/vault.cpp:273
 #, kde-format
 msgid "Configured backend does not exist: %1"
 msgstr "Δεν υπάρχει διαμορφωμένο σύστημα υποστήριξης: %1"
 
-#: kded/engine/vault.cpp:274
+#: kded/engine/vault.cpp:278
 #, kde-format
 msgid "Mount point is not specified"
 msgstr "Δεν έχει καθοριστεί σημείο προσάρτησης"
 
-#: kded/engine/vault.cpp:279
+#: kded/engine/vault.cpp:283
 #, kde-format
 msgid "Cannot create the mount point"
 msgstr "Αδυναμία δημιουργίας του  σημείου προσάρτησης"
 
-#: kded/engine/vault.cpp:284
+#: kded/engine/vault.cpp:288
 #, kde-format
 msgid "Configured backend cannot be instantiated: %1"
 msgstr "Το διαμορφωμένο σύστημα υποστήριξης δεν μπορεί να αρχικοποιηθεί: %1"
 
-#: kded/engine/vault.cpp:399
+#: kded/engine/vault.cpp:401
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
 msgstr "Η συσκευή έχει ήδη καταχωρηθεί. Δε μπορεί να δημιουργηθεί πάλι."
 
-#: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
+#: kded/engine/vault.cpp:405 kded/engine/vault.cpp:435
 #, kde-format
 msgid "Unknown error; unable to create the backend."
 msgstr "Άγνωστο σφάλμα. Αδυναμία δημιουργίας του συστήματος υποστήριξης."
 
-#: kded/engine/vault.cpp:433
+#: kded/engine/vault.cpp:431
 #, kde-format
 msgid "This device is not initialized. Cannot import it."
 msgstr "Η συσκευή δεν έχει πάρει αρχικές τιμές. Αδυναμία εισαγωγής της."
 
-#: kded/engine/vault.cpp:463
+#: kded/engine/vault.cpp:458
 #, fuzzy, kde-format
 #| msgid "Cannot open an unknown vault."
 msgid "Cannot unlock an unknown vault."
 msgstr "Αδυναμία ανοίγματος ενός άγνωστου θησαυροφυλακίου."
 
-#: kded/engine/vault.cpp:478
+#: kded/engine/vault.cpp:473
 #, fuzzy, kde-format
 #| msgid "The vault is unknown; cannot close it."
 msgid "The vault is unknown; cannot lock it."
 msgstr "Άγνωστο θησαυροφυλάκιο, αδυναμία κλεισίματος."
 
-#: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
+#: kded/engine/vault.cpp:494
 #, fuzzy, kde-format
 #| msgid "Unable to close the vault because an application is using it"
 msgid "Unable to lock the vault because an application is using it"
 msgstr ""
 "Αδυναμία κλεισίματος θησαυροφυλακίου γιατί το χρησιμοποιεί κάποια εφαρμογή"
 
-#: kded/engine/vault.cpp:520
+#: kded/engine/vault.cpp:516
 #, fuzzy, kde-format
 #| msgid "Unable to close the vault because it is being used by %1"
 msgid "Unable to lock the vault because it is being used by %1"
 msgstr "Αδυναμία κλεισίματος θησαυροφυλακίου γιατί χρησιμοποιείται από το %1"
 
-#: kded/engine/vault.cpp:544
+#: kded/engine/vault.cpp:540
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr ""
 "Αποτυχία ανάκτησης της λίστας εφαρμογών που χρησιμοποιούν αυτό το "
 "θησαυροφυλάκιο"
 
-#: kded/engine/vault.cpp:596
+#: kded/engine/vault.cpp:592
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
 "Αδυναμία διαγραφής του θησαυροφυλακίου. Υπάρχουν άλλα με επικαλυπτόμενες "
 "διαδρομές."
 
-#: kded/engine/vault.cpp:601
+#: kded/engine/vault.cpp:597
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
 msgstr "Άγνωστο θησαυροφυλάκιο. Αδυναμία αποσυναρμολόγησης."
 
-#: kded/engine/vault.cpp:604
+#: kded/engine/vault.cpp:600
 #, kde-format
 msgid "Are you sure you want to delete this vault"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγραφεί αυτό το θησαυροφυλάκιο:"
 
-#: kded/engine/vault.cpp:605
+#: kded/engine/vault.cpp:601
 #, kde-format
 msgid ""
 "This operation will irreversibly delete the following:\n"
@@ -309,12 +309,12 @@ msgstr ""
 "%1\n"
 "%2"
 
-#: kded/engine/vault.cpp:607
+#: kded/engine/vault.cpp:603
 #, kde-format
 msgid "Delete operation cancelled"
 msgstr "Η διαδικασία διαγραφής ακυρώθηκε"
 
-#: kded/service.cpp:444
+#: kded/service.cpp:462
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Σφάλμα διαγραφής θησαυροφυλακίου"

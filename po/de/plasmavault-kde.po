@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:46+0000\n"
+"POT-Creation-Date: 2026-03-26 00:47+0000\n"
 "PO-Revision-Date: 2025-10-18 18:15+0200\n"
 "Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -81,7 +81,7 @@ msgstr ""
 "„cryfs“ entsperrt werden kann"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
-#: kded/engine/fusebackend_p.cpp:43
+#: kded/engine/fusebackend_p.cpp:45
 #, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr "Der Einhängepunkt ist nicht leer, Tresor wird nicht entsperrt"
@@ -99,24 +99,24 @@ msgstr ""
 "entsperren."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:120
 #, kde-format
 msgid "Unable to perform the operation (error code %1)."
 msgstr "Der Vorgang kann nicht durchgeführt werden (Fehlercode %1)"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:110
 #, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
 msgstr ""
 "Der verschlüsselte Ordner ist nicht leer. Tresor kann nicht initialisiert "
 "werden"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:113
 #, kde-format
 msgid "The password is empty, cannot initialise the vault."
 msgstr "Das Passwort ist leer. Tresor kann nicht initialisiert werden"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:114
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:116
 #, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
@@ -124,47 +124,47 @@ msgstr ""
 "Die Datei „gocryptfs.conf“ im verschlüsselten Ordner kann nicht geschrieben "
 "werden, überprüfen Sie Ihre Berechtigungen"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
-#: kded/engine/fusebackend_p.cpp:169
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:144
+#: kded/engine/fusebackend_p.cpp:192
 #, kde-format
 msgid "Failed to execute"
 msgstr "Ausführung ist fehlgeschlagen"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
-#: kded/engine/fusebackend_p.cpp:181
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:154
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:169
+#: kded/engine/fusebackend_p.cpp:204
 #, kde-format
 msgid "Unable to detect the version"
 msgstr "Version kann nicht erkannt werden"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:163
 #, kde-format
 msgid "Unable to detect the version, the version string is invalid"
 msgstr ""
 "Version kann nicht erkannt werden, die Versionsbezeichnung ist ungültig"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:177
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2"
 msgstr "Es ist die falsche Version installiert. Version %1.%2 ist erforderlich"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
-#: kded/engine/fusebackend_p.cpp:195
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:180
+#: kded/engine/fusebackend_p.cpp:218
 #, kde-format
 msgid "Correct version found"
 msgstr "Richtige Version gefunden"
 
-#: kded/engine/fusebackend_p.cpp:52
+#: kded/engine/fusebackend_p.cpp:54
 #, kde-format
 msgid "Unable to perform the operation"
 msgstr "Der Vorgang kann nicht durchgeführt werden"
 
-#: kded/engine/fusebackend_p.cpp:100
+#: kded/engine/fusebackend_p.cpp:117
 #, kde-format
 msgid "This directory already contains encrypted data"
 msgstr "Dieser Ordner enthält bereits verschlüsselte Daten"
 
-#: kded/engine/fusebackend_p.cpp:103
+#: kded/engine/fusebackend_p.cpp:120
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
@@ -173,118 +173,118 @@ msgstr ""
 "Sie müssen leere Ordner für den verschlüsselten Speicher und für den "
 "Einhängepunkt auswählen"
 
-#: kded/engine/fusebackend_p.cpp:118
+#: kded/engine/fusebackend_p.cpp:137
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
 msgstr "Dieser Ordner enthält keine verschlüsselte Daten"
 
-#: kded/engine/fusebackend_p.cpp:122
+#: kded/engine/fusebackend_p.cpp:141
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
 msgstr "Sie müssen einen leeren Ordner als Einhängepunkt auswählen"
 
-#: kded/engine/fusebackend_p.cpp:132
+#: kded/engine/fusebackend_p.cpp:153
 #, kde-format
 msgid "Device is already open"
 msgstr "Das Gerät ist bereits geöffnet"
 
-#: kded/engine/fusebackend_p.cpp:140
+#: kded/engine/fusebackend_p.cpp:161
 #, kde-format
 msgid "Device is not open"
 msgstr "Das Gerät ist nicht geöffnet"
 
-#: kded/engine/fusebackend_p.cpp:189
+#: kded/engine/fusebackend_p.cpp:212
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr ""
 "Es ist die falsche Version installiert. Version %1.%2.%3 ist erforderlich"
 
-#: kded/engine/vault.cpp:239
+#: kded/engine/vault.cpp:243
 #, kde-format
 msgid "Unknown device"
 msgstr "Unbekanntes Gerät"
 
-#: kded/engine/vault.cpp:269
+#: kded/engine/vault.cpp:273
 #, kde-format
 msgid "Configured backend does not exist: %1"
 msgstr "Das eingerichtete Backend existiert nicht: %1"
 
-#: kded/engine/vault.cpp:274
+#: kded/engine/vault.cpp:278
 #, kde-format
 msgid "Mount point is not specified"
 msgstr "Es ist kein Einhängepunkt angegeben"
 
-#: kded/engine/vault.cpp:279
+#: kded/engine/vault.cpp:283
 #, kde-format
 msgid "Cannot create the mount point"
 msgstr "Einhängepunkt kann nicht erstellt werden"
 
-#: kded/engine/vault.cpp:284
+#: kded/engine/vault.cpp:288
 #, kde-format
 msgid "Configured backend cannot be instantiated: %1"
 msgstr "Eingerichtetes Backend kann nicht instantiiert werden: %1"
 
-#: kded/engine/vault.cpp:399
+#: kded/engine/vault.cpp:401
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
 msgstr ""
 "Dieses Gerät ist bereits registriert. Es kann nicht neu erstellt werden."
 
-#: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
+#: kded/engine/vault.cpp:405 kded/engine/vault.cpp:435
 #, kde-format
 msgid "Unknown error; unable to create the backend."
 msgstr "Unbekannter Fehler. Backend kann nicht erzeugt werden."
 
-#: kded/engine/vault.cpp:433
+#: kded/engine/vault.cpp:431
 #, kde-format
 msgid "This device is not initialized. Cannot import it."
 msgstr "Dieses Gerät ist nicht initialisiert. Es kann nicht importiert werden."
 
-#: kded/engine/vault.cpp:463
+#: kded/engine/vault.cpp:458
 #, kde-format
 msgid "Cannot unlock an unknown vault."
 msgstr "Ein unbekannter Tresor kann nicht entsperrt werden."
 
-#: kded/engine/vault.cpp:478
+#: kded/engine/vault.cpp:473
 #, kde-format
 msgid "The vault is unknown; cannot lock it."
 msgstr "Der Tresor ist unbekannt. Er kann nicht gesperrt werden."
 
-#: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
+#: kded/engine/vault.cpp:494
 #, kde-format
 msgid "Unable to lock the vault because an application is using it"
 msgstr "Tresor kann nicht gesperrt werden, da eine Anwendung ihn verwendet"
 
-#: kded/engine/vault.cpp:520
+#: kded/engine/vault.cpp:516
 #, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
 msgstr "Tresor kann nicht gesperrt werden, da er von %1 verwendet wird"
 
-#: kded/engine/vault.cpp:544
+#: kded/engine/vault.cpp:540
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr ""
 "Liste der Anwendungen, die auf diesen Tresor zugreifen, kann nicht bezogen "
 "werden"
 
-#: kded/engine/vault.cpp:596
+#: kded/engine/vault.cpp:592
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
 "Tresor kann nicht gelöscht werden. Es gibt noch andere Tresore mit "
 "überlappenden Pfaden."
 
-#: kded/engine/vault.cpp:601
+#: kded/engine/vault.cpp:597
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
 msgstr "Der Tresor ist unbekannt. Er kann nicht zerstört werden."
 
-#: kded/engine/vault.cpp:604
+#: kded/engine/vault.cpp:600
 #, kde-format
 msgid "Are you sure you want to delete this vault"
 msgstr "Möchten Sie diesen Tresor wirklich löschen?"
 
-#: kded/engine/vault.cpp:605
+#: kded/engine/vault.cpp:601
 #, kde-format
 msgid ""
 "This operation will irreversibly delete the following:\n"
@@ -295,12 +295,12 @@ msgstr ""
 "%1\n"
 "%2"
 
-#: kded/engine/vault.cpp:607
+#: kded/engine/vault.cpp:603
 #, kde-format
 msgid "Delete operation cancelled"
 msgstr "Löschvorgang abgebrochen"
 
-#: kded/service.cpp:444
+#: kded/service.cpp:462
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Fehler beim Löschen des Tresors"

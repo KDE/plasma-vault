@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:46+0000\n"
+"POT-Creation-Date: 2026-03-26 00:47+0000\n"
 "PO-Revision-Date: 2025-09-26 00:00+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt\n"
@@ -78,7 +78,7 @@ msgstr ""
 "atnaujinta"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
-#: kded/engine/fusebackend_p.cpp:43
+#: kded/engine/fusebackend_p.cpp:45
 #, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr "Prijungimo taško katalogas nėra tuščias, atsisakoma atrakinti slėptuvę"
@@ -94,22 +94,22 @@ msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr "Įdiegta cryfs versija yra pernelyg sena, kad atrakintų šią slėptuvę."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:118
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:120
 #, kde-format
 msgid "Unable to perform the operation (error code %1)."
 msgstr "Nepavyko įvykdyti operacijos (klaidos kodas %1)."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:108
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:110
 #, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
 msgstr "Šifro katalogas nėra tuščias, nepavyksta inicijuoti slėptuvės."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:111
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:113
 #, kde-format
 msgid "The password is empty, cannot initialise the vault."
 msgstr "Slaptažodis yra tuščias, nepavyksta inicijuoti slėptuvės."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:114
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:116
 #, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
@@ -117,46 +117,46 @@ msgstr ""
 "Nepavyksta šifro katalogo viduje įrašyti gocryptfs.conf, patikrinkite savo "
 "leidimus."
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:142
-#: kded/engine/fusebackend_p.cpp:169
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:144
+#: kded/engine/fusebackend_p.cpp:192
 #, kde-format
 msgid "Failed to execute"
 msgstr "Nepavyko įvykdyti"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:152
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:167
-#: kded/engine/fusebackend_p.cpp:181
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:154
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:169
+#: kded/engine/fusebackend_p.cpp:204
 #, kde-format
 msgid "Unable to detect the version"
 msgstr "Nepavyko aptikti versijos"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:161
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:163
 #, kde-format
 msgid "Unable to detect the version, the version string is invalid"
 msgstr "Nepavyko aptikti versijos, versijos eilutė yra neteisinga"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:175
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:177
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2"
 msgstr "Įdiegta neteisinga versija. Reikalinga versija yra %1.%2"
 
-#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:178
-#: kded/engine/fusebackend_p.cpp:195
+#: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:180
+#: kded/engine/fusebackend_p.cpp:218
 #, kde-format
 msgid "Correct version found"
 msgstr "Rasta teisinga versija"
 
-#: kded/engine/fusebackend_p.cpp:52
+#: kded/engine/fusebackend_p.cpp:54
 #, kde-format
 msgid "Unable to perform the operation"
 msgstr "Nepavyko įvykdyti operacijos"
 
-#: kded/engine/fusebackend_p.cpp:100
+#: kded/engine/fusebackend_p.cpp:117
 #, kde-format
 msgid "This directory already contains encrypted data"
 msgstr "Šiame kataloge jau yra šifruoti duomenys"
 
-#: kded/engine/fusebackend_p.cpp:103
+#: kded/engine/fusebackend_p.cpp:120
 #, kde-format
 msgid ""
 "You need to select empty directories for the encrypted storage and for the "
@@ -165,114 +165,114 @@ msgstr ""
 "Jums reikia pasirinkti tuščius katalogus, skirtus šifruotai saugyklai ir "
 "prijungimo taškui"
 
-#: kded/engine/fusebackend_p.cpp:118
+#: kded/engine/fusebackend_p.cpp:137
 #, kde-format
 msgid "This directory doesn't contain encrypted data"
 msgstr "Šiame kataloge nėra šifruotų duomenų"
 
-#: kded/engine/fusebackend_p.cpp:122
+#: kded/engine/fusebackend_p.cpp:141
 #, kde-format
 msgid "You need to select an empty directory for the mount point"
 msgstr "Prijungimo taškui turite pasirinkti tuščią katalogą"
 
-#: kded/engine/fusebackend_p.cpp:132
+#: kded/engine/fusebackend_p.cpp:153
 #, kde-format
 msgid "Device is already open"
 msgstr "Įrenginys jau yra atvertas"
 
-#: kded/engine/fusebackend_p.cpp:140
+#: kded/engine/fusebackend_p.cpp:161
 #, kde-format
 msgid "Device is not open"
 msgstr "Įrenginys nėra atvertas"
 
-#: kded/engine/fusebackend_p.cpp:189
+#: kded/engine/fusebackend_p.cpp:212
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr "Įdiegta neteisinga versija. Reikalinga versija yra %1.%2.%3"
 
-#: kded/engine/vault.cpp:239
+#: kded/engine/vault.cpp:243
 #, kde-format
 msgid "Unknown device"
 msgstr "Nežinomas įrenginys"
 
-#: kded/engine/vault.cpp:269
+#: kded/engine/vault.cpp:273
 #, kde-format
 msgid "Configured backend does not exist: %1"
 msgstr "Sukonfigūruotos vidinės pusės nėra: %1"
 
-#: kded/engine/vault.cpp:274
+#: kded/engine/vault.cpp:278
 #, kde-format
 msgid "Mount point is not specified"
 msgstr "Nenurodytas prijungimo taškas"
 
-#: kded/engine/vault.cpp:279
+#: kded/engine/vault.cpp:283
 #, kde-format
 msgid "Cannot create the mount point"
 msgstr "Nepavyksta sukurti prijungimo taško"
 
-#: kded/engine/vault.cpp:284
+#: kded/engine/vault.cpp:288
 #, kde-format
 msgid "Configured backend cannot be instantiated: %1"
 msgstr "Nepavyksta iliustruoti sukonfigūruotos vidinės pusės: %1"
 
-#: kded/engine/vault.cpp:399
+#: kded/engine/vault.cpp:401
 #, kde-format
 msgid "This device is already registered. Cannot recreate it."
 msgstr "Šis įrenginys jau yra užregistruotas. Nepavyksta sukurti jo iš naujo."
 
-#: kded/engine/vault.cpp:404 kded/engine/vault.cpp:438
+#: kded/engine/vault.cpp:405 kded/engine/vault.cpp:435
 #, kde-format
 msgid "Unknown error; unable to create the backend."
 msgstr "Nežinoma klaida; nepavyko sukurti vidinės pusės."
 
-#: kded/engine/vault.cpp:433
+#: kded/engine/vault.cpp:431
 #, kde-format
 msgid "This device is not initialized. Cannot import it."
 msgstr "Šis įrenginys nėra inicijuotas. Nepavyksta jo importuoti."
 
-#: kded/engine/vault.cpp:463
+#: kded/engine/vault.cpp:458
 #, kde-format
 msgid "Cannot unlock an unknown vault."
 msgstr "Nepavyksta atrakinti nežinomos slėptuvės."
 
-#: kded/engine/vault.cpp:478
+#: kded/engine/vault.cpp:473
 #, kde-format
 msgid "The vault is unknown; cannot lock it."
 msgstr "Slėptuvė nėra žinoma; nepavyksta jos užrakinti."
 
-#: kded/engine/vault.cpp:489 kded/engine/vault.cpp:497
+#: kded/engine/vault.cpp:494
 #, kde-format
 msgid "Unable to lock the vault because an application is using it"
 msgstr "Nepavyko užrakinti slėptuvės, nes ją naudoja programa"
 
-#: kded/engine/vault.cpp:520
+#: kded/engine/vault.cpp:516
 #, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
 msgstr "Nepavyko užrakinti slėptuvės, nes ją naudoja %1"
 
-#: kded/engine/vault.cpp:544
+#: kded/engine/vault.cpp:540
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
 msgstr "Nepavyko gauti sąrašą programų, naudojančių šią slėptuvę"
 
-#: kded/engine/vault.cpp:596
+#: kded/engine/vault.cpp:592
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
 "Nepavyksta ištrinti slėptuvės; yra kitų slėptuvių su persiklojančiais "
 "keliais."
 
-#: kded/engine/vault.cpp:601
+#: kded/engine/vault.cpp:597
 #, kde-format
 msgid "The vault is unknown; cannot dismantle it."
 msgstr "Slėptuvė yra nežinoma; nepavyksta jos išmontuoti."
 
-#: kded/engine/vault.cpp:604
+#: kded/engine/vault.cpp:600
 #, kde-format
 msgid "Are you sure you want to delete this vault"
 msgstr "Ar tikrai norite ištrinti šią slėptuvę"
 
-#: kded/engine/vault.cpp:605
+#: kded/engine/vault.cpp:601
 #, kde-format
 msgid ""
 "This operation will irreversibly delete the following:\n"
@@ -283,12 +283,12 @@ msgstr ""
 "%1\n"
 "%2"
 
-#: kded/engine/vault.cpp:607
+#: kded/engine/vault.cpp:603
 #, kde-format
 msgid "Delete operation cancelled"
 msgstr "Ištrynimo operacijos atsisakyta"
 
-#: kded/service.cpp:444
+#: kded/service.cpp:462
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Klaida ištrinant slėptuvę"
