@@ -1,13 +1,12 @@
 # Translation of plasmavault-kde to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2018, 2019, 2020, 2021.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-26 00:47+0000\n"
-"PO-Revision-Date: 2021-09-19 12:33+0200\n"
+"PO-Revision-Date: 2026-04-18 15:32+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,26 +14,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.11.70\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Lukk Plasma-datakvelvet"
+msgstr "Lås Plasma-datakvelvet"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:79
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Lukk Plasma-datakvelvet"
+msgstr "Lås opp Plasma-datakvelvet"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -74,10 +69,7 @@ msgstr ""
 "Vil du oppgradera no?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
@@ -85,10 +77,9 @@ msgstr "Datakvelvet må oppgraderast for å verka med denne versjonen av CryFS"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:45
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
-msgstr "Monteringspunktsmappa er ikkje tom – nektar å opna datakvelvet"
+msgstr "Monteringspunktsmappa er ikkje tom – nektar å låsa opp datakvelvet"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -96,11 +87,11 @@ msgid "You entered the wrong password"
 msgstr "Feil passord"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
-"Den installerte versjonen av CryFS er for gammal til å opna dette kvelvet."
+"Den installerte versjonen av CryFS er for gammal til å låsa opp dette "
+"kvelvet."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:120
@@ -239,28 +230,24 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "Eininga er ikkje klargjort. Kan derfor ikkje importera ho."
 
 #: kded/engine/vault.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Kan ikkje opna eit ukjend datakvelv."
+msgstr "Kan ikkje låsa opp eit ukjend datakvelv."
 
 #: kded/engine/vault.cpp:473
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "Datakvelvet er ukjent. Kan derfor ikkje lukka det."
+msgstr "Datakvelvet er ukjent. Kan derfor ikkje låsa det."
 
 #: kded/engine/vault.cpp:494
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Kan ikkje lukka datakvelvet, då eit program brukar det"
+msgstr "Kan ikkje låsa datakvelvet, då eit program brukar det"
 
 #: kded/engine/vault.cpp:516
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Kan ikkje lukka datakvelvet, då %1 brukar det"
+msgstr "Kan ikkje låsa datakvelvet, då %1 brukar det"
 
 #: kded/engine/vault.cpp:540
 #, kde-format
@@ -308,12 +295,7 @@ msgstr "Feil ved sletting av datakvelv"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -322,7 +304,7 @@ msgid ""
 msgstr ""
 "Viss du avgrensar datakvelvet til einskildaktivitetar, vert det berre vist i "
 "skjermelementet når du er i desse aktivitetane. Når du byter til ein "
-"aktivitet som det ikkje skal vera tilgjengeleg i, vert det automatisk lukka."
+"aktivitet som det ikkje skal vera tilgjengeleg i, vert det automatisk låst."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -404,12 +386,10 @@ msgid "Mount point"
 msgstr "Monteringspunkt"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Opna Plasma-datakvelvet «%1»"
+msgstr "Lås opp Plasma-datakvelvet «%1»"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -435,17 +415,15 @@ msgid "Error details"
 msgstr "Feildetaljar"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Klarte ikkje opna: %1"
+msgstr "Klarte ikkje låsa opp: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Skriv inn passord for å opna datakvelvet:"
+msgstr "Skriv inn passord for å låsa opp datakvelvet:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -549,17 +527,15 @@ msgstr "Dialogvindauge"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "Du kan berre endra innstillingane for datakvelvet når det er lukka."
+msgstr "Du kan berre endra innstillingane for datakvelvet når det er låst."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Lukk datakvelvet"
+msgstr "Lås datakvelvet"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
