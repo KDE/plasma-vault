@@ -1,38 +1,34 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the plasma-vault package.
 #
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2019, 2020.
-# Kristof Kiszel <kiszel.kristof@gmail.com>, 2021.
+# SPDX-FileCopyrightText: 2021, 2026 Kristof Kiszel <kiszel.kristof@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-26 00:47+0000\n"
-"PO-Revision-Date: 2021-09-30 16:01+0200\n"
-"Last-Translator: Kristof Kiszel <kiszel.kristof@gmail.com>\n"
+"PO-Revision-Date: 2026-06-07 22:23+0200\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.03.80\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Titkos tároló bezárása"
+msgstr "Titkos tároló zárolása"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:79
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Titkos tároló bezárása"
+msgstr "Titkos tároló feloldása"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -72,23 +68,19 @@ msgstr ""
 "Szeretné végrehajtani a frissítést most?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"A titkos tárolót frissíteni kell, mielőtt megnyitná a cryfs ezen verziójával"
+"A titkos tárolót frissíteni kell, mielőtt feloldaná a cryfs ezen verziójával"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:45
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
-"A csatolási ponton lévő mappa nem üres, a titkos tároló megnyitása elutasítva"
+"A csatolási ponton lévő mappa nem üres, a titkos tároló feloldása elutasítva"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -96,11 +88,10 @@ msgid "You entered the wrong password"
 msgstr "Rossz jelszót adott meg"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
-"A cryfs rendelkezésre álló verziója túl régi a titkos tároló megnyitásához."
+"A cryfs rendelkezésre álló verziója túl régi a titkos tároló feloldásához."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:120
@@ -239,28 +230,24 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "Az eszköz nincs inicializálva. Nem lehet importálni."
 
 #: kded/engine/vault.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Nem lehet megnyitni ismeretlen titkos tárolót."
+msgstr "Nem lehet feloldani ismeretlen titkos tárolót."
 
 #: kded/engine/vault.cpp:473
-#, fuzzy, kde-format
-#| msgid "The vault is unknown; cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "A titkos tároló ismeretlen, nem lehet bezárni."
+msgstr "A titkos tároló ismeretlen, nem lehet zárolni."
 
 #: kded/engine/vault.cpp:494
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Nem lehet bezárni a titkos tárolót, egy alkalmazás használja azt"
+msgstr "Nem lehet zárolni a titkos tárolót, egy alkalmazás használja azt"
 
 #: kded/engine/vault.cpp:516
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault because it is being used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Nem lehet bezárni a titkos tárolót, a(z) %1 használja azt"
+msgstr "Nem lehet zárolni a titkos tárolót, a(z) %1 használja azt"
 
 #: kded/engine/vault.cpp:540
 #, kde-format
@@ -306,12 +293,7 @@ msgstr "Hiba a tároló törlésekor"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -321,7 +303,7 @@ msgstr ""
 "Ha bizonyos aktivitásokra korlátozza a titkos tárolót, az csak akkor jelenik "
 "meg a kisalkalmazásban, ha azt az aktivitást használja. Továbbá ha olyan "
 "aktivitásra vált, ahol az nem szabad, hogy elérhető legyen, a titkos tároló "
-"automatikusan bezárul."
+"automatikusan zárolva lesz."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -403,12 +385,10 @@ msgid "Mount point"
 msgstr "Csatolási pont"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "%1 is the name of the Plasma Vault to open"
-#| msgid "Open '%1' Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "A(z) „%1” titkos tároló megnyitása"
+msgstr "A(z) „%1” titkos tároló feloldása"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
@@ -434,17 +414,15 @@ msgid "Error details"
 msgstr "Hiba részletei"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Nem sikerült megnyitni: %1"
+msgstr "Nem sikerült feloldani: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Adja meg a jelszót a titkos tároló megnyitásához:"
+msgstr "Adja meg a jelszót a titkos tároló feloldásához:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -550,17 +528,15 @@ msgstr "Párbeszédablak"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "A titkos tároló beállításai csak annak bezárása után módosíthatóak."
+msgstr "A titkos tároló beállításai csak annak zárolása után módosíthatóak."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Titkos tároló bezárása"
+msgstr "Titkos tároló zárolása"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
