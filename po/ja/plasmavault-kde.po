@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2026 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # 百武 朋大 <tomhioo@outlook.jp>, 2019, 2020.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2019, 2020.
 msgid ""
@@ -5,8 +6,8 @@ msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-26 00:47+0000\n"
-"PO-Revision-Date: 2020-01-18 20:16-0800\n"
-"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
+"PO-Revision-Date: 2026-06-25 00:40+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -15,29 +16,25 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 19.12.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:78
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "この Plasma Vault を閉じる"
+msgstr "この Plasma Vault をロック"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:79
-#, fuzzy, kde-format
-#| msgctxt "@action Action to unmount a vault"
-#| msgid "Close this Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "この Plasma Vault を閉じる"
+msgstr "この Plasma Vault のロックを解除"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
 msgctxt "formatting the message for a command, as in encfs: not found"
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:92
 #: kded/engine/backends/encfs/encfsbackend.cpp:51
@@ -70,25 +67,21 @@ msgstr ""
 "アップグレードを実行しますか？"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
-#, fuzzy, kde-format
-#| msgid ""
-#| "The vault needs to be upgraded before it can be opened with this version "
-#| "of cryfs"
+#, kde-format
 msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
-"この Vault をこのバージョンの cryfs で開けるようにするには、この Vault をアッ"
-"プグレードする必要があります"
+"このバージョンの cryfs でロックを解除するには、この Vault をアップグレードす"
+"る必要があります"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:45
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
 msgstr ""
-"マウントポイントディレクトリが空ではありません。Vault を開くことは拒否されま"
-"した"
+"マウントポイントディレクトリが空ではありません。Vault のロック解除は拒否され"
+"ました"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
@@ -96,11 +89,11 @@ msgid "You entered the wrong password"
 msgstr "間違ったパスワードが入力されました"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
-#, fuzzy, kde-format
-#| msgid "The installed version of cryfs is too old to open this vault."
+#, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
-"インストールされたバージョンの cryfs はこの Vault を開くには古すぎます。"
+"インストールされたバージョンの cryfs はこの Vault のロックを解除するには古す"
+"ぎます。"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:120
@@ -109,24 +102,22 @@ msgid "Unable to perform the operation (error code %1)."
 msgstr "操作を実行できませんでした (エラーコード %1)"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:110
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
-msgstr ""
-"マウントポイントディレクトリが空ではありません。Vault を開くことは拒否されま"
-"した"
+msgstr "暗号化ディレクトリが空ではありません。Vault を初期化できません。"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:113
 #, kde-format
 msgid "The password is empty, cannot initialise the vault."
-msgstr ""
+msgstr "パスワードが空です。Vault を初期化できません。"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:116
-#, fuzzy, kde-format
-#| msgid "Failed to create directories, check your permissions"
+#, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
-msgstr "ディレクトリ作成に失敗しました。権限を確認してください"
+msgstr ""
+"暗号化ディレクトリの中にある gocryptfs.conf に書き込めません。権限を確認して"
+"ください。"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:144
 #: kded/engine/fusebackend_p.cpp:192
@@ -142,17 +133,15 @@ msgid "Unable to detect the version"
 msgstr "バージョンを検出できません"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:163
-#, fuzzy, kde-format
-#| msgid "Unable to detect the version"
+#, kde-format
 msgid "Unable to detect the version, the version string is invalid"
-msgstr "バージョンを検出できません"
+msgstr "バージョンを検出できません。バージョン番号が無効です"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:177
-#, fuzzy, kde-format
-#| msgid "Wrong version installed. The required version is %1.%2.%3"
+#, kde-format
 msgid "Wrong version installed. The required version is %1.%2"
 msgstr ""
-"間違ったバージョンがインストールされています。必要なバージョンは%1.%2.%3 です"
+"間違ったバージョンがインストールされています。必要なバージョンは %1.%2 です"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:180
 #: kded/engine/fusebackend_p.cpp:218
@@ -203,7 +192,8 @@ msgstr "デバイスは開かれていません"
 #, kde-format
 msgid "Wrong version installed. The required version is %1.%2.%3"
 msgstr ""
-"間違ったバージョンがインストールされています。必要なバージョンは%1.%2.%3 です"
+"間違ったバージョンがインストールされています。必要なバージョンは %1.%2.%3 で"
+"す"
 
 #: kded/engine/vault.cpp:243
 #, kde-format
@@ -236,10 +226,9 @@ msgid "This device is already registered. Cannot recreate it."
 msgstr "このデバイスは既に登録されています。再度作成できません。"
 
 #: kded/engine/vault.cpp:405 kded/engine/vault.cpp:435
-#, fuzzy, kde-format
-#| msgid "Unknown error, unable to create the backend."
+#, kde-format
 msgid "Unknown error; unable to create the backend."
-msgstr "不明なエラーでバックエンドを作成できません"
+msgstr "不明なエラーが発生しました。バックエンドを作成できません。"
 
 #: kded/engine/vault.cpp:431
 #, kde-format
@@ -247,33 +236,30 @@ msgid "This device is not initialized. Cannot import it."
 msgstr "このデバイスは初期化されていません。インポートできません。"
 
 #: kded/engine/vault.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "不明な Vault を開けません"
+msgstr "不明な Vault のロックを解除できません"
 
 #: kded/engine/vault.cpp:473
-#, fuzzy, kde-format
-#| msgid "The vault is unknown, cannot close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "Vault は不明です。閉じられません。"
+msgstr "Vault は不明です。ロックできません。"
 
 #: kded/engine/vault.cpp:494
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault, an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Vault を閉じられません。アプリケーションが利用しています"
+msgstr "アプリケーションが利用しているため Vault をロックできません"
 
 #: kded/engine/vault.cpp:516
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault, it is used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Vault を閉じられません、%1 に使われています"
+msgstr "%1 によって使用されているため、Vault をロックできません"
 
 #: kded/engine/vault.cpp:540
 #, kde-format
 msgid "Failed to fetch the list of applications using this vault"
-msgstr "この Vault を利用しているアプリケーションの読み込みに失敗しました"
+msgstr ""
+"この Vault を利用しているアプリケーションのリストの読み込みに失敗しました"
 
 #: kded/engine/vault.cpp:592
 #, kde-format
@@ -281,16 +267,14 @@ msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
 
 #: kded/engine/vault.cpp:597
-#, fuzzy, kde-format
-#| msgid "The vault is unknown, cannot dismantle it."
+#, kde-format
 msgid "The vault is unknown; cannot dismantle it."
-msgstr "Vault は不明です。取り外せません"
+msgstr "Vault は不明です。取り外せません。"
 
 #: kded/engine/vault.cpp:600
-#, fuzzy, kde-format
-#| msgid "Choose the encryption system you want to use for this vault:"
+#, kde-format
 msgid "Are you sure you want to delete this vault"
-msgstr "この Vault で利用する暗号化システムを選択:"
+msgstr "本当にこの Vault を削除しますか"
 
 #: kded/engine/vault.cpp:601
 #, kde-format
@@ -299,25 +283,23 @@ msgid ""
 "%1\n"
 "%2"
 msgstr ""
+"この操作でこれらが不可逆的に削除されます:\n"
+"%1\n"
+"%2"
 
 #: kded/engine/vault.cpp:603
 #, kde-format
 msgid "Delete operation cancelled"
-msgstr ""
+msgstr "削除操作がキャンセルされました"
 
 #: kded/service.cpp:462
 #, kde-format
 msgid "Error deleting vault"
-msgstr ""
+msgstr "Vault の削除中にエラーが発生しました"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -326,7 +308,7 @@ msgid ""
 msgstr ""
 "この Vault を特定のアクティビティのみに制限した場合、それらのアクティビティで"
 "のみアプレットに表示されます。また、利用できないアクティビティに移動した場合"
-"に Vault は自動的に閉じられます。"
+"に Vault は自動的にロックされます。"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -408,17 +390,15 @@ msgid "Mount point"
 msgstr "マウントポイント"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgctxt "@action Action to mount a vault"
-#| msgid "Open this Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "この Plasma Vault を開く"
+msgstr "Plasma Vault '%1' をロック解除"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
 msgid "Details…"
-msgstr ""
+msgstr "詳細…"
 
 #: kded/ui/mountdialog.cpp:38
 #, kde-format
@@ -428,24 +408,26 @@ msgid ""
 "\n"
 "Error output: %2"
 msgstr ""
+"コマンド出力:\n"
+"%1\n"
+"\n"
+"エラー出力: %2"
 
 #: kded/ui/mountdialog.cpp:43
 #, kde-format
 msgid "Error details"
-msgstr ""
+msgstr "エラーの詳細"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "開けませんでした:%1"
+msgstr "ロックを解除できませんでした: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "この Vault を開くためにはパスワードを入力してください:"
+msgstr "この Vault のロックを解除するためにはパスワードを入力してください:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -497,7 +479,7 @@ msgstr ""
 #: kded/ui/vaultconfigurationdialog.cpp:47
 #, kde-format
 msgid "General"
-msgstr "一般"
+msgstr "全般"
 
 #: kded/ui/vaultconfigurationdialog.cpp:49
 #, kde-format
@@ -523,7 +505,7 @@ msgstr "CryFs"
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
-msgstr ""
+msgstr "gocryptfs"
 
 #: kded/ui/vaultconfigurationdialog.cpp:142
 #, kde-format
@@ -541,17 +523,15 @@ msgstr "ダイアログ"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "Vault が閉じられているときだけ設定を変更できます。"
+msgstr "Vault がロックされているときのみ設定を変更できます。"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Vault を閉じる"
+msgstr "Vault をロック"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
@@ -565,7 +545,7 @@ msgstr "新しい Vault を作成"
 msgid ""
 "This action <b>cannot</b> be undone. This will permanently delete the "
 "selected vault!"
-msgstr "この動作は元に<b>戻せません</b>。選択された Vault を完全に削除します！"
+msgstr "この動作は<b>元に戻せません</b>。選択された Vault を完全に削除します！"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConfirm)
 #: kded/ui/vaultdeletionwidget.ui:29
@@ -588,7 +568,7 @@ msgstr "インポート"
 #, kde-format
 msgctxt "@title:window"
 msgid "Import an Existing Vault"
-msgstr "存在する Vault のインポート"
+msgstr "既存の Vault のインポート"
 
 #: kded/ui/vaultwizardbase.h:39 kded/ui/vaultwizardbase.h:90
 #, kde-format
@@ -606,182 +586,41 @@ msgid "Previous"
 msgstr "前へ"
 
 #: plasma/package/contents/ui/main.qml:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create a New Vault"
+#, kde-format
 msgid "Create a New Vault…"
-msgstr "新しい Vault を作成"
+msgstr "新しい Vault を作成..."
 
 #: plasma/package/contents/ui/main.qml:104
 #, kde-format
 msgid "No Vaults have been set up"
-msgstr ""
+msgstr "設定された Vault はありません"
 
 #: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Lock Vault"
-msgstr ""
+msgstr "Vault をロック"
 
 #: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Unlock and Open"
-msgstr ""
+msgstr "ロック解除して開く"
 
 #: plasma/package/contents/ui/VaultItem.qml:57
-#, fuzzy, kde-format
-#| msgid "Open with File Manager"
+#, kde-format
 msgid "Show in File Manager"
-msgstr "ファイルマネージャで開く"
+msgstr "ファイルマネージャで表示"
 
 #: plasma/package/contents/ui/VaultItem.qml:64
-#, fuzzy, kde-format
-#| msgid "Forcefully close "
+#, kde-format
 msgid "Forcefully Lock Vault"
-msgstr "強制的に閉じる"
+msgstr "強制的に Vault をロックする"
 
 #: plasma/package/contents/ui/VaultItem.qml:64
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Unlock Vault"
-msgstr "Vault を閉じる"
+msgstr "Vault のロックを解除"
 
 #: plasma/package/contents/ui/VaultItem.qml:75
-#, fuzzy, kde-format
-#| msgid "Configure Vault..."
+#, kde-format
 msgid "Configure Vault…"
-msgstr "Vault の設定..."
-
-#~ msgctxt "@action Action to mount a vault"
-#~ msgid "Open this Plasma Vault"
-#~ msgstr "この Plasma Vault を開く"
-
-#~ msgid ""
-#~ "<b>Security notice:</b>\n"
-#~ "                             CryFS encrypts your files, so you can safely "
-#~ "store them anywhere.\n"
-#~ "                             It works well together with cloud services "
-#~ "like Dropbox, iCloud, OneDrive and others.\n"
-#~ "                             <br /><br />\n"
-#~ "                             Unlike some other file-system overlay "
-#~ "solutions,\n"
-#~ "                             it does not expose the directory structure,\n"
-#~ "                             the number of files nor the file sizes\n"
-#~ "                             through the encrypted data format.\n"
-#~ "                             <br /><br />\n"
-#~ "                             One important thing to note is that,\n"
-#~ "                             while CryFS is considered safe,\n"
-#~ "                             there is no independent security audit\n"
-#~ "                             which confirms this."
-#~ msgstr ""
-#~ "<b>セキュリティ通知:</b>\n"
-#~ "                             CryFS の暗号化によって、どこにでも安全にファ"
-#~ "イルを保存できます。\n"
-#~ "                             また、これは Dropbox や iCloud、OneDrive など"
-#~ "のクラウドストレージでも機能します。\n"
-#~ "                             <br /><br />\n"
-#~ "                             他のいくつかのファイルシステムオーバレイ方式"
-#~ "と違い、\n"
-#~ "                             CryFS では暗号化データフォーマットによっ"
-#~ "て                             ファイル構造やファイル数、ファイルサイズな"
-#~ "どを隠匿します。\n"
-#~ "                             <br /><br />\n"
-#~ "                             ただし、CryFS は安全だと考えられているもの"
-#~ "の、\n"
-#~ "                             これを裏付ける独立したセキュリティ監査はない"
-#~ "ということに注意してください。"
-
-#, fuzzy
-#~| msgid ""
-#~| "<b>Security notice:</b>\n"
-#~| "                             CryFS encrypts your files, so you can "
-#~| "safely store them anywhere.\n"
-#~| "                             It works well together with cloud services "
-#~| "like Dropbox, iCloud, OneDrive and others.\n"
-#~| "                             <br /><br />\n"
-#~| "                             Unlike some other file-system overlay "
-#~| "solutions,\n"
-#~| "                             it does not expose the directory "
-#~| "structure,\n"
-#~| "                             the number of files nor the file sizes\n"
-#~| "                             through the encrypted data format.\n"
-#~| "                             <br /><br />\n"
-#~| "                             One important thing to note is that,\n"
-#~| "                             while CryFS is considered safe,\n"
-#~| "                             there is no independent security audit\n"
-#~| "                             which confirms this."
-#~ msgid ""
-#~ "<b>Security notice:</b>\n"
-#~ "                             Gocryptfs encrypts your files, so you can "
-#~ "safely store them anywhere.\n"
-#~ "                             It works well together with cloud services "
-#~ "like Dropbox, iCloud, OneDrive and others.\n"
-#~ "                             <br /><br />\n"
-#~ "                             A threat model for gocryptfs is provided by "
-#~ "the author at                              <a href='https://nuetzlich.net/"
-#~ "gocryptfs/threat_model'>nuetzlich.net/gocryptfs/threat_model</"
-#~ "a>.                              <br /><br />\n"
-#~ "                             According to a security audit performed in "
-#~ "2017 by Taylor Hornby (Defuse Security),\n"
-#~ "                             gocryptfs keeps file contents secret against "
-#~ "an adversary that can read and modify the                              "
-#~ "ciphertext.                              <br /><br />\n"
-#~ "                             See <a href='https://defuse.ca/audits/"
-#~ "gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."
-#~ msgstr ""
-#~ "<b>セキュリティ通知:</b>\n"
-#~ "                             CryFS の暗号化によって、どこにでも安全にファ"
-#~ "イルを保存できます。\n"
-#~ "                             また、これは Dropbox や iCloud、OneDrive など"
-#~ "のクラウドストレージでも機能します。\n"
-#~ "                             <br /><br />\n"
-#~ "                             他のいくつかのファイルシステムオーバレイ方式"
-#~ "と違い、\n"
-#~ "                             CryFS では暗号化データフォーマットによっ"
-#~ "て                             ファイル構造やファイル数、ファイルサイズな"
-#~ "どを隠匿します。\n"
-#~ "                             <br /><br />\n"
-#~ "                             ただし、CryFS は安全だと考えられているもの"
-#~ "の、\n"
-#~ "                             これを裏付ける独立したセキュリティ監査はない"
-#~ "ということに注意してください。"
-
-#~ msgid ""
-#~ "<b>Security notice:</b>\n"
-#~ "                             According to a security audit by Taylor "
-#~ "Hornby (Defuse Security),\n"
-#~ "                             the current implementation of Encfs is "
-#~ "vulnerable or potentially vulnerable\n"
-#~ "                             to multiple types of attacks.\n"
-#~ "                             For example, an attacker with read/write "
-#~ "access\n"
-#~ "                             to encrypted data might lower the decryption "
-#~ "complexity\n"
-#~ "                             for subsequently encrypted data without this "
-#~ "being noticed by a legitimate user,\n"
-#~ "                             or might use timing analysis to deduce "
-#~ "information.\n"
-#~ "                             <br /><br />\n"
-#~ "                             This means that you should not synchronize\n"
-#~ "                             the encrypted data to a cloud storage "
-#~ "service,\n"
-#~ "                             or use it in other circumstances where the "
-#~ "attacker\n"
-#~ "                             can frequently access the encrypted data.\n"
-#~ "                             <br /><br />\n"
-#~ "                             See <a href='https://defuse.ca/audits/encfs."
-#~ "htm'>defuse.ca/audits/encfs.htm</a> for more information."
-#~ msgstr ""
-#~ "<b>セキュリティ通知:</b>\n"
-#~ "                             Taylor Hornby (Defuse Security) のセキュリ"
-#~ "ティ監査によると、\n"
-#~ "                             現在の Encfs の実装はいくつかの種類の攻撃に脆"
-#~ "弱である、もしくはその可能性があります。\n"
-#~ "                             例えば、暗号化されたデータに読み書き権限があ"
-#~ "るアタッカーは、正規ユーザに気づかれることなく、攻撃後に書きこまれるデータ"
-#~ "の暗号強度を下げたり、タイミング解析で情報を推察したりできる可能性がありま"
-#~ "す。<br /><br />\n"
-#~ "                             つまり、暗号化されたデータをクラウドストレー"
-#~ "ジで同期したり、アタッカーが頻繁に暗号化されたデータにアクセスできるような"
-#~ "状況で使用すべきではないということです。<br /><br />\n"
-#~ "                            詳細情報については <a href='http://defuse.ca/"
-#~ "audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> をご覧ください。"
+msgstr "Vault を設定..."
