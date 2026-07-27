@@ -49,7 +49,7 @@
                 "Name[zh_TW]": "Ivan Čukić"
             }
         ],
-        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=Plasma%20Vault",
+        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=plasmashell&component=Vaults%20widget",
         "Category": "Utilities",
         "Description": "Create encrypted vaults",
         "Description[ar]": "أنشئ خزنات معمّاة",
