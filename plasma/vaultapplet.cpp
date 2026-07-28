@@ -8,10 +8,22 @@
 
 #include <QSortFilterProxyModel>
 
+#include <KConfigGroup>
+#include <KSharedConfig>
 #include <PlasmaActivities/Consumer>
 #include <klocalizedstring.h>
 
+#include "../kded/engine/types.h"
 #include "vaultsmodel.h"
+#include <config-plasma-vault.h>
+
+#if HAVE_NETWORKMANAGER
+#include <NetworkManagerQt/Manager>
+#else
+void SortedVaultsModelProxy::checkAndEnableInternetConnection()
+{
+}
+#endif
 
 VaultApplet::VaultApplet(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
     : Plasma::Applet(parent, data, args)
@@ -22,11 +34,32 @@ VaultApplet::~VaultApplet()
 {
 }
 
+void VaultApplet::restoreNetworking()
+{
+    // Bug #457680: allow restoring networking when the vault hasn't been closed before shutting down. Has to be launched ASAP after the system is up and
+    // running.
+    auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
+    KConfigGroup networkConfig(config, "NetworkingConfig");
+
+    if (!networkConfig.readEntry("is-networking-disabled", true)) {
+        return;
+    }
+
+    // Update the config to avoid the unnecessary enabling in the future reboots
+    networkConfig.writeEntry("is-networking-disabled", false);
+
+    NetworkManager::setNetworkingEnabled(true);
+}
+
 QObject *VaultApplet::vaultsModel()
 {
     if (!m_vaultsModel) {
         m_vaultsModel = new SortedVaultsModelProxy(this);
     }
+
+    // Bug #457680: allow restoring networking when the vault hasn't been closed before shutting down. Has to be launched ASAP after the system is up and
+    // running.
+    VaultApplet::restoreNetworking();
 
     return m_vaultsModel;
 }

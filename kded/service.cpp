@@ -13,11 +13,13 @@
 #include <QSocketNotifier>
 
 #include <KApplicationTrader>
+#include <KConfigGroup>
 #include <KIO/ApplicationLauncherJob>
 #include <KLocalizedString>
 #include <KPasswordDialog>
 #include <KPluginFactory>
 #include <KService>
+#include <KSharedConfig>
 #include <PlasmaActivities/Consumer>
 
 #include "engine/commandresult.h"
@@ -33,6 +35,7 @@
 #include <asynqt/operations/listen.h>
 
 #include <config-plasma-vault.h>
+
 #if HAVE_NETWORKMANAGER
 #include <NetworkManagerQt/Manager>
 #else
@@ -79,6 +82,11 @@ public:
         if (savedNetworkingState) {
             return;
         }
+
+        // Bug #457680: write networking state to a config file to restore it if the system has been shut down without closing vault
+        auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
+        KConfigGroup networkConfig(config, "NetworkingConfig");
+        networkConfig.writeEntry("is-networking-disabled", true);
 
         savedNetworkingState = Expected<NetworkingState, int>::success(NetworkingState{NetworkManager::isNetworkingEnabled() || true, {}});
     }
