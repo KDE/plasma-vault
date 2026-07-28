@@ -13,15 +13,18 @@
 #include <QSocketNotifier>
 
 #include <KApplicationTrader>
+#include <KConfigGroup>
 #include <KIO/ApplicationLauncherJob>
 #include <KLocalizedString>
 #include <KPasswordDialog>
 #include <KPluginFactory>
 #include <KService>
+#include <KSharedConfig>
 #include <PlasmaActivities/Consumer>
 
 #include "engine/commandresult.h"
 #include "engine/vault.h"
+#include "engine/types.h"
 
 #include "ui/mountdialog.h"
 #include "ui/vaultconfigurationdialog.h"
@@ -33,6 +36,7 @@
 #include <asynqt/operations/listen.h>
 
 #include <config-plasma-vault.h>
+
 #if HAVE_NETWORKMANAGER
 #include <NetworkManagerQt/Manager>
 #else
@@ -92,6 +96,10 @@ public:
         }
 
         NetworkManager::setNetworkingEnabled(savedNetworkingState->wasNetworkingEnabled);
+
+        auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
+        KConfigGroup configGroup(config, "NetworkingConfig");
+        configGroup.deleteEntry("is-networking-inhibited");    
     }
 
     Vault *vaultFor(const QString &device_) const
@@ -140,6 +148,22 @@ PlasmaVaultService::PlasmaVaultService(QObject *parent, const QVariantList &)
     }
 
     onActivitiesChanged(d->kamd.activities());
+
+    // Bug #457680: Restore networking when the vault hasn't been closed before shutting down
+    KSharedConfigPtr networkingConfig = KSharedConfig::openConfig("plasma-nm");
+    KConfigGroup generalGroup(networkingConfig, "General");
+    const bool airplaneModeWasEnabled = generalGroup.readEntry(("AirplaneModeEnabled"), false);
+
+    if (!airplaneModeWasEnabled)
+    {
+        auto config = KSharedConfig::openStateConfig(PLASMAVAULT_CONFIG_FILE);
+        KConfigGroup configGroup(config, "NetworkingConfig");
+
+        if (configGroup.readEntry("is-networking-inhibited", false)) {
+            NetworkManager::setNetworkingEnabled(true);
+            configGroup.deleteEntry("is-networking-inhibited");
+        }
+    }
 }
 
 PlasmaVaultService::~PlasmaVaultService()
@@ -262,6 +286,11 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
         // Now, let's handle the networking part
         if (!devicesInhibittingNetworking.isEmpty()) {
             NetworkManager::setNetworkingEnabled(false);
+
+            auto config = KSharedConfig::openStateConfig(PLASMAVAULT_CONFIG_FILE);
+            KConfigGroup configGroup(config, "NetworkingConfig");
+            configGroup.writeEntry("is-networking-inhibited", true);
+            configGroup.sync();
         }
 
         d->restoreNetworkingState();
