@@ -84,7 +84,7 @@ public:
         }
 
         // Bug #457680: write networking state to a config file to restore it if the system has been shut down without closing vault
-        auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
+        auto config = KSharedConfig::openStateConfig(PLASMAVAULT_CONFIG_FILE);
         KConfigGroup networkConfig(config, "NetworkingConfig");
         networkConfig.writeEntry("is-networking-disabled", true);
 

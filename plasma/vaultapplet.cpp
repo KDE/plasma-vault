@@ -38,7 +38,7 @@ void VaultApplet::restoreNetworking()
 {
     // Bug #457680: allow restoring networking when the vault hasn't been closed before shutting down. Has to be launched ASAP after the system is up and running.
 
-    auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
+    auto config = KSharedConfig::openStateConfig(PLASMAVAULT_CONFIG_FILE);
     KConfigGroup networkConfig(config, "NetworkingConfig");
 
     if (!networkConfig.readEntry("is-networking-disabled", false)) {
