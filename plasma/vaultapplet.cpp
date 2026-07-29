@@ -41,7 +41,7 @@ void VaultApplet::restoreNetworking()
     auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
     KConfigGroup networkConfig(config, "NetworkingConfig");
 
-    if (!networkConfig.readEntry("is-networking-disabled", true)) {
+    if (!networkConfig.readEntry("is-networking-disabled", false)) {
         return;
     }
 
