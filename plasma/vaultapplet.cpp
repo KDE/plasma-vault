@@ -36,8 +36,8 @@ VaultApplet::~VaultApplet()
 
 void VaultApplet::restoreNetworking()
 {
-    // Bug #457680: allow restoring networking when the vault hasn't been closed before shutting down. Has to be launched ASAP after the system is up and
-    // running.
+    // Bug #457680: allow restoring networking when the vault hasn't been closed before shutting down. Has to be launched ASAP after the system is up and running.
+
     auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
     KConfigGroup networkConfig(config, "NetworkingConfig");
 
@@ -45,10 +45,10 @@ void VaultApplet::restoreNetworking()
         return;
     }
 
-    // Update the config to avoid the unnecessary enabling in the future reboots
-    networkConfig.writeEntry("is-networking-disabled", false);
-
     NetworkManager::setNetworkingEnabled(true);
+
+    //Update the config to avoid the unnecessary enabling in the future reboots
+    networkConfig.writeEntry("is-networking-disabled", false);
 }
 
 QObject *VaultApplet::vaultsModel()
