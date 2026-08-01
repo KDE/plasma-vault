@@ -23,7 +23,7 @@ public:
     ~VaultApplet() override;
 
     // Bug #457680: restore networking when the vault hasn't been closed before shutting down. Has to be launched ASAP after the system is up and running.
-    bool isAirplaneModeOn()
+    bool isAirplaneModeOn();
     void restoreNetworking();
 
     QObject *vaultsModel();
