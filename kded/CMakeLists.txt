@@ -91,7 +91,6 @@ target_link_libraries(kded_plasmavault
     Qt::Widgets
 
     Plasma::Activities
-    Plasma::Plasma
     KF6::ConfigCore
     KF6::CoreAddons
     KF6::DBusAddons
