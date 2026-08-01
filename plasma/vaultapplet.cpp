@@ -34,14 +34,32 @@ VaultApplet::~VaultApplet()
 {
 }
 
+bool VaultApplet::isAirplaneModeOn()
+{
+    //Airplane mode info is stored in ~./config/plasma-nm in Plasma
+    auto config = KSharedConfig::openStateConfig("plasma-nm");
+    KConfigGroup generalGroup(config, "General");
+    if(generalGroup.readEntry(("AirplaneModeEnabled"), false))
+    {
+        return true;
+    }
+
+    return false;
+}
 void VaultApplet::restoreNetworking()
 {
-    // Bug #457680: allow restoring networking when the vault hasn't been closed before shutting down. Has to be launched ASAP after the system is up and running.
+    //Bug #457680: allow restoring networking when the vault hasn't been closed before shutting down. Has to be launched ASAP after the system is up and running.
 
     auto config = KSharedConfig::openStateConfig(PLASMAVAULT_CONFIG_FILE);
     KConfigGroup networkConfig(config, "NetworkingConfig");
 
     if (!networkConfig.readEntry("is-networking-disabled", false)) {
+        return;
+    }
+
+    //Check whether Plasma Airplane Mode is switched on, in this condition we shouldn't restore any networking
+    if(VaultApplet::isAirplaneModeOn())
+    {
         return;
     }
 
