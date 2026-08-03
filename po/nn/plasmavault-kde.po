@@ -1,5 +1,6 @@
 # Translation of plasmavault-kde to Norwegian Nynorsk
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2018, 2019, 2020, 2021, 2026.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018.
 msgid ""
 msgstr ""
