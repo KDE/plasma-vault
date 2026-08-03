@@ -1,5 +1,3 @@
-configure_file(config-plasma-vault.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-plasma-vault.h)
-
 set(plasmavault_SRCS
 
     vaultapplet.cpp
@@ -36,11 +34,6 @@ target_link_libraries(org.kde.plasma.vault
     Plasma::Activities
     Plasma::Plasma
 )
-if (HAVE_NETWORKMANAGER)
-    target_link_libraries(org.kde.plasma.vault
-        KF6::NetworkManagerQt
-    )
-endif()
 
 install(
     TARGETS org.kde.plasma.vault
