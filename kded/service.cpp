@@ -113,12 +113,7 @@ public:
         KSharedConfigPtr networkingConfig = KSharedConfig::openConfig("plasma-nm");
         KConfigGroup generalGroup(networkingConfig, "General");
 
-        if(generalGroup.readEntry(("AirplaneModeEnabled"), false))
-        {
-            return true;
-        }
-
-        return false;
+        return generalGroup.readEntry(("AirplaneModeEnabled"), false);
     }
 
     Vault *vaultFor(const QString &device_) const
