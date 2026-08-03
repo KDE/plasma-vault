@@ -6,7 +6,7 @@ Plasma Applet mixed C++/QML Template
 cd /where/your/applet/is/generated
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=MYPREFIX ..
+cmake -DCMAKE_INSTALL_PREFIX=MYPREFIX .. 
 make 
 make install
 
