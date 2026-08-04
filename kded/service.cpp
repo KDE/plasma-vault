@@ -154,7 +154,7 @@ PlasmaVaultService::PlasmaVaultService(QObject *parent, const QVariantList &)
     KConfigGroup generalGroup(networkingConfig, "General");
     if(!generalGroup.readEntry(("AirplaneModeEnabled"), false))
     {
-        auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
+        auto config = KSharedConfig::openStateConfig(PLASMAVAULT_CONFIG_FILE);
         KConfigGroup configGroup(config, "NetworkingConfig");
 
         if (configGroup.readEntry("is-networking-disabled", false)) {
@@ -285,7 +285,7 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
         if (!devicesInhibittingNetworking.isEmpty()) {
             NetworkManager::setNetworkingEnabled(false);
 
-            auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
+            auto config = KSharedConfig::openStateConfig(PLASMAVAULT_CONFIG_FILE);
             KConfigGroup configGroup(config, "NetworkingConfig");
             configGroup.writeEntry("is-networking-disabled", true);
             configGroup.sync();
