@@ -164,8 +164,7 @@ PlasmaVaultService::PlasmaVaultService(QObject *parent, const QVariantList &)
     onActivitiesChanged(d->kamd.activities());
 
     // Bug #457680: Restore networking when the vault hasn't been closed before shutting down
-    if(!d->isAirplaneModeOn())
-    {
+    if (!d->isAirplaneModeOn()) {
         auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
         KConfigGroup configGroup(config, "NetworkingConfig");
 
