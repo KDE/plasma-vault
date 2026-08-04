@@ -99,15 +99,7 @@ public:
 
         auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
         KConfigGroup configGroup(config, "NetworkingConfig");
-        configGroup.deleteEntry("is-networking-disabled");
-    }
-
-    bool isAirplaneModeOn()
-    {
-        KSharedConfigPtr networkingConfig = KSharedConfig::openConfig("plasma-nm");
-        KConfigGroup generalGroup(networkingConfig, "General");
-
-        return generalGroup.readEntry(("AirplaneModeEnabled"), false);
+        configGroup.deleteEntry("is-networking-disabled");    
     }
 
     Vault *vaultFor(const QString &device_) const
@@ -158,7 +150,10 @@ PlasmaVaultService::PlasmaVaultService(QObject *parent, const QVariantList &)
     onActivitiesChanged(d->kamd.activities());
 
     // Bug #457680: Restore networking when the vault hasn't been closed before shutting down
-    if (!d->isAirplaneModeOn()) {
+    KSharedConfigPtr networkingConfig = KSharedConfig::openConfig("plasma-nm");
+    KConfigGroup generalGroup(networkingConfig, "General");
+    if(!generalGroup.readEntry(("AirplaneModeEnabled"), false))
+    {
         auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
         KConfigGroup configGroup(config, "NetworkingConfig");
 
