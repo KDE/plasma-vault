@@ -104,7 +104,6 @@ public:
 
     bool isAirplaneModeOn()
     {
-        //Airplane mode info is stored in ~./config/plasma-nm in Plasma
         KSharedConfigPtr networkingConfig = KSharedConfig::openConfig("plasma-nm");
         KConfigGroup generalGroup(networkingConfig, "General");
 
