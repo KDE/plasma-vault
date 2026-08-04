@@ -51,11 +51,6 @@ void setNetworkingEnabled(bool enabled)
 {
     Q_UNUSED(enabled);
 }
-
-void restoreNetworkingState()
-{
-    return;
-}
 }
 #endif
 
