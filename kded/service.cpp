@@ -99,7 +99,7 @@ public:
 
         auto config = KSharedConfig::openConfig(PLASMAVAULT_CONFIG_FILE);
         KConfigGroup configGroup(config, "NetworkingConfig");
-        configGroup.deleteEntry("is-networking-disabled");    
+        configGroup.deleteEntry("is-networking-inhibited");    
     }
 
     Vault *vaultFor(const QString &device_) const
@@ -159,9 +159,9 @@ PlasmaVaultService::PlasmaVaultService(QObject *parent, const QVariantList &)
         auto config = KSharedConfig::openStateConfig(PLASMAVAULT_CONFIG_FILE);
         KConfigGroup configGroup(config, "NetworkingConfig");
 
-        if (configGroup.readEntry("is-networking-disabled", false)) {
+        if (configGroup.readEntry("is-networking-inhibited", false)) {
             NetworkManager::setNetworkingEnabled(true);
-            configGroup.deleteEntry("is-networking-disabled");
+            configGroup.deleteEntry("is-networking-inhibited");
         }
     }
 }
@@ -289,7 +289,7 @@ void PlasmaVaultService::onVaultStatusChanged(VaultInfo::Status status)
 
             auto config = KSharedConfig::openStateConfig(PLASMAVAULT_CONFIG_FILE);
             KConfigGroup configGroup(config, "NetworkingConfig");
-            configGroup.writeEntry("is-networking-disabled", true);
+            configGroup.writeEntry("is-networking-inhibited", true);
             configGroup.sync();
         }
 
