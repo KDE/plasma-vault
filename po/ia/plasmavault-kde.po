@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-26 00:47+0000\n"
+"POT-Creation-Date: 2026-09-03 03:28+0000\n"
 "PO-Revision-Date: 2026-02-03 17:32+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -291,7 +291,7 @@ msgstr ""
 msgid "Delete operation cancelled"
 msgstr "Operation de deler cancellate"
 
-#: kded/service.cpp:462
+#: kded/service.cpp:491
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Error delente cellario"

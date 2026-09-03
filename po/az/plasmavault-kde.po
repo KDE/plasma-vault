@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-26 00:47+0000\n"
+"POT-Creation-Date: 2026-09-03 03:28+0000\n"
 "PO-Revision-Date: 2022-07-03 14:23+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -292,7 +292,7 @@ msgstr ""
 msgid "Delete operation cancelled"
 msgstr "Silinmə əməliyyatı ləğv edildi"
 
-#: kded/service.cpp:462
+#: kded/service.cpp:491
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Seyfin silinməsi xətası"

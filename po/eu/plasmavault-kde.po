@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-26 00:47+0000\n"
+"POT-Creation-Date: 2026-09-03 03:28+0000\n"
 "PO-Revision-Date: 2025-09-20 02:40+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -297,7 +297,7 @@ msgstr ""
 msgid "Delete operation cancelled"
 msgstr "Ezabatzeko eragiketa bertan behera utzi da"
 
-#: kded/service.cpp:462
+#: kded/service.cpp:491
 #, kde-format
 msgid "Error deleting vault"
 msgstr "Errorea kutxa-gotorra ezabatzean"
