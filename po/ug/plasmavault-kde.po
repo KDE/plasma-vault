@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-vault\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-02 00:46+0000\n"
-"PO-Revision-Date: 2026-06-01 18:15-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -34,7 +34,7 @@ msgstr ""
 #, kde-format
 msgctxt "formatting the message for a command, as in encfs: not found"
 msgid "%1: %2"
-msgstr "%1: %2"
+msgstr ""
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:92
 #: kded/engine/backends/encfs/encfsbackend.cpp:51
