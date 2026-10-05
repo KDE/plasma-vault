@@ -41,6 +41,7 @@
         "Description[sl]": "Nudi šifrirane trezorje",
         "Description[sv]": "Tillhandahåller krypterade valv",
         "Description[tr]": "Şifrelenmiş kasalar sağlar",
+        "Description[ug]": "شىفىرلانغان ساقلاش ئامبىرى تەمىنلەيدۇ",
         "Description[uk]": "Надає доступ до шифрованих сховищ",
         "Description[zh_CN]": "提供加密的保险库",
         "Description[zh_TW]": "提供加密儲存庫",
@@ -85,6 +86,7 @@
         "Name[sl]": "Modul Plasma Vault",
         "Name[sv]": "Plasma valvmodul",
         "Name[tr]": "Plasma Kasası modülü",
+        "Name[ug]": "Plasma Vault بۆلىكى",
         "Name[uk]": "Модуль Сховища Плазми",
         "Name[zh_CN]": "Plasma 保险库模块",
         "Name[zh_TW]": "Plasma 儲存庫模組"

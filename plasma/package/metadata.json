@@ -44,6 +44,7 @@
                 "Name[sl]": "Ivan Čukić",
                 "Name[sv]": "Ivan Čukić",
                 "Name[tr]": "Ivan Čukić",
+                "Name[ug]": "Ivan Čukić",
                 "Name[uk]": "Ivan Čukić",
                 "Name[zh_CN]": "Ivan Čukić",
                 "Name[zh_TW]": "Ivan Čukić"
@@ -92,6 +93,7 @@
         "Description[sl]": "Ustvari šifrirane trezorje",
         "Description[sv]": "Skapa krypterade valv",
         "Description[tr]": "Şifrelenmiş kasalar oluşturun",
+        "Description[ug]": "شىفىرلانغان ساقلاش ئامبىرى قۇرىدۇ",
         "Description[uk]": "Створення зашифрованих сховищ",
         "Description[zh_CN]": "创建加密的保险库",
         "Description[zh_TW]": "建立加密儲存庫",
@@ -140,6 +142,7 @@
         "Name[sl]": "Trezorji",
         "Name[sv]": "Valv",
         "Name[tr]": "Kasalar",
+        "Name[ug]": "Vaults",
         "Name[uk]": "Сховища",
         "Name[zh_CN]": "保险库",
         "Name[zh_TW]": "儲存庫",
