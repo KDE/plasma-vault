@@ -1,12 +1,13 @@
 # Translation of plasmavault-kde.po into Serbian.
-# Chusslove Illich <caslav.ilic@gmx.net>, 2017.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2017, 2018.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmavault-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-02 00:46+0000\n"
-"PO-Revision-Date: 2017-12-17 18:01+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-04 12:24+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -19,18 +20,16 @@ msgstr ""
 "X-Environment: kde\n"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:78
-#, fuzzy, kde-format
-#| msgid "Plasma Vault"
+#, kde-format
 msgctxt "@action Action to unmount a vault"
 msgid "Lock this Plasma Vault"
-msgstr "Плазма трезор"
+msgstr "Закључај овај плазма трезор"
 
 #: fileitemplugin/plasmavaultfileitemaction.cpp:79
-#, fuzzy, kde-format
-#| msgid "Plasma Vault"
+#, kde-format
 msgctxt "@action Action to mount a vault"
 msgid "Unlock this Plasma Vault"
-msgstr "Плазма трезор"
+msgstr "Откључај овај плазма трезор"
 
 #: kded/engine/backend_p.cpp:46
 #, kde-format
@@ -46,10 +45,9 @@ msgid "Failed to create directories, check your permissions"
 msgstr "Не могу да правим фасцикле, проверите дозволе."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:131
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Upgrade the vault?"
-msgstr "Затвори трезор"
+msgstr "Надоградити трезор?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:132
 #, kde-format
@@ -62,6 +60,12 @@ msgid ""
 "\n"
 "Do you want to perform the upgrade now?"
 msgstr ""
+"Овај трезор је направљен старијим издањем криФС‑а и мора да се надогради.\n"
+"\n"
+"Имајте у виду да је овај поступак неповратан и да трезор више неће радити са "
+"старијим издањима криФС‑а.\n"
+"\n"
+"Желите ли сада да извршите надоградњу?"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:136
 #, kde-format
@@ -69,48 +73,49 @@ msgid ""
 "The vault needs to be upgraded before it can be unlocked with this version "
 "of cryfs"
 msgstr ""
+"Трезор мора да се надогради да би могао да се откључа овим издањем криФС‑а"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:150
 #: kded/engine/fusebackend_p.cpp:45
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The mount point directory is not empty; refusing to unlock the vault"
-msgstr "Фасцикла за тачку монтирања није празна, одбијам да отворим трезор."
+msgstr "Фасцикла за тачку монтирања није празна; одбијам да откључам трезор"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:158
 #, kde-format
 msgid "You entered the wrong password"
-msgstr ""
+msgstr "Унели сте погрешну лозинку"
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:162
 #, kde-format
 msgid "The installed version of cryfs is too old to unlock this vault."
 msgstr ""
+"Инсталирано издање криФС‑а је превише старо да би откључало овај трезор."
 
 #: kded/engine/backends/cryfs/cryfsbackend.cpp:169
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:120
-#, fuzzy, kde-format
-#| msgid "Unable to perform the operation"
+#, kde-format
 msgid "Unable to perform the operation (error code %1)."
-msgstr "Не могу да изведем поступак."
+msgstr "Не могу да изведем поступак (ко̂д грешке %1)."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:110
-#, fuzzy, kde-format
-#| msgid "The mount point directory is not empty, refusing to open the vault"
+#, kde-format
 msgid "The cipher directory is not empty, cannot initialise the vault."
-msgstr "Фасцикла за тачку монтирања није празна, одбијам да отворим трезор."
+msgstr ""
+"Фасцикла са шифрованим подацима није празна, не могу да припремим трезор."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:113
 #, kde-format
 msgid "The password is empty, cannot initialise the vault."
-msgstr ""
+msgstr "Лозинка је празна, не могу да припремим трезор."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:116
-#, fuzzy, kde-format
-#| msgid "Failed to create directories, check your permissions"
+#, kde-format
 msgid ""
 "Cannot write gocryptfs.conf inside cipher directory, check your permissions."
-msgstr "Не могу да правим фасцикле, проверите дозволе."
+msgstr ""
+"Не могу да упишем gocryptfs.conf у фасциклу са шифрованим подацима, "
+"проверите дозволе."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:144
 #: kded/engine/fusebackend_p.cpp:192
@@ -126,16 +131,14 @@ msgid "Unable to detect the version"
 msgstr "Не могу да откријем издање."
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:163
-#, fuzzy, kde-format
-#| msgid "Unable to detect the version"
+#, kde-format
 msgid "Unable to detect the version, the version string is invalid"
-msgstr "Не могу да откријем издање."
+msgstr "Не могу да откријем издање, ниска издања није исправна"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:177
-#, fuzzy, kde-format
-#| msgid "Wrong version installed. The required version is %1.%2.%3"
+#, kde-format
 msgid "Wrong version installed. The required version is %1.%2"
-msgstr "Инсталирано погрешно издање. Неопходно је издање %1.%2.%3."
+msgstr "Инсталирано погрешно издање. Неопходно је издање %1.%2"
 
 #: kded/engine/backends/gocryptfs/gocryptfsbackend.cpp:180
 #: kded/engine/fusebackend_p.cpp:218
@@ -163,20 +166,14 @@ msgstr ""
 "фасцикле."
 
 #: kded/engine/fusebackend_p.cpp:137
-#, fuzzy, kde-format
-#| msgid "This directory already contains encrypted data"
+#, kde-format
 msgid "This directory doesn't contain encrypted data"
-msgstr "Ова фасцикла већ садржи шифроване податке."
+msgstr "Ова фасцикла не садржи шифроване податке"
 
 #: kded/engine/fusebackend_p.cpp:141
-#, fuzzy, kde-format
-#| msgid ""
-#| "You need to select empty directories for the encrypted storage and for "
-#| "the mount point"
+#, kde-format
 msgid "You need to select an empty directory for the mount point"
-msgstr ""
-"И за шифровано складиште и за тачке монтирања морате да бирате празне "
-"фасцикле."
+msgstr "За тачку монтирања морате да изаберете празну фасциклу"
 
 #: kded/engine/fusebackend_p.cpp:153
 #, kde-format
@@ -209,58 +206,49 @@ msgid "Mount point is not specified"
 msgstr "Тачка монтирања није задата."
 
 #: kded/engine/vault.cpp:283
-#, fuzzy, kde-format
-#| msgid "Can not create the mount point"
+#, kde-format
 msgid "Cannot create the mount point"
 msgstr "Не могу да направим тачку монтирања."
 
 #: kded/engine/vault.cpp:288
-#, fuzzy, kde-format
-#| msgid "Configured backend can not be instantiated: %1"
+#, kde-format
 msgid "Configured backend cannot be instantiated: %1"
 msgstr "Не може да се направи примерак подешене позадине: %1"
 
 #: kded/engine/vault.cpp:401
-#, fuzzy, kde-format
-#| msgid "This device is already registered. Can not recreate it."
+#, kde-format
 msgid "This device is already registered. Cannot recreate it."
 msgstr "Овај уређај је већ регистрован. Не могу поново да га направим."
 
 #: kded/engine/vault.cpp:405 kded/engine/vault.cpp:435
-#, fuzzy, kde-format
-#| msgid "Unknown error, unable to create the backend."
+#, kde-format
 msgid "Unknown error; unable to create the backend."
-msgstr "Непозната грешка, не могу да направим позадину."
+msgstr "Непозната грешка; не могу да направим позадину."
 
 #: kded/engine/vault.cpp:431
-#, fuzzy, kde-format
-#| msgid "This device is already registered. Can not recreate it."
+#, kde-format
 msgid "This device is not initialized. Cannot import it."
-msgstr "Овај уређај је већ регистрован. Не могу поново да га направим."
+msgstr "Овај уређај није припремљен. Не могу да га увезем."
 
 #: kded/engine/vault.cpp:458
-#, fuzzy, kde-format
-#| msgid "Can not open an unknown vault."
+#, kde-format
 msgid "Cannot unlock an unknown vault."
-msgstr "Не могу да отворим непознати трезор."
+msgstr "Не могу да откључам непознат трезор."
 
 #: kded/engine/vault.cpp:473
-#, fuzzy, kde-format
-#| msgid "The vault is unknown, can not close it."
+#, kde-format
 msgid "The vault is unknown; cannot lock it."
-msgstr "Трезор је непознат, не могу да га затворим."
+msgstr "Трезор је непознат; не могу да га закључам."
 
 #: kded/engine/vault.cpp:494
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault, an application is using it"
+#, kde-format
 msgid "Unable to lock the vault because an application is using it"
-msgstr "Не могу да затворим трезор, користи га неки програм."
+msgstr "Не могу да закључам трезор јер га користи неки програм"
 
 #: kded/engine/vault.cpp:516
-#, fuzzy, kde-format
-#| msgid "Unable to close the vault, it is used by %1"
+#, kde-format
 msgid "Unable to lock the vault because it is being used by %1"
-msgstr "Не могу да затворим трезор, користи га %1."
+msgstr "Не могу да закључам трезор јер га користи %1"
 
 #: kded/engine/vault.cpp:540
 #, kde-format
@@ -271,18 +259,17 @@ msgstr "Не могу да добавим листу програма који �
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
+"Не могу да обришем трезор; постоје други трезори са преклапајућим путањама."
 
 #: kded/engine/vault.cpp:597
-#, fuzzy, kde-format
-#| msgid "The vault is unknown, can not destroy it."
+#, kde-format
 msgid "The vault is unknown; cannot dismantle it."
-msgstr "Трезор је непознат, не могу да га уништим."
+msgstr "Трезор је непознат; не могу да га уништим."
 
 #: kded/engine/vault.cpp:600
-#, fuzzy, kde-format
-#| msgid "Choose the encryption system you want to use for this vault:"
+#, kde-format
 msgid "Are you sure you want to delete this vault"
-msgstr "Жељени систем шифровања за овај трезор:"
+msgstr "Желите ли заиста да обришете овај трезор"
 
 #: kded/engine/vault.cpp:601
 #, kde-format
@@ -291,25 +278,23 @@ msgid ""
 "%1\n"
 "%2"
 msgstr ""
+"Овај поступак ће неповратно обрисати следеће:\n"
+"%1\n"
+"%2"
 
 #: kded/engine/vault.cpp:603
 #, kde-format
 msgid "Delete operation cancelled"
-msgstr ""
+msgstr "Брисање је отказано"
 
 #: kded/service.cpp:491
 #, kde-format
 msgid "Error deleting vault"
-msgstr ""
+msgstr "Грешка при брисању трезора"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/activitieslinkingwidget.ui:22
-#, fuzzy, kde-format
-#| msgid ""
-#| "If you limit this vault only to certain activities, it will be shown in "
-#| "the applet only when you are in those activities. Furthermore, when you "
-#| "switch to an activity it should not be available in, it will "
-#| "automatically be closed."
+#, kde-format
 msgid ""
 "If you limit this vault only to certain activities, it will be shown in the "
 "applet only when you are in those activities. Furthermore, when you switch "
@@ -318,7 +303,7 @@ msgid ""
 msgstr ""
 "Ако ограничите овај трезор само на одређене активности, биће приказан у "
 "аплету само док сте у тим активностима. Кад се пребаците у активност у којој "
-"не би требало да буде доступан, биће аутоматски затворен."
+"не би требало да буде доступан, биће аутоматски закључан."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkLimitActivities)
 #: kded/ui/activitieslinkingwidget.ui:32
@@ -363,8 +348,7 @@ msgstr "подразумевани шифрар"
 
 #. i18n: ectx: property (text), widget (QLabel, labelCypher)
 #: kded/ui/cryfscypherchooserwidget.ui:22
-#, fuzzy, kde-format
-#| msgid "Choose the used cypher:"
+#, kde-format
 msgid "Choose the used cipher:"
 msgstr "Избор шифрара:"
 
@@ -375,21 +359,19 @@ msgid "Mount point:"
 msgstr "Тачка монтирања:"
 
 #: kded/ui/directorypairchooserwidget.cpp:58
-#, fuzzy, kde-format
-#| msgid "The specified backend is not available"
+#, kde-format
 msgid "The specified path does not exist"
-msgstr "Задата позадина није доступна."
+msgstr "Задата путања не постоји"
 
 #: kded/ui/directorypairchooserwidget.cpp:64
-#, fuzzy, kde-format
-#| msgid "The specified backend is not available"
+#, kde-format
 msgid "The specified directory is not empty"
-msgstr "Задата позадина није доступна."
+msgstr "Задата фасцикла није празна"
 
 #: kded/ui/directorypairchooserwidget.cpp:70
 #, kde-format
 msgid "The specified directory is empty"
-msgstr ""
+msgstr "Задата фасцикла је празна"
 
 #. i18n: ectx: property (text), widget (QLabel, labelDevice)
 #: kded/ui/directorypairchooserwidget.ui:22
@@ -404,16 +386,15 @@ msgid "Mount point"
 msgstr "Тачка монтирања"
 
 #: kded/ui/mountdialog.cpp:20
-#, fuzzy, kde-format
-#| msgid "Plasma Vault"
+#, kde-format
 msgctxt "%1 is the name of the Plasma Vault to unlock"
 msgid "Unlock '%1' Plasma Vault"
-msgstr "Плазма трезор"
+msgstr "Откључавање плазма трезора „%1“"
 
 #: kded/ui/mountdialog.cpp:29
 #, kde-format
 msgid "Details…"
-msgstr ""
+msgstr "Детаљи…"
 
 #: kded/ui/mountdialog.cpp:38
 #, kde-format
@@ -423,24 +404,26 @@ msgid ""
 "\n"
 "Error output: %2"
 msgstr ""
+"Излаз наредбе:\n"
+"%1\n"
+"\n"
+"Излаз грешака: %2"
 
 #: kded/ui/mountdialog.cpp:43
 #, kde-format
 msgid "Error details"
-msgstr ""
+msgstr "Детаљи грешке"
 
 #: kded/ui/mountdialog.cpp:84
-#, fuzzy, kde-format
-#| msgid "Failed to open: %1"
+#, kde-format
 msgid "Failed to unlock: %1"
-msgstr "Не могу да отворим: %1"
+msgstr "Не могу да откључам: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/mountdialog.ui:61
-#, fuzzy, kde-format
-#| msgid "Please enter the password to open this vault:"
+#, kde-format
 msgid "Please enter the password to unlock this vault:"
-msgstr "Унесите лозинку за отварање овог трезора:"
+msgstr "Унесите лозинку за откључавање овог трезора:"
 
 #. i18n: ectx: property (text), widget (QLabel, pwdLabel)
 #: kded/ui/mountdialog.ui:93
@@ -476,6 +459,7 @@ msgstr "Не приказуј више ово обавештење"
 msgid ""
 "Go offline while this vault is open (switch off networking and bluetooth)"
 msgstr ""
+"Пређи ван везе док је овај трезор отворен (искључи умрежавање и блутут)"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/passwordchooserwidget.ui:22
@@ -495,12 +479,12 @@ msgstr "Опште"
 #: kded/ui/vaultconfigurationdialog.cpp:49
 #, kde-format
 msgid "Advanced"
-msgstr ""
+msgstr "Напредно"
 
 #: kded/ui/vaultconfigurationdialog.cpp:51
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "Обриши"
 
 # >> @item
 #: kded/ui/vaultconfigurationdialog.cpp:53 kded/ui/vaultimportingwizard.cpp:34
@@ -518,7 +502,7 @@ msgstr "криФС"
 #: kded/ui/vaultimportingwizard.cpp:46
 #, kde-format
 msgid "gocryptfs"
-msgstr ""
+msgstr "gocryptfs"
 
 # >> @title:window
 #: kded/ui/vaultconfigurationdialog.cpp:142
@@ -537,17 +521,15 @@ msgstr "Дијалог"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: kded/ui/vaultconfigurationdialog.ui:37
-#, fuzzy, kde-format
-#| msgid "The vault configuration can only be changed while it is closed."
+#, kde-format
 msgid "The vault configuration can only be changed while it is locked."
-msgstr "Постава трезора може да се измени само док је затворен."
+msgstr "Постава трезора може да се измени само док је закључан."
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonCloseVault)
 #: kded/ui/vaultconfigurationdialog.ui:57
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Lock the vault"
-msgstr "Затвори трезор"
+msgstr "Закључај трезор"
 
 #: kded/ui/vaultcreationwizard.cpp:86
 #, kde-format
@@ -562,237 +544,82 @@ msgid ""
 "This action <b>cannot</b> be undone. This will permanently delete the "
 "selected vault!"
 msgstr ""
+"Ова радња <b>не може</b> да се опозове. Изабрани трезор биће трајно обрисан!"
 
 #. i18n: ectx: property (text), widget (QLabel, labelConfirm)
 #: kded/ui/vaultdeletionwidget.ui:29
 #, kde-format
 msgid "Please type in the name of the vault to confirm:"
-msgstr ""
+msgstr "Унесите име трезора ради потврде:"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonDeleteVault)
 #: kded/ui/vaultdeletionwidget.ui:44
-#, fuzzy, kde-format
-#| msgid "Close the vault"
+#, kde-format
 msgid "Delete this vault"
-msgstr "Затвори трезор"
+msgstr "Обриши овај трезор"
 
 #: kded/ui/vaultimportingwizard.cpp:55
 #, kde-format
 msgid "Import"
-msgstr ""
+msgstr "Увези"
 
 #: kded/ui/vaultimportingwizard.cpp:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Import an Existing Vault"
-msgstr ""
+msgstr "Увоз постојећег трезора"
 
 #: kded/ui/vaultwizardbase.h:39 kded/ui/vaultwizardbase.h:90
 #, kde-format
 msgid "Next"
-msgstr ""
+msgstr "Следеће"
 
 #: kded/ui/vaultwizardbase.h:80
 #, kde-format
 msgid "Create"
-msgstr ""
+msgstr "Направи"
 
 #: kded/ui/vaultwizardbase.h:87
 #, kde-format
 msgid "Previous"
-msgstr ""
+msgstr "Претходно"
 
 #: plasma/package/contents/ui/main.qml:53
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create a New Vault"
+#, kde-format
 msgid "Create a New Vault…"
-msgstr "Стварање новог трезора"
+msgstr "Направи нови трезор…"
 
 #: plasma/package/contents/ui/main.qml:104
 #, kde-format
 msgid "No Vaults have been set up"
-msgstr ""
+msgstr "Нема подешених трезора"
 
 #: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Lock Vault"
-msgstr ""
+msgstr "Закључај трезор"
 
 #: plasma/package/contents/ui/VaultItem.qml:42
 #, kde-format
 msgid "Unlock and Open"
-msgstr ""
+msgstr "Откључај и отвори"
 
 #: plasma/package/contents/ui/VaultItem.qml:57
-#, fuzzy, kde-format
-#| msgid "Open with File Manager"
+#, kde-format
 msgid "Show in File Manager"
-msgstr "Отвори менаџером фајлова"
+msgstr "Прикажи у менаџеру фајлова"
 
 #: plasma/package/contents/ui/VaultItem.qml:64
-#, fuzzy, kde-format
-#| msgid "Forcefully close "
+#, kde-format
 msgid "Forcefully Lock Vault"
-msgstr "Принудно затвори"
+msgstr "Принудно закључај трезор"
 
 #: plasma/package/contents/ui/VaultItem.qml:64
 #, kde-format
 msgid "Unlock Vault"
-msgstr ""
+msgstr "Откључај трезор"
 
 #: plasma/package/contents/ui/VaultItem.qml:75
-#, fuzzy, kde-format
-#| msgid "Configure Vault..."
+#, kde-format
 msgid "Configure Vault…"
-msgstr "Подеси трезор..."
-
-#, fuzzy
-#~| msgid "Plasma Vault"
-#~ msgctxt "@action Action to mount a vault"
-#~ msgid "Open this Plasma Vault"
-#~ msgstr "Плазма трезор"
-
-#~ msgid ""
-#~ "<b>Security notice:</b>\n"
-#~ "                             CryFS encrypts your files, so you can safely "
-#~ "store them anywhere.\n"
-#~ "                             It works well together with cloud services "
-#~ "like Dropbox, iCloud, OneDrive and others.\n"
-#~ "                             <br /><br />\n"
-#~ "                             Unlike some other file-system overlay "
-#~ "solutions,\n"
-#~ "                             it does not expose the directory structure,\n"
-#~ "                             the number of files nor the file sizes\n"
-#~ "                             through the encrypted data format.\n"
-#~ "                             <br /><br />\n"
-#~ "                             One important thing to note is that,\n"
-#~ "                             while CryFS is considered safe,\n"
-#~ "                             there is no independent security audit\n"
-#~ "                             which confirms this."
-#~ msgstr ""
-#~ "<p><b>Безбедносно обавештење:</b></p><p>КриФС шифрује ваше фајлове тако "
-#~ "да их можете безбедно складиштити било где. Добро ради са сервисима у "
-#~ "облаку, попут Дропбокса, Ај‑клауда, Вандрајва и других.</p><p>За разлику "
-#~ "од неких других решења на основу преклапања фајл система, ово не открива "
-#~ "структуру фасцикли, број фајлова, нити њихове величине, кроз формат "
-#~ "шифрованих података.</p><p>Имајте у виду да, иако се криФС сматра "
-#~ "безбедним, нема независне безбедносне ревизије која би то потврдила.</p>"
-
-#, fuzzy
-#~| msgid ""
-#~| "<b>Security notice:</b>\n"
-#~| "                             CryFS encrypts your files, so you can "
-#~| "safely store them anywhere.\n"
-#~| "                             It works well together with cloud services "
-#~| "like Dropbox, iCloud, OneDrive and others.\n"
-#~| "                             <br /><br />\n"
-#~| "                             Unlike some other file-system overlay "
-#~| "solutions,\n"
-#~| "                             it does not expose the directory "
-#~| "structure,\n"
-#~| "                             the number of files nor the file sizes\n"
-#~| "                             through the encrypted data format.\n"
-#~| "                             <br /><br />\n"
-#~| "                             One important thing to note is that,\n"
-#~| "                             while CryFS is considered safe,\n"
-#~| "                             there is no independent security audit\n"
-#~| "                             which confirms this."
-#~ msgid ""
-#~ "<b>Security notice:</b>\n"
-#~ "                             Gocryptfs encrypts your files, so you can "
-#~ "safely store them anywhere.\n"
-#~ "                             It works well together with cloud services "
-#~ "like Dropbox, iCloud, OneDrive and others.\n"
-#~ "                             <br /><br />\n"
-#~ "                             A threat model for gocryptfs is provided by "
-#~ "the author at                              <a href='https://nuetzlich.net/"
-#~ "gocryptfs/threat_model'>nuetzlich.net/gocryptfs/threat_model</"
-#~ "a>.                              <br /><br />\n"
-#~ "                             According to a security audit performed in "
-#~ "2017 by Taylor Hornby (Defuse Security),\n"
-#~ "                             gocryptfs keeps file contents secret against "
-#~ "an adversary that can read and modify the                              "
-#~ "ciphertext.                              <br /><br />\n"
-#~ "                             See <a href='https://defuse.ca/audits/"
-#~ "gocryptfs.htm'>defuse.ca/audits/gocryptfs.htm</a> for more information."
-#~ msgstr ""
-#~ "<p><b>Безбедносно обавештење:</b></p><p>КриФС шифрује ваше фајлове тако "
-#~ "да их можете безбедно складиштити било где. Добро ради са сервисима у "
-#~ "облаку, попут Дропбокса, Ај‑клауда, Вандрајва и других.</p><p>За разлику "
-#~ "од неких других решења на основу преклапања фајл система, ово не открива "
-#~ "структуру фасцикли, број фајлова, нити њихове величине, кроз формат "
-#~ "шифрованих података.</p><p>Имајте у виду да, иако се криФС сматра "
-#~ "безбедним, нема независне безбедносне ревизије која би то потврдила.</p>"
-
-#, fuzzy
-#~| msgid ""
-#~| "<b>Security notice:</b>\n"
-#~| "                             According to a security audit by Taylor "
-#~| "Hornby (Defuse Security),\n"
-#~| "                             the current implementation of Encfs is "
-#~| "vulnerable or potentially vulnerable\n"
-#~| "                             to multiple types of attacks.\n"
-#~| "                             For example, an attacker with read/write "
-#~| "access\n"
-#~| "                             to encrypted data might lower the "
-#~| "decryption complexity\n"
-#~| "                             for subsequently encrypted data without "
-#~| "this being noticed by a legitimate user,\n"
-#~| "                             or might use timing analysis to deduce "
-#~| "information.\n"
-#~| "                             <br /><br />\n"
-#~| "                             This means that you should not synchronize\n"
-#~| "                             the encrypted data to a cloud storage "
-#~| "service,\n"
-#~| "                             or use it in other circumstances where the "
-#~| "attacker\n"
-#~| "                             can frequently access the encrypted data.\n"
-#~| "                             <br /><br />\n"
-#~| "                             See <a href='http://defuse.ca/audits/encfs."
-#~| "htm'>defuse.ca/audits/encfs.htm</a> for more information."
-#~ msgid ""
-#~ "<b>Security notice:</b>\n"
-#~ "                             According to a security audit by Taylor "
-#~ "Hornby (Defuse Security),\n"
-#~ "                             the current implementation of Encfs is "
-#~ "vulnerable or potentially vulnerable\n"
-#~ "                             to multiple types of attacks.\n"
-#~ "                             For example, an attacker with read/write "
-#~ "access\n"
-#~ "                             to encrypted data might lower the decryption "
-#~ "complexity\n"
-#~ "                             for subsequently encrypted data without this "
-#~ "being noticed by a legitimate user,\n"
-#~ "                             or might use timing analysis to deduce "
-#~ "information.\n"
-#~ "                             <br /><br />\n"
-#~ "                             This means that you should not synchronize\n"
-#~ "                             the encrypted data to a cloud storage "
-#~ "service,\n"
-#~ "                             or use it in other circumstances where the "
-#~ "attacker\n"
-#~ "                             can frequently access the encrypted data.\n"
-#~ "                             <br /><br />\n"
-#~ "                             See <a href='https://defuse.ca/audits/encfs."
-#~ "htm'>defuse.ca/audits/encfs.htm</a> for more information."
-#~ msgstr ""
-#~ "<p><b>Безбедносно обавештење:</b></p><p>Према безбедносној ревизији "
-#~ "Тејлора Хорнбија (Дифјуз сикјурити), тренутна изведба енкФС‑а рањива је "
-#~ "(или потенцијално рањива) на више врста напада. На пример, нападач са "
-#~ "приступом за читање и писање над шифрованим подацима може да снизи "
-#~ "сложеност дешифровања за накнадно шифроване податке, тако да то легитимни "
-#~ "корисник не примети, или да извуче податке анализом тајминга.</p><p>Ово "
-#~ "значи да не би требало да синхронизујете шифроване податке са сервисом "
-#~ "складиштења у облаку, као ни у другим ситуацијама где би нападач могао да "
-#~ "има чест приступ шифрованим подацима.</p><p>Погледајте <a href='http://"
-#~ "defuse.ca/audits/encfs.htm'>defuse.ca/audits/encfs.htm</a> за више детаља."
-#~ "</p>"
-
-#~ msgid "Create a New Vault..."
-#~ msgstr "Направи нови трезор..."
-
-#, fuzzy
-#~| msgid "Open with File Manager"
-#~ msgid "Unlock and Show in File Manager"
-#~ msgstr "Отвори менаџером фајлова"
+msgstr "Подеси трезор…"
