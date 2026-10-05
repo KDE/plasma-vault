@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-02 00:46+0000\n"
-"PO-Revision-Date: 2025-09-26 13:16+0200\n"
+"PO-Revision-Date: 2026-10-04 09:08+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -271,7 +271,7 @@ msgstr ""
 #, kde-format
 msgid "Cannot delete the vault; there are other vaults with overlapping paths."
 msgstr ""
-"Невозможно удалить зашифрованную папку т.к. обнаружены другие зашифрованные "
+"Невозможно удалить зашифрованную папку: обнаружены другие зашифрованные "
 "папки с пересекающимися путями."
 
 #: kded/engine/vault.cpp:597
