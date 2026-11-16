@@ -4,7 +4,7 @@
 #
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2017, 2018, 2020, 2021.
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2019, 2020.
-# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@gmail.com>
+# SPDX-FileCopyrightText: 2025 Marcus Gama <marcus.gama@kde.org>
 # SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 msgid ""
 msgstr ""
