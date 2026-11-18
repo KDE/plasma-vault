@@ -143,11 +143,11 @@ DirectoryPairChooserWidget::DirectoryPairChooserWidget(DirectoryPairChooserWidge
     d->ui.messageDevice->hide();
     d->ui.messageMountPoint->hide();
 
-    connect(d->ui.editDevice, &KUrlRequester::textEdited, this, [&]() {
+    connect(d->ui.editDevice, &KUrlRequester::textChanged, this, [&]() {
         d->deviceValidator.updateFor(d->ui.editDevice->url());
     });
 
-    connect(d->ui.editMountPoint, &KUrlRequester::textEdited, this, [&]() {
+    connect(d->ui.editMountPoint, &KUrlRequester::textChanged, this, [&]() {
         d->mountPointValidator.updateFor(d->ui.editMountPoint->url());
     });
 }
